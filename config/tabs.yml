@@ -1,0 +1,11 @@
+Catalog:
+  views:
+    tabs:
+      vbl:
+        display: 'Virtual Business Library'
+        url: "vbl"
+        admin_code: "VBL"
+      dataservices:
+        display: 'Data Services'
+        url: "dataservices"
+        admin_code: "DataServices"

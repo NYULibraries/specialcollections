@@ -1,0 +1,16 @@
+development: &development
+  adapter: mysql2
+  host: <%= Settings.databases.host %>  
+  database: <%= Settings.databases.database %>
+  username: <%= Settings.databases.username %>
+  password: <%= Settings.databases.password %>
+  encoding: utf8
+
+production:
+  <<: *development
+
+staging:
+  <<: *development
+
+test:
+  <<: *development

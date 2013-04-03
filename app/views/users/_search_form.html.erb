@@ -1,0 +1,12 @@
+<%= form_tag users_path, :method => :get, :class => "form-inline clearfix" do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+    <%= hidden_field_tag :sort, params[:sort] %>
+    <div class="input-append pull-left">
+      <label for="q" class="hide-text">Search...</label>
+      <input class="search_q q" id="q" name="q" placeholder="Search..." type="text">
+      <button type="submit" class="btn btn-primary search-btn">
+      <span class="submit-search-text">Search</span>
+        <i class="icon-search icon-white"></i>
+      </button>
+    </div>
+<% end %>

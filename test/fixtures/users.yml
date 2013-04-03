@@ -1,0 +1,80 @@
+real_user:
+  username: <%= username = "real_user" %>
+  email: <%= username + "@university.edu" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  user_attributes: <%= {
+    :nyuidn => "DS34D", 
+    :primary_institution => "INST01",
+    :institutions => ["INST01"],
+    :bor_status => "52",
+    :aleph_permissions => {} }.to_yaml.inspect  %>
+
+global_admin:
+  username: <%= username = "global_admin" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  email: <%= username + "@university.edu" %>
+  firstname: Marcus T.
+  lastname: Admin
+  user_attributes: <%= {
+    :umbra_admin => true,
+    :umbra_admin_collections => ["global"],
+    :nyuidn => "N0000000", 
+    :verification => "6EAF453D8B01E5AC27D9",
+    :primary_institution => "NYU",
+    :institutions => ["NYU"],
+    :bor_status => "51",
+    :aleph_permissions => {} }.to_yaml.inspect  %>
+    
+coll_admin:
+  username: <%= username = "coll_admin" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  email: <%= username + "@university.edu" %>
+  firstname: Admin P.
+  lastname: Collector
+  user_attributes: <%= {
+    :umbra_admin => true,
+    :umbra_admin_collections => ["RestrictedCollection"],
+    :aleph_permissions => {} }.to_yaml.inspect  %>
+    
+multiple_admin:
+  username: <%= username = "multiple_admin" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  email: <%= username + "@university.edu" %>
+  firstname: Adam P.
+  lastname: Admin
+  user_attributes: <%= {
+    :umbra_admin => true,
+    :umbra_admin_collections => ["VBL", "DataServices"],
+    :aleph_permissions => {} }.to_yaml.inspect  %>
+    
+invalid_admin1:
+  username: <%= username = "invalid_admin1" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  email: <%= username + "@university.edu" %>
+  firstname: Daniel X.
+  lastname: Cohain
+  user_attributes: <%= {
+    :umbra_admin => true,
+    :aleph_permissions => {} }.to_yaml.inspect  %>
+    
+invalid_admin2:
+  username: <%= username = "invalid_admin2" %>
+  password_salt: <%= salt = Authlogic::Random.hex_token %>
+  crypted_password: <%= Authlogic::CryptoProviders::Sha512.encrypt(username + salt) %>
+  persistence_token: <%= Authlogic::Random.hex_token %>
+  email: <%= username + "@university.edu" %>
+  firstname: Eleanor
+  lastname: Walrus
+  user_attributes: <%= {
+    :umbra_admin_collections => ["VBL", "DataServices"],
+    :aleph_permissions => {} }.to_yaml.inspect  %>
