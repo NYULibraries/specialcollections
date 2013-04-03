@@ -6,6 +6,6 @@ before_script:
 rvm:
   - 1.9.3
   - 1.9.2
-  - 2.0.0-preview2
+  - 2.0.0
 git:
   submodules: false
