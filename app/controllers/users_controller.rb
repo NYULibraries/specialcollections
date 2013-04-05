@@ -24,8 +24,8 @@ class UsersController < ApplicationController
   def update
     # Update user attributes
     user_attributes = {
-      :umbra_admin_collections => user_collections,
-      :umbra_admin => !user_collections.empty?
+      :findingaids_admin_collections => user_collections,
+      :findingaids_admin => !user_collections.empty?
     }
     @user.user_attributes = user_attributes
     
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   # Delete all non-admin patrons
   def clear_patron_data
     @users = User.search(params[:q]).order(sort_column + " " + sort_direction).page(params[:page]).per(30)
-    User.destroy_all("user_attributes not like '%:umbra_admin: true%'")
+    User.destroy_all("user_attributes not like '%:findingaids_admin: true%'")
     flash[:success] = t('users.clear_patron_data_success')
     
     respond_with(@users) do |format|

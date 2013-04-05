@@ -1,5 +1,5 @@
 class CustomDocument < SolrEad::Document
- #include Findingaids::Record
+ include Findingaids::Record
 
  set_terminology do |t|
     t.root(:path=>"ead")
@@ -69,7 +69,6 @@ class CustomDocument < SolrEad::Document
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
 
-    t.publisher_display(:path => "publisher", :index_as => [:displayable])
     t.publisher(:path => "publisher", :index_as => [:searchable])
  end
 
@@ -77,6 +76,9 @@ class CustomDocument < SolrEad::Document
  # method out of your definition.
  def to_solr(solr_doc = Hash.new)
    super(solr_doc)
+   solr_doc.merge!({"publisher_display" => format_publisher(self.publisher)})
+   solr_doc.merge!({"collection_group_s" => format_directory(ENV['DIR'])})
+   solr_doc.merge!({"heading_txt" => ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
  end
 
 end

@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def application_title
+    "Archival Collections"
+  end
+  
   # Fetch and link to link field
   def link_field(field)
     link_to("Link to resource", field[:document][field[:field]], :target => :blank)
@@ -67,6 +71,17 @@ module ApplicationHelper
   
   def delayed_jobs_running?
     (Delayed::Job.count > 0)
+  end
+  
+  # Highlight search text.... any questions?
+  def highlight_search_text(field)
+    return highlight(field[:document][field[:field]].html_safe, params[:q]) unless field[:document][field[:field]].is_a? Array
+    return highlight(field[:document][field[:field]].first.html_safe, params[:q]) if field[:document][field[:field]].is_a? Array
+  end
+  
+  # Fetch and link to link field
+  def link_field(field)
+    link_to("Link to guide", "http://dlib.nyu.edu/findingaids/html/#{field[:document][:collection_group_s]}/#{field[:document][field[:field]]}", :target => :blank)
   end
   
 end

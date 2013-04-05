@@ -74,12 +74,12 @@ module Findingaids
     end
     
     # Sets a session variable to the user submitted collection 
-    def set_session_collection
+    def set_session_collection(all_collections_tab = false)
       # This redirect hijacks the "Start over" function to redirect back to the correct collection instead of the generic catalog
       redirect_to("/#{session[:collection]}") if !params[:collection].present? and session[:collection].present? and request.path == "/catalog"
       # Set session variable to local param
       # Don't set it to nil though because we don't want it to default to "all collections"
-      session[:collection] = params[:collection] if params[:collection].present?
+      session[:collection] = params[:collection] if all_collections_tab
     end
 
     # Add the session collection to the list of submitted variables
@@ -98,12 +98,12 @@ module Findingaids
       (session[:collection]) ? 
         tab_info["views"]["tabs"][session[:collection]]["display"] : 
           (!current_collection(params[:collection]).nil?) ? 
-            tab_info["views"]["tabs"][params[:collection]]["display"] : "" 
+            tab_info["views"]["tabs"][params[:collection]]["display"] : "All Collections" 
     end
 
     # Collect collections admin code from YAML
     def collection_codes
-      @collections ||= tabs_info["Catalog"]["views"]["tabs"].collect{|c| c[1]["admin_code"] }.push("global")
+      @collections ||= tabs_info["Catalog"]["views"]["tabs"].collect{|c| c[1]["display"] }.push("global")
     end
 
   end

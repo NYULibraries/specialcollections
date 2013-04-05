@@ -43,7 +43,7 @@
     	<td class="hidden-phone"><%=h user.firstname %></td>
     	<td class="hidden-phone"><%=h user.lastname %></td>
     	<td class="hidden-phone"><%=h user.email %></td>
-    	<td class="hidden-phone"><%=h !h[:umbra_admin].nil? && h[:umbra_admin] %></td>
+    	<td class="hidden-phone"><%=h !h[:findingaids_admin].nil? && h[:findingaids_admin] %></td>
     	<td><%= link_to 'Show', user %></td>
     	<td><%= link_to_if(user.username != current_user.username, 'Destroy', user, :data => {:confirm => 'Are you sure?'}, :method => :delete) %></td>
  	  </tr>

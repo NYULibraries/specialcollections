@@ -12,6 +12,14 @@ module Views
         meta << raw(render_head_content)
       end
       
+      def application
+        application_title
+      end
+      
+      def tabs_header
+        application_title
+      end
+      
       # Stylesheets to include in layout
       def stylesheets
         catalog_stylesheets
@@ -20,12 +28,6 @@ module Views
       # Javascripts to include in layout
       def javascripts
         catalog_javascripts
-      end
-
-      # Generate link to application root
-      def application
-        application = link_to application_name, root_path
-        application << (params[:controller] == "catalog" and !params[:id]) ? content_tag(:span, t('blacklight.search.search_results'), :id => 'results_text') : ""
       end
       
       # Render the sidebar partial
@@ -36,7 +38,7 @@ module Views
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
-        breadcrumbs << link_to('Catalog', {:controller =>'catalog', :collection => session[:collection]})
+        breadcrumbs << link_to_unless_current(application_title, {:controller =>'catalog', :collection => session[:collection]})
         breadcrumbs << link_to('Admin', :controller => 'records') if is_in_admin_view?
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
         breadcrumbs << link_to_unless_current(collection_name) unless params[:collection].nil?
@@ -70,7 +72,8 @@ module Views
       
       # Boolean for whether or not to show tabs
       def show_tabs
-        (!is_in_admin_view? and controller.controller_name.eql? "catalog")
+        return false
+        #(!is_in_admin_view? and controller.controller_name.eql? "catalog")
       end
       
       # Only show search box on admin view or for search catalog, excluding bookmarks, search history, etc.
@@ -83,7 +86,7 @@ module Views
         tab_info["views"]["tabs"].collect{|id, values|
           values["id"] = id
           if (!values["url"].nil? and request.path.match values["url"] and values["id"] != "all") or 
-              (values["id"] == "all" and (request.path == root_path or request.path == catalog_index_path)) or
+              (values["id"] == "all" and (request.path == root_path or request.path == catalog_index_path)) #or
                 (!session[:collection].nil? and session[:collection].match values["url"])
             values["klass"] = "active"
           end

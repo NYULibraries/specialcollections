@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   
   # Imitate logged in admin in dev
   def current_user_dev
-    @current_user ||= User.find_by_username("ba36")
+    @current_user ||= User.find_by_username("global_admin")
   end
   alias_method :current_user, :current_user_dev if Rails.env == 'development'
   

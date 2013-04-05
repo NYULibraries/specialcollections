@@ -18,10 +18,10 @@ global_admin:
   persistence_token: <%= Authlogic::Random.hex_token %>
   email: <%= username + "@university.edu" %>
   firstname: Marcus T.
-  lastname: Admin
+  lastname: Adminsky
   user_attributes: <%= {
-    :umbra_admin => true,
-    :umbra_admin_collections => ["global"],
+    :findingaids_admin => true,
+    :findingaids_admin_collections => ["global"],
     :nyuidn => "N0000000", 
     :verification => "6EAF453D8B01E5AC27D9",
     :primary_institution => "NYU",
@@ -38,8 +38,8 @@ coll_admin:
   firstname: Admin P.
   lastname: Collector
   user_attributes: <%= {
-    :umbra_admin => true,
-    :umbra_admin_collections => ["RestrictedCollection"],
+    :findingaids_admin => true,
+    :findingaids_admin_collections => ["RestrictedCollection"],
     :aleph_permissions => {} }.to_yaml.inspect  %>
     
 multiple_admin:
@@ -51,8 +51,8 @@ multiple_admin:
   firstname: Adam P.
   lastname: Admin
   user_attributes: <%= {
-    :umbra_admin => true,
-    :umbra_admin_collections => ["VBL", "DataServices"],
+    :findingaids_admin => true,
+    :findingaids_admin_collections => ["BHS", "N-YHS"],
     :aleph_permissions => {} }.to_yaml.inspect  %>
     
 invalid_admin1:
@@ -64,7 +64,7 @@ invalid_admin1:
   firstname: Daniel X.
   lastname: Cohain
   user_attributes: <%= {
-    :umbra_admin => true,
+    :findingaids_admin => true,
     :aleph_permissions => {} }.to_yaml.inspect  %>
     
 invalid_admin2:
@@ -76,5 +76,5 @@ invalid_admin2:
   firstname: Eleanor
   lastname: Walrus
   user_attributes: <%= {
-    :umbra_admin_collections => ["VBL", "DataServices"],
+    :findingaids_admin_collections => ["Fales", "Tamiment"],
     :aleph_permissions => {} }.to_yaml.inspect  %>

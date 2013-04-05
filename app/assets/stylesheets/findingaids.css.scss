@@ -18,7 +18,7 @@ body {
 .page_links { line-height: 20px; }
 
 .search {
-  #search_field { display: none !important; }
+  #search_field { height: 30px; width: auto; }//display: none !important; }
 }
 
 .q { 
@@ -56,4 +56,9 @@ body {
 
 input[type='file'] {
   line-height: 12px;
+}
+
+.highlight {
+  @extend .alert;
+  padding: 0;
 }
