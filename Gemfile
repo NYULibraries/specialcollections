@@ -47,7 +47,7 @@ end
 
 # Deploy with Capistrano
 gem 'rvm-capistrano', "~> 1.2.7"
-gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git" if ENV['CI']
+gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
 gem "rails_config", "~> 0.3.2"
 
 gem 'sunspot_rails', "~> 2.0.0"
@@ -61,7 +61,7 @@ gem 'blacklight', '~> 4.2.0'
 # For memcached
 gem 'dalli', "~> 2.6.2"
 
-gem 'newrelic_rpm', "~> 3.6.0"
+#gem 'newrelic_rpm', "~> 3.6.0"
 
 gem "comma", "~> 3.0.4"
 

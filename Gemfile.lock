@@ -8,6 +8,14 @@ GIT
       institutions (~> 0.0.5)
       rake (~> 10.0.2)
 
+GIT
+  remote: git://github.com/NYULibraries/rake_nyu.git
+  revision: ac5c6e60209e10067348da0f4a89a998dd07a45a
+  specs:
+    rake_nyu (1.0.0)
+      rake (~> 10.0.4)
+      require_all (~> 1.2.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,7 +183,6 @@ GEM
     net-ssh (2.6.6)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    newrelic_rpm (3.6.0.78)
     nokogiri (1.5.9)
     om (1.8.0)
       activemodel
@@ -306,11 +313,11 @@ DEPENDENCIES
   json (~> 1.7.7)
   mustache-rails (~> 0.2.3)
   mysql2
-  newrelic_rpm (~> 3.6.0)
   nyulibraries_assets!
   progress_bar
   rails (~> 3.2.13)
   rails_config (~> 0.3.2)
+  rake_nyu!
   rvm-capistrano (~> 1.2.7)
   sass-rails (~> 3.2.3)
   simplecov
