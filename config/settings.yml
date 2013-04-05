@@ -1,7 +1,7 @@
 login:
   pds_url: 
   calling_system: 
-  default_admins: []
+  default_admins: ['real_user']
   
 databases:
   password: 

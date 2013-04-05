@@ -12,14 +12,6 @@ class User < ActiveRecord::Base
     c.disable_perishable_token_maintenance = true
   end
   
-  def expiration_date
-   @expiration_date
-  end
-
-  def expiration_date=(expiration_date)
-   @expiration_date = expiration_date
-  end
-  
   # This search logic function protected against SQL injection
   def self.search(search)
     if search

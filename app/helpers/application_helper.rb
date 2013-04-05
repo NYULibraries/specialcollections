@@ -42,12 +42,12 @@ module ApplicationHelper
   # Will convert it to something kaminari can deal with (using #paginate_params), and
   # then call kaminari page_entries_info with that. Other arguments (options and block) same as
   # kaminari paginate, passed on through. 
-  def page_entries_info_sunspot(response, options = {}, &block)
-    per_page = response.results.count
-    per_page = 1 if per_page < 1
-    current_page = (response.results.offset / per_page).ceil + 1
-    page_entries_info Kaminari.paginate_array(response.results, :total_count => response.total).page(current_page).per(per_page), options, &block
-  end
+  #def page_entries_info_sunspot(response, options = {}, &block)
+  #  per_page = response.results.count
+  #  per_page = 1 if per_page < 1
+  #  current_page = (response.results.offset / per_page).ceil + 1
+  #  page_entries_info Kaminari.paginate_array(response.results, :total_count => response.total).page(current_page).per(per_page), options, &block
+  #end
 
   # Retrieve a value matching a key to an icon class name
   def icons key
@@ -67,10 +67,6 @@ module ApplicationHelper
   # Generate an icon tag with class key
   def icon_tag key
     content_tag :i, "", :class => icons(key)
-  end
-  
-  def delayed_jobs_running?
-    (Delayed::Job.count > 0)
   end
   
   # Highlight search text.... any questions?
