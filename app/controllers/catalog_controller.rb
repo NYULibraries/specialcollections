@@ -93,7 +93,7 @@ class CatalogController < ApplicationController
       #   The ordering of the field names is the order of the display 
       config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
       config.add_index_field 'title_txt', :label => "Title:", :helper_method => :highlight_search_text
-      config.add_index_field 'publisher_display', :label => "Collection:"
+      config.add_index_field 'publisher_display', :label => "Collection:", :helper_method => :highlight_search_text
       config.add_index_field 'abstract_txt', :label => "Abstract:", :helper_method => :highlight_search_text
       config.add_index_field 'bioghist_txt', :label => "Biographical History:", :helper_method => :excerpt_occurrence
       config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :excerpt_occurrence
