@@ -18,7 +18,7 @@ module ApplicationHelper
   def excerpt_occurrence(field)
     excerpts = Array.new
     field[:document][field[:field]].each do |field_text|
-      excerpts << excerpt(highlight(field_text, params[:q]), params[:q]) unless excerpt(field_text, params[:q]).nil?
+      excerpts << highlight(excerpt(field_text, params[:q]), params[:q]) unless excerpt(field_text, params[:q]).nil?
     end
     return excerpts.join("&mdash;").html_safe
   end

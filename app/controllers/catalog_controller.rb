@@ -98,7 +98,7 @@ class CatalogController < ApplicationController
       config.add_index_field 'bioghist_txt', :label => "Biographical History:", :helper_method => :excerpt_occurrence
       config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :excerpt_occurrence
       config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'scopecontent_txt', :label => " Scope and Content:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :helper_method => :excerpt_occurrence
       config.add_index_field 'file_did_unittitle_txt', :label => "Title of the Unit:", :helper_method => :excerpt_occurrence
       config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :helper_method => :excerpt_occurrence
       config.add_index_field 'index_txt', :label => "Index:", :helper_method => :excerpt_occurrence
