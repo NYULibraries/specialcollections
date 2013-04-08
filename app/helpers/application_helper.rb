@@ -14,6 +14,15 @@ module ApplicationHelper
     field[:document][field[:field]].first.html_safe
   end
   
+  # Create an excerpt of occurrences in other search fields
+  def excerpt_occurrence(field)
+    excerpts = Array.new
+    field[:document][field[:field]].each do |field_text|
+      excerpts << excerpt(highlight(field_text, params[:q]), params[:q]) unless excerpt(field_text, params[:q]).nil?
+    end
+    return excerpts.join("&mdash;").html_safe
+  end
+  
   # Generate link to sorting action
   def sortable(column, title = nil)
     title ||= column.titleize

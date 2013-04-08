@@ -22,11 +22,11 @@ class CatalogController < ApplicationController
         :fq => "",
         "facet.mincount" => 1,
         :echoParams => "explicit",
-        :qf => "heading_txt^5.0 abstract_t",
-        :pf => "heading_txt^5.0 abstract_t",
+        :qf => "title_txt^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 file_did_unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
+        :pf => "title_txt^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 file_did_unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
         :defType => "edismax"
       }
-
+      
       ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
       ## parameters included in the Blacklight-jetty document requestHandler.
       #
@@ -75,6 +75,7 @@ class CatalogController < ApplicationController
       config.add_facet_field 'genreform_facet', :label => 'Document Type', :limit => 20
       config.add_facet_field 'corpname_facet', :label => 'Corporation', :limit => 20
       config.add_facet_field 'famname_facet', :label => 'Family' , :limit => 20
+      config.add_facet_field 'lang_facet', :label => 'Languages', :limit => 20
       
       #config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
       #
@@ -91,10 +92,21 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'ead_id', :label => '', :helper_method => :link_field
-      config.add_index_field 'title_display', :label => 'Title:', :helper_method => :highlight_search_text 
-      config.add_index_field 'publisher_display', :label => 'Collection:' 
-      config.add_index_field 'abstract_t', :label => 'Abstract:', :helper_method => :highlight_search_text     
+      config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
+      config.add_index_field 'title_txt', :label => "Title:", :helper_method => :highlight_search_text
+      config.add_index_field 'publisher_display', :label => "Collection:"
+      config.add_index_field 'abstract_txt', :label => "Abstract:", :helper_method => :highlight_search_text
+      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'scopecontent_txt', :label => " Scope and Content:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'file_did_unittitle_txt', :label => "Title of the Unit:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'index_txt', :label => "Index:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :helper_method => :excerpt_occurrence
 
       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
@@ -122,6 +134,7 @@ class CatalogController < ApplicationController
       # solr request handler? The one set in config[:default_solr_parameters][:qt],
       # since we aren't specifying it otherwise. 
 
+      # Load tabs file up to create search fields based on Collections
       YAML.load_file( File.join(Rails.root, "config", "tabs.yml") )["Catalog"]["views"]["tabs"].each do |coll|
         config.add_search_field(coll.last["display"]) do |field|
          field.solr_parameters = { :fq => "collection_group_s:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
