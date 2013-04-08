@@ -70,11 +70,10 @@ class CatalogController < ApplicationController
       config.add_facet_field 'persname_facet', :label => 'People' , :limit => 20
       config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20 
       config.add_facet_field 'subject_geo_facet', :label => 'Places' , :limit => 20
-
       config.add_facet_field 'name_facet', :label => 'Name' , :limit => 20
       config.add_facet_field 'genreform_facet', :label => 'Document Type', :limit => 20
-      config.add_facet_field 'corpname_facet', :label => 'Corporation', :limit => 20
-      config.add_facet_field 'famname_facet', :label => 'Family' , :limit => 20
+      config.add_facet_field 'corpname_facet', :label => 'Corporate Name', :limit => 20
+      config.add_facet_field 'famname_facet', :label => 'Family Name' , :limit => 20
       config.add_facet_field 'lang_facet', :label => 'Languages', :limit => 20
       
       #config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
