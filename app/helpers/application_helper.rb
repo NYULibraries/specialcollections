@@ -1,17 +1,22 @@
 module ApplicationHelper
   
+  # Application title
   def application_title
     "Archival Collections"
-  end
-  
-  # Fetch and link to link field
-  def link_field(field)
-    link_to("Link to resource", field[:document][field[:field]], :target => :blank)
   end
   
   # Fetch HTML text from field
   def html_field(field)
     field[:document][field[:field]].first.html_safe
+  end
+  
+  # Fetch and link to link field
+  def link_field(field)
+    link_to("Link to guide", guide_href(field[:document][:collection_group_s], field[:document][field[:field]]), :target => :blank)
+  end
+  
+  def guide_href(collection, ead_id)
+    "http://dlib.nyu.edu/findingaids/html/#{collection}/#{ead_id}"
   end
   
   # Create an excerpt of occurrences in other search fields
@@ -21,6 +26,16 @@ module ApplicationHelper
       excerpts << highlight(excerpt(field_text, params[:q]), params[:q]) unless excerpt(field_text, params[:q]).nil?
     end
     return excerpts.join("&mdash;").html_safe
+  end
+  
+  # Highlight the search query within the field
+  #
+  def highlight_search_text(field)
+    if field[:document][field[:field]].is_a? Array
+      highlight(field[:document][field[:field]].first.html_safe, params[:q]) 
+    else
+      highlight(field[:document][field[:field]].html_safe, params[:q])
+    end
   end
   
   # Generate link to sorting action
@@ -77,16 +92,5 @@ module ApplicationHelper
   def icon_tag key
     content_tag :i, "", :class => icons(key)
   end
-  
-  # Highlight search text.... any questions?
-  def highlight_search_text(field)
-    return highlight(field[:document][field[:field]].html_safe, params[:q]) unless field[:document][field[:field]].is_a? Array
-    return highlight(field[:document][field[:field]].first.html_safe, params[:q]) if field[:document][field[:field]].is_a? Array
-  end
-  
-  # Fetch and link to link field
-  def link_field(field)
-    link_to("Link to guide", "http://dlib.nyu.edu/findingaids/html/#{field[:document][:collection_group_s]}/#{field[:document][field[:field]]}", :target => :blank)
-  end
-  
+
 end

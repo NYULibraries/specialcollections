@@ -17,7 +17,7 @@ class CatalogController < ApplicationController
       config.default_solr_params = { 
         :qt => '',
         :rows => 10,
-        :fl => "*",
+        :fl => "heading_display id collection_group_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt file_did_unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         :facet => true,
         :fq => "",
         "facet.mincount" => 1,
@@ -91,12 +91,12 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
+      #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
       config.add_index_field 'title_txt', :label => "Title:", :helper_method => :highlight_search_text
       config.add_index_field 'publisher_display', :label => "Collection:", :helper_method => :highlight_search_text
+      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :highlight_search_text
       config.add_index_field 'abstract_txt', :label => "Abstract:", :helper_method => :highlight_search_text
       config.add_index_field 'bioghist_txt', :label => "Biographical History:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :excerpt_occurrence
       config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :helper_method => :excerpt_occurrence
       config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :helper_method => :excerpt_occurrence
       config.add_index_field 'file_did_unittitle_txt', :label => "Title of the Unit:", :helper_method => :excerpt_occurrence

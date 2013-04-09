@@ -37,5 +37,18 @@ namespace :solr_ead do
       print "done.\n"
     end
   end
+  
+  desc "Index a directory recursively of ead files given by DIR=path/to/directory"
+  task :index_tree => :environment do
+    raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument)
+    Dir.glob(File.join(ENV['DIR'],"*","*")).each do |file|
+      collection = file.split("\/")[1]
+      ENV['DIR'] = collection
+      print "Indexing #{File.basename(file)}..."
+      indexer.update(file) if File.extname(file).match("xml$")
+      print "done.\n"
+    end
+  end
 
 end
