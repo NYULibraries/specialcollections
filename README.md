@@ -45,6 +45,10 @@ In WebSolr set up a new instance for EAD indexing with the Blacklight Demo schem
 To batch index directories:
 
     rake solr_ead:index_dir DIR=<DIR_NAME>
+    
+or
+
+    rake solr_ead:index_tree DIR=<PARENT_DIR_NAME>
 
 To delete all records from the index do the following in the console:
 
