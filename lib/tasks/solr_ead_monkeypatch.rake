@@ -42,12 +42,12 @@ namespace :solr_ead do
   task :index_tree => :environment do
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
     indexer = SolrEad::Indexer.new(:document=>CustomDocument)
-    print "Indexing tree #{ENV['DIR']}..."
+    print "Indexing tree #{ENV['DIR']}...\n"
     Dir.glob(File.join(ENV['DIR'],"*","*")).each do |file|
       collection = file.split("\/")[1]
       ENV['DIR'] = collection
-      print "Indexing #{File.basename(file)} into #{collection}..."
-      #indexer.update(file) if File.extname(file).match("xml$")
+      print "Indexing #{collection}/#{File.basename(file)}..."
+      indexer.update(file) if File.extname(file).match("xml$")
       print "done.\n"
     end
   end
