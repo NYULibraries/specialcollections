@@ -47,7 +47,7 @@ namespace :solr_ead do
       collection = file.split("\/")[1]
       ENV['DIR'] = collection
       print "Indexing #{collection}/#{File.basename(file)}..."
-      indexer.update(file) if File.extname(file).match("xml$")
+      #indexer.update(file) if File.extname(file).match("xml$")
       print "done.\n"
     end
   end
