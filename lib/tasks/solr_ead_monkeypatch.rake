@@ -44,10 +44,10 @@ namespace :solr_ead do
     indexer = SolrEad::Indexer.new(:document=>CustomDocument)
     print "Indexing tree #{ENV['DIR']}...\n"
     Dir.glob(File.join(ENV['DIR'],"*","*")).each do |file|
-      collection = file.split("\/")[1]
+      collection = file.split("\/")[-2]
       ENV['DIR'] = collection
       print "Indexing #{collection}/#{File.basename(file)}..."
-      #indexer.update(file) if File.extname(file).match("xml$")
+      indexer.update(file) if File.extname(file).match("xml$")
       print "done.\n"
     end
   end

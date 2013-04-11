@@ -16,7 +16,7 @@ module Findingaids
     
     # Get collection name from directory
     def format_directory(field)
-      return field.split("\/").last
+      return field.split("\/")[-2]
     end
   end
 end

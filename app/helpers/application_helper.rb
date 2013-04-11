@@ -12,7 +12,7 @@ module ApplicationHelper
   
   # Fetch and link to link field
   def link_field(field)
-    link_to("Link to guide", guide_href(field[:document][:collection_group_s], field[:document][field[:field]]), :target => :blank)
+    link_to("Link to guide", guide_href(field[:document][:repository_s], field[:document][field[:field]]), :target => :blank)
   end
   
   def guide_href(collection, ead_id)

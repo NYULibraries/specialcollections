@@ -16,7 +16,7 @@ class CatalogController < ApplicationController
       config.default_solr_params = { 
         :qt => '',
         :rows => 10,
-        :fl => "heading_display id collection_group_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt file_did_unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        :fl => "heading_display id repository_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt file_did_unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         :facet => true,
         :fq => "",
         "facet.mincount" => 1,
@@ -135,7 +135,7 @@ class CatalogController < ApplicationController
       # Load tabs file up to create search fields based on Collections
       YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
         config.add_search_field(coll.last["display"]) do |field|
-         field.solr_parameters = { :fq => "collection_group_s:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
+         field.solr_parameters = { :fq => "repository_s:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
         end
       end
       

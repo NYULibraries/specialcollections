@@ -83,7 +83,8 @@ class CustomDocument < SolrEad::Document
  def to_solr(solr_doc = Hash.new)
    super(solr_doc)
    solr_doc.merge!({"publisher_display" => format_publisher(self.publisher)})
-   solr_doc.merge!({"collection_group_s" => format_directory(ENV['DIR'])})
+   solr_doc.merge!({"repository_s" => format_directory(ENV['DIR'])}) if ENV['DIR'].present?
+   solr_doc.merge!({"repository_s" => format_directory(ENV['FILE'])}) unless ENV['DIR'].present?
    solr_doc.merge!({"heading_txt" => ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
  end
 
