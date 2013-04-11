@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-class SolrDocument 
+class SolrDocument < ActiveRecord::Base
 
   include Blacklight::Solr::Document
   include BlacklightHighlight::SolrDocumentExtension
