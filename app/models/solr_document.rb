@@ -1,8 +1,7 @@
 # -*- encoding : utf-8 -*-
-class SolrDocument < ActiveRecord::Base
+class SolrDocument
 
   include Blacklight::Solr::Document
-  include BlacklightHighlight::SolrDocumentExtension
 
   #self.unique_key = 'resource_id_ss'
   
