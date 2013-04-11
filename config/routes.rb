@@ -3,7 +3,7 @@ Findingaids::Application.routes.draw do
   root :to => "catalog#index"
 
   # Create named routes for each collection specified in tabs.yml
-  YAML.load_file( File.join(Rails.root, "config", "tabs.yml") )["Catalog"]["views"]["tabs"].each do |coll|
+  YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
      match "#{coll[0]}" => "catalog#index", :collection => "#{coll[0]}"
   end
   

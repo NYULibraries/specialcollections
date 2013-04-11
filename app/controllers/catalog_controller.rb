@@ -3,6 +3,7 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
   include Blacklight::Catalog
+  include BlacklightHighlight::ControllerExtension
   
 
   # Set a session variable on index action stating what the user's current collection is
@@ -134,7 +135,7 @@ class CatalogController < ApplicationController
       # since we aren't specifying it otherwise. 
 
       # Load tabs file up to create search fields based on Collections
-      YAML.load_file( File.join(Rails.root, "config", "tabs.yml") )["Catalog"]["views"]["tabs"].each do |coll|
+      YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
         config.add_search_field(coll.last["display"]) do |field|
          field.solr_parameters = { :fq => "collection_group_s:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
         end

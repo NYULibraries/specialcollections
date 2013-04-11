@@ -2,6 +2,7 @@
 class SolrDocument 
 
   include Blacklight::Solr::Document
+  include BlacklightHighlight::SolrDocumentExtension
 
   #self.unique_key = 'resource_id_ss'
   
