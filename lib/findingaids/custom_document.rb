@@ -71,7 +71,7 @@ class CustomDocument < SolrEad::Document
     t.scopecontent_heading(:path=>"archdesc/scopecontent/head", :index_as=>[:displayable])
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
-    t.file_did_unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
+    #t.file_did_unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
     t.odd(:path=>"archdesc/dsc//odd", :index_as=>[:searchable])
     t.index(:path=>"archdesc/index", :index_as=>[:searchable])
 
