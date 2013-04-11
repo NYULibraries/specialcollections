@@ -3,8 +3,6 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
   include Blacklight::Catalog
-  include BlacklightHighlight::ControllerExtension
-  
 
   # Set a session variable on index action stating what the user's current collection is
   # so this will persist through their searching until they go to a new collection

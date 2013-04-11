@@ -79,11 +79,6 @@ GEM
       rails (>= 3.2)
       rsolr (~> 1.0.6)
       sass-rails
-    blacklight_highlight (0.0.3)
-      blacklight
-      rails (~> 3.0)
-      rsolr
-      rsolr-ext
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -236,8 +231,6 @@ GEM
       mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
-    rsolr-ext (1.0.3)
-      rsolr (>= 1.0.2)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     sanitize (2.0.3)
@@ -309,7 +302,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   blacklight (~> 4.2.0)
-  blacklight_highlight (~> 0.0.3)
   coffee-rails (~> 3.2.1)
   comma (~> 3.0.4)
   compass-rails (~> 1.0.0)
