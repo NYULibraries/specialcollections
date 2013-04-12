@@ -10,6 +10,6 @@ databases:
   host: localhost
 
 solr: 
-  url: "http://127.0.0.1:#{ENV['TEST_JETTY_PORT'] || 8888}/solr"
+  url: "http://127.0.0.1:8981/solr"
 
 secret_token: c8c1257e695ab385f98b744fe94f9bdd7475493b28b428a550b027a639a0fb8248c40450d7a0c3b0104849a024913056f9e618adaddc1642123fdd473e420574
