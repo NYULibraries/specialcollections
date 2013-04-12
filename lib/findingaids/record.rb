@@ -23,7 +23,7 @@ module Findingaids
       else
         repo = ENV['FILE']
       end
-      return repo.split("\/")[-2]
+      return repo.split("\/")[-2] unless repo.nil?
     end
   end
 end

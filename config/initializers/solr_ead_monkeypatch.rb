@@ -18,11 +18,11 @@ module SolrEad
     end
     
     def update_without_commit(file)
-        doc = om_document(File.new(file))
-        solr_doc = doc.to_solr
-        solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
-        solr.add solr_doc
-        add_components(file) unless options[:simple]
+      doc = om_document(File.new(file))
+      solr_doc = doc.to_solr
+      solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
+      solr.add solr_doc
+      add_components(file) unless options[:simple]
     end
   end
 end
