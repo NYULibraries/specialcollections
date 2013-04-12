@@ -1,11 +1,12 @@
 Findingaids::Application.routes.draw do
 
   Blacklight.add_routes(self)
+  match 'catalog/email', :as => "email_catalog", :via => :post
 
   root :to => "catalog#index"
   # Create named routes for each collection specified in tabs.yml
   YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
-     match "#{coll[0]}" => "catalog#index", :search_field => "#{coll[0]['display']}"
+     match "#{coll[0]}" => "catalog#index", :search_field => "#{coll[1]['display']}"
   end
   
   scope "admin" do

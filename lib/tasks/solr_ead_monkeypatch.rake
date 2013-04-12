@@ -30,7 +30,7 @@ namespace :solr_ead do
   desc "Index a directory of ead files given by DIR=path/to/directory"
   task :index_dir => :environment do
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument)
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => true)
     Dir.glob(File.join(ENV['DIR'],"*")).each do |file|
       print "Indexing #{File.basename(file)}..."
       indexer.update(file) if File.extname(file).match("xml$")
@@ -39,16 +39,28 @@ namespace :solr_ead do
   end
   
   desc "Index a directory recursively of ead files given by DIR=path/to/directory"
-  task :index_tree => :environment do
+  task :index_tree, [:bulk] => :environment do |t, args|
+    args.with_defaults(:bulk => 1)
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument)
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => true)
     print "Indexing tree #{ENV['DIR']}...\n"
-    Dir.glob(File.join(ENV['DIR'],"*","*")).each do |file|
-      collection = file.split("\/")[-2]
-      ENV['DIR'] = collection
-      print "Indexing #{collection}/#{File.basename(file)}..."
-      indexer.update(file) if File.extname(file).match("xml$")
+    i, tree = 0, ENV['DIR']
+    Dir.glob(File.join(tree,"*","*")).each_with_index do |file, i|
+      repo = file.split("\/")[-2]
+      ENV['REPO'] = repo
+      if File.extname(file).match("xml$")
+        print "Indexing #{repo}/#{File.basename(file)}..."
+        indexer.update_without_commit(file) 
+      else
+        print "Skipping #{repo}/#{File.basename(file)}..."
+      end
+      i += 1
       print "done.\n"
+      if (i % args[:bulk].to_i == 0) or (i >= Dir.glob(File.join(tree,"*","*")).count)
+        print "Committing to solr..."
+        indexer.solr.commit 
+        print "done.\n"
+      end
     end
   end
 

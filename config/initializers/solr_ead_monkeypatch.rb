@@ -12,8 +12,17 @@ module SolrEad
       else
         url = YAML.load(ERB.new(File.read("config/solr.yml")).result)['development']['url']
       end
-      self.solr = RSolr.connect :url => url
+      #self.solr = RSolr.connect :url => url
+      self.solr = RSolr.connect(:url => url, :retry_503 => 1, :retry_after_limit => 1)
       self.options = opts
+    end
+    
+    def update_without_commit(file)
+        doc = om_document(File.new(file))
+        solr_doc = doc.to_solr
+        solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
+        solr.add solr_doc
+        add_components(file) unless options[:simple]
     end
   end
 end
