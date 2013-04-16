@@ -17,13 +17,12 @@ module Findingaids
     # Get collection name from directory
     def format_repository
       if ENV['REPO'].present?
-        repo = ENV['REPO']
+        return ENV['REPO']
       elsif ENV['DIR'].present?
-        repo = ENV['DIR']
+        return ENV['DIR'].split("\/")[-1]
       else
-        repo = ENV['FILE']
+        return ENV['FILE'].split("\/")[-2]
       end
-      return repo.split("\/")[-2] unless repo.nil?
     end
   end
 end
