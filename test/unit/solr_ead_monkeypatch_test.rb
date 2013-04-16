@@ -9,7 +9,7 @@ class SolrEadMonkeyPatchTest < ActiveSupport::TestCase
   end
   
   test "should update into solr" do
-    VCR.use_cassette('update into solr', :record => :once, :match_requests_on => [:body]) do
+    VCR.use_cassette('update into solr', :match_requests_on => [:body]) do
       ENV['REPO'] = 'archives'
       indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => true)
       assert_instance_of(SolrEad::Indexer, indexer)
