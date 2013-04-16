@@ -16,8 +16,8 @@ namespace :solr_ead do
   desc "Index and ead into solr using FILE=<path/to/ead.xml>"
   task :index, [:simple] => :environment do |t, args|
     args.with_defaults(:simple => true)
-    raise "Please specify your ead, ex. FILE=<path/to/ead.xml" unless ENV['FILE']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => args[:simple])
+    raise "Please specify your ead, ex. FILE=<path/to/ead.xml>" unless ENV['FILE']
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
     indexer.update(ENV['FILE'])
   end
 
@@ -32,7 +32,7 @@ namespace :solr_ead do
   task :index_dir, [:simple] => :environment do |t, args|
     args.with_defaults(:simple => true)
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => args[:simple])
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
     Dir.glob(File.join(ENV['DIR'],"*")).each do |file|
       print "Indexing #{File.basename(file)}..."
       indexer.update(file) if File.extname(file).match("xml$")
@@ -45,7 +45,7 @@ namespace :solr_ead do
     args.with_defaults(:bulk => 1)
     args.with_defaults(:simple => true)
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => args[:simple])
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
     print "Indexing tree #{ENV['DIR']}...\n"
     i, tree = 0, ENV['DIR']
     Dir.glob(File.join(tree,"*","*")).each_with_index do |file, i|
