@@ -51,5 +51,5 @@ VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr_cassettes'
   # webmock needed for HTTPClient testing
   c.hook_into :webmock 
-  #c.filter_sensitive_data() {  }
+  #c.filter_sensitive_data("http://127.0.0.1:8981") { "" }
 end

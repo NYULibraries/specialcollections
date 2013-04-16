@@ -21,14 +21,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 12 Apr 2013 21:09:51 GMT
+      - Tue, 16 Apr 2013 16:17:50 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>9}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>48}}'
     http_version: 
-  recorded_at: Fri, 12 Apr 2013 21:09:52 GMT
+  recorded_at: Tue, 16 Apr 2013 16:17:50 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -125,8 +125,8 @@ http_interactions:
         York University Archives</field><field name="id">adler</field><field name="ead_id">adler</field><field
         name="format">Archival Collection</field><field name="heading_display">Guide
         to the Charles Adler, Jr., Papers (MC 61)</field><field name="publisher_display">New
-        York University Archives</field><field name="heading_txt">Guide to the Charles
-        Adler, Jr., Papers (MC 61)</field></doc></add>'
+        York University Archives</field><field name="repository_s">archives</field><field
+        name="heading_txt">Guide to the Charles Adler, Jr., Papers (MC 61)</field></doc></add>'
     headers:
       Content-Type:
       - text/xml
@@ -142,12 +142,12 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Fri, 12 Apr 2013 21:09:51 GMT
+      - Tue, 16 Apr 2013 16:17:50 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>18}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>8}}'
     http_version: 
-  recorded_at: Fri, 12 Apr 2013 21:09:52 GMT
+  recorded_at: Tue, 16 Apr 2013 16:17:50 GMT
 recorded_with: VCR 2.4.0
