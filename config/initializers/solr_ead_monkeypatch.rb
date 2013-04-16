@@ -41,7 +41,7 @@ module SolrEad
     
     def batch_commit
       solr_docs.in_groups_of(500).each do |solr_docs_arr|
-        solr.add solr_docs_arr
+        solr.add solr_docs_arr.delete_if {|x| x.nil? }
       end   
       solr.commit
     end

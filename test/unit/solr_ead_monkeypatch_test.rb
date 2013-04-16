@@ -13,7 +13,11 @@ class SolrEadMonkeyPatchTest < ActiveSupport::TestCase
       ENV['REPO'] = 'archives'
       indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => true)
       assert_instance_of(SolrEad::Indexer, indexer)
-      indexer.update_without_commit(File.join(Rails.root, "test", "examples", "adler.xml"))
+      Dir.glob(File.join(Rails.root,"test","examples","*.xml")).each do |file|
+        indexer.batch_update(file)
+      end
+      assert_instance_of(Array, indexer.solr_docs)
+      indexer.batch_commit
       assert_instance_of(RSolr::Client, indexer.solr)
     end
   end
