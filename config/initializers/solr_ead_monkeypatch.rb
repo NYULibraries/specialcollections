@@ -1,6 +1,7 @@
 # Open up the solr_ead gem class to process ERB in solr.yml
 module SolrEad
   class Indexer
+    attr_accessor :doc_batch_counter, :solr_docs
     # Creates a new instance of SolrEad::Indexer and connects to your solr server
     # using the url supplied in your config/solr.yml file.
     def initialize(opts={})
@@ -12,17 +13,37 @@ module SolrEad
       else
         url = YAML.load(ERB.new(File.read("config/solr.yml")).result)['development']['url']
       end
-      #self.solr = RSolr.connect :url => url
+      self.doc_batch_counter = 0
+      self.solr_docs = []
+      # Retry on 503
       self.solr = RSolr.connect(:url => url, :retry_503 => 1, :retry_after_limit => 1)
       self.options = opts
     end
     
-    def update_without_commit(file)
+    # Add multiple documents
+    def batch_update(file)
       doc = om_document(File.new(file))
       solr_doc = doc.to_solr
       solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
-      solr.add solr_doc
+      solr_docs << solr_doc
       add_components(file) unless options[:simple]
+    end
+    
+    def add_components(file)
+      counter = 1
+      components(file).each do |node|
+        solr_doc = om_component_from_node(node).to_solr(additional_component_fields(node))
+        solr_doc.merge!({"sort_i" => counter.to_s})
+        solr_docs << solr_doc
+        counter = counter + 1
+      end
+    end
+    
+    def batch_commit
+      solr_docs.in_groups_of(500).each do |solr_docs_arr|
+        solr.add solr_docs_arr
+      end   
+      solr.commit
     end
   end
 end

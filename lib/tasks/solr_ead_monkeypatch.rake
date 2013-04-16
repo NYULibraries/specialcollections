@@ -8,7 +8,6 @@ Rake::TaskManager.class_eval do
   end
   Rake.application.delete_task("solr_ead:index")
   Rake.application.delete_task("solr_ead:index_dir")
-  Rake.application.delete_task("solr_ead:delete")
 end
 # Open up solr_ead rake task and load rails environment before calling recursive indexing task
 namespace :solr_ead do
@@ -18,56 +17,35 @@ namespace :solr_ead do
     args.with_defaults(:simple => true)
     raise "Please specify your ead, ex. FILE=<path/to/ead.xml>" unless ENV['FILE']
     print "Indexing #{File.basename(ENV['FILE'])}..."
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
-    indexer.update_without_commit(ENV['FILE'])
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple].to_s))
+    indexer.batch_update(ENV['FILE'])
     print "done.\n"
-    indexer.solr.commit
+    indexer.batch_commit
   end
 
-  desc "Delete and ead from your solr index using ID='<eadid>'"
-  task :delete => :environment do
-    raise "Please specify your ead id, ex. ID=<eadid>" unless ENV['ID']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument)
-    indexer.delete(ENV['ID'])
-  end
-
-  desc "Index a directory of ead files given by DIR=path/to/directory"
+  desc "Index a directory recursively of ead files given by DIR=path/to/directory"
   task :index_dir, [:simple] => :environment do |t, args|
     args.with_defaults(:simple => true)
-    raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
-    Dir.glob(File.join(ENV['DIR'],"*")).each do |file|
-      print "Indexing #{File.basename(file)}..."
-      indexer.update(file) if File.extname(file).match("xml$")
-      print "done.\n"
-    end
-  end
-  
-  desc "Index a directory recursively of ead files given by DIR=path/to/directory"
-  task :index_tree, [:bulk, :simple] => :environment do |t, args|
-    args.with_defaults(:bulk => 1)
-    args.with_defaults(:simple => true)
-    raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
-    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
+    raise "Please specify your directory, ex. DIR=path/to/directory" unless ENV['DIR']
+    indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple].to_s))
     print "Indexing tree #{ENV['DIR']}...\n"
-    i, tree = 0, ENV['DIR']
-    Dir.glob(File.join(tree,"*","*")).each_with_index do |file, i|
+    tree = ENV['DIR']
+    Dir.glob(File.join(Rails.root,ENV['DIR'],"**","*.xml")).each do |file|
       repo = file.split("\/")[-2]
       ENV['REPO'] = repo
       if File.extname(file).match("xml$")
         print "Indexing #{repo}/#{File.basename(file)}..."
-        indexer.update_without_commit(file) 
+        indexer.batch_update(file) 
       else
         print "Skipping #{repo}/#{File.basename(file)}..."
       end
-      i += 1
       print "done.\n"
-      if (i % args[:bulk].to_i == 0) or (i >= Dir.glob(File.join(tree,"*","*")).count)
-        print "Committing to solr..."
-        indexer.solr.commit 
-        print "done.\n"
-      end
+      #if (i % args[:batch].to_i == 0) or (i >= Dir.glob(File.join(tree,"*","*")).count)  
+      #end
     end
+    print "Committing to solr..."
+    indexer.batch_commit
+    print "done.\n"
   end
 
 end
