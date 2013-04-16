@@ -17,7 +17,7 @@ namespace :solr_ead do
   task :index, [:simple] => :environment do |t, args|
     args.with_defaults(:simple => true)
     raise "Please specify your ead, ex. FILE=<path/to/ead.xml>" unless ENV['FILE']
-    print "Indexing #{File.basename(file)}..."
+    print "Indexing #{File.basename(ENV['FILE'])}..."
     indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple]))
     indexer.update_without_commit(ENV['FILE'])
     print "done.\n"
