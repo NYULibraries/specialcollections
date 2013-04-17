@@ -19,30 +19,30 @@ module SolrEad
       self.options = opts
     end
     
-    # Add multiple documents
-    def batch_update(file)
-      doc = om_document(File.new(file))
-      solr_doc = doc.to_solr
-      solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
-      solr_docs << solr_doc
-      add_components(file) unless options[:simple]
-    end
-    
-    def add_components(file)
-      counter = 1
-      components(file).each do |node|
-        solr_doc = om_component_from_node(node).to_solr(additional_component_fields(node))
-        solr_doc.merge!({"sort_i" => counter.to_s})
-        solr_docs << solr_doc
-        counter = counter + 1
-      end
-    end
-    
-    def batch_commit(batch = 500)
-      solr_docs.in_groups_of(batch.to_i).each do |solr_docs_arr|
-        solr.add solr_docs_arr.delete_if {|x| x.nil? }
-      end   
-      solr.commit
-    end
-  end
+  #  # Add multiple documents
+  #  def batch_update(file)
+  #    doc = om_document(File.new(file))
+  #    solr_doc = doc.to_solr
+  #    solr.delete_by_query( 'ead_id:"' + solr_doc["id"] + '"' )
+  #    solr_docs << solr_doc
+  #    add_components(file) unless options[:simple]
+  #  end
+  #  
+  #  def add_components(file)
+  #    counter = 1
+  #    components(file).each do |node|
+  #      solr_doc = om_component_from_node(node).to_solr(additional_component_fields(node))
+  #      solr_doc.merge!({"sort_i" => counter.to_s})
+  #      solr_docs << solr_doc
+  #      counter = counter + 1
+  #    end
+  #  end
+  #  
+  #  def batch_commit(batch = 500)
+  #    solr_docs.in_groups_of(batch.to_i).each do |solr_docs_arr|
+  #      solr.add solr_docs_arr.delete_if {|x| x.nil? }
+  #    end   
+  #    solr.commit
+  #  end
+  #end
 end
