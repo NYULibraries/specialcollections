@@ -6,7 +6,7 @@ module SolrEad
     # using the url supplied in your config/solr.yml file.
     def initialize(opts={})
       Solrizer.default_field_mapper = EadMapper.new
-      if defined?(ENV['WEBSOLR_URL'])
+      if ENV['WEBSOLR_URL'].present?
         url = ENV['WEBSOLR_URL']
       elsif defined?(Rails.root)
         url = YAML.load(ERB.new(File.read(File.join(Rails.root,"config","solr.yml"))).result)[Rails.env]['url']
