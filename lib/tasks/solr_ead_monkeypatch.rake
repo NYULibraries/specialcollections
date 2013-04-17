@@ -24,8 +24,8 @@ namespace :solr_ead do
   end
 
   desc "Index a directory recursively of ead files given by DIR=path/to/directory"
-  task :index_dir, [:simple] => :environment do |t, args|
-    args.with_defaults(:simple => true)
+  task :index_dir, [:batch, :simple] => :environment do |t, args|
+    args.with_defaults(:simple => true, :batch => 500)
     raise "Please specify your directory, ex. DIR=path/to/directory" unless ENV['DIR']
     indexer = SolrEad::Indexer.new(:document=>CustomDocument, :simple => eval(args[:simple].to_s))
     print "Indexing tree #{ENV['DIR']}...\n"
@@ -40,11 +40,9 @@ namespace :solr_ead do
         print "Skipping #{repo}/#{File.basename(file)}..."
       end
       print "done.\n"
-      #if (i % args[:batch].to_i == 0) or (i >= Dir.glob(File.join(tree,"*","*")).count)  
-      #end
     end
     print "Committing to solr..."
-    indexer.batch_commit
+    #indexer.batch_commit(args[:batch])
     print "done.\n"
   end
 
