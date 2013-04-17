@@ -42,7 +42,7 @@ namespace :solr_ead do
       print "done.\n"
     end
     print "Committing to solr..."
-    #indexer.batch_commit(args[:batch])
+    indexer.batch_commit(args[:batch])
     print "done.\n"
   end
 

@@ -1,7 +1,7 @@
 # Open up the solr_ead gem class to process ERB in solr.yml
 module SolrEad
   class Indexer
-    attr_accessor :doc_batch_counter, :solr_docs
+    attr_accessor :solr_docs
     # Creates a new instance of SolrEad::Indexer and connects to your solr server
     # using the url supplied in your config/solr.yml file.
     def initialize(opts={})
@@ -13,7 +13,6 @@ module SolrEad
       else
         url = YAML.load(ERB.new(File.read("config/solr.yml")).result)['development']['url']
       end
-      self.doc_batch_counter = 0
       self.solr_docs = []
       # Retry on 503
       self.solr = RSolr.connect(:url => url, :retry_503 => 1, :retry_after_limit => 1)
