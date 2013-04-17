@@ -44,5 +44,5 @@ module SolrEad
   #    end   
   #    solr.commit
   #  end
-  #end
+  end
 end
