@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
   respond_to :html, :json, :csv
-  respond_to :js, :only => [:update]
   # Privileged controller
   before_filter :authenticate_admin
-  # Edit the submitted admin collections based on existing collections in @user's db entry
-  before_filter :update_admin_collections, :only => [:update]
   
   # GET /users
   def index
-    @users = User.search(params[:q]).order(sort_column + " " + sort_direction).page(params[:page]).per(30)
+    @users = User.search(params[:q]).sorted(params[:sort], "lastname ASC").page(params[:page]).per(30)
     
     respond_with(@users)
   end
@@ -18,27 +15,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     respond_with(@user)
-  end
-
-  # PUT /users/1
-  def update
-    # Update user attributes
-    user_attributes = {
-      :findingaids_admin_collections => user_collections,
-      :findingaids_admin => !user_collections.empty?
-    }
-    @user.user_attributes = user_attributes
-    
-    if @user.save 
-      flash[:notice] = t('users.update_success')
-    else
-      flash[:error] = t('users.update_failure')
-    end
-    
-    respond_with(@user) do |format|
-      format.js { render :layout => false }
-      format.html { render action: "show" }
-    end
   end
   
   # DELETE /users/1
@@ -59,11 +35,5 @@ class UsersController < ApplicationController
       format.html { render :index }
     end
   end
-  
-  # Implement sort column for User class
-  def sort_column
-    super "User", "lastname"
-  end
-  helper_method :sort_column
 
 end

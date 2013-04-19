@@ -59,6 +59,7 @@ gem 'jquery-rails', "~> 2.2.1"
 
 gem 'blacklight', '~> 4.2.0'
 #gem "blacklight_highlight", "~> 0.0.3"
+gem 'sorted', '~> 0.4.3'
 
 # For memcached
 gem 'dalli', "~> 2.6.2"

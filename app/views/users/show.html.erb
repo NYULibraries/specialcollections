@@ -14,24 +14,6 @@
   <dt>E-mail:</dt>
   <dd>&nbsp;<%=h @user.email %></dd>
 
-  <!--dt>Admin for:</dt>
-  <dd><% form_for @user, :remote => true  do |f| %>
-
-  <% collection_codes.each do |collection| %>
-    <% if current_user_has_access_to_collection? collection %>
-      <label class="checkbox">
-      <%= f.check_box "findingaids_admin_collections[#{collection}]", 
-        :value => collection, 
-        :checked => (collections_user_can_admin.include? collection), 
-        :disabled => ((current_user.username == @user.username && (!collections_user_can_admin.include? "global")) or (current_user.username == @user.username && collection == "global")) %>
-      <%= collection.underscore.humanize %>
-      </label>
-    <% end -%>
-  <% end -%>
-  <button data-remote="true" type="submit" class="btn">Update</button>
-  <% end %>
-  </dd-->
-
 </dl>
 
 <%= icon_tag :back %>

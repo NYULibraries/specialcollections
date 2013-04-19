@@ -26,13 +26,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :show
   end
-  
-  test "should toggle user admin status" do
-    put :update, :id => users(:invalid_admin1).id, :user => { :findingaids_admin_collections => {"global" => 1} }
-
-    assert assigns(:user)
-    assert assigns(:user).user_attributes[:findingaids_admin], "Admin attr was not toggled"
-  end
 
   test "should destroy user" do
     assert_difference('User.count', -1) do

@@ -5,10 +5,7 @@ module Views
       # Meta tags to include in layout
       def meta
         meta = super
-        meta << tag(:meta, :name => "HandheldFriendly", :content => "True")
-        meta << tag(:meta, 'http-equiv' => "cleartype", :content => "on")
         meta << tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title =>  application_name, :href => opensearch_catalog_path(:format => 'xml', :only_path => false))
-        meta << favicon_link_tag('https://library.nyu.edu/favicon.ico')
         meta << raw(render_head_content)
       end
       
@@ -41,7 +38,6 @@ module Views
         breadcrumbs << link_to_unless_current(application_title, {:controller =>'catalog', :collection => session[:collection]})
         breadcrumbs << link_to('Admin', :controller => 'records') if is_in_admin_view?
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
-        breadcrumbs << link_to_unless_current(collection_name) unless params[:collection].nil?
         return breadcrumbs
       end
       
@@ -82,20 +78,20 @@ module Views
       end
   
       # Generate tabs hash from YAML and decide when certain tabs should be selected
-      def tabs
-        tab_info["views"]["tabs"].collect{|id, values|
-          values["id"] = id
-          if (!values["url"].nil? and request.path.match values["url"] and values["id"] != "all") or 
-              (values["id"] == "all" and (request.path == root_path or request.path == catalog_index_path)) #or
-                (!session[:collection].nil? and session[:collection].match values["url"])
-            values["klass"] = "active"
-          end
-          values["url"] = (values["url"].match(/^root_path/)) ? values["url"] : root_path + values["url"]
-          values["link"] = link_to_with_popover(values["display"], values["url"], values["tip"], "tab")
-          values
-        }
-      end
-      alias all_tabs tabs #Need to alias to override parent alias
+      #def tabs
+      #  tab_info["views"]["tabs"].collect{|id, values|
+      #    values["id"] = id
+      #    if (!values["url"].nil? and request.path.match values["url"] and values["id"] != "all") or 
+      #        (values["id"] == "all" and (request.path == root_path or request.path == catalog_index_path)) #or
+      #          (!session[:collection].nil? and session[:collection].match values["url"])
+      #      values["klass"] = "active"
+      #    end
+      #    values["url"] = (values["url"].match(/^root_path/)) ? values["url"] : root_path + values["url"]
+      #    values["link"] = link_to_with_popover(values["display"], values["url"], values["tip"], "tab")
+      #    values
+      #  }
+      #end
+      #alias all_tabs tabs #Need to alias to override parent alias
       
       # Print default blacklight onload code
       def onload

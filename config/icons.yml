@@ -1,8 +1,0 @@
-# External config to match actions to sprite image names
-sort_desc: "icons-famfamfam-arrow_down"
-sort_asc: "icons-famfamfam-arrow_up"
-info: "icons-famfamfam-information"
-show: "icons-famfamfam-magnifier"
-back: "icons-famfamfam-arrow_undo"
-add: "icons-famfamfam-add"
-edit: "icons-famfamfam-wrench"

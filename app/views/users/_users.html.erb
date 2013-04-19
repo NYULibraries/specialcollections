@@ -27,10 +27,10 @@
 <table class="table table-striped">
   <thead>
     <tr>
-  		<th><%= sortable "username"%></th>
-  		<th class="hidden-phone"><%= sortable "firstname"%></th>
-  		<th class="hidden-phone"><%= sortable "lastname"%></th>
-  		<th class="hidden-phone"><%= sortable "email"%></th>
+  		<th><%= link_to_sorted "Username", :username %></th>
+  		<th class="hidden-phone"><%= link_to_sorted "Firstname", :firstname %></th>
+  		<th class="hidden-phone"><%= link_to_sorted "Lastname", :lastname %></th>
+  		<th class="hidden-phone"><%= link_to_sorted "Email", :email %></th>
   		<th class="hidden-phone">Admin?</th>
   		<th>Options</th>
     </tr>
@@ -38,7 +38,7 @@
   <tbody>
    <% @users.each do |user| %>
    <% h = user.user_attributes %>
-  	<tr class="<%= cycle("even","odd") %>">
+  	<tr>
     	<td><%=h user.username %></td>
     	<td class="hidden-phone"><%=h user.firstname %></td>
     	<td class="hidden-phone"><%=h user.lastname %></td>

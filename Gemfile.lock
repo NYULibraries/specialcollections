@@ -259,6 +259,7 @@ GEM
       om (>= 1.5.0)
       stomp
       xml-simple
+    sorted (0.4.3)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -323,6 +324,7 @@ DEPENDENCIES
   simplecov
   simplecov-rcov
   solr_ead (~> 0.3.4)
+  sorted (~> 0.4.3)
   sunspot_rails (~> 2.0.0)
   sunspot_solr (~> 2.0.0)
   therubyracer (~> 0.11.4)
