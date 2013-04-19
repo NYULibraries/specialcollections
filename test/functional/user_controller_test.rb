@@ -19,6 +19,11 @@ class UsersControllerTest < ActionController::TestCase
     get :index, :search => "admin"
     assert_not_nil assigns(:users)
   end
+  
+  test "search without query term" do
+    @user = User.search(false)
+    assert_instance_of(ActiveRecord::Relation, @user)
+  end
 
   test "should show user" do
     get :show, :id => User.find(:first).id
@@ -33,6 +38,20 @@ class UsersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to users_path
+  end
+  
+  test "should destroy all non admins" do
+    assert_difference('User.count', -2) do
+     get :clear_patron_data
+    end
+    
+    assert_not_nil assigns(:users)
+    assert_template :index
+  end
+  
+  test "should get csv list" do
+    get :index, :format => :csv
+    assert assigns(:users)
   end
    
 end

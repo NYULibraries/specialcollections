@@ -1,0 +1,1379 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><delete><query>ead_id:"adler"</query></delete>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:28 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: ! '<?xml version="1.0" encoding="UTF-8"?><add><doc><field name="ead_title_t">Charles
+        Adler, Jr., Papers</field><field name="ead_title_display">Charles Adler, Jr.,
+        Papers</field><field name="ead_0_title_t">Charles Adler, Jr., Papers</field><field
+        name="ead_0_title_display">Charles Adler, Jr., Papers</field><field name="ead_title_num_t">MC
+        61</field><field name="ead_title_num_display">MC 61</field><field name="ead_0_title_num_t">MC
+        61</field><field name="ead_0_title_num_display">MC 61</field><field name="ead_pubdate_facet">1946/1952</field><field
+        name="ead_pubdate_display">1946/1952</field><field name="ead_0_pubdate_facet">1946/1952</field><field
+        name="ead_0_pubdate_display">1946/1952</field><field name="ead_unitdate_inclusive_unstem_search">1946-1952</field><field
+        name="ead_0_unitdate_inclusive_unstem_search">1946-1952</field><field name="ead_abstract_t">This
+        collection contains the correspondence and patents pertaining to a number
+        of Charles Adler Jr.''s inventions, including aircraft lights, horns, and
+        proximity lights.</field><field name="ead_0_abstract_t">This collection contains
+        the correspondence and patents pertaining to a number of Charles Adler Jr.''s
+        inventions, including aircraft lights, horns, and proximity lights.</field><field
+        name="ead_collection_facet">Charles Adler, Jr., Papers</field><field name="ead_0_collection_facet">Charles
+        Adler, Jr., Papers</field><field name="ead_bioghist_t">Charles Adler Jr. was
+        an inventor and engineer born in 1899 in Baltimore, Maryland. He attended
+        John Hopkins University and briefly joined the army. Later he joined the Maryland
+        and Pennsylvania Railroad developing safety devices. In 1928 he designed the
+        first audible traffic horn. He was granted over 60 patents in his lifetime,
+        10 of which he donated to the government. He was a member of the Maryland
+        State Aviation Commission and the Maryland Traffic Safety Commission.</field><field
+        name="ead_0_bioghist_t">Charles Adler Jr. was an inventor and engineer born
+        in 1899 in Baltimore, Maryland. He attended John Hopkins University and briefly
+        joined the army. Later he joined the Maryland and Pennsylvania Railroad developing
+        safety devices. In 1928 he designed the first audible traffic horn. He was
+        granted over 60 patents in his lifetime, 10 of which he donated to the government.
+        He was a member of the Maryland State Aviation Commission and the Maryland
+        Traffic Safety Commission.</field><field name="ead_bioghist_heading_display">Biographical
+        Note</field><field name="ead_0_bioghist_heading_display">Biographical Note</field><field
+        name="ead_controlaccess_t">United States. Department of the Army. Correspondence
+        Patents</field><field name="ead_0_controlaccess_t">United States. Department
+        of the Army. Correspondence Patents</field><field name="ead_scopecontent_t">This
+        collection is made up of three folders containing the papers related to patents
+        of Charles Adler Jr ranging from 1936 to 1952. There are letters, sketches,
+        as well as patents for aircraft lights, proximity lights, and safety horns.</field><field
+        name="ead_0_scopecontent_t">This collection is made up of three folders containing
+        the papers related to patents of Charles Adler Jr ranging from 1936 to 1952.
+        There are letters, sketches, as well as patents for aircraft lights, proximity
+        lights, and safety horns.</field><field name="ead_scopecontent_heading_display">Scope
+        and Contents</field><field name="ead_0_scopecontent_heading_display">Scope
+        and Contents</field><field name="ead_userestrict_t">Some materials may be
+        restricted. Permission to publish materials must be obtained in writing from
+        the: New York University Archives Elmer Holmes Bobst Library 70 Washington
+        Square South New York, NY 10012 Phone: (212) 998-2641 Fax: (212) 995-4225
+        E-mail: university.archives@library.nyu.edu</field><field name="ead_0_userestrict_t">Some
+        materials may be restricted. Permission to publish materials must be obtained
+        in writing from the: New York University Archives Elmer Holmes Bobst Library
+        70 Washington Square South New York, NY 10012 Phone: (212) 998-2641 Fax: (212)
+        995-4225 E-mail: university.archives@library.nyu.edu</field><field name="ead_userestrict_heading_display">Use
+        Restrictions</field><field name="ead_0_userestrict_heading_display">Use Restrictions</field><field
+        name="ead_unittitle_t">Correspondence and Patents for Aircraft Lights</field><field
+        name="ead_unittitle_t">Patent for Aircraft Horn</field><field name="ead_unittitle_t">Patent
+        for Aircraft Proximity Lights</field><field name="ead_0_unittitle_t">Correspondence
+        and Patents for Aircraft Lights</field><field name="ead_0_unittitle_t">Patent
+        for Aircraft Horn</field><field name="ead_0_unittitle_t">Patent for Aircraft
+        Proximity Lights</field><field name="corpname_facet">New York University Archives</field><field
+        name="corpname_facet">United States. Department of the Army.</field><field
+        name="genreform_facet">Correspondence</field><field name="persname_facet">Adler,
+        Charles, Jr., 1899-1980</field><field name="subject_facet">Patents</field><field
+        name="subject_topic_facet">Patents</field><field name="title_t">Charles Adler,
+        Jr., Papers</field><field name="title_display">Charles Adler, Jr., Papers</field><field
+        name="title_num_t">MC 61</field><field name="title_num_display">MC 61</field><field
+        name="pubdate_facet">1946/1952</field><field name="pubdate_display">1946/1952</field><field
+        name="unitdate_inclusive_unstem_search">1946-1952</field><field name="abstract_t">This
+        collection contains the correspondence and patents pertaining to a number
+        of Charles Adler Jr.''s inventions, including aircraft lights, horns, and
+        proximity lights.</field><field name="collection_facet">Charles Adler, Jr.,
+        Papers</field><field name="bioghist_t">Charles Adler Jr. was an inventor and
+        engineer born in 1899 in Baltimore, Maryland. He attended John Hopkins University
+        and briefly joined the army. Later he joined the Maryland and Pennsylvania
+        Railroad developing safety devices. In 1928 he designed the first audible
+        traffic horn. He was granted over 60 patents in his lifetime, 10 of which
+        he donated to the government. He was a member of the Maryland State Aviation
+        Commission and the Maryland Traffic Safety Commission.</field><field name="bioghist_heading_display">Biographical
+        Note</field><field name="controlaccess_t">United States. Department of the
+        Army. Correspondence Patents</field><field name="scopecontent_t">This collection
+        is made up of three folders containing the papers related to patents of Charles
+        Adler Jr ranging from 1936 to 1952. There are letters, sketches, as well as
+        patents for aircraft lights, proximity lights, and safety horns.</field><field
+        name="scopecontent_heading_display">Scope and Contents</field><field name="userestrict_t">Some
+        materials may be restricted. Permission to publish materials must be obtained
+        in writing from the: New York University Archives Elmer Holmes Bobst Library
+        70 Washington Square South New York, NY 10012 Phone: (212) 998-2641 Fax: (212)
+        995-4225 E-mail: university.archives@library.nyu.edu</field><field name="userestrict_heading_display">Use
+        Restrictions</field><field name="unittitle_t">Correspondence and Patents for
+        Aircraft Lights</field><field name="unittitle_t">Patent for Aircraft Horn</field><field
+        name="unittitle_t">Patent for Aircraft Proximity Lights</field><field name="publisher_t">New
+        York University Archives</field><field name="id">adler</field><field name="ead_id">adler</field><field
+        name="format">Archival Collection</field><field name="heading_display">Guide
+        to the Charles Adler, Jr., Papers (MC 61)</field><field name="publisher_display">New
+        York University Archives</field><field name="repository_s">archives</field><field
+        name="heading_txt">Guide to the Charles Adler, Jr., Papers (MC 61)</field></doc></add>'
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>4}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:28 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><commit/>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:28 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><delete><query>ead_id:"alumnifed"</query></delete>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:28 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: ! '<?xml version="1.0" encoding="UTF-8"?><add><doc><field name="ead_title_t">Records
+        of the Alumni Federation of New York University, Inc.</field><field name="ead_title_display">Records
+        of the Alumni Federation of New York University, Inc.</field><field name="ead_0_title_t">Records
+        of the Alumni Federation of New York University, Inc.</field><field name="ead_0_title_display">Records
+        of the Alumni Federation of New York University, Inc.</field><field name="ead_title_num_t">RG
+        40.7</field><field name="ead_title_num_display">RG 40.7</field><field name="ead_0_title_num_t">RG
+        40.7</field><field name="ead_0_title_num_display">RG 40.7</field><field name="ead_pubdate_facet">1919/1945</field><field
+        name="ead_pubdate_facet">1919/1992</field><field name="ead_pubdate_display">1919/1945</field><field
+        name="ead_pubdate_display">1919/1992</field><field name="ead_0_pubdate_facet">1919/1945</field><field
+        name="ead_0_pubdate_facet">1919/1992</field><field name="ead_0_pubdate_display">1919/1945</field><field
+        name="ead_0_pubdate_display">1919/1992</field><field name="ead_unitdate_bulk_unstem_search">Bulk,
+        1919-1945</field><field name="ead_0_unitdate_bulk_unstem_search">Bulk, 1919-1945</field><field
+        name="ead_unitdate_inclusive_unstem_search">1919-1992</field><field name="ead_0_unitdate_inclusive_unstem_search">1919-1992</field><field
+        name="ead_collection_facet">Records of the Alumni Federation of New York University,
+        Inc.</field><field name="ead_0_collection_facet">Records of the Alumni Federation
+        of New York University, Inc.</field><field name="ead_bioghist_t">The Alumni
+        Federation of New York University was incorporated in 1921. Officially, the
+        Alumni Federation united what had previously been separate alumni groups from
+        the different schools and colleges of the University. Prior to the formation
+        of the Alumni Federation, the General Alumni Association existed but with
+        little or no mandate to coordinate the administration of alumni activities.
+        The Alumni Federation Board of Governors was organized with 21 members from
+        the different alumni groups, with the largest schools contributing the most
+        representatives. By 1940, amendments to the Alumni Federation constitution
+        replaced the Board of Governors with a Board of Directors and increased its
+        membership. Representatives to the Board were chosen based on a “Class” system,
+        where larger associations, in Class A, contributed more representatives and
+        had more power on the Board than Classes B and C.</field><field name="ead_bioghist_t">The
+        Alumni Federation oversaw the involvement of alumni within the University,
+        hosted events and activities, and administered the Alumni Fund. Awards and
+        honors like the Great Teachers Award were given out by the Alumni Federation
+        to individuals for their achievements and contributions to the University.
+        The Alumni Federation also published newsletters and magazines like the Alumnus.</field><field
+        name="ead_bioghist_t">In the 1980s, the relationship of the Alumni Federation
+        and the University became strained. The University desired to have more control
+        over the Federation’s fundraising efforts, especially in engaging with younger
+        alumni and connecting with alumni outside of the New York metropolitan area.
+        The University requested, after a special review, that the Alumni Federation
+        staff director report to the President of the University in addition to the
+        Federation''s Board of Directors. This request was made to justify the $2.7
+        million in annual assistance the University gave the Federation. In January
+        of 1985, the Alumni Federation decided to become an operationally independent
+        organization and by that autumn, it was no longer recognized and its activities
+        no longer endorsed by the University.</field><field name="ead_bioghist_t">By
+        1995, the Alumni Federation had been significantly restructured and was mainly
+        administered by alumni from the 1940s, 1950s, and 1960s. The last Board of
+        Directors minutes in the collection date from June 22, 1995.</field><field
+        name="ead_0_bioghist_t">The Alumni Federation of New York University was incorporated
+        in 1921. Officially, the Alumni Federation united what had previously been
+        separate alumni groups from the different schools and colleges of the University.
+        Prior to the formation of the Alumni Federation, the General Alumni Association
+        existed but with little or no mandate to coordinate the administration of
+        alumni activities. The Alumni Federation Board of Governors was organized
+        with 21 members from the different alumni groups, with the largest schools
+        contributing the most representatives. By 1940, amendments to the Alumni Federation
+        constitution replaced the Board of Governors with a Board of Directors and
+        increased its membership. Representatives to the Board were chosen based on
+        a “Class” system, where larger associations, in Class A, contributed more
+        representatives and had more power on the Board than Classes B and C.</field><field
+        name="ead_0_bioghist_t">The Alumni Federation oversaw the involvement of alumni
+        within the University, hosted events and activities, and administered the
+        Alumni Fund. Awards and honors like the Great Teachers Award were given out
+        by the Alumni Federation to individuals for their achievements and contributions
+        to the University. The Alumni Federation also published newsletters and magazines
+        like the Alumnus.</field><field name="ead_0_bioghist_t">In the 1980s, the
+        relationship of the Alumni Federation and the University became strained.
+        The University desired to have more control over the Federation’s fundraising
+        efforts, especially in engaging with younger alumni and connecting with alumni
+        outside of the New York metropolitan area. The University requested, after
+        a special review, that the Alumni Federation staff director report to the
+        President of the University in addition to the Federation''s Board of Directors.
+        This request was made to justify the $2.7 million in annual assistance the
+        University gave the Federation. In January of 1985, the Alumni Federation
+        decided to become an operationally independent organization and by that autumn,
+        it was no longer recognized and its activities no longer endorsed by the University.</field><field
+        name="ead_0_bioghist_t">By 1995, the Alumni Federation had been significantly
+        restructured and was mainly administered by alumni from the 1940s, 1950s,
+        and 1960s. The last Board of Directors minutes in the collection date from
+        June 22, 1995.</field><field name="ead_bioghist_heading_display">Historical
+        Note</field><field name="ead_0_bioghist_heading_display">Historical Note</field><field
+        name="ead_custodhist_t">Materials were transferred to the University Archives
+        in multiple accessions in 1995 and 1996.</field><field name="ead_0_custodhist_t">Materials
+        were transferred to the University Archives in multiple accessions in 1995
+        and 1996.</field><field name="ead_custodhist_heading_display">Custodial History</field><field
+        name="ead_0_custodhist_heading_display">Custodial History</field><field name="ead_controlaccess_t">Badger,
+        Philip Briesen, Fritz Broderick, Joseph Brown, Elmer Ellsworth, 1861-1934
+        Chase, Harry Woodburn, 1883-1955 Clyne, James F. Draper, A. S., (Andrew Sloan),
+        1848-1913 Fernald, Henry D., (Henry Barker), 1878-1967 Garvin, Edwin L. Hendershot,
+        W. Raymond Irwin, John V. Jones, Theodore Francis, 1885- Kent, Fred I., 1869-1954
+        Kimball, LeRoy Ellwood, b. 1888 Kingsley, William Makay, Alexander F. New
+        York University. Alumni Association. New York University. College of Arts
+        and Science. Colleges of Arts and Engineering Alumni Association. New York
+        University. College of Dentistry. Alumni Association. New York University.
+        College of Engineering. Colleges of Arts and Engineering Alumni Association.
+        New York University. College of Medicine. Alumni Association. New York University.
+        Graduate School of Business Administration. Alumni Association. New York University.
+        School of Commerce, Accounts, and Finance. Alumni Association. New York University.
+        School of Education. Alumni Association. New York University. School of Law.
+        Alumni Association. New York University. Society for the Libraries of New
+        York University. New York University. Washington Square College of Arts and
+        Science. Onderdonk, Charles D. Patterson, William Morehouse Roberts, Vincent
+        Ross, Benjamin A. Saunders, Richard P. Sommer, Frank H., b. 1872 Tompkins,
+        Leslie J., (Leslie Jay), b. 1867 Voorhis, Harold O. Washburn, Earle L.</field><field
+        name="ead_0_controlaccess_t">Badger, Philip Briesen, Fritz Broderick, Joseph
+        Brown, Elmer Ellsworth, 1861-1934 Chase, Harry Woodburn, 1883-1955 Clyne,
+        James F. Draper, A. S., (Andrew Sloan), 1848-1913 Fernald, Henry D., (Henry
+        Barker), 1878-1967 Garvin, Edwin L. Hendershot, W. Raymond Irwin, John V.
+        Jones, Theodore Francis, 1885- Kent, Fred I., 1869-1954 Kimball, LeRoy Ellwood,
+        b. 1888 Kingsley, William Makay, Alexander F. New York University. Alumni
+        Association. New York University. College of Arts and Science. Colleges of
+        Arts and Engineering Alumni Association. New York University. College of Dentistry.
+        Alumni Association. New York University. College of Engineering. Colleges
+        of Arts and Engineering Alumni Association. New York University. College of
+        Medicine. Alumni Association. New York University. Graduate School of Business
+        Administration. Alumni Association. New York University. School of Commerce,
+        Accounts, and Finance. Alumni Association. New York University. School of
+        Education. Alumni Association. New York University. School of Law. Alumni
+        Association. New York University. Society for the Libraries of New York University.
+        New York University. Washington Square College of Arts and Science. Onderdonk,
+        Charles D. Patterson, William Morehouse Roberts, Vincent Ross, Benjamin A.
+        Saunders, Richard P. Sommer, Frank H., b. 1872 Tompkins, Leslie J., (Leslie
+        Jay), b. 1867 Voorhis, Harold O. Washburn, Earle L.</field><field name="ead_scopecontent_t">This
+        collection contains 12.1 linear feet of materials in 10 boxes. The materials
+        date from 1919 to 1995, but the bulk of the collection dates from 1919 to
+        1940. Records include meeting minutes, correspondence, budgets, and materials
+        related to special events and alumni relations. The bulk of the materials
+        comes from the office of the Alumni Federation Secretary Benjamin A. Ross.</field><field
+        name="ead_0_scopecontent_t">This collection contains 12.1 linear feet of materials
+        in 10 boxes. The materials date from 1919 to 1995, but the bulk of the collection
+        dates from 1919 to 1940. Records include meeting minutes, correspondence,
+        budgets, and materials related to special events and alumni relations. The
+        bulk of the materials comes from the office of the Alumni Federation Secretary
+        Benjamin A. Ross.</field><field name="ead_scopecontent_heading_display">Scope
+        and Contents</field><field name="ead_0_scopecontent_heading_display">Scope
+        and Contents</field><field name="ead_userestrict_t">Permission to publish
+        materials must be obtained in writing from the:</field><field name="ead_userestrict_t">New
+        York University Archives Elmer Holmes Bobst Library 70 Washington Square South
+        New York, NY 10012 Phone: (212) 998-2646 Fax: (212) 995-4225 E-mail: university.archives@library.nyu.edu</field><field
+        name="ead_0_userestrict_t">Permission to publish materials must be obtained
+        in writing from the:</field><field name="ead_0_userestrict_t">New York University
+        Archives Elmer Holmes Bobst Library 70 Washington Square South New York, NY
+        10012 Phone: (212) 998-2646 Fax: (212) 995-4225 E-mail: university.archives@library.nyu.edu</field><field
+        name="ead_userestrict_heading_display">Use Restrictions</field><field name="ead_0_userestrict_heading_display">Use
+        Restrictions</field><field name="ead_unittitle_t">NYU Alumni Association Annual
+        Report</field><field name="ead_unittitle_t">NYU Alumni Federation Rules of
+        Procedure, Articles of Federation</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Certification of Incorporation</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Certification of Incorporation Amendments</field><field
+        name="ead_unittitle_t">NYU Alumni Federation Increase in Number of Directors
+        and Amended Incorporation, Bylaws, and Rules</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes &amp; Reports</field><field
+        name="ead_unittitle_t">NYU Alumni Federation Board of Directors, Minutes &amp;
+        Reports</field><field name="ead_unittitle_t">NYU Alumni Federation Board of
+        Directors, Minutes &amp; Reports</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes &amp; Reports</field><field
+        name="ead_unittitle_t">NYU Alumni Federation Board of Directors, Minutes</field><field
+        name="ead_unittitle_t">NYU Alumni Federation Board of Directors Special Accounting
+        Committee</field><field name="ead_unittitle_t">NYU Alumni Federation Board
+        of Directors, Minutes</field><field name="ead_unittitle_t">NYU Alumni Federation
+        Board of Directors and Members, Minutes</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors (1 of 2)</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors (2 of 2)</field><field name="ead_unittitle_t">Alumni
+        Federation Past Presidents 1921-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Board of Directors 1984-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Directors - Class A 1984-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Directors - Class B 1984-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Directors - Class C 1984-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Directors - Class D 1984-1985</field><field name="ead_unittitle_t">NYU
+        Alumni Federation Committees 1984-1985</field><field name="ead_unittitle_t">Medallion
+        Alumni Society 1984-1985</field><field name="ead_unittitle_t">Meritorious
+        Service Awards Committee 1984-1985</field><field name="ead_unittitle_t">Presidents
+        of the Alumni Association 1984-1985</field><field name="ead_unittitle_t">Recipients
+        of Director Emeritus Award 1966-1984</field><field name="ead_unittitle_t">NYU
+        Alumni Associations and Clubs, Officers and Directors 1984-1985</field><field
+        name="ead_unittitle_t">Alumni Federation "Transition"</field><field name="ead_unittitle_t">Alumni
+        Federation Budget</field><field name="ead_unittitle_t">NYU Alumni Federation
+        Officers and Directories 1990-1992</field><field name="ead_unittitle_t">Alumni
+        Directory Survey</field><field name="ead_unittitle_t">NYU Alumni Fund</field><field
+        name="ead_unittitle_t">NYU Alumni Fund</field><field name="ead_unittitle_t">NYU
+        Alumni Fund</field><field name="ead_unittitle_t">Alumni Scholarships</field><field
+        name="ead_unittitle_t">Alumni Service Corporation</field><field name="ead_unittitle_t">Alumni
+        Service Corporation Incorporation Documents</field><field name="ead_unittitle_t">Alumnus
+        Magazine - American Alumni Council "Continued Education" Series</field><field
+        name="ead_unittitle_t">Alumnus Magazine</field><field name="ead_unittitle_t">Alumnus
+        Magazine Advertisers</field><field name="ead_unittitle_t">The American University
+        Club of New York, Inc.</field><field name="ead_unittitle_t">Auditors'' Reports</field><field
+        name="ead_unittitle_t">The Cayuga Press Correspondence</field><field name="ead_unittitle_t">The
+        Cayuga Press</field><field name="ead_unittitle_t">The Cayuga Press</field><field
+        name="ead_unittitle_t">Graduate Group, Inc. (1 of 2)</field><field name="ead_unittitle_t">Graduate
+        Group, Inc. (2 of 2)</field><field name="ead_unittitle_t">Graduate Group,
+        Inc.</field><field name="ead_unittitle_t">Graduate Group, Inc.</field><field
+        name="ead_unittitle_t">Graduate Group, Inc.</field><field name="ead_unittitle_t">"Grid-graph"
+        Materials</field><field name="ead_unittitle_t">Loomis, Suffern, and Fernald
+        Accountants</field><field name="ead_unittitle_t">Medallic Art Company</field><field
+        name="ead_unittitle_t">Motion Picture Committee</field><field name="ead_unittitle_t">New
+        York University</field><field name="ead_unittitle_t">Post Master</field><field
+        name="ead_unittitle_t">Society for the Libraries of New York University</field><field
+        name="ead_unittitle_t">Alumni Day Mailings</field><field name="ead_unittitle_t">Carnival
+        Dinner, NYU Alumni Federation, October 16th, 1926</field><field name="ead_unittitle_t">NYU
+        Centennial All-Alumni Dinner, March 1st, 1932</field><field name="ead_unittitle_t">Centennial
+        Commencement</field><field name="ead_unittitle_t">Chancellor Brown Testimonial
+        Dinner, May 3rd, 1933</field><field name="ead_unittitle_t">Chancellor Chase
+        Welcome Dinner, October 31st, 1933</field><field name="ead_unittitle_t">L.
+        Jay Oliva Inaugural Reception, Novembr 19, 1991</field><field name="ead_unittitle_t">NYU
+        Alumni Authors and their Publications</field><field name="ead_unittitle_t">Alumni
+        Associations'' Awards 1951-1982</field><field name="ead_unittitle_t">Honorary
+        Degrees 1850-1984</field><field name="ead_unittitle_t">Alumni Meritorious
+        Service Award Recipients through 1988</field><field name="ead_unittitle_t">Gallatin
+        Associates Medal 1957-1988</field><field name="ead_unittitle_t">New York University
+        Medal 1956-1981</field><field name="ead_unittitle_t">Presidential Citation
+        1957-1982</field><field name="ead_unittitle_t">Alumni Fund 1927-1928</field><field
+        name="ead_unittitle_t">Commencement Attenance Totals 1933-1980</field><field
+        name="ead_unittitle_t">NYU Club Officers 1956-1982</field><field name="ead_unittitle_t">Alumni
+        Trophy Selectors 1959-1968</field><field name="ead_unittitle_t">Bobst Awards
+        in Arts and Letters 1982 and 1983</field><field name="ead_unittitle_t">Great
+        Teachers Award Program Administrative Files</field><field name="ead_unittitle_t">Great
+        Teachers by Year/School from 1959 to 1991</field><field name="ead_unittitle_t">Great
+        Teachers 1978</field><field name="ead_unittitle_t">Great Teachers 1979</field><field
+        name="ead_unittitle_t">Great Teachers 1980</field><field name="ead_unittitle_t">Great
+        Teachers 1981</field><field name="ead_unittitle_t">Great Teachers 1982</field><field
+        name="ead_unittitle_t">Great Teachers 1983</field><field name="ead_unittitle_t">Great
+        Teachers 1984</field><field name="ead_unittitle_t">Great Teachers 1985</field><field
+        name="ead_unittitle_t">Great Teachers 1986</field><field name="ead_unittitle_t">Great
+        Teachers 1987</field><field name="ead_unittitle_t">NYU Men in Advertising
+        Club</field><field name="ead_unittitle_t">NYU Men in Finance Club</field><field
+        name="ead_unittitle_t">Graduate School of Business Administration Alumni Association</field><field
+        name="ead_unittitle_t">Institute of Business (1 of 2)</field><field name="ead_unittitle_t">Institute
+        of Business (2 of 2)</field><field name="ead_unittitle_t">Institute of Business</field><field
+        name="ead_unittitle_t">Proceedings of the First and Second Annual Meetings
+        of the Institute of Business</field><field name="ead_unittitle_t">Proceedings
+        for the Third Annual Meeting of the Institute of Business</field><field name="ead_unittitle_t">Addresses
+        from the Institute of Business Meeting on Distribution</field><field name="ead_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (1 of 3)</field><field name="ead_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (2 of 3)</field><field name="ead_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (3 of 3)</field><field name="ead_unittitle_t">3rd
+        Annual Federation Finance Forum - Oct. 31, 1987</field><field name="ead_unittitle_t">Colleges
+        of Arts and Engineering Alumni Association</field><field name="ead_unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="ead_unittitle_t">Loose
+        papers - Arts and Engineering</field><field name="ead_unittitle_t">Arts and
+        Engineering</field><field name="ead_unittitle_t">1890 Arts and Engineering</field><field
+        name="ead_unittitle_t">1893 Arts and Engineering</field><field name="ead_unittitle_t">1894
+        Arts and Engineering</field><field name="ead_unittitle_t">1900 Arts and Engineering</field><field
+        name="ead_unittitle_t">1904 Arts and Engineering</field><field name="ead_unittitle_t">1905
+        Arts and Engineering</field><field name="ead_unittitle_t">1906-1915 Arts and
+        Engineering</field><field name="ead_unittitle_t">1917-1928 Arts and Engineering</field><field
+        name="ead_unittitle_t">1929 Arts and Engineering</field><field name="ead_unittitle_t">1930
+        Arts and Engineering</field><field name="ead_unittitle_t">1931 Arts and Engineering</field><field
+        name="ead_unittitle_t">1932 Arts and Engineering</field><field name="ead_unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="ead_unittitle_t">Arts
+        and Engineering Midwinter Reunion 1934</field><field name="ead_unittitle_t">Arts
+        and Engineering Spring Alumni Day - June 2, 1934</field><field name="ead_unittitle_t">Arts
+        and Engineering Spring Alumni Day - June 8, 1935</field><field name="ead_unittitle_t">Arts
+        and Engineering Dinner - Feb. 11, 1935</field><field name="ead_unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="ead_unittitle_t">Arts
+        and Engineering Spring Alumni Day - May 16, 1936</field><field name="ead_unittitle_t">Arts
+        and Engineering Dinner - Feb. 20, 1936</field><field name="ead_unittitle_t">Arts
+        and Engineering Activities</field><field name="ead_unittitle_t">Arts and Engineering
+        Dinner - Feb. 24, 1938</field><field name="ead_unittitle_t">Arts and Engineering
+        Dinner - March 2, 1939 (1 of 2)</field><field name="ead_unittitle_t">Arts
+        and Engineering Dinner - March 2, 1939 (2 of 2)</field><field name="ead_unittitle_t">Engineers
+        Club</field><field name="ead_unittitle_t">School of Commerce Alumni Association</field><field
+        name="ead_unittitle_t">School of Commerce Classes ''02, ''03, ''05 through
+        ''12</field><field name="ead_unittitle_t">School of Commerce Classes ''14,
+        ''15, ''16</field><field name="ead_unittitle_t">School of Commerce Classes
+        ''17</field><field name="ead_unittitle_t">School of Commerce, Accounts, and
+        Finance Alumni Association Dinners and Minutes</field><field name="ead_unittitle_t">School
+        of Commerce Alumni Association</field><field name="ead_unittitle_t">School
+        of Commerce Classes ''18, ''19, ''20</field><field name="ead_unittitle_t">School
+        of Commerce Class of ''21</field><field name="ead_unittitle_t">School of Commerce
+        Class of ''22, ''23</field><field name="ead_unittitle_t">School of Commerce
+        Class of ''24</field><field name="ead_unittitle_t">School of Commerce Class
+        of ''25</field><field name="ead_unittitle_t">School of Commerce Class of ''27
+        Dinner and Silver Jubilee</field><field name="ead_unittitle_t">School of Commerce
+        Class of ''28</field><field name="ead_unittitle_t">School of Commerce Class
+        of ''29</field><field name="ead_unittitle_t">1929 School of Commerce Alumni
+        Association Dinner</field><field name="ead_unittitle_t">1930 School of Commerce
+        "Senior Hop"</field><field name="ead_unittitle_t">School of Commerce Alumni
+        Dinner May 2, 1935</field><field name="ead_unittitle_t">School of Commerce
+        Reunion Dinner May 7, 1936</field><field name="ead_unittitle_t">School of
+        Commerce Class of ''13</field><field name="ead_unittitle_t">School of Commerce
+        Alumni Activities</field><field name="ead_unittitle_t">School of Commerce
+        Activities</field><field name="ead_unittitle_t">Dental School Class of ''05</field><field
+        name="ead_unittitle_t">Dental School Classes of ''14 to ''19</field><field
+        name="ead_unittitle_t">Dental School Alumni Activities</field><field name="ead_unittitle_t">Dental
+        School Clinic and Dinner 1929</field><field name="ead_unittitle_t">Dental
+        School Alumni Days 1929</field><field name="ead_unittitle_t">Dental School
+        Clinic and Dinner 1930</field><field name="ead_unittitle_t">Dental School
+        1931 Meeting</field><field name="ead_unittitle_t">Dental School Dinner and
+        Alumni Day 1931</field><field name="ead_unittitle_t">Dental School Alumni
+        Dinner 1933</field><field name="ead_unittitle_t">Dental School Alumni Days
+        1933</field><field name="ead_unittitle_t">Dental School Post-Graduate Courses</field><field
+        name="ead_unittitle_t">Dental College Alumni Association</field><field name="ead_unittitle_t">Dental
+        College Alumni Association</field><field name="ead_unittitle_t">Dental College
+        Alumni Association</field><field name="ead_unittitle_t">Dental College Alumni
+        Association</field><field name="ead_unittitle_t">Dental College Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_unittitle_t">Doctors of Philosophy Club</field><field name="ead_unittitle_t">Doctors
+        of Philosophy, Graduate School Alumni Association</field><field name="ead_unittitle_t">Doctors
+        of Philosophy Club, Graduate School Alumni Association</field><field name="ead_unittitle_t">Law
+        School Class of 1893</field><field name="ead_unittitle_t">Law School Class
+        of 1894</field><field name="ead_unittitle_t">Law School Class of 1897</field><field
+        name="ead_unittitle_t">Law School Class of 1898</field><field name="ead_unittitle_t">Law
+        School Class of 1899</field><field name="ead_unittitle_t">Law School Class
+        of 1900</field><field name="ead_unittitle_t">Law School Class of 1902</field><field
+        name="ead_unittitle_t">Law School Class of 1905</field><field name="ead_unittitle_t">Law
+        School Class of 1909</field><field name="ead_unittitle_t">Law School Class
+        of 1910</field><field name="ead_unittitle_t">Law School Class of 1914 to 1917</field><field
+        name="ead_unittitle_t">Law School Class of 1918</field><field name="ead_unittitle_t">Law
+        School Class of 1919</field><field name="ead_unittitle_t">Law School Class
+        of 1920</field><field name="ead_unittitle_t">Law School Class of 1921</field><field
+        name="ead_unittitle_t">Law School Class of 1922</field><field name="ead_unittitle_t">Law
+        School Class of 1923</field><field name="ead_unittitle_t">Law School Class
+        of 1924</field><field name="ead_unittitle_t">Law School Class of 1925</field><field
+        name="ead_unittitle_t">Law School Class of 1926</field><field name="ead_unittitle_t">Law
+        School Alumni Association Annual Dinners 1912-1927</field><field name="ead_unittitle_t">Law
+        School Alumni Association Dinners 1928-1929</field><field name="ead_unittitle_t">Law
+        School Alumni Association Dinners 1931-1936</field><field name="ead_unittitle_t">Law
+        School Conference on Debt Relief Laws</field><field name="ead_unittitle_t">Law
+        Dinner, March 16, 1937, Waldorf Astoria Hotel (1 of 2)</field><field name="ead_unittitle_t">Law
+        Dinner, March 16, 1937, Waldorf Astoria Hotel (2 of 2)</field><field name="ead_unittitle_t">Law
+        Dinner, March 9, 1938</field><field name="ead_unittitle_t">Law School Activities</field><field
+        name="ead_unittitle_t">Law School Activities</field><field name="ead_unittitle_t">Law
+        Dinner, May 10, 1939 (postponed)</field><field name="ead_unittitle_t">Law
+        Alumni Arbitration Luncheon, February 23, 1938</field><field name="ead_unittitle_t">Medical
+        College Alumni Association</field><field name="ead_unittitle_t">Medical College
+        Association Activities</field><field name="ead_unittitle_t">Medical College
+        Association Activities</field><field name="ead_unittitle_t">Medical Alumni
+        Notices</field><field name="ead_unittitle_t">Medical College Association Activities</field><field
+        name="ead_unittitle_t">Medical College Association Activities</field><field
+        name="ead_unittitle_t">School of Retailing Alumni Activities</field><field
+        name="ead_unittitle_t">Retailing Class of 1926</field><field name="ead_unittitle_t">Veterinary
+        College Alumni Association</field><field name="ead_unittitle_t">Veterinary
+        College Alumni Activities</field><field name="ead_unittitle_t">Veterinary
+        Dinner-Dance, May 7, 1931</field><field name="ead_unittitle_t">Washington
+        Square College Class of 1919</field><field name="ead_unittitle_t">Washington
+        Square College Class of 1920</field><field name="ead_unittitle_t">Washington
+        Square College Class of 1921</field><field name="ead_unittitle_t">Washington
+        Square College Class of 1922, 1923, and 1924</field><field name="ead_unittitle_t">Washington
+        Square College Class of 1926, 1927, and 1928</field><field name="ead_unittitle_t">Washington
+        Square College Alumni Activities</field><field name="ead_unittitle_t">Washington
+        Square College Alumni Activities</field><field name="ead_unittitle_t">NYU
+        Letter Club</field><field name="ead_unittitle_t">NYU Letter Club</field><field
+        name="ead_unittitle_t">NYU Letter Club Activities</field><field name="ead_unittitle_t">NYU
+        Letter Club Basketball Dinner</field><field name="ead_unittitle_t">Carnegie
+        Tech Football Game</field><field name="ead_unittitle_t">Carnegie Tech Football
+        Game (1 of 2)</field><field name="ead_unittitle_t">Carnegie Tech Football
+        Game (2 of 2)</field><field name="ead_unittitle_t">Alumni Activities - Football</field><field
+        name="ead_unittitle_t">Football Coaches Dinner NYAC, April 19, 1934</field><field
+        name="ead_unittitle_t">Football Dinner</field><field name="ead_unittitle_t">NYU
+        Letter Club Activities</field><field name="ead_unittitle_t">Nebraska - NYU
+        Football Game Trip</field><field name="ead_unittitle_t">Alumni Activities
+        - Bermuda Cruise</field><field name="ead_unittitle_t">New York University
+        Centennial Fund</field><field name="ead_unittitle_t">Chancellor''s Alumni
+        Meeting, May 22, 1934</field><field name="ead_unittitle_t">New York University
+        Community Relations</field><field name="ead_unittitle_t">Chancellor''s Committee
+        on Alumni Opinion</field><field name="ead_unittitle_t">New York Conference
+        of Universities</field><field name="ead_unittitle_t">Purchase of Original
+        NYU Diploma</field><field name="ead_unittitle_t">Ohio State - NYU Football
+        Game and Trip, October 3, 1936</field><field name="ead_unittitle_t">NYU Tennis
+        Club 1900-1927</field><field name="ead_unittitle_t">Newman Club</field><field
+        name="ead_unittitle_t">Alumni Occupational Lists</field><field name="ead_unittitle_t">Lawrence
+        House Student Union, YMCA</field><field name="ead_unittitle_t">Bureau of Employment</field><field
+        name="ead_unittitle_t">New York Alumni Club of Delta Sigma Pi</field><field
+        name="ead_unittitle_t">New York Alumni Club of Delta Sigma Pi</field><field
+        name="ead_unittitle_t">Alpha Kappa Psi Fraternity</field><field name="ead_unittitle_t">Phi
+        Gamma Delta Stationery</field><field name="ead_unittitle_t">Phi Gamma Delta
+        - General</field><field name="ead_unittitle_t">Phi Gamma Delta - General</field><field
+        name="ead_unittitle_t">Phi Gamma Delta Directories</field><field name="ead_unittitle_t">Phi
+        Gamma Delta Association Records and Correspondence</field><field name="ead_unittitle_t">Phi
+        Gamma Delta Audit</field><field name="ead_unittitle_t">George Kastener Correspondence
+        and Addresses/Paper Clippings (Secretary)</field><field name="ead_unittitle_t">Charles
+        D. Haughey Correspondence (Treasurer)</field><field name="ead_unittitle_t">"Hall
+        of Fame Fiji": Nu Epsilon Chapter of Phi Gamma Delta</field><field name="ead_unittitle_t">Phi
+        Gamma Delta 50th Anniversary</field><field name="ead_unittitle_t">Phi Gamma
+        Delta Activities</field><field name="ead_unittitle_t">Phi Gamma Delta National
+        Office (1 of 2)</field><field name="ead_unittitle_t">Phi Gamma Delta National
+        Office (2 of 2)</field><field name="ead_unittitle_t">Phi Gamma Delta Chapter
+        Materials</field><field name="ead_unittitle_t">Phi Gamma Delta General Correspondence</field><field
+        name="ead_unittitle_t">2274 Loring Place, Morrison and Lynn Attorneys</field><field
+        name="ead_unittitle_t">2274 Loring Place, Fire Insurance</field><field name="ead_unittitle_t">Phi
+        Gamma Delta Alumni Bartley to Loughran</field><field name="ead_unittitle_t">Phi
+        Gamma Delta Alumni Mautel to Young</field><field name="ead_unittitle_t">Oversized
+        Materials and Ephemera</field><field name="ead_unittitle_t">Alexander F. Makay
+        &amp; Company</field><field name="ead_unittitle_t">Barr, Jean B., Supervisor
+        of Printing</field><field name="ead_unittitle_t">Badger, Phillip O., Professor
+        of Marketing</field><field name="ead_unittitle_t">Briesen, Fritz, Law ''97</field><field
+        name="ead_unittitle_t">Broderick, Joseph, Commerce ''06</field><field name="ead_unittitle_t">Brown,
+        Samuel A., Medicine ''94</field><field name="ead_unittitle_t">Chase, Harry
+        Woodburn, Chancellor</field><field name="ead_unittitle_t">Clyne, James F.,
+        Editor "New York University Alumnus" (1 of 3)</field><field name="ead_unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (2 of 3)</field><field name="ead_unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (3 of 3)</field><field name="ead_unittitle_t">Draper,
+        Arthur S., Engineering ''05</field><field name="ead_unittitle_t">Draper, Arthur
+        S., Engineering ''05</field><field name="ead_unittitle_t">Fernald, Henry B.,
+        Arts ''01</field><field name="ead_unittitle_t">General</field><field name="ead_unittitle_t">Garvin,
+        Edwin L., Arts ''97 and Law ''99</field><field name="ead_unittitle_t">Hendershot,
+        W. Raymond, Commerce ''20</field><field name="ead_unittitle_t">Irwin, John
+        V., Arts ''94 and Law ''99</field><field name="ead_unittitle_t">Irwin, John
+        V., Arts ''94 and Law ''99</field><field name="ead_unittitle_t">Jones, Theodore
+        F., Director of Heights Library and Professor of History</field><field name="ead_unittitle_t">Kent,
+        Fred I., University Council</field><field name="ead_unittitle_t">Kimball,
+        Leroy E., Comptroller</field><field name="ead_unittitle_t">Kingsley, William
+        M., Arts ''84</field><field name="ead_unittitle_t">Larsen, George, Arts ''06</field><field
+        name="ead_unittitle_t">Makay, Alexander F., Commerce ''09 (1 of 2)</field><field
+        name="ead_unittitle_t">Makay, Alexander F., Commerce ''09 (2 of 2)</field><field
+        name="ead_unittitle_t">Makay, Alexander F., Commerce ''09</field><field name="ead_unittitle_t">Onderdonk,
+        Charles D., Office Manager</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (1 of 2)</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (2 of 2)</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (1 of 2)</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (2 of 2)</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (1 of 2)</field><field name="ead_unittitle_t">Patterson,
+        William M., Law ''93 (2 of 2)</field><field name="ead_unittitle_t">Roberts,
+        Vincent</field><field name="ead_unittitle_t">Roberts, Vincent</field><field
+        name="ead_unittitle_t">Ross, Benjamin A., Alumni Federation Secretary (1 of
+        2)</field><field name="ead_unittitle_t">Ross, Banjamin A., Alumni Federation
+        Secretary (2 of 2)</field><field name="ead_unittitle_t">Saunders, Richard
+        P.</field><field name="ead_unittitle_t">Sommer, Frank H., Dean of Law School</field><field
+        name="ead_unittitle_t">Tompkins, Leslie J., Law ''92</field><field name="ead_unittitle_t">Voorhis,
+        Harold O., NYU Secretary (1 of 2)</field><field name="ead_unittitle_t">Voorhis,
+        Harold O., NYU Secretary (2 of 2)</field><field name="ead_unittitle_t">Voorhis,
+        Harold O., NYU Secretary</field><field name="ead_unittitle_t">Washburn, Earle
+        L., NYU Auditor</field><field name="ead_0_unittitle_t">NYU Alumni Association
+        Annual Report</field><field name="ead_0_unittitle_t">NYU Alumni Federation
+        Rules of Procedure, Articles of Federation</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Certification of Incorporation</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Certification of Incorporation Amendments</field><field
+        name="ead_0_unittitle_t">NYU Alumni Federation Increase in Number of Directors
+        and Amended Incorporation, Bylaws, and Rules</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes &amp; Reports</field><field
+        name="ead_0_unittitle_t">NYU Alumni Federation Board of Directors, Minutes
+        &amp; Reports</field><field name="ead_0_unittitle_t">NYU Alumni Federation
+        Board of Directors, Minutes &amp; Reports</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes &amp; Reports</field><field
+        name="ead_0_unittitle_t">NYU Alumni Federation Board of Directors, Minutes</field><field
+        name="ead_0_unittitle_t">NYU Alumni Federation Board of Directors Special
+        Accounting Committee</field><field name="ead_0_unittitle_t">NYU Alumni Federation
+        Board of Directors, Minutes</field><field name="ead_0_unittitle_t">NYU Alumni
+        Federation Board of Directors and Members, Minutes</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors and Members, Minutes</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors (1 of 2)</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors (2 of 2)</field><field name="ead_0_unittitle_t">Alumni
+        Federation Past Presidents 1921-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Board of Directors 1984-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Directors - Class A 1984-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Directors - Class B 1984-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Directors - Class C 1984-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Directors - Class D 1984-1985</field><field name="ead_0_unittitle_t">NYU
+        Alumni Federation Committees 1984-1985</field><field name="ead_0_unittitle_t">Medallion
+        Alumni Society 1984-1985</field><field name="ead_0_unittitle_t">Meritorious
+        Service Awards Committee 1984-1985</field><field name="ead_0_unittitle_t">Presidents
+        of the Alumni Association 1984-1985</field><field name="ead_0_unittitle_t">Recipients
+        of Director Emeritus Award 1966-1984</field><field name="ead_0_unittitle_t">NYU
+        Alumni Associations and Clubs, Officers and Directors 1984-1985</field><field
+        name="ead_0_unittitle_t">Alumni Federation "Transition"</field><field name="ead_0_unittitle_t">Alumni
+        Federation Budget</field><field name="ead_0_unittitle_t">NYU Alumni Federation
+        Officers and Directories 1990-1992</field><field name="ead_0_unittitle_t">Alumni
+        Directory Survey</field><field name="ead_0_unittitle_t">NYU Alumni Fund</field><field
+        name="ead_0_unittitle_t">NYU Alumni Fund</field><field name="ead_0_unittitle_t">NYU
+        Alumni Fund</field><field name="ead_0_unittitle_t">Alumni Scholarships</field><field
+        name="ead_0_unittitle_t">Alumni Service Corporation</field><field name="ead_0_unittitle_t">Alumni
+        Service Corporation Incorporation Documents</field><field name="ead_0_unittitle_t">Alumnus
+        Magazine - American Alumni Council "Continued Education" Series</field><field
+        name="ead_0_unittitle_t">Alumnus Magazine</field><field name="ead_0_unittitle_t">Alumnus
+        Magazine Advertisers</field><field name="ead_0_unittitle_t">The American University
+        Club of New York, Inc.</field><field name="ead_0_unittitle_t">Auditors'' Reports</field><field
+        name="ead_0_unittitle_t">The Cayuga Press Correspondence</field><field name="ead_0_unittitle_t">The
+        Cayuga Press</field><field name="ead_0_unittitle_t">The Cayuga Press</field><field
+        name="ead_0_unittitle_t">Graduate Group, Inc. (1 of 2)</field><field name="ead_0_unittitle_t">Graduate
+        Group, Inc. (2 of 2)</field><field name="ead_0_unittitle_t">Graduate Group,
+        Inc.</field><field name="ead_0_unittitle_t">Graduate Group, Inc.</field><field
+        name="ead_0_unittitle_t">Graduate Group, Inc.</field><field name="ead_0_unittitle_t">"Grid-graph"
+        Materials</field><field name="ead_0_unittitle_t">Loomis, Suffern, and Fernald
+        Accountants</field><field name="ead_0_unittitle_t">Medallic Art Company</field><field
+        name="ead_0_unittitle_t">Motion Picture Committee</field><field name="ead_0_unittitle_t">New
+        York University</field><field name="ead_0_unittitle_t">Post Master</field><field
+        name="ead_0_unittitle_t">Society for the Libraries of New York University</field><field
+        name="ead_0_unittitle_t">Alumni Day Mailings</field><field name="ead_0_unittitle_t">Carnival
+        Dinner, NYU Alumni Federation, October 16th, 1926</field><field name="ead_0_unittitle_t">NYU
+        Centennial All-Alumni Dinner, March 1st, 1932</field><field name="ead_0_unittitle_t">Centennial
+        Commencement</field><field name="ead_0_unittitle_t">Chancellor Brown Testimonial
+        Dinner, May 3rd, 1933</field><field name="ead_0_unittitle_t">Chancellor Chase
+        Welcome Dinner, October 31st, 1933</field><field name="ead_0_unittitle_t">L.
+        Jay Oliva Inaugural Reception, Novembr 19, 1991</field><field name="ead_0_unittitle_t">NYU
+        Alumni Authors and their Publications</field><field name="ead_0_unittitle_t">Alumni
+        Associations'' Awards 1951-1982</field><field name="ead_0_unittitle_t">Honorary
+        Degrees 1850-1984</field><field name="ead_0_unittitle_t">Alumni Meritorious
+        Service Award Recipients through 1988</field><field name="ead_0_unittitle_t">Gallatin
+        Associates Medal 1957-1988</field><field name="ead_0_unittitle_t">New York
+        University Medal 1956-1981</field><field name="ead_0_unittitle_t">Presidential
+        Citation 1957-1982</field><field name="ead_0_unittitle_t">Alumni Fund 1927-1928</field><field
+        name="ead_0_unittitle_t">Commencement Attenance Totals 1933-1980</field><field
+        name="ead_0_unittitle_t">NYU Club Officers 1956-1982</field><field name="ead_0_unittitle_t">Alumni
+        Trophy Selectors 1959-1968</field><field name="ead_0_unittitle_t">Bobst Awards
+        in Arts and Letters 1982 and 1983</field><field name="ead_0_unittitle_t">Great
+        Teachers Award Program Administrative Files</field><field name="ead_0_unittitle_t">Great
+        Teachers by Year/School from 1959 to 1991</field><field name="ead_0_unittitle_t">Great
+        Teachers 1978</field><field name="ead_0_unittitle_t">Great Teachers 1979</field><field
+        name="ead_0_unittitle_t">Great Teachers 1980</field><field name="ead_0_unittitle_t">Great
+        Teachers 1981</field><field name="ead_0_unittitle_t">Great Teachers 1982</field><field
+        name="ead_0_unittitle_t">Great Teachers 1983</field><field name="ead_0_unittitle_t">Great
+        Teachers 1984</field><field name="ead_0_unittitle_t">Great Teachers 1985</field><field
+        name="ead_0_unittitle_t">Great Teachers 1986</field><field name="ead_0_unittitle_t">Great
+        Teachers 1987</field><field name="ead_0_unittitle_t">NYU Men in Advertising
+        Club</field><field name="ead_0_unittitle_t">NYU Men in Finance Club</field><field
+        name="ead_0_unittitle_t">Graduate School of Business Administration Alumni
+        Association</field><field name="ead_0_unittitle_t">Institute of Business (1
+        of 2)</field><field name="ead_0_unittitle_t">Institute of Business (2 of 2)</field><field
+        name="ead_0_unittitle_t">Institute of Business</field><field name="ead_0_unittitle_t">Proceedings
+        of the First and Second Annual Meetings of the Institute of Business</field><field
+        name="ead_0_unittitle_t">Proceedings for the Third Annual Meeting of the Institute
+        of Business</field><field name="ead_0_unittitle_t">Addresses from the Institute
+        of Business Meeting on Distribution</field><field name="ead_0_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (1 of 3)</field><field name="ead_0_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (2 of 3)</field><field name="ead_0_unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (3 of 3)</field><field name="ead_0_unittitle_t">3rd
+        Annual Federation Finance Forum - Oct. 31, 1987</field><field name="ead_0_unittitle_t">Colleges
+        of Arts and Engineering Alumni Association</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="ead_0_unittitle_t">Loose
+        papers - Arts and Engineering</field><field name="ead_0_unittitle_t">Arts
+        and Engineering</field><field name="ead_0_unittitle_t">1890 Arts and Engineering</field><field
+        name="ead_0_unittitle_t">1893 Arts and Engineering</field><field name="ead_0_unittitle_t">1894
+        Arts and Engineering</field><field name="ead_0_unittitle_t">1900 Arts and
+        Engineering</field><field name="ead_0_unittitle_t">1904 Arts and Engineering</field><field
+        name="ead_0_unittitle_t">1905 Arts and Engineering</field><field name="ead_0_unittitle_t">1906-1915
+        Arts and Engineering</field><field name="ead_0_unittitle_t">1917-1928 Arts
+        and Engineering</field><field name="ead_0_unittitle_t">1929 Arts and Engineering</field><field
+        name="ead_0_unittitle_t">1930 Arts and Engineering</field><field name="ead_0_unittitle_t">1931
+        Arts and Engineering</field><field name="ead_0_unittitle_t">1932 Arts and
+        Engineering</field><field name="ead_0_unittitle_t">Arts and Engineering Alumni
+        Association</field><field name="ead_0_unittitle_t">Arts and Engineering Midwinter
+        Reunion 1934</field><field name="ead_0_unittitle_t">Arts and Engineering Spring
+        Alumni Day - June 2, 1934</field><field name="ead_0_unittitle_t">Arts and
+        Engineering Spring Alumni Day - June 8, 1935</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Dinner - Feb. 11, 1935</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Spring Alumni Day - May 16, 1936</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Dinner - Feb. 20, 1936</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Activities</field><field name="ead_0_unittitle_t">Arts and
+        Engineering Dinner - Feb. 24, 1938</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Dinner - March 2, 1939 (1 of 2)</field><field name="ead_0_unittitle_t">Arts
+        and Engineering Dinner - March 2, 1939 (2 of 2)</field><field name="ead_0_unittitle_t">Engineers
+        Club</field><field name="ead_0_unittitle_t">School of Commerce Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Commerce Classes ''02, ''03, ''05 through
+        ''12</field><field name="ead_0_unittitle_t">School of Commerce Classes ''14,
+        ''15, ''16</field><field name="ead_0_unittitle_t">School of Commerce Classes
+        ''17</field><field name="ead_0_unittitle_t">School of Commerce, Accounts,
+        and Finance Alumni Association Dinners and Minutes</field><field name="ead_0_unittitle_t">School
+        of Commerce Alumni Association</field><field name="ead_0_unittitle_t">School
+        of Commerce Classes ''18, ''19, ''20</field><field name="ead_0_unittitle_t">School
+        of Commerce Class of ''21</field><field name="ead_0_unittitle_t">School of
+        Commerce Class of ''22, ''23</field><field name="ead_0_unittitle_t">School
+        of Commerce Class of ''24</field><field name="ead_0_unittitle_t">School of
+        Commerce Class of ''25</field><field name="ead_0_unittitle_t">School of Commerce
+        Class of ''27 Dinner and Silver Jubilee</field><field name="ead_0_unittitle_t">School
+        of Commerce Class of ''28</field><field name="ead_0_unittitle_t">School of
+        Commerce Class of ''29</field><field name="ead_0_unittitle_t">1929 School
+        of Commerce Alumni Association Dinner</field><field name="ead_0_unittitle_t">1930
+        School of Commerce "Senior Hop"</field><field name="ead_0_unittitle_t">School
+        of Commerce Alumni Dinner May 2, 1935</field><field name="ead_0_unittitle_t">School
+        of Commerce Reunion Dinner May 7, 1936</field><field name="ead_0_unittitle_t">School
+        of Commerce Class of ''13</field><field name="ead_0_unittitle_t">School of
+        Commerce Alumni Activities</field><field name="ead_0_unittitle_t">School of
+        Commerce Activities</field><field name="ead_0_unittitle_t">Dental School Class
+        of ''05</field><field name="ead_0_unittitle_t">Dental School Classes of ''14
+        to ''19</field><field name="ead_0_unittitle_t">Dental School Alumni Activities</field><field
+        name="ead_0_unittitle_t">Dental School Clinic and Dinner 1929</field><field
+        name="ead_0_unittitle_t">Dental School Alumni Days 1929</field><field name="ead_0_unittitle_t">Dental
+        School Clinic and Dinner 1930</field><field name="ead_0_unittitle_t">Dental
+        School 1931 Meeting</field><field name="ead_0_unittitle_t">Dental School Dinner
+        and Alumni Day 1931</field><field name="ead_0_unittitle_t">Dental School Alumni
+        Dinner 1933</field><field name="ead_0_unittitle_t">Dental School Alumni Days
+        1933</field><field name="ead_0_unittitle_t">Dental School Post-Graduate Courses</field><field
+        name="ead_0_unittitle_t">Dental College Alumni Association</field><field name="ead_0_unittitle_t">Dental
+        College Alumni Association</field><field name="ead_0_unittitle_t">Dental College
+        Alumni Association</field><field name="ead_0_unittitle_t">Dental College Alumni
+        Association</field><field name="ead_0_unittitle_t">Dental College Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">School of Education Alumni Association</field><field
+        name="ead_0_unittitle_t">Doctors of Philosophy Club</field><field name="ead_0_unittitle_t">Doctors
+        of Philosophy, Graduate School Alumni Association</field><field name="ead_0_unittitle_t">Doctors
+        of Philosophy Club, Graduate School Alumni Association</field><field name="ead_0_unittitle_t">Law
+        School Class of 1893</field><field name="ead_0_unittitle_t">Law School Class
+        of 1894</field><field name="ead_0_unittitle_t">Law School Class of 1897</field><field
+        name="ead_0_unittitle_t">Law School Class of 1898</field><field name="ead_0_unittitle_t">Law
+        School Class of 1899</field><field name="ead_0_unittitle_t">Law School Class
+        of 1900</field><field name="ead_0_unittitle_t">Law School Class of 1902</field><field
+        name="ead_0_unittitle_t">Law School Class of 1905</field><field name="ead_0_unittitle_t">Law
+        School Class of 1909</field><field name="ead_0_unittitle_t">Law School Class
+        of 1910</field><field name="ead_0_unittitle_t">Law School Class of 1914 to
+        1917</field><field name="ead_0_unittitle_t">Law School Class of 1918</field><field
+        name="ead_0_unittitle_t">Law School Class of 1919</field><field name="ead_0_unittitle_t">Law
+        School Class of 1920</field><field name="ead_0_unittitle_t">Law School Class
+        of 1921</field><field name="ead_0_unittitle_t">Law School Class of 1922</field><field
+        name="ead_0_unittitle_t">Law School Class of 1923</field><field name="ead_0_unittitle_t">Law
+        School Class of 1924</field><field name="ead_0_unittitle_t">Law School Class
+        of 1925</field><field name="ead_0_unittitle_t">Law School Class of 1926</field><field
+        name="ead_0_unittitle_t">Law School Alumni Association Annual Dinners 1912-1927</field><field
+        name="ead_0_unittitle_t">Law School Alumni Association Dinners 1928-1929</field><field
+        name="ead_0_unittitle_t">Law School Alumni Association Dinners 1931-1936</field><field
+        name="ead_0_unittitle_t">Law School Conference on Debt Relief Laws</field><field
+        name="ead_0_unittitle_t">Law Dinner, March 16, 1937, Waldorf Astoria Hotel
+        (1 of 2)</field><field name="ead_0_unittitle_t">Law Dinner, March 16, 1937,
+        Waldorf Astoria Hotel (2 of 2)</field><field name="ead_0_unittitle_t">Law
+        Dinner, March 9, 1938</field><field name="ead_0_unittitle_t">Law School Activities</field><field
+        name="ead_0_unittitle_t">Law School Activities</field><field name="ead_0_unittitle_t">Law
+        Dinner, May 10, 1939 (postponed)</field><field name="ead_0_unittitle_t">Law
+        Alumni Arbitration Luncheon, February 23, 1938</field><field name="ead_0_unittitle_t">Medical
+        College Alumni Association</field><field name="ead_0_unittitle_t">Medical
+        College Association Activities</field><field name="ead_0_unittitle_t">Medical
+        College Association Activities</field><field name="ead_0_unittitle_t">Medical
+        Alumni Notices</field><field name="ead_0_unittitle_t">Medical College Association
+        Activities</field><field name="ead_0_unittitle_t">Medical College Association
+        Activities</field><field name="ead_0_unittitle_t">School of Retailing Alumni
+        Activities</field><field name="ead_0_unittitle_t">Retailing Class of 1926</field><field
+        name="ead_0_unittitle_t">Veterinary College Alumni Association</field><field
+        name="ead_0_unittitle_t">Veterinary College Alumni Activities</field><field
+        name="ead_0_unittitle_t">Veterinary Dinner-Dance, May 7, 1931</field><field
+        name="ead_0_unittitle_t">Washington Square College Class of 1919</field><field
+        name="ead_0_unittitle_t">Washington Square College Class of 1920</field><field
+        name="ead_0_unittitle_t">Washington Square College Class of 1921</field><field
+        name="ead_0_unittitle_t">Washington Square College Class of 1922, 1923, and
+        1924</field><field name="ead_0_unittitle_t">Washington Square College Class
+        of 1926, 1927, and 1928</field><field name="ead_0_unittitle_t">Washington
+        Square College Alumni Activities</field><field name="ead_0_unittitle_t">Washington
+        Square College Alumni Activities</field><field name="ead_0_unittitle_t">NYU
+        Letter Club</field><field name="ead_0_unittitle_t">NYU Letter Club</field><field
+        name="ead_0_unittitle_t">NYU Letter Club Activities</field><field name="ead_0_unittitle_t">NYU
+        Letter Club Basketball Dinner</field><field name="ead_0_unittitle_t">Carnegie
+        Tech Football Game</field><field name="ead_0_unittitle_t">Carnegie Tech Football
+        Game (1 of 2)</field><field name="ead_0_unittitle_t">Carnegie Tech Football
+        Game (2 of 2)</field><field name="ead_0_unittitle_t">Alumni Activities - Football</field><field
+        name="ead_0_unittitle_t">Football Coaches Dinner NYAC, April 19, 1934</field><field
+        name="ead_0_unittitle_t">Football Dinner</field><field name="ead_0_unittitle_t">NYU
+        Letter Club Activities</field><field name="ead_0_unittitle_t">Nebraska - NYU
+        Football Game Trip</field><field name="ead_0_unittitle_t">Alumni Activities
+        - Bermuda Cruise</field><field name="ead_0_unittitle_t">New York University
+        Centennial Fund</field><field name="ead_0_unittitle_t">Chancellor''s Alumni
+        Meeting, May 22, 1934</field><field name="ead_0_unittitle_t">New York University
+        Community Relations</field><field name="ead_0_unittitle_t">Chancellor''s Committee
+        on Alumni Opinion</field><field name="ead_0_unittitle_t">New York Conference
+        of Universities</field><field name="ead_0_unittitle_t">Purchase of Original
+        NYU Diploma</field><field name="ead_0_unittitle_t">Ohio State - NYU Football
+        Game and Trip, October 3, 1936</field><field name="ead_0_unittitle_t">NYU
+        Tennis Club 1900-1927</field><field name="ead_0_unittitle_t">Newman Club</field><field
+        name="ead_0_unittitle_t">Alumni Occupational Lists</field><field name="ead_0_unittitle_t">Lawrence
+        House Student Union, YMCA</field><field name="ead_0_unittitle_t">Bureau of
+        Employment</field><field name="ead_0_unittitle_t">New York Alumni Club of
+        Delta Sigma Pi</field><field name="ead_0_unittitle_t">New York Alumni Club
+        of Delta Sigma Pi</field><field name="ead_0_unittitle_t">Alpha Kappa Psi Fraternity</field><field
+        name="ead_0_unittitle_t">Phi Gamma Delta Stationery</field><field name="ead_0_unittitle_t">Phi
+        Gamma Delta - General</field><field name="ead_0_unittitle_t">Phi Gamma Delta
+        - General</field><field name="ead_0_unittitle_t">Phi Gamma Delta Directories</field><field
+        name="ead_0_unittitle_t">Phi Gamma Delta Association Records and Correspondence</field><field
+        name="ead_0_unittitle_t">Phi Gamma Delta Audit</field><field name="ead_0_unittitle_t">George
+        Kastener Correspondence and Addresses/Paper Clippings (Secretary)</field><field
+        name="ead_0_unittitle_t">Charles D. Haughey Correspondence (Treasurer)</field><field
+        name="ead_0_unittitle_t">"Hall of Fame Fiji": Nu Epsilon Chapter of Phi Gamma
+        Delta</field><field name="ead_0_unittitle_t">Phi Gamma Delta 50th Anniversary</field><field
+        name="ead_0_unittitle_t">Phi Gamma Delta Activities</field><field name="ead_0_unittitle_t">Phi
+        Gamma Delta National Office (1 of 2)</field><field name="ead_0_unittitle_t">Phi
+        Gamma Delta National Office (2 of 2)</field><field name="ead_0_unittitle_t">Phi
+        Gamma Delta Chapter Materials</field><field name="ead_0_unittitle_t">Phi Gamma
+        Delta General Correspondence</field><field name="ead_0_unittitle_t">2274 Loring
+        Place, Morrison and Lynn Attorneys</field><field name="ead_0_unittitle_t">2274
+        Loring Place, Fire Insurance</field><field name="ead_0_unittitle_t">Phi Gamma
+        Delta Alumni Bartley to Loughran</field><field name="ead_0_unittitle_t">Phi
+        Gamma Delta Alumni Mautel to Young</field><field name="ead_0_unittitle_t">Oversized
+        Materials and Ephemera</field><field name="ead_0_unittitle_t">Alexander F.
+        Makay &amp; Company</field><field name="ead_0_unittitle_t">Barr, Jean B.,
+        Supervisor of Printing</field><field name="ead_0_unittitle_t">Badger, Phillip
+        O., Professor of Marketing</field><field name="ead_0_unittitle_t">Briesen,
+        Fritz, Law ''97</field><field name="ead_0_unittitle_t">Broderick, Joseph,
+        Commerce ''06</field><field name="ead_0_unittitle_t">Brown, Samuel A., Medicine
+        ''94</field><field name="ead_0_unittitle_t">Chase, Harry Woodburn, Chancellor</field><field
+        name="ead_0_unittitle_t">Clyne, James F., Editor "New York University Alumnus"
+        (1 of 3)</field><field name="ead_0_unittitle_t">Clyne, James F., Editor "New
+        York University Alumnus" (2 of 3)</field><field name="ead_0_unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (3 of 3)</field><field name="ead_0_unittitle_t">Draper,
+        Arthur S., Engineering ''05</field><field name="ead_0_unittitle_t">Draper,
+        Arthur S., Engineering ''05</field><field name="ead_0_unittitle_t">Fernald,
+        Henry B., Arts ''01</field><field name="ead_0_unittitle_t">General</field><field
+        name="ead_0_unittitle_t">Garvin, Edwin L., Arts ''97 and Law ''99</field><field
+        name="ead_0_unittitle_t">Hendershot, W. Raymond, Commerce ''20</field><field
+        name="ead_0_unittitle_t">Irwin, John V., Arts ''94 and Law ''99</field><field
+        name="ead_0_unittitle_t">Irwin, John V., Arts ''94 and Law ''99</field><field
+        name="ead_0_unittitle_t">Jones, Theodore F., Director of Heights Library and
+        Professor of History</field><field name="ead_0_unittitle_t">Kent, Fred I.,
+        University Council</field><field name="ead_0_unittitle_t">Kimball, Leroy E.,
+        Comptroller</field><field name="ead_0_unittitle_t">Kingsley, William M., Arts
+        ''84</field><field name="ead_0_unittitle_t">Larsen, George, Arts ''06</field><field
+        name="ead_0_unittitle_t">Makay, Alexander F., Commerce ''09 (1 of 2)</field><field
+        name="ead_0_unittitle_t">Makay, Alexander F., Commerce ''09 (2 of 2)</field><field
+        name="ead_0_unittitle_t">Makay, Alexander F., Commerce ''09</field><field
+        name="ead_0_unittitle_t">Onderdonk, Charles D., Office Manager</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (1 of 2)</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (2 of 2)</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (1 of 2)</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (2 of 2)</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (1 of 2)</field><field
+        name="ead_0_unittitle_t">Patterson, William M., Law ''93 (2 of 2)</field><field
+        name="ead_0_unittitle_t">Roberts, Vincent</field><field name="ead_0_unittitle_t">Roberts,
+        Vincent</field><field name="ead_0_unittitle_t">Ross, Benjamin A., Alumni Federation
+        Secretary (1 of 2)</field><field name="ead_0_unittitle_t">Ross, Banjamin A.,
+        Alumni Federation Secretary (2 of 2)</field><field name="ead_0_unittitle_t">Saunders,
+        Richard P.</field><field name="ead_0_unittitle_t">Sommer, Frank H., Dean of
+        Law School</field><field name="ead_0_unittitle_t">Tompkins, Leslie J., Law
+        ''92</field><field name="ead_0_unittitle_t">Voorhis, Harold O., NYU Secretary
+        (1 of 2)</field><field name="ead_0_unittitle_t">Voorhis, Harold O., NYU Secretary
+        (2 of 2)</field><field name="ead_0_unittitle_t">Voorhis, Harold O., NYU Secretary</field><field
+        name="ead_0_unittitle_t">Washburn, Earle L., NYU Auditor</field><field name="corpname_facet">New
+        York University Archives</field><field name="corpname_facet">Alumni Federation
+        of New York University, Inc.</field><field name="corpname_facet">New York
+        University. Alumni Association.</field><field name="corpname_facet">New York
+        University. College of Arts and Science. Colleges of Arts and Engineering
+        Alumni Association.</field><field name="corpname_facet">New York University.
+        College of Dentistry. Alumni Association.</field><field name="corpname_facet">New
+        York University. College of Engineering. Colleges of Arts and Engineering
+        Alumni Association.</field><field name="corpname_facet">New York University.
+        College of Medicine. Alumni Association.</field><field name="corpname_facet">New
+        York University. Graduate School of Business Administration. Alumni Association.</field><field
+        name="corpname_facet">New York University. School of Commerce, Accounts, and
+        Finance. Alumni Association.</field><field name="corpname_facet">New York
+        University. School of Education. Alumni Association.</field><field name="corpname_facet">New
+        York University. School of Law. Alumni Association.</field><field name="corpname_facet">New
+        York University. Society for the Libraries of New York University.</field><field
+        name="corpname_facet">New York University. Washington Square College of Arts
+        and Science.</field><field name="persname_facet">Badger, Philip</field><field
+        name="persname_facet">Briesen, Fritz</field><field name="persname_facet">Broderick,
+        Joseph</field><field name="persname_facet">Brown, Elmer Ellsworth, 1861-1934</field><field
+        name="persname_facet">Chase, Harry Woodburn, 1883-1955</field><field name="persname_facet">Clyne,
+        James F.</field><field name="persname_facet">Draper, A. S., (Andrew Sloan),
+        1848-1913</field><field name="persname_facet">Fernald, Henry D., (Henry Barker),
+        1878-1967</field><field name="persname_facet">Garvin, Edwin L.</field><field
+        name="persname_facet">Hendershot, W. Raymond</field><field name="persname_facet">Irwin,
+        John V.</field><field name="persname_facet">Jones, Theodore Francis, 1885-</field><field
+        name="persname_facet">Kent, Fred I., 1869-1954</field><field name="persname_facet">Kimball,
+        LeRoy Ellwood, b. 1888</field><field name="persname_facet">Kingsley, William</field><field
+        name="persname_facet">Makay, Alexander F.</field><field name="persname_facet">Onderdonk,
+        Charles D.</field><field name="persname_facet">Patterson, William Morehouse</field><field
+        name="persname_facet">Roberts, Vincent</field><field name="persname_facet">Ross,
+        Benjamin A.</field><field name="persname_facet">Saunders, Richard P.</field><field
+        name="persname_facet">Sommer, Frank H., b. 1872</field><field name="persname_facet">Tompkins,
+        Leslie J., (Leslie Jay), b. 1867</field><field name="persname_facet">Voorhis,
+        Harold O.</field><field name="persname_facet">Washburn, Earle L.</field><field
+        name="title_t">Records of the Alumni Federation of New York University, Inc.</field><field
+        name="title_display">Records of the Alumni Federation of New York University,
+        Inc.</field><field name="title_num_t">RG 40.7</field><field name="title_num_display">RG
+        40.7</field><field name="pubdate_facet">1919/1945</field><field name="pubdate_facet">1919/1992</field><field
+        name="pubdate_display">1919/1945</field><field name="pubdate_display">1919/1992</field><field
+        name="unitdate_bulk_unstem_search">Bulk, 1919-1945</field><field name="unitdate_inclusive_unstem_search">1919-1992</field><field
+        name="collection_facet">Records of the Alumni Federation of New York University,
+        Inc.</field><field name="bioghist_t">The Alumni Federation of New York University
+        was incorporated in 1921. Officially, the Alumni Federation united what had
+        previously been separate alumni groups from the different schools and colleges
+        of the University. Prior to the formation of the Alumni Federation, the General
+        Alumni Association existed but with little or no mandate to coordinate the
+        administration of alumni activities. The Alumni Federation Board of Governors
+        was organized with 21 members from the different alumni groups, with the largest
+        schools contributing the most representatives. By 1940, amendments to the
+        Alumni Federation constitution replaced the Board of Governors with a Board
+        of Directors and increased its membership. Representatives to the Board were
+        chosen based on a “Class” system, where larger associations, in Class A, contributed
+        more representatives and had more power on the Board than Classes B and C.</field><field
+        name="bioghist_t">The Alumni Federation oversaw the involvement of alumni
+        within the University, hosted events and activities, and administered the
+        Alumni Fund. Awards and honors like the Great Teachers Award were given out
+        by the Alumni Federation to individuals for their achievements and contributions
+        to the University. The Alumni Federation also published newsletters and magazines
+        like the Alumnus.</field><field name="bioghist_t">In the 1980s, the relationship
+        of the Alumni Federation and the University became strained. The University
+        desired to have more control over the Federation’s fundraising efforts, especially
+        in engaging with younger alumni and connecting with alumni outside of the
+        New York metropolitan area. The University requested, after a special review,
+        that the Alumni Federation staff director report to the President of the University
+        in addition to the Federation''s Board of Directors. This request was made
+        to justify the $2.7 million in annual assistance the University gave the Federation.
+        In January of 1985, the Alumni Federation decided to become an operationally
+        independent organization and by that autumn, it was no longer recognized and
+        its activities no longer endorsed by the University.</field><field name="bioghist_t">By
+        1995, the Alumni Federation had been significantly restructured and was mainly
+        administered by alumni from the 1940s, 1950s, and 1960s. The last Board of
+        Directors minutes in the collection date from June 22, 1995.</field><field
+        name="bioghist_heading_display">Historical Note</field><field name="custodhist_t">Materials
+        were transferred to the University Archives in multiple accessions in 1995
+        and 1996.</field><field name="custodhist_heading_display">Custodial History</field><field
+        name="controlaccess_t">Badger, Philip Briesen, Fritz Broderick, Joseph Brown,
+        Elmer Ellsworth, 1861-1934 Chase, Harry Woodburn, 1883-1955 Clyne, James F.
+        Draper, A. S., (Andrew Sloan), 1848-1913 Fernald, Henry D., (Henry Barker),
+        1878-1967 Garvin, Edwin L. Hendershot, W. Raymond Irwin, John V. Jones, Theodore
+        Francis, 1885- Kent, Fred I., 1869-1954 Kimball, LeRoy Ellwood, b. 1888 Kingsley,
+        William Makay, Alexander F. New York University. Alumni Association. New York
+        University. College of Arts and Science. Colleges of Arts and Engineering
+        Alumni Association. New York University. College of Dentistry. Alumni Association.
+        New York University. College of Engineering. Colleges of Arts and Engineering
+        Alumni Association. New York University. College of Medicine. Alumni Association.
+        New York University. Graduate School of Business Administration. Alumni Association.
+        New York University. School of Commerce, Accounts, and Finance. Alumni Association.
+        New York University. School of Education. Alumni Association. New York University.
+        School of Law. Alumni Association. New York University. Society for the Libraries
+        of New York University. New York University. Washington Square College of
+        Arts and Science. Onderdonk, Charles D. Patterson, William Morehouse Roberts,
+        Vincent Ross, Benjamin A. Saunders, Richard P. Sommer, Frank H., b. 1872 Tompkins,
+        Leslie J., (Leslie Jay), b. 1867 Voorhis, Harold O. Washburn, Earle L.</field><field
+        name="scopecontent_t">This collection contains 12.1 linear feet of materials
+        in 10 boxes. The materials date from 1919 to 1995, but the bulk of the collection
+        dates from 1919 to 1940. Records include meeting minutes, correspondence,
+        budgets, and materials related to special events and alumni relations. The
+        bulk of the materials comes from the office of the Alumni Federation Secretary
+        Benjamin A. Ross.</field><field name="scopecontent_heading_display">Scope
+        and Contents</field><field name="userestrict_t">Permission to publish materials
+        must be obtained in writing from the:</field><field name="userestrict_t">New
+        York University Archives Elmer Holmes Bobst Library 70 Washington Square South
+        New York, NY 10012 Phone: (212) 998-2646 Fax: (212) 995-4225 E-mail: university.archives@library.nyu.edu</field><field
+        name="userestrict_heading_display">Use Restrictions</field><field name="unittitle_t">NYU
+        Alumni Association Annual Report</field><field name="unittitle_t">NYU Alumni
+        Federation Rules of Procedure, Articles of Federation</field><field name="unittitle_t">NYU
+        Alumni Federation Certification of Incorporation</field><field name="unittitle_t">NYU
+        Alumni Federation Certification of Incorporation Amendments</field><field
+        name="unittitle_t">NYU Alumni Federation Increase in Number of Directors and
+        Amended Incorporation, Bylaws, and Rules</field><field name="unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes &amp; Reports</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors, Minutes &amp;
+        Reports</field><field name="unittitle_t">NYU Alumni Federation Board of Directors,
+        Minutes &amp; Reports</field><field name="unittitle_t">NYU Alumni Federation
+        Board of Directors, Minutes &amp; Reports</field><field name="unittitle_t">NYU
+        Alumni Federation Board of Directors, Minutes</field><field name="unittitle_t">NYU
+        Alumni Federation Board of Directors Special Accounting Committee</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors and Members, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors and Members, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors and Members, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors and Members, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors and Members, Minutes</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors (1 of 2)</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors (2 of 2)</field><field
+        name="unittitle_t">Alumni Federation Past Presidents 1921-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Board of Directors 1984-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Directors - Class A 1984-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Directors - Class B 1984-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Directors - Class C 1984-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Directors - Class D 1984-1985</field><field
+        name="unittitle_t">NYU Alumni Federation Committees 1984-1985</field><field
+        name="unittitle_t">Medallion Alumni Society 1984-1985</field><field name="unittitle_t">Meritorious
+        Service Awards Committee 1984-1985</field><field name="unittitle_t">Presidents
+        of the Alumni Association 1984-1985</field><field name="unittitle_t">Recipients
+        of Director Emeritus Award 1966-1984</field><field name="unittitle_t">NYU
+        Alumni Associations and Clubs, Officers and Directors 1984-1985</field><field
+        name="unittitle_t">Alumni Federation "Transition"</field><field name="unittitle_t">Alumni
+        Federation Budget</field><field name="unittitle_t">NYU Alumni Federation Officers
+        and Directories 1990-1992</field><field name="unittitle_t">Alumni Directory
+        Survey</field><field name="unittitle_t">NYU Alumni Fund</field><field name="unittitle_t">NYU
+        Alumni Fund</field><field name="unittitle_t">NYU Alumni Fund</field><field
+        name="unittitle_t">Alumni Scholarships</field><field name="unittitle_t">Alumni
+        Service Corporation</field><field name="unittitle_t">Alumni Service Corporation
+        Incorporation Documents</field><field name="unittitle_t">Alumnus Magazine
+        - American Alumni Council "Continued Education" Series</field><field name="unittitle_t">Alumnus
+        Magazine</field><field name="unittitle_t">Alumnus Magazine Advertisers</field><field
+        name="unittitle_t">The American University Club of New York, Inc.</field><field
+        name="unittitle_t">Auditors'' Reports</field><field name="unittitle_t">The
+        Cayuga Press Correspondence</field><field name="unittitle_t">The Cayuga Press</field><field
+        name="unittitle_t">The Cayuga Press</field><field name="unittitle_t">Graduate
+        Group, Inc. (1 of 2)</field><field name="unittitle_t">Graduate Group, Inc.
+        (2 of 2)</field><field name="unittitle_t">Graduate Group, Inc.</field><field
+        name="unittitle_t">Graduate Group, Inc.</field><field name="unittitle_t">Graduate
+        Group, Inc.</field><field name="unittitle_t">"Grid-graph" Materials</field><field
+        name="unittitle_t">Loomis, Suffern, and Fernald Accountants</field><field
+        name="unittitle_t">Medallic Art Company</field><field name="unittitle_t">Motion
+        Picture Committee</field><field name="unittitle_t">New York University</field><field
+        name="unittitle_t">Post Master</field><field name="unittitle_t">Society for
+        the Libraries of New York University</field><field name="unittitle_t">Alumni
+        Day Mailings</field><field name="unittitle_t">Carnival Dinner, NYU Alumni
+        Federation, October 16th, 1926</field><field name="unittitle_t">NYU Centennial
+        All-Alumni Dinner, March 1st, 1932</field><field name="unittitle_t">Centennial
+        Commencement</field><field name="unittitle_t">Chancellor Brown Testimonial
+        Dinner, May 3rd, 1933</field><field name="unittitle_t">Chancellor Chase Welcome
+        Dinner, October 31st, 1933</field><field name="unittitle_t">L. Jay Oliva Inaugural
+        Reception, Novembr 19, 1991</field><field name="unittitle_t">NYU Alumni Authors
+        and their Publications</field><field name="unittitle_t">Alumni Associations''
+        Awards 1951-1982</field><field name="unittitle_t">Honorary Degrees 1850-1984</field><field
+        name="unittitle_t">Alumni Meritorious Service Award Recipients through 1988</field><field
+        name="unittitle_t">Gallatin Associates Medal 1957-1988</field><field name="unittitle_t">New
+        York University Medal 1956-1981</field><field name="unittitle_t">Presidential
+        Citation 1957-1982</field><field name="unittitle_t">Alumni Fund 1927-1928</field><field
+        name="unittitle_t">Commencement Attenance Totals 1933-1980</field><field name="unittitle_t">NYU
+        Club Officers 1956-1982</field><field name="unittitle_t">Alumni Trophy Selectors
+        1959-1968</field><field name="unittitle_t">Bobst Awards in Arts and Letters
+        1982 and 1983</field><field name="unittitle_t">Great Teachers Award Program
+        Administrative Files</field><field name="unittitle_t">Great Teachers by Year/School
+        from 1959 to 1991</field><field name="unittitle_t">Great Teachers 1978</field><field
+        name="unittitle_t">Great Teachers 1979</field><field name="unittitle_t">Great
+        Teachers 1980</field><field name="unittitle_t">Great Teachers 1981</field><field
+        name="unittitle_t">Great Teachers 1982</field><field name="unittitle_t">Great
+        Teachers 1983</field><field name="unittitle_t">Great Teachers 1984</field><field
+        name="unittitle_t">Great Teachers 1985</field><field name="unittitle_t">Great
+        Teachers 1986</field><field name="unittitle_t">Great Teachers 1987</field><field
+        name="unittitle_t">NYU Men in Advertising Club</field><field name="unittitle_t">NYU
+        Men in Finance Club</field><field name="unittitle_t">Graduate School of Business
+        Administration Alumni Association</field><field name="unittitle_t">Institute
+        of Business (1 of 2)</field><field name="unittitle_t">Institute of Business
+        (2 of 2)</field><field name="unittitle_t">Institute of Business</field><field
+        name="unittitle_t">Proceedings of the First and Second Annual Meetings of
+        the Institute of Business</field><field name="unittitle_t">Proceedings for
+        the Third Annual Meeting of the Institute of Business</field><field name="unittitle_t">Addresses
+        from the Institute of Business Meeting on Distribution</field><field name="unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (1 of 3)</field><field name="unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (2 of 3)</field><field name="unittitle_t">Institute
+        of Business, Problems and Trends in Distribution (3 of 3)</field><field name="unittitle_t">3rd
+        Annual Federation Finance Forum - Oct. 31, 1987</field><field name="unittitle_t">Colleges
+        of Arts and Engineering Alumni Association</field><field name="unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="unittitle_t">Loose
+        papers - Arts and Engineering</field><field name="unittitle_t">Arts and Engineering</field><field
+        name="unittitle_t">1890 Arts and Engineering</field><field name="unittitle_t">1893
+        Arts and Engineering</field><field name="unittitle_t">1894 Arts and Engineering</field><field
+        name="unittitle_t">1900 Arts and Engineering</field><field name="unittitle_t">1904
+        Arts and Engineering</field><field name="unittitle_t">1905 Arts and Engineering</field><field
+        name="unittitle_t">1906-1915 Arts and Engineering</field><field name="unittitle_t">1917-1928
+        Arts and Engineering</field><field name="unittitle_t">1929 Arts and Engineering</field><field
+        name="unittitle_t">1930 Arts and Engineering</field><field name="unittitle_t">1931
+        Arts and Engineering</field><field name="unittitle_t">1932 Arts and Engineering</field><field
+        name="unittitle_t">Arts and Engineering Alumni Association</field><field name="unittitle_t">Arts
+        and Engineering Midwinter Reunion 1934</field><field name="unittitle_t">Arts
+        and Engineering Spring Alumni Day - June 2, 1934</field><field name="unittitle_t">Arts
+        and Engineering Spring Alumni Day - June 8, 1935</field><field name="unittitle_t">Arts
+        and Engineering Dinner - Feb. 11, 1935</field><field name="unittitle_t">Arts
+        and Engineering Alumni Association</field><field name="unittitle_t">Arts and
+        Engineering Spring Alumni Day - May 16, 1936</field><field name="unittitle_t">Arts
+        and Engineering Dinner - Feb. 20, 1936</field><field name="unittitle_t">Arts
+        and Engineering Activities</field><field name="unittitle_t">Arts and Engineering
+        Dinner - Feb. 24, 1938</field><field name="unittitle_t">Arts and Engineering
+        Dinner - March 2, 1939 (1 of 2)</field><field name="unittitle_t">Arts and
+        Engineering Dinner - March 2, 1939 (2 of 2)</field><field name="unittitle_t">Engineers
+        Club</field><field name="unittitle_t">School of Commerce Alumni Association</field><field
+        name="unittitle_t">School of Commerce Classes ''02, ''03, ''05 through ''12</field><field
+        name="unittitle_t">School of Commerce Classes ''14, ''15, ''16</field><field
+        name="unittitle_t">School of Commerce Classes ''17</field><field name="unittitle_t">School
+        of Commerce, Accounts, and Finance Alumni Association Dinners and Minutes</field><field
+        name="unittitle_t">School of Commerce Alumni Association</field><field name="unittitle_t">School
+        of Commerce Classes ''18, ''19, ''20</field><field name="unittitle_t">School
+        of Commerce Class of ''21</field><field name="unittitle_t">School of Commerce
+        Class of ''22, ''23</field><field name="unittitle_t">School of Commerce Class
+        of ''24</field><field name="unittitle_t">School of Commerce Class of ''25</field><field
+        name="unittitle_t">School of Commerce Class of ''27 Dinner and Silver Jubilee</field><field
+        name="unittitle_t">School of Commerce Class of ''28</field><field name="unittitle_t">School
+        of Commerce Class of ''29</field><field name="unittitle_t">1929 School of
+        Commerce Alumni Association Dinner</field><field name="unittitle_t">1930 School
+        of Commerce "Senior Hop"</field><field name="unittitle_t">School of Commerce
+        Alumni Dinner May 2, 1935</field><field name="unittitle_t">School of Commerce
+        Reunion Dinner May 7, 1936</field><field name="unittitle_t">School of Commerce
+        Class of ''13</field><field name="unittitle_t">School of Commerce Alumni Activities</field><field
+        name="unittitle_t">School of Commerce Activities</field><field name="unittitle_t">Dental
+        School Class of ''05</field><field name="unittitle_t">Dental School Classes
+        of ''14 to ''19</field><field name="unittitle_t">Dental School Alumni Activities</field><field
+        name="unittitle_t">Dental School Clinic and Dinner 1929</field><field name="unittitle_t">Dental
+        School Alumni Days 1929</field><field name="unittitle_t">Dental School Clinic
+        and Dinner 1930</field><field name="unittitle_t">Dental School 1931 Meeting</field><field
+        name="unittitle_t">Dental School Dinner and Alumni Day 1931</field><field
+        name="unittitle_t">Dental School Alumni Dinner 1933</field><field name="unittitle_t">Dental
+        School Alumni Days 1933</field><field name="unittitle_t">Dental School Post-Graduate
+        Courses</field><field name="unittitle_t">Dental College Alumni Association</field><field
+        name="unittitle_t">Dental College Alumni Association</field><field name="unittitle_t">Dental
+        College Alumni Association</field><field name="unittitle_t">Dental College
+        Alumni Association</field><field name="unittitle_t">Dental College Alumni
+        Association</field><field name="unittitle_t">School of Education Alumni Association</field><field
+        name="unittitle_t">School of Education Alumni Association</field><field name="unittitle_t">School
+        of Education Alumni Association</field><field name="unittitle_t">School of
+        Education Alumni Association</field><field name="unittitle_t">School of Education
+        Alumni Association</field><field name="unittitle_t">School of Education Alumni
+        Association</field><field name="unittitle_t">Doctors of Philosophy Club</field><field
+        name="unittitle_t">Doctors of Philosophy, Graduate School Alumni Association</field><field
+        name="unittitle_t">Doctors of Philosophy Club, Graduate School Alumni Association</field><field
+        name="unittitle_t">Law School Class of 1893</field><field name="unittitle_t">Law
+        School Class of 1894</field><field name="unittitle_t">Law School Class of
+        1897</field><field name="unittitle_t">Law School Class of 1898</field><field
+        name="unittitle_t">Law School Class of 1899</field><field name="unittitle_t">Law
+        School Class of 1900</field><field name="unittitle_t">Law School Class of
+        1902</field><field name="unittitle_t">Law School Class of 1905</field><field
+        name="unittitle_t">Law School Class of 1909</field><field name="unittitle_t">Law
+        School Class of 1910</field><field name="unittitle_t">Law School Class of
+        1914 to 1917</field><field name="unittitle_t">Law School Class of 1918</field><field
+        name="unittitle_t">Law School Class of 1919</field><field name="unittitle_t">Law
+        School Class of 1920</field><field name="unittitle_t">Law School Class of
+        1921</field><field name="unittitle_t">Law School Class of 1922</field><field
+        name="unittitle_t">Law School Class of 1923</field><field name="unittitle_t">Law
+        School Class of 1924</field><field name="unittitle_t">Law School Class of
+        1925</field><field name="unittitle_t">Law School Class of 1926</field><field
+        name="unittitle_t">Law School Alumni Association Annual Dinners 1912-1927</field><field
+        name="unittitle_t">Law School Alumni Association Dinners 1928-1929</field><field
+        name="unittitle_t">Law School Alumni Association Dinners 1931-1936</field><field
+        name="unittitle_t">Law School Conference on Debt Relief Laws</field><field
+        name="unittitle_t">Law Dinner, March 16, 1937, Waldorf Astoria Hotel (1 of
+        2)</field><field name="unittitle_t">Law Dinner, March 16, 1937, Waldorf Astoria
+        Hotel (2 of 2)</field><field name="unittitle_t">Law Dinner, March 9, 1938</field><field
+        name="unittitle_t">Law School Activities</field><field name="unittitle_t">Law
+        School Activities</field><field name="unittitle_t">Law Dinner, May 10, 1939
+        (postponed)</field><field name="unittitle_t">Law Alumni Arbitration Luncheon,
+        February 23, 1938</field><field name="unittitle_t">Medical College Alumni
+        Association</field><field name="unittitle_t">Medical College Association Activities</field><field
+        name="unittitle_t">Medical College Association Activities</field><field name="unittitle_t">Medical
+        Alumni Notices</field><field name="unittitle_t">Medical College Association
+        Activities</field><field name="unittitle_t">Medical College Association Activities</field><field
+        name="unittitle_t">School of Retailing Alumni Activities</field><field name="unittitle_t">Retailing
+        Class of 1926</field><field name="unittitle_t">Veterinary College Alumni Association</field><field
+        name="unittitle_t">Veterinary College Alumni Activities</field><field name="unittitle_t">Veterinary
+        Dinner-Dance, May 7, 1931</field><field name="unittitle_t">Washington Square
+        College Class of 1919</field><field name="unittitle_t">Washington Square College
+        Class of 1920</field><field name="unittitle_t">Washington Square College Class
+        of 1921</field><field name="unittitle_t">Washington Square College Class of
+        1922, 1923, and 1924</field><field name="unittitle_t">Washington Square College
+        Class of 1926, 1927, and 1928</field><field name="unittitle_t">Washington
+        Square College Alumni Activities</field><field name="unittitle_t">Washington
+        Square College Alumni Activities</field><field name="unittitle_t">NYU Letter
+        Club</field><field name="unittitle_t">NYU Letter Club</field><field name="unittitle_t">NYU
+        Letter Club Activities</field><field name="unittitle_t">NYU Letter Club Basketball
+        Dinner</field><field name="unittitle_t">Carnegie Tech Football Game</field><field
+        name="unittitle_t">Carnegie Tech Football Game (1 of 2)</field><field name="unittitle_t">Carnegie
+        Tech Football Game (2 of 2)</field><field name="unittitle_t">Alumni Activities
+        - Football</field><field name="unittitle_t">Football Coaches Dinner NYAC,
+        April 19, 1934</field><field name="unittitle_t">Football Dinner</field><field
+        name="unittitle_t">NYU Letter Club Activities</field><field name="unittitle_t">Nebraska
+        - NYU Football Game Trip</field><field name="unittitle_t">Alumni Activities
+        - Bermuda Cruise</field><field name="unittitle_t">New York University Centennial
+        Fund</field><field name="unittitle_t">Chancellor''s Alumni Meeting, May 22,
+        1934</field><field name="unittitle_t">New York University Community Relations</field><field
+        name="unittitle_t">Chancellor''s Committee on Alumni Opinion</field><field
+        name="unittitle_t">New York Conference of Universities</field><field name="unittitle_t">Purchase
+        of Original NYU Diploma</field><field name="unittitle_t">Ohio State - NYU
+        Football Game and Trip, October 3, 1936</field><field name="unittitle_t">NYU
+        Tennis Club 1900-1927</field><field name="unittitle_t">Newman Club</field><field
+        name="unittitle_t">Alumni Occupational Lists</field><field name="unittitle_t">Lawrence
+        House Student Union, YMCA</field><field name="unittitle_t">Bureau of Employment</field><field
+        name="unittitle_t">New York Alumni Club of Delta Sigma Pi</field><field name="unittitle_t">New
+        York Alumni Club of Delta Sigma Pi</field><field name="unittitle_t">Alpha
+        Kappa Psi Fraternity</field><field name="unittitle_t">Phi Gamma Delta Stationery</field><field
+        name="unittitle_t">Phi Gamma Delta - General</field><field name="unittitle_t">Phi
+        Gamma Delta - General</field><field name="unittitle_t">Phi Gamma Delta Directories</field><field
+        name="unittitle_t">Phi Gamma Delta Association Records and Correspondence</field><field
+        name="unittitle_t">Phi Gamma Delta Audit</field><field name="unittitle_t">George
+        Kastener Correspondence and Addresses/Paper Clippings (Secretary)</field><field
+        name="unittitle_t">Charles D. Haughey Correspondence (Treasurer)</field><field
+        name="unittitle_t">"Hall of Fame Fiji": Nu Epsilon Chapter of Phi Gamma Delta</field><field
+        name="unittitle_t">Phi Gamma Delta 50th Anniversary</field><field name="unittitle_t">Phi
+        Gamma Delta Activities</field><field name="unittitle_t">Phi Gamma Delta National
+        Office (1 of 2)</field><field name="unittitle_t">Phi Gamma Delta National
+        Office (2 of 2)</field><field name="unittitle_t">Phi Gamma Delta Chapter Materials</field><field
+        name="unittitle_t">Phi Gamma Delta General Correspondence</field><field name="unittitle_t">2274
+        Loring Place, Morrison and Lynn Attorneys</field><field name="unittitle_t">2274
+        Loring Place, Fire Insurance</field><field name="unittitle_t">Phi Gamma Delta
+        Alumni Bartley to Loughran</field><field name="unittitle_t">Phi Gamma Delta
+        Alumni Mautel to Young</field><field name="unittitle_t">Oversized Materials
+        and Ephemera</field><field name="unittitle_t">Alexander F. Makay &amp; Company</field><field
+        name="unittitle_t">Barr, Jean B., Supervisor of Printing</field><field name="unittitle_t">Badger,
+        Phillip O., Professor of Marketing</field><field name="unittitle_t">Briesen,
+        Fritz, Law ''97</field><field name="unittitle_t">Broderick, Joseph, Commerce
+        ''06</field><field name="unittitle_t">Brown, Samuel A., Medicine ''94</field><field
+        name="unittitle_t">Chase, Harry Woodburn, Chancellor</field><field name="unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (1 of 3)</field><field name="unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (2 of 3)</field><field name="unittitle_t">Clyne,
+        James F., Editor "New York University Alumnus" (3 of 3)</field><field name="unittitle_t">Draper,
+        Arthur S., Engineering ''05</field><field name="unittitle_t">Draper, Arthur
+        S., Engineering ''05</field><field name="unittitle_t">Fernald, Henry B., Arts
+        ''01</field><field name="unittitle_t">General</field><field name="unittitle_t">Garvin,
+        Edwin L., Arts ''97 and Law ''99</field><field name="unittitle_t">Hendershot,
+        W. Raymond, Commerce ''20</field><field name="unittitle_t">Irwin, John V.,
+        Arts ''94 and Law ''99</field><field name="unittitle_t">Irwin, John V., Arts
+        ''94 and Law ''99</field><field name="unittitle_t">Jones, Theodore F., Director
+        of Heights Library and Professor of History</field><field name="unittitle_t">Kent,
+        Fred I., University Council</field><field name="unittitle_t">Kimball, Leroy
+        E., Comptroller</field><field name="unittitle_t">Kingsley, William M., Arts
+        ''84</field><field name="unittitle_t">Larsen, George, Arts ''06</field><field
+        name="unittitle_t">Makay, Alexander F., Commerce ''09 (1 of 2)</field><field
+        name="unittitle_t">Makay, Alexander F., Commerce ''09 (2 of 2)</field><field
+        name="unittitle_t">Makay, Alexander F., Commerce ''09</field><field name="unittitle_t">Onderdonk,
+        Charles D., Office Manager</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (1 of 2)</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (2 of 2)</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (1 of 2)</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (2 of 2)</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (1 of 2)</field><field name="unittitle_t">Patterson, William
+        M., Law ''93 (2 of 2)</field><field name="unittitle_t">Roberts, Vincent</field><field
+        name="unittitle_t">Roberts, Vincent</field><field name="unittitle_t">Ross,
+        Benjamin A., Alumni Federation Secretary (1 of 2)</field><field name="unittitle_t">Ross,
+        Banjamin A., Alumni Federation Secretary (2 of 2)</field><field name="unittitle_t">Saunders,
+        Richard P.</field><field name="unittitle_t">Sommer, Frank H., Dean of Law
+        School</field><field name="unittitle_t">Tompkins, Leslie J., Law ''92</field><field
+        name="unittitle_t">Voorhis, Harold O., NYU Secretary (1 of 2)</field><field
+        name="unittitle_t">Voorhis, Harold O., NYU Secretary (2 of 2)</field><field
+        name="unittitle_t">Voorhis, Harold O., NYU Secretary</field><field name="unittitle_t">Washburn,
+        Earle L., NYU Auditor</field><field name="publisher_t">New York University
+        Archives</field><field name="id">alumnifed</field><field name="ead_id">alumnifed</field><field
+        name="format">Archival Collection</field><field name="heading_display">Guide
+        to the Records of the Alumni Federation of New York University, Inc. (RG 40.7)</field><field
+        name="publisher_display">New York University Archives</field><field name="repository_s">archives</field><field
+        name="heading_txt">Guide to the Records of the Alumni Federation of New York
+        University, Inc. (RG 40.7)</field></doc></add>'
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>54}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:28 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: US-ASCII
+      string: <?xml version="1.0" encoding="UTF-8"?><commit/>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Fri, 19 Apr 2013 20:17:28 GMT
+      Connection:
+      - close
+    body:
+      encoding: US-ASCII
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
+    http_version: 
+  recorded_at: Fri, 19 Apr 2013 20:17:29 GMT
+recorded_with: VCR 2.4.0
