@@ -1,3 +1,5 @@
+require File.join(File.dirname(__FILE__), 'record.rb')
+
 class CustomDocument < SolrEad::Document
  include Findingaids::Record
 

@@ -16,9 +16,7 @@ module Findingaids
     
     # Get collection name from directory
     def format_repository
-      if ENV['REPO'].present?
-        return ENV['REPO']
-      elsif ENV['DIR'].present?
+      if ENV['DIR'].present?
         return ENV['DIR'].split("\/")[-1]
       else
         return ENV['FILE'].split("\/")[-2]

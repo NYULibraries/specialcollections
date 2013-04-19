@@ -29,8 +29,8 @@ end
 
 group :test do
   gem 'coveralls', "~> 0.6.2", :require => false
-  gem "vcr", "~> 2.4.0"
-  gem "webmock", "~> 1.11.0"
+  #gem "vcr", "~> 2.4.0"
+  #gem "webmock", "~> 1.11.0"
 end
 
 group :development do 
