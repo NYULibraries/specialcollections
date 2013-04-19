@@ -4,11 +4,6 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController  
   include Blacklight::Catalog
 
-  # Set a session variable on index action stating what the user's current collection is
-  # so this will persist through their searching until they go to a new collection
-  #before_filter :set_session_collection_with_all, :only => :index
-  # Before each search add the collection parameter to the list of parameters so it persists after the initial search
-  before_filter :add_collection_param_to_search
   
   configure_blacklight do |config|
       ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
@@ -190,43 +185,5 @@ class CatalogController < ApplicationController
       # mean") suggestion is offered.
       config.spell_max = 5
   end
-  
-  # Initially defined in lib/blacklight/solr_helper.rb, this array is looped through to form search parameters
-  # This is the standard way of adding search params to a solr search
-  #self.solr_search_params_logic << :add_collection_to_solr
-  #
-  ## Adding a collection to solr params
-  #def add_collection_to_solr(solr_parameters, user_parameters)
-  #  solr_parameters[:fq] << "collection_group_s:*"
-  #  solr_parameters[:fq] << "collection_group_s:#{current_collection(user_parameters[:collection])}" unless current_collection(user_parameters[:collection]).nil?
-  #end
-  
-  # This is an override of lib/blacklight/catalog.rb#save_current_search_params
-  #
-  # The original function creates a Search instance after each search to track search history
-  # Our implementation of Blacklight will not serialize the query_params for some reason if the utf8 param is present
-  #
-  # TODO: Write a test to show how this fails in Blacklight and add back to core code 
-  #def save_current_search_params    
-  #  # If it's got anything other than controller, action, total, we
-  #  # consider it an actual search to be saved. Can't predict exactly
-  #  # what the keys for a search will be, due to possible extra plugins.
-  #  return if (search_session.keys - [:controller, :action, :total, :counter, :commit ]) == [] 
-  #  params_copy = search_session.clone # don't think we need a deep copy for this
-  #  params_copy.delete(:page)
-  #  params_copy.delete(:utf8) # Added this line
-  #  
-  #  unless @searches.collect { |search| search.query_params }.include?(params_copy)
-  #    new_search = Search.create(:query_params => params_copy)
-  #    session[:history].unshift(new_search.id)
-  #    # Only keep most recent X searches in history, for performance. 
-  #    # both database (fetching em all), and cookies (session is in cookie)
-  #    session[:history] = session[:history].slice(0, Blacklight::Catalog::SearchHistoryWindow )
-  #  end
-  #end
-  
-  #def set_session_collection_with_all
-  #  set_session_collection(all_collections_tab = true)
-  #end
 
 end 
