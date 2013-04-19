@@ -47,7 +47,7 @@ namespace :solr_ead do
 #  end
 
   desc "Index a directory of ead files given by DIR=path/to/directory"
-  task :index_dir => :environment do
+  task :index_dir do
     raise "Please specify your direction, ex. DIR=path/to/directory" unless ENV['DIR']
     indexer = SolrEad::Indexer.new
     Dir.glob(File.join(ENV['DIR'],"*")).each do |file|

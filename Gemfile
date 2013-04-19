@@ -6,7 +6,7 @@ gem 'mysql2'
 
 gem 'json', "~> 1.7.7"
 
-gem 'coffee-rails', '~> 3.2.1'
+gem 'coffee-rails', '~> 3.2.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -67,7 +67,7 @@ gem 'dalli', "~> 2.6.2"
 
 gem "comma", "~> 3.0.4"
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.5-no-bootstrap-sass-dep"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.8-no-bootstrap-sass-dep"
 #gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
