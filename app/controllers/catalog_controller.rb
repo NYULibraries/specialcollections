@@ -3,7 +3,6 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
   include Blacklight::Catalog
-
   
   configure_blacklight do |config|
       ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
@@ -185,5 +184,5 @@ class CatalogController < ApplicationController
       # mean") suggestion is offered.
       config.spell_max = 5
   end
-
+  
 end 

@@ -14,6 +14,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template :index
   end
+  
+  test "should redirect non-admin user" do
+    current_user = UserSession.create(users(:real_user))
+    get :index
+    assert_redirected_to root_path
+  end
 
   test "search returns result" do
     get :index, :search => "admin"

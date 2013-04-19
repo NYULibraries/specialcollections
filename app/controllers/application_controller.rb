@@ -45,19 +45,5 @@ class ApplicationController < ActionController::Base
   end
   alias :is_in_admin_view? :is_in_admin_view
   helper_method :is_in_admin_view?
-
-  # Load YAML file with repos info into Hash
-  def repositories_info
-    @repositories_info ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )
-  end
-  helper_method :repositories_info
-  
-  # Return which Hash set to use
-  #
-  # * Return the Catalog repositories
-  def repository_info    
-   return repositories_info["Catalog"]
-  end
-  helper_method :repository_info
   
 end
