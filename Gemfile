@@ -56,7 +56,7 @@ gem 'acts-as-taggable-on', '~> 2.4.0'
 gem 'authpds-nyu', "~> 0.2.12"
 gem 'jquery-rails', "~> 2.2.1"
 
-gem 'blacklight', :path => "/apps/blacklight"#'~> 4.2.0'
+gem 'blacklight', '~> 4.2.0'
 gem 'sorted', '~> 0.4.3'
 
 # For memcached
