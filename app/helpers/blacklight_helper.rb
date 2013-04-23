@@ -6,7 +6,7 @@ module BlacklightHelper
   # * A search has been executed and the serach term appears in the field
   def should_show_index_field? document, field, solr_fname
     (["ead_id","title_txt","publisher_display","abstract_txt"].include? solr_fname or
-      (params[:q].present? and !excerpt((render_index_field_value :document => document, :field => solr_fname), params[:q]).nil?))
+      document.has_highlight_field? solr_fname)
   end
   
   # Change link to document to link out to external guide

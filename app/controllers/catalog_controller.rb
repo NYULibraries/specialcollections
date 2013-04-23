@@ -3,7 +3,7 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController  
   include Blacklight::Catalog
-  
+
   configure_blacklight do |config|
       ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
       
@@ -12,7 +12,13 @@ class CatalogController < ApplicationController
         :rows => 10,
         :fl => "heading_display id repository_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         :facet => true,
-        :fq => "",
+        :hl => true,
+        "hl.fl" => "publisher_display format title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        "hl.simple.pre" => "<span class=\"highlight\">",
+        "hl.simple.post" => "</span>",
+        "hl.mergeContiguous" => true,
+        "hl.fragsize" => 50,
+        "hl.snippets" => 10,
         "facet.mincount" => 1,
         :echoParams => "explicit",
         :qf => "title_txt^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
@@ -27,7 +33,6 @@ class CatalogController < ApplicationController
         :qt => '',
         ## These are hard-coded in the blacklight 'document' requestHandler
         :fl => '*',
-        :fq => "",
         :rows => 1,
         :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
       }
@@ -81,32 +86,33 @@ class CatalogController < ApplicationController
       # previously. Simply remove these lines if you'd rather use Solr request
       # handler defaults, or have no facets.
       config.add_facet_fields_to_solr_request!
+      #config.add_field_configuration_to_solr_request!
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
       #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
-      config.add_index_field 'title_txt', :label => "Title:", :helper_method => :highlight_search_text
-      config.add_index_field 'publisher_display', :label => "Collection:", :helper_method => :highlight_search_text
-      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :helper_method => :highlight_search_text
-      config.add_index_field 'abstract_txt', :label => "Abstract:", :helper_method => :highlight_search_text
-      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'unittitle_txt', :label => "Title of the Unit:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'index_txt', :label => "Index:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :helper_method => :excerpt_occurrence
-      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :helper_method => :excerpt_occurrence
+      config.add_index_field 'title_txt', :label => "Title:", :highlight => true
+      config.add_index_field 'publisher_display', :label => "Collection:", :highlight => true
+      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :highlight => true
+      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true
+      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true
+      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true
+      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true
+      config.add_index_field 'unittitle_txt', :label => "Title of the Unit:", :highlight => true
+      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :highlight => true
+      config.add_index_field 'index_txt', :label => "Index:", :highlight => true
+      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :highlight => true
+      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :highlight => true
+      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :highlight => true
+      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :highlight => true
 
       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
-      config.add_show_field 'ead_id', :label => '', :helper_method => :link_field      
-      config.add_show_field 'title_display', :label => 'Title:', :helper_method => :highlight_search_text 
-      config.add_show_field 'publisher_display', :label => 'Collection:' 
-      config.add_show_field 'abstract_t', :label => 'Abstract:', :helper_method => :highlight_search_text 
-      config.add_show_field 'ead_language_display', :label => 'Language:'
+      #config.add_show_field 'ead_id', :label => '', :helper_method => :link_field      
+      #config.add_show_field 'title_display', :label => 'Title:', :helper_method => :highlight_search_text 
+      #config.add_show_field 'publisher_display', :label => 'Collection:' 
+      #config.add_show_field 'abstract_t', :label => 'Abstract:', :helper_method => :highlight_search_text 
+      #config.add_show_field 'ead_language_display', :label => 'Language:'
 
       # "fielded" search configuration. Used by pulldown among other places.
       # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -184,5 +190,15 @@ class CatalogController < ApplicationController
       # mean") suggestion is offered.
       config.spell_max = 5
   end
+  
+  # Initially defined in lib/blacklight/solr_helper.rb, this array is looped through to form search parameters
+  # This is the standard way of adding search params to a solr search
+  #self.solr_search_params_logic << :add_collection_to_solr
+  #
+  ## Adding a collection to solr params
+  #def add_collection_to_solr(solr_parameters, user_parameters)
+  #  solr_parameters[:fq] ||= []
+  #  solr_parameters[:fq] << ""
+  #end
   
 end 

@@ -15,27 +15,8 @@ module ApplicationHelper
     link_to("Link to guide", guide_href(field[:document][:repository_s], field[:document][field[:field]]), :target => :blank)
   end
   
-  def guide_href(collection, ead_id)
-    "http://dlib.nyu.edu/findingaids/html/#{collection}/#{ead_id}"
-  end
-  
-  # Create an excerpt of occurrences in other search fields
-  def excerpt_occurrence(field)
-    excerpts = Array.new
-    field[:document][field[:field]].each do |field_text|
-      excerpts << highlight(excerpt(field_text, params[:q]), params[:q]) unless excerpt(field_text, params[:q]).nil?
-    end
-    return excerpts.join("&mdash;").html_safe
-  end
-  
-  # Highlight the search query within the field
-  #
-  def highlight_search_text(field)
-    if field[:document][field[:field]].is_a? Array
-      highlight(field[:document][field[:field]].first.html_safe, params[:q]) 
-    else
-      highlight(field[:document][field[:field]].html_safe, params[:q])
-    end
+  def guide_href(collection, ead_id, page = nil, anchor = nil)
+    "http://dlib.nyu.edu/findingaids/html/#{collection}/#{ead_id}#{"/" + page + ".html" unless page.nil?}#{"#" + anchor unless anchor.nil?}"
   end
 
   # Stylesheets include helper
