@@ -5,8 +5,7 @@ module BlacklightHelper
   # * It's one of the base fields or
   # * A search has been executed and the serach term appears in the field
   def should_show_index_field? document, field, solr_fname
-    (["ead_id","title_txt","publisher_display","abstract_txt"].include? solr_fname or
-      document.has_highlight_field? solr_fname)
+    return (["ead_id","title_txt","publisher_display","abstract_txt"].include? solr_fname or (document.has_highlight_field? solr_fname if field.highlight))
   end
   
   # Change link to document to link out to external guide

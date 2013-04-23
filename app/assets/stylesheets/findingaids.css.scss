@@ -62,3 +62,9 @@ input[type='file'] {
   @extend .alert;
   padding: 0;
 }
+
+@media (max-width: 480px) {
+  #search_field {
+    display: block;
+  }
+}

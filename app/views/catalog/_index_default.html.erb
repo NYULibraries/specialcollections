@@ -6,7 +6,7 @@
       <% if should_show_index_field? document, field, solr_fname %>
 	      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
 	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
-	    <% end %>
+	    <% end -%>
     <% end -%>
   <% end -%>
 

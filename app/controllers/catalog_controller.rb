@@ -13,7 +13,7 @@ class CatalogController < ApplicationController
         :fl => "heading_display id repository_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         :facet => true,
         :hl => true,
-        "hl.fl" => "publisher_display format title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        "hl.fl" => "ead_id publisher_display format title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         "hl.simple.pre" => "<span class=\"highlight\">",
         "hl.simple.post" => "</span>",
         "hl.mergeContiguous" => true,
@@ -86,15 +86,14 @@ class CatalogController < ApplicationController
       # previously. Simply remove these lines if you'd rather use Solr request
       # handler defaults, or have no facets.
       config.add_facet_fields_to_solr_request!
-      #config.add_field_configuration_to_solr_request!
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
       #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
-      config.add_index_field 'title_txt', :label => "Title:", :highlight => true
-      config.add_index_field 'publisher_display', :label => "Collection:", :highlight => true
+      config.add_index_field 'title_txt', :label => "Title:" #, :highlight => true
+      config.add_index_field 'publisher_display', :label => "Collection:"#, :highlight => true
       config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :highlight => true
-      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true
+      config.add_index_field 'abstract_txt', :label => "Abstract:" #, :highlight => true
       config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true
       config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true
       config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true

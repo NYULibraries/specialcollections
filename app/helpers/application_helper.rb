@@ -29,5 +29,5 @@ module ApplicationHelper
   def catalog_javascripts
     catalog_javascripts = javascript_include_tag "application"
   end
-  
+    
 end
