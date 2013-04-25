@@ -16,6 +16,18 @@ GIT
       rake (~> 10.0.4)
       require_all (~> 1.2.1)
 
+PATH
+  remote: /apps/blacklight
+  specs:
+    blacklight (4.0.0)
+      bootstrap-sass (~> 2.2.0)
+      kaminari (~> 0.13)
+      marc (>= 0.4.3, < 1.1)
+      nokogiri (~> 1.5)
+      rails (~> 3.2)
+      rsolr (~> 1.0.6)
+      sass-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -71,14 +83,6 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
-    blacklight (4.2.0)
-      bootstrap-sass (~> 2.2.0)
-      kaminari (~> 0.13)
-      marc (>= 0.4.3, < 1.1)
-      nokogiri (~> 1.5)
-      rails (>= 3.2)
-      rsolr (~> 1.0.6)
-      sass-rails
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -302,7 +306,7 @@ DEPENDENCIES
   authpds-nyu (~> 0.2.12)
   better_errors
   binding_of_caller
-  blacklight (~> 4.2.0)
+  blacklight!
   coffee-rails (~> 3.2.0)
   comma (~> 3.0.4)
   compass-rails (~> 1.0.0)

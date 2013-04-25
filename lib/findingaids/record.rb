@@ -11,7 +11,7 @@ module Findingaids
        :replace           => '',        # Use a blank for those replacements
        :universal_newline => true       # Always break lines with \n
       }
-      return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').gsub(/\A\d{4}/,'').strip
+      return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
     end
     
     # Get collection name from directory

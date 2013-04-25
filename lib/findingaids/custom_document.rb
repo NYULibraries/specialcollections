@@ -21,7 +21,7 @@ class CustomDocument < SolrEad::Document
     t.subject_geo(:proxy=>[:geogname])
     t.subject_topic(:proxy=>[:subject])
 
-    t.title(:path=>"archdesc/did/unittitle", :index_as=>[:searchable, :displayable])
+    t.title(:path=>"archdesc/did/unittitle", :index_as=>[:unstemmed, :displayable])
     t.title_filing(:path=>"titleproper", :attributes=>{ :type => "filing" }, :index_as=>[:sortable])
     t.title_num(:path=>"archdesc/did/unitid", :index_as=>[:searchable, :displayable])
     t.extent(:path=>"archdesc/did/physdesc/extent")
@@ -85,7 +85,7 @@ class CustomDocument < SolrEad::Document
  # method out of your definition.
  def to_solr(solr_doc = Hash.new)
    super(solr_doc)
-   solr_doc.merge!({"publisher_display" => format_publisher(self.publisher)})
+   solr_doc.merge!({"publisher_unstem_search" => format_publisher(self.publisher)})
    solr_doc.merge!({"repository_s" => format_repository})
    solr_doc.merge!({"heading_txt" => ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
  end

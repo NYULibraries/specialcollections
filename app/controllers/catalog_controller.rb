@@ -10,10 +10,10 @@ class CatalogController < ApplicationController
       config.default_solr_params = { 
         :qt => '',
         :rows => 10,
-        :fl => "heading_display id repository_s ead_id publisher_display format score title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        :fl => "score format id ead_id repository_s heading_display publisher_unstem_search title_unstem_search title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         :facet => true,
         :hl => true,
-        "hl.fl" => "ead_id publisher_display format title_txt title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        "hl.fl" => "publisher_unstem_search title_unstem_search title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
         "hl.simple.pre" => "<span class=\"highlight\">",
         "hl.simple.post" => "</span>",
         "hl.mergeContiguous" => true,
@@ -21,21 +21,21 @@ class CatalogController < ApplicationController
         "hl.snippets" => 10,
         "facet.mincount" => 1,
         :echoParams => "explicit",
-        :qf => "title_txt^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
-        :pf => "title_txt^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
+        :qf => "title_unstem_search^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
+        :pf => "title_unstem_search^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
         :defType => "edismax"
       }
       
       ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
       ## parameters included in the Blacklight-jetty document requestHandler.
       #
-      config.default_document_solr_params = {
-        :qt => '',
-        ## These are hard-coded in the blacklight 'document' requestHandler
-        :fl => '*',
-        :rows => 1,
-        :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
-      }
+      #config.default_document_solr_params = {
+      #  :qt => '',
+      #  ## These are hard-coded in the blacklight 'document' requestHandler
+      #  :fl => '*',
+      #  :rows => 1,
+      #  :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
+      #}
 
       # solr field configuration for search results/index views
       config.index.show_link = 'heading_display'
@@ -90,10 +90,10 @@ class CatalogController < ApplicationController
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
       #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
-      config.add_index_field 'title_txt', :label => "Title:" #, :highlight => true
-      config.add_index_field 'publisher_display', :label => "Collection:"#, :highlight => true
+      config.add_index_field 'title_unstem_search', :label => "Title:", :highlight => true
+      config.add_index_field 'publisher_unstem_search', :label => "Collection:", :highlight => true
       config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :highlight => true
-      config.add_index_field 'abstract_txt', :label => "Abstract:" #, :highlight => true
+      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true
       config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true
       config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true
       config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true
