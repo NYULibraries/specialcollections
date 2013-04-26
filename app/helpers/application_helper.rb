@@ -29,5 +29,41 @@ module ApplicationHelper
   def catalog_javascripts
     catalog_javascripts = javascript_include_tag "application"
   end
-    
+  
+  # Highlight search text and link to appropriate page in finding aid
+  def highlight_search_text(field)
+    # If any of the following fields match, link to admininfo page; otherwise link to the field name page
+    link_page = (["custodhist_txt","sponsor_txt","custodhist_txt","acqinfo_txt","phystech_txt","index_txt"].include? field[:field]) ? "admininfo" : field[:field].split("_").first
+    # If abstract matches, link to homepage
+    link_page = (field[:field].eql? "abstract_txt") ? nil : link_page 
+    link_body = (field[:document].has_highlight_field? field[:field]) ? field[:document].highlight_field(field[:field]).first.html_safe : field[:document][field[:field]].first.html_safe
+    link_to(link_body, guide_href(field[:document]["repository_s"], field[:document]["ead_id"], link_page), :target => :blank)
+  end
+  
+  def search_components(field)
+    solr = RSolr.connect :url => Settings.solr.url
+    solr_params = { 
+      :qt => '',
+      :rows => 10,
+      :fl => "score ead_id title_txt title_display parent_id_s",
+      :facet => false,
+      :hl => true,
+      "hl.fl" => "title_display",
+      "hl.simple.pre" => "<span class=\"highlight\">",
+      "hl.simple.post" => "</span>",
+      "hl.mergeContiguous" => true,
+      "hl.fragsize" => 50,
+      "hl.snippets" => 10,
+      :echoParams => "explicit",
+      :qf => "title_txt",
+      :pf => "title_txt",
+      :defType => "edismax",
+      :fq => ["ead_id:#{field[:document]['ead_id']}", "parent_id:*"],
+      :q => params[:q]
+    }
+    solr_select = solr.get 'select', :params => solr_params
+    unless solr_select["response"]["docs"].empty?
+      debugger
+    end
+  end
 end

@@ -93,17 +93,17 @@ class CatalogController < ApplicationController
       config.add_index_field 'title_unstem_search', :label => "Title:", :highlight => true
       config.add_index_field 'publisher_unstem_search', :label => "Collection:", :highlight => true
       config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :highlight => true
-      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true
-      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true
-      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true
-      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true
-      config.add_index_field 'unittitle_txt', :label => "Title of the Unit:", :highlight => true
-      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :highlight => true
-      config.add_index_field 'index_txt', :label => "Index:", :highlight => true
-      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :highlight => true
-      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :highlight => true
-      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :highlight => true
-      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :highlight => true
+      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'unittitle_txt', :label => "Title of the Unit:", :highlight => true, :helper_method => :search_components
+      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :highlight => true, :helper_method => :search_components
+      config.add_index_field 'index_txt', :label => "Index:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :highlight => true, :helper_method => :highlight_search_text
 
       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
