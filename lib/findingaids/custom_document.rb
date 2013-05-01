@@ -7,36 +7,36 @@ class CustomDocument < SolrEad::Document
     t.root(:path=>"ead")
 
     t.eadid
-    #t.corpname(:index_as=>[:facetable])
-    #t.famname(:index_as=>[:facetable])
-    #t.genreform(:index_as=>[:facetable])
-    #t.geogname(:index_as=>[:facetable])
-    #t.name(:index_as=>[:facetable])
-    #t.persname(:index_as=>[:facetable])
-    #t.subject(:index_as=>[:facetable])
-    #
-    ## These terms are proxied to match with Blacklight's default facets, but otherwise
-    ## you can remove them or rename the above facet terms to match with your solr
-    ## implementation.
-    #t.subject_geo(:proxy=>[:geogname])
-    #t.subject_topic(:proxy=>[:subject])
-    #
-    #t.title(:path=>"archdesc/did/unittitle", :index_as=>[:unstemmed, :displayable])
-    #t.title_filing(:path=>"titleproper", :attributes=>{ :type => "filing" }, :index_as=>[:sortable])
-    #t.title_num(:path=>"archdesc/did/unitid", :index_as=>[:searchable, :displayable])
-    #t.extent(:path=>"archdesc/did/physdesc/extent")
-    #t.pubdate(:path=>"archdesc/did/unitdate/@normal", :index_as=>[:facetable,:displayable])
-    #t.unitdate(:path=>"archdesc/did/unitdate[not(@type)]", :index_as=>[:unstemmed])
-    #t.unitdate_bulk(:path=>"archdesc/did/unitdate[@type='bulk']", :index_as=>[:unstemmed])
-    #t.unitdate_inclusive(:path=>"archdesc/did/unitdate[@type='inclusive']", :index_as=>[:unstemmed])
-    #t.langdesc(:path=>"archdesc/did/langmaterial", :index_as=>[:displayable])
-    #t.lang(:path=>"profiledesc/langusage/language", :index_as=>[:facetable,:displayable])
-    #t.langcode(:path=>"did/langmaterial/language/@langcode")
-    #t.abstract(:path=>"archdesc/did/abstract", :index_as=>[:searchable])
-    #t.sponsor(:path=>"sponsor", :index_as=>[:searchable,:displayable])
-    #
-    #t.collection(:proxy=>[:title], :index_as=>[:facetable])
-    #
+    t.corpname(:index_as=>[:facetable])
+    t.famname(:index_as=>[:facetable])
+    t.genreform(:index_as=>[:facetable])
+    t.geogname(:index_as=>[:facetable])
+    t.name(:index_as=>[:facetable])
+    t.persname(:index_as=>[:facetable])
+    t.subject(:index_as=>[:facetable])
+    
+    # These terms are proxied to match with Blacklight's default facets, but otherwise
+    # you can remove them or rename the above facet terms to match with your solr
+    # implementation.
+    t.subject_geo(:proxy=>[:geogname])
+    t.subject_topic(:proxy=>[:subject])
+    
+    t.title(:path=>"archdesc/did/unittitle", :index_as=>[:unstemmed, :displayable])
+    t.title_filing(:path=>"titleproper", :attributes=>{ :type => "filing" }, :index_as=>[:sortable])
+    t.title_num(:path=>"archdesc/did/unitid", :index_as=>[:searchable, :displayable])
+    t.extent(:path=>"archdesc/did/physdesc/extent")
+    t.pubdate(:path=>"archdesc/did/unitdate/@normal", :index_as=>[:facetable,:displayable])
+    t.unitdate(:path=>"archdesc/did/unitdate[not(@type)]", :index_as=>[:unstemmed])
+    t.unitdate_bulk(:path=>"archdesc/did/unitdate[@type='bulk']", :index_as=>[:unstemmed])
+    t.unitdate_inclusive(:path=>"archdesc/did/unitdate[@type='inclusive']", :index_as=>[:unstemmed])
+    t.langdesc(:path=>"archdesc/did/langmaterial", :index_as=>[:displayable])
+    t.lang(:path=>"profiledesc/langusage/language", :index_as=>[:facetable,:displayable])
+    t.langcode(:path=>"did/langmaterial/language/@langcode")
+    t.abstract(:path=>"archdesc/did/abstract", :index_as=>[:searchable])
+    t.sponsor(:path=>"sponsor", :index_as=>[:searchable,:displayable])
+    
+    t.collection(:proxy=>[:title], :index_as=>[:facetable])
+    
     #
     ## General field available within archdesc
     ##t.accessrestrict(:path=>"archdesc/accessrestrict/p", :index_as=>[:searchable])
