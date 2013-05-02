@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), 'record.rb')
+require File.join(File.dirname(__FILE__), 'record.rb') unless defined?(Findingaids::Record)
 
 class CustomDocument < SolrEad::Document
  include Findingaids::Record
@@ -74,8 +74,8 @@ class CustomDocument < SolrEad::Document
     t.scopecontent_heading(:path=>"archdesc/scopecontent/head", :index_as=>[:displayable])
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
-    t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
-    t.odd(:path=>"archdesc/dsc//odd", :index_as=>[:searchable])
+    t.unittitle(:path=>"archdesc/dsc/c[@level='file']/did/unittitle", :index_as=>[:searchable])
+    t.odd(:path=>"archdesc/dsc/c[@level='file']/odd", :index_as=>[:searchable])
     t.index(:path=>"archdesc/index", :index_as=>[:searchable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
@@ -86,7 +86,7 @@ class CustomDocument < SolrEad::Document
  def to_solr(solr_doc = Hash.new)
    solr_doc.merge!({"publisher_unstem_search" =>      format_publisher(self.publisher)})
    solr_doc.merge!({"repository_s" =>                 format_repository})
-   solr_doc.merge!({"heading_txt" =>                  ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
+   solr_doc.merge!({"heading_t" =>                  ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
    super(solr_doc)
  end
 

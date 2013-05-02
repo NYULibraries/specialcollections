@@ -10,10 +10,10 @@ class CatalogController < ApplicationController
       config.default_solr_params = { 
         :qt => '',
         :rows => 10,
-        :fl => "score format id ead_id repository_s heading_display publisher_unstem_search title_unstem_search title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        :fl => "score format id ead_id repository_s heading_display publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
         :facet => true,
         :hl => true,
-        "hl.fl" => "publisher_unstem_search title_unstem_search title_num_txt abstract_txt controlaccess_txt scopecontent_txt bioghist_txt unittitle_txt odd_txt index_txt phystech_txt acqinfo_txt sponsor_txt custodhist_txt",
+        "hl.fl" => "publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
         "hl.simple.pre" => "<span class=\"highlight\">",
         "hl.simple.post" => "</span>",
         "hl.mergeContiguous" => true,
@@ -21,8 +21,8 @@ class CatalogController < ApplicationController
         "hl.snippets" => 10,
         "facet.mincount" => 1,
         :echoParams => "explicit",
-        :qf => "title_unstem_search^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
-        :pf => "title_unstem_search^10.0 title_num_txt^10.0 abstract_txt^9.0 controlaccess_txt^9.0 scopecontent_txt^7.0 bioghist_txt^7.0 unittitle_txt^5.0 odd_txt^5.0 index_txt^3.0 phystech_txt^2.0 acqinfo_txt^2.0 sponsor_txt^1.0 custodhist_txt^1.0",
+        :qf => "title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
+        :pf => "title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
         :defType => "edismax"
       }
       
@@ -92,18 +92,18 @@ class CatalogController < ApplicationController
       #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
       config.add_index_field 'title_unstem_search', :label => "Title:", :highlight => true
       config.add_index_field 'publisher_unstem_search', :label => "Collection:", :highlight => true
-      config.add_index_field 'title_num_txt', :label => "ID of the Unit:", :highlight => true
-      config.add_index_field 'abstract_txt', :label => "Abstract:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'bioghist_txt', :label => "Biographical History:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'controlaccess_txt', :label => "Controlled Access Headings:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'scopecontent_txt', :label => "Scope and Content:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'unittitle_txt', :label => "Title of the Unit:", :highlight => true, :helper_method => :search_components
-      config.add_index_field 'odd_txt', :label => "Other Descriptive Data:", :highlight => true, :helper_method => :search_components
-      config.add_index_field 'index_txt', :label => "Index:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'phystech_txt', :label => "Physical Characteristics and Technical Requirements:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'acqinfo_txt', :label => "Acquisition Information:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'sponsor_txt', :label => "Sponsor:", :highlight => true, :helper_method => :highlight_search_text
-      config.add_index_field 'custodhist_txt', :label => "Custodial History:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'title_num_t', :label => "ID of the Unit:", :highlight => true
+      config.add_index_field 'abstract_t', :label => "Abstract:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'bioghist_t', :label => "Biographical History:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'controlaccess_t', :label => "Controlled Access Headings:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'scopecontent_t', :label => "Scope and Content:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'unittitle_t', :label => "Title of the Unit:", :highlight => true, :helper_method => :search_components
+      config.add_index_field 'odd_t', :label => "Other Descriptive Data:", :highlight => true, :helper_method => :search_components
+      config.add_index_field 'index_t', :label => "Index:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'phystech_t', :label => "Physical Characteristics and Technical Requirements:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'acqinfo_t', :label => "Acquisition Information:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'sponsor_t', :label => "Sponsor:", :highlight => true, :helper_method => :highlight_search_text
+      config.add_index_field 'custodhist_t', :label => "Custodial History:", :highlight => true, :helper_method => :highlight_search_text
 
       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
