@@ -634,6 +634,7 @@
    <!-- sort fields -->
    <copyField source="pub_date" dest="pub_date_sort"/>
    
+   <copyField source="title_display" dest="title_t"/>
    <!-- Make full text search fields non case sensitive 
    <copyField source="title_t" dest="title_txt"/>
    <copyField source="title_display" dest="title_txt"/>

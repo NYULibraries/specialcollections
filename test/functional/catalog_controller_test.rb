@@ -15,4 +15,8 @@ class CatalogControllerTest < ActionController::TestCase
      assert_template :index
   end
   
+  test "should match components and do another solr search" do
+    # Do this
+  end
+  
 end

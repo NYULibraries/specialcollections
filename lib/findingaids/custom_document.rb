@@ -37,7 +37,6 @@ class CustomDocument < SolrEad::Document
 
     t.collection(:proxy=>[:title], :index_as=>[:facetable])
 
-
     # General field available within archdesc
     #t.accessrestrict(:path=>"archdesc/accessrestrict/p", :index_as=>[:searchable])
     #t.accessrestrict_heading(:path=>"archdesc/accessrestrict/head", :index_as=>[:displayable])
@@ -74,8 +73,8 @@ class CustomDocument < SolrEad::Document
     t.scopecontent_heading(:path=>"archdesc/scopecontent/head", :index_as=>[:displayable])
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
-    t.unittitle(:path=>"archdesc/dsc/c[@level='file']/did/unittitle", :index_as=>[:searchable])
-    t.odd(:path=>"archdesc/dsc/c[@level='file']/odd", :index_as=>[:searchable])
+    t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
+    t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable])
     t.index(:path=>"archdesc/index", :index_as=>[:searchable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])

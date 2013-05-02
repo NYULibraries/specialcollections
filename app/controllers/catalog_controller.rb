@@ -89,7 +89,7 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      #config.add_index_field 'ead_id', :label => "", :helper_method => :link_field
+      #config.add_index_field 'ead_id', :label => "", :helper_method => :link_fields
       config.add_index_field 'title_unstem_search', :label => "Title:", :highlight => true
       config.add_index_field 'publisher_unstem_search', :label => "Collection:", :highlight => true
       config.add_index_field 'title_num_t', :label => "ID of the Unit:", :highlight => true

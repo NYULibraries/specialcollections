@@ -34,6 +34,10 @@ $ rails server
 $ rake solr_ead:index FILE=examples/pe_bakery.xml
 ```
 
+Integrate a way to only index files updated since the last index:
+
+    find . -type f -mtime -1
+
 ## Look at the sample records
 
 Visit <http://webdev3.library.nyu.edu/findingaids>
