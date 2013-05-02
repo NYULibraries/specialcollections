@@ -84,7 +84,7 @@ module ApplicationHelper
       :q => params[:q]
     }
     solr_select = solr.get 'select', :params => solr_params
-    debugger
+    
     unless solr_select["response"]["docs"].empty?
       # Do something
       debugger

@@ -73,16 +73,11 @@ class CustomDocument < SolrEad::Document
     t.scopecontent_heading(:path=>"archdesc/scopecontent/head", :index_as=>[:displayable])
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
-    t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
-    t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable])
+    #t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
+    #t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable])
     t.index(:path=>"archdesc/index", :index_as=>[:searchable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
-    
-    t.container(:path=>"archdesc/dsc//c[@level='file']") do {
-      t.level(:path => {:attribute=>"level"})
-      t.title(:path => "unittitle")
-    }
  end
 
  # Optionally, you may tweak other solr fields here.  Otherwise, you can leave this
