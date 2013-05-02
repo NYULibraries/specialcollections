@@ -16,6 +16,16 @@ GIT
       rake (~> 10.0.4)
       require_all (~> 1.2.1)
 
+GIT
+  remote: git@github.com:barnabyalter/solr_ead.git
+  revision: d1fac06d4e480b4dfa22a28ab6d00a0c165f29d1
+  specs:
+    solr_ead (0.4.4)
+      om
+      rsolr
+      sanitize
+      solrizer (~> 2.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -246,11 +256,6 @@ GEM
     simplecov-html (0.7.1)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    solr_ead (0.4.4)
-      om
-      rsolr
-      sanitize
-      solrizer (~> 2.1.0)
     solrizer (2.1.0)
       activesupport
       daemons
@@ -323,7 +328,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simplecov
   simplecov-rcov
-  solr_ead (~> 0.4.4)
+  solr_ead!
   sorted (~> 0.4.3)
   sunspot_rails (~> 2.0.0)
   sunspot_solr (~> 2.0.0)

@@ -18,7 +18,7 @@ module Findingaids
     def format_repository
       if ENV['DIR'].present?
         return ENV['DIR'].split("\/")[-1]
-      else
+      elsif ENV['FILE'].present?
         return ENV['FILE'].split("\/")[-2]
       end
     end
