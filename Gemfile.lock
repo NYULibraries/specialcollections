@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:barnabyalter/solr_ead.git
-  revision: 0343d3c5e8ae4ec72505378284da5cd501bd404d
+  revision: cdd9b29378ca774e459bae8a395128047b512755
   specs:
     solr_ead (0.4.4)
       om
@@ -92,7 +92,7 @@ GEM
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
-    capistrano (2.15.3)
+    capistrano (2.15.4)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -282,7 +282,7 @@ GEM
       libv8 (~> 3.11.8.12)
       ref
     thor (0.18.1)
-    tilt (1.3.7)
+    tilt (1.4.0)
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)

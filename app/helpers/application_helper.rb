@@ -67,10 +67,10 @@ module ApplicationHelper
     solr_params = { 
       :qt => '',
       :rows => 10,
-      :fl => "score ead_id title_t title_display parent_id_s parent_id",
+      :fl => "score ead_id title_t parent_id_s parent_id",
       :facet => false,
       :hl => true,
-      "hl.fl" => "title_display",
+      "hl.fl" => "title_t",
       "hl.simple.pre" => "<span class=\"highlight\">",
       "hl.simple.post" => "</span>",
       "hl.mergeContiguous" => true,
@@ -84,7 +84,7 @@ module ApplicationHelper
       :q => params[:q]
     }
     solr_select = solr.get 'select', :params => solr_params
-    
+    #debugger
     unless solr_select["response"]["docs"].empty?
       # Do something
       debugger

@@ -556,7 +556,6 @@
         Longer patterns will be matched first.  if equal size patterns
         both match, the first appearing in the schema will be used.  -->
    <dynamicField name="*_i"  type="int"    indexed="true"  stored="true"/>
-   <dynamicField name="*_s"  type="string"  indexed="true"  stored="true"/>
    <dynamicField name="*_l"  type="long"   indexed="true"  stored="true"/>
    <dynamicField name="*_t"  type="text_en_splitting"    indexed="true"  stored="true" multiValued="true"/>
    <dynamicField name="*_txt_gen"  type="text_general"    indexed="true"  stored="true" multiValued="true"/>
@@ -564,8 +563,8 @@
    <dynamicField name="*_b"  type="boolean" indexed="true"  stored="true"/>
    <dynamicField name="*_f"  type="float"  indexed="true"  stored="true"/>
    <dynamicField name="*_d"  type="double" indexed="true"  stored="true"/>
-<dynamicField name="*_id" type="string" indexed="true" stored="true" multiValued="true" />
-<dynamicField name="*_s"  type="string" indexed="true" stored="true" multiValued="true"  />
+   <dynamicField name="*_id" type="string" indexed="true" stored="true" multiValued="true" />
+   <dynamicField name="*_s"  type="string" indexed="true" stored="true" multiValued="true"  />
 
 <!-- Some multiple layers seem to require multiple parent_ids -->
 <field name="parent_id_s" type="string" indexed="true" stored="true" multiValued="true" />
@@ -634,7 +633,6 @@
    <!-- sort fields -->
    <copyField source="pub_date" dest="pub_date_sort"/>
    
-   <copyField source="title_display" dest="title_t"/>
    <!-- Make full text search fields non case sensitive 
    <copyField source="title_t" dest="title_txt"/>
    <copyField source="title_display" dest="title_txt"/>

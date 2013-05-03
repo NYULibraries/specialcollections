@@ -6,17 +6,10 @@ class CustomComponent < SolrEad::Component
     t.ref_(:path=>"/c/@id")
     t.level(:path=>"/c/@level", :index_as=>[:facetable])
 
-    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:searchable])
+    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:displayable])
+    t.unittitle(:path=>"unittitle", :index_as=>[:searchable])
 
-    # Item
-    t.container {
-      t.label(:path => {:attribute=>"label"})
-      t.type(:path => {:attribute=>"type"})
-      t.id(:path => {:attribute=>"id"})
-    }
-    t.container_label(:proxy=>[:container, :label])
-    t.container_type(:proxy=>[:container, :type])
-    t.container_id(:proxy=>[:container, :id])
+    t.odd(:path=>"odd", :index_as=>[:searchable])
   end
 
 end
