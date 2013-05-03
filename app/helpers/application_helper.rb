@@ -12,7 +12,7 @@ module ApplicationHelper
   
   # Fetch and link to link field
   def link_field(field)
-    link_to("Link to guide", guide_href(field[:document][:repository_s], field[:document][field[:field]]), :target => :blank)
+    link_to("Link to guide", guide_href(field[:document][:repository_s].first, field[:document][field[:field]]), :target => :blank)
   end
   
   def guide_href(collection, ead_id, page = nil, anchor = nil)
@@ -32,7 +32,7 @@ module ApplicationHelper
   
   # Highlight search text and link to appropriate page in finding aid
   def highlight_search_text(field)
-    link_to(link_body(field), guide_href(field[:document]["repository_s"], field[:document]["ead_id"], link_page(field), link_anchor(field)), :target => :blank)
+    link_to(link_body(field), guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], link_page(field), link_anchor(field)), :target => :blank)
   end
   
   # Which page to link to
@@ -67,27 +67,32 @@ module ApplicationHelper
     solr_params = { 
       :qt => '',
       :rows => 10,
-      :fl => "score ead_id title_t parent_id_s parent_id",
+      :fl => "score id ead_id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
       :facet => false,
       :hl => true,
-      "hl.fl" => "title_t",
+      "hl.fl" => "unittitle_t odd_t",
       "hl.simple.pre" => "<span class=\"highlight\">",
       "hl.simple.post" => "</span>",
       "hl.mergeContiguous" => true,
       "hl.fragsize" => 50,
       "hl.snippets" => 10,
       :echoParams => "explicit",
-      :qf => "title_t",
-      :pf => "title_t",
+      :qf => "unittitle_t odd_t",
+      :pf => "unittitle_t odd_t",
       :defType => "edismax",
       :fq => ["ead_id:#{field[:document]['ead_id']}", "parent_id_s:*"],
-      :q => params[:q]
+      :q => params[:q].split(" ").join(" OR ")
     }
     solr_select = solr.get 'select', :params => solr_params
-    #debugger
     unless solr_select["response"]["docs"].empty?
-      # Do something
-      debugger
+      sub_query_links = []
+      solr_select["response"]["docs"].each do |doc| 
+        body = solr_select["highlighting"][doc["id"]][field[:field]].join(", ").html_safe
+        url = "dsc#{doc["parent_id_s"].first}"
+        anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
+        sub_query_links << link_to(body, guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], url, anchor), :target => :blank)
+      end
+      return sub_query_links
     else
       highlight_search_text(field)
     end
