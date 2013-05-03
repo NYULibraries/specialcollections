@@ -87,10 +87,12 @@ module ApplicationHelper
     unless solr_select["response"]["docs"].empty?
       sub_query_links = []
       solr_select["response"]["docs"].each do |doc| 
-        body = solr_select["highlighting"][doc["id"]][field[:field]].join(", ").html_safe
-        url = "dsc#{doc["parent_id_s"].first}"
-        anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
-        sub_query_links << link_to(body, guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], url, anchor), :target => :blank)
+        unless solr_select["highlighting"][doc["id"]][field[:field]].nil?
+          body = solr_select["highlighting"][doc["id"]][field[:field]].join(", ").html_safe
+          url = "dsc#{doc["parent_id_s"].first}"
+          anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
+          sub_query_links << link_to(body, guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], url, anchor), :target => :blank)
+        end
       end
       return sub_query_links
     else
