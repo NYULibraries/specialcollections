@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:barnabyalter/solr_ead.git
-  revision: d1fac06d4e480b4dfa22a28ab6d00a0c165f29d1
+  revision: 0343d3c5e8ae4ec72505378284da5cd501bd404d
   specs:
     solr_ead (0.4.4)
       om

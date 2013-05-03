@@ -72,4 +72,4 @@ gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_a
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
 gem "unicode", "~> 0.4.4", :platforms => [:mri_18, :mri_19]
-gem "solr_ead", :git => "git@github.com:barnabyalter/solr_ead.git"#:path => "/apps/solr_ead"#, "~> 0.4.4"
+gem "solr_ead", :git => "git@github.com:barnabyalter/solr_ead.git"#:path => "/apps/solr_ead", #"~> 0.4.4"
