@@ -16,6 +16,9 @@
 /tmp
 /examples
 /data
+/jetty
+/solr/data
+/solr/pids
 
 /solr-dist/solr-webapp/*
 /solr-dist/webapps/*

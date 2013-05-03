@@ -4,7 +4,7 @@ class CustomDocument < SolrEad::Document
  include Findingaids::Record
 
  set_terminology do |t|
-    t.root(:path=>"ead")
+    #t.root(:path=>"ead")
 
     t.eadid
     t.corpname(:index_as=>[:facetable])
