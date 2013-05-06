@@ -84,7 +84,8 @@ input[type='file'] {
   &.blacklight-unittitle_t,
   &.blacklight-odd_t {
     a {
-      display: inline;
+      display: block;
+      margin-bottom: 5px;
     }
   }
 }

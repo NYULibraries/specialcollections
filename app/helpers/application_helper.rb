@@ -63,40 +63,49 @@ module ApplicationHelper
   # do another solr search to get those components and link to those specific pages
   # with anchor tags if applicable
   def search_components(field)
-    solr = RSolr.connect :url => Settings.solr.url
-    solr_params = { 
-      :qt => '',
-      :rows => 10,
-      :fl => "score id ead_id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
-      :facet => false,
-      :hl => true,
-      "hl.fl" => "unittitle_t odd_t",
-      "hl.simple.pre" => "<span class=\"highlight\">",
-      "hl.simple.post" => "</span>",
-      "hl.mergeContiguous" => true,
-      "hl.fragsize" => 50,
-      "hl.snippets" => 10,
-      :echoParams => "explicit",
-      :qf => "unittitle_t odd_t",
-      :pf => "unittitle_t odd_t",
-      :defType => "edismax",
-      :fq => ["ead_id:#{field[:document]['ead_id']}", "parent_id_s:*"],
-      :q => params[:q].split(" ").join(" OR ")
-    }
-    solr_select = solr.get 'select', :params => solr_params
+    # Search solr components for specific fields
+    solr_search = Findingaids::SolrSearch.new
+    solr_params = solr_search.solr_params
+    solr_params.merge!({
+        :fq => ["ead_id:#{field[:document]['ead_id']}", "parent_id_s:*"], 
+        :q => params[:q].split(" ").join(" OR "), 
+        :fl => "score id ead_id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
+        "hl.fl" => component_search_fields,
+        :qf => component_search_fields,
+        :pf => component_search_fields
+    })
+    solr_select = solr_search.solr_select
+    
+    # If the solr search returned some documents, create the links and send them back
     unless solr_select["response"]["docs"].empty?
-      sub_query_links = []
-      solr_select["response"]["docs"].each do |doc| 
-        unless solr_select["highlighting"][doc["id"]][field[:field]].nil?
-          body = solr_select["highlighting"][doc["id"]][field[:field]].join(", ").html_safe
-          url = "dsc#{doc["parent_id_s"].first}"
-          anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
-          sub_query_links << link_to(body, guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], url, anchor), :target => :blank)
-        end
-      end
-      return sub_query_links
+      highlight_component_fields(field, solr_select)
     else
       highlight_search_text(field)
     end
   end
+  
+  # Fields in the component to search
+  def component_search_fields
+    "unittitle_t odd_t"
+  end
+  
+  # Loop through component fields found in solr search 
+  def highlight_component_fields(field, solr_select)
+    sub_query_links = []
+    # Loop through found components
+    solr_select["response"]["docs"].each do |doc| 
+      # If a highlighted field was found with the query terms construct the link 
+      unless solr_select["highlighting"][doc["id"]][field[:field]].nil?
+        body = solr_select["highlighting"][doc["id"]][field[:field]].join(" ").html_safe
+        # Urls to the specific reference pages start with dsc and are followed by the parent reference number
+        url = "dsc#{doc["parent_id_s"].first}"
+        # The array of parent reference Ids ends with the ref to the anchor
+        anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
+        sub_query_links << link_to(body, guide_href(field[:document]["repository_s"].first, field[:document]["ead_id"], url, anchor), :target => :blank)
+      end
+    end
+    return sub_query_links.join(" ").html_safe
+  end
+
 end
+
