@@ -17,8 +17,8 @@ GIT
       require_all (~> 1.2.1)
 
 GIT
-  remote: git@github.com:barnabyalter/solr_ead.git
-  revision: cdd9b29378ca774e459bae8a395128047b512755
+  remote: git://github.com/awead/solr_ead.git
+  revision: fbbe21217331c3cb3ca3a4989ea8f012ecaa7cb0
   specs:
     solr_ead (0.4.4)
       om

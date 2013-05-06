@@ -68,7 +68,7 @@ module ApplicationHelper
     solr_params = solr_search.solr_params
     solr_params.merge!({
         :fq => ["ead_id:#{field[:document]['ead_id']}", "parent_id_s:*"], 
-        :q => params[:q].split(" ").join(" OR "), 
+        :q => q_formatted, 
         :fl => "score id ead_id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
         "hl.fl" => component_search_fields,
         :qf => component_search_fields,
@@ -82,6 +82,11 @@ module ApplicationHelper
     else
       highlight_search_text(field)
     end
+  end
+  
+  # Format the query for component search
+  def q_formatted
+    (params[:q].nil?) ? "" : params[:q].split(" ").join(" OR ")
   end
   
   # Fields in the component to search
