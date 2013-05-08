@@ -2,7 +2,6 @@ class CustomComponent < SolrEad::Component
 
   # Define each term in your ead that you want put into the solr document
   set_terminology do |t|
-    #t.root(:path=>"c")
     t.ref_(:path=>"/c/@id")
     t.level(:path=>"/c/@level", :index_as=>[:facetable])
 

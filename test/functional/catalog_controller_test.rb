@@ -16,7 +16,10 @@ class CatalogControllerTest < ActionController::TestCase
   end
   
   test "should match components and do another solr search" do
-    # Do this
+    VCR.use_cassette('component search', :match_requests_on => [:body]) do
+       post :index, :q => "family papers", :search_field => "All Collections"
+     end
+     assert_template :index
   end
   
 end

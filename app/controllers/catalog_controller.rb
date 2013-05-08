@@ -22,7 +22,8 @@ class CatalogController < ApplicationController
         "facet.mincount" => 1,
         :echoParams => "explicit",
         :qf => "title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
-        :pf => "title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
+        :pf => "title_unstem_search^11.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
+        :ps => 50,
         :defType => "edismax"
       }
       

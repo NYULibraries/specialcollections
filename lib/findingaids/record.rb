@@ -22,5 +22,10 @@ module Findingaids
         return ENV['FILE'].split("\/")[-2]
       end
     end
+    
+    # Create formatted heading from guide title and number
+    def format_heading(title, title_num)
+      "Guide to the #{title.first} (#{title_num.first})"
+    end
   end
 end

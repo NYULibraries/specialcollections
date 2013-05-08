@@ -47,9 +47,11 @@ require 'webmock'
 # have to tell webmock to let us. 
 WebMock.allow_net_connect!
 
+@@solr_url = Settings.solr.url
+
 VCR.configure do |c|
   c.cassette_library_dir = 'test/vcr_cassettes'
   # webmock needed for HTTPClient testing
   c.hook_into :webmock 
-  #c.filter_sensitive_data("http://127.0.0.1:8981") { "" }
+  c.filter_sensitive_data("http://127.0.0.1:8981") { @@solr_url }
 end

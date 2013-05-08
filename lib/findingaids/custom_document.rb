@@ -4,8 +4,6 @@ class CustomDocument < SolrEad::Document
  include Findingaids::Record
 
  set_terminology do |t|
-    #t.root(:path=>"ead")
-
     t.eadid
     t.corpname(:index_as=>[:facetable])
     t.famname(:index_as=>[:facetable])
@@ -65,9 +63,12 @@ class CustomDocument < SolrEad::Document
  # method out of your definition.
  def to_solr(solr_doc = Hash.new)
    super(solr_doc)
-   solr_doc.merge!({"publisher_unstem_search" =>      format_publisher(self.publisher)})
-   solr_doc.merge!({"repository_s" =>                 format_repository})
-   solr_doc.merge!({"heading_t" =>                    ("Guide to the " + self.title.first + " (" + self.title_num.first + ")")}) unless self.title_num.empty?
+   solr_doc.merge!({
+     "publisher_unstem_search"    =>      format_publisher(self.publisher),
+     "repository_s"               =>      format_repository
+   })
+   solr_doc.merge!({"heading_t"   =>      format_heading(self.title, self.title_num)})  unless self.title_num.empty?
+   return solr_doc
  end
 
 end
