@@ -13,10 +13,6 @@ module Views
         application_title
       end
       
-      def tabs_header
-        application_title
-      end
-      
       # Stylesheets to include in layout
       def stylesheets
         catalog_stylesheets
@@ -25,11 +21,6 @@ module Views
       # Javascripts to include in layout
       def javascripts
         catalog_javascripts
-      end
-      
-      # Render the sidebar partial
-      def sidebar
-        render :partial => 'catalog/sidebar'
       end
       
       # Print breadcrumb navigation

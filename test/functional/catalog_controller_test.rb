@@ -22,4 +22,11 @@ class CatalogControllerTest < ActionController::TestCase
      assert_template :index
   end
   
+  test "should match dsc path without components" do
+    VCR.use_cassette('component search without results', :match_requests_on => [:body]) do
+       post :index, :q => "Tony Alleyne", :search_field => "All Collections"
+     end
+     assert_template :index
+  end
+  
 end

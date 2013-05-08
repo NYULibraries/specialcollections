@@ -1,17 +1,17 @@
-<div id="user_util_links" class="sidebar-section">
 <% if is_admin? %>
-  <h2>Admin Panel</h2>
+  <%= sidebar_section("admin_links", content_tag(:h2, "Admin")) do %>
   <ul class="admin_options">
       <li><%= link_to "Manage Users", users_url %></li>
   </ul>
+  <% end %>
 <% end %>
-  
-<h2>My Workspace</h2>
-<ul>
-    <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
-<% if current_user %>
-    <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+
+<%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace")) do %>
+  <ul>
+      <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
+  <% if current_user %>
+      <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+  <% end %>
+      <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
+  </ul>
 <% end %>
-    <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
-</ul>
-</div>

@@ -64,7 +64,7 @@ gem 'dalli', "~> 2.6.3"
 
 gem "comma", "~> 3.0.4"
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.8-no-bootstrap-sass-dep"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.10"
 #gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
