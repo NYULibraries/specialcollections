@@ -50,9 +50,6 @@ gem 'rvm-capistrano', "~> 1.3.0"
 gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
 gem "rails_config", "~> 0.3.2"
 
-gem 'sunspot_rails', "~> 2.0.0"
-gem 'acts-as-taggable-on', '~> 2.4.0'
-
 gem 'authpds-nyu', "~> 0.2.12"
 gem 'jquery-rails', "~> 2.2.1"
 
@@ -61,7 +58,7 @@ gem 'blacklight', '~> 4.0.0'
 gem 'sorted', '~> 0.4.3'
 
 # For memcached
-gem 'dalli', "~> 2.6.2"
+gem 'dalli', "~> 2.6.3"
 
 #gem 'newrelic_rpm', "~> 3.6.0"
 
@@ -72,4 +69,4 @@ gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_a
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
 gem "unicode", "~> 0.4.4", :platforms => [:mri_18, :mri_19]
-gem "solr_ead", :git => "git://github.com/awead/solr_ead.git"
+gem "solr_ead", "~> 0.4.5"
