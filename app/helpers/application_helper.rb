@@ -56,6 +56,7 @@ module ApplicationHelper
   def search_components(field)
     # Search solr components for specific fields
     solr_search = Findingaids::ComponentSearch.new(field)
+    solr_search.solr_select
     
     # If the solr search returned some documents, create the links and send them back
     unless solr_search.has_results?
@@ -71,8 +72,8 @@ module ApplicationHelper
     # Loop through found components
     solr_search.docs.each do |doc| 
       # If a highlighted field was found with the query terms construct the link 
-      unless solr_search.highlighting[doc["id"]][solr_search.solr_field_name].nil?
-        body = solr_search.highlighting[doc["id"]][solr_search.solr_field_name].join(" ").html_safe
+      unless solr_search.highlighting[doc["id"]][solr_search.field_name].nil?
+        body = solr_search.highlighting[doc["id"]][solr_search.field_name].join(" ").html_safe
         # Urls to the specific reference pages start with dsc and are followed by the parent reference number
         url = "dsc#{doc["parent_id_s"].first}"
         # The array of parent reference Ids ends with the ref to the anchor
