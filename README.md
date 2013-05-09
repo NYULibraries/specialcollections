@@ -41,7 +41,11 @@ In Finding Aids, we've indexed the components' relevant elements (i.e. odd and u
 Usage, where `field` is a Blacklight solr field (i.e. `<Hash {:document => SolrDocument, :field => FIELD_NAME}>`):
 
     solr_search = Findingaids::ComponentSearch.new(field)
-    # Optionally add solr parameters to default search
+    solr_search.solr_select
+    
+Optionally add solr parameters to default search:
+
+    solr_search = Findingaids::ComponentSearch.new(field)
     solr_search.solr_params.merge!({ :fl => "*" })
     solr_search.solr_params[:fq] << "respository_s:fales"
     solr_search.solr_select
