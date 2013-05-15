@@ -1,5 +1,13 @@
 module Findingaids
-  module Record
+  module Document
+    
+    LINK_FIELDS = [
+      {:fields => ["abstract_t"], :redirect_to => nil},
+      {:fields => ["custodhist_t","sponsor_t","acqinfo_t","phystech_t","index_t"], :redirect_to => "admininfo"},
+      {:fields => ["odd_t","unittitle_t"], :redirect_to => "dsc"}
+    ]
+    DEFAULT_INDEX_FIELDS = ["title_unstem_search","publisher_unstem_search","abstract_t"]
+    
     # Takes the publisher string from EAD and
     # * Strips non-ascii characters such as &copy;
     # * Strips leading @ sign which is sometimes erroneously instead of a copyright
@@ -27,5 +35,6 @@ module Findingaids
     def format_heading(title, title_num)
       "Guide to the #{title.first} (#{title_num.first})"
     end
+    
   end
 end

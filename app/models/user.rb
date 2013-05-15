@@ -12,23 +12,4 @@ class User < ActiveRecord::Base
     c.disable_perishable_token_maintenance = true
   end
   
-  # This search logic function protected against SQL injection
-  def self.search(search)
-    if search
-      q = "%#{search}%"
-      where('firstname LIKE ? || lastname LIKE ? || username LIKE ? || email LIKE ?', q, q, q, q)
-    else
-      # scoped to send back an ActiveRelation
-      scoped
-    end
-  end
-  
-  # Create a CSV format
-  comma do
-    username
-    firstname
-    lastname
-    email
-  end
-
 end

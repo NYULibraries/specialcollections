@@ -27,7 +27,6 @@ module Views
       def breadcrumbs
         breadcrumbs = super
         breadcrumbs << link_to(application_title, {:controller =>'catalog', :repository => nil})
-        breadcrumbs << link_to('Admin', :controller => 'records') if is_in_admin_view?
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
         breadcrumbs << params[:repository] if params[:repository].present?
         return breadcrumbs
@@ -44,12 +43,12 @@ module Views
         prepend_body << '<div id="ajax-modal" class="modal hide fade" tabindex="-1"></div>'.html_safe
       end
       
-      # Prepend search box amd flash message partials before to yield
+      # Prepend search box and flash message partials before to yield
       def prepend_yield
         return unless show_search_box?
         prepend_yield = ""
         
-        prepend_yield += render :partial => 'shared/header_navbar' unless is_in_admin_view?
+        prepend_yield += render :partial => 'shared/header_navbar'
       
         prepend_yield += content_tag :div, :id => "main-flashses" do
          render :partial => '/flash_msg'
@@ -61,30 +60,13 @@ module Views
       # Boolean for whether or not to show tabs
       def show_tabs
         return false
-        #(!is_in_admin_view? and controller.controller_name.eql? "catalog")
       end
       
       # Only show search box on admin view or for search catalog, excluding bookmarks, search history, etc.
       def show_search_box?
-        (is_in_admin_view? or controller.controller_name.eql? "catalog")
+        return true
       end
   
-      # Generate tabs hash from YAML and decide when certain tabs should be selected
-      #def tabs
-      #  tab_info["views"]["tabs"].collect{|id, values|
-      #    values["id"] = id
-      #    if (!values["url"].nil? and request.path.match values["url"] and values["id"] != "all") or 
-      #        (values["id"] == "all" and (request.path == root_path or request.path == catalog_index_path)) #or
-      #          (!session[:collection].nil? and session[:collection].match values["url"])
-      #      values["klass"] = "active"
-      #    end
-      #    values["url"] = (values["url"].match(/^root_path/)) ? values["url"] : root_path + values["url"]
-      #    values["link"] = link_to_with_popover(values["display"], values["url"], values["tip"], "tab")
-      #    values
-      #  }
-      #end
-      #alias all_tabs tabs #Need to alias to override parent alias
-      
       # Print default blacklight onload code
       def onload
         "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?
@@ -92,8 +74,7 @@ module Views
       
       # Add blacklight body classes to laytou
       def body_class
-        class_names = render_body_class.html_safe
-        class_names << " admin" if is_in_admin_view?        
+        class_names = render_body_class.html_safe    
       end
       
     end

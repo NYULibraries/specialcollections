@@ -1,8 +1,2 @@
 en:
-  users:
-    update_success: "User successfully updated."
-    update_failure: "Could not save user."
-    clear_patron_data_success: "Cleared all non-admin patron data."
-  records: 
-    update_success: "Record was successfully updated."
-    create_success: "Record was successfully created."
+  application_title: "Archival Collections"

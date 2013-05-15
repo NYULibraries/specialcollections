@@ -12,38 +12,10 @@ class ApplicationController < ActionController::Base
   require 'authpds'
   include Authpds::Controllers::AuthpdsController
   
-  # If user is an admin pass back true, otherwise redirect to root
-  def authenticate_admin
-    if !is_admin?
-      redirect_to(root_path) and return
-    else
-      return true
-    end
-  end
-  protected :authenticate_admin
-  
-  # Imitate logged in admin in dev
+  # Imitate logged in user
   def current_user_dev
     @current_user ||= User.find_by_username("global_admin")
   end
   alias_method :current_user, :current_user_dev if Rails.env == 'development'
-  
-  # Find out if the user is an admin or not based on flag
-  def is_admin
-  	if current_user.nil? or !current_user.user_attributes[:findingaids_admin]
-      return false
-    else
-      return true
-    end
-  end
-  alias :is_admin? :is_admin
-  helper_method :is_admin?
-  
-  # Return boolean matching the url to find out if we are in the admin view
-  def is_in_admin_view
-    !request.path.match("admin").nil?
-  end
-  alias :is_in_admin_view? :is_in_admin_view
-  helper_method :is_in_admin_view?
-  
+
 end

@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), 'record.rb') unless defined?(Findingaids::Record)
+require File.join(File.dirname(__FILE__), 'document.rb') unless defined?(Findingaids::Document)
 
 class CustomDocument < SolrEad::Document
- include Findingaids::Record
+ include Findingaids::Document
 
  set_terminology do |t|
     t.eadid

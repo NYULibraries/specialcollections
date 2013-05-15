@@ -1,11 +1,3 @@
-<% if is_admin? %>
-  <%= sidebar_section("admin_links", content_tag(:h2, "Admin")) do %>
-  <ul class="admin_options">
-      <li><%= link_to "Manage Users", users_url %></li>
-  </ul>
-  <% end %>
-<% end %>
-
 <%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace")) do %>
   <ul>
       <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
