@@ -1,4 +1,4 @@
-<%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace")) do %>
+<%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace"), true) do %>
   <ul>
       <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
   <% if current_user %>

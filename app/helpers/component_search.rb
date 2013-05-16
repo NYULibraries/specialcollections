@@ -5,13 +5,14 @@
 # Find specific components for linking found instances of a full text query of unittitle_t odd_t fields
 class ComponentSearch
 
-  attr_reader :solr, :solr_reponse, :rows
+  attr_reader :solr, :solr_response, :rows, :component_qf
   attr_accessor :solr_params
 
   # Setup Solr connection and initiate search
-  def initialize(solr_reponse)
+  def initialize(solr_response)
     @solr = RSolr.connect :url => Settings.solr.url
-    @solr_reponse = solr_reponse
+    @solr_response = solr_response
+    @component_qf = solr_response[:field] #Only search in the currently found field
     @rows = 10
   end
   
@@ -62,17 +63,17 @@ class ComponentSearch
   
   # Field name matched in the component
   def field_name
-    @field_name ||= solr_reponse[:field]
+    @field_name ||= solr_response[:field]
   end
   
   # ID for the matched EAD
   def ead_id
-    @ead_id ||= solr_reponse[:document]["ead_id"]
+    @ead_id ||= solr_response[:document]["ead_id"]
   end
   
   # Repository for the matched EAD
   def repository
-    repository ||= solr_reponse[:document]["repository_s"].first
+    repository ||= solr_response[:document]["repository_s"].first
   end
 
   protected
@@ -80,12 +81,7 @@ class ComponentSearch
   # Query terms matched in original search,
   # Formatted here to match in component search
   def q
-    @q ||= solr_reponse[:document].solr_response["responseHeader"]["params"]["q"].split(" ").join(" OR ")
-  end
-   
-  # Fields in the component to search
-  def component_qf
-    @component_search_fields ||= "unittitle_t odd_t"
+    @q ||= solr_response[:document].solr_response["responseHeader"]["params"]["q"].split(" ").join(" OR ")
   end
 
 end

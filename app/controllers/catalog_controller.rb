@@ -90,20 +90,20 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'title_unstem_search', :label => "Title:", :highlight => true
-      config.add_index_field 'publisher_unstem_search', :label => "Collection:", :highlight => true
-      config.add_index_field 'title_num_t', :label => "ID of the Unit:", :highlight => true
-      config.add_index_field 'abstract_t', :label => "Abstract:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'bioghist_t', :label => "Biographical History:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'controlaccess_t', :label => "Controlled Access Headings:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'scopecontent_t', :label => "Scope and Content:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'unittitle_t', :label => "Title of the Unit:", :highlight => true, :helper_method => :link_to_field_or_components
-      config.add_index_field 'odd_t', :label => "Other Descriptive Data:", :highlight => true, :helper_method => :link_to_field_or_components
-      config.add_index_field 'index_t', :label => "Index:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'phystech_t', :label => "Physical Characteristics and Technical Requirements:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'acqinfo_t', :label => "Acquisition Information:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'sponsor_t', :label => "Sponsor:", :highlight => true, :helper_method => :link_to_field
-      config.add_index_field 'custodhist_t', :label => "Custodial History:", :highlight => true, :helper_method => :link_to_field
+      config.add_index_field 'title_unstem_search', :label => "Title:", :helper_method => :highlight
+      config.add_index_field 'publisher_unstem_search', :label => "Collection:", :helper_method => :highlight
+      config.add_index_field 'title_num_t', :label => "ID of the Unit:", :helper_method => :highlight
+      config.add_index_field 'abstract_t', :label => "Abstract:", :helper_method => :link_to_field
+      config.add_index_field 'bioghist_t', :label => "Biographical History:", :helper_method => :link_to_field
+      config.add_index_field 'controlaccess_t', :label => "Controlled Access Headings:", :helper_method => :link_to_field
+      config.add_index_field 'scopecontent_t', :label => "Scope and Content:", :helper_method => :link_to_field
+      config.add_index_field 'unittitle_t', :label => "Title of the Unit:", :helper_method => :link_to_field_or_components
+      config.add_index_field 'odd_t', :label => "Other Descriptive Data:", :helper_method => :link_to_field_or_components
+      config.add_index_field 'index_t', :label => "Index:", :helper_method => :link_to_field
+      config.add_index_field 'phystech_t', :label => "Physical Characteristics and Technical Requirements:", :helper_method => :link_to_field
+      config.add_index_field 'acqinfo_t', :label => "Acquisition Information:", :helper_method => :link_to_field
+      config.add_index_field 'sponsor_t', :label => "Sponsor:", :helper_method => :link_to_field
+      config.add_index_field 'custodhist_t', :label => "Custodial History:", :helper_method => :link_to_field
 
       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 

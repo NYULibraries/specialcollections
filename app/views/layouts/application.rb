@@ -26,7 +26,7 @@ module Views
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
-        breadcrumbs << link_to(application_title, {:controller =>'catalog', :repository => nil})
+        breadcrumbs << link_to_unless_current(application_title, {:controller =>'catalog', :repository => nil})
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
         breadcrumbs << params[:repository] if params[:repository].present?
         return breadcrumbs
@@ -64,7 +64,7 @@ module Views
       
       # Only show search box on admin view or for search catalog, excluding bookmarks, search history, etc.
       def show_search_box?
-        return true
+        return (!controller.controller_name.eql? "bookmarks")
       end
   
       # Print default blacklight onload code

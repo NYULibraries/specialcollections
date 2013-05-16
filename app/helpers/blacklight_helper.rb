@@ -5,7 +5,7 @@ module BlacklightHelper
   # * It's one of the base fields or
   # * A search has been executed and the serach term appears in the field
   def should_show_index_field? document, field, solr_fname
-    return (Findingaids::Document::DEFAULT_INDEX_FIELDS.include? solr_fname or document.has_highlight_field? solr_fname)
+    return (Findingaids::Document::DEFAULT_INDEX_FIELDS.include? solr_fname or (!controller.controller_name.eql? "bookmarks" and document.has_highlight_field? solr_fname))
   end
   
   # Change link to document to link out to external guide
@@ -15,4 +15,5 @@ module BlacklightHelper
     label = render_document_index_label doc, opts
     link_to(label, url_for_findingaid(doc[:repository_s].first, doc[:ead_id]), {:target => "_blank"}) 
   end
+  
 end

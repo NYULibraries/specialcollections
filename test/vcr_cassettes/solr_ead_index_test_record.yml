@@ -21,14 +21,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>144}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -86,14 +86,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>1}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>4}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -122,14 +122,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -157,14 +157,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>37}}'
+      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -193,14 +193,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
       string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>7}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -222,12 +222,12 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Wed, 08 May 2013 21:07:39 GMT
+      - Thu, 16 May 2013 20:46:09 GMT
       Connection:
       - close
     body:
       encoding: US-ASCII
       string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
     http_version: 
-  recorded_at: Wed, 08 May 2013 21:07:40 GMT
+  recorded_at: Thu, 16 May 2013 20:46:10 GMT
 recorded_with: VCR 2.4.0

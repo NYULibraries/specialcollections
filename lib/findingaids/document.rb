@@ -1,11 +1,13 @@
 module Findingaids
   module Document
     
-    LINK_FIELDS = [
-      {:fields => ["abstract_t"], :redirect_to => nil},
-      {:fields => ["custodhist_t","sponsor_t","acqinfo_t","phystech_t","index_t"], :redirect_to => "admininfo"},
-      {:fields => ["odd_t","unittitle_t"], :redirect_to => "dsc"}
-    ]
+    # Config mapping for linking to specific pages from found text in Solr fields
+    LINK_FIELDS = {
+      :abstract => ["abstract_t"],
+      :admininfo => ["custodhist_t","sponsor_t","acqinfo_t","phystech_t","index_t"],
+      :dsc => ["odd_t","unittitle_t"]
+    }
+    # Always show these fields on the index catalog view
     DEFAULT_INDEX_FIELDS = ["title_unstem_search","publisher_unstem_search","abstract_t"]
     
     # Takes the publisher string from EAD and

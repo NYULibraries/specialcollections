@@ -16,14 +16,15 @@ module ApplicationHelper
     t("application_title")
   end
   
-  # Form URL for finding aid
+  # Create url for finding aid
   def url_for_findingaid(repository, ead_id, page = nil, anchor = nil)
-    "http://dlib.nyu.edu/findingaids/html/#{repository}/#{ead_id}#{"/" + page + ".html" unless page.nil?}#{"#" + anchor unless anchor.nil?}"
+    page = [page, Settings.findingaids.default_extension].join(".") unless page.nil?
+    return "http://#{Settings.findingaids.host}#{[Settings.findingaids.path, repository, ead_id, page].join("/")}#{"#" + anchor unless anchor.nil?}"
   end
   
   # Highlight search text and link to appropriate page in finding aid
   def link_to_field(field)
-    link_to(link_body(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["ead_id"], link_page(field)), :target => :blank)
+    link_to(highlight(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["ead_id"], link_page(field)), :target => :blank)
   end
   
   # If a match was found in one of the components (i.e. unittitle or odd)
@@ -63,21 +64,24 @@ module ApplicationHelper
   # Which page to link to
   def link_page(field)
     # If any of the following fields match, link to admininfo page; otherwise link to the field name page
-    Findingaids::Document::LINK_FIELDS.each do |link_field|
-      return link_field[:redirect_to] if link_field[:fields].include? field[:field]
-    end
-    return field_name(field)
+    link_page = (Findingaids::Document::LINK_FIELDS[:admininfo].include? field[:field]) ? "admininfo" : page_name(field)
+    # If abstract matches, link to homepage
+    link_page = (Findingaids::Document::LINK_FIELDS[:abstract].include? field[:field]) ? nil : link_page 
+    # If matches components, it came from the search_components function below, so direct to default dsc page
+    link_page = (Findingaids::Document::LINK_FIELDS[:dsc].include? field[:field]) ? "dsc" : link_page
+    return link_page
   end
   
-  # The text body from which to link
-  def link_body(field)
+  # Print highlighted field if exists
+  def highlight(field)
     # If this field has a highlighte field, use that version, otherwise use the full field
-    (field[:document].has_highlight_field? field[:field]) ? 
+    (field[:document].has_highlight_field? field[:field] and !controller.controller_name.eql? "bookmarks") ? 
       field[:document].highlight_field(field[:field]).join("...").html_safe : 
         field[:document][field[:field]].join("...").html_safe
   end
   
-  def field_name(field)
+  # Format page name from solr fields
+  def page_name(field)
     field[:field].split("_").first
   end
 
