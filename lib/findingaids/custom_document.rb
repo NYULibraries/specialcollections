@@ -3,6 +3,7 @@ require File.join(File.dirname(__FILE__), 'document.rb') unless defined?(Finding
 class CustomDocument < SolrEad::Document
  include Findingaids::Document
 
+ # Define each term in your ead that you want put into the solr document
  set_terminology do |t|
     t.eadid
     t.corpname(:index_as=>[:facetable])
@@ -52,15 +53,18 @@ class CustomDocument < SolrEad::Document
     t.scopecontent_heading(:path=>"archdesc/scopecontent/head", :index_as=>[:displayable])
     t.userestrict(:path=>"archdesc/userestrict/p", :index_as=>[:searchable])
     t.userestrict_heading(:path=>"archdesc/userestrict/head", :index_as=>[:displayable])
+    t.index(:path=>"archdesc/index", :index_as=>[:searchable])
+    
+    # These are component level items indexed into the document as fulltext searchable fields
+    # so Blacklight can search it at the top level. Once this simple search is done we can search
+    # the components which are individually indexed by solr_ead to get additional info
     t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable])
     t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable])
-    t.index(:path=>"archdesc/index", :index_as=>[:searchable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
  end
 
- # Optionally, you may tweak other solr fields here.  Otherwise, you can leave this
- # method out of your definition.
+ # Tweak other solr fields here.
  def to_solr(solr_doc = Hash.new)
    super(solr_doc)
    solr_doc.merge!({

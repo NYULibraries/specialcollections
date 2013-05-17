@@ -24,7 +24,7 @@ module Findingaids
       return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
     end
     
-    # Get collection name from directory
+    # Pulls the repository from the directory title when indexing from the rake task
     def format_repository
       if ENV['DIR'].present?
         return ENV['DIR'].split("\/")[-1]
