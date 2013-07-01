@@ -21,7 +21,7 @@ group :assets do
   gem 'yui-compressor', "~> 0.9.6"
 end
 
-group :development, :test do
+group :development do#, :test do
   gem 'debugger'
   gem 'progress_bar'
   gem 'sunspot_solr', "~> 2.0.0"
