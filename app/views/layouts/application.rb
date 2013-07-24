@@ -9,18 +9,8 @@ module Views
         meta << raw(render_head_content)
       end
       
-      def application
-        application_title
-      end
-      
-      # Stylesheets to include in layout
-      def stylesheets
-        catalog_stylesheets
-      end
-
-      # Javascripts to include in layout
-      def javascripts
-        catalog_javascripts
+      def application_title
+        t("application_title")
       end
       
       # Print breadcrumb navigation
@@ -33,7 +23,7 @@ module Views
       end
       
       # Render footer partial
-      def footer
+      def footer_htm
         render :partial => 'shared/footer'
       end
       
@@ -72,9 +62,9 @@ module Views
         "$('input#q').focus();" if params[:q].to_s.empty? and params[:f].to_s.empty? and params[:id].nil?
       end
       
-      # Add blacklight body classes to laytou
+      # Add blacklight body classes to layout
       def body_class
-        class_names = render_body_class.html_safe    
+        render_body_class.html_safe    
       end
       
     end

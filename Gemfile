@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2.14'
 
 gem 'mysql2'
 
@@ -46,7 +46,6 @@ group :test do
 end
 
 # Deploy with Capistrano
-gem 'rvm-capistrano', "~> 1.3.0"
 gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
 gem "rails_config", "~> 0.3.2"
 
@@ -54,7 +53,7 @@ gem 'authpds-nyu', "~> 0.2.12"
 gem 'jquery-rails', "~> 2.2.1"
 
 #gem 'blacklight', :path => "/apps/blacklight"
-gem 'blacklight', '~> 4.2.0'
+gem 'blacklight', '~> 4.2.2'
 gem 'sorted', '~> 0.4.3'
 
 # For memcached
@@ -64,7 +63,7 @@ gem 'dalli', "~> 2.6.3"
 
 gem "comma", "~> 3.0.4"
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.0.15"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.11"
 #gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 

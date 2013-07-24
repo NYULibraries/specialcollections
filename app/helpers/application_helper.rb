@@ -1,21 +1,5 @@
 module ApplicationHelper
-  
-  # Stylesheets include helper
-  def catalog_stylesheets
-    catalog_stylesheets = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Muli"
-    catalog_stylesheets += stylesheet_link_tag "application"
-  end
-  
-  # Javascripts include helper
-  def catalog_javascripts
-    catalog_javascripts = javascript_include_tag "application"
-  end
-  
-  # Application title
-  def application_title
-    t("application_title")
-  end
-  
+
   # Create url for finding aid
   def url_for_findingaid(repository, ead_id, page = nil, anchor = nil)
     page = [page, Settings.findingaids.default_extension].join(".") unless page.nil?
