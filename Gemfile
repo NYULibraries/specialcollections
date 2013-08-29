@@ -49,7 +49,7 @@ end
 gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
 gem "rails_config", "~> 0.3.2"
 
-gem 'authpds-nyu', "~> 0.2.12"
+gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :branch => "shibboleth"
 gem 'jquery-rails', "~> 2.2.1"
 
 #gem 'blacklight', :path => "/apps/blacklight"
@@ -61,9 +61,9 @@ gem 'dalli', "~> 2.6.3"
 
 #gem 'newrelic_rpm', "~> 3.6.0"
 
-gem "comma", "~> 3.0.4"
+gem "comma", "~> 3.1.1"
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.11"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.15"
 #gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
