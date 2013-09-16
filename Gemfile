@@ -46,7 +46,7 @@ group :test do
 end
 
 # Deploy with Capistrano
-gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
+gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/rake_nyu.git", :tag => "v2.0.1"
 gem "rails_config", "~> 0.3.2"
 
 gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :branch => "shibboleth"
