@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 806a57ba2bb0db2e00ff282b74cf236a7491f90f
-  tag: v2.0.1
+  revision: d31343c35fc6f8c8f5d1b019d875df92f0917251
+  tag: v2.0.3
   specs:
     nyulibraries_deploy (2.0.0)
       cap_git_tools (~> 0.9.1)
@@ -266,7 +266,7 @@ GEM
       builder (>= 2.1.2)
     rvm-capistrano (1.4.4)
       capistrano (>= 2.15.4)
-    safe_yaml (0.9.5)
+    safe_yaml (0.9.7)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
     sass (3.2.10)

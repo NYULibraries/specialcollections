@@ -1,2 +1,2 @@
 set :rails_env, "staging"
-set :branch, "development-deploy"
+set :branch, "master"
