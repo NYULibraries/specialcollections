@@ -11,8 +11,8 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 049a6d357145c78513db106b998e076be57f2160
-  branch: development-deploy
+  revision: 7d117883b19b97825c68276af08cc6e6d34b28e3
+  tag: v2.0.4
   specs:
     nyulibraries_deploy (2.0.0)
       cap_git_tools (~> 0.9.1)
