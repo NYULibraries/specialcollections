@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.14'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.13'
 
-gem 'json', "~> 1.7.7"
+gem 'json', '~> 1.8.0'
 
 gem 'coffee-rails', '~> 3.2.0'
 
@@ -15,57 +15,53 @@ group :assets do
   gem 'compass-rails', '~> 1.0.0'
   gem 'compass-susy-plugin', '~> 0.9.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', "~> 0.11.4", :platforms => :ruby
+  gem 'therubyracer', '~> 0.12.0', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'yui-compressor', "~> 0.9.6"
+  gem 'yui-compressor', '~> 0.12.0'
 end
 
-group :development do#, :test do
-  gem 'debugger'
+group :development do
   gem 'progress_bar'
-  gem 'sunspot_solr', "~> 2.0.0"
+  gem 'sunspot_solr', '~> 2.0.0'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
-  gem 'coveralls', "~> 0.6.2", :require => false
-  gem "vcr", "~> 2.4.0"
-  gem "webmock", "~> 1.11.0"
-end
-
-group :development do 
-  gem "better_errors"
-  gem "binding_of_caller"
-end
-
-group :test do
+  gem 'coveralls', '~> 0.7.0', :require => false
+  gem 'vcr', '~> 2.6.0'
+  gem 'webmock', '~> 1.14.0'
   #Testing coverage
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
   #gem 'ruby-prof' #For Benchmarking
 end
 
-# Deploy with Capistrano
-gem "rake_nyu", :git => "git://github.com/NYULibraries/rake_nyu.git"
-gem "rails_config", "~> 0.3.2"
+gem 'debugger', :groups => [:development, :test]
 
-gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :branch => "shibboleth"
-gem 'jquery-rails', "~> 2.2.1"
+gem 'authpds-nyu', :git => 'git://github.com/NYULibraries/authpds-nyu.git', :tag => 'v1.1.2'
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => 'v1.2.0'
+gem 'nyulibraries_deploy', :git => 'git://github.com/NYULibraries/nyulibraries_deploy.git', :tag => 'v3.1.3'
 
-#gem 'blacklight', :path => "/apps/blacklight"
+gem 'rails_config', '~> 0.3.2'
+
+gem 'jquery-rails', '~> 3.0.4'
+gem 'jquery-ui-rails', '~> 4.0.0'
+
 gem 'blacklight', '~> 4.2.2'
+#gem 'blacklight', '~> 4.4.2'
+
 gem 'sorted', '~> 0.4.3'
 
 # For memcached
-gem 'dalli', "~> 2.6.3"
+gem 'dalli', '~> 2.6.3'
 
-#gem 'newrelic_rpm', "~> 3.6.0"
+#gem 'newrelic_rpm', '~> 3.6.0'
 
-gem "comma", "~> 3.1.1"
+gem 'comma', '~> 3.2.0'
+  
+gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.15"
-#gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
-gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
-
-gem "unicode", "~> 0.4.4", :platforms => [:mri_18, :mri_19]
-gem "solr_ead", "~> 0.4.5"
+gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
+gem 'solr_ead', '~> 0.4.5'

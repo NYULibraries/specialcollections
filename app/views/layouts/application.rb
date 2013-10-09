@@ -23,7 +23,7 @@ module Views
       end
       
       # Render footer partial
-      def footer_htm
+      def footer_html
         render :partial => 'shared/footer'
       end
       

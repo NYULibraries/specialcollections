@@ -1,7 +1,5 @@
 language: ruby
 
-bundler_args: --without development
-
 before_script:
   - mysql -e 'create database nyu_findingaids_test;'
   - bundle exec rake db:schema:load

@@ -1,47 +1,41 @@
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_assets.git
-  revision: 73314bbcd396d2ce40921b6f4aa69a0e9ffb6a4d
-  tag: v1.1.15
+  remote: git://github.com/NYULibraries/authpds-nyu.git
+  revision: 88055ad3a713a18879b586ed80fe2bac4574cad7
+  tag: v1.1.2
   specs:
-    nyulibraries_assets (1.1.15)
-      bootstrap-sass (>= 2.2.0, < 2.3.1.1)
-      compass (~> 0.12.2)
-      institutions (~> 0.0.5)
-      rake (~> 10.0.2)
+    authpds-nyu (1.1.2)
+      authpds (~> 1.1.1)
+      exlibris-aleph (~> 1.1.0)
+      require_all (~> 1.3.1)
 
 GIT
-  remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: 442d890b0c10641a3e77b61de9fe40c6644ed3e7
+  remote: git://github.com/NYULibraries/nyulibraries_assets.git
+  revision: 4fb0bf1515d08a236352c4038e0b574c68df1c83
+  tag: v1.2.0
   specs:
-    rake_nyu (1.0.0)
+    nyulibraries_assets (1.2.0)
+      bootstrap-sass (>= 2.2.0, < 2.3.1.1)
+      compass (~> 0.12.2)
+      institutions (~> 0.1.1)
+
+GIT
+  remote: git://github.com/NYULibraries/nyulibraries_deploy.git
+  revision: 7ec6df985b294fcacd4bc203ba85b243453cb603
+  tag: v3.1.3
+  specs:
+    nyulibraries_deploy (3.1.3)
       cap_git_tools (~> 0.9.1)
       capistrano (~> 2.15.5)
       git (~> 1.2.5)
       mail (~> 2.5.4)
-      octokit (~> 1.25.0)
-      rails (~> 3.2.13)
-      rails_config (~> 0.3.2)
-      rake (~> 10.0.4)
-      require_all (~> 1.2.1)
-      rvm-capistrano (~> 1.4.0)
-
-GIT
-  remote: git@github.com:NYULibraries/authpds-nyu.git
-  revision: ae20187de22c3892132e311769e7f1d0486a5b77
-  branch: shibboleth
-  specs:
-    authpds-nyu (0.2.13)
-      authpds (~> 0.2.9)
-      exlibris-aleph (~> 1.0.4)
-      require_all (~> 1.2.1)
+      newrelic_rpm (~> 3.6.0)
+      rake (~> 10.1.0)
+      require_all (~> 1.3.0)
+      rvm-capistrano (~> 1.5.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    POpen4 (0.1.4)
-      Platform (>= 0.4.0)
-      open4
-    Platform (0.4.0)
     actionmailer (3.2.14)
       actionpack (= 3.2.14)
       mail (~> 2.5.4)
@@ -71,17 +65,17 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.2)
-    authlogic (3.1.3)
-      activerecord (>= 3.0.0)
-      activesupport (>= 3.0.0)
-    authpds (0.2.9)
-      activerecord (~> 3.2)
-      activesupport (~> 3.2)
-      authlogic (~> 3.1.3)
-      institutions (~> 0.0.4)
-      nokogiri (~> 1.5.3)
-      require_all (~> 1.2.1)
-    better_errors (0.9.0)
+    authlogic (3.3.0)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+    authpds (1.1.1)
+      activerecord (~> 3.2.14)
+      activesupport (~> 3.2.14)
+      authlogic (~> 3.3.0)
+      institutions (~> 0.1.3)
+      nokogiri (~> 1.6.0)
+      require_all (~> 1.3.1)
+    better_errors (1.0.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
@@ -106,7 +100,7 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     chunky_png (1.2.8)
-    coderay (1.0.9)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -114,9 +108,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    colorize (0.5.8)
     columnize (0.3.6)
-    comma (3.1.1)
+    comma (3.2.0)
       activesupport (>= 3.0.0)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -126,18 +119,18 @@ GEM
       compass (>= 0.12.2, < 0.14)
     compass-susy-plugin (0.9)
       compass (>= 0.11.1)
-    coveralls (0.6.7)
-      colorize
+    coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
       simplecov (>= 0.7)
+      term-ansicolor
       thor
     crack (0.4.1)
       safe_yaml (~> 0.9.0)
     daemons (1.1.9)
     dalli (2.6.4)
     debug_inspector (0.0.2)
-    debugger (1.6.1)
+    debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.3)
@@ -146,54 +139,48 @@ GEM
     deprecation (0.0.5)
       activesupport
     erubis (2.7.0)
-    execjs (2.0.1)
-    exlibris-aleph (1.0.6)
-      activesupport (~> 3.2.12)
-      builder (~> 3.0.0)
-      httparty (~> 0.10.2)
-      marc (~> 0.5.0)
-      nokogiri (~> 1.5.6)
-      rake (~> 10.0.3)
-      require_all (~> 1.2.1)
-    faraday (0.8.8)
-      multipart-post (~> 1.2.0)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
+    execjs (2.0.2)
+    exlibris-aleph (1.1.0)
+      activesupport (~> 3.2.14)
+      builder (>= 3.0.0)
+      httparty (~> 0.11.0)
+      marc (~> 0.7.1)
+      nokogiri (~> 1.6.0)
+      rake (~> 10.1.0)
+      require_all (~> 1.3.1)
     fattr (2.2.1)
     fssm (0.2.10)
     git (1.2.6)
-    hashie (2.0.5)
     highline (1.6.19)
     hike (1.2.3)
-    httparty (0.10.2)
+    httparty (0.11.0)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
     i18n (0.6.5)
-    institutions (0.0.5)
-      git (~> 1.2.5)
+    institutions (0.1.3)
       ipaddr_range_set (~> 0.10.0)
-      rake
-      rdoc
-      require_all (~> 1.2.1)
+      require_all (~> 1.3.1)
     ipaddr_range_set (0.10.0)
     journey (1.0.4)
-    jquery-rails (2.2.2)
+    jquery-rails (3.0.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    json (1.7.7)
+    jquery-ui-rails (4.0.5)
+      railties (>= 3.1.0)
+    json (1.8.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    libv8 (3.11.8.17)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    marc (0.5.1)
+    marc (0.7.1)
     mediashelf-loggable (0.4.9)
-    mime-types (1.24)
-    multi_json (1.7.9)
+    mime-types (1.25)
+    mini_portile (0.5.1)
+    multi_json (1.8.1)
     multi_xml (0.5.5)
-    multipart-post (1.2.0)
     mustache (0.99.4)
     mustache-rails (0.2.3)
       actionpack (>= 3.1)
@@ -203,25 +190,18 @@ GEM
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (2.6.8)
+    net-ssh (2.7.0)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    netrc (0.7.7)
-    nokogiri (1.5.10)
-    octokit (1.25.0)
-      addressable (~> 2.2)
-      faraday (~> 0.8)
-      faraday_middleware (~> 0.9)
-      hashie (~> 2.0)
-      multi_json (~> 1.3)
-      netrc (~> 0.7.7)
+    newrelic_rpm (3.6.8.164)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     om (1.8.0)
       activemodel
       activesupport
       deprecation
       mediashelf-loggable
       nokogiri (>= 1.4.2)
-    open4 (1.3.0)
     options (2.3.0)
       fattr
     polyglot (0.3.3)
@@ -252,21 +232,21 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.4)
+    rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
-    require_all (1.2.1)
+    require_all (1.3.1)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rsolr (1.0.9)
       builder (>= 2.1.2)
-    rvm-capistrano (1.4.4)
-      capistrano (>= 2.15.4)
-    safe_yaml (0.9.5)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
+    safe_yaml (0.9.7)
     sanitize (2.0.6)
       nokogiri (>= 1.4.4)
-    sass (3.2.10)
+    sass (3.2.12)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -296,28 +276,30 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    stomp (1.2.14)
+    stomp (1.3.1)
     sunspot_solr (2.0.0)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
+    term-ansicolor (1.2.2)
+      tins (~> 0.8)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
       ref
     thor (0.18.1)
     tilt (1.4.1)
+    tins (0.11.0)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.37)
+    tzinfo (0.3.38)
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.4)
-    vcr (2.4.0)
-    webmock (1.11.0)
+    vcr (2.6.0)
+    webmock (1.14.0)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
     xml-simple (1.1.2)
-    yui-compressor (0.9.6)
-      POpen4 (>= 0.1.4)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -328,30 +310,31 @@ DEPENDENCIES
   binding_of_caller
   blacklight (~> 4.2.2)
   coffee-rails (~> 3.2.0)
-  comma (~> 3.1.1)
+  comma (~> 3.2.0)
   compass-rails (~> 1.0.0)
   compass-susy-plugin (~> 0.9.0)
-  coveralls (~> 0.6.2)
+  coveralls (~> 0.7.0)
   dalli (~> 2.6.3)
   debugger
-  jquery-rails (~> 2.2.1)
-  json (~> 1.7.7)
+  jquery-rails (~> 3.0.4)
+  jquery-ui-rails (~> 4.0.0)
+  json (~> 1.8.0)
   mustache-rails (~> 0.2.3)
-  mysql2
+  mysql2 (~> 0.3.13)
   nyulibraries_assets!
+  nyulibraries_deploy!
   progress_bar
   rails (~> 3.2.14)
   rails_config (~> 0.3.2)
-  rake_nyu!
   sass-rails (~> 3.2.3)
   simplecov
   simplecov-rcov
   solr_ead (~> 0.4.5)
   sorted (~> 0.4.3)
   sunspot_solr (~> 2.0.0)
-  therubyracer (~> 0.11.4)
+  therubyracer (~> 0.12.0)
   uglifier (>= 1.0.3)
   unicode (~> 0.4.4)
-  vcr (~> 2.4.0)
-  webmock (~> 1.11.0)
-  yui-compressor (~> 0.9.6)
+  vcr (~> 2.6.0)
+  webmock (~> 1.14.0)
+  yui-compressor (~> 0.12.0)

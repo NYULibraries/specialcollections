@@ -2,10 +2,12 @@ require 'test_helper'
 
 class CatalogControllerTest < ActionController::TestCase
   
-  setup :activate_authlogic
-
-  def setup
-   current_user = UserSession.create(users(:global_admin))
+  setup do
+    activate_authlogic
+    # Pretend we've already checked PDS/Shibboleth for the session
+    # and we have a session
+    @request.cookies[:attempted_sso] = { value: "true" }
+    @controller.session[:session_id] = "FakeSessionID"
   end
   
   test "should search indexed records" do
