@@ -57,7 +57,7 @@ gem 'sorted', '~> 0.4.3'
 # For memcached
 gem 'dalli', '~> 2.6.3'
 
-#gem 'newrelic_rpm', '~> 3.6.0'
+gem 'newrelic_rpm', '~> 3.6.0'
 
 gem 'comma', '~> 3.2.0'
   
