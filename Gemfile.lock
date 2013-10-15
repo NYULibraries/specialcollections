@@ -9,11 +9,11 @@ GIT
       institutions (~> 0.1.1)
 
 GIT
-  remote: git://github.com/NYULibraries/rake_nyu.git
-  revision: b8c1614285a49dd1089923b6052ec77be63c0fc7
+  remote: git://github.com/NYULibraries/nyulibraries_deploy.git
+  revision: 77d7ecc4a4a018820c15a81a252f3989d44746b3
   branch: development
   specs:
-    nyulibraries_deploy (3.1.3)
+    nyulibraries_deploy (3.1.4)
       cap_git_tools (~> 0.9.1)
       capistrano (~> 2.15.5)
       git (~> 1.2.5)
