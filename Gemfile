@@ -46,10 +46,10 @@ group :test do
 end
 
 # Deploy with Capistrano
-gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/rake_nyu.git",  :tag => "v3.0.0"
+gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/rake_nyu.git",  :branch => "development"
 gem "rails_config", "~> 0.3.2"
 
-gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :branch => "shibboleth"
+gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :tag => "v1.1.2"
 gem 'jquery-rails', "~> 2.2.1"
 
 #gem 'blacklight', :path => "/apps/blacklight"
@@ -63,7 +63,7 @@ gem 'dalli', "~> 2.6.3"
 
 gem "comma", "~> 3.1.1"
 
-gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.1.15"
+gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.2.0"
 #gem  'nyulibraries_assets', :path => '/apps/nyulibraries_assets'
 gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
 
