@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.14'
+gem 'rails', '~> 3.2.15'
 
 gem 'mysql2'
 
@@ -46,7 +46,7 @@ group :test do
 end
 
 # Deploy with Capistrano
-gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git",  :branch => "development"
+gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git", :tag => 'v3.2.0'
 gem "rails_config", "~> 0.3.2"
 
 gem 'authpds-nyu', :git => "git@github.com:NYULibraries/authpds-nyu.git", :tag => "v1.1.2"
