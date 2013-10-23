@@ -50,7 +50,9 @@ gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_d
 gem "rails_config", "~> 0.3.2"
 
 gem 'authpds-nyu', :git => "git://github.com/NYULibraries/authpds-nyu.git", :tag => "v1.1.2"
-gem 'jquery-rails', "~> 2.2.1"
+
+gem 'jquery-rails', '~> 3.0.4'
+gem 'jquery-ui-rails', '~> 4.0.0'
 
 #gem 'blacklight', :path => "/apps/blacklight"
 gem 'blacklight', '~> 4.2.2'
