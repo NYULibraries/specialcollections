@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/NYULibraries/authpds-nyu.git
+  revision: 88055ad3a713a18879b586ed80fe2bac4574cad7
+  tag: v1.1.2
+  specs:
+    authpds-nyu (1.1.2)
+      authpds (~> 1.1.1)
+      exlibris-aleph (~> 1.1.0)
+      require_all (~> 1.3.1)
+
+GIT
   remote: git://github.com/NYULibraries/nyulibraries_assets.git
   revision: 4fb0bf1515d08a236352c4038e0b574c68df1c83
   tag: v1.2.0
@@ -22,16 +32,6 @@ GIT
       rake (~> 10.1.0)
       require_all (~> 1.3.0)
       rvm-capistrano (~> 1.5.0)
-
-GIT
-  remote: git@github.com:NYULibraries/authpds-nyu.git
-  revision: 88055ad3a713a18879b586ed80fe2bac4574cad7
-  tag: v1.1.2
-  specs:
-    authpds-nyu (1.1.2)
-      authpds (~> 1.1.1)
-      exlibris-aleph (~> 1.1.0)
-      require_all (~> 1.3.1)
 
 GEM
   remote: https://rubygems.org/
