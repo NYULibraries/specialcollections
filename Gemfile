@@ -4,7 +4,7 @@ gem 'rails', '~> 3.2.15'
 
 gem 'mysql2'
 
-gem 'json', "~> 1.7.7"
+gem 'json', "~> 1.8.1"
 
 gem 'coffee-rails', '~> 3.2.0'
 
@@ -15,10 +15,10 @@ group :assets do
   gem 'compass-rails', '~> 1.0.0'
   gem 'compass-susy-plugin', '~> 0.9.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', "~> 0.11.4", :platforms => :ruby
+  gem 'therubyracer', "~> 0.12.0", :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'yui-compressor', "~> 0.9.6"
+  gem 'yui-compressor', "~> 0.12.0"
 end
 
 group :development do#, :test do
@@ -28,9 +28,9 @@ group :development do#, :test do
 end
 
 group :test do
-  gem 'coveralls', "~> 0.6.2", :require => false
-  gem "vcr", "~> 2.4.0"
-  gem "webmock", "~> 1.11.0"
+  gem 'coveralls', "~> 0.7.0", :require => false
+  gem "vcr", "~> 2.6.0"
+  gem "webmock", "~> 1.15.0"
 end
 
 group :development do 
@@ -63,7 +63,7 @@ gem 'dalli', "~> 2.6.3"
 
 #gem 'newrelic_rpm', "~> 3.6.0"
 
-gem "comma", "~> 3.1.1"
+gem "comma", "~> 3.2.0"
 
 gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.2.0"
 

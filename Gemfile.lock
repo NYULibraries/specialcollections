@@ -36,10 +36,6 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    POpen4 (0.1.4)
-      Platform (>= 0.4.0)
-      open4
-    Platform (0.4.0)
     actionmailer (3.2.15)
       actionpack (= 3.2.15)
       mail (~> 2.5.4)
@@ -113,7 +109,7 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     columnize (0.3.6)
-    comma (3.1.1)
+    comma (3.2.0)
       activesupport (>= 3.0.0)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -123,7 +119,7 @@ GEM
       compass (>= 0.12.2, < 0.14)
     compass-susy-plugin (0.9)
       compass (>= 0.11.1)
-    coveralls (0.6.9)
+    coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
       simplecov (>= 0.7)
@@ -171,11 +167,11 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.0.5)
       railties (>= 3.1.0)
-    json (1.7.7)
+    json (1.8.1)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    libv8 (3.11.8.17)
+    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -206,7 +202,6 @@ GEM
       deprecation
       mediashelf-loggable
       nokogiri (>= 1.4.2)
-    open4 (1.3.0)
     options (2.3.0)
       fattr
     polyglot (0.3.3)
@@ -285,8 +280,8 @@ GEM
     sunspot_solr (2.0.0)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
-    therubyracer (0.11.4)
-      libv8 (~> 3.11.8.12)
+    therubyracer (0.12.0)
+      libv8 (~> 3.16.14.0)
       ref
     thor (0.18.1)
     tilt (1.4.1)
@@ -299,13 +294,12 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     unicode (0.4.4)
-    vcr (2.4.0)
-    webmock (1.11.0)
+    vcr (2.6.0)
+    webmock (1.15.0)
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
     xml-simple (1.1.2)
-    yui-compressor (0.9.6)
-      POpen4 (>= 0.1.4)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -316,15 +310,15 @@ DEPENDENCIES
   binding_of_caller
   blacklight (~> 4.2.2)
   coffee-rails (~> 3.2.0)
-  comma (~> 3.1.1)
+  comma (~> 3.2.0)
   compass-rails (~> 1.0.0)
   compass-susy-plugin (~> 0.9.0)
-  coveralls (~> 0.6.2)
+  coveralls (~> 0.7.0)
   dalli (~> 2.6.3)
   debugger
   jquery-rails (~> 3.0.4)
   jquery-ui-rails (~> 4.0.0)
-  json (~> 1.7.7)
+  json (~> 1.8.1)
   mustache-rails (~> 0.2.3)
   mysql2
   nyulibraries_assets!
@@ -338,9 +332,9 @@ DEPENDENCIES
   solr_ead (~> 0.4.5)
   sorted (~> 0.4.3)
   sunspot_solr (~> 2.0.0)
-  therubyracer (~> 0.11.4)
+  therubyracer (~> 0.12.0)
   uglifier (>= 1.0.3)
   unicode (~> 0.4.4)
-  vcr (~> 2.4.0)
-  webmock (~> 1.11.0)
-  yui-compressor (~> 0.9.6)
+  vcr (~> 2.6.0)
+  webmock (~> 1.15.0)
+  yui-compressor (~> 0.12.0)
