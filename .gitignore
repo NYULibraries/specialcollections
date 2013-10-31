@@ -19,6 +19,7 @@
 /jetty
 /solr/data
 /solr/pids
+/wiki
 
 /solr-dist/solr-webapp/*
 /solr-dist/webapps/*
