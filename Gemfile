@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.15'
+gem 'rails', '~> 3.2.16'
 
 gem 'mysql2'
 
@@ -47,19 +47,19 @@ end
 
 # Deploy with Capistrano
 gem "nyulibraries_deploy", :git => "git://github.com/NYULibraries/nyulibraries_deploy.git", :tag => 'v3.2.0'
-gem "rails_config", "~> 0.3.2"
+gem "rails_config", "~> 0.3.3"
 
 gem 'authpds-nyu', :git => "git://github.com/NYULibraries/authpds-nyu.git", :tag => "v1.1.2"
 
 gem 'jquery-rails', '~> 3.0.4'
-gem 'jquery-ui-rails', '~> 4.0.0'
+gem 'jquery-ui-rails', '~> 4.1.0'
 
 #gem 'blacklight', :path => "/apps/blacklight"
 gem 'blacklight', '~> 4.2.2'
 gem 'sorted', '~> 0.4.3'
 
 # For memcached
-gem 'dalli', "~> 2.6.3"
+gem 'dalli', "~> 2.6.4"
 
 #gem 'newrelic_rpm', "~> 3.6.0"
 
@@ -67,7 +67,8 @@ gem "comma", "~> 3.2.0"
 
 gem 'nyulibraries_assets', :git => 'git://github.com/NYULibraries/nyulibraries_assets.git', :tag => "v1.2.0"
 
-gem 'mustache-rails', "~> 0.2.3", :require => 'mustache/railtie'
+gem 'mustache', '0.99.4'
+gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
 
 gem "unicode", "~> 0.4.4", :platforms => [:mri_18, :mri_19]
 gem "solr_ead", "~> 0.4.5"
