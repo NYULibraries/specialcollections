@@ -4,8 +4,8 @@ http_interactions:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
     body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="UTF-8"?><delete><query>ead_id:"adler"</query></delete>
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><delete><query>ead_ssi:"adler"</query></delete>
     headers:
       Content-Type:
       - text/xml
@@ -21,191 +21,19 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 16 May 2013 20:46:09 GMT
+      - Mon, 27 Jan 2014 21:42:35 GMT
       Connection:
       - close
     body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>144}}'
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1}}'
     http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
     body:
-      encoding: US-ASCII
-      string: ! '<?xml version="1.0" encoding="UTF-8"?><add><doc><field name="corpname_facet">New
-        York University Archives</field><field name="corpname_facet">United States.
-        Department of the Army.</field><field name="genreform_facet">Correspondence</field><field
-        name="persname_facet">Adler, Charles, Jr., 1899-1980</field><field name="subject_facet">Patents</field><field
-        name="subject_topic_facet">Patents</field><field name="title_unstem_search">Charles
-        Adler, Jr., Papers</field><field name="title_display">Charles Adler, Jr.,
-        Papers</field><field name="title_num_t">MC 61</field><field name="title_num_display">MC
-        61</field><field name="pubdate_facet">1946/1952</field><field name="pubdate_display">1946/1952</field><field
-        name="unitdate_inclusive_unstem_search">1946-1952</field><field name="abstract_t">This
-        collection contains the correspondence and patents pertaining to a number
-        of Charles Adler Jr.''s inventions, including aircraft lights, horns, and
-        proximity lights.</field><field name="collection_facet">Charles Adler, Jr.,
-        Papers</field><field name="bioghist_t">Charles Adler Jr. was an inventor and
-        engineer born in 1899 in Baltimore, Maryland. He attended John Hopkins University
-        and briefly joined the army. Later he joined the Maryland and Pennsylvania
-        Railroad developing safety devices. In 1928 he designed the first audible
-        traffic horn. He was granted over 60 patents in his lifetime, 10 of which
-        he donated to the government. He was a member of the Maryland State Aviation
-        Commission and the Maryland Traffic Safety Commission.</field><field name="bioghist_heading_display">Biographical
-        Note</field><field name="controlaccess_t">United States. Department of the
-        Army. Correspondence Patents</field><field name="scopecontent_t">This collection
-        is made up of three folders containing the papers related to patents of Charles
-        Adler Jr ranging from 1936 to 1952. There are letters, sketches, as well as
-        patents for aircraft lights, proximity lights, and safety horns.</field><field
-        name="scopecontent_heading_display">Scope and Contents</field><field name="userestrict_t">Some
-        materials may be restricted. Permission to publish materials must be obtained
-        in writing from the: New York University Archives Elmer Holmes Bobst Library
-        70 Washington Square South New York, NY 10012 Phone: (212) 998-2641 Fax: (212)
-        995-4225 E-mail: university.archives@library.nyu.edu</field><field name="userestrict_heading_display">Use
-        Restrictions</field><field name="unittitle_t">Correspondence and Patents for
-        Aircraft Lights</field><field name="unittitle_t">Patent for Aircraft Horn</field><field
-        name="unittitle_t">Patent for Aircraft Proximity Lights</field><field name="publisher_t">New
-        York University Archives</field><field name="id">adler</field><field name="ead_id">adler</field><field
-        name="format">Archival Collection</field><field name="heading_display">Guide
-        to the Charles Adler, Jr., Papers (MC 61)</field><field name="publisher_unstem_search">New
-        York University Archives</field><field name="repository_s">archives</field><field
-        name="heading_t">Guide to the Charles Adler, Jr., Papers (MC 61)</field></doc></add>'
-    headers:
-      Content-Type:
-      - text/xml
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Thu, 16 May 2013 20:46:09 GMT
-      Connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>4}}'
-    http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
-- request:
-    method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
-    body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">adlerref1</field><field
-        name="ead_id">adler</field><field name="component_level_i">1</field><field
-        name="component_children_b">false</field><field name="collection_facet">Charles
-        Adler, Jr., Papers</field><field name="level_facet">file</field><field name="title_display">Correspondence
-        and Patents for Aircraft Lights</field><field name="unittitle_t">Correspondence
-        and Patents for Aircraft Lights</field><field name="format">Archival Item</field><field
-        name="heading_display">Correspondence and Patents for Aircraft Lights</field><field
-        name="ref_id">ref1</field><field name="sort_i">1</field></doc></add>
-    headers:
-      Content-Type:
-      - text/xml
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Thu, 16 May 2013 20:46:09 GMT
-      Connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
-    http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
-- request:
-    method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
-    body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">adlerref2</field><field
-        name="ead_id">adler</field><field name="component_level_i">1</field><field
-        name="component_children_b">false</field><field name="collection_facet">Charles
-        Adler, Jr., Papers</field><field name="level_facet">file</field><field name="title_display">Patent
-        for Aircraft Horn</field><field name="unittitle_t">Patent for Aircraft Horn</field><field
-        name="format">Archival Item</field><field name="heading_display">Patent for
-        Aircraft Horn</field><field name="ref_id">ref2</field><field name="sort_i">2</field></doc></add>
-    headers:
-      Content-Type:
-      - text/xml
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Thu, 16 May 2013 20:46:09 GMT
-      Connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
-    http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
-- request:
-    method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
-    body:
-      encoding: US-ASCII
-      string: <?xml version="1.0" encoding="UTF-8"?><add><doc><field name="id">adlerref3</field><field
-        name="ead_id">adler</field><field name="component_level_i">1</field><field
-        name="component_children_b">false</field><field name="collection_facet">Charles
-        Adler, Jr., Papers</field><field name="level_facet">file</field><field name="title_display">Patent
-        for Aircraft Proximity Lights</field><field name="unittitle_t">Patent for
-        Aircraft Proximity Lights</field><field name="format">Archival Item</field><field
-        name="heading_display">Patent for Aircraft Proximity Lights</field><field
-        name="ref_id">ref3</field><field name="sort_i">3</field></doc></add>
-    headers:
-      Content-Type:
-      - text/xml
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Apache-Coyote/1.1
-      Content-Type:
-      - text/plain;charset=UTF-8
-      Transfer-Encoding:
-      - chunked
-      Date:
-      - Thu, 16 May 2013 20:46:09 GMT
-      Connection:
-      - close
-    body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>7}}'
-    http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
-- request:
-    method: post
-    uri: http://127.0.0.1:8981/update?wt=ruby
-    body:
-      encoding: US-ASCII
+      encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><commit/>
     headers:
       Content-Type:
@@ -222,12 +50,297 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Thu, 16 May 2013 20:46:09 GMT
+      - Mon, 27 Jan 2014 21:42:35 GMT
       Connection:
       - close
     body:
-      encoding: US-ASCII
-      string: ! '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1}}'
     http_version: 
-  recorded_at: Thu, 16 May 2013 20:46:10 GMT
-recorded_with: VCR 2.4.0
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"title_teim\">Charles
+        Adler, Jr., Papers</field><field name=\"title_ssm\">Charles Adler, Jr., Papers</field><field
+        name=\"unitdate_inclusive_teim\">1946-1952</field><field name=\"language_ssm\">\n
+        \               \n            </field><field name=\"language_sim\">\n                \n
+        \           </field><field name=\"abstract_teim\">This collection contains
+        the correspondence and patents pertaining to a number of Charles Adler Jr.'s
+        inventions, including aircraft lights, horns, and proximity lights.</field><field
+        name=\"corpname_sim\">New York University Archives</field><field name=\"corpname_sim\">United
+        States. Department of the Army.</field><field name=\"corpname_ssm\">New York
+        University Archives</field><field name=\"corpname_ssm\">United States. Department
+        of the Army.</field><field name=\"genreform_sim\">Correspondence</field><field
+        name=\"genreform_ssm\">Correspondence</field><field name=\"persname_sim\">Adler,
+        Charles, Jr., 1899-1980</field><field name=\"persname_ssm\">Adler, Charles,
+        Jr., 1899-1980</field><field name=\"subject_sim\">Patents</field><field name=\"subject_ssm\">Patents</field><field
+        name=\"collection_sim\">Charles Adler, Jr., Papers</field><field name=\"collection_ssm\">Charles
+        Adler, Jr., Papers</field><field name=\"accessrestrict_teim\">Open to research
+        without restrictions.</field><field name=\"accessrestrict_heading_ssm\">Access
+        Restrictions</field><field name=\"bioghist_teim\">Charles Adler Jr. was an
+        inventor and engineer born in 1899 in Baltimore, Maryland. He attended John
+        Hopkins University and briefly joined the army. Later he joined the Maryland
+        and Pennsylvania Railroad developing safety devices. In 1928 he designed the
+        first audible traffic horn. He was granted over 60 patents in his lifetime,
+        10 of which he donated to the government. He was a member of the Maryland
+        State Aviation Commission and the Maryland Traffic Safety Commission.</field><field
+        name=\"bioghist_heading_ssm\">Biographical Note</field><field name=\"scopecontent_teim\">This
+        collection is made up of three folders containing the papers related to patents
+        of Charles Adler Jr ranging from 1936 to 1952. There are letters, sketches,
+        as well as patents for aircraft lights, proximity lights, and safety horns.</field><field
+        name=\"scopecontent_heading_ssm\">Scope and Contents</field><field name=\"userestrict_teim\">Some
+        materials may be restricted. Permission to publish materials must be obtained
+        in writing from the:\n                New York University Archives\n                 Elmer
+        Holmes Bobst Library\n                 70 Washington Square South\n                 New
+        York, NY 10012\n                 Phone: (212) 998-2641\n                Fax:
+        (212) 995-4225\n                E-mail: university.archives@library.nyu.edu\n
+        \               </field><field name=\"userestrict_heading_ssm\">Use Restrictions</field><field
+        name=\"controlaccess_teim\">\n            United States. Department of the
+        Army.\n            Correspondence\n            Patents\n        </field><field
+        name=\"unittitle_teim\">Correspondence and Patents for Aircraft Lights</field><field
+        name=\"unittitle_teim\">Patent for Aircraft Horn</field><field name=\"unittitle_teim\">Patent
+        for Aircraft Proximity Lights</field><field name=\"publisher_teim\">New York
+        University Archives</field><field name=\"id\">adler</field><field name=\"ead_ssi\">adler</field><field
+        name=\"publisher_unstem_search\">New York University Archives</field><field
+        name=\"repository_s\">archives</field><field name=\"heading_t\">Guide to the
+        Charles Adler, Jr., Papers (MC 61)</field><field name=\"format\">Archival
+        Collection</field><field name=\"unitdate_display\">Inclusive, 1946-1952</field><field
+        name=\"text\">    \n        adler\n        \n            \n                Guide
+        to the Charles Adler, Jr., Papers\n                    MC 61\n                \n
+        \               Finding aid prepared by Claire Wolford.\n            \n            \n
+        \               New York University Archives\n                \n                    Elmer
+        Holmes Bobst Library\n                    70 Washington Square South\n                    New
+        York, NY, 10012\n                    (212) 998-2641\n                    university.archives@library.nyu.edu\n
+        \               \n            \n        \n        \n            This finding
+        aid was produced using the Archivists' Toolkit\n                2012-04-18T16:05-0400\n
+        \           \n            Describing Archives: A Content Standard\n        \n
+        \   \n    \n        \n            Charles Adler, Jr., Papers\n            MC
+        61\n            \n                New York University Archives\n            \n
+        \           \n                \n            \n            \n                0.25
+        linear feet\n            \n            1946-1952\n            This collection
+        contains the correspondence and patents pertaining to a number of Charles
+        Adler Jr.'s inventions, including aircraft lights, horns, and proximity lights.\n
+        \           \n                Adler, Charles, Jr., 1899-1980\n            \n
+        \       \n        \n            Access Restrictions\n            Open to research
+        without restrictions.\n        \n        \n            Use Restrictions\n
+        \           Some materials may be restricted. Permission to publish materials
+        must be obtained in writing from the:\n                New York University
+        Archives\n                 Elmer Holmes Bobst Library\n                 70
+        Washington Square South\n                 New York, NY 10012\n                 Phone:
+        (212) 998-2641\n                Fax: (212) 995-4225\n                E-mail:
+        university.archives@library.nyu.edu\n                \n            \n        \n
+        \       \n            Scope and Contents\n            This collection is made
+        up of three folders containing the papers related to patents of Charles Adler
+        Jr ranging from 1936 to 1952. There are letters, sketches, as well as patents
+        for aircraft lights, proximity lights, and safety horns.\n        \n        \n
+        \           Biographical Note\n            Charles Adler Jr. was an inventor
+        and engineer born in 1899 in Baltimore, Maryland. He attended John Hopkins
+        University and briefly joined the army. Later he joined the Maryland and Pennsylvania
+        Railroad developing safety devices. In 1928 he designed the first audible
+        traffic horn. He was granted over 60 patents in his lifetime, 10 of which
+        he donated to the government. He was a member of the Maryland State Aviation
+        Commission and the Maryland Traffic Safety Commission.\n        \n        \n
+        \           Preferred Citation\n            Published citations should take
+        the following form:\n            Identification of item, date (if known);
+        The Charles Adler, Jr., Papers; MC 61; box number; folder number; New York
+        University Archives Elmer Holmes Bobst Library 70 Washington Square South
+        New York, NY 10012, New York University Libraries.\n        \n        \n            United
+        States. Department of the Army.\n            Correspondence\n            Patents\n
+        \       \n        \n            \n                \n                    Correspondence
+        and Patents for Aircraft Lights\n                    \n                        \n
+        \                   \n                    1\n                    1\n                    1936-1952\n
+        \               \n            \n            \n                \n                    Patent
+        for Aircraft Horn\n                    \n                        \n                    \n
+        \                   1\n                    2\n                    1946-1947\n
+        \               \n            \n            \n                \n                    Patent
+        for Aircraft Proximity Lights\n                    \n                        \n
+        \                   \n                    1\n                    3\n                    1948-1951\n
+        \               \n            \n        \n    \n</field><field name=\"language_facet\">English</field><field
+        name=\"genre_facet\">Correspondence</field><field name=\"contributors_display\">Adler,
+        Charles, Jr., 1899-1980</field><field name=\"contributors_display\">New York
+        University Archives</field><field name=\"contributors_display\">United States.
+        Department of the Army.</field><field name=\"name_facet\">Adler, Charles,
+        Jr., 1899-1980</field><field name=\"name_facet\">New York University Archives</field><field
+        name=\"name_facet\">United States. Department of the Army.</field><field name=\"subject_display\">Patents</field><field
+        name=\"subject_facet\">Patents</field></doc></add>"
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Jan 2014 21:42:35 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
+    http_version: 
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"id\">adlerref1</field><field
+        name=\"ead_ssi\">adler</field><field name=\"component_level_isim\">1</field><field
+        name=\"component_children_bsi\">false</field><field name=\"collection_sim\">Charles
+        Adler, Jr., Papers</field><field name=\"collection_ssm\">Charles Adler, Jr.,
+        Papers</field><field name=\"level_sim\">file</field><field name=\"title_ssm\">Correspondence
+        and Patents for Aircraft Lights</field><field name=\"title_si\">Correspondence
+        and Patents for Aircraft Lights</field><field name=\"unitdate_ssm\">1936-1952</field><field
+        name=\"material_sim\">Mixed materials</field><field name=\"material_ssm\">Mixed
+        materials</field><field name=\"language_sim\">\n                        \n
+        \                   </field><field name=\"language_ssm\">\n                        \n
+        \                   </field><field name=\"ref_ssi\">ref1</field><field name=\"location_display\">Box:
+        1, Folder: 1 (Mixed materials)</field><field name=\"text\">Correspondence
+        and Patents for Aircraft Lights</field><field name=\"language_facet\">English</field><field
+        name=\"sort_ii\">1</field></doc></add>"
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Jan 2014 21:42:35 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
+    http_version: 
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"id\">adlerref2</field><field
+        name=\"ead_ssi\">adler</field><field name=\"component_level_isim\">1</field><field
+        name=\"component_children_bsi\">false</field><field name=\"collection_sim\">Charles
+        Adler, Jr., Papers</field><field name=\"collection_ssm\">Charles Adler, Jr.,
+        Papers</field><field name=\"level_sim\">file</field><field name=\"title_ssm\">Patent
+        for Aircraft Horn</field><field name=\"title_si\">Patent for Aircraft Horn</field><field
+        name=\"unitdate_ssm\">1946-1947</field><field name=\"material_sim\">Mixed
+        materials</field><field name=\"material_ssm\">Mixed materials</field><field
+        name=\"language_sim\">\n                        \n                    </field><field
+        name=\"language_ssm\">\n                        \n                    </field><field
+        name=\"ref_ssi\">ref2</field><field name=\"location_display\">Box: 1, Folder:
+        2 (Mixed materials)</field><field name=\"text\">Patent for Aircraft Horn</field><field
+        name=\"language_facet\">English</field><field name=\"sort_ii\">2</field></doc></add>"
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Jan 2014 21:42:35 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0}}'
+    http_version: 
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"id\">adlerref3</field><field
+        name=\"ead_ssi\">adler</field><field name=\"component_level_isim\">1</field><field
+        name=\"component_children_bsi\">false</field><field name=\"collection_sim\">Charles
+        Adler, Jr., Papers</field><field name=\"collection_ssm\">Charles Adler, Jr.,
+        Papers</field><field name=\"level_sim\">file</field><field name=\"title_ssm\">Patent
+        for Aircraft Proximity Lights</field><field name=\"title_si\">Patent for Aircraft
+        Proximity Lights</field><field name=\"unitdate_ssm\">1948-1951</field><field
+        name=\"material_sim\">Mixed materials</field><field name=\"material_ssm\">Mixed
+        materials</field><field name=\"language_sim\">\n                        \n
+        \                   </field><field name=\"language_ssm\">\n                        \n
+        \                   </field><field name=\"ref_ssi\">ref3</field><field name=\"location_display\">Box:
+        1, Folder: 3 (Mixed materials)</field><field name=\"text\">Patent for Aircraft
+        Proximity Lights</field><field name=\"language_facet\">English</field><field
+        name=\"sort_ii\">3</field></doc></add>"
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Jan 2014 21:42:35 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0}}'
+    http_version: 
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:8981/update?wt=ruby
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><commit/>
+    headers:
+      Content-Type:
+      - text/xml
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Content-Type:
+      - text/plain;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Date:
+      - Mon, 27 Jan 2014 21:42:35 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>4}}'
+    http_version: 
+  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+recorded_with: VCR 2.8.0

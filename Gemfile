@@ -1,27 +1,34 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 3.2.16'
-
 gem 'mysql2', '~> 0.3.14'
-
 gem 'json', '~> 1.8.1'
-
 gem 'coffee-rails', '~> 3.2.0'
+gem 'nyulibraries_deploy', :git => 'git://github.com/NYULibraries/nyulibraries_deploy.git', :tag => 'v3.2.1'
+gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-assets.git', :tag => 'v2.0.1'
+gem 'authpds-nyu', :git => 'git://github.com/NYULibraries/authpds-nyu.git', :tag => 'v1.1.3'
+gem 'rails_config', '~> 0.3.3'
+gem 'jquery-rails', '~> 3.0.4'
+gem 'jquery-ui-rails', '~> 4.1.1'
+#gem 'blacklight', :path => '/apps/blacklight'
+gem 'blacklight', '~> 4.6.2'
+gem 'sorted', '~> 1.0.0'
+gem 'dalli', '~> 2.7.0'
+#gem 'newrelic_rpm'
+gem 'comma', '~> 3.2.0'
+gem 'mustache', '0.99.4'
+gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
+gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
+gem 'solr_ead', :git => 'git://github.com/barnabyalter/solr_ead.git' #:path => '/apps/solr_ead'#'=0.4.5'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'compass-rails', '~> 1.1.3'
   gem 'compass-susy-plugin', '~> 0.9.0'
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', '~> 0.12.0', :platforms => :ruby
-
   gem 'uglifier', '~> 2.4.0'
   gem 'yui-compressor', '~> 0.12.0'
 end
-
-gem 'debugger', :groups => [:development, :test]
 
 group :test do
   gem 'coveralls', '~> 0.7.0', :require => false
@@ -34,31 +41,7 @@ end
 group :development do 
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'sunspot_solr'
 end
 
-gem 'nyulibraries_deploy', :git => 'git://github.com/NYULibraries/nyulibraries_deploy.git', :tag => 'v3.2.1'
-gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-assets.git', :tag => 'v2.0.1'
-gem 'authpds-nyu', :git => 'git://github.com/NYULibraries/authpds-nyu.git', :tag => 'v1.1.3'
-
-gem 'rails_config', '~> 0.3.3'
-
-gem 'jquery-rails', '~> 3.0.4'
-gem 'jquery-ui-rails', '~> 4.1.1'
-
-#gem 'blacklight', :path => '/apps/blacklight'
-gem 'blacklight', '~> 4.6.2'
-gem 'sorted', '~> 1.0.0'
-
-# For memcached
-gem 'dalli', '~> 2.7.0'
-
-#gem 'newrelic_rpm'
-
-gem 'comma', '~> 3.2.0'
-
-gem 'mustache', '0.99.4'
-gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
-
-gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
-gem 'solr_ead', :git => 'git://github.com/barnabyalter/solr_ead.git' #:path => '/apps/solr_ead'#'=0.4.5'
-
+gem 'debugger', :groups => [:development, :test]
