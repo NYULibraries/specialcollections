@@ -100,7 +100,7 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'title_unstem_search', :label => "Title:", :helper_method => :highlight
+      config.add_index_field 'heading_display', :label => "Title:", :helper_method => :highlight
       config.add_index_field 'publisher_unstem_search', :label => "Collection:", :helper_method => :highlight
       config.add_index_field 'title_num_t', :label => "ID of the Unit:", :helper_method => :highlight
       config.add_index_field 'abstract_t', :label => "Abstract:", :helper_method => :link_to_field

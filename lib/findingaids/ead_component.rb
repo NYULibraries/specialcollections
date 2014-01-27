@@ -17,6 +17,7 @@ class EadComponent < SolrEad::Component
     # Alter our heading display if the title is blank
     #solr_doc["heading_display"] = (solr_doc["heading_display"] + self.unitdate.first) if self.title.first.blank?
     solr_doc.merge!({"location_display"        => self.location_display })
+    solr_doc.merge!({"repository_s"            =>      format_repository})
     #solr_doc.merge!({"accession_unstem_search" => ead_accession_range(self.accession.first)})
     solr_doc.merge!({"text"                    => [self.title, solr_doc["parent_unittitles_display"]].flatten })
     solr_doc.merge!({"language_facet"          => get_language_from_code(self.langcode.first) })
