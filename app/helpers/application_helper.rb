@@ -48,11 +48,11 @@ module ApplicationHelper
   # Which page to link to
   def link_page(field)
     # If any of the following fields match, link to admininfo page; otherwise link to the field name page
-    link_page = (Findingaids::Document::LINK_FIELDS[:admininfo].include? field[:field]) ? "admininfo" : page_name(field)
+    link_page = (Findingaids::EadBehaviors::LINK_FIELDS[:admininfo].include? field[:field]) ? "admininfo" : page_name(field)
     # If abstract matches, link to homepage
-    link_page = (Findingaids::Document::LINK_FIELDS[:abstract].include? field[:field]) ? nil : link_page 
+    link_page = (Findingaids::EadBehaviors::LINK_FIELDS[:abstract].include? field[:field]) ? nil : link_page 
     # If matches components, it came from the search_components function below, so direct to default dsc page
-    link_page = (Findingaids::Document::LINK_FIELDS[:dsc].include? field[:field]) ? "dsc" : link_page
+    link_page = (Findingaids::EadBehaviors::LINK_FIELDS[:dsc].include? field[:field]) ? "dsc" : link_page
     return link_page
   end
   
@@ -67,6 +67,16 @@ module ApplicationHelper
   # Format page name from solr fields
   def page_name(field)
     field[:field].split("_").first
+  end
+
+  def document_icon doc, result = String.new
+    if doc.get("format").nil?
+      result << "" #image_tag("icons/unknown.png")
+    else
+      filename = doc.get("format").downcase.gsub(/\s/,"_")
+      result << image_tag("icons/#{filename}.png")
+    end
+    return result.html_safe
   end
 
 end

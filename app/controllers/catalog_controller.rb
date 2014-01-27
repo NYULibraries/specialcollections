@@ -66,14 +66,24 @@ class CatalogController < ApplicationController
       #
       # :show may be set to false if you don't want the facet to be drawn in the 
       # facet bar
-      config.add_facet_field 'persname_facet', :label => 'People' , :limit => 20
-      config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20 
-      config.add_facet_field 'subject_geo_facet', :label => 'Places' , :limit => 20
-      config.add_facet_field 'name_facet', :label => 'Name' , :limit => 20
-      config.add_facet_field 'genreform_facet', :label => 'Document Type', :limit => 20
-      config.add_facet_field 'corpname_facet', :label => 'Corporate Name', :limit => 20
-      config.add_facet_field 'famname_facet', :label => 'Family Name' , :limit => 20
-      config.add_facet_field 'lang_facet', :label => 'Languages', :limit => 20
+      #config.add_facet_field 'persname_facet', :label => 'People' , :limit => 20
+      #config.add_facet_field 'subject_topic_facet', :label => 'Topic', :limit => 20 
+      #config.add_facet_field 'subject_geo_facet', :label => 'Places' , :limit => 20
+      #config.add_facet_field 'name_facet', :label => 'Name' , :limit => 20
+      #config.add_facet_field 'genreform_facet', :label => 'Document Type', :limit => 20
+      #config.add_facet_field 'corpname_facet', :label => 'Corporate Name', :limit => 20
+      #config.add_facet_field 'famname_facet', :label => 'Family Name' , :limit => 20
+      #config.add_facet_field 'lang_facet', :label => 'Languages', :limit => 20
+      
+      config.add_facet_field 'format',           :label => 'Format',             :limit => 20
+      config.add_facet_field 'collection_facet', :label => 'Collection Name',    :limit => 20
+      config.add_facet_field 'material_facet',   :label => 'Archival Material',  :limit => 20
+      config.add_facet_field 'name_facet',       :label => 'Name',               :limit => 20
+      config.add_facet_field 'subject_facet',    :label => 'Subject',            :limit => 20
+      config.add_facet_field 'genre_facet',      :label => 'Genre',              :limit => 20    
+      config.add_facet_field 'series_facet',     :label => 'Event/Series',       :limit => 20
+      config.add_facet_field 'pub_date',         :label => 'Publication Date',   :limit => 20
+      config.add_facet_field 'language_facet',   :label => 'Language',           :limit => true
       
       #config.add_facet_field 'example_pivot_field', :label => 'Pivot Field', :pivot => ['format', 'language_facet']
       #
@@ -104,14 +114,18 @@ class CatalogController < ApplicationController
       config.add_index_field 'acqinfo_t', :label => "Acquisition Information:", :helper_method => :link_to_field
       config.add_index_field 'sponsor_t', :label => "Sponsor:", :helper_method => :link_to_field
       config.add_index_field 'custodhist_t', :label => "Custodial History:", :helper_method => :link_to_field
+      config.add_index_field 'title_display',         :label => 'Title:'
+      config.add_index_field 'author_display',        :label => 'Author:', :helper_method => :render_facet_link
+      config.add_index_field 'format',                :label => 'Format:'
 
-      # solr fields to be displayed in the show (single result) view
+       # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
-      #config.add_show_field 'ead_id', :label => '', :helper_method => :link_field      
-      #config.add_show_field 'title_display', :label => 'Title:', :helper_method => :highlight_search_text 
-      #config.add_show_field 'publisher_display', :label => 'Collection:' 
-      #config.add_show_field 'abstract_t', :label => 'Abstract:', :helper_method => :highlight_search_text 
-      #config.add_show_field 'ead_language_display', :label => 'Language:'
+      #config.add_show_field 'ead_id', :label => 'Link to Finding Aid:'
+      config.add_show_field 'title_unstem_search', :label => 'Title:'
+      config.add_show_field 'publisher_unstem_search', :label => 'Collection:' 
+      config.add_show_field 'abstract_t', :label => 'Abstract:'
+      config.add_show_field 'ead_language_display', :label => 'Language:'
+       
 
       # "fielded" search configuration. Used by pulldown among other places.
       # For supported keys in hash, see rdoc for Blacklight::SearchFields

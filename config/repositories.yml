@@ -24,3 +24,15 @@ Catalog:
       display: 'Brooklyn Historical Society'
       url: "bhs"
       admin_code: "bhs"
+    phr:
+      display: 'PHR'
+      url: "phr"
+      admin_code: "phr"
+    poly:
+      display: 'Poly Archives'
+      url: "poly"
+      admin_code: "poly"
+    rism:
+      display: 'RISM'
+      url: "rism"
+      admin_code: "rism"

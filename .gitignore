@@ -15,7 +15,7 @@
 /log/*.log
 /tmp
 /examples
-/data
+#/data
 /jetty
 /solr/data
 /solr/pids
