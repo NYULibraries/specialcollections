@@ -7,25 +7,51 @@ class CatalogController < ApplicationController
   configure_blacklight do |config|
       ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
       
-      config.default_solr_params = { 
+      #config.default_solr_params = { 
+      #  :qt => '',
+      #  :rows => 10,
+      #  :fl => "score format id repository_s heading_display publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+      #  :facet => true,
+      #  :hl => true,
+      #  "hl.fl" => "publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+      #  "hl.simple.pre" => "<span class=\"highlight\">",
+      #  "hl.simple.post" => "</span>",
+      #  "hl.mergeContiguous" => true,
+      #  "hl.fragsize" => 50,
+      #  "hl.snippets" => 10,
+      #  "facet.mincount" => 1,
+      #  :echoParams => "explicit",
+      #  :qf => "publisher_display^10.0 title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
+      #  :pf => "publisher_display^10.0 title_unstem_search^11.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
+      #  :ps => 50,
+      #  :defType => "edismax"
+      #}
+      # 
+      config.default_solr_params = {
         :qt => '',
         :rows => 10,
-        :fl => "score format id repository_s heading_display publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
-        :facet => true,
-        :hl => true,
-        "hl.fl" => "publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+        ("hl.fl").to_sym => "publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
         "hl.simple.pre" => "<span class=\"highlight\">",
         "hl.simple.post" => "</span>",
         "hl.mergeContiguous" => true,
         "hl.fragsize" => 50,
         "hl.snippets" => 10,
+        :hl => true,
+        :facet => true,
         "facet.mincount" => 1,
         :echoParams => "explicit",
-        :qf => "title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
-        :pf => "title_unstem_search^11.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
         :ps => 50,
         :defType => "edismax"
       }
+
+      # solr field configuration for search results/index views
+      config.index.show_link = 'heading_display'
+      config.index.record_display_type = 'format'
+
+      # solr field configuration for document/show views
+      config.show.html_title = 'heading_display'
+      config.show.heading = 'heading_display'
+      config.show.display_type = 'format'
       
       ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SolrHelper#solr_doc_params) or 
       ## parameters included in the Blacklight-jetty document requestHandler.
@@ -37,15 +63,6 @@ class CatalogController < ApplicationController
         :rows => 1,
         :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
       }
-
-      # solr field configuration for search results/index views
-      config.index.show_link = 'heading_display'
-      config.index.record_display_type = 'format'
-
-      # solr field configuration for document/show views
-      config.show.html_title = 'heading_display'
-      config.show.heading = 'heading_display'
-      config.show.display_type = 'format'
 
       # solr fields that will be treated as facets by the blacklight application
       #   The ordering of the field names is the order of the display
@@ -100,31 +117,36 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'heading_display', :label => "Title:", :helper_method => :highlight
-      config.add_index_field 'publisher_unstem_search', :label => "Collection:", :helper_method => :highlight
-      config.add_index_field 'title_num_t', :label => "ID of the Unit:", :helper_method => :highlight
-      config.add_index_field 'abstract_t', :label => "Abstract:", :helper_method => :link_to_field
-      config.add_index_field 'bioghist_t', :label => "Biographical History:", :helper_method => :link_to_field
-      config.add_index_field 'controlaccess_t', :label => "Controlled Access Headings:", :helper_method => :link_to_field
-      config.add_index_field 'scopecontent_t', :label => "Scope and Content:", :helper_method => :link_to_field
-      config.add_index_field 'unittitle_t', :label => "Title of the Unit:", :helper_method => :link_to_field_or_components
-      config.add_index_field 'odd_t', :label => "Other Descriptive Data:", :helper_method => :link_to_field_or_components
-      config.add_index_field 'index_t', :label => "Index:", :helper_method => :link_to_field
-      config.add_index_field 'phystech_t', :label => "Physical Characteristics and Technical Requirements:", :helper_method => :link_to_field
-      config.add_index_field 'acqinfo_t', :label => "Acquisition Information:", :helper_method => :link_to_field
-      config.add_index_field 'sponsor_t', :label => "Sponsor:", :helper_method => :link_to_field
-      config.add_index_field 'custodhist_t', :label => "Custodial History:", :helper_method => :link_to_field
-      config.add_index_field 'title_display',         :label => 'Title:'
-      config.add_index_field 'author_display',        :label => 'Author:', :helper_method => :render_facet_link
+      config.add_index_field 'heading_display',       :label => "Title:"#,               :helper_method => :highlight
+      config.add_index_field 'language_display',      :label => 'Language:'
+      config.add_index_field 'title_display',         :label => 'Title:'#,               :helper_method => :highlight
       config.add_index_field 'format',                :label => 'Format:'
+      config.add_index_field 'unitdate_display',      :label => 'Dates:'
+      config.add_index_field 'parent_unittitle_list', :label => 'Series:'
+      config.add_index_field 'location_display',      :label => 'Location:'
+      
+      config.add_index_field 'publisher_display',     :label => "Archival Collection:"#,           :helper_method => :render_facet_link
+      config.add_index_field 'title_num_t',           :label => "ID of the Unit:",                :helper_method => :highlight
+      config.add_index_field 'abstract_t',            :label => "Abstract:",                      :helper_method => :link_to_field
+      config.add_index_field 'bioghist_t',            :label => "Biographical History:",          :helper_method => :link_to_field
+      config.add_index_field 'controlaccess_t',       :label => "Controlled Access Headings:",    :helper_method => :link_to_field
+      config.add_index_field 'scopecontent_t',        :label => "Scope and Content:",             :helper_method => :link_to_field
+      config.add_index_field 'unittitle_t',           :label => "Title of the Unit:",             :helper_method => :link_to_field_or_components
+      config.add_index_field 'odd_t',                 :label => "Other Descriptive Data:",        :helper_method => :link_to_field_or_components
+      config.add_index_field 'index_t',               :label => "Index:",                         :helper_method => :link_to_field
+      config.add_index_field 'phystech_t',            :label => "Physical Characteristics and Technical Requirements:", :helper_method => :link_to_field
+      config.add_index_field 'acqinfo_t',             :label => "Acquisition Information:",       :helper_method => :link_to_field
+      config.add_index_field 'sponsor_t',             :label => "Sponsor:",                       :helper_method => :link_to_field
+      config.add_index_field 'custodhist_t',          :label => "Custodial History:",             :helper_method => :link_to_field
+     
 
        # solr fields to be displayed in the show (single result) view
       #   The ordering of the field names is the order of the display 
       #config.add_show_field 'ead_id', :label => 'Link to Finding Aid:'
-      config.add_show_field 'title_unstem_search', :label => 'Title:'
-      config.add_show_field 'publisher_unstem_search', :label => 'Collection:' 
-      config.add_show_field 'abstract_t', :label => 'Abstract:'
-      config.add_show_field 'ead_language_display', :label => 'Language:'
+      config.add_show_field 'title_display',          :label => 'Title:'
+      config.add_show_field 'publisher_display',      :label => 'Collection:' 
+      config.add_show_field 'abstract_t',             :label => 'Abstract:'
+      config.add_show_field 'lang_display',           :label => 'Language:'
        
 
       # "fielded" search configuration. Used by pulldown among other places.

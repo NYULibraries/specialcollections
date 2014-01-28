@@ -33,16 +33,6 @@ GIT
       require_all (~> 1.3.0)
       rvm-capistrano (~> 1.5.0)
 
-GIT
-  remote: git://github.com/barnabyalter/solr_ead.git
-  revision: 0511fa0d48239edfb105527f74c14ebc57471003
-  specs:
-    solr_ead (0.7.1)
-      om (~> 3.0.0)
-      rsolr
-      sanitize
-      solrizer (~> 3.1.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -207,13 +197,12 @@ GEM
     newrelic_rpm (3.7.1.188)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
-    om (3.0.4)
+    om (1.8.0)
       activemodel
       activesupport
       deprecation
       mediashelf-loggable
       nokogiri (>= 1.4.2)
-      solrizer (~> 3.1.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -265,11 +254,17 @@ GEM
     simplecov-html (0.8.0)
     simplecov-rcov (0.2.3)
       simplecov (>= 0.4.1)
-    solrizer (3.1.1)
+    solr_ead (0.4.5)
+      om
+      rsolr
+      sanitize
+      solrizer (~> 2.1.0)
+    solrizer (2.1.0)
       activesupport
       daemons
       mediashelf-loggable (~> 0.4.7)
       nokogiri
+      om (>= 1.5.0)
       stomp
       xml-simple
     sorted (1.0.0)
@@ -331,7 +326,7 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   simplecov
   simplecov-rcov
-  solr_ead!
+  solr_ead (= 0.4.5)
   sorted (~> 1.0.0)
   sunspot_solr
   therubyracer (~> 0.12.0)

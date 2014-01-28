@@ -13,7 +13,7 @@ module Findingaids::EadBehaviors
     :dsc => ["odd_t","unittitle_t"]
   }
   # Always show these fields on the index catalog view
-  DEFAULT_INDEX_FIELDS = ["title_unstem_search","publisher_unstem_search","abstract_t"]
+  DEFAULT_INDEX_FIELDS = ["title_display","publisher_display","language_display","format","unitdate_display","collection_facet","parent_unittitle_list","location_display"]
   
   # Takes the publisher string from EAD and
   # * Strips non-ascii characters such as &copy;
