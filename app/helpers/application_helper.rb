@@ -1,14 +1,14 @@
 module ApplicationHelper
 
   # Create url for finding aid
-  def url_for_findingaid(repository, ead_id, page = nil, anchor = nil)
+  def url_for_findingaid(repository, id, page = nil, anchor = nil)
     page = [page, Settings.findingaids.default_extension].join(".") unless page.nil?
-    return "http://#{Settings.findingaids.host}#{[Settings.findingaids.path, repository, ead_id, page].join("/")}#{"#" + anchor unless anchor.nil?}"
+    return "http://#{Settings.findingaids.host}#{[Settings.findingaids.path, repository, id, page].join("/")}#{"#" + anchor unless anchor.nil?}"
   end
   
   # Highlight search text and link to appropriate page in finding aid
   def link_to_field(field)
-    link_to(highlight(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["ead_id"], link_page(field)), :target => :blank)
+    link_to(highlight(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["id"], link_page(field)), :target => :blank)
   end
   
   # If a match was found in one of the components (i.e. unittitle or odd)
@@ -39,7 +39,7 @@ module ApplicationHelper
         url = "dsc#{doc["parent_id_s"].first}"
         # The array of parent reference Ids ends with the ref to the anchor
         anchor = doc["parent_id_s"].last if doc["parent_id_s"].is_a? Array and doc["parent_id_s"].count > 1
-        sub_query_links << link_to(body, url_for_findingaid(components.repository, components.ead_id, url, anchor), :target => :blank)
+        sub_query_links << link_to(body, url_for_findingaid(components.repository, components.id, url, anchor), :target => :blank)
       end
     end
     return sub_query_links.join(" ").html_safe

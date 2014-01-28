@@ -29,11 +29,10 @@ class EadDocument < SolrEad::Document
     
     solr_doc.merge!({"publisher_unstem_search"    =>      format_publisher(self.publisher)})
     solr_doc.merge!({"repository_s"               =>      format_repository})
-    solr_doc.merge!({"heading_t"                  =>      format_heading(self.title, self.title_num)})  unless self.title_num.empty?
 
     solr_doc.merge!({"format"           => "Archival Collection"})
     solr_doc.merge!({"unitdate_display" => ead_date_display})
-    solr_doc.merge!({"heading_display"  => self.heading_t})
+    solr_doc.merge!({"heading_display"  => format_heading(self.title, self.title_num)})  unless self.title_num.empty?
     solr_doc.merge!({"text"             => self.ng_xml.text})
     solr_doc.merge!({"language_facet"   => get_language_from_code(self.langcode.first) })
 

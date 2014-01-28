@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
       config.default_solr_params = { 
         :qt => '',
         :rows => 10,
-        :fl => "score format id ead_id repository_s heading_display publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+        :fl => "score format id repository_s heading_display publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
         :facet => true,
         :hl => true,
         "hl.fl" => "publisher_unstem_search title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",

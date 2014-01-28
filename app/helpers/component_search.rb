@@ -31,9 +31,9 @@ class ComponentSearch
       "hl.snippets" => 100,
       :echoParams => "explicit",
       :ps => 50,
-      :fq => ["ead_id:#{ead_id}", "parent_id_s:*"], 
+      :fq => ["id:#{id}", "parent_id_s:*"], 
       :q => q, 
-      :fl => "score id ead_id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
+      :fl => "score id ref_id title_display unittitle_t odd_t parent_id_s parent_id",
       "hl.fl" => component_qf,
       :qf => component_qf,
       :pf => component_qf
@@ -67,13 +67,13 @@ class ComponentSearch
   end
   
   # ID for the matched EAD
-  def ead_id
-    @ead_id ||= solr_response[:document]["ead_id"]
+  def id
+    @id ||= solr_response[:document]["id"]
   end
   
   # Repository for the matched EAD
   def repository
-    repository ||= solr_response[:document]["repository_s"].first
+    @repository ||= solr_response[:document]["repository_s"].first
   end
 
   protected

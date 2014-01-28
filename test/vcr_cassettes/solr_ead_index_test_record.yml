@@ -21,14 +21,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:34 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -50,20 +50,20 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>1}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>6}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:34 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
     body:
       encoding: UTF-8
-      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"title_teim\">Charles
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?><add><doc><field name=\"title_tim\">Charles
         Adler, Jr., Papers</field><field name=\"title_ssm\">Charles Adler, Jr., Papers</field><field
         name=\"unitdate_inclusive_teim\">1946-1952</field><field name=\"language_ssm\">\n
         \               \n            </field><field name=\"language_sim\">\n                \n
@@ -105,14 +105,14 @@ http_interactions:
         for Aircraft Proximity Lights</field><field name=\"publisher_teim\">New York
         University Archives</field><field name=\"id\">adler</field><field name=\"ead_ssi\">adler</field><field
         name=\"publisher_unstem_search\">New York University Archives</field><field
-        name=\"repository_s\">archives</field><field name=\"heading_t\">Guide to the
-        Charles Adler, Jr., Papers (MC 61)</field><field name=\"format\">Archival
-        Collection</field><field name=\"unitdate_display\">Inclusive, 1946-1952</field><field
-        name=\"text\">    \n        adler\n        \n            \n                Guide
-        to the Charles Adler, Jr., Papers\n                    MC 61\n                \n
-        \               Finding aid prepared by Claire Wolford.\n            \n            \n
-        \               New York University Archives\n                \n                    Elmer
-        Holmes Bobst Library\n                    70 Washington Square South\n                    New
+        name=\"repository_s\">archives</field><field name=\"format\">Archival Collection</field><field
+        name=\"unitdate_display\">Inclusive, 1946-1952</field><field name=\"heading_display\">Guide
+        to the Charles Adler, Jr., Papers (MC 61)</field><field name=\"text\">    \n
+        \       adler\n        \n            \n                Guide to the Charles
+        Adler, Jr., Papers\n                    MC 61\n                \n                Finding
+        aid prepared by Claire Wolford.\n            \n            \n                New
+        York University Archives\n                \n                    Elmer Holmes
+        Bobst Library\n                    70 Washington Square South\n                    New
         York, NY, 10012\n                    (212) 998-2641\n                    university.archives@library.nyu.edu\n
         \               \n            \n        \n        \n            This finding
         aid was produced using the Archivists' Toolkit\n                2012-04-18T16:05-0400\n
@@ -181,14 +181,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>8}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:34 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -205,9 +205,9 @@ http_interactions:
         materials</field><field name=\"language_sim\">\n                        \n
         \                   </field><field name=\"language_ssm\">\n                        \n
         \                   </field><field name=\"ref_ssi\">ref1</field><field name=\"location_display\">Box:
-        1, Folder: 1 (Mixed materials)</field><field name=\"text\">Correspondence
-        and Patents for Aircraft Lights</field><field name=\"language_facet\">English</field><field
-        name=\"sort_ii\">1</field></doc></add>"
+        1, Folder: 1 (Mixed materials)</field><field name=\"repository_s\">archives</field><field
+        name=\"text\">Correspondence and Patents for Aircraft Lights</field><field
+        name=\"language_facet\">English</field><field name=\"sort_ii\">1</field></doc></add>"
     headers:
       Content-Type:
       - text/xml
@@ -223,14 +223,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>7}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:35 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -247,8 +247,9 @@ http_interactions:
         name=\"language_sim\">\n                        \n                    </field><field
         name=\"language_ssm\">\n                        \n                    </field><field
         name=\"ref_ssi\">ref2</field><field name=\"location_display\">Box: 1, Folder:
-        2 (Mixed materials)</field><field name=\"text\">Patent for Aircraft Horn</field><field
-        name=\"language_facet\">English</field><field name=\"sort_ii\">2</field></doc></add>"
+        2 (Mixed materials)</field><field name=\"repository_s\">archives</field><field
+        name=\"text\">Patent for Aircraft Horn</field><field name=\"language_facet\">English</field><field
+        name=\"sort_ii\">2</field></doc></add>"
     headers:
       Content-Type:
       - text/xml
@@ -264,14 +265,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>7}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:35 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -288,8 +289,8 @@ http_interactions:
         materials</field><field name=\"language_sim\">\n                        \n
         \                   </field><field name=\"language_ssm\">\n                        \n
         \                   </field><field name=\"ref_ssi\">ref3</field><field name=\"location_display\">Box:
-        1, Folder: 3 (Mixed materials)</field><field name=\"text\">Patent for Aircraft
-        Proximity Lights</field><field name=\"language_facet\">English</field><field
+        1, Folder: 3 (Mixed materials)</field><field name=\"repository_s\">archives</field><field
+        name=\"text\">Patent for Aircraft Proximity Lights</field><field name=\"language_facet\">English</field><field
         name=\"sort_ii\">3</field></doc></add>"
     headers:
       Content-Type:
@@ -306,14 +307,14 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>0}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>13}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:35 GMT
 - request:
     method: post
     uri: http://127.0.0.1:8981/update?wt=ruby
@@ -335,12 +336,12 @@ http_interactions:
       Transfer-Encoding:
       - chunked
       Date:
-      - Mon, 27 Jan 2014 21:42:35 GMT
+      - Tue, 28 Jan 2014 17:30:34 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{''responseHeader''=>{''status''=>0,''QTime''=>4}}'
+      string: '{''responseHeader''=>{''status''=>0,''QTime''=>5}}'
     http_version: 
-  recorded_at: Mon, 27 Jan 2014 21:42:35 GMT
+  recorded_at: Tue, 28 Jan 2014 17:30:35 GMT
 recorded_with: VCR 2.8.0
