@@ -784,5 +784,20 @@
    <copyField source="author_addl_t"       dest="opensearch_display" />
    <copyField source="subject_facet"       dest="opensearch_display" />
    <copyField source="subject_t"           dest="opensearch_display" />
+   
+   <!-- Make full text search fields non case sensitive -->
+   <copyField source="title_t" dest="title_txt"/>
+   <copyField source="title_display" dest="title_txt"/>
+   <copyField source="title_num_t" dest="title_num_txt"/>
+   <copyField source="abstract_t" dest="abstract_txt"/>
+   <copyField source="controlaccess_t" dest="controlaccess_txt"/>
+   <copyField source="scopecontent_t" dest="scopecontent_txt"/>
+   <copyField source="bioghist_t" dest="bioghist_txt"/>
+   <copyField source="file_did_unittitle_t" dest="file_did_unittitle_txt"/>
+   <copyField source="odd_t" dest="odd_txt"/>
+   <copyField source="index_t" dest="index_txt"/>
+   <copyField source="phystech_t" dest="phystech_txt"/>
+   <copyField source="acqinfo_t" dest="acqinfo_txt"/>
+   <copyField source="sponsor_t" dest="sponsor_txt"/>
 
 </schema>

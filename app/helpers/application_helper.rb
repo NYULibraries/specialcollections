@@ -8,7 +8,7 @@ module ApplicationHelper
   
   # Highlight search text and link to appropriate page in finding aid
   def link_to_field(field)
-    link_to(highlight(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["id"], link_page(field)), :target => :blank)
+    link_to(highlight(field), url_for_findingaid(field[:document]["repository_s"].first, field[:document]["id"], link_page(field)), :target => "_blank")
   end
   
   # If a match was found in one of the components (i.e. unittitle or odd)

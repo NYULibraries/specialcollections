@@ -11,7 +11,7 @@ class EadComponent < SolrEad::Component
     t.ref_(:path=>"/c/@id")
     t.level(:path=>"/c/@level", :index_as=>[:facetable])
 
-    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:displayable])
+    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:displayable,:searchable])
     t.unitdate(:index_as=>[:displayable])
 
     # Facets
@@ -97,10 +97,11 @@ class EadComponent < SolrEad::Component
     solr_doc.merge!({"language_facet"          => get_language_from_code(self.langcode.first) })
     solr_doc.merge!({"format" => "Archival Item"})
     
-    solr_doc["parent_unittitles_display"].length > 0 ? solr_doc.merge!({"heading_display" => [ solr_doc["parent_unittitles_display"], self.title.first].join(" >> ")  }) :       solr_doc.merge!({"heading_display" => self.title.first  })
+    solr_doc["parent_unittitles_display"].length > 0 ? solr_doc.merge!({"heading_display" => [ solr_doc["parent_unittitles_display"], self.title.first].join(" >> ")  }) :       solr_doc.merge!({"heading_display" => self.title.first  }) unless solr_doc["parent_unittitles_display"].blank?
     
-    solr_doc.merge!({"ref_id" => self.ref.first.strip})
-
+    solr_doc.merge!({"ref_id" => self.ref.first.strip}) unless self.ref.blank?
+    
+    return solr_doc
   end
 
   def location_display(locations = Array.new)

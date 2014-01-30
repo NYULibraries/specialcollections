@@ -10,11 +10,11 @@ module BlacklightHelper
   
   # Change link to document to link out to external guide
   # TODO: XSLT in views to create and cache finding aid locally
-  #def link_to_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
-  #  opts[:label] ||= blacklight_config.index.show_link.to_sym
-  #  label = render_document_index_label doc, opts
-  #  link_to(label, url_for_findingaid(doc[:repository_s].first, doc[:id]), {:target => "_blank"}) 
-  #end
-  # 
+  def link_to_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
+    opts[:label] ||= blacklight_config.index.show_link.to_sym
+    label = render_document_index_label doc, opts
+    link_to(label, url_for_findingaid(doc[:repository_s].first, doc[:id]), {:target => "_blank"}) 
+  end
+   
   
 end

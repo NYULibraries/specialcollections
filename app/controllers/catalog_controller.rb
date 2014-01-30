@@ -6,31 +6,15 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
       ## Default parameters to send to solr for all search-like requests. See also SolrHelper#solr_search_params
-      
-      #config.default_solr_params = { 
-      #  :qt => '',
-      #  :rows => 10,
-      #  :fl => "score format id repository_s heading_display publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
-      #  :facet => true,
-      #  :hl => true,
-      #  "hl.fl" => "publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
-      #  "hl.simple.pre" => "<span class=\"highlight\">",
-      #  "hl.simple.post" => "</span>",
-      #  "hl.mergeContiguous" => true,
-      #  "hl.fragsize" => 50,
-      #  "hl.snippets" => 10,
-      #  "facet.mincount" => 1,
-      #  :echoParams => "explicit",
-      #  :qf => "publisher_display^10.0 title_unstem_search^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
-      #  :pf => "publisher_display^10.0 title_unstem_search^11.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
-      #  :ps => 50,
-      #  :defType => "edismax"
-      #}
-      # 
+
+
       config.default_solr_params = {
         :qt => '',
         :rows => 10,
-        ("hl.fl").to_sym => "publisher_display title_unstem_search title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+        :fl => "*",
+        :qf => "publisher_display^10.0 title_unstem_search^10.0 title_t^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
+        :pf => "publisher_display^10.0 title_unstem_search^11.0 title_t^10.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
+        ("hl.fl").to_sym => "publisher_display title_unstem_search title_t  title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
         "hl.simple.pre" => "<span class=\"highlight\">",
         "hl.simple.post" => "</span>",
         "hl.mergeContiguous" => true,
@@ -117,13 +101,14 @@ class CatalogController < ApplicationController
 
       # solr fields to be displayed in the index (search results) view
       #   The ordering of the field names is the order of the display 
-      config.add_index_field 'heading_display',       :label => "Title:"#,               :helper_method => :highlight
+      config.add_index_field 'heading_display',       :label => "Title:",               :helper_method => :highlight
       config.add_index_field 'language_display',      :label => 'Language:'
-      config.add_index_field 'title_display',         :label => 'Title:'#,               :helper_method => :highlight
+      config.add_index_field 'title_t',               :label => 'Unit Title:',               :helper_method => :highlight
       config.add_index_field 'format',                :label => 'Format:'
       config.add_index_field 'unitdate_display',      :label => 'Dates:'
-      config.add_index_field 'parent_unittitle_list', :label => 'Series:'
+      config.add_index_field 'parent_unittitles_display', :label => 'Series:'
       config.add_index_field 'location_display',      :label => 'Location:'
+      config.add_index_field 'collection_facet',      :label => 'Archival Collection:'
       
       config.add_index_field 'publisher_display',     :label => "Archival Collection:"#,           :helper_method => :render_facet_link
       config.add_index_field 'title_num_t',           :label => "ID of the Unit:",                :helper_method => :highlight
