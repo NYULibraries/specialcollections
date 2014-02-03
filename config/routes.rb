@@ -22,4 +22,13 @@ Findingaids::Application.routes.draw do
   match 'validate', :to => 'user_sessions#validate', :as => :validate
   resources :user_sessions
   
+  # For EAD
+  match "components/:id(/:ref)", :to => "components#index", :via => :get
+  match "catalog/:id/:ref", :to => "catalog#show", :via => :get
+
+  # Holdings
+  match "holdings/:id" => "holdings#show", :as => :holdings, :via => :get
+
+  match "*a", :to => "catalog#index", :via => [:get, :post] if Rails.env.match?("production")
+  
 end

@@ -1,16 +1,17 @@
 # -*- encoding : utf-8 -*-
-class SolrDocument
+class SolrDocument 
 
   include Blacklight::Solr::Document
+  include Findingaids::Solr::DocumentExtension
 
-  #self.unique_key = 'resource_id_ss'
+  # self.unique_key = 'id'
   
   # The following shows how to setup this blacklight document to display marc documents
-  #extension_parameters[:marc_source_field] = :marc_display
-  #extension_parameters[:marc_format_type] = :marcxml
-  #use_extension( Blacklight::Solr::Document::Marc) do |document|
-  #  document.key?( :marc_display  )
-  #end
+  extension_parameters[:marc_source_field] = :marc_ss
+  extension_parameters[:marc_format_type] = :marcxml
+  use_extension( Blacklight::Solr::Document::Marc) do |document|
+    document.key?( :marc_ss  )
+  end
   
   # Email uses the semantic field mappings below to generate the body of an email.
   SolrDocument.use_extension( Blacklight::Solr::Document::Email )
@@ -25,9 +26,10 @@ class SolrDocument
   # Recommendation: Use field names from Dublin Core
   use_extension( Blacklight::Solr::Document::DublinCore)    
   field_semantics.merge!(    
-                         :title => "title_display",
-                         :author => "author_display",
-                         :language => "language_facet",
-                         :format => "format"
+                         :title     => Solrizer.solr_name("title",    :displayable),
+                         :author    => Solrizer.solr_name("author",   :displayable),
+                         :language  => Solrizer.solr_name("language", :displayable),
+                         :format    => Solrizer.solr_name("format",   :displayable),
+                         :subject   => Solrizer.solr_name("subject",  :displayable),
                          )
 end

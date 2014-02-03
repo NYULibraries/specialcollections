@@ -12,6 +12,8 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'jquery-ui-rails', '~> 4.1.1'
 #gem 'blacklight', :path => '/apps/blacklight'
 gem 'blacklight', '~> 4.6.2'
+gem 'blacklight-sitemap', :github => 'awead/blacklight-sitemap'
+gem 'blacklight_advanced_search'
 gem 'sorted', '~> 1.0.0'
 gem 'dalli', '~> 2.7.0'
 #gem 'newrelic_rpm'
@@ -19,7 +21,8 @@ gem 'comma', '~> 3.2.0'
 gem 'mustache', '0.99.4'
 gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
-gem 'solr_ead', :git => 'git://github.com/barnabyalter/solr_ead.git', :branch => "0.4.5"
+gem 'solr_ead', '~> 0.7.1'
+gem 'sanitize'
 #gem 'solr_ead', :path => "/apps/solr_ead"
 
 group :assets do

@@ -4,7 +4,7 @@
 # modules.  They're helpful for doing fancy things with the data when it gets
 # indexed into solr.
 
-module Findingaids::EadBehaviors
+module Findingaids::Ead::Behaviors
 
   # Config mapping for linking to specific pages from found text in Solr fields
   LINK_FIELDS = {
@@ -116,7 +116,31 @@ module Findingaids::EadBehaviors
     IO.foreach(file) do |line|
       properties[$1.strip] = $2 if line =~ /([^=]*)=(.*)\/\/(.*)/ || line =~ /([^=]*)=(.*)/
     end
-    return properties[code].strip unless properties[code].nil?
+    properties[code].nil? ? nil : properties[code].strip
+  end
+
+  # Split-up subject terms like we do for our marc records
+  def get_ead_subject_facets terms = Array.new
+    self.subject.each do |term|
+      splits = term.split(/--/)
+      terms << splits
+    end
+    return terms.flatten.compact.uniq.sort
+  end
+
+  # Combine corporate and personal names into one group
+  def get_ead_names
+    (self.corpname + self.persname).flatten.compact.uniq.sort
+  end
+
+  # Returns a hash of lanuage fields for an EAD document or component
+  def ead_language_fields fields = Hash.new
+    language = get_language_from_code(self.langcode.first)
+    unless langcode.nil?
+      Solrizer.set_field(fields, "language", language, :facetable)
+      Solrizer.set_field(fields, "language", language, :displayable)
+    end
+    return fields
   end
 
 end
