@@ -12,7 +12,6 @@ namespace :findingaids do
       indexer = SolrEad::Indexer.new(:document=>Findingaids::Ead::Document, :component=>Findingaids::Ead::Component)
       if File.directory?(ENV['EAD'])
         Dir.glob(File.join(ENV['EAD'],"*")).each do |file|
-          debugger
           print "Indexing #{File.basename(file)}: "
           begin
             indexer.update(file)

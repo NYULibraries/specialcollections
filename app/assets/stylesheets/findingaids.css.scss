@@ -18,7 +18,11 @@ body {
 .page_links { line-height: 20px; }
 
 .search {
-  #search_field { height: 30px; width: auto; }//display: none !important; }
+  #search_field { 
+    height: 30px; 
+    width: auto; 
+    max-width: 250px;
+  }
 }
 
 .q { 
@@ -50,6 +54,15 @@ body {
   }
 }
 
+.icon_image {
+  margin-right: 5px;
+}
+
+.index_title {
+  max-width: inherit;
+  width: 80%;
+}
+
 .pagination, .nyu-pagination {
   text-align: left;
 }
@@ -70,22 +83,23 @@ input[type='file'] {
   border-radius: 4px;
 }
 
-.document dl dd {
-  a {
-    display: block;
-    color: #333;
-    &:hover {
-      @extend .rounded;
-      text-decoration: none;
-      background-color: whitesmoke;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    }
-  }
-  &.blacklight-unittitle_t,
-  &.blacklight-odd_t {
+.document {
+  border-bottom: 1px solid #efefef;
+    dl dd {
     a {
-      display: block;
-      margin-bottom: 5px;
+      display: inline;
+      color: #333;
+      border-bottom: 1px dotted #999;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &.blacklight-unittitle_t,
+    &.blacklight-odd_t {
+      a {
+        display: block;
+        margin-bottom: 5px;
+      }
     }
   }
 }

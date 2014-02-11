@@ -74,7 +74,7 @@ module ApplicationHelper
       result << "" #image_tag("icons/unknown.png")
     else
       filename = doc.get(Solrizer.solr_name("format", :displayable)).downcase.gsub(/\s/,"_")
-      result << image_tag("icons/#{filename}.png")
+      result << image_tag("icons/#{filename}.png", :class => "icon_image")
     end
     return result.html_safe
   end
