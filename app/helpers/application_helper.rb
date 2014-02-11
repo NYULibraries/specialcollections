@@ -70,10 +70,10 @@ module ApplicationHelper
   end
 
   def document_icon doc, result = String.new
-    if doc.get("format").nil?
+    if doc.get(Solrizer.solr_name("format", :displayable)).nil?
       result << "" #image_tag("icons/unknown.png")
     else
-      filename = doc.get("format").downcase.gsub(/\s/,"_")
+      filename = doc.get(Solrizer.solr_name("format", :displayable)).downcase.gsub(/\s/,"_")
       result << image_tag("icons/#{filename}.png")
     end
     return result.html_safe

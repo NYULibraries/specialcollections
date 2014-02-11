@@ -8,12 +8,21 @@ module Findingaids::Ead::Behaviors
 
   # Config mapping for linking to specific pages from found text in Solr fields
   LINK_FIELDS = {
-    :abstract => ["abstract_t"],
-    :admininfo => ["custodhist_t","sponsor_t","acqinfo_t","phystech_t","index_t"],
-    :dsc => ["odd_t","unittitle_t"]
+    :abstract => [Solrizer.solr_name(:abstract, :displayable)],
+    :admininfo => [Solrizer.solr_name(:custodhist, :displayable),Solrizer.solr_name(:sponsor, :displayable),Solrizer.solr_name(:acqinfo, :displayable),Solrizer.solr_name(:phystech, :displayable),Solrizer.solr_name(:index, :displayable)],
+    :dsc => [Solrizer.solr_name(:odd, :displayable), Solrizer.solr_name(:unittitle, :displayable)]
   }
   # Always show these fields on the index catalog view
-  DEFAULT_INDEX_FIELDS = ["title_display","publisher_display","language_display","format","unitdate_display","collection_facet","location_display","parent_unittitles_display"]
+  DEFAULT_INDEX_FIELDS = [
+    Solrizer.solr_name(:title, :displayable),
+    Solrizer.solr_name(:publisher, :displayable),
+    Solrizer.solr_name(:language, :displayable),
+    Solrizer.solr_name(:format, :displayable),
+    Solrizer.solr_name(:unitdate, :displayable),
+    Solrizer.solr_name(:collection, :displayable),
+    Solrizer.solr_name(:location, :displayable),
+    Solrizer.solr_name(:parent_unittitles, :displayable)
+  ]
   
   # Takes the publisher string from EAD and
   # * Strips non-ascii characters such as &copy;
@@ -31,16 +40,9 @@ module Findingaids::Ead::Behaviors
   
   # Pulls the repository from the directory title when indexing from the rake task
   def format_repository
-    if ENV['DIR'].present?
-      return ENV['DIR'].split("\/")[-1]
-    elsif ENV['FILE'].present?
-      return ENV['FILE'].split("\/")[-2]
+    if ENV['EAD'].present?
+      return ENV['EAD'].split("\/")[-2]
     end
-  end
-  
-  # Create formatted heading from guide title and number
-  def format_heading(title, title_num)
-    "Guide to the #{title.first} (#{title_num.first})"
   end
 
   # Returns an array of individual accession numbers for indexing the solr.

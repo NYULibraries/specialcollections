@@ -23,6 +23,9 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "location",   location_display,                           :displayable)
     Solrizer.insert_field(solr_doc, "accession",  ead_accession_range(self.accession.first),  :searchable)
 
+    solr_doc.merge!("repository_ssi" => format_repository)
+    Solrizer.insert_field(solr_doc, "title",  self.title,  :searchable)
+
     # Collection field
     Solrizer.set_field(solr_doc, "collection", collection_name(solr_doc), :displayable)
     Solrizer.set_field(solr_doc, "collection", collection_name(solr_doc), :facetable)

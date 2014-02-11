@@ -5,6 +5,28 @@ class Findingaids::Ead::Document < SolrEad::Document
   use_terminology SolrEad::Document
 
   extend_terminology do |t|
+    t.title(:path=>"archdesc/did/unittitle", :index_as=>[:unstemmed_searchable])
+    t.title_num(:path=>"archdesc/did/unitid", :index_as=>[:searchable, :displayable])
+    t.abstract(:path=>"archdesc/did/abstract", :index_as=>[:searchable, :displayable])
+    t.sponsor(:path=>"sponsor", :index_as=>[:searchable,:displayable])
+
+    # General field available within archdesc
+    t.acqinfo(:path=>"archdesc/acqinfo/p", :index_as=>[:searchable, :displayable])
+    t.bioghist(:path=>"archdesc/bioghist/p", :index_as=>[:searchable, :displayable])
+    t.custodhist(:path=>"archdesc/custodhist/p", :index_as=>[:searchable, :displayable])
+    t.phystech(:path=>"archdesc/phystech/p", :index_as=>[:searchable, :displayable])
+    t.relatedmaterial(:path=>"archdesc/relatedmaterial/p", :index_as=>[:searchable, :displayable])
+    t.controlaccess(:path => "archdesc/controlaccess", :index_as=>[:searchable, :displayable])
+    t.scopecontent(:path=>"archdesc/scopecontent/p", :index_as=>[:searchable, :displayable])
+    t.index(:path=>"archdesc/index", :index_as=>[:searchable, :displayable])
+    
+    # These are component level items indexed into the document as fulltext searchable fields
+    # so Blacklight can search it at the top level. Once this simple search is done we can search
+    # the components which are individually indexed by solr_ead to get additional info
+    t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable, :displayable])
+    t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable, :displayable])
+
+    t.publisher(:path => "publisher", :index_as => [:searchable])
     t.dsc
   end
 
@@ -18,6 +40,8 @@ class Findingaids::Ead::Document < SolrEad::Document
     else
       solr_doc[Solrizer.solr_name("inventory", :type => :boolean)] = "true"
     end
+    
+    solr_doc.merge!("repository_ssi" => format_repository)
 
     Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.title_num.empty?
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable)

@@ -10,22 +10,13 @@ class CatalogController < ApplicationController
   before_filter :get_component, :get_component_children, :show_item_within_collection, :only => :show
 
   configure_blacklight do |config|
-    #config.default_solr_params = {
-    #  :qt => "",
-    #  :rows => 10,
-    #  ("hl.fl").to_sym => "title_ssm, author_ssm, publisher_ssm, collection_ssm,parent_unittitles_ssm,location_ssm",
-    #  ("hl.simple.pre").to_sym => '<span class="label label-info">',
-    #  ("hl.simple.post").to_sym => "</span>",
-    #  :hl => true
-    #}
-    
     config.default_solr_params = {
-      :qt => '',
+      :qt => "",
       :rows => 10,
       :fl => "*",
-      #:qf => "publisher_display^10.0 title_unstem_search^10.0 title_t^10.0 title_num_t^10.0 abstract_t^9.0 controlaccess_t^9.0 scopecontent_t^7.0 bioghist_t^7.0 unittitle_t^5.0 odd_t^5.0 index_t^3.0 phystech_t^2.0 acqinfo_t^2.0 sponsor_t^1.0 custodhist_t^1.0",
-      #:pf => "publisher_display^10.0 title_unstem_search^11.0 title_t^10.0 title_num_t^11.0 abstract_t^10.0 controlaccess_t^10.0 scopecontent_t^8.0 bioghist_t^8.0 unittitle_t^6.0 odd_t^6.0 index_t^4.0 phystech_t^3.0 acqinfo_t^3.0 sponsor_t^2.0 custodhist_t^2.0",
-      #("hl.fl").to_sym => "publisher_display title_unstem_search title_t  title_num_t abstract_t controlaccess_t scopecontent_t bioghist_t unittitle_t odd_t index_t phystech_t acqinfo_t sponsor_t custodhist_t",
+      :qf => qf_fields,
+      :pf => pf_fields,
+      ("hl.fl").to_sym => hl_fields,
       "hl.simple.pre" => "<span class=\"highlight\">",
       "hl.simple.post" => "</span>",
       "hl.mergeContiguous" => true,
@@ -44,7 +35,11 @@ class CatalogController < ApplicationController
       ("hl.fl").to_sym => "title_ssm, author_ssm, publisher_ssm, collection_ssm,parent_unittitles_ssm,location_ssm",
       ("hl.simple.pre").to_sym => '<span class="label label-info">',
       ("hl.simple.post").to_sym => "</span>",
-      :hl => true
+      :hl => true,
+      :fl => "*",
+      :rows => 1,
+      :echoParams => "all",
+      :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
     }
 
     # solr field configuration for search results/index views
@@ -97,14 +92,14 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field solr_name("title",             :displayable),  :label => "Title:", 
                                                                           :highlight => true
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:", 
+                                                                          :highlight => true
 
     config.add_index_field solr_name("author",            :displayable),  :label => "Author:", 
                                                                           :helper_method => :render_facet_link,
                                                                           :highlight => true
     
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:"
-    config.add_index_field solr_name("ohlink_url",        :displayable),  :label => "OhioLink Resource:", 
-                                                                          :helper_method => :render_external_link
 
     config.add_index_field solr_name("resource_url",      :displayable),  :label => "Online Resource:",
                                                                           :helper_method => :render_external_link
@@ -263,9 +258,12 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
     
+    
+    ##
+    # Add repository field query from config file
     YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
       config.add_search_field(coll.last["display"]) do |field|
-       field.solr_parameters = { :fq => "repository_s:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
+       field.solr_parameters = { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
       end
     end
   end
