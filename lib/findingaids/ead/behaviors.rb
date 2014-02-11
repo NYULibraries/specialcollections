@@ -40,8 +40,12 @@ module Findingaids::Ead::Behaviors
   
   # Pulls the repository from the directory title when indexing from the rake task
   def format_repository
-    if ENV['EAD'].present?
-      return ENV['EAD'].split("\/")[-2]
+    if ENV['EAD'].present? 
+      if File.directory?(Rails.root.join(ENV['EAD']))
+        return ENV['EAD'].split("\/")[-1]
+      else
+        return ENV['EAD'].split("\/")[-2]
+      end
     end
   end
 

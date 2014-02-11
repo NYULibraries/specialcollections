@@ -21,6 +21,10 @@ module DocumentHelper
     end
     return results.join(field_value_separator).html_safe
   end
+  
+  def render_field_name args, results = Array.new
+    args[:document][args[:field]].join(",").html_safe
+  end
 
   # Refactor me, please!
   def render_facet_link args, results = Array.new

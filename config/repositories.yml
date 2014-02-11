@@ -5,11 +5,11 @@ Catalog:
       url: ""
       admin_code: ""
     fales:
-      display: 'The Fales Library'
+      display: 'The Fales Library & Special Collections'
       url: "fales"
       admin_code: fales
     tamwag:
-      display: 'The Tamiment Library'
+      display: 'The Tamiment Library & Robert F. Wagner Labor Archives'
       url: "tamwag"
       admin_code: "tamwag"
     archives:
@@ -24,15 +24,11 @@ Catalog:
       display: 'Brooklyn Historical Society'
       url: "bhs"
       admin_code: "bhs"
-    phr:
-      display: 'PHR'
-      url: "phr"
-      admin_code: "phr"
     poly:
       display: 'Poly Archives'
       url: "poly"
       admin_code: "poly"
     rism:
-      display: 'RISM'
+      display: 'Research Institue for the Study of Man'
       url: "rism"
       admin_code: "rism"
