@@ -6,7 +6,7 @@ class EadDocumentTest < ActiveSupport::TestCase
     VCR.use_cassette('solr_ead index test record', :match_requests_on => [:body]) do
       ENV['FILE'] = "#{Rails.root}/test/dummy/data/archives/adler.xml"
       ENV['DIR'] = nil
-      indexer = SolrEad::Indexer.new(:document => EadDocument, :component => EadComponent)
+      indexer = SolrEad::Indexer.new(:document => Findingaids::Ead::Document, :component => Findingaids::Ead::Component)
       assert_nothing_raised do
         indexer.update(ENV['FILE'])
       end
@@ -18,7 +18,7 @@ class EadDocumentTest < ActiveSupport::TestCase
     VCR.use_cassette('solr_ead index test directory', :match_requests_on => [:body]) do
       ENV['DIR'] = "#{Rails.root}/test/dummy/data/archives"
       ENV['FILE'] = nil
-      indexer = SolrEad::Indexer.new(:document => EadDocument, :component => EadComponent)
+      indexer = SolrEad::Indexer.new(:document => Findingaids::Ead::Document, :component => Findingaids::Ead::Component)
       Dir.glob(File.join(ENV['DIR'],"*")).each do |file|
         assert_nothing_raised do
           indexer.update(file)
