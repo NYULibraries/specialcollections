@@ -68,12 +68,17 @@ namespace :findingaids do
       committed_files.each do |committed_file|
         # Separate into status and filename
         status, file = committed_file.split("\t")
+        # Get full file path from app root
+        file = File.join("data", file)
+        # Repository is set from EAD env, assuming creating from the command line 
+        # with a passed in param EAD=(filename)
+        ENV['EAD'] = file
         # If file exists...
         if File.exists?(file)
           print "Indexing #{File.basename(file)}: "
           begin
             #...reindex it!
-            indexer.update(File.join("data", file))
+            indexer.update(file)
             print "done.\n"
           rescue
             print "failed!\n"
