@@ -22,8 +22,9 @@ gem 'mustache', '0.99.4'
 gem 'mustache-rails', '~> 0.2.3', :require => 'mustache/railtie'
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 gem 'solr_ead', '~> 0.7.1'
-gem 'sanitize'
+gem 'sanitize', '~> 2.1.0'
 #gem 'solr_ead', :path => "/apps/solr_ead"
+gem 'rspec-rails', :group => [:test, :development]
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -40,6 +41,9 @@ group :test do
   gem 'webmock', '~> 1.16.1'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do 

@@ -56,6 +56,41 @@ namespace :findingaids do
         Findingaids::Ead::Indexing.toc_to_json(File.new(ENV['EAD']))
       end
     end
+    
+    desc "Reindex only the files in the data repository that have changed since the last commit"
+    task :index_changed => :environment do
+      indexer = SolrEad::Indexer.new(:document=>Findingaids::Ead::Document, :component=>Findingaids::Ead::Component)
+      # Get sha from last commit
+      sha = `cd data && git log --pretty=format:'%h' -1 && cd ..`
+      # Get list of committed files on last commit as array, with status so we know when to delete
+      committed_files = (`cd data && git diff-tree --no-commit-id --name-status -r #{sha} && cd ..`).split("\n")
+      # Loop through array of committed files
+      committed_files.each do |committed_file|
+        # Separate into status and filename
+        status, file = committed_file.split("\t")
+        # If file exists...
+        if File.exists?(file)
+          print "Indexing #{File.basename(file)}: "
+          begin
+            #...reindex it!
+            indexer.update(File.join("data", file))
+            print "done.\n"
+          rescue
+            print "failed!\n"
+          end
+        elsif status.eql? "D"
+          eadid = File.basename(file).split("\.")[0]
+          print "Deleting #{File.basename(file)} with id #{eadid}: "
+          begin
+            Blacklight.solr.delete_by_query("ead_ssi:#{eadid}")
+            Blacklight.solr.commit
+            print "done.\n"
+          rescue
+            print "failed!\n"
+          end
+        end
+      end
+    end
 
   end
 
