@@ -19,11 +19,11 @@ GIT
       institutions (~> 0.1.1)
 
 GIT
-  remote: git://github.com/NYULibraries/nyulibraries_deploy.git
-  revision: 9c29e35c7494b9ef2f24b9ffefab2cd86143e483
-  tag: v3.2.5
+  remote: git://github.com/NYULibraries/nyulibraries-deploy.git
+  revision: 1ff5afb37d3451d3a676e1678399659d9f6369a4
+  tag: v4.0.0
   specs:
-    nyulibraries_deploy (3.2.5)
+    nyulibraries-deploy (3.2.5)
       cap_git_tools (~> 0.9.1)
       capistrano (~> 2.15.5)
       git (~> 1.2.5)
@@ -401,7 +401,7 @@ DEPENDENCIES
   mustache-rails (~> 0.2.3)
   mysql2 (~> 0.3.14)
   nyulibraries-assets!
-  nyulibraries_deploy!
+  nyulibraries-deploy!
   rails (~> 3.2.17)
   rails_config (~> 0.3.3)
   rspec-rails
