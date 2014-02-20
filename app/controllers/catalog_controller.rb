@@ -5,10 +5,6 @@ class CatalogController < ApplicationController
 
   include Findingaids::Catman
 
-  SolrDocument.use_extension ::Findingaids::Exports
-
-  before_filter :get_component, :get_component_children, :show_item_within_collection, :only => :show
-
   configure_blacklight do |config|
     config.default_solr_params = {
       :qt => "",
@@ -93,6 +89,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("title",             :displayable),  :label => "Title:", 
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_name
+                                                                          
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:", 
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_name
@@ -105,15 +102,14 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
                                                                           :helper_method => :render_field_name
 
-    config.add_index_field solr_name("resource_url",      :displayable),  :label => "Online Resource:",
-                                                                          :helper_method => :render_external_link
+    #config.add_index_field solr_name("resource_url",      :displayable),  :label => "Online Resource:",
+    #                                                                      :helper_method => :render_external_link
 
     config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
                                                                           :helper_method => :render_field_name
     config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher:",
                                                                           :helper_method => :render_field_name
-    config.add_index_field solr_name("lc_callnum",        :displayable),  :label => "Call Number:",
-                                                                          :helper_method => :render_field_name
+
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates:",
                                                                           :helper_method => :render_field_name
 
@@ -141,115 +137,13 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     # The ordering of the field names is the order of the display
     # None of these fields apply to ead documents or components
-    config.add_show_field solr_name("title",        :displayable),  :label => "Title:", 
-                                                                    :highlight => true,
-                                                                    :itemprop => "name"
-
-    config.add_show_field solr_name("unititle",     :displayable),  :label => "Uniform Title:",
-                                                                    :itemprop => "alternateName"
-                                                                    
-    config.add_show_field solr_name("title_addl",   :displayable),  :label => "Additional Titles:",
-                                                                    :itemprop => "alternativeHeadline"
-
-    config.add_show_field solr_name("author",       :displayable),  :label          => "Author:",
-                                                                    :helper_method  => :render_facet_link,
-                                                                    :facet          => solr_name("name", :facetable),
-                                                                    :highlight      => true,
-                                                                    :itemprop       => "author"
-
-    config.add_show_field solr_name("edition",      :displayable),  :label => "Edition:", :itemprop => "bookEdition"
-
-    config.add_show_field solr_name("series",       :displayable),  :label          => "Series:",
-                                                                    :helper_method  => :render_facet_link,
-                                                                    :facet          => solr_name("series", :facetable)
-
-    config.add_show_field solr_name("format",       :displayable),  :label => "Format:"
-    config.add_show_field solr_name("format_dtl",   :displayable),  :label => "Format Details:"
-    config.add_show_field solr_name("unitdate",     :displayable),  :label => "Dates:"
-
-    config.add_show_field solr_name("ohlink_url",   :displayable), :label           => "OhioLink Resource:",
-                                                                   :helper_method   => :render_external_link, 
-                                                                   :text            => solr_name("ohlink_text", :displayable)
-    
-    config.add_show_field solr_name("resource_url", :displayable), :label           => "Online Resource:",     
-                                                                   :helper_method   => :render_external_link, 
-                                                                   :text            => solr_name("resource_text", :displayable)
-    
-    config.add_show_field solr_name("physical_dtl", :displayable),  :label => "Physical Details:"
-    config.add_show_field solr_name("summary",      :displayable),  :label => "Summary:",
-                                                                    :itemprop => "description"
-
-    config.add_show_field solr_name("participants", :displayable),  :label => "Participants:"
-    config.add_show_field solr_name("recinfo",      :displayable),  :label => "Recording Info:"
-    config.add_show_field solr_name("contents",     :displayable),  :label => "Contents:"
-    config.add_show_field solr_name("donor",        :displayable),  :label => "Donor:"
-
+   
     config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:", 
                                                                     :helper_method => :render_facet_link,
                                                                     :facet         => solr_name("collection", :facetable),
                                                                     :highlight     => true
     
-    config.add_show_field solr_name("access",       :displayable),  :label => "Access:"
-
-    config.add_show_field solr_name("subject",      :displayable),  :label         => "Subjects:",
-                                                                    :helper_method => :render_subjects
-
-    config.add_show_field solr_name("genre",        :displayable),  :label         => "Genre/Form:",
-                                                                    :helper_method => :render_facet_link,
-                                                                    :facet         => solr_name("genre", :facetable),
-                                                                    :itemprop      => "genre"
-
-    config.add_show_field solr_name("contributors", :displayable),  :label         => "Contributors:",
-                                                                    :helper_method => :render_facet_link,
-                                                                    :facet         => solr_name("name", :facetable),
-                                                                    :itemprop      => "contributor"
-
-    config.add_show_field solr_name("relworks",     :displayable),  :label         => "Related Works:",
-                                                                    :helper_method => :render_search_link
-
-    config.add_show_field solr_name("relitems",     :displayable),  :label => "Related Items:"
-    config.add_show_field solr_name("item_link",    :displayable),  :label => "Item Links:"
-    config.add_show_field solr_name("pub_date",     :displayable),  :label => "Dates of Publication:"
-    config.add_show_field solr_name("freq",         :displayable),  :label => "Current Frequency:"
-    config.add_show_field solr_name("freq_former",  :displayable),  :label => "Former Frequency:"
-    config.add_show_field solr_name("language",     :displayable),  :label => "Language:"
-
-    config.add_show_field solr_name("publisher",    :displayable),  :label      => "Publisher:",
-                                                                    :highlight  => true
-
-    config.add_show_field solr_name("lc_callnum",   :displayable),  :label => "Call Number:"
-    config.add_show_field solr_name("isbn",         :displayable),  :label => "ISBN:", :itemprop => "isbn"
-    config.add_show_field solr_name("issn",         :displayable),  :label => "ISSN:"
-    config.add_show_field solr_name("upc",          :displayable),  :label => "UPC:"
-    config.add_show_field solr_name("pubnum",       :displayable),  :label => "Publisher Number:"
-    config.add_show_field solr_name("oclc",         :displayable),  :label => "OCLC No:"
- 
-    # Fields specific to ead components
-    config.add_show_field solr_name("scopecontent",      :displayable), :label => "Scope and Content:", :itemprop => "description"
-    config.add_show_field solr_name("separatedmaterial", :displayable), :label => "Separated Material:"
-    config.add_show_field solr_name("accessrestrict",    :displayable), :label => "Access Restrictions:"
-    config.add_show_field solr_name("accruals",          :displayable), :label => "Accruals:"
-    config.add_show_field solr_name("acqinfo",           :displayable), :label => "Acquistions:"
-    config.add_show_field solr_name("altformavail",      :displayable), :label => "Alt. Form:"
-    config.add_show_field solr_name("appraisal",         :displayable), :label => "Appraisal:"
-    config.add_show_field solr_name("arrangement",       :displayable), :label => "Arrangement:"
-    config.add_show_field solr_name("custodhist",        :displayable), :label => "Custodial History:"
-    config.add_show_field solr_name("fileplan",          :displayable), :label => "File Plan:"
-    config.add_show_field solr_name("originalsloc",      :displayable), :label => "Originals:"
-    config.add_show_field solr_name("phystech",          :displayable), :label => "Physical Tech:"
-    config.add_show_field solr_name("processinfo",       :displayable), :label => "Processing:"
-    config.add_show_field solr_name("relatedmaterial",   :displayable), :label => "Related Material:"
-    config.add_show_field solr_name("userestrict",       :displayable), :label => "Usage Restrictions:"
-    config.add_show_field solr_name("physdesc",          :displayable), :label => "Physical Description:"
-    config.add_show_field solr_name("langmaterial",      :displayable), :label => "Language:"
-    config.add_show_field solr_name("note",              :displayable), :label => "Notes:"
-    config.add_show_field solr_name("accession",         :displayable), :label => "Accession Numbers:"
-    config.add_show_field solr_name("print_run",         :displayable), :label => "Limited Print Run:"
-    config.add_show_field solr_name("dimensions",        :displayable), :label => "Dimensions:"
-
-    config.add_show_field solr_name("location",          :displayable), :label     => "Location:",
-                                                                        :highlight => true
-
+   
     config.add_show_field solr_name("material",          :displayable), :label          => "Archival Material:",
                                                                         :helper_method  => :render_facet_link,
                                                                         :facet          => solr_name("material", :facetable),

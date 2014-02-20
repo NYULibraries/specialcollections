@@ -15,9 +15,9 @@ namespace :findingaids do
           print "Indexing #{File.basename(file)}: "
           begin
             indexer.update(file)
-            Findingaids::Ead::Indexing.ead_to_html(file)
-            Findingaids::Ead::Indexing.toc_to_json(File.new(file))
-            FileUtils.cp(file, Rails.configuration.findingaids_config[:ead_path])
+            #Findingaids::Ead::Indexing.ead_to_html(file)
+            #Findingaids::Ead::Indexing.toc_to_json(File.new(file))
+            #FileUtils.cp(file, Rails.configuration.findingaids_config[:ead_path])
             print "done.\n"
           rescue
             print "failed!\n"
@@ -25,9 +25,9 @@ namespace :findingaids do
         end
       else
         indexer.update(ENV['EAD'])
-        Findingaids::Ead::Indexing.ead_to_html(ENV['EAD'])
-        Findingaids::Ead::Indexing.toc_to_json(File.new(ENV['EAD']))
-        FileUtils.cp(ENV['EAD'], Rails.configuration.findingaids_config[:ead_path])
+        #Findingaids::Ead::Indexing.ead_to_html(ENV['EAD'])
+        #Findingaids::Ead::Indexing.toc_to_json(File.new(ENV['EAD']))
+        #FileUtils.cp(ENV['EAD'], Rails.configuration.findingaids_config[:ead_path])
       end
     end
 

@@ -6,24 +6,6 @@
 
 module Findingaids::Ead::Behaviors
 
-  # Config mapping for linking to specific pages from found text in Solr fields
-  LINK_FIELDS = {
-    :abstract => [Solrizer.solr_name(:abstract, :displayable)],
-    :admininfo => [Solrizer.solr_name(:custodhist, :displayable),Solrizer.solr_name(:sponsor, :displayable),Solrizer.solr_name(:acqinfo, :displayable),Solrizer.solr_name(:phystech, :displayable),Solrizer.solr_name(:index, :displayable)],
-    :dsc => [Solrizer.solr_name(:odd, :displayable), Solrizer.solr_name(:unittitle, :displayable)]
-  }
-  # Always show these fields on the index catalog view
-  DEFAULT_INDEX_FIELDS = [
-    Solrizer.solr_name(:title, :displayable),
-    Solrizer.solr_name(:publisher, :displayable),
-    Solrizer.solr_name(:language, :displayable),
-    Solrizer.solr_name(:format, :displayable),
-    Solrizer.solr_name(:unitdate, :displayable),
-    Solrizer.solr_name(:collection, :displayable),
-    Solrizer.solr_name(:location, :displayable),
-    Solrizer.solr_name(:parent_unittitles, :displayable)
-  ]
-  
   # Takes the publisher string from EAD and
   # * Strips non-ascii characters such as &copy;
   # * Strips leading @ sign which is sometimes erroneously instead of a copyright
@@ -39,6 +21,13 @@ module Findingaids::Ead::Behaviors
   end
   
   # Pulls the repository from the directory title when indexing from the rake task
+  # 
+  #   rake findingaids:ead:index EAD=data/repos/test.xml
+  #   rake findingaids:ead:index EAD=data/repos/
+  #
+  # Would both result in:
+  #
+  #   "repos"
   def format_repository
     if ENV['EAD'].present? 
       if File.directory?(Rails.root.join(ENV['EAD']))

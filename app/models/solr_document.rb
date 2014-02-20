@@ -2,7 +2,6 @@
 class SolrDocument 
 
   include Blacklight::Solr::Document
-  include Findingaids::Solr::DocumentExtension
 
   # self.unique_key = 'id'
   

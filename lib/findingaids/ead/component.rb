@@ -9,8 +9,6 @@ class Findingaids::Ead::Component < SolrEad::Component
     # <odd> nodes
     # These guys depend on what's in <head> so we do some xpathy stuff...
     t.note(:path=>'odd[./head="General note"]/p', :index_as=>[:displayable])
-    t.accession(:path=>'odd[./head[starts-with(.,"Museum Accession")]]/p', :index_as=>[:displayable])
-    t.print_run(:path=>'odd[./head[starts-with(.,"Limited")]]/p', :index_as=>[:displayable])
 
   end
 

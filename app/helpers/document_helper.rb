@@ -1,31 +1,12 @@
 module DocumentHelper
-
-  def render_external_link args, results = Array.new
-    begin
-      value = args[:document][args[:field]]
-      if value.length > 1
-        value.each_index do |index|
-          text      = args[:document][blacklight_config.show_fields[args[:field]][:text]][index]
-          url       = value[index]
-          link_text = text.nil? ? url : text
-          results << link_to(link_text, url, { :target => "_blank" }).html_safe
-        end
-      else
-        text      = args[:document].get(blacklight_config.show_fields[args[:field]][:text])
-        url       = args[:document].get(args[:field])
-        link_text = text.nil? ? url : text
-        results << link_to(link_text, url, { :target => "_blank" }).html_safe
-      end
-    rescue
-      return nil
-    end
-    return results.join(field_value_separator).html_safe
-  end
   
+  # Render field even if it's an array
   def render_field_name args, results = Array.new
     args[:document][args[:field]].join(",").html_safe
   end
 
+  ## 
+  # Render a link to facets
   # Refactor me, please!
   def render_facet_link args, results = Array.new
     return nil unless args
@@ -62,32 +43,28 @@ module DocumentHelper
     link_to term, add_facet_params_and_redirect(facet, Sanitize.clean(term))
   end
 
-  def render_search_link args, results = Array.new
-    args[:document][args[:field]].each do |text|
-      results << link_to(text, catalog_index_path( :search_field => "all_fields", :q => "\"#{text}\"" ))
-    end
-    return results.join(field_value_separator).html_safe
-  end
-
-  # Presently not used because this is accomplished with SolrMarc at index time using a custom
-  # method in a beanshell script.  However, I'm leaving this here in case I change my mind and want
-  # it redendered by Rails instead.
-  def render_call_number args, results = Array.new
-    locations = ["rx", "rhlrr", "rharr", "rhs2", "rhs2o", "rhs3"]
-    if args[:document]["marc_ss"]
-      MARC::XMLReader.new(StringIO.new(args[:document]["marc_ss"])).first.find_all {|f| f.tag == '945'}.each do |field|
-        results << field['a'] if locations.include?(field['l'].strip)
-      end
-    end
-    return results.join(field_value_separator).html_safe
-  end
-
-  def document_format_to_filename document = @document
-    if document.get(Solrizer.solr_name("format", :displayable)).nil?
-      "icons/unknown.png"
+  def document_icon doc, result = String.new
+    if doc.get(Solrizer.solr_name("format", :displayable)).nil?
+      result << "" #image_tag("icons/unknown.png")
     else
-      "icons/"+ document.get(Solrizer.solr_name("format", :displayable)).downcase.gsub(/\s/,"_") + ".png"
+      filename = doc.get(Solrizer.solr_name("format", :displayable)).downcase.gsub(/\s/,"_")
+      result << image_tag("icons/#{filename}.png", :class => "icon_image")
     end
+    return result.html_safe
+  end
+
+  # Change link to document to link out to external guide
+  def link_to_document(doc, opts={:label=>nil, :counter => nil, :results_view => true})
+    opts[:label] ||= blacklight_config.index.show_link.to_sym
+    # Get label
+    label = render_document_index_label(doc, opts).html_safe
+    # Unescape double escaped entities
+    label = CGI.unescapeHTML(String.new(label.to_s)).html_safe
+    # Get pathname
+    path = (doc[:parent_ssm].blank?) ? nil : "dsc#{doc[:parent_ssm].first}"
+    # Get repository, component ref and EAD id
+    repository, anchor, id = doc[:repository_ssi], doc[:ref_ssi], doc[:ead_ssi]
+    link_to label, url_for_findingaid(repository, id, path, anchor), { :target => "_blank", :'data-counter' => opts[:counter] }.merge(opts.reject { |k,v| [:label, :counter, :results_view].include? k  })
   end
 
 end
