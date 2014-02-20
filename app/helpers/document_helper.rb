@@ -2,7 +2,8 @@ module DocumentHelper
   
   # Render field even if it's an array
   def render_field_name args, results = Array.new
-    args[:document][args[:field]].join(",").html_safe
+    join_by = args[:field] == Solrizer.solr_name(:parent_unittitles, :displayable) ? " >> " : ", "
+    args[:document][args[:field]].join(join_by).html_safe
   end
 
   ## 

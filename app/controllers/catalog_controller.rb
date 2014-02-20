@@ -107,6 +107,7 @@ class CatalogController < ApplicationController
 
     config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
                                                                           :helper_method => :render_field_name
+                                                                          
     config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher:",
                                                                           :helper_method => :render_field_name
 
