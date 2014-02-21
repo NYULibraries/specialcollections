@@ -25,6 +25,8 @@ class Findingaids::Ead::Document < SolrEad::Document
     # the components which are individually indexed by solr_ead to get additional info
     t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable, :displayable])
     t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable, :displayable])
+    
+    t.date_filing(:path=>"archdesc/unitdate[@type='inclusive']/@normal", :index_as=>[:sortable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
     t.dsc
@@ -32,22 +34,14 @@ class Findingaids::Ead::Document < SolrEad::Document
 
   def to_solr(solr_doc = Hash.new)
     super(solr_doc)
-    solr_doc.merge!({"text" => self.ng_xml.text})
 
-    # Is there an inventory to this collection?
-    if self.dsc.first.empty?
-      solr_doc[Solrizer.solr_name("inventory", :type => :boolean)] = "false"
-    else
-      solr_doc[Solrizer.solr_name("inventory", :type => :boolean)] = "true"
-    end
-    
     solr_doc.merge!("repository_ssi" => format_repository)
 
     Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.title_num.empty?
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable)
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :displayable)
+    Solrizer.insert_field(solr_doc, "format",       0,                      :sortable)
     Solrizer.insert_field(solr_doc, "unitdate",     ead_date_display,       :displayable)
-    Solrizer.insert_field(solr_doc, "unitdate",     ead_date_display,       :sortable)
     Solrizer.insert_field(solr_doc, "contributors", get_ead_names,          :displayable)
     Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
     Solrizer.insert_field(solr_doc, "title",        self.title_filing,      :sortable)
@@ -68,7 +62,6 @@ class Findingaids::Ead::Document < SolrEad::Document
   end
 
   protected
-
   def heading_display
     "Guide to the " + self.term_to_html("title") + " (" + self.title_num.first + ")"
   end

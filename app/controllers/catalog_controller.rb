@@ -95,15 +95,11 @@ class CatalogController < ApplicationController
                                                                           :helper_method => :render_field_name
 
     config.add_index_field solr_name("author",            :displayable),  :label => "Author:", 
-                                                                          :helper_method => :render_facet_link,
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_name
     
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
                                                                           :helper_method => :render_field_name
-
-    #config.add_index_field solr_name("resource_url",      :displayable),  :label => "Online Resource:",
-    #                                                                      :helper_method => :render_external_link
 
     config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
                                                                           :helper_method => :render_field_name
@@ -154,10 +150,11 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field "score desc, title_si asc, pub_date_si desc", :label => "relevance"
-    config.add_sort_field "pub_date_si desc, title_si asc",             :label => "year"
-    config.add_sort_field "author_si asc, title_si asc",                :label => "author"
-    config.add_sort_field "title_si asc",                               :label => "title"
+    config.add_sort_field "score desc, title_si asc, format_si asc",                   :label => "relevance"
+    config.add_sort_field "date_filing_si desc, title_si asc, format_si asc",          :label => "date"
+    config.add_sort_field "title_si asc, format_si asc",                               :label => "title"
+    config.add_sort_field "series_si asc",                                             :label => "series"
+    config.add_sort_field "series_si asc, box_filing_si asc",                          :label => "box"
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.

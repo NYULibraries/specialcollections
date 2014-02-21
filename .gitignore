@@ -33,3 +33,4 @@ config/environments/*.local.yml
 .DS_Store
 
 public/fa
+data/

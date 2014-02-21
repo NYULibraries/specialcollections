@@ -10,6 +10,7 @@ module Findingaids::Catman
     end
     def qf_fields
       ["title_ssm^2000.0",
+      "#{solr_name("collection", :searchable)}^1000.0",
       "#{solr_name("title", :stored_searchable)}^1000.0",
       "#{solr_name("title", :searchable)}^1000.0",
       "#{solr_name("subject", :searchable)}^250.0",
@@ -29,7 +30,8 @@ module Findingaids::Catman
       qf_fields
     end
     def hl_fields
-      ["#{solr_name("title", :stored_searchable)}" ,
+      ["#{solr_name("collection", :searchable)}",
+      "#{solr_name("title", :stored_searchable)}" ,
       "#{solr_name("title", :searchable)}",
       "#{solr_name("subject", :searchable)}",
       "#{solr_name("abstract", :searchable)}",
