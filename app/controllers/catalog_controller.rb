@@ -9,7 +9,6 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       :qt => "",
       :rows => 10,
-      :fl => "*",
       :qf => qf_fields,
       :pf => pf_fields,
       ("hl.fl").to_sym => hl_fields,
@@ -65,11 +64,11 @@ class CatalogController < ApplicationController
     # app code to actually have it echo'd back to see it.
     config.add_facet_field solr_name("format",     :facetable), :label => "Format",             :limit => 20
     config.add_facet_field solr_name("collection", :facetable), :label => "Collection Name",    :limit => 20
-    config.add_facet_field solr_name("material",   :facetable), :label => "Archival Material",  :limit => 20
+    #config.add_facet_field solr_name("material",   :facetable), :label => "Archival Material",  :limit => 20
     config.add_facet_field solr_name("name",       :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",    :facetable), :label => "Subject",            :limit => 20
     config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20    
-    config.add_facet_field solr_name("series",     :facetable), :label => "Event/Series",       :limit => 20
+    #config.add_facet_field solr_name("series",     :facetable), :label => "Event/Series",       :limit => 20
     config.add_facet_field solr_name("pub_date",   :facetable), :label => "Publication Date",   :limit => 20
     config.add_facet_field solr_name("language",   :facetable), :label => "Language",           :limit => true
     
@@ -88,15 +87,11 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field solr_name("title",             :displayable),  :label => "Title:", 
                                                                           :highlight => true,
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_highlighted_field
                                                                           
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:", 
                                                                           :highlight => true,
-                                                                          :helper_method => :render_field_name
-
-    config.add_index_field solr_name("author",            :displayable),  :label => "Author:", 
-                                                                          :highlight => true,
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_highlighted_field
     
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
                                                                           :helper_method => :render_field_name
@@ -111,7 +106,7 @@ class CatalogController < ApplicationController
                                                                           :helper_method => :render_field_name
 
     config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection:", 
-                                                                          :helper_method => :render_facet_link,
+                                                                          :helper_method => :render_collection_facet_link,
                                                                           :highlight => true
                                                                          
     config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series:",
@@ -121,11 +116,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("location",          :displayable),  :label => "Location:",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_name
-
-    config.add_index_field solr_name("material",          :displayable),  :label => "Archival Material:",
-                                                                          :helper_method => :render_facet_link,
-                                                                          :highlight => true                                                                      
-
+                                                                          
     # ------------------------------------------------------------------------------------------
     #
     # Show view fields (individual record)
@@ -159,14 +150,15 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
-    
-    
+  
     ##
     # Add repository field query from config file
     YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
-      config.add_search_field(coll.last["display"]) do |field|
-       field.solr_parameters = { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"] : '*'}" }
-      end
+      config.add_search_field(coll.last["display"],
+        :key => "#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}",
+        :label => coll.last["display"], 
+        :solr_parameters => { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
+        )
     end
   end
 

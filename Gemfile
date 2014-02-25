@@ -12,8 +12,6 @@ gem 'jquery-rails', '~> 3.0.4'
 gem 'jquery-ui-rails', '~> 4.1.1'
 #gem 'blacklight', :path => '/apps/blacklight'
 gem 'blacklight', '~> 4.6.2'
-gem 'blacklight-sitemap', :github => 'awead/blacklight-sitemap'
-gem 'blacklight_advanced_search'
 gem 'sorted', '~> 1.0.0'
 gem 'dalli', '~> 2.7.0'
 #gem 'newrelic_rpm'
@@ -37,14 +35,12 @@ end
 group :test do
   gem 'coveralls', '~> 0.7.0', :require => false
   gem 'vcr', '~> 2.8.0'
-  gem 'webmock', '~> 1.16.1'
+  gem 'webmock', '~> 1.17.0'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
-  #gem 'factory_girl_rails'
-  #gem 'capybara'
-  #gem 'guard-rspec'
+  gem 'pry'
 end
-#gem 'rspec-rails', :group => [:test, :development]
+gem 'rspec-rails', :group => [:test, :development]
 
 group :development do 
   gem 'better_errors'
