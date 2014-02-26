@@ -4,19 +4,19 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
 
   include Findingaids::Catman
-
+  
   configure_blacklight do |config|
     config.default_solr_params = {
       :qt => "",
       :rows => 10,
-      :qf => qf_fields,
+      :qf => pf_fields,
       :pf => pf_fields,
+      "hl.fragsize" => 0,
       ("hl.fl").to_sym => hl_fields,
       "hl.simple.pre" => "<span class=\"highlight\">",
       "hl.simple.post" => "</span>",
-      "hl.mergeContiguous" => true,
-      "hl.fragsize" => 50,
-      "hl.snippets" => 10,
+      "hl.requireFieldMatch" => true,
+      "hl.usePhraseHighlighter" => true,
       :hl => true,
       :facet => true,
       "facet.mincount" => 1,
@@ -24,7 +24,7 @@ class CatalogController < ApplicationController
       :ps => 50,
       :defType => "edismax"
     }
-
+    
     config.default_document_solr_params = {
       :qt => "",
       ("hl.fl").to_sym => "title_ssm, author_ssm, publisher_ssm, collection_ssm,parent_unittitles_ssm,location_ssm",
@@ -45,6 +45,8 @@ class CatalogController < ApplicationController
     config.show.html_title = solr_name("heading", :displayable)
     config.show.heading = solr_name("heading", :displayable)
     config.show.display_type = solr_name("format", :displayable)
+    
+    config.add_field_configuration_to_solr_request!
 
     # solr fields that will be treated as facets by the blacklight application
     #   The ordering of the field names is the order of the display
@@ -59,7 +61,7 @@ class CatalogController < ApplicationController
     # paging at requested limit -1. Can sniff from facet.limit or
     # f.specific_field.facet.limit solr request params. This 'true' config
     # can be used if you set limits in :default_solr_params, or as defaults
-    # on the solr side in the request handler itself. Request handler defaults
+    # on the solr side in the request handler itself. Requestd handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
     config.add_facet_field solr_name("format",     :facetable), :label => "Format",             :limit => 20
@@ -68,7 +70,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("name",       :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",    :facetable), :label => "Subject",            :limit => 20
     config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20    
-    #config.add_facet_field solr_name("series",     :facetable), :label => "Event/Series",       :limit => 20
+    config.add_facet_field solr_name("series",     :facetable), :label => "Series",             :limit => 20
     config.add_facet_field solr_name("pub_date",   :facetable), :label => "Publication Date",   :limit => 20
     config.add_facet_field solr_name("language",   :facetable), :label => "Language",           :limit => true
     
@@ -111,7 +113,7 @@ class CatalogController < ApplicationController
                                                                          
     config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series:",
                                                                           :highlight => true,
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_series_facet_link
 
     config.add_index_field solr_name("location",          :displayable),  :label => "Location:",
                                                                           :highlight => true,
@@ -126,16 +128,12 @@ class CatalogController < ApplicationController
     # The ordering of the field names is the order of the display
     # None of these fields apply to ead documents or components
    
-    config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:", 
-                                                                    :helper_method => :render_facet_link,
-                                                                    :facet         => solr_name("collection", :facetable),
-                                                                    :highlight     => true
+    #config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:", 
+    #                                                                :helper_method => :render_facet_link,
+    #                                                                :facet         => solr_name("collection", :facetable),
+    #                                                                :highlight     => true
     
-   
-    config.add_show_field solr_name("material",          :displayable), :label          => "Archival Material:",
-                                                                        :helper_method  => :render_facet_link,
-                                                                        :facet          => solr_name("material", :facetable),
-                                                                        :highlight      => true
+
 
     # "sort results by" select (pulldown)
     # label in pulldown is followed by the name of the SOLR field to sort by and
@@ -144,8 +142,7 @@ class CatalogController < ApplicationController
     config.add_sort_field "score desc, title_si asc, format_si asc",                   :label => "relevance"
     config.add_sort_field "date_filing_si desc, title_si asc, format_si asc",          :label => "date"
     config.add_sort_field "title_si asc, format_si asc",                               :label => "title"
-    config.add_sort_field "series_si asc",                                             :label => "series"
-    config.add_sort_field "series_si asc, box_filing_si asc",                          :label => "box"
+    config.add_sort_field "series_si asc, box_filing_si asc",                          :label => "series"
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
@@ -155,11 +152,10 @@ class CatalogController < ApplicationController
     # Add repository field query from config file
     YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
       config.add_search_field(coll.last["display"],
-        :key => "#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}",
         :label => coll.last["display"], 
         :solr_parameters => { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
         )
     end
   end
-
+  
 end

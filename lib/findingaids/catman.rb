@@ -31,22 +31,7 @@ module Findingaids::Catman
       qf_fields
     end
     def hl_fields
-      ["parent_unittitles_ssm",
-      "#{solr_name("collection", :searchable)}",
-      "#{solr_name("title", :stored_searchable)}" ,
-      "#{solr_name("title", :searchable)}",
-      "#{solr_name("subject", :searchable)}",
-      "#{solr_name("abstract", :searchable)}",
-      "#{solr_name("controlaccess", :searchable)}",
-      "#{solr_name("scopecontent", :searchable)}",
-      "#{solr_name("bioghist", :searchable)}",
-      "#{solr_name("unittitle", :searchable)}",
-      "#{solr_name("odd", :searchable)}",
-      "#{solr_name("index", :searchable)}",
-      "#{solr_name("phystech", :searchable)}",
-      "#{solr_name("acqinfo", :searchable)}",
-      "#{solr_name("sponsor", :searchable)}",
-      "#{solr_name("custodhist", :searchable)}"].join(" ")
+      "title_ssm, author_ssm, publisher_ssm, collection_ssm, parent_unittitles_ssm, location_ssm"
     end
   end
 

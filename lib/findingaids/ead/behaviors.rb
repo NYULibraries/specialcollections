@@ -8,6 +8,13 @@ module Findingaids::Ead::Behaviors
   
   include SolrEad::Behaviors
 
+  # Config mapping for linking to specific pages from found text in Solr fields
+  LINK_FIELDS = {
+    :abstract => [:abstract],
+    :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
+    :dsc => [:odd, :unittitles]
+  }
+
   # Takes the publisher string from EAD and
   # * Strips non-ascii characters such as &copy;
   # * Strips leading @ sign which is sometimes erroneously instead of a copyright

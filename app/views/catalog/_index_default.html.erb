@@ -7,5 +7,22 @@
 	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
-
+  <dt>Repository:</dt>
+  <dd><%= link_to_repository(document) %></dd>
+  <% if document_is_collection?(document) %>
+  <dt>Table of Contents:</dt>
+    <%= link_to_toc_page document, "Descriptive Summary", "abstract" %></dd>
+    <%= link_to_toc_page document, "Historical/Biographical Note", "bioghist" %></dd>
+    <%= link_to_toc_page document, "Scope and Content Note and Arrangement", "scopecontent" %></dd>
+    <%= link_to_toc_page document, "Access Points", "controlaccess" %></dd>
+    <%= link_to_toc_page document, "Administrative Information", "admininfo" %></dd>
+    <%= link_to_toc_page document, "Container List", "dsc" %></dd>
+  <dt>Archival Items:</dt>
+    <dd><b><%= link_to "Click here to search within collection", render_components_facet_link(document) %></b></dd>
+  <% elsif document_is_series?(document) %>
+  <dt>Archival Items:</dt>
+    <dd><b><%= link_to "Click here to search within series", render_components_for_series_facet_link(document) %></b></dd>
+  <% end %>
+  
+  
 </dl>

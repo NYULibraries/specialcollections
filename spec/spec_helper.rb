@@ -7,6 +7,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'vcr'
+require 'capybara/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -45,5 +46,5 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
-  #c.filter_sensitive_data("http://localhost:8983") { Settings.solr.url }
+  c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
 end

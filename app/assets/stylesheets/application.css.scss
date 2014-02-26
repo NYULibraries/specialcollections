@@ -1,5 +1,5 @@
 @import "nyulibraries";
-@import "blacklight";
+@import 'blacklight/blacklight';
 
 body {
   padding-top: 0;
@@ -11,6 +11,20 @@ body {
 
 #search {
   margin-bottom: $paddingStandard;
+}
+
+@import "contenttypes/*.png";
+@include all-contenttypes-sprites;
+
+[class^="contenttypes-"],
+[class*=" contenttypes-"] {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  vertical-align: middle;
+  margin-top: -4px;
+  padding: 0 2px;
 }
 
 .toggle_bookmark { margin-top: 2px !important; }

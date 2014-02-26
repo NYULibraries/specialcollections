@@ -38,9 +38,8 @@ group :test do
   gem 'webmock', '~> 1.17.0'
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
-  gem 'pry'
+  gem 'capybara'
 end
-gem 'rspec-rails', :group => [:test, :development]
 
 group :development do 
   gem 'better_errors'
@@ -48,4 +47,6 @@ group :development do
   gem 'sunspot_solr'
 end
 
+gem 'rspec-rails', :group => [:test, :development]
+gem 'pry', :group => [:test, :development]
 gem 'debugger', :groups => [:development, :test]

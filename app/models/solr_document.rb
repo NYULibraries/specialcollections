@@ -5,13 +5,6 @@ class SolrDocument
 
   # self.unique_key = 'id'
   
-  # The following shows how to setup this blacklight document to display marc documents
-  extension_parameters[:marc_source_field] = :marc_ss
-  extension_parameters[:marc_format_type] = :marcxml
-  use_extension( Blacklight::Solr::Document::Marc) do |document|
-    document.key?( :marc_ss  )
-  end
-  
   # Email uses the semantic field mappings below to generate the body of an email.
   SolrDocument.use_extension( Blacklight::Solr::Document::Email )
   
