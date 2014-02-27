@@ -11,12 +11,11 @@
   <dd><%= link_to_repository(document) %></dd>
   <% if document_is_collection?(document) %>
   <dt>Table of Contents:</dt>
-    <%= link_to_toc_page document, "Descriptive Summary", "abstract" %></dd>
-    <%= link_to_toc_page document, "Historical/Biographical Note", "bioghist" %></dd>
-    <%= link_to_toc_page document, "Scope and Content Note and Arrangement", "scopecontent" %></dd>
-    <%= link_to_toc_page document, "Access Points", "controlaccess" %></dd>
-    <%= link_to_toc_page document, "Administrative Information", "admininfo" %></dd>
-    <%= link_to_toc_page document, "Container List", "dsc" %></dd>
+    <%= link_to_toc_page document, "Descriptive Summary", "abstract" %>
+    <%= link_to_toc_page document, "Historical/Biographical Note", "bioghist" %>
+    <%= link_to_toc_page document, "Scope and Content Note and Arrangement", "scopecontent" %>
+    <%= link_to_toc_page document, "Access Points", "controlaccess" %>
+    <%= link_to_toc_page document, "Administrative Information", "admininfo" %>
   <dt>Archival Items:</dt>
     <dd><b><%= link_to "Click here to search within collection", render_components_facet_link(document) %></b></dd>
   <% elsif document_is_series?(document) %>

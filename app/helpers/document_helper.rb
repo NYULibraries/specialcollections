@@ -10,11 +10,23 @@ module DocumentHelper
     link_body(args)
   end
   
-  def link_to_toc_page(doc, label, field)   
-    return content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi]), {:target => "_blank"})) if field == "abstract" && Findingaids::Ead::Behaviors::LINK_FIELDS[:abstract].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
-    return content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], field), {:target => "_blank"})) if field == "admininfo" && Findingaids::Ead::Behaviors::LINK_FIELDS[:admininfo].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
-    return content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], field), {:target => "_blank"})) if field == "dsc" && Findingaids::Ead::Behaviors::LINK_FIELDS[:dsc].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
-    return content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], field), {:target => "_blank"}))
+  ## 
+  # Link to page from table of contents if that field has been indexed and has results
+  # This is the only way to ensure that the FA has that page in it
+  def link_to_toc_page(doc, label, field)
+    content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], (field == "abstract") ? nil : field), {:target => "_blank"})) if field_has_results_in_document?(doc, field)
+  end
+  
+  ##
+  # Find out if the field exists in the returned solr document
+  # If this is one of several fields (i.e. admininfo, abstract, dsc) check a handful of subfields which are the items indexed
+  # If field is not explicitly defined in LINK_FIELDS hash, then it's legit so just say true
+  def field_has_results_in_document?(doc, field)
+    if Findingaids::Ead::Behaviors::LINK_FIELDS.has_key?(field.to_sym)
+      Findingaids::Ead::Behaviors::LINK_FIELDS[field.to_sym].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
+    else
+      true
+    end
   end
 
   ##

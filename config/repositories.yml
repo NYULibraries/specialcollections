@@ -1,9 +1,5 @@
 Catalog:
   repositories:
-    all:
-      display: 'All Collections'
-      url: ""
-      admin_code: ""
     fales:
       display: 'The Fales Library & Special Collections'
       url: "fales"
