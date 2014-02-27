@@ -21,8 +21,10 @@ class ApplicationController < ActionController::Base
   end
   alias_method :current_user, :current_user_dev if Rails.env == 'development'
   
+  ##
+  # Alias class method from catalog controller, gotta be a better way hmm?
   def repositories
-    @repositories ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"]
+    CatalogController::repositories
   end
   helper_method :repositories
   

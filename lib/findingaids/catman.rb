@@ -3,7 +3,7 @@ module Findingaids::Catman
 
   include Blacklight::Catalog
 
-  # Adds the solr_name method to the catalog controller
+  # Adds the solr_name method, etc. to the catalog controller
   module ClassMethods
     def solr_name(name, *opts)
       Solrizer.solr_name(name, *opts)
@@ -32,6 +32,9 @@ module Findingaids::Catman
     end
     def hl_fields
       "title_ssm, author_ssm, publisher_ssm, collection_ssm, parent_unittitles_ssm, location_ssm"
+    end
+    def repositories
+      @repositories ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"]
     end
   end
 

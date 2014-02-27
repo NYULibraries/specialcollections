@@ -96,16 +96,16 @@ class CatalogController < ApplicationController
                                                                           :helper_method => :render_highlighted_field
     
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_field_item
 
     config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_field_item
                                                                           
     config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher:",
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_field_item
 
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates:",
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_field_item
 
     config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection:", 
                                                                           :helper_method => :render_collection_facet_link,
@@ -117,7 +117,7 @@ class CatalogController < ApplicationController
 
     config.add_index_field solr_name("location",          :displayable),  :label => "Location:",
                                                                           :highlight => true,
-                                                                          :helper_method => :render_field_name
+                                                                          :helper_method => :render_field_item
                                                                           
     # ------------------------------------------------------------------------------------------
     #
@@ -152,7 +152,7 @@ class CatalogController < ApplicationController
   
     ##
     # Add repository field query from config file
-    YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
+    repositories.each do |coll|
       config.add_search_field(coll.last["display"],
         :label => coll.last["display"], 
         :solr_parameters => { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
