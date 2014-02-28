@@ -7,6 +7,22 @@ describe DocumentHelper do
   include DocumentHelper
   include ActionView::Helpers::UrlHelper
   
+  let(:title_ssm) { "The Title" }
+  let(:collection) do
+    {
+      :document => SolrDocument.new({
+        :format_ssm => ["Archival Collection"],
+        :title_ssm => [title_ssm],
+        :abstract_ssm => ["The Abstract"],
+        :repository_ssi => "fales",
+        :ead_ssi => "bytsura",
+        :bioghist_ssm => ["Biographical something something"],
+        :custodhist_ssm => ["This field contains info"]
+      }), 
+      :field => :title_ssm
+    }.with_indifferent_access
+  end
+  
   def blacklight_config
     @config ||= Blacklight::Configuration.new.configure do |config|
       config.index.show_link = "heading_ssm"
@@ -63,15 +79,18 @@ describe DocumentHelper do
   end
   
   describe ".render_field_name" do
-    
+  
     it "should return the field value" do
       render_field_item(@collection).should eql("The Title")
     end
     
-    it "should return an html_safe response" do
-      @collection = @collection.merge({:document => {:title_ssm => ["<b>The Title</b>"]}})
-      render_field_item(@collection).should.html_safe? == true
-      render_field_item(@collection).should eql("<b>The Title</b>")
+    context "when the title has html" do
+      let(:title_ssm) { "<b>The Title</b>" }
+      it "should return an html_safe response" do
+        expect(render_field_item(collection)).to be_html_safe
+        render_field_item(collection).should.html_safe? == true
+        render_field_item(collection).should eql("<b>The Title</b>")
+      end
     end
     
   end
@@ -126,5 +145,45 @@ describe DocumentHelper do
     end
     
   end
-
+  
+  describe ".sort_by_series" do
+    
+    it "should return a has for sorting by series" do
+      sort_by_series.should eq({:sort => "series_si asc, box_filing_si asc"})
+    end
+    
+  end
+  
+  describe ".facet_name" do
+    
+    it "should return the Solrized name of the facet" do
+      facet_name("test").should eq("test_sim")
+    end
+    
+  end
+  
+  describe ".collection_facet" do
+    
+    it "should alias facet_name function for collection facet" do
+      collection_facet.should eq("collection_sim")
+    end
+    
+  end
+  
+  describe ".format_facet" do
+    
+    it "should alias facet_name function for format facet" do
+      format_facet.should eq("format_sim")
+    end
+    
+  end
+  
+  describe ".series_facet" do
+    
+    it "should alias facet_name function and return the Solrized name of the facet" do
+      series_facet.should eq("series_sim")
+    end
+    
+  end
+  
 end
