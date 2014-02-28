@@ -63,14 +63,25 @@ describe DocumentHelper do
   end
   
   describe ".render_field_name" do
+    
     it "should return the field value" do
       render_field_item(@collection).should eql("The Title")
     end
+    
     it "should return an html_safe response" do
       @collection = @collection.merge({:document => {:title_ssm => ["<b>The Title</b>"]}})
       render_field_item(@collection).should.html_safe? == true
       render_field_item(@collection).should eql("<b>The Title</b>")
     end
+    
+  end
+  
+  describe ".render_highlighted_field" do
+    
+    xit "should render regular field because there is no highlighting" do
+      render_highlighted_field(@collection).should eq("")
+    end
+    
   end
   
   describe ".link_to_toc_page" do

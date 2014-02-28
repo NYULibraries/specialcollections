@@ -24,7 +24,7 @@ module Findingaids::Ead::Behaviors
      :invalid           => :replace,  # Replace invalid byte sequences
      :undef             => :replace,  # Replace anything not defined in ASCII
      :replace           => '',        # Use a blank for those replacements
-     :universal_newline => true       # Always break lines with \n
+     :UNIVERSAL_NEWLINE_DECORATOR => true       # Always break lines with \n
     }
     return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
   end
