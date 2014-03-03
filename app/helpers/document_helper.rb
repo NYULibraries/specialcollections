@@ -2,13 +2,13 @@ module DocumentHelper
   
   ##
   # Render field value, and join as string if it's an array
-  def render_field_item(args)
-    args[:document][args[:field]].join(", ").html_safe
+  # If this field has a highlighted field, use that version, otherwise use the full field
+  def render_field_item(doc)
+    (doc[:document].has_highlight_field? doc[:field]) ? 
+      doc[:document].highlight_field(doc[:field]).join(", ").html_safe : 
+        doc[:document][doc[:field]].join(", ").html_safe    
   end
-  
-  def render_highlighted_field(args)
-    link_body(args)
-  end
+
   
   ## 
   # Link to page from table of contents if that field has been indexed and has results
@@ -43,30 +43,10 @@ module DocumentHelper
     repository, eadid = doc[:repository_ssi], doc[:ead_ssi]
     link_to label, url_for_findingaid(repository, eadid, path, anchor), { :target => "_blank" }
   end
-  
-  # The text body from which to link
-  def link_body(field)
-    # If this field has a highlighte field, use that version, otherwise use the full field
-    (field[:document].has_highlight_field? field[:field]) ? 
-      field[:document].highlight_field(field[:field]).join("...").html_safe : 
-        field[:document][field[:field]].join("...").html_safe
-  end
-    
+      
   # Get icon from format type
-  def document_icon(doc, result = String.new)
-    doc[Solrizer.solr_name("format", :displayable)].first.downcase.gsub(/\s/,"_")
-  end
-  
-  def document_is_collection?(doc)
-    doc[Solrizer.solr_name("format", :displayable)].first == "Archival Collection"
-  end
-  
-  def document_is_series?(doc)
-    doc[Solrizer.solr_name("format", :displayable)].first == "Archival Series"
-  end
-  
-  def document_is_item?(doc)
-    doc[Solrizer.solr_name("format", :displayable)].first == "Archival Item"
+  def document_icon(doc)
+    doc.normalized_format
   end
   
   def link_to_repository(doc)
@@ -77,11 +57,15 @@ module DocumentHelper
     repositories[doc[:repository_ssi]]["display"]
   end
   
+  def sanitize(html)
+    Sanitize.clean(html)
+  end
+  
   ##
   # Render clean faceted link to items in series
-  def render_series_facet_link(args)
-    series = args[:document][args[:field]]
-    collection = args[:document][Solrizer.solr_name("collection", :displayable)].first
+  def render_series_facet_link(doc)
+    series = doc[:document][doc[:field]]
+    collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
     links_to_series = []
   
     series.each do |ser|
@@ -107,12 +91,12 @@ module DocumentHelper
 
   ##
   # Render clean facet link to just guide
-  def render_collection_facet_link(args)
-    item = args[:document][args[:field]].first
+  def render_collection_facet_link(doc)
+    item = doc[:document][doc[:field]].first
 
     local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
 
-    link_to args[:document][args[:field]].first, local_params
+    link_to doc[:document][doc[:field]].first, local_params
   end
   
   ##
@@ -138,12 +122,6 @@ module DocumentHelper
     # Force action to be index. 
     new_params[:action] = "index"
     new_params    
-  end
-
-  ##
-  # Reset facet parameters to clean search
-  def reset_facet_params(source_params)
-    reset_search_params(source_params.except(:f))
   end
   
   ##
@@ -186,6 +164,12 @@ module DocumentHelper
   # and need to be reset when e.g. constraints change
   def reset_search_params(source_params)
     sanitize_search_params(source_params).except(:page, :counter, :q).with_indifferent_access
+  end
+
+  ##
+  # Reset facet parameters to clean search
+  def reset_facet_params(source_params)
+    reset_search_params(source_params.except(:f))
   end
   
 end

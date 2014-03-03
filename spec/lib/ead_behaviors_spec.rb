@@ -7,33 +7,46 @@ describe Findingaids::Ead::Behaviors do
   describe ".format_publisher" do
     
     it "should strip ugly characters from publisher" do
-      format_publisher(["@ 2012 Fales Library and Special Collections     "]).should eq("Fales Library and Special Collections")
+      expect(format_publisher(["@ 2012 Fales Library and Special Collections     "])).to eql("Fales Library and Special Collections")
     end
     
   end
   
   describe ".format_repository" do
     
-    it "should return the repository name from the folder" do
-      stub_const('ENV', {'EAD' => 'spec/fixtures/ead'})
-      format_repository.should eq("ead")
+    subject { format_repository }
+    
+    context "when EAD variable is a folder" do
+      before { stub_const('ENV', {'EAD' => 'spec/fixtures/ead'}) }
+
+      it { should eql("ead") }
     end
     
-    it "should return the repository name from the single file" do
-      stub_const('ENV', {'EAD' => 'spec/fixtures/ead/bytsura.xml'})
-      format_repository.should eq("ead")
+    context "when EAD variable is a file" do
+      before { stub_const('ENV', {'EAD' => 'spec/fixtures/ead/bytsura.xml'}) }
+      
+      it { should eql("ead")}
     end
     
-    it "should return nil without an EAD env var" do
-      format_repository.should be_nil
+    context "when there is no EAD variable" do
+      it { should be_nil }
     end
     
   end
   
   describe ".get_language_from_code" do
     
-    it "should return full language name from code" do
-      get_language_from_code("eng").should eq("English")
+    let(:language_code) { "eng" }
+    
+    subject { get_language_from_code(language_code) }
+    
+    context "when language code is eng" do
+      it { should eql("English") }
+    end
+    
+    context "when language code is ger" do
+      let(:language_code) { "ger" }
+      it { should eql("German") }
     end
     
   end

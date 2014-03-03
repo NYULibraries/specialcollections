@@ -27,7 +27,7 @@ class CatalogController < ApplicationController
     
     config.default_document_solr_params = {
       :qt => "",
-      ("hl.fl").to_sym => "title_ssm, author_ssm, publisher_ssm, collection_ssm,parent_unittitles_ssm,location_ssm",
+      ("hl.fl").to_sym => hl_fields,
       ("hl.simple.pre").to_sym => '<span class="label label-info">',
       ("hl.simple.post").to_sym => "</span>",
       :hl => true,
@@ -89,11 +89,11 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
     config.add_index_field solr_name("title",             :displayable),  :label => "Title:", 
                                                                           :highlight => true,
-                                                                          :helper_method => :render_highlighted_field
+                                                                          :helper_method => :render_field_item
                                                                           
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:", 
                                                                           :highlight => true,
-                                                                          :helper_method => :render_highlighted_field
+                                                                          :helper_method => :render_field_item
     
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
                                                                           :helper_method => :render_field_item

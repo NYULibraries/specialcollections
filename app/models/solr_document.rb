@@ -24,4 +24,30 @@ class SolrDocument
                          :format    => Solrizer.solr_name("format",   :displayable),
                          :subject   => Solrizer.solr_name("subject",  :displayable),
                          )
+
+
+  
+  
+  def normalized_format
+    self[Solrizer.solr_name("format", :displayable)].first.downcase.gsub(/\s/,"_")
+  end
+  
+  ##
+  # Allows calling of functions like is_arbitrary_format?
+  def method_missing(method_id, *args)
+    if match = matches_dynamic_format_check?(method_id)
+      self.normalized_format == match.captures.first
+    else
+      super
+    end
+  end
+
+private
+
+  ##
+  # Check if method_id matches the is_role? schema
+  def matches_dynamic_format_check?(method_id)
+   /^is_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
+  end
+
 end
