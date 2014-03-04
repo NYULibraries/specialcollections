@@ -23,9 +23,10 @@ class Findingaids::Ead::Document < SolrEad::Document
     # These are component level items indexed into the document as fulltext searchable fields
     # so Blacklight can search it at the top level. Once this simple search is done we can search
     # the components which are individually indexed by solr_ead to get additional info
-    t.unittitle(:path=>"archdesc/dsc//c[@level='file']/did/unittitle", :index_as=>[:searchable, :displayable])
-    t.odd(:path=>"archdesc/dsc//c[@level='file']/odd", :index_as=>[:searchable, :displayable])
+    #t.unittitle(:path=>"archdesc/dsc//c[@level='file' or @level='item']/did/unittitle", :index_as=>[:searchable, :displayable])
+    #t.odd(:path=>"archdesc/dsc//c[@level='file' or @level='item']/odd", :index_as=>[:searchable, :displayable])
     
+    t.title_filing(:path=>"archdesc[@level='collection']/did/unittitle", :index_as=>[:sortable])
     t.date_filing(:path=>"archdesc/unitdate[@type='inclusive']/@normal", :index_as=>[:sortable])
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
@@ -44,7 +45,6 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "unitdate",     ead_date_display,       :displayable)
     Solrizer.insert_field(solr_doc, "contributors", get_ead_names,          :displayable)
     Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
-    Solrizer.insert_field(solr_doc, "title",        self.title_filing,      :sortable)
     
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :facetable)
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :displayable)
@@ -52,7 +52,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.set_field(solr_doc, "collection",      self.collection.first.strip, :facetable)
     Solrizer.set_field(solr_doc, "collection",      self.collection.first.strip, :displayable)
 
-    # Replace certain fields with their html-formatted equivilents
+    # Replace certain fields with their html-formatted equivlents
     Solrizer.set_field(solr_doc, "title", self.term_to_html("title"), :displayable)
 
     # Set lanuage codes

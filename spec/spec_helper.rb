@@ -54,8 +54,3 @@ end
 def ead_fixture file
   File.new(File.join(File.dirname(__FILE__), 'fixtures', 'ead', file))
 end
-
-def mock_fixture file
-  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'mock', file))
-end
-

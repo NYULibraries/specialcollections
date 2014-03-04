@@ -34,7 +34,7 @@ module Findingaids::Catman
       "title_ssm, author_ssm, publisher_ssm, collection_ssm, parent_unittitles_ssm, location_ssm"
     end
     def repositories
-      @repositories ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"]
+      @repositories ||= YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].with_indifferent_access
     end
   end
 

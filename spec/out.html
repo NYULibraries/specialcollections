@@ -281,406 +281,523 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">User</dt>
-    <script type="text/javascript">moveProgressBar('1.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be an instance of User</span><span class='duration'>0.02069s</span></dd>
+  <dt id="example_group_1" class="passed">CatalogController</dt>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_2" class="passed">CatalogController</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_2" class="passed">.index</dt>
+    <script type="text/javascript">moveProgressBar('1.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return some results</span><span class='duration'>0.24387s</span></dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_3" class="passed">.index</dt>
-    <script type="text/javascript">moveProgressBar('3.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return some results</span><span class='duration'>0.29367s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_3" class="passed">Findingaids::Ead::Behaviors</dt>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_4" class="passed">SolrDocument</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_4" class="passed">.format_publisher</dt>
+    <script type="text/javascript">moveProgressBar('2.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should strip ugly characters from publisher</span><span class='duration'>0.04332s</span></dd>
   </dl>
 </div>
 <div id="div_group_5" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_5" class="passed">.normalized_format</dt>
+  <dt id="example_group_5" class="passed">.format_repository</dt>
   </dl>
 </div>
 <div id="div_group_6" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_6" class="passed">when document is a collection level item</dt>
-    <script type="text/javascript">moveProgressBar('5.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_collection&quot;</span><span class='duration'>0.00397s</span></dd>
+  <dt id="example_group_6" class="passed">when EAD variable is a folder</dt>
+    <script type="text/javascript">moveProgressBar('3.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;ead&quot;</span><span class='duration'>0.00109s</span></dd>
   </dl>
 </div>
 <div id="div_group_7" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_7" class="passed">when document is an item</dt>
-    <script type="text/javascript">moveProgressBar('7.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_item&quot;</span><span class='duration'>0.00088s</span></dd>
+  <dt id="example_group_7" class="passed">when EAD variable is a file</dt>
+    <script type="text/javascript">moveProgressBar('4.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;ead&quot;</span><span class='duration'>0.00103s</span></dd>
   </dl>
 </div>
 <div id="div_group_8" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_8" class="passed">when document is a series level item</dt>
-    <script type="text/javascript">moveProgressBar('9.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_series&quot;</span><span class='duration'>0.00081s</span></dd>
+  <dt id="example_group_8" class="passed">when there is no EAD variable</dt>
+    <script type="text/javascript">moveProgressBar('5.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be nil</span><span class='duration'>0.00068s</span></dd>
   </dl>
 </div>
 <div id="div_group_9" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_9" class="passed">.method_missing</dt>
+  <dt id="example_group_9" class="passed">.get_language_from_code</dt>
   </dl>
 </div>
 <div id="div_group_10" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_10" class="passed">when document is a collection level item</dt>
-    <script type="text/javascript">moveProgressBar('11.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00094s</span></dd>
-    <script type="text/javascript">moveProgressBar('13.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00122s</span></dd>
-    <script type="text/javascript">moveProgressBar('15.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00118s</span></dd>
+  <dt id="example_group_10" class="passed">when language code is ger</dt>
+    <script type="text/javascript">moveProgressBar('7.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;German&quot;</span><span class='duration'>0.00420s</span></dd>
   </dl>
 </div>
 <div id="div_group_11" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_11" class="passed">when document is an item</dt>
-    <script type="text/javascript">moveProgressBar('16.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00092s</span></dd>
-    <script type="text/javascript">moveProgressBar('18.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00092s</span></dd>
-    <script type="text/javascript">moveProgressBar('20.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00091s</span></dd>
+  <dt id="example_group_11" class="passed">when language code is eng</dt>
+    <script type="text/javascript">moveProgressBar('8.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;English&quot;</span><span class='duration'>0.00383s</span></dd>
   </dl>
 </div>
 <div id="div_group_12" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_12" class="passed">when document is a series level item</dt>
-    <script type="text/javascript">moveProgressBar('22.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00097s</span></dd>
-    <script type="text/javascript">moveProgressBar('24.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00081s</span></dd>
-    <script type="text/javascript">moveProgressBar('26.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00079s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_12" class="passed">DocumentHelper</dt>
   </dl>
 </div>
 <div id="div_group_13" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_13" class="passed">DocumentHelper</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_13" class="passed">.link_to_document</dt>
   </dl>
 </div>
 <div id="div_group_14" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_14" class="passed">.repository_label</dt>
-    <script type="text/javascript">moveProgressBar('28.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eq &quot;The Fales Library&quot;</span><span class='duration'>0.00421s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_14" class="passed">when document is a collection level item</dt>
+    <script type="text/javascript">moveProgressBar('9.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00229s</span></dd>
   </dl>
 </div>
 <div id="div_group_15" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_15" class="passed">.reset_search_params</dt>
-    <script type="text/javascript">moveProgressBar('30.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00143s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_15" class="passed">when document is a series level item</dt>
+    <script type="text/javascript">moveProgressBar('10.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00204s</span></dd>
   </dl>
 </div>
 <div id="div_group_16" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_16" class="passed">.render_field_item</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_16" class="passed">when document is item level</dt>
+    <script type="text/javascript">moveProgressBar('11.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00210s</span></dd>
   </dl>
 </div>
 <div id="div_group_17" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_17" class="passed">when the title is plain text</dt>
-    <script type="text/javascript">moveProgressBar('32.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The Title&quot;</span><span class='duration'>0.00154s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_17" class="passed">.facet_name</dt>
+    <script type="text/javascript">moveProgressBar('13.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return the Solrized name of the facet</span><span class='duration'>0.00117s</span></dd>
   </dl>
 </div>
 <div id="div_group_18" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_18" class="passed">when the title has highlighting</dt>
-    <script type="text/javascript">moveProgressBar('33.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The &lt;span class=\&quot;highlight\&quot;&gt;Title&lt;/span&gt;&quot;</span><span class='duration'>0.00147s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_18" class="passed">.link_to_toc_page</dt>
   </dl>
 </div>
 <div id="div_group_19" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_19" class="passed">when the title has html</dt>
-    <script type="text/javascript">moveProgressBar('35.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be html safe</span><span class='duration'>0.00158s</span></dd>
-    <script type="text/javascript">moveProgressBar('37.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;b&gt;The Title&lt;/b&gt;&quot;</span><span class='duration'>0.00134s</span></dd>
+  <dt id="example_group_19" class="passed">when the field is the abstract</dt>
+    <script type="text/javascript">moveProgressBar('14.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00156s</span></dd>
   </dl>
 </div>
 <div id="div_group_20" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_20" class="passed">.render_collection_facet_link</dt>
-    <script type="text/javascript">moveProgressBar('39.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00879s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_20" class="passed">when the field is bioghist</dt>
+    <script type="text/javascript">moveProgressBar('15.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/bioghist.html\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00143s</span></dd>
   </dl>
 </div>
 <div id="div_group_21" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_21" class="passed">.sanitize_search_params</dt>
-    <script type="text/javascript">moveProgressBar('41.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00178s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_21" class="passed">when the field is admininfo</dt>
+    <script type="text/javascript">moveProgressBar('16.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/admininfo.html\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00162s</span></dd>
   </dl>
 </div>
 <div id="div_group_22" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_22" class="passed">.link_to_document</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_22" class="passed">when the field is dsc</dt>
+    <script type="text/javascript">moveProgressBar('17.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be nil</span><span class='duration'>0.00143s</span></dd>
   </dl>
 </div>
 <div id="div_group_23" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_23" class="passed">when document is a collection level item</dt>
-    <script type="text/javascript">moveProgressBar('43.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00241s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_23" class="passed">.render_components_for_series_facet_link</dt>
+    <script type="text/javascript">moveProgressBar('19.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;f&quot;=&gt;{&quot;series_sim&quot;=&gt;[&quot;Series I&quot;], &quot;collection_sim&quot;=&gt;[&quot;Bytsura Collection of Things&quot;]}, &quot;action&quot;=&gt;&quot;index&quot;, &quot;controller&quot;=&gt;&quot;catalog&quot;, &quot;sort&quot;=&gt;&quot;series_si asc, box_filing_si asc&quot;}</span><span class='duration'>0.00602s</span></dd>
   </dl>
 </div>
 <div id="div_group_24" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_24" class="passed">when document is item level</dt>
-    <script type="text/javascript">moveProgressBar('45.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00252s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_24" class="passed">.render_collection_facet_link</dt>
+    <script type="text/javascript">moveProgressBar('20.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00446s</span></dd>
   </dl>
 </div>
 <div id="div_group_25" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_25" class="passed">when document is a series level item</dt>
-    <script type="text/javascript">moveProgressBar('47.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html\&quot; target=\&quot;_blank\&quot;&gt;Guide to titling finding aids&lt;/a&gt;&quot;</span><span class='duration'>0.00274s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_25" class="passed">.render_series_facet_link</dt>
+    <script type="text/javascript">moveProgressBar('21.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;Series I &amp;gt;&amp;gt; Subseries IV&quot;</span><span class='duration'>0.00505s</span></dd>
+    <script type="text/javascript">moveProgressBar('22.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;amp;f%5Bseries_sim%5D%5B%5D=Series+I&amp;amp;sort=series_si+asc%2C+box_filing_si+asc\&quot;&gt;Series I&lt;/a&gt; &gt;&gt; &lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV&amp;amp;sort=series_si+asc%2C+box_filing_si+asc\&quot;&gt;Subseries IV&lt;/a&gt;&quot;</span><span class='duration'>0.00377s</span></dd>
   </dl>
 </div>
 <div id="div_group_26" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_26" class="passed">.document_icon</dt>
+  <dt id="example_group_26" class="passed">.reset_search_params</dt>
+    <script type="text/javascript">moveProgressBar('23.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00124s</span></dd>
   </dl>
 </div>
 <div id="div_group_27" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_27" class="passed">when document is a collection level item</dt>
-    <script type="text/javascript">moveProgressBar('49.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_collection&quot;</span><span class='duration'>0.00166s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_27" class="passed">.sort_by_series</dt>
+    <script type="text/javascript">moveProgressBar('25.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should return a hash for sorting</span><span class='duration'>0.00111s</span></dd>
   </dl>
 </div>
 <div id="div_group_28" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_28" class="passed">when document is item level</dt>
-    <script type="text/javascript">moveProgressBar('50.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_item&quot;</span><span class='duration'>0.00192s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_28" class="passed">.series_facet</dt>
+    <script type="text/javascript">moveProgressBar('26.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should alias facet_name for series facet</span><span class='duration'>0.00113s</span></dd>
   </dl>
 </div>
 <div id="div_group_29" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_29" class="passed">when document is a series level item</dt>
-    <script type="text/javascript">moveProgressBar('52.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_series&quot;</span><span class='duration'>0.00195s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_29" class="passed">.format_facet</dt>
+    <script type="text/javascript">moveProgressBar('27.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should alias facet_name function for format facet</span><span class='duration'>0.00111s</span></dd>
   </dl>
 </div>
 <div id="div_group_30" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_30" class="passed">.render_components_for_series_facet_link</dt>
-    <script type="text/javascript">moveProgressBar('54.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;f&quot;=&gt;{&quot;series_sim&quot;=&gt;[&quot;Series I&quot;], &quot;collection_sim&quot;=&gt;[&quot;Bytsura Collection of Things&quot;]}, &quot;action&quot;=&gt;&quot;index&quot;, &quot;controller&quot;=&gt;&quot;catalog&quot;, &quot;sort&quot;=&gt;&quot;series_si asc, box_filing_si asc&quot;}</span><span class='duration'>0.00274s</span></dd>
+  <dt id="example_group_30" class="passed">.collection_facet</dt>
+    <script type="text/javascript">moveProgressBar('28.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should alias facet_name function for collection facet</span><span class='duration'>0.00112s</span></dd>
   </dl>
 </div>
 <div id="div_group_31" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_31" class="passed">.sort_by_series</dt>
-    <script type="text/javascript">moveProgressBar('56.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return a hash for sorting</span><span class='duration'>0.00137s</span></dd>
+  <dt id="example_group_31" class="passed">.document_icon</dt>
   </dl>
 </div>
 <div id="div_group_32" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_32" class="passed">.format_facet</dt>
-    <script type="text/javascript">moveProgressBar('58.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should alias facet_name function for format facet</span><span class='duration'>0.00104s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_32" class="passed">when document is a collection level item</dt>
+    <script type="text/javascript">moveProgressBar('29.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_collection&quot;</span><span class='duration'>0.00146s</span></dd>
   </dl>
 </div>
 <div id="div_group_33" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_33" class="passed">.collection_facet</dt>
-    <script type="text/javascript">moveProgressBar('60.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should alias facet_name function for collection facet</span><span class='duration'>0.00147s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_33" class="passed">when document is a series level item</dt>
+    <script type="text/javascript">moveProgressBar('30.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_series&quot;</span><span class='duration'>0.00146s</span></dd>
   </dl>
 </div>
 <div id="div_group_34" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_34" class="passed">.facet_name</dt>
-    <script type="text/javascript">moveProgressBar('62.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return the Solrized name of the facet</span><span class='duration'>0.00133s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_34" class="passed">when document is item level</dt>
+    <script type="text/javascript">moveProgressBar('32.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_item&quot;</span><span class='duration'>0.00135s</span></dd>
   </dl>
 </div>
 <div id="div_group_35" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_35" class="passed">.reset_facet_params</dt>
-    <script type="text/javascript">moveProgressBar('64.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00228s</span></dd>
+  <dt id="example_group_35" class="passed">.render_field_item</dt>
   </dl>
 </div>
 <div id="div_group_36" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_36" class="passed">.sanitize</dt>
-    <script type="text/javascript">moveProgressBar('66.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eq &quot;Sanitize me!&quot;</span><span class='duration'>0.00285s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_36" class="passed">when the title is plain text</dt>
+    <script type="text/javascript">moveProgressBar('33.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The Title&quot;</span><span class='duration'>0.00129s</span></dd>
   </dl>
 </div>
 <div id="div_group_37" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_37" class="passed">.link_to_repository</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_37" class="passed">when the title has html</dt>
+    <script type="text/javascript">moveProgressBar('34.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;b&gt;The Title&lt;/b&gt;&quot;</span><span class='duration'>0.00155s</span></dd>
+    <script type="text/javascript">moveProgressBar('35.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be html safe</span><span class='duration'>0.00147s</span></dd>
   </dl>
 </div>
 <div id="div_group_38" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_38" class="passed">when document is a collection level item</dt>
-    <script type="text/javascript">moveProgressBar('67.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/fales\&quot;&gt;The Fales Library&lt;/a&gt;&quot;</span><span class='duration'>0.00300s</span></dd>
+  <dt id="example_group_38" class="passed">when the title has highlighting</dt>
+    <script type="text/javascript">moveProgressBar('36.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The &lt;span class=\&quot;highlight\&quot;&gt;Title&lt;/span&gt;&quot;</span><span class='duration'>0.00170s</span></dd>
   </dl>
 </div>
 <div id="div_group_39" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_39" class="passed">.render_components_facet_link</dt>
-    <script type="text/javascript">moveProgressBar('69.8');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;f&quot;=&gt;{&quot;collection_sim&quot;=&gt;[&quot;Bytsura Collection of Things&quot;]}, &quot;action&quot;=&gt;&quot;index&quot;, &quot;controller&quot;=&gt;&quot;catalog&quot;, &quot;sort&quot;=&gt;&quot;series_si asc, box_filing_si asc&quot;}</span><span class='duration'>0.00282s</span></dd>
+  <dt id="example_group_39" class="passed">.sanitize_search_params</dt>
+    <script type="text/javascript">moveProgressBar('38.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00185s</span></dd>
   </dl>
 </div>
 <div id="div_group_40" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_40" class="passed">.series_facet</dt>
-    <script type="text/javascript">moveProgressBar('71.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should alias facet_name for series facet</span><span class='duration'>0.00181s</span></dd>
+  <dt id="example_group_40" class="passed">.reset_facet_params</dt>
+    <script type="text/javascript">moveProgressBar('39.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;leftover&quot;=&gt;&quot;Yup&quot;}</span><span class='duration'>0.00145s</span></dd>
   </dl>
 </div>
 <div id="div_group_41" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_41" class="passed">.render_series_facet_link</dt>
-    <script type="text/javascript">moveProgressBar('73.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;amp;f%5Bseries_sim%5D%5B%5D=Series+I&amp;amp;sort=series_si+asc%2C+box_filing_si+asc\&quot;&gt;Series I&lt;/a&gt; &gt;&gt; &lt;a href=\&quot;/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV&amp;amp;sort=series_si+asc%2C+box_filing_si+asc\&quot;&gt;Subseries IV&lt;/a&gt;&quot;</span><span class='duration'>0.00464s</span></dd>
-    <script type="text/javascript">moveProgressBar('75.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;Series I &amp;gt;&amp;gt; Subseries IV&quot;</span><span class='duration'>0.00602s</span></dd>
+  <dt id="example_group_41" class="passed">.sanitize</dt>
+    <script type="text/javascript">moveProgressBar('40.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eq &quot;Sanitize me!&quot;</span><span class='duration'>0.00414s</span></dd>
   </dl>
 </div>
 <div id="div_group_42" class="example_group passed">
   <dl style="margin-left: 15px;">
-  <dt id="example_group_42" class="passed">.link_to_toc_page</dt>
+  <dt id="example_group_42" class="passed">.link_to_repository</dt>
   </dl>
 </div>
 <div id="div_group_43" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_43" class="passed">when the field is the abstract</dt>
-    <script type="text/javascript">moveProgressBar('77.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00193s</span></dd>
+  <dt id="example_group_43" class="passed">when document is a collection level item</dt>
+    <script type="text/javascript">moveProgressBar('41.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;a href=\&quot;/fales\&quot;&gt;The Fales Library&lt;/a&gt;&quot;</span><span class='duration'>0.00215s</span></dd>
   </dl>
 </div>
 <div id="div_group_44" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_44" class="passed">when the field is dsc</dt>
-    <script type="text/javascript">moveProgressBar('79.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be nil</span><span class='duration'>0.00164s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_44" class="passed">.render_components_facet_link</dt>
+    <script type="text/javascript">moveProgressBar('42.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql {&quot;f&quot;=&gt;{&quot;collection_sim&quot;=&gt;[&quot;Bytsura Collection of Things&quot;]}, &quot;action&quot;=&gt;&quot;index&quot;, &quot;controller&quot;=&gt;&quot;catalog&quot;, &quot;sort&quot;=&gt;&quot;series_si asc, box_filing_si asc&quot;}</span><span class='duration'>0.00241s</span></dd>
   </dl>
 </div>
 <div id="div_group_45" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_45" class="passed">when the field is bioghist</dt>
-    <script type="text/javascript">moveProgressBar('81.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/bioghist.html\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00175s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_45" class="passed">.repository_label</dt>
+    <script type="text/javascript">moveProgressBar('44.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eq &quot;The Fales Library&quot;</span><span class='duration'>0.00142s</span></dd>
   </dl>
 </div>
 <div id="div_group_46" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_46" class="passed">when the field is admininfo</dt>
-    <script type="text/javascript">moveProgressBar('83.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;&lt;dd&gt;&lt;a href=\&quot;http://dlib.nyu.edu/findingaids/html/fales/bytsura/admininfo.html\&quot; target=\&quot;_blank\&quot;&gt;Click Here&lt;/a&gt;&lt;/dd&gt;&quot;</span><span class='duration'>0.00169s</span></dd>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_46" class="passed">ApplicationController</dt>
   </dl>
 </div>
 <div id="div_group_47" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_47" class="passed">ApplicationController</dt>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_47" class="passed">#current_user_dev</dt>
+    <script type="text/javascript">moveProgressBar('45.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;admin123&quot;</span><span class='duration'>0.01891s</span></dd>
+    <script type="text/javascript">moveProgressBar('46.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be an instance of User</span><span class='duration'>0.00442s</span></dd>
   </dl>
 </div>
 <div id="div_group_48" class="example_group passed">
   <dl style="margin-left: 15px;">
   <dt id="example_group_48" class="passed">#repositories</dt>
-    <script type="text/javascript">moveProgressBar('84.9');</script>
-    <dd class="example passed"><span class="passed_spec_name">should return hash of repositories</span><span class='duration'>0.00157s</span></dd>
+    <script type="text/javascript">moveProgressBar('47.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be an instance of ActiveSupport::HashWithIndifferentAccess</span><span class='duration'>0.00212s</span></dd>
   </dl>
 </div>
 <div id="div_group_49" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_49" class="passed">#current_user_dev</dt>
-    <script type="text/javascript">moveProgressBar('86.7');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be an instance of User</span><span class='duration'>0.00543s</span></dd>
-    <script type="text/javascript">moveProgressBar('88.6');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;admin123&quot;</span><span class='duration'>0.00186s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_49" class="passed">when repository is Tamiment </dt>
+    <script type="text/javascript">moveProgressBar('48.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The Tamiment Library &amp; Robert F. Wagner Labor Archives&quot;</span><span class='duration'>0.00180s</span></dd>
+    <script type="text/javascript">moveProgressBar('50.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;tamwag&quot;</span><span class='duration'>0.00127s</span></dd>
+    <script type="text/javascript">moveProgressBar('51.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;tamwag&quot;</span><span class='duration'>0.00122s</span></dd>
   </dl>
 </div>
 <div id="div_group_50" class="example_group passed">
-  <dl style="margin-left: 0px;">
-  <dt id="example_group_50" class="passed">Findingaids::Ead::Behaviors</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_50" class="passed">when repository is NYHS</dt>
+    <script type="text/javascript">moveProgressBar('52.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;New-York Historical Society&quot;</span><span class='duration'>0.00136s</span></dd>
+    <script type="text/javascript">moveProgressBar('53.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;nyhs&quot;</span><span class='duration'>0.00120s</span></dd>
+    <script type="text/javascript">moveProgressBar('54.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;nyhs&quot;</span><span class='duration'>0.00121s</span></dd>
   </dl>
 </div>
 <div id="div_group_51" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_51" class="passed">.format_publisher</dt>
-    <script type="text/javascript">moveProgressBar('90.5');</script>
-    <dd class="example passed"><span class="passed_spec_name">should strip ugly characters from publisher</span><span class='duration'>0.00084s</span></dd>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_51" class="passed">when repository is NYU Archives </dt>
+    <script type="text/javascript">moveProgressBar('55.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;New York University Archives&quot;</span><span class='duration'>0.00119s</span></dd>
+    <script type="text/javascript">moveProgressBar('57.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archives&quot;</span><span class='duration'>0.00119s</span></dd>
+    <script type="text/javascript">moveProgressBar('58.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archives&quot;</span><span class='duration'>0.00122s</span></dd>
   </dl>
 </div>
 <div id="div_group_52" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_52" class="passed">.format_repository</dt>
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_52" class="passed">when repository is Fales</dt>
+    <script type="text/javascript">moveProgressBar('59.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;The Fales Library &amp; Special Collections&quot;</span><span class='duration'>0.00127s</span></dd>
+    <script type="text/javascript">moveProgressBar('60.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;fales&quot;</span><span class='duration'>0.00113s</span></dd>
+    <script type="text/javascript">moveProgressBar('61.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;fales&quot;</span><span class='duration'>0.00154s</span></dd>
   </dl>
 </div>
 <div id="div_group_53" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_53" class="passed">when EAD variable is a folder</dt>
-    <script type="text/javascript">moveProgressBar('92.4');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;ead&quot;</span><span class='duration'>0.00189s</span></dd>
+  <dt id="example_group_53" class="passed">when repository is RISM</dt>
+    <script type="text/javascript">moveProgressBar('63.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;Research Institue for the Study of Man&quot;</span><span class='duration'>0.00143s</span></dd>
+    <script type="text/javascript">moveProgressBar('64.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;rism&quot;</span><span class='duration'>0.00118s</span></dd>
+    <script type="text/javascript">moveProgressBar('65.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;rism&quot;</span><span class='duration'>0.00124s</span></dd>
   </dl>
 </div>
 <div id="div_group_54" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_54" class="passed">when there is no EAD variable</dt>
-    <script type="text/javascript">moveProgressBar('94.3');</script>
-    <dd class="example passed"><span class="passed_spec_name">should be nil</span><span class='duration'>0.00112s</span></dd>
+  <dt id="example_group_54" class="passed">when repository is Poly Archives</dt>
+    <script type="text/javascript">moveProgressBar('66.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;Poly Archives&quot;</span><span class='duration'>0.00132s</span></dd>
+    <script type="text/javascript">moveProgressBar('67.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;poly&quot;</span><span class='duration'>0.00110s</span></dd>
+    <script type="text/javascript">moveProgressBar('69.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;poly&quot;</span><span class='duration'>0.00113s</span></dd>
   </dl>
 </div>
 <div id="div_group_55" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_55" class="passed">when EAD variable is a file</dt>
-    <script type="text/javascript">moveProgressBar('96.2');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;ead&quot;</span><span class='duration'>0.00154s</span></dd>
+  <dt id="example_group_55" class="passed">when repository is BHS</dt>
+    <script type="text/javascript">moveProgressBar('70.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;Brooklyn Historical Society&quot;</span><span class='duration'>0.00131s</span></dd>
+    <script type="text/javascript">moveProgressBar('71.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;bhs&quot;</span><span class='duration'>0.00127s</span></dd>
+    <script type="text/javascript">moveProgressBar('72.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;bhs&quot;</span><span class='duration'>0.00117s</span></dd>
   </dl>
 </div>
 <div id="div_group_56" class="example_group passed">
-  <dl style="margin-left: 15px;">
-  <dt id="example_group_56" class="passed">.get_language_from_code</dt>
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_56" class="passed">SolrDocument</dt>
   </dl>
 </div>
 <div id="div_group_57" class="example_group passed">
-  <dl style="margin-left: 30px;">
-  <dt id="example_group_57" class="passed">when language code is eng</dt>
-    <script type="text/javascript">moveProgressBar('98.1');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;English&quot;</span><span class='duration'>0.00626s</span></dd>
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_57" class="passed">.method_missing</dt>
   </dl>
 </div>
 <div id="div_group_58" class="example_group passed">
   <dl style="margin-left: 30px;">
-  <dt id="example_group_58" class="passed">when language code is ger</dt>
-    <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">should eql &quot;German&quot;</span><span class='duration'>0.00417s</span></dd>
+  <dt id="example_group_58" class="passed">when document is a collection level item</dt>
+    <script type="text/javascript">moveProgressBar('73.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00091s</span></dd>
+    <script type="text/javascript">moveProgressBar('75.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00105s</span></dd>
+    <script type="text/javascript">moveProgressBar('76.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00094s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>0.45963 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "53 examples, 0 failures";</script>
+<div id="div_group_59" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_59" class="passed">when document is a series level item</dt>
+    <script type="text/javascript">moveProgressBar('77.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00093s</span></dd>
+    <script type="text/javascript">moveProgressBar('78.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00085s</span></dd>
+    <script type="text/javascript">moveProgressBar('79.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00084s</span></dd>
+  </dl>
+</div>
+<div id="div_group_60" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_60" class="passed">when document is an item</dt>
+    <script type="text/javascript">moveProgressBar('80.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be true</span><span class='duration'>0.00083s</span></dd>
+    <script type="text/javascript">moveProgressBar('82.1');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00081s</span></dd>
+    <script type="text/javascript">moveProgressBar('83.3');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be false</span><span class='duration'>0.00079s</span></dd>
+  </dl>
+</div>
+<div id="div_group_61" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_61" class="passed">.normalized_format</dt>
+  </dl>
+</div>
+<div id="div_group_62" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_62" class="passed">when document is a collection level item</dt>
+    <script type="text/javascript">moveProgressBar('84.5');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_collection&quot;</span><span class='duration'>0.00171s</span></dd>
+  </dl>
+</div>
+<div id="div_group_63" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_63" class="passed">when document is a series level item</dt>
+    <script type="text/javascript">moveProgressBar('85.7');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_series&quot;</span><span class='duration'>0.00106s</span></dd>
+  </dl>
+</div>
+<div id="div_group_64" class="example_group passed">
+  <dl style="margin-left: 30px;">
+  <dt id="example_group_64" class="passed">when document is an item</dt>
+    <script type="text/javascript">moveProgressBar('86.9');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;archival_item&quot;</span><span class='duration'>0.00107s</span></dd>
+  </dl>
+</div>
+<div id="div_group_65" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_65" class="passed">Findingaids::Ead::Document</dt>
+  </dl>
+</div>
+<div id="div_group_66" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_66" class="passed">#to_solr</dt>
+    <script type="text/javascript">moveProgressBar('88.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Inclusive, 1981-2012 ; Bulk, 1989-1997&quot;</span><span class='duration'>0.13017s</span></dd>
+    <script type="text/javascript">moveProgressBar('89.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Bytsura, Bill&quot;</span><span class='duration'>0.07939s</span></dd>
+    <script type="text/javascript">moveProgressBar('90.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Bytsura, Bill&quot;</span><span class='duration'>0.07980s</span></dd>
+    <script type="text/javascript">moveProgressBar('91.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;bytsura&quot;</span><span class='duration'>0.07923s</span></dd>
+    <script type="text/javascript">moveProgressBar('92.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Bill Bytsura ACT UP Photography Collection&quot;</span><span class='duration'>0.08073s</span></dd>
+    <script type="text/javascript">moveProgressBar('94.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;ACT UP (Organization)&quot;</span><span class='duration'>0.07977s</span></dd>
+    <script type="text/javascript">moveProgressBar('95.2');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Bill Bytsura ACT UP Photography Collection&quot;</span><span class='duration'>0.08561s</span></dd>
+    <script type="text/javascript">moveProgressBar('96.4');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;Guide to the Bill Bytsura ACT UP Photography Collection (MSS 313)&quot;</span><span class='duration'>0.08271s</span></dd>
+  </dl>
+</div>
+<div id="div_group_67" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_67" class="passed">User</dt>
+    <script type="text/javascript">moveProgressBar('97.6');</script>
+    <dd class="example passed"><span class="passed_spec_name">should be an instance of User</span><span class='duration'>0.00400s</span></dd>
+  </dl>
+</div>
+<div id="div_group_68" class="example_group passed">
+  <dl style="margin-left: 0px;">
+  <dt id="example_group_68" class="passed">Findingaids::Ead::Component</dt>
+  </dl>
+</div>
+<div id="div_group_69" class="example_group passed">
+  <dl style="margin-left: 15px;">
+  <dt id="example_group_69" class="passed">#to_solr</dt>
+    <script type="text/javascript">moveProgressBar('98.8');</script>
+    <dd class="example passed"><span class="passed_spec_name">should include &quot;item&quot;</span><span class='duration'>0.01573s</span></dd>
+    <script type="text/javascript">moveProgressBar('100.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">should eql &quot;TEST-0001ref010&quot;</span><span class='duration'>0.01394s</span></dd>
+  </dl>
+</div>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>1.19196 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "84 examples, 0 failures";</script>
 </div>
 </div>
 </body>
 </html>
 
-Randomized with seed 9394
+Randomized with seed 40523
 
