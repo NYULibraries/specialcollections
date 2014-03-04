@@ -29,7 +29,10 @@ describe SolrDocument do
   end
   
   describe ".method_missing" do
-    
+    context "when there is no matcher" do
+      it { expect{ document.eats_cheese? }.to raise_error(NoMethodError) }
+    end
+            
     context "when document is a collection level item" do
       subject { document.is_archival_collection? }
       it { should be_true }
@@ -52,8 +55,7 @@ describe SolrDocument do
       it { expect(document.is_archival_collection?).to be_false }
       it { expect(document.is_archival_series?).to be_false }     
     end
-    
+      
   end
-  
   
 end

@@ -24,9 +24,6 @@ class SolrDocument
                          :format    => Solrizer.solr_name("format",   :displayable),
                          :subject   => Solrizer.solr_name("subject",  :displayable),
                          )
-
-
-  
   
   def normalized_format
     self[Solrizer.solr_name("format", :displayable)].first.downcase.gsub(/\s/,"_")
@@ -47,7 +44,7 @@ private
   ##
   # Check if method_id matches the is_role? schema
   def matches_dynamic_format_check?(method_id)
-   /^is_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
+    /^is_([a-zA-Z]\w*)\?$/.match(method_id.to_s)
   end
 
 end

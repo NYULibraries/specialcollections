@@ -6,22 +6,37 @@
     <profiledesc></profiledesc>
     <revisiondesc></revisiondesc>
   </eadheader>
-  <archdesc>
-    <dsc>
-      <c id="series1" level="series">
-        <did>
-          <unittitle>sample series</unittitle>
-          <unitdate>sample series date</unitdate>
-        </did>
-        <scopecontent>
-          <head>scopecontent heading</head>
-          <p>Sample scopecontent text</p>
-        </scopecontent>
-      </c>
-    </dsc>
-  </archdesc>
-  <!-- Not found in AT EAD -->
-  <frontmatter></frontmatter>
+    <archdesc level="collection">
+      <did>
+        <unittitle>Jimmy Baynes Collection (Rock and Roll Hall of Fame and Museum Collection)</unittitle>
+        <unitid>ARC.0161</unitid>
+        <repository>
+          <corpname>Library and Archives</corpname>
+        </repository>
+        <langmaterial>
+          <language langcode="eng"/>
+        </langmaterial>
+        <physdesc>
+          <extent>0.83 Linear feet</extent>
+          <extent>(2 Hollinger boxes)</extent>
+        </physdesc>
+        <unitdate>sample date</unitdate>
+        <langmaterial id="ref11" label="Language of Materials">English</langmaterial>
+      </did>
+      <dsc>
+        <c id="series1" level="series">
+          <did>
+            <unittitle>sample series</unittitle>
+            <unitdate>sample series date</unitdate>
+          </did>
+          <scopecontent>
+            <head>scopecontent heading</head>
+            <p>Sample scopecontent text</p>
+          </scopecontent>
+        </c>
+      </dsc>
+    </archdesc>
+
 </ead>
 
 
