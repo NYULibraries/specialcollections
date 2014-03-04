@@ -23,6 +23,7 @@ describe Findingaids::Ead::Component do
 
     it { expect(solr_doc["id"]).to eql("TEST-0001ref010") }
     it { expect(solr_doc[Solrizer.solr_name("level", :facetable)]).to include "item" }
+    it { expect(solr_doc[Solrizer.solr_name("location", :displayable)]).to include "Box: 1, Folder: 1" }
       
   end
   

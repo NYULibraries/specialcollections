@@ -43,23 +43,22 @@ class Findingaids::Ead::Component < SolrEad::Component
 
   end
 
-  protected
+protected
 
-  def location_display locations = Array.new
+  def location_display(locations = Array.new)
     self.container_id.each do |id|
       line = String.new
-      line << (self.find_by_xpath("//container[@id = '#{id}']/@type").text + ": ")
-      line << self.find_by_xpath("//container[@id = '#{id}']").text
+      line << "#{value("//container[@id = '#{id}']/@type")}: #{value("//container[@id = '#{id}']")}"
       sub_containers = Array.new
-      self.find_by_xpath("//container[@parent = '#{id}']").each do |sub|
-        sub_containers << sub.attribute("type").text + ": " + sub.text
+      search("//container[@parent = '#{id}']").each do |sub|
+        sub_containers << "#{sub.attribute("type").text}: #{sub.text}"
       end
-      line << (", " + sub_containers.join(", ") ) unless sub_containers.empty?
+      line << ", #{sub_containers.join(", ")}" unless sub_containers.empty?
       locations << line
     end
     return locations
   end
-
+  
   def heading_display solr_doc
     if self.title.first.blank?
       self.term_to_html("unitdate") unless self.unitdate.empty?
@@ -94,6 +93,16 @@ class Findingaids::Ead::Component < SolrEad::Component
   
   def series_sortable solr_doc
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
+  end
+  
+private
+  
+  def search(path)
+    self.find_by_xpath(path)
+  end
+  
+  def value(path)
+    search(path).text
   end
 
 end
