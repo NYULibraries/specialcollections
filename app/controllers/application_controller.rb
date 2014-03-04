@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   
   # Imitate logged in user
   def current_user_dev
-    @current_user ||= User.find_by_username("global_admin")
+    @current_user ||= User.new(:username => "admin123", :firstname => "Atila")
   end
   alias_method :current_user, :current_user_dev if Rails.env == 'development'
   

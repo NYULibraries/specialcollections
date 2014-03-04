@@ -50,5 +50,9 @@ describe Findingaids::Ead::Behaviors do
     end
     
   end
+  
+  describe ".ead_date_display" do
+    
+  end
 
 end
