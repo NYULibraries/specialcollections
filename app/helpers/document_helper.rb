@@ -104,7 +104,7 @@ module DocumentHelper
   # but accept array for multiple facets at a time
   def add_clean_facet_params_and_redirect(*fields)
     new_params = reset_facet_params(params)
-    
+
     fields.each do |field, item|
       new_params = add_facet_params(field, item, new_params)
     end
@@ -121,6 +121,7 @@ module DocumentHelper
 
     # Force action to be index. 
     new_params[:action] = "index"
+    new_params[:controller] = "catalog"
     new_params    
   end
   

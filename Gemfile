@@ -39,6 +39,7 @@ group :test do
   gem 'simplecov', :require => false
   gem 'simplecov-rcov', :require => false
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do 

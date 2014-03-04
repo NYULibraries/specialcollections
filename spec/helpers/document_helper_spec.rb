@@ -18,6 +18,12 @@ describe DocumentHelper do
   let(:heading_ssm) { ["Guide to titling finding aids"] }
   let(:ead_ssi) { "bytsura" }
   let(:highlight_field) { ead_ssi }
+  let(:parent_unittitles_ssm) { nil }
+  let(:collection_ssm) { "Bytsura Collection of Things" }
+  let(:params) do
+    {:controller => "catalog", :action => "index"}
+  end
+  let(:default_sort_hash) {{:sort => "series_si asc, box_filing_si asc"}}
   let(:solr_response) do
     Blacklight::SolrResponse.new(
     {
@@ -40,7 +46,9 @@ describe DocumentHelper do
         :custodhist_ssm => ["This field contains info"],
         :ref_ssi => ref_ssi,
         :parent_ssm => parent_ssm,
-        :heading_ssm => heading_ssm
+        :heading_ssm => heading_ssm,
+        :parent_unittitles_ssm => parent_unittitles_ssm,
+        :collection_ssm => [collection_ssm]
       }, solr_response), 
       :field => field
     }.with_indifferent_access
@@ -61,7 +69,9 @@ describe DocumentHelper do
       :controller => "catalog",
       :id => "bytsura123",
       :commit => "true",
-      :utf8 => "checky"
+      :utf8 => "checky",
+      :leftover => "Yup",
+      :smorgas => nil
     }.with_indifferent_access
   end
   
@@ -142,13 +152,9 @@ describe DocumentHelper do
   end
   
   describe ".sort_by_series" do
-    
-    let(:default_sort_hash) {{:sort => "series_si asc, box_filing_si asc"}}
-    
     it "should return a hash for sorting" do
       expect(sort_by_series).to eql(default_sort_hash)
-    end
-    
+    end  
   end
   
   describe ".document_icon" do
@@ -211,13 +217,7 @@ describe DocumentHelper do
   end
   
   describe ".sanitize_search_params" do
-    let(:local_params) do
-      source_params.merge({
-        :leftover => "Yup",
-        :smorgas => nil
-      })
-    end
-    subject { sanitize_search_params(local_params) }
+    subject { sanitize_search_params(source_params) }
     it { should eql({"leftover" => "Yup"}) }
   end
   
@@ -250,4 +250,32 @@ describe DocumentHelper do
     it { should eql({"leftover" => "Yup"}) }
   end
   
+  describe ".render_collection_facet_link" do
+    subject { render_collection_facet_link(document) }
+    let(:field) { :heading_ssm }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Guide to titling finding aids</a>" }
+  end
+  
+  describe ".render_series_facet_link" do
+    let(:field) { :parent_unittitles_ssm }
+    let(:parent_unittitles_ssm) { ["Series I", "Subseries IV"] }
+    subject { render_series_facet_link(document) }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I&amp;sort=series_si+asc%2C+box_filing_si+asc\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV&amp;sort=series_si+asc%2C+box_filing_si+asc\">Subseries IV</a>" }
+    it { expect(sanitize(subject)).to eql("Series I &gt;&gt; Subseries IV") }
+  end
+  
+  describe ".render_components_facet_link" do
+    let(:field) { :parent_unittitles_ssm }
+    let(:parent_unittitles_ssm) { ["Series I", "Subseries IV"] }
+    subject { render_components_facet_link(document[:document]) }
+    it { should eql({"f"=>{"collection_sim"=>[collection_ssm]}, "action"=>"index", "controller"=>"catalog", "sort"=>"series_si asc, box_filing_si asc"}) }
+  end
+  
+  describe ".render_components_for_series_facet_link" do
+    let(:field) { :parent_unittitles_ssm }
+    let(:title_ssm) { "Series I" }
+    subject { render_components_for_series_facet_link(document[:document]) }
+    it { should eql({"f"=>{"series_sim"=>document[:document][:title_ssm], "collection_sim"=>[collection_ssm]}, "action"=>"index", "controller"=>"catalog", "sort"=>"series_si asc, box_filing_si asc"}) }
+  end
+    
 end
