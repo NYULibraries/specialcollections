@@ -10,8 +10,8 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries-assets.git
-  revision: 634273deaae76a000da5dec0885c831728975796
-  branch: development-newheader
+  revision: eddae33cf2fc75c18b11dd629c267f2ff9bfcf10
+  tag: v2.0.6
   specs:
     nyulibraries-assets (2.0.1)
       bootstrap-sass (>= 2.2.0, < 2.3.1.1)
