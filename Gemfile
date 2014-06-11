@@ -4,8 +4,8 @@ gem 'rails', '~> 3.2.18'
 gem 'mysql2', '~> 0.3.14'
 gem 'json', '~> 1.8.1'
 gem 'coffee-rails', '~> 3.2.0'
-gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-assets.git', :tag => 'v3.0.3'
-gem 'nyulibraries-deploy', :git => 'git://github.com/NYULibraries/nyulibraries-deploy.git', :branch => 'development-fig'
+gem 'nyulibraries-deploy', :git => 'git://github.com/NYULibraries/nyulibraries-deploy.git', :tag => 'v4.0.0'
+gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-assets.git', :tag => 'v2.1.1'
 gem 'authpds-nyu', :git => 'git://github.com/NYULibraries/authpds-nyu.git', :tag => 'v1.1.3'
 gem 'rails_config', '~> 0.3.3'
 gem 'jquery-rails', '~> 3.0.4'
@@ -48,6 +48,6 @@ group :development do
   gem 'sunspot_solr'
 end
 
-gem 'rspec-rails', :group => [:test, :development]
+gem 'rspec-rails', '~> 2.14.1', :group => [:test, :development]
 gem 'pry', :group => [:test, :development]
 gem 'debugger', :groups => [:development, :test]

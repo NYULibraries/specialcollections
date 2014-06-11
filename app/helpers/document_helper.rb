@@ -1,22 +1,22 @@
 module DocumentHelper
-  
+
   ##
   # Render field value, and join as string if it's an array
   # If this field has a highlighted field, use that version, otherwise use the full field
   def render_field_item(doc)
-    (doc[:document].has_highlight_field? doc[:field]) ? 
-      doc[:document].highlight_field(doc[:field]).join(", ").html_safe : 
-        doc[:document][doc[:field]].join(", ").html_safe    
+    (doc[:document].has_highlight_field? doc[:field]) ?
+      doc[:document].highlight_field(doc[:field]).join(", ").html_safe :
+        doc[:document][doc[:field]].join(", ").html_safe
   end
 
-  
-  ## 
+
+  ##
   # Link to page from table of contents if that field has been indexed and has results
   # This is the only way to ensure that the FA has that page in it
   def link_to_toc_page(doc, label, field)
     content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], (field == "abstract") ? nil : field), {:target => "_blank"})) if field_has_results_in_document?(doc, field)
   end
-  
+
   ##
   # Find out if the field exists in the returned solr document
   # If this is one of several fields (i.e. admininfo, abstract, dsc) check a handful of subfields which are the items indexed
@@ -43,49 +43,49 @@ module DocumentHelper
     repository, eadid = doc[:repository_ssi], doc[:ead_ssi]
     link_to label, url_for_findingaid(repository, eadid, path, anchor), { :target => "_blank" }
   end
-      
+
   # Get icon from format type
   def document_icon(doc)
     doc.normalized_format
   end
-  
+
   def link_to_repository(doc)
     link_to repository_label(doc), eval("#{doc[:repository_ssi]}_path")
   end
-  
+
   def repository_label(doc)
     repositories[doc[:repository_ssi]]["display"]
   end
-  
+
   def sanitize(html)
     Sanitize.clean(html)
   end
-  
+
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
     series = doc[:document][doc[:field]]
     collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
     links_to_series = []
-  
+
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]).merge(sort_by_series))
     end
     [links_to_series].join(" >> ").html_safe
   end
-  
+
   ##
   # Render clean link to components
   def render_components_facet_link(doc)
     add_clean_facet_params_and_redirect([collection_facet, doc[Solrizer.solr_name("collection", :displayable)].first]).merge(sort_by_series)
   end
 
-  ## 
+  ##
   # Render clean link to components for series
   def render_components_for_series_facet_link(doc)
     collection = doc[Solrizer.solr_name("collection", :displayable)].first
     title = doc[Solrizer.solr_name("title", :displayable)].first
-    
+
     add_clean_facet_params_and_redirect([series_facet, title],[collection_facet, collection]).merge(sort_by_series)
   end
 
@@ -98,7 +98,7 @@ module DocumentHelper
 
     link_to doc[:document][doc[:field]].first, local_params
   end
-  
+
   ##
   # Implement blacklight function to add facet parameters into array for redirect
   # but accept array for multiple facets at a time
@@ -109,36 +109,36 @@ module DocumentHelper
       new_params = add_facet_params(field, item, new_params)
     end
 
-    # Delete page, if needed. 
+    # Delete page, if needed.
     new_params.delete(:page)
 
     # Delete any request params from facet-specific action, needed
-    # to redir to index action properly. 
-    Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key| 
+    # to redir to index action properly.
+    Blacklight::Solr::FacetPaginator.request_keys.values.each do |paginator_key|
       new_params.delete(paginator_key)
     end
     new_params.delete(:id)
 
-    # Force action to be index. 
+    # Force action to be index.
     new_params[:action] = "index"
     new_params[:controller] = "catalog"
-    new_params    
+    new_params
   end
-  
+
   ##
   # Hash with sorting parameters for merging into facet redirect
   def sort_by_series
     {:sort => "#{Solrizer.solr_name("series", :sortable)} asc, #{Solrizer.solr_name("box_filing", :sortable)} asc"}
   end
-  
-  def collection_facet 
+
+  def collection_facet
     @collection_facet ||= facet_name("collection")
   end
-  
+
   def format_facet
     @format_facet ||= facet_name("format")
   end
-  
+
   def series_facet
     @series_facet ||= facet_name("series")
   end
@@ -148,7 +148,7 @@ module DocumentHelper
   def facet_name(field)
     Solrizer.solr_name(field, :facetable)
   end
-  
+
   ##
   # NOTE: Stole from Blacklight 5, can remove after update
   # Sanitize the search parameters by removing unnecessary parameters
@@ -172,5 +172,5 @@ module DocumentHelper
   def reset_facet_params(source_params)
     reset_search_params(source_params.except(:f))
   end
-  
+
 end

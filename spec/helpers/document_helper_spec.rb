@@ -15,7 +15,8 @@ describe DocumentHelper do
   let(:ref_ssi) { nil }
   let(:parent_ssm) { nil }
   let(:format_ssm) { "Archival Collection" }
-  let(:heading_ssm) { ["Guide to titling finding aids"] }
+  let(:heading) { "Guide to titling finding aids" }
+  let(:heading_ssm) { [heading] }
   let(:ead_ssi) { "bytsura" }
   let(:highlight_field) { ead_ssi }
   let(:parent_unittitles_ssm) { nil }
@@ -128,7 +129,7 @@ describe DocumentHelper do
 
   describe ".link_to_document" do
 
-    subject { link_to_document(collection) }
+    subject { link_to_document(collection, { label: heading }) }
     let(:collection) { document[:document] }
 
     context "when document is a collection level item" do
