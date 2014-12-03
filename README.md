@@ -13,7 +13,7 @@ Finding Aids uses the [solr_ead](https://github.com/awead/solr_ead) gem to index
 
 ## See it in action!
 
-Visit <http://webdev3.library.nyu.edu/findingaids>
+Visit https://webdev3.library.nyu.edu/findingaids
 
 ## Use with WebSolr
 
