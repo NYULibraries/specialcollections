@@ -64,6 +64,7 @@ gem 'sanitize', '~> 2.1.0'
 
 # Transition gems
 gem 'protected_attributes', '~> 1.0.8'
+gem 'exlibris-aleph', github: 'barnabyalter/exlibris-aleph'
 # Use AuthPDS for authentication and authorization
 gem 'authpds', github: 'barnabyalter/authpds'
 gem 'authpds-nyu', github: 'barnabyalter/authpds-nyu'
