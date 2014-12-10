@@ -74,12 +74,15 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', '~> 0.9.1', require: false
-  gem 'simplecov-rcov', '~> 0.2.3', require: false
+  gem 'cucumber-rails', require: false
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
   gem 'coveralls', '~> 0.7.0', require: false
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.20.0'
-  gem 'database_cleaner', '~> 1.2.0'
+  gem 'selenium-webdriver', '~> 2.43.0'
+  gem 'pickle', '~> 0.4.11'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'factory_girl_rails', '~> 4.5.0'
   gem 'rspec-rails', '~> 2.14.2'
 end
