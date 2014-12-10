@@ -525,7 +525,7 @@ DEPENDENCIES
   mustache (= 0.99.4)
   mustache-rails!
   mysql2 (~> 0.3.16)
-  newrelic_rpm
+  newrelic_rpm (~> 3.6)
   nyulibraries-assets!
   protected_attributes (~> 1.0.8)
   pry

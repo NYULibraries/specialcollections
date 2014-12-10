@@ -31,8 +31,6 @@ gem 'compass-rails', '~> 2.0.0'
 gem 'mustache', '0.99.4'
 gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie', tag: 'v0.2.3'
 
-# gem 'json', '~> 1.8.1'
-
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.1.2'
 
@@ -51,7 +49,7 @@ gem 'sorted', '~> 1.0.0'
 gem 'dalli', '~> 2.7.0'
 
 # New Recic for tracking performance
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '~> 3.6'
 
 # Comma to download CSV
 gem 'comma', '~> 3.2.0'
