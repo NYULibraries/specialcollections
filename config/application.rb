@@ -2,6 +2,12 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# Load the figs variables before the rest of the bundle
+# so we can use env vars in other gems
+require 'figs'
+# Don't run this initializer on travis.
+Figs.load(stage: Rails.env) unless ENV['TRAVIS']
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -20,6 +26,7 @@ module Findingaids
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.autoload_paths += Dir["#{config.root}/lib/**/"]
+    # Autoload the lib path
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end

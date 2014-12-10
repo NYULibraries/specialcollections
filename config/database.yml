@@ -1,16 +1,34 @@
-development: &development
+mysql: &mysql
   adapter: mysql2
-  host: <%= Settings.databases.host %>  
-  database: <%= Settings.databases.database %>
-  username: <%= Settings.databases.username %>
-  password: <%= Settings.databases.password %>
   encoding: utf8
 
-production:
-  <<: *development
+findingaids: &findingaids
+  <<: *mysql
+  host: <%= (ENV['FINDINGAIDS_DB_HOST'] || 'localhost') %>
+  username: <%= (ENV['FINDINGAIDS_DB_USER'] || 'root') %>
+  password: <%= (ENV['FINDINGAIDS_DB_PASSWORD'] || '') %>
+  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'access_grid') %>
+
+development: &development
+  <<: *findingaids
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+  <<: *findingaids
+  username: <%= (ENV['FINDINGAIDS_DB_USER'] || ENV['JENKINS_DB_USER'] || 'root') %>
+  password: <%= (ENV['FINDINGAIDS_DB_PASSWORD'] || ENV['JENKINS_DB_PASSWORD'] || '') %>
+  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'access_grid_test') %>
+
+cucumber:
+  <<: *test
 
 staging:
-  <<: *development
+  <<: *findingaids
 
-test:
-  <<: *development
+qa:
+  <<: *findingaids
+
+production:
+  <<: *findingaids

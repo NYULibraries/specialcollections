@@ -24,7 +24,7 @@ RSpec.configure do |config|
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  
+
   config.include FactoryGirl::Syntax::Methods
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -48,7 +48,7 @@ VCR.configure do |c|
   c.cassette_library_dir = 'spec/vcr_cassettes'
   c.configure_rspec_metadata!
   c.hook_into :webmock
-  c.filter_sensitive_data("http://localhost:8981/solr") { Settings.solr.url }
+  c.filter_sensitive_data("http://localhost:8981/solr") { ENV['SOLR_URL'] }
 end
 
 def ead_fixture file
