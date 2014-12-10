@@ -1,8 +1,0 @@
-development: &development
-  url: <%= Settings.solr.url %>
-staging:
-  <<: *development
-production:
-  <<: *development
-test:
-  <<: *development
