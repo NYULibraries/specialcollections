@@ -4,10 +4,7 @@ before_script:
   - mysql -e 'create database nyu_findingaids_test;'
   - bundle exec rake db:schema:load
   - bundle exec rake db:migrate
-  
+
 rvm:
   - 1.9.3
   - 2.0.0
-  
-git:
-  submodules: false

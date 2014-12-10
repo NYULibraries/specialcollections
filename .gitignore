@@ -29,6 +29,3 @@
 
 public/fa
 data/
-
-spec/out.html# Ignore application configuration
-application.yml
