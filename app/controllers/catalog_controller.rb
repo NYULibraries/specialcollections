@@ -4,7 +4,7 @@ require 'blacklight/catalog'
 class CatalogController < ApplicationController
 
   include Findingaids::Catman
-  
+
   configure_blacklight do |config|
     config.default_solr_params = {
       :qt => "",
@@ -24,7 +24,7 @@ class CatalogController < ApplicationController
       :ps => 50,
       :defType => "edismax"
     }
-    
+
     config.default_document_solr_params = {
       :qt => "",
       ("hl.fl").to_sym => hl_fields,
@@ -37,15 +37,9 @@ class CatalogController < ApplicationController
       :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
     }
 
-    # solr field configuration for search results/index views
-    config.index.show_link = solr_name("heading", :displayable)
-    config.index.record_display_type = solr_name("format", :displayable)
+    config.index.title_field = solr_name("heading", :displayable)
+    config.index.display_type_field = solr_name("format", :displayable)
 
-    # solr field configuration for document/show views
-    config.show.html_title = solr_name("heading", :displayable)
-    config.show.heading = solr_name("heading", :displayable)
-    config.show.display_type = solr_name("format", :displayable)
-    
     config.add_field_configuration_to_solr_request!
 
     # solr fields that will be treated as facets by the blacklight application
@@ -69,17 +63,17 @@ class CatalogController < ApplicationController
     #config.add_facet_field solr_name("material",   :facetable), :label => "Archival Material",  :limit => 20
     config.add_facet_field solr_name("name",       :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",    :facetable), :label => "Subject",            :limit => 20
-    config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20    
+    config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20
     config.add_facet_field solr_name("series",     :facetable), :label => "Series",             :limit => 20
     config.add_facet_field solr_name("pub_date",   :facetable), :label => "Publication Date",   :limit => 20
     config.add_facet_field solr_name("language",   :facetable), :label => "Language",           :limit => true
-    
+
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
     # handler defaults, or have no facets.
     config.add_facet_fields_to_solr_request!
-    
-    
+
+
     # ------------------------------------------------------------------------------------------
     #
     # Index view fields
@@ -87,30 +81,30 @@ class CatalogController < ApplicationController
     # ------------------------------------------------------------------------------------------
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field solr_name("title",             :displayable),  :label => "Title:", 
+    config.add_index_field solr_name("title",             :displayable),  :label => "Title:",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
-                                                                          
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:", 
+
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
-    
+
     config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
                                                                           :helper_method => :render_field_item
 
     config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
                                                                           :helper_method => :render_field_item
-                                                                          
+
     config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher:",
                                                                           :helper_method => :render_field_item
 
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates:",
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection:", 
+    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection:",
                                                                           :helper_method => :render_collection_facet_link,
                                                                           :highlight => true
-                                                                         
+
     config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series:",
                                                                           :highlight => true,
                                                                           :helper_method => :render_series_facet_link
@@ -118,7 +112,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("location",          :displayable),  :label => "Location:",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
-                                                                          
+
     # ------------------------------------------------------------------------------------------
     #
     # Show view fields (individual record)
@@ -127,12 +121,12 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the show (single result) view
     # The ordering of the field names is the order of the display
     # None of these fields apply to ead documents or components
-   
-    #config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:", 
+
+    #config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:",
     #                                                                :helper_method => :render_facet_link,
     #                                                                :facet         => solr_name("collection", :facetable),
     #                                                                :highlight     => true
-    
+
 
 
     # "sort results by" select (pulldown)
@@ -147,17 +141,17 @@ class CatalogController < ApplicationController
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
     config.spell_max = 5
-  
+
     config.add_search_field "all_fields", :label => "All Collections"
-  
+
     ##
     # Add repository field query from config file
     repositories.each do |coll|
       config.add_search_field(coll.last["display"],
-        :label => coll.last["display"], 
+        :label => coll.last["display"],
         :solr_parameters => { :fq => "repository_ssi:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
         )
     end
   end
-  
+
 end

@@ -19,13 +19,13 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.controlaccess(:path => "archdesc/controlaccess", :index_as=>[:searchable, :displayable])
     t.scopecontent(:path=>"archdesc/scopecontent/p", :index_as=>[:searchable, :displayable])
     t.index(:path=>"archdesc/index", :index_as=>[:searchable, :displayable])
-    
+
     # These are component level items indexed into the document as fulltext searchable fields
     # so Blacklight can search it at the top level. Once this simple search is done we can search
     # the components which are individually indexed by solr_ead to get additional info
     #t.unittitle(:path=>"archdesc/dsc//c[@level='file' or @level='item']/did/unittitle", :index_as=>[:searchable, :displayable])
     #t.odd(:path=>"archdesc/dsc//c[@level='file' or @level='item']/odd", :index_as=>[:searchable, :displayable])
-    
+
     t.title_filing(:path=>"archdesc[@level='collection']/did/unittitle", :index_as=>[:sortable])
     t.date_filing(:path=>"archdesc/unitdate[@type='inclusive']/@normal", :index_as=>[:sortable])
 
@@ -36,7 +36,7 @@ class Findingaids::Ead::Document < SolrEad::Document
   def to_solr(solr_doc = Hash.new)
     super(solr_doc)
 
-    solr_doc.merge!("repository_ssi" => format_repository)
+    solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
 
     Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.title_num.empty?
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable)
@@ -45,7 +45,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "unitdate",     ead_date_display,       :displayable)
     Solrizer.insert_field(solr_doc, "contributors", get_ead_names,          :displayable)
     Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
-    
+
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :facetable)
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :displayable)
     Solrizer.set_field(solr_doc, "subject",         get_ead_subject_facets,      :facetable)
