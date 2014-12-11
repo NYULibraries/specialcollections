@@ -1,9 +1,16 @@
-<%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace"), true) do %>
-  <ul>
-      <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
-  <% if current_user %>
-      <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+<%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace")) do %>
+<ul>
+  <% if render_bookmarks_control? %>
+  <li>
+    <%= link_to bookmarks_path, id:'bookmarks_nav' do %>
+    <%= t('blacklight.header_links.bookmarks') %>
+    (<span data-role='bookmark-counter'><%= current_or_guest_user.bookmarks.count %></span>)
+    <% end %>
+  </li>
   <% end %>
-      <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
-  </ul>
+  <% if current_user %>
+  <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+  <% end %>
+  <li><%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
+</ul>
 <% end %>
