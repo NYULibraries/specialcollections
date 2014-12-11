@@ -267,8 +267,6 @@ GEM
       cucumber (>= 0.8)
       rake
     polyglot (0.3.5)
-    protected_attributes (1.0.8)
-      activemodel (>= 4.0.1, < 5.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -570,7 +568,6 @@ DEPENDENCIES
   newrelic_rpm (~> 3.6)
   nyulibraries-assets!
   pickle (~> 0.4.11)
-  protected_attributes (~> 1.0.8)
   pry
   rails (~> 4.1.0)
   rspec-rails (~> 2.14.2)

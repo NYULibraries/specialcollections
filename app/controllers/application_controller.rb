@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  layout 'blacklight'
-
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
   include Findingaids::Catman
@@ -19,7 +17,7 @@ class ApplicationController < ActionController::Base
   def current_user_dev
     @current_user ||= User.new(:username => "admin123", :firstname => "Atila")
   end
-  alias_method :current_user, :current_user_dev if Rails.env == 'development'
+  # alias_method :current_user, :current_user_dev if Rails.env.development?
 
   ##
   # Alias class method from catalog controller, gotta be a better way hmm?
