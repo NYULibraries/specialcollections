@@ -35,7 +35,7 @@ gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie'
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.1.2'
 
 # Deploy the application with Formaggio deploy recipes
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.0.1'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 5.7.2'
