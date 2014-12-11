@@ -1,6 +1,6 @@
 Findingaids::Application.routes.draw do
 
-  Blacklight.add_routes(self)
+  blacklight_for :catalog
 
   root :to => "catalog#index"
 
