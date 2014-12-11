@@ -88,4 +88,4 @@ group :test do
 end
 
 gem 'pry', group: [:test, :development]
-gem 'sunspot_solr', '~> 2.1.1', group: [:test, :development]
+gem 'jettywrapper', '~> 1.7', group: [:test, :development]

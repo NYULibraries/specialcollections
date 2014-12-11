@@ -216,6 +216,11 @@ GEM
       ipaddr_range_set (~> 0.10.0)
       require_all (~> 1.3.1)
     ipaddr_range_set (0.10.0)
+    jettywrapper (1.8.3)
+      activesupport (>= 3.0.0)
+      childprocess
+      i18n
+      logger
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -226,6 +231,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     libv8 (3.16.14.7)
+    logger (1.2.8)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -359,7 +365,6 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     stomp (1.3.4)
-    sunspot_solr (2.1.1)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
     therubyracer (0.12.1)
@@ -556,6 +561,7 @@ DEPENDENCIES
   exlibris-aleph!
   factory_girl_rails (~> 4.5.0)
   formaggio!
+  jettywrapper (~> 1.7)
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 5.0.2)
   mustache (= 0.99.4)
@@ -575,7 +581,6 @@ DEPENDENCIES
   simplecov-rcov
   solr_ead (~> 0.7.2)
   sorted (~> 1.0.0)
-  sunspot_solr (~> 2.1.1)
   therubyracer (~> 0.12.0)
   uglifier (~> 2.5.0)
   unicode (~> 0.4.4)
