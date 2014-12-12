@@ -34,7 +34,7 @@ class Findingaids::Ead::Document < SolrEad::Document
   end
 
   def to_solr(solr_doc = Hash.new)
-    super(solr_doc)
+    solr_doc = super(solr_doc)
 
     solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
 
