@@ -13,6 +13,7 @@
 .DS_Store
 
 public/fa
+public/assets
 data/
 findingaids_eads/
 .pid
