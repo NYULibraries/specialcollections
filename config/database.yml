@@ -7,7 +7,7 @@ findingaids: &findingaids
   host: <%= (ENV['FINDINGAIDS_DB_HOST'] || 'localhost') %>
   username: <%= (ENV['FINDINGAIDS_DB_USER'] || 'root') %>
   password: <%= (ENV['FINDINGAIDS_DB_PASSWORD'] || '') %>
-  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'access_grid') %>
+  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'findingaids') %>
 
 development: &development
   <<: *findingaids
@@ -19,7 +19,7 @@ test: &test
   <<: *findingaids
   username: <%= (ENV['FINDINGAIDS_DB_USER'] || ENV['JENKINS_DB_USER'] || 'root') %>
   password: <%= (ENV['FINDINGAIDS_DB_PASSWORD'] || ENV['JENKINS_DB_PASSWORD'] || '') %>
-  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'access_grid_test') %>
+  database: <%= (ENV['FINDINGAIDS_DB_DATABASE'] || 'findingaids_test') %>
 
 cucumber:
   <<: *test
