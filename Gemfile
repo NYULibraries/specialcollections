@@ -56,6 +56,7 @@ gem 'comma', '~> 3.2.0'
 
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.2'
+# gem 'solr_ead', path: '/apps/solr_ead'
 
 # HTML sanitizer
 gem 'sanitize', '~> 2.1.0'

@@ -2,13 +2,13 @@
 require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
-
-  include Findingaids::Catman
+  include Blacklight::Catalog
+  include Findingaids::Solr::CatalogHelpers
 
   configure_blacklight do |config|
     config.default_solr_params = {
-      :qt => "",
-      :rows => 10,
+      :qt => "search",
+      :fl => display_fields,
       :qf => pf_fields,
       :pf => pf_fields,
       "hl.fragsize" => 0,
@@ -26,12 +26,12 @@ class CatalogController < ApplicationController
     }
 
     config.default_document_solr_params = {
-      :qt => "",
+      :qt => "document",
       ("hl.fl").to_sym => hl_fields,
       ("hl.simple.pre").to_sym => '<span class="label label-info">',
       ("hl.simple.post").to_sym => "</span>",
       :hl => true,
-      :fl => "*",
+      :fl => display_fields,
       :rows => 1,
       :echoParams => "all",
       :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
