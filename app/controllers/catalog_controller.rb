@@ -81,35 +81,35 @@ class CatalogController < ApplicationController
     # ------------------------------------------------------------------------------------------
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field solr_name("title",             :displayable),  :label => "Title:",
+    config.add_index_field solr_name("title",             :displayable),  :label => "Title",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract:",
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("format",            :displayable),  :label => "Format:",
+    config.add_index_field solr_name("format",            :displayable),  :label => "Format",
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("language",          :displayable),  :label => "Language:",
+    config.add_index_field solr_name("language",          :displayable),  :label => "Language",
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher:",
+    config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher",
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates:",
+    config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates",
                                                                           :helper_method => :render_field_item
 
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection:",
+    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection",
                                                                           :helper_method => :render_collection_facet_link,
                                                                           :highlight => true
 
-    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series:",
+    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series",
                                                                           :highlight => true,
                                                                           :helper_method => :render_series_facet_link
 
-    config.add_index_field solr_name("location",          :displayable),  :label => "Location:",
+    config.add_index_field solr_name("location",          :displayable),  :label => "Location",
                                                                           :highlight => true,
                                                                           :helper_method => :render_field_item
 
@@ -122,7 +122,7 @@ class CatalogController < ApplicationController
     # The ordering of the field names is the order of the display
     # None of these fields apply to ead documents or components
 
-    #config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection:",
+    #config.add_show_field solr_name("collection",   :displayable),  :label         => "Archival Collection",
     #                                                                :helper_method => :render_facet_link,
     #                                                                :facet         => solr_name("collection", :facetable),
     #                                                                :highlight     => true
