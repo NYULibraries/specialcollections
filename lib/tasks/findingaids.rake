@@ -33,7 +33,7 @@ namespace :findingaids do
         Dir.glob(File.join(ENV['EAD'],"*")).each do |file|
           print "Indexing #{File.basename(file)}: "
           begin
-            indexer.create(file)
+            indexer.update(file)
             #Findingaids::Ead::Indexing.ead_to_html(file)
             #Findingaids::Ead::Indexing.toc_to_json(File.new(file))
             #FileUtils.cp(file, Rails.configuration.findingaids_config[:ead_path])
@@ -43,7 +43,7 @@ namespace :findingaids do
           end
         end
       else
-        indexer.create(ENV['EAD'])
+        indexer.update(ENV['EAD'])
         #Findingaids::Ead::Indexing.ead_to_html(ENV['EAD'])
         #Findingaids::Ead::Indexing.toc_to_json(File.new(ENV['EAD']))
         #FileUtils.cp(ENV['EAD'], Rails.configuration.findingaids_config[:ead_path])
