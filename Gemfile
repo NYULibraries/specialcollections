@@ -38,7 +38,7 @@ gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
 
 # Use Blacklight for searching Solr
-gem 'blacklight', '~> 5.7.2'
+gem 'blacklight', '~> 5.8.0'
 
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
