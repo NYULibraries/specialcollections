@@ -22,96 +22,98 @@
   border-top-right-radius: 0;
   height: 2.5em;
 }
-// Hide "Search" text on phones
-.submit-search-text {
-  @media screen and (max-width: $screen-xs-min ) {
-    display: none;
-  }
+form.search-query-form {
+  margin-bottom: 1.5em;
 }
-.search-query-form {
-  .form-group-addon {
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: transparent;
-    select {
-      height: 2.5em;
-      margin-right: 1em;
-    }
-  }
+select#search_field {
+  height: 2.5em !important;
+  width: 30%;
+  float: left;
+}
+.search-input-group {
+  width: 70%;
+  float: left;
+  padding-left: 1em;
 }
 button.search-btn {
   height: 2.5em;
-  border-bottom-right-radius: 4px !important;
-  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
 }
 .btn.btn-primary {
-  background-color: $nyu-purple !important;
-  border-color: $nyu-purple !important;
+  background-color: $nyu-purple;
+  border-color: $nyu-purple;
 }
-
-.toggle_bookmark {
-  margin: 0;
-}
-form label {
-  margin-left: 0;
-}
-table.search_history {
-  margin-top: 1em;
-}
-
-.icon_image {
-  margin-right: 5px;
-}
-
-.index_title {
-  max-width: inherit;
-  width: 80%;
-}
-
-.pagination, .nyu-pagination {
-  text-align: left;
-}
-
-input[type='file'] {
-  line-height: 12px;
-}
-
-.highlight {
-  color: #c09853;
-  background-color: #fcf8e3;
-  padding: 0;
-}
-
-.rounded {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.document {
-  border-bottom: 1px solid #efefef;
-  dl dd {
-    a {
-      display: inline;
-      color: #333;
-      border-bottom: 1px dotted #999;
-      &:hover {
-        text-decoration: none;
-      }
-    }
-    &.blacklight-unittitle_t,
-    &.blacklight-odd_t {
-      a {
-        display: block;
-        margin-bottom: 5px;
-      }
-    }
-  }
-}
-
+//
+// .toggle_bookmark {
+//   margin: 0;
+// }
+// form label {
+//   margin-left: 0;
+// }
+// table.search_history {
+//   margin-top: 1em;
+// }
+//
+// .icon_image {
+//   margin-right: 5px;
+// }
+//
+// .index_title {
+//   max-width: inherit;
+//   width: 80%;
+// }
+//
+// .pagination, .nyu-pagination {
+//   text-align: left;
+// }
+//
+// input[type='file'] {
+//   line-height: 12px;
+// }
+//
+// .highlight {
+//   color: #c09853;
+//   background-color: #fcf8e3;
+//   padding: 0;
+// }
+//
+// .rounded {
+//   -webkit-border-radius: 4px;
+//   -moz-border-radius: 4px;
+//   border-radius: 4px;
+// }
+//
+// .document {
+//   border-bottom: 1px solid #efefef;
+//   dl dd {
+//     a {
+//       display: inline;
+//       color: #333;
+//       border-bottom: 1px dotted #999;
+//       &:hover {
+//         text-decoration: none;
+//       }
+//     }
+//     &.blacklight-unittitle_t,
+//     &.blacklight-odd_t {
+//       a {
+//         display: block;
+//         margin-bottom: 5px;
+//       }
+//     }
+//   }
+// }
+//
 @media (max-width: 480px) {
-  #search_field {
-    display: block;
+  select#search_field {
+    width: 100%;
+    float: none;
+    margin-bottom: .5em;
+  }
+  .search-input-group {
+    width: 100%;
+    float: none;
+    padding-left: 0;
   }
 }
