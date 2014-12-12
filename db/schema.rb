@@ -9,30 +9,33 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121221162105) do
+ActiveRecord::Schema.define(version: 20141210211418) do
 
-  create_table "bookmarks", :force => true do |t|
-    t.integer  "user_id",     :null => false
+  create_table "bookmarks", force: true do |t|
+    t.integer  "user_id",       null: false
     t.string   "document_id"
     t.string   "title"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "user_type"
+    t.string   "document_type"
   end
 
-  create_table "searches", :force => true do |t|
+  add_index "bookmarks", ["user_id"], name: "index_bookmarks_on_user_id", using: :btree
+
+  create_table "searches", force: true do |t|
     t.text     "query_params"
     t.integer  "user_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "user_type"
   end
 
-  add_index "searches", ["user_id"], :name => "index_searches_on_user_id"
+  add_index "searches", ["user_id"], name: "index_searches_on_user_id", using: :btree
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "username"
     t.string   "email"
     t.string   "firstname"
@@ -50,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20121221162105) do
     t.string   "current_login_ip"
     t.text     "user_attributes"
     t.datetime "refreshed_at"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end

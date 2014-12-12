@@ -1,13 +1,36 @@
 language: ruby
 
-before_script:
-  - mysql -e 'create database nyu_findingaids_test;'
-  - bundle exec rake db:schema:load
-  - bundle exec rake db:migrate
-  
+services:
+  - memcached
+
+env: FINDINGAIDS_FULL_HOST="dlib.nyu.edu" FINDINGAIDS_FULL_PATH="/findingaids/html" FINDINGAIDS_FULL_DEFAULT_EXTENSION="html"
+
 rvm:
-  - 1.9.3
   - 2.0.0
-  
-git:
-  submodules: false
+  - 2.1.0
+  - 2.1.5
+
+before_script:
+  - mysql -e 'create database findingaids_test;'
+  - RAILS_ENV=test bundle exec rake db:schema:load
+  - bundle exec rake findingaids:jetty:install
+  - bundle exec rake jetty:start
+  - sleep 10
+
+after_script:
+  - bundle exec rake jetty:stop
+
+bundler_args: --without development
+
+script: "RAILS_ENV=test bundle exec rake"
+
+notifications:
+  irc:
+    channels:
+      - "irc.freenode.org#libtechnyu"
+    template:
+      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}"
+      - "Change view : %{compare_url}"
+      - "Build details : %{build_url}"
+  email:
+    - web.services@library.nyu.edu

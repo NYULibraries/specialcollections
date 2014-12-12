@@ -17,9 +17,9 @@ class Findingaids::Ead::Component < SolrEad::Component
   end
 
   def to_solr(solr_doc = Hash.new)
-    super(solr_doc)
-    solr_doc.merge!("repository_ssi" => format_repository)
-    
+    solr_doc = super(solr_doc)
+    solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
+
     Solrizer.insert_field(solr_doc, "format",     format_filing(solr_doc),                      :sortable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :displayable)
@@ -40,7 +40,7 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     # Set lanuage codes
     solr_doc.merge!(ead_language_fields)
-
+    solr_doc
   end
 
 protected
@@ -58,7 +58,7 @@ protected
     end
     return locations
   end
-  
+
   def heading_display solr_doc
     if self.title.first.blank?
       self.term_to_html("unitdate") unless self.unitdate.empty?
@@ -78,29 +78,29 @@ protected
   def collection_name solr_doc
     solr_doc[Solrizer.solr_name("collection", :facetable)].strip
   end
-  
+
   def format_display
     (self.title.first =~ /\ASeries|Subseries/) ? "Archival Series" : "Archival Item"
   end
-  
+
   def format_filing solr_doc
     (([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten).length
   end
-  
+
   def series_facets solr_doc
     solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)] unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
-  
+
   def series_sortable solr_doc
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
-  
+
 private
-  
+
   def search(path)
     self.find_by_xpath(path)
   end
-  
+
   def value(path)
     search(path).text
   end

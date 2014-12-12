@@ -3,7 +3,26 @@ require "solr_ead"
 require "findingaids"
 
 namespace :findingaids do
-  
+
+  namespace :jetty do
+    desc "Copies the default SOLR config for the bundled jetty"
+    task :config_solr do
+      FileList['solr/conf/*'].each do |f|
+        cp("#{f}", Rails.root.join('jetty','solr','blacklight-core','conf',"#{File.basename(f)}"), verbose: true)
+      end
+      cp('solr/solr.xml', Rails.root.join('jetty','solr','solr.xml'), verbose: true)
+      mv(Rails.root.join('jetty','solr','blacklight-core'), Rails.root.join('jetty','solr','development-core'))
+      cp_r(Rails.root.join('jetty','solr','development-core'), Rails.root.join('jetty','solr','test-core'))
+    end
+
+    desc 'Download a clean jetty for development and copy the customized schema.xml into it'
+    task :install do
+      Rake::Task["jetty:clean"].execute
+      # Copying custom conf to generated jetty solr
+      Rake::Task["findingaids:jetty:config_solr"].execute
+    end
+  end
+
   namespace :ead do
 
     desc "Index ead into solr and create both html and json"
@@ -56,7 +75,7 @@ namespace :findingaids do
         Findingaids::Ead::Indexing.toc_to_json(File.new(ENV['EAD']))
       end
     end
-    
+
     desc "Reindex only the files in the data repository that have changed since the last commit"
     task :index_changed => :environment do
       indexer = SolrEad::Indexer.new(:document=>Findingaids::Ead::Document, :component=>Findingaids::Ead::Component)
@@ -70,7 +89,7 @@ namespace :findingaids do
         status, file = committed_file.split("\t")
         # Get full file path from app root
         file = File.join("data", file)
-        # Repository is set from EAD env, assuming creating from the command line 
+        # Repository is set from EAD env, assuming creating from the command line
         # with a passed in param EAD=(filename)
         ENV['EAD'] = file
         # If file exists...

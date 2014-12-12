@@ -1,0 +1,6 @@
+default:
+  jetty_port: <%= ENV['TEST_JETTY_PORT'] || 8983 %>
+  java_opts:
+    - "-XX:MaxPermSize=128m"
+    - "-Xmx256m"
+  <%= ENV['TEST_JETTY_PATH'] ? "jetty_home: " + ENV['TEST_JETTY_PATH'] : '' %>
