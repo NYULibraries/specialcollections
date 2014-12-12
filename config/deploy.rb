@@ -1,4 +1,5 @@
-require 'nyulibraries/deploy/capistrano'
+require 'formaggio/capistrano'
+
 set :app_title, "findingaids"
 
 namespace :deploy do
