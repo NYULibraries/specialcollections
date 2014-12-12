@@ -3,6 +3,8 @@ language: ruby
 services:
   - memcached
 
+env: FINDINGAIDS_FULL_HOST="dlib.nyu.edu" FINDINGAIDS_FULL_PATH="/findingaids/html" FINDINGAIDS_FULL_DEFAULT_EXTENSION="html"
+
 rvm:
   - 2.0.0
   - 2.1.0
