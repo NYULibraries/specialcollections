@@ -44,67 +44,67 @@ button.search-btn {
   background-color: $nyu-purple;
   border-color: $nyu-purple;
 }
-//
-// .toggle_bookmark {
-//   margin: 0;
-// }
-// form label {
-//   margin-left: 0;
-// }
-// table.search_history {
-//   margin-top: 1em;
-// }
-//
-// .icon_image {
-//   margin-right: 5px;
-// }
-//
-// .index_title {
-//   max-width: inherit;
-//   width: 80%;
-// }
-//
-// .pagination, .nyu-pagination {
-//   text-align: left;
-// }
-//
-// input[type='file'] {
-//   line-height: 12px;
-// }
-//
-// .highlight {
-//   color: #c09853;
-//   background-color: #fcf8e3;
-//   padding: 0;
-// }
-//
-// .rounded {
-//   -webkit-border-radius: 4px;
-//   -moz-border-radius: 4px;
-//   border-radius: 4px;
-// }
-//
-// .document {
-//   border-bottom: 1px solid #efefef;
-//   dl dd {
-//     a {
-//       display: inline;
-//       color: #333;
-//       border-bottom: 1px dotted #999;
-//       &:hover {
-//         text-decoration: none;
-//       }
-//     }
-//     &.blacklight-unittitle_t,
-//     &.blacklight-odd_t {
-//       a {
-//         display: block;
-//         margin-bottom: 5px;
-//       }
-//     }
-//   }
-// }
-//
+
+.toggle_bookmark {
+  margin: 0;
+}
+form label {
+  margin-left: 0;
+}
+table.search_history {
+  margin-top: 1em;
+}
+
+.icon_image {
+  margin-right: 5px;
+}
+
+.index_title {
+  max-width: inherit;
+  width: 80%;
+}
+
+.pagination, .nyu-pagination {
+  text-align: left;
+}
+
+input[type='file'] {
+  line-height: 12px;
+}
+
+.highlight {
+  color: #c09853;
+  background-color: #fcf8e3;
+  padding: 0;
+}
+
+.rounded {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.document {
+  border-bottom: 1px solid #efefef;
+  dl dd {
+    a {
+      display: inline;
+      color: #333;
+      border-bottom: 1px dotted #999;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &.blacklight-unittitle_t,
+    &.blacklight-odd_t {
+      a {
+        display: block;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
 @media (max-width: 480px) {
   select#search_field {
     width: 100%;
