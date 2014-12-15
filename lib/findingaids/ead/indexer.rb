@@ -8,13 +8,17 @@ class Findingaids::Ead::Indexer
     Blacklight.solr.commit
   end
 
-  attr_accessor :indexer
+  attr_accessor :indexer, :data_path
 
-  def initialize
+  def initialize(data_path="data")
+    @data_path = data_path
     @indexer = SolrEad::Indexer.new(document: Findingaids::Ead::Document, component: Findingaids::Ead::Component)
   end
 
   def index(file)
+    if file.blank?
+      raise ArgumentError.new("Expecting #{file} to be a file or directory")
+    end
     unless File.directory?(file)
       update(file)
     else
@@ -27,21 +31,24 @@ class Findingaids::Ead::Indexer
   def reindex_changed
     changed_files.each do |file|
       status, filename = file.split("\t")
-      fullpath = File.join("data", filename)
+      fullpath = File.join(data_path, filename)
       update_or_delete(fullpath)
     end
   end
 
 private
 
+  # Get the sha for the last commit
   def last_commit
-    @last_commit ||= `cd data && git log --pretty=format:'%h' -1 && cd ..`
+    @last_commit ||= `cd #{data_path} && git log --pretty=format:'%h' -1 && cd ..`
   end
 
+  # Get list of files changed since last commit
   def changed_files
-    @changed_files ||= (`cd data && git diff-tree --no-commit-id --name-status -r #{last_commit} && cd ..`).split("\n")
+    @changed_files ||= (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{last_commit} && cd ..`).split("\n")
   end
 
+  # Update or delete depending on git status
   def update_or_delete(file)
     if File.exists?(file)
       update(file)
@@ -60,8 +67,9 @@ private
     begin
       indexer.update(file)
       log.info "Indexed #{File.basename(file)}."
-    rescue
-      log.info "Failed to index #{File.basename(file)}."
+    rescue Exception => e
+      log.info "Failed to index #{File.basename(file)}: #{e}."
+      false
     end
   end
 
@@ -75,8 +83,9 @@ private
     begin
       delete(id)
       log.info "Deleted #{File.basename(file)} with id #{id}."
-    rescue
-      log.info "Failed to delete #{File.basename(file)} with id #{id}."
+    rescue Exception => e
+      log.info "Failed to delete #{File.basename(file)} with id #{id}: #{e}"
+      false
     end
   end
 
