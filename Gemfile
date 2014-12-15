@@ -76,7 +76,6 @@ end
 group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', require: false
-  gem 'coveralls', '~> 0.7.0', require: false
   # Use VCR for testing with deterministic HTTP interactions
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.20.0'
@@ -91,6 +90,11 @@ group :test do
   # Phantomjs for headless browser testing
   gem 'phantomjs', '>= 1.9.0'
   gem 'poltergeist', '~> 1.5.0'
+  # Use SimpleCov for generating local coverage reports
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+  # Use Coveralls to publish coverage on the open web
+  gem 'coveralls', '~> 0.7.0', require: false
 end
 
 # Pry for debubbing
