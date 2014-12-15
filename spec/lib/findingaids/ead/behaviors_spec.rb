@@ -29,6 +29,7 @@ describe Findingaids::Ead::Behaviors do
     end
 
     context "when there is no EAD variable" do
+      before { stub_const('ENV', {'EAD' => nil}) }
       it { should be_nil }
     end
 

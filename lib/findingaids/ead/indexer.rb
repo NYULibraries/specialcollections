@@ -1,6 +1,6 @@
 require 'solr_ead'
 require 'fileutils'
-
+require 'pry'
 class Findingaids::Ead::Indexer
 
   def self.delete_all
@@ -65,6 +65,9 @@ private
       raise ArgumentError.new("Expecting #{file} to be a file or directory")
     end
     begin
+      # The document is built around a repository that relies on the folder structure
+      # since it does not exist consistently in the EAD, so we pass in the full path to extract the repos.
+      ENV["EAD"] = file
       indexer.update(file)
       log.info "Indexed #{File.basename(file)}."
     rescue Exception => e
@@ -89,7 +92,7 @@ private
     end
   end
 
-  # Set FINDINGAIDS_LOGGER=STDOUT to view logs in standard out
+  # Set FINDINGAIDS_LOG=STDOUT to view logs in standard out
   def log
     @log ||= (ENV['FINDINGAIDS_LOG']) ? Logger.new(ENV['FINDINGAIDS_LOG'].constantize) : Rails.logger
   end
