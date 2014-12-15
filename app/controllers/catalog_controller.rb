@@ -7,7 +7,7 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-      :qt => '',
+      :qt => 'search',
       :fl => display_fields,
       :qf => pf_fields,
       :pf => pf_fields,
@@ -26,7 +26,7 @@ class CatalogController < ApplicationController
     }
 
     config.default_document_solr_params = {
-      :qt => '',
+      :qt => 'document',
       ("hl.fl").to_sym => hl_fields,
       ("hl.simple.pre").to_sym => '<span class="label label-info">',
       ("hl.simple.post").to_sym => "</span>",
