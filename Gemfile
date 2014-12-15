@@ -74,18 +74,31 @@ group :development do
 end
 
 group :test do
+  # Use Cucumber for integration testing
   gem 'cucumber-rails', require: false
-  gem 'simplecov', require: false
-  gem 'simplecov-rcov', require: false
-  gem 'coveralls', '~> 0.7.0', require: false
+  # Use VCR for testing with deterministic HTTP interactions
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.20.0'
+  # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 2.43.0'
-  gem 'pickle', '~> 0.4.11'
+  # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.3.0'
+  # Use factory girl for creating models
   gem 'factory_girl_rails', '~> 4.5.0'
+  # Rspec as the test framework
   gem 'rspec-rails', '~> 2.14.2'
+  # Phantomjs for headless browser testing
+  gem 'phantomjs', '>= 1.9.0'
+  gem 'poltergeist', '~> 1.5.0'
+  # Use SimpleCov for generating local coverage reports
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+  # Use Coveralls to publish coverage on the open web
+  gem 'coveralls', '~> 0.7.0', require: false
 end
 
+# Pry for debubbing
 gem 'pry', group: [:test, :development]
+
+# Use Jetty for test and development Solr
 gem 'jettywrapper', '~> 1.7', group: [:test, :development]
