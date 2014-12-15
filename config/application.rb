@@ -27,6 +27,6 @@ module Findingaids
     # config.i18n.default_locale = :de
 
     # Autoload the lib path
-    config.autoload_paths += %W(#{config.root}/lib)
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end
