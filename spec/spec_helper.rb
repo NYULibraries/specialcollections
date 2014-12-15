@@ -28,8 +28,8 @@ if Rails.env.test?
   begin
     WebMock.allow_net_connect!
     indexer = SolrEad::Indexer.new(:document=>Findingaids::Ead::Document, :component=>Findingaids::Ead::Component)
-    indexer.update(Rails.root.join('spec','fixtures','fales','bytsura.xml'))
-    indexer.update(Rails.root.join('spec','fixtures','tamwag','photos_114.xml'))
+    indexer.update(Rails.root.join('spec','fixtures','fales','bloch.xml'))
+    indexer.update(Rails.root.join('spec','fixtures','tamwag','PHOTOS.107-ead.xml'))
   ensure
     WebMock.disable_net_connect!
   end
@@ -76,5 +76,5 @@ VCR.configure do |c|
 end
 
 def ead_fixture file
-  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'ead', file))
+  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'examples', file))
 end

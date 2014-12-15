@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader findaidstatus="In_process" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>bloch</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Mark Bloch Postal Art Network (PAN) Archive, 
+                    <lb/>1978-2012
+                    <lb/>
+                    <num>MSS 170</num>
+                </titleproper>
+            </titlestmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+            <notestmt>
+                <note>
+                    <p>add processors: Kelsi Evans, Lawrence Giffin, Nicholas Martin, Rhyannon J. Rodriguez, 2012.</p>
+                </note>
+            </notestmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced using the Archivists' Toolkit
+                <date>2013-09-23T12:31-0400</date>
+            </creation>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Mark Bloch Postal Art Network (PAN) Archive</unittitle>
+            <unitid>MSS 170</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>40.0 boxes</extent>
+            </physdesc>
+            <unitdate normal="1978/2012" type="inclusive">1978-2012</unitdate>
+            <abstract id="ref11" label="Abstract">Mark Bloch is an American fine artist and writer whose work utilizes both visuals and text to explore ideas of long distance communication. This collection contains thousands of examples of original “mail art” sent to and collected by Mark Bloch in New York City from all fifty states and dozens of countries in the form of objects, envelopes, artwork, and enclosures as well as publications, postcards and announcements documenting avant garde cultural activities in various media during the years 1978 to 2013.</abstract>
+        </did>
+        <bioghist id="ref12">
+            <head>Biographical/Historical note</head>
+            <p>Mark Bloch is an American fine artist and writer whose work utilizes both visuals and text to explore ideas of long distance communication.</p>
+            <p>Born in 1956, Bloch grew up in the suburbs of Cleveland and Akron, Ohio, and attended Kent State University, where he received his B.A. degree in Broadcasting. Bloch moved to New York City in 1982, after living in Southern California, experimenting with performance and supporting himself as a maker of slide shows for corporate clients from 1978 to 1982. In 1977, after studying traditional art forms as well as performance and video art, Bloch discovered the international mail art network and eventually began to correspond with most of the prime participants in that far flung collection of artists worldwide. He was a central character in the activities of the New York group of mail art enthusiasts at that time, and a member of Ray Johnson’s New York Correspondence School. Bloch’s work with an extended version of the mail art network continues today on the Internet. In 1989, Bloch began his experimental foray into the digital space when he founded Panscan, part of a text-based teleconferencing system, the first online art discussion group in New York City.</p>
+            <p>For 35 years, using the international postal system as a distribution network for his art, Bloch reached out to thousands of artists and cultural workers all over the world, exchanging publications, objects, postcards, letters and artifacts and amassing an extensive collection that now serves as a significant barometer of the culture of the late 1970s, 1980s and 1990s. While Bloch’s work now resides in hundreds of personal and public archives internationally as well as many important institutions and museums, his archive of mail art reflects the experimental circumventing and strategic navigation of such institutions in favor of the fin de siècle Do It Yourself culture taking shape at that time that has now become commonplace in the digital age.</p>
+        </bioghist>
+        <accessrestrict id="ref13">
+            <head>Conditions Governing Access</head>
+            <p>The collection is currently being processed and is not open to researchers.</p>
+        </accessrestrict>
+        <userestrict id="ref14">
+            <head>Conditions Governing Use</head>
+            <p>Collection use is subject to all copyright laws.</p>
+        </userestrict>
+        <scopecontent id="ref16">
+            <head>Scope and Content</head>
+            <p>This collection contains thousands of examples of original “mail art” sent to and collected by Mark Bloch in New York City from all fifty states and dozens of countries in the form of objects, envelopes, artwork, and enclosures as well as publications, postcards and announcements documenting avant garde cultural activities in various media during the years 1978 to 2013.</p>
+        </scopecontent>
+        <controlaccess>
+            <subject source="lcsh">Art and society.</subject>
+            <subject source="lcsh">Art criticism.</subject>
+            <subject source="lcsh">Art museums |v Exhibitions.</subject>
+            <genreform source="aat">Collages (visual works).</genreform>
+            <genreform source="aat">Correspondence.</genreform>
+            <genreform source="aat">Direct mail.</genreform>
+            <genreform source="aat">Fliers (printed matter)</genreform>
+            <subject source="lcsh">Mail Art.</subject>
+            <genreform source="aat">Picture postcards.</genreform>
+            <genreform source="aat">Postcards.</genreform>
+            <genreform source="aat">Posters.</genreform>
+            <subject source="lcsh">Zines.</subject>
+        </controlaccess>
+        <dsc/>
+    </archdesc>
+</ead>
