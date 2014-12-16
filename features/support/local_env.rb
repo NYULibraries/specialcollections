@@ -18,3 +18,16 @@ Dir[Rails.root.join("features/support/helpers/**/*.rb")].each do |helper|
     Cucumber::Rails::World.send(:include, helper_name.constantize)
   end
 end
+
+# Refresh jetty data before rspec tests run
+if Rails.env.test?
+  begin
+    WebMock.allow_net_connect!
+    Findingaids::Ead::Indexer.delete_all
+    indexer = Findingaids::Ead::Indexer.new
+    indexer.index('spec/fixtures/fales/bloch.xml')
+    indexer.index('spec/fixtures/fales/PHOTOS.107-ead.xml')
+  ensure
+    WebMock.disable_net_connect!
+  end
+end
