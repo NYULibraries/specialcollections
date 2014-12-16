@@ -180,7 +180,7 @@ describe DocumentHelper do
   end
 
   describe ".repository_label" do
-    subject { repository_label(document[:document]) }
+    subject { repository_label(document[:document][:repository_ssi]) }
     it { should eq("The Fales Library") }
   end
 
