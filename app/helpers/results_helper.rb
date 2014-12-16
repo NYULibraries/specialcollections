@@ -26,7 +26,7 @@ module ResultsHelper
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
       link_to_repository repositories[doc[:document][repos_id]]["admin_code"]
-    else
+    elsif repositories[doc].present?
       repositories[doc]["display"]
     end
   end
