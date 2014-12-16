@@ -1,3 +1,1 @@
 --color
---format d
---format html -o spec/out.html

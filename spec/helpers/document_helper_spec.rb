@@ -56,13 +56,8 @@ describe DocumentHelper do
   end
   let(:blacklight_config) do
     @config ||= Blacklight::Configuration.new.configure do |config|
-      config.index.show_link = 'desc_metadata__title_tesim'
-      config.index.show = 'desc_metadata__publisher_tesim'
-      config.index.record_display_type = 'has_model_ssim'
-
-      config.show.html_title = 'desc_metadata__title_tesim'
-      config.show.heading = 'desc_metadata__title_tesim'
-      config.show.display_type = 'has_model_ssim'
+      config.index.title_field = "heading_ssm"
+      config.index.display_type_field = "format_ssm"
       end
   end
   let(:source_params) do

@@ -11,9 +11,9 @@ en:
       search_history: 'Search History'
 
     welcome: 'Start searching collections'
-    home_text: | 
+    home_text: |
       Use the search box above to search for resources in this collection.
-      
+
       Or browse resources by the facets in the sidebar.
     footer: NYU Division of Libraries.
     create_record_help: "Create a comma-delimited list for multiple values, e.g. My Tag, My Other Tag, 'My, Tag, With, Commas'"

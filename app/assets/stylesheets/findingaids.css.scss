@@ -1,17 +1,5 @@
 @import "nyulibraries";
-@import 'blacklight/blacklight';
-
-body {
-  padding-top: 0;
-}
-
-.row, #content {
-  margin-left: 0 !important;
-}
-
-#search {
-  margin-bottom: $paddingStandard;
-}
+@import "blacklight";
 
 @import "contenttypes/*.png";
 @include all-contenttypes-sprites;
@@ -27,45 +15,44 @@ body {
   padding: 0 2px;
 }
 
-.toggle_bookmark { margin-top: 2px !important; }
-
-.page_links { line-height: 20px; }
-
-.search {
-  #search_field { 
-    height: 30px; 
-    width: auto; 
-    max-width: 250px;
-  }
+// Override blacklight styles because our search box is not in a navbar
+#q {
+  border-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  height: 2.5em;
+}
+form.search-query-form {
+  margin-bottom: 1.5em;
+}
+select#search_field {
+  height: 2.5em !important;
+  width: 30%;
+  float: left;
+}
+.search-input-group {
+  width: 70%;
+  float: left;
+  padding-left: 1em;
+}
+button.search-btn {
+  height: 2.5em;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.btn.btn-primary {
+  background-color: $nyu-purple;
+  border-color: $nyu-purple;
 }
 
-.q { 
-  padding-top: 6px !important; 
-  padding-bottom: 6px !important; 
-  line-height: $lineHeightLarge !important; 
+.toggle_bookmark {
+  margin: 0;
 }
-
-.record-help { margin-bottom: 10px; }
-
-.field_with_errors {
-  input {
-    @extend .alert;
-    @extend .alert-error;
-  }
-  label {
-    color: #B94A48;
-    font-weight:bold;
-  }
+form label {
+  margin-left: 0;
 }
-
-.constraint {
-  * { text-indent: 0; }
-  .filterValue {
-    span { margin: 0px 4px; }
-    .label {
-      color: white !important;
-    }
-  }
+table.search_history {
+  margin-top: 1em;
 }
 
 .icon_image {
@@ -99,7 +86,7 @@ input[type='file'] {
 
 .document {
   border-bottom: 1px solid #efefef;
-    dl dd {
+  dl dd {
     a {
       display: inline;
       color: #333;
@@ -119,7 +106,14 @@ input[type='file'] {
 }
 
 @media (max-width: 480px) {
-  #search_field {
-    display: block;
+  select#search_field {
+    width: 100%;
+    float: none;
+    margin-bottom: .5em;
+  }
+  .search-input-group {
+    width: 100%;
+    float: none;
+    padding-left: 0;
   }
 }

@@ -1,53 +1,104 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.18'
-gem 'mysql2', '~> 0.3.14'
-gem 'json', '~> 1.8.1'
-gem 'coffee-rails', '~> 3.2.0'
-gem 'nyulibraries-deploy', :git => 'git://github.com/NYULibraries/nyulibraries-deploy.git', :tag => 'v4.0.0'
-gem 'nyulibraries-assets', :git => 'git://github.com/NYULibraries/nyulibraries-assets.git', :tag => 'v2.1.1'
-gem 'authpds-nyu', :git => 'git://github.com/NYULibraries/authpds-nyu.git', :tag => 'v1.1.3'
-gem 'rails_config', '~> 0.3.3'
-gem 'jquery-rails', '~> 3.0.4'
-gem 'jquery-ui-rails', '~> 4.1.1'
-#gem 'blacklight', :path => '/apps/blacklight'
-gem 'blacklight', '~> 4.6.2'
-gem 'sorted', '~> 1.0.0'
-gem 'dalli', '~> 2.7.0'
-#gem 'newrelic_rpm'
-gem 'comma', '~> 3.2.0'
-gem 'mustache', '0.99.4'
-gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie'
-gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
-gem 'solr_ead', '~> 0.7.1'
-gem 'sanitize', '~> 2.1.0'
-#gem 'solr_ead', :path => "/apps/solr_ead"
+gem 'rails', '~> 4.1.0'
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'compass-rails', '~> 1.1.3'
-  gem 'compass-susy-plugin', '~> 0.9.0'
-  gem 'therubyracer', '~> 0.12.0', :platforms => :ruby
-  gem 'uglifier', '~> 2.4.0'
-  gem 'yui-compressor', '~> 0.12.0'
+# Use MySQL for the database
+gem 'mysql2', '~> 0.3.16'
+
+# Use SCSS for stylesheets
+gem 'sass-rails',   '>= 5.0.0.beta1'
+
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.1.0'
+
+# Use jQuery as the JavaScript library
+gem 'jquery-rails', '~> 3.1.0'
+
+# Use jQuery UI as well
+gem 'jquery-ui-rails', '~> 5.0.2'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '~> 2.5.0'
+
+# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+gem 'therubyracer', '~> 0.12.0'
+
+# Use the Compass CSS framework for sprites, etc.
+gem 'compass-rails', '~> 2.0.0'
+
+# Use mustache for templating
+# Fix to 0.99.4 cuz 0.99.5 broke my shit.
+gem 'mustache', '0.99.4'
+gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie', tag: 'v0.2.3'
+
+# Use the NYU Libraries assets gem for shared NYU Libraries assets
+gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.1.2'
+
+# Deploy the application with Formaggio deploy recipes
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
+
+# Use Blacklight for searching Solr
+gem 'blacklight', '~> 5.8.0'
+
+gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
+
+# Use sorted for sorting columns
+gem 'sorted', '~> 1.0.0'
+
+# Use Dalli for memcached
+gem 'dalli', '~> 2.7.0'
+
+# New Recic for tracking performance
+gem 'newrelic_rpm', '~> 3.6'
+
+# Comma to download CSV
+gem 'comma', '~> 3.2.0'
+
+# SolrEad to index EAD into Solr
+gem 'solr_ead', '~> 0.7.2'
+# gem 'solr_ead', path: '/apps/solr_ead'
+
+# HTML sanitizer
+gem 'sanitize', '~> 2.1.0'
+
+# Transition gems
+gem 'exlibris-aleph', github: 'barnabyalter/exlibris-aleph'
+# Use AuthPDS for authentication and authorization
+gem 'authpds', github: 'barnabyalter/authpds'
+gem 'authpds-nyu', github: 'barnabyalter/authpds-nyu'
+# /Transition gems
+
+group :development do
+  gem 'better_errors', '~> 2.0.0'
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
 group :test do
-  gem 'coveralls', '~> 0.7.0', :require => false
-  gem 'vcr', '~> 2.8.0'
-  gem 'webmock', '~> 1.17.0'
-  gem 'simplecov', :require => false
-  gem 'simplecov-rcov', :require => false
-  gem 'capybara'
-  gem 'factory_girl_rails', '~> 4.0'
+  # Use Cucumber for integration testing
+  gem 'cucumber-rails', require: false
+  # Use VCR for testing with deterministic HTTP interactions
+  gem 'vcr', '~> 2.9.3'
+  gem 'webmock', '~> 1.20.0'
+  # Use Selenium as the web driver for Cucumber
+  gem 'selenium-webdriver', '~> 2.43.0'
+  # Use DatabaseCleaner for clearing the test database
+  gem 'database_cleaner', '~> 1.3.0'
+  # Use factory girl for creating models
+  gem 'factory_girl_rails', '~> 4.5.0'
+  # Rspec as the test framework
+  gem 'rspec-rails', '~> 2.14.2'
+  # Phantomjs for headless browser testing
+  gem 'phantomjs', '>= 1.9.0'
+  gem 'poltergeist', '~> 1.5.0'
+  # Use SimpleCov for generating local coverage reports
+  gem 'simplecov', require: false
+  gem 'simplecov-rcov', require: false
+  # Use Coveralls to publish coverage on the open web
+  gem 'coveralls', '~> 0.7.0', require: false
 end
 
-group :development do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'sunspot_solr'
-end
+# Pry for debubbing
+gem 'pry', group: [:test, :development]
 
-gem 'rspec-rails', '~> 2.14.1', :group => [:test, :development]
-gem 'pry', :group => [:test, :development]
-gem 'debugger', :groups => [:development, :test]
+# Use Jetty for test and development Solr
+gem 'jettywrapper', '~> 1.7', group: [:test, :development]

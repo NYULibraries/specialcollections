@@ -5,7 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/NYULibraries/findingaids.png)](https://codeclimate.com/github/NYULibraries/findingaids)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/findingaids/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/findingaids)
 
-A search interface powered by [Blacklight](http://projectblacklight.org/) for special collections finding aids. Read [the wiki](/NYULibraries/findingaids/wiki) for more information.
+A search interface powered by [Blacklight](http://projectblacklight.org/) for special collections finding aids. Read [the wiki](https://github.com/NYULibraries/findingaids/wiki) for more information.
 
 ## See it in action!
 

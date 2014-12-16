@@ -1,5 +1,5 @@
 class UserSession < Authlogic::Session::Base
-  pds_url Settings.login.pds_url
-  calling_system Settings.login.calling_system
+  pds_url(ENV['PDS_URL'] || 'https://logindev.library.nyu.edu')
+  calling_system 'findingaids'
   anonymous true
 end
