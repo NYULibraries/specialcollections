@@ -25,18 +25,6 @@ class CatalogController < ApplicationController
       :defType => "edismax"
     }
 
-    config.default_document_solr_params = {
-      :qt => 'document',
-      ("hl.fl").to_sym => hl_fields,
-      ("hl.simple.pre").to_sym => '<span class="label label-info">',
-      ("hl.simple.post").to_sym => "</span>",
-      :hl => true,
-      :fl => display_fields,
-      :rows => 1,
-      :echoParams => "all",
-      :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
-    }
-
     config.index.title_field = solr_name("heading", :displayable)
     config.index.display_type_field = solr_name("format", :displayable)
 
