@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
-  include Findingaids::Solr::CatalogHelpers
 
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
@@ -10,6 +9,7 @@ class ApplicationController < ActionController::Base
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "application" }
 
   # Adds authentication actions in application controller
+  # Implements current_user and user_session
   require 'authpds'
   include Authpds::Controllers::AuthpdsController
 
@@ -19,10 +19,8 @@ class ApplicationController < ActionController::Base
   end
   alias_method :current_user, :current_user_dev if Rails.env.development?
 
-  ##
-  # Alias class method from catalog controller, gotta be a better way hmm?
   def repositories
-    CatalogController::repositories
+    @repositories ||= Findingaids::Repositories.repositories
   end
   helper_method :repositories
 
