@@ -143,24 +143,6 @@ module ResultsHelper
   end
 
   ##
-  # NOTE: Stole from Blacklight 5, can remove after update
-  # Sanitize the search parameters by removing unnecessary parameters
-  # from the provided parameters
-  # @param [Hash] Hash of parameters
-  def sanitize_search_params(source_params)
-    my_params = source_params.reject { |k,v| v.nil? }
-    my_params.except(:action, :controller, :id, :commit, :utf8)
-  end
-
-  ##
-  # NOTE: Stole from Blacklight 5, can remove after update
-  # Reset any search parameters that store search context
-  # and need to be reset when e.g. constraints change
-  def reset_search_params(source_params)
-    sanitize_search_params(source_params).except(:page, :counter, :q).with_indifferent_access
-  end
-
-  ##
   # Reset facet parameters to clean search
   def reset_facet_params(source_params)
     reset_search_params(source_params.except(:f))
