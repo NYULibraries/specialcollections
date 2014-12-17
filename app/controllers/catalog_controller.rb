@@ -25,18 +25,6 @@ class CatalogController < ApplicationController
       :defType => "edismax"
     }
 
-    config.default_document_solr_params = {
-      :qt => 'document',
-      ("hl.fl").to_sym => hl_fields,
-      ("hl.simple.pre").to_sym => '<span class="label label-info">',
-      ("hl.simple.post").to_sym => "</span>",
-      :hl => true,
-      :fl => display_fields,
-      :rows => 1,
-      :echoParams => "all",
-      :q => "{!raw f=#{SolrDocument.unique_key} v=$id}"
-    }
-
     config.index.title_field = solr_name("heading", :displayable)
     config.index.display_type_field = solr_name("format", :displayable)
 
@@ -58,9 +46,9 @@ class CatalogController < ApplicationController
     # on the solr side in the request handler itself. Requestd handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
+    config.add_facet_field solr_name("repository", :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
     config.add_facet_field solr_name("format",     :facetable), :label => "Format",             :limit => 20
     config.add_facet_field solr_name("collection", :facetable), :label => "Collection Name",    :limit => 20
-    #config.add_facet_field solr_name("material",   :facetable), :label => "Archival Material",  :limit => 20
     config.add_facet_field solr_name("name",       :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",    :facetable), :label => "Subject",            :limit => 20
     config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20
@@ -81,37 +69,16 @@ class CatalogController < ApplicationController
     # ------------------------------------------------------------------------------------------
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field solr_name("title",             :displayable),  :label => "Title",
-                                                                          :highlight => true,
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract",
-                                                                          :highlight => true,
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("format",            :displayable),  :label => "Format",
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("language",          :displayable),  :label => "Language",
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher",
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates",
-                                                                          :helper_method => :render_field_item
-
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection",
-                                                                          :helper_method => :render_collection_facet_link,
-                                                                          :highlight => true
-
-    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series",
-                                                                          :highlight => true,
-                                                                          :helper_method => :render_series_facet_link
-
-    config.add_index_field solr_name("location",          :displayable),  :label => "Location",
-                                                                          :highlight => true,
-                                                                          :helper_method => :render_field_item
+    config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
+    config.add_index_field solr_name("title",             :displayable),  :label => "Title", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
+    config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
+    config.add_index_field solr_name("publisher",         :displayable),  :label => "Publisher", :helper_method => :render_field_item
+    config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates", :helper_method => :render_field_item
+    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
+    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :highlight => true, :helper_method => :render_series_facet_link
+    config.add_index_field solr_name("location",          :displayable),  :label => "Location", :highlight => true, :helper_method => :render_field_item
 
     # ------------------------------------------------------------------------------------------
     #

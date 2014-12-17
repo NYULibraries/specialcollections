@@ -7,8 +7,6 @@
 	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
     <% end -%>
   <% end -%>
-  <dt>Repository:</dt>
-  <dd><%= link_to_repository(document) %></dd>
   <% if document.is_archival_collection? %>
   <dt>Table of Contents:</dt>
     <%= link_to_toc_page document, "Descriptive Summary", "abstract" %>
@@ -22,6 +20,6 @@
   <dt>Archival Items:</dt>
     <dd><b><%= link_to "Click here to search within series", render_components_for_series_facet_link(document) %></b></dd>
   <% end %>
-  
-  
+
+
 </dl>

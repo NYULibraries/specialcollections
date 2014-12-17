@@ -1,10 +1,9 @@
 require "spec_helper"
 
-describe DocumentHelper do
+describe ResultsHelper do
 
-  include BlacklightHelper
   include ApplicationHelper
-  include DocumentHelper
+  include BlacklightHelper
   include ActionView::Helpers::UrlHelper
 
   let(:repositories) do
@@ -122,32 +121,6 @@ describe DocumentHelper do
     end
   end
 
-  describe ".link_to_document" do
-
-    subject { link_to_document(collection, { label: heading }) }
-    let(:collection) { document[:document] }
-
-    context "when document is a collection level item" do
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/\" target=\"_blank\">Guide to titling finding aids</a>") }
-    end
-
-    context "when document is a series level item" do
-      let(:ref_ssi) { "1234" }
-      let(:format_ssm) { "Archival Series" }
-
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html\" target=\"_blank\">Guide to titling finding aids</a>") }
-    end
-
-    context "when document is item level" do
-      let(:ref_ssi) { "5678" }
-      let(:parent_ssm) { ["1234"] }
-      let(:format_ssm) { "Archival Item" }
-
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
-    end
-
-  end
-
   describe ".sort_by_series" do
     it "should return a hash for sorting" do
       expect(sort_by_series).to eql(default_sort_hash)
@@ -171,7 +144,7 @@ describe DocumentHelper do
   end
 
   describe ".link_to_repository" do
-    let(:collection) { document[:document] }
+    let(:collection) { "fales" }
     subject { link_to_repository(collection)}
     context "when document is a collection level item" do
       it { should eql("<a href=\"/fales\">The Fales Library</a>") }
@@ -180,7 +153,7 @@ describe DocumentHelper do
   end
 
   describe ".repository_label" do
-    subject { repository_label(document[:document]) }
+    subject { repository_label(document[:document][:repository_ssi]) }
     it { should eq("The Fales Library") }
   end
 
@@ -273,6 +246,32 @@ describe DocumentHelper do
     let(:title_ssm) { "Series I" }
     subject { render_components_for_series_facet_link(document[:document]) }
     it { should eql({"f"=>{"series_sim"=>document[:document][:title_ssm], "collection_sim"=>[collection_ssm]}, "action"=>"index", "controller"=>"catalog", "sort"=>"series_si asc, box_filing_si asc"}) }
+  end
+
+  describe ".link_to_document" do
+
+    subject { link_to_document(collection, { label: heading }) }
+    let(:collection) { document[:document] }
+
+    context "when document is a collection level item" do
+      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/\" target=\"_blank\">Guide to titling finding aids</a>") }
+    end
+
+    context "when document is a series level item" do
+      let(:ref_ssi) { "1234" }
+      let(:format_ssm) { "Archival Series" }
+
+      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html\" target=\"_blank\">Guide to titling finding aids</a>") }
+    end
+
+    context "when document is item level" do
+      let(:ref_ssi) { "5678" }
+      let(:parent_ssm) { ["1234"] }
+      let(:format_ssm) { "Archival Item" }
+
+      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
+    end
+
   end
 
 end
