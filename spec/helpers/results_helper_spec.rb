@@ -186,25 +186,6 @@ describe ResultsHelper do
     end
   end
 
-  describe ".sanitize_search_params" do
-    subject { sanitize_search_params(source_params) }
-    it { should eql({"leftover" => "Yup"}) }
-  end
-
-  describe ".reset_search_params" do
-    let(:local_params) do
-      source_params.merge({
-        :leftover => "Yup",
-        :smorgas => nil,
-        :page => 1,
-        :counter => 10,
-        :q => "ephemera"
-      }).with_indifferent_access
-    end
-    subject { reset_search_params(local_params) }
-    it { should eql({"leftover" => "Yup"}) }
-  end
-
   describe ".reset_facet_params" do
     let(:local_params) do
       source_params.merge({
@@ -217,7 +198,7 @@ describe ResultsHelper do
       }).with_indifferent_access
     end
     subject { reset_facet_params(local_params) }
-    it { should eql({"leftover" => "Yup"}) }
+    it { should eql({"leftover" => "Yup", "q" => "ephemera"}) }
   end
 
   describe ".render_collection_facet_link" do
