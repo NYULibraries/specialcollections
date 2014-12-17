@@ -37,6 +37,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     solr_doc = super(solr_doc)
 
     solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
+    solr_doc.merge!(Solrizer.solr_name("repository", :facetable) => format_repository)
 
     Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.title_num.empty?
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable)
