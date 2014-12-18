@@ -27,9 +27,10 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 if Rails.env.test?
   begin
     WebMock.allow_net_connect!
-    indexer = SolrEad::Indexer.new(:document=>Findingaids::Ead::Document, :component=>Findingaids::Ead::Component)
-    indexer.update(Rails.root.join('spec','fixtures','fales','bloch.xml'))
-    indexer.update(Rails.root.join('spec','fixtures','tamwag','PHOTOS.107-ead.xml'))
+    Findingaids::Ead::Indexer.delete_all
+    indexer = Findingaids::Ead::Indexer.new
+    indexer.index('spec/fixtures/fales/bloch.xml')
+    indexer.index('spec/fixtures/fales/PHOTOS.107-ead.xml')
   ensure
     WebMock.disable_net_connect!
   end

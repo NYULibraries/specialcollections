@@ -19,6 +19,7 @@ class Findingaids::Ead::Component < SolrEad::Component
   def to_solr(solr_doc = Hash.new)
     solr_doc = super(solr_doc)
     solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
+    solr_doc.merge!(Solrizer.solr_name("repository", :facetable) => format_repository)
 
     Solrizer.insert_field(solr_doc, "format",     format_filing(solr_doc),                      :sortable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable)

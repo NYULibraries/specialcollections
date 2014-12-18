@@ -1,4 +1,4 @@
-module DocumentHelper
+module ResultsHelper
 
   ##
   # Render field value, and join as string if it's an array
@@ -7,43 +7,6 @@ module DocumentHelper
     (doc[:document].has_highlight_field? doc[:field]) ?
       doc[:document].highlight_field(doc[:field]).join(", ").html_safe :
         doc[:document][doc[:field]].join(", ").html_safe
-  end
-
-
-  ##
-  # Link to page from table of contents if that field has been indexed and has results
-  # This is the only way to ensure that the FA has that page in it
-  def link_to_toc_page(doc, label, field)
-    content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], (field == "abstract") ? nil : field), {:target => "_blank"})) if field_has_results_in_document?(doc, field)
-  end
-
-  ##
-  # Find out if the field exists in the returned solr document
-  # If this is one of several fields (i.e. admininfo, abstract, dsc) check a handful of subfields which are the items indexed
-  # If field is not explicitly defined in LINK_FIELDS hash, then it's legit so just say true
-  def field_has_results_in_document?(doc, field)
-    if Findingaids::Ead::Behaviors::LINK_FIELDS.has_key?(field.to_sym)
-      Findingaids::Ead::Behaviors::LINK_FIELDS[field.to_sym].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
-    else
-      true
-    end
-  end
-
-  # Get icon from format type
-  def document_icon(doc)
-    doc.normalized_format
-  end
-
-  def link_to_repository(doc)
-    link_to repository_label(doc), eval("#{doc[:repository_ssi]}_path")
-  end
-
-  def repository_label(doc)
-    repositories[doc[:repository_ssi]]["display"]
-  end
-
-  def sanitize(html)
-    Sanitize.clean(html)
   end
 
   ##
@@ -57,6 +20,15 @@ module DocumentHelper
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]).merge(sort_by_series))
     end
     [links_to_series].join(" >> ").html_safe
+  end
+
+  def render_repository_facet_link(doc)
+    repos_id = Solrizer.solr_name("repository", :stored_sortable)
+    if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
+      link_to_repository repositories[doc[:document][repos_id]]["admin_code"]
+    elsif repositories[doc].present?
+      repositories[doc]["display"]
+    end
   end
 
   ##
@@ -82,6 +54,42 @@ module DocumentHelper
     local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
 
     link_to doc[:document][doc[:field]].first, local_params
+  end
+
+  ##
+  # Link to page from table of contents if that field has been indexed and has results
+  # This is the only way to ensure that the FA has that page in it
+  def link_to_toc_page(doc, label, field)
+    content_tag(:dd, link_to(label, url_for_findingaid(doc[:repository_ssi], doc[:ead_ssi], (field == "abstract") ? nil : field), {:target => "_blank"})) if field_has_results_in_document?(doc, field)
+  end
+
+  ##
+  # Find out if the field exists in the returned solr document
+  # If this is one of several fields (i.e. admininfo, abstract, dsc) check a handful of subfields which are the items indexed
+  # If field is not explicitly defined in LINK_FIELDS hash, then it's legit so just say true
+  def field_has_results_in_document?(doc, field)
+    if Findingaids::Ead::Behaviors::LINK_FIELDS.has_key?(field.to_sym)
+      Findingaids::Ead::Behaviors::LINK_FIELDS[field.to_sym].any? {|fname| doc[Solrizer.solr_name(fname,:displayable)].present? }
+    else
+      true
+    end
+  end
+
+  # Get icon from format type
+  def document_icon(doc)
+    doc.normalized_format
+  end
+
+  def link_to_repository(repository)
+    link_to repository_label(repository), send("#{repository}_path")
+  end
+
+  def repository_label(repository)
+    repositories[repository]["display"]
+  end
+
+  def sanitize(html)
+    Sanitize.clean(html)
   end
 
   ##
@@ -132,24 +140,6 @@ module DocumentHelper
   # Get solrized name from field
   def facet_name(field)
     Solrizer.solr_name(field, :facetable)
-  end
-
-  ##
-  # NOTE: Stole from Blacklight 5, can remove after update
-  # Sanitize the search parameters by removing unnecessary parameters
-  # from the provided parameters
-  # @param [Hash] Hash of parameters
-  def sanitize_search_params(source_params)
-    my_params = source_params.reject { |k,v| v.nil? }
-    my_params.except(:action, :controller, :id, :commit, :utf8)
-  end
-
-  ##
-  # NOTE: Stole from Blacklight 5, can remove after update
-  # Reset any search parameters that store search context
-  # and need to be reset when e.g. constraints change
-  def reset_search_params(source_params)
-    sanitize_search_params(source_params).except(:page, :counter, :q).with_indifferent_access
   end
 
   ##
