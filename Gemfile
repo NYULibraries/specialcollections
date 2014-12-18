@@ -6,6 +6,7 @@ gem 'rails', '~> 4.1.0'
 gem 'mysql2', '~> 0.3.16'
 
 # Use SCSS for stylesheets
+# Locked in at beta1 release because major release doesn't play nice with compass-rails yet
 gem 'sass-rails', '5.0.0.beta1'
 
 # Use CoffeeScript for .js.coffee assets and views
