@@ -14,31 +14,31 @@ describe ApplicationController do
     end
 
     context "when repository is Tamiment " do
-      subject(:repository) { repositories[:tamwag] }
+      subject(:repository) { repositories[:tamiment] }
       it { expect(repository[:display]).to eql("The Tamiment Library & Robert F. Wagner Labor Archives") }
-      it { expect(repository[:url]).to eql("tamwag") }
-      it { expect(repository[:admin_code]).to eql("tamwag") }
+      it { expect(repository[:url]).to eql("tamiment") }
+      it { expect(repository[:admin_code]).to eql("tamiment") }
     end
 
     context "when repository is NYU Archives " do
-      subject(:repository) { repositories[:archives] }
+      subject(:repository) { repositories[:universityarchives] }
       it { expect(repository[:display]).to eql("New York University Archives") }
-      it { expect(repository[:url]).to eql("archives") }
-      it { expect(repository[:admin_code]).to eql("archives") }
+      it { expect(repository[:url]).to eql("universityarchives") }
+      it { expect(repository[:admin_code]).to eql("universityarchives") }
     end
 
     context "when repository is NYHS" do
-      subject(:repository) { repositories[:nyhs] }
+      subject(:repository) { repositories[:nyhistory] }
       it { expect(repository[:display]).to eql("New-York Historical Society") }
-      it { expect(repository[:url]).to eql("nyhs") }
-      it { expect(repository[:admin_code]).to eql("nyhs") }
+      it { expect(repository[:url]).to eql("nyhistory") }
+      it { expect(repository[:admin_code]).to eql("nyhistory") }
     end
 
     context "when repository is BHS" do
-      subject(:repository) { repositories[:bhs] }
+      subject(:repository) { repositories[:brooklynhistory] }
       it { expect(repository[:display]).to eql("Brooklyn Historical Society") }
-      it { expect(repository[:url]).to eql("bhs") }
-      it { expect(repository[:admin_code]).to eql("bhs") }
+      it { expect(repository[:url]).to eql("brooklynhistory") }
+      it { expect(repository[:admin_code]).to eql("brooklynhistory") }
     end
 
     context "when repository is Poly Archives" do
