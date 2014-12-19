@@ -5,7 +5,6 @@ Feature: Library facet
 
   Scenario: Pre limit search by a library facet
     Given I am on the default search page
-    Then "All Collections" should be selected for "search_field"
     When I limit my search to "The Fales Library" under the "Library" category
     Then I should see search results
 

@@ -6,12 +6,12 @@ Feature: Stable Repository Links
 
   Scenario: Fales search succeeds for Fales items
     Given I am on the "fales" search page
-    When I search on the phrase "Postal Art Network"
+    When I search "fales" on the phrase "Postal Art Network"
     Then I should see search results
 
   Scenario: Tamiment search fails for Fales items
     Given I am on the "tamiment" search page
-    When I search on the phrase "Postal Art Network"
+    When I search "tamiment" on the phrase "Postal Art Network"
     Then I should not see search results
 
   Scenario: Tamiment page selects Tamiment search limit
