@@ -12,13 +12,20 @@ When(/^I perform an empty search$/) do
 end
 
 When(/^I search on the phrase "(.*?)"$/) do |phrase|
-  #ensure_root_path
+  ensure_root_path
+  search_phrase(phrase)
+end
+
+When(/^I search "(.*?)" on the phrase "(.*?)"$/) do |coll, phrase|
   search_phrase(phrase)
 end
 
 #Check which option is selected in a dropdown
 Then /^"([^"]*)" should be selected for "([^"]*)"$/ do |selected_value, dropdown|
-  page.has_select?(dropdown, :selected => selected_value).should == true
+  #page.has_select?(dropdown, :selected => selected_value).should eq(true)
+  #page.has_select?(dropdown).should == false
+  #expect(page).to have_select(dropdown, selected: selected_value)
+  find_field(dropdown).find('option[selected]').text.should eq(selected_value)
 end
 
 ##
