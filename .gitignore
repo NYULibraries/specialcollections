@@ -17,3 +17,9 @@ public/assets
 data/
 findingaids_eads/
 .pid
+
+# ignore jEnv files
+.java-version
+
+# ignore RVM gemset files
+.ruby-gemset

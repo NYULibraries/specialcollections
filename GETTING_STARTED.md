@@ -4,6 +4,13 @@ This application is an implementation of [Blacklight](http://projectblacklight.o
 
 The description of EAD in Solr proves to require more configuration so we use [a more comprehensive Solr schema.xml](https://github.com/awead/solr_ead/blob/master/solr/schema.xml). To get your environment working you'll need to generate a jetty-solr instance and then copy our custom schema.xml. We've generated some tasks to help you get started. You can follow the steps below to get your development environment ready:
 
+# Prerequisites
+
+1. Java
+  - We are using Java 1.7.  
+  - If you need to run multiple versions of Java on your machine, you might want to look at [jEnv](http://www.jenv.be/)
+
+
 # Setting Up Your Environment
 
 1. Start by cloning this repository locally:
