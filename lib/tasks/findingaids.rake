@@ -24,7 +24,7 @@ namespace :findingaids do
 
   namespace :ead do
 
-    desc "Index ead into solr and create both html and json"
+    desc "Index ead into solr using EAD=<FILE|DIR>"
     task :index => :environment do
       ENV['EAD'] = "spec/fixtures/ead" unless ENV['EAD']
       indexer = Findingaids::Ead::Indexer.new
