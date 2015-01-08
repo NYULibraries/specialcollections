@@ -5,7 +5,7 @@
 # indexed into solr.
 
 module Findingaids::Ead::Behaviors
-  
+
   include SolrEad::Behaviors
 
   # Config mapping for linking to specific pages from found text in Solr fields
@@ -28,9 +28,9 @@ module Findingaids::Ead::Behaviors
     }
     return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
   end
-  
+
   # Pulls the repository from the directory title when indexing from the rake task
-  # 
+  #
   #   rake findingaids:ead:index EAD=data/repos/test.xml
   #   rake findingaids:ead:index EAD=data/repos/
   #
@@ -38,7 +38,7 @@ module Findingaids::Ead::Behaviors
   #
   #   "repos"
   def format_repository
-    if ENV['EAD'].present? 
+    if ENV['EAD'].present?
       if File.directory?(Rails.root.join(ENV['EAD']))
         return ENV['EAD'].split("\/")[-1]
       else
@@ -82,9 +82,16 @@ module Findingaids::Ead::Behaviors
     return terms.flatten.compact.uniq.sort
   end
 
-  # Combine corporate and personal names into one group
+  # Combine creator names into one group looking for one or more of the following:
+  #
+  #   <origination label="creator">
+  #     <persname></persname>
+  #     <corpname></corpname>
+  #     <famname></famname>
+  #    </origination>
   def get_ead_names
-    (self.corpname + self.persname).flatten.compact.uniq.sort
+    get_ead_names = (search("//origination[@label='creator']/corpname") + search("//origination[@label='creator']/persname") + search("//origination[@label='creator']/famname"))
+    get_ead_names.map(&:text).flatten.compact.uniq.sort
   end
 
   # Returns a hash of lanuage fields for an EAD document or component
@@ -95,6 +102,15 @@ module Findingaids::Ead::Behaviors
       Solrizer.set_field(fields, "language", language, :displayable)
     end
     return fields
+  end
+
+  # Wrap OM's find_by_xpath for convenience
+  def search(path)
+    self.find_by_xpath(path)
+  end
+
+  def value(path)
+    search(path).text
   end
 
 end

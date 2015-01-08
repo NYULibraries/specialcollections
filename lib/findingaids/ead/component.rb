@@ -41,7 +41,8 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     # Set lanuage codes
     solr_doc.merge!(ead_language_fields)
-    solr_doc
+    
+    return solr_doc
   end
 
 protected
@@ -95,15 +96,4 @@ protected
   def series_sortable solr_doc
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
-
-private
-
-  def search(path)
-    self.find_by_xpath(path)
-  end
-
-  def value(path)
-    search(path).text
-  end
-
 end
