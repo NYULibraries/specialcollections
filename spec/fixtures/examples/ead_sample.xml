@@ -47,6 +47,9 @@
             <abstract id="ref6" label="Abstract">Bill Bytsura is a photographer who extensively documented ACT UP and other unaffiliated AIDS awareness movements across the United States and in Europe throughout the late 1980s and 1990s. The collection includes studio-style portraits of each activist, along with their personal statements. Portraits include prominent activists such as Larry Kramer, Ann Northrop, Tim Bailey, Luke Sissyfag Montgomery, Didier Lestrade, Peter Staley, and Terry Stogdell. The collection also documents AIDS demonstrations, political funerals, and related publications.</abstract>
             <origination label="creator">
                 <persname source="local">Bytsura, Bill</persname>
+                <persname source="naf">Belfrage, Sally, 1936-</persname>
+                <corpname rules="Anglo-American_Cataloguing_Rules__2nd_ed." source="naf">Kings County (N.Y.). Board of Supervisors.</corpname>
+                <famname source="naf">Lefferts family</famname>
             </origination>
         </did>
         <relatedmaterial id="ref475">
@@ -89,7 +92,7 @@
             <p>
                 <emph render="bold">Series IV: Ephemera</emph> includes a hat, t-shirts, stickers, pins and postcards.</p>
             <p>Oversize materials are listed at the end of the finding aid:</p>
-            <p>Series I Oversize: Portraits 
+            <p>Series I Oversize: Portraits
                 <lb/> Series II Oversize: Demonstrations
                 <lb/> Series III Oversize: Press, Promotion, and Adminstrative Files
                 <lb/> Series IV Oversize: Posters</p>

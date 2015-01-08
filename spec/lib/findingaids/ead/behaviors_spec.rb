@@ -4,7 +4,7 @@ describe Findingaids::Ead::Behaviors do
 
   include Findingaids::Ead::Behaviors
 
-  describe ".format_publisher" do
+  describe "#format_publisher" do
 
     it "should strip ugly characters from publisher" do
       expect(format_publisher(["@ 2012 Fales Library and Special Collections     "])).to eql("Fales Library and Special Collections")
@@ -12,7 +12,7 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
-  describe ".format_repository" do
+  describe "#format_repository" do
 
     subject { format_repository }
 
@@ -35,7 +35,7 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
-  describe ".get_language_from_code" do
+  describe "#get_language_from_code" do
 
     let(:language_code) { "eng" }
 
@@ -52,8 +52,5 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
-  describe ".ead_date_display" do
-
-  end
 
 end
