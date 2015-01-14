@@ -28,6 +28,8 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :sortable)
     Solrizer.insert_field(solr_doc, "title",      self.title,                                   :searchable)
+    Solrizer.insert_field(solr_doc, "creator",    get_ead_names,                                :displayable)
+    Solrizer.insert_field(solr_doc, "creator",    get_ead_names,                                :facetable)
 
     # Collection field
     Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),          :searchable)
@@ -41,7 +43,7 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     # Set lanuage codes
     solr_doc.merge!(ead_language_fields)
-    
+
     return solr_doc
   end
 

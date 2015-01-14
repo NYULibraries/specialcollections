@@ -4,5 +4,11 @@
         <container id="cid17653001" type="Box" label="Mixed materials">1</container>
         <container parent="cid17653001" type="Folder">1</container>
         <unitdate normal="1992/1992">August 19, 1992</unitdate>
+        <origination label="creator">
+          <persname source="local">Bytsura, Bill</persname>
+          <persname source="naf">Belfrage, Sally, 1936-</persname>
+          <corpname rules="Anglo-American_Cataloguing_Rules__2nd_ed." source="naf">Kings County (N.Y.). Board of Supervisors.</corpname>
+          <famname source="naf">Lefferts family</famname>
+        </origination>
     </did>
 </c>

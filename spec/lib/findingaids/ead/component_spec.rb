@@ -23,6 +23,10 @@ describe Findingaids::Ead::Component do
 
     subject(:solr_doc) { document.to_solr(additional_fields) }
 
+    describe "creator facet" do
+      it { expect(solr_doc[Solrizer.solr_name("creator", :facetable)]).to eql ["Belfrage, Sally, 1936-", "Bytsura, Bill", "Kings County (N.Y.). Board of Supervisors.", "Lefferts family"] }
+    end
+
     context "when component has parent titles" do
       it { expect(solr_doc["id"]).to eql("TEST-0001ref010") }
       it { expect(solr_doc[Solrizer.solr_name("level", :facetable)]).to include "item" }
