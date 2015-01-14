@@ -170,7 +170,7 @@ describe ResultsHelper do
   end
 
   describe "#link_to_document" do
-    subject { link_to_document(collection, { label: heading }) }
+    subject { link_to_document(collection, heading) }
     let(:collection) { document[:document] }
     context "when document is a collection level item" do
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/\" target=\"_blank\">Guide to titling finding aids</a>") }
