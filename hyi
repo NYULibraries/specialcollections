@@ -1,0 +1,331 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="True" name="HandheldFriendly"><meta content="on" http-equiv="cleartype"><link href="https://library.nyu.edu/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon">
+    <title>Archival Collections</title>
+    <link href="/assets/application.css" media="screen" rel="stylesheet">
+    <script src="/assets/application.js"></script>
+  </head>
+  <body class="blacklight-catalog blacklight-catalog-index">
+    <div id="ajax-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal menu" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
+<header id="header" class="header">
+  <div class="parent"><a href="http://library.nyu.edu/"><span>NYU Libraries</span></a></div>
+  <div class="institution"><span>NYU</span></div>
+  <div class="application"><span>Archival Collections</span></div>
+</header>
+<nav>
+<ol class="nyu-breadcrumbs">
+    <li><a href="http://library.nyu.edu">NYU Libraries</a></li>
+    <li><a href="http://bobcat.library.nyu.edu/nyu">BobCat</a></li>
+    <li>Archival Collections</li>
+    <li class="nyu-login"><i class="icons-famfamfam-lock_open"></i><a class="login" href="http://127.0.0.1:55310/login">Login</a></li>
+</ol>
+</nav>
+    <div class="nyu-container">
+      <div class="col-sm-8">
+        <div class="search">
+    <h2>Archival Collections<span id="repository_header"></span></h2>
+    <form accept-charset="UTF-8" action="http://127.0.0.1:55310/catalog" class="search-query-form form-inline clearfix" method="get"><div style="display:none"><input name="utf8" type="hidden" value="✓"></div>
+
+
+<label for="search_field" class="sr-only">Search in</label>
+<select class="search_field form-control" id="search_field" name="search_field" title="Targeted search options"><option value="all_fields">All Libraries</option>
+<option value="The Fales Library &amp; Special Collections">The Fales Library &amp; Special Collections</option>
+<option value="The Tamiment Library &amp; Robert F. Wagner Labor Archives">The Tamiment Library &amp; Robert F. Wagner Labor Archives</option>
+<option value="New York University Archives">New York University Archives</option>
+<option value="New-York Historical Society">New-York Historical Society</option>
+<option value="Brooklyn Historical Society">Brooklyn Historical Society</option>
+<option value="Poly Archives">Poly Archives</option>
+<option value="Research Institue for the Study of Man">Research Institue for the Study of Man</option></select>
+<span class="sr-only">for</span>
+<div class="input-group search-input-group">
+  <label for="q" class="sr-only">Search...</label>
+  <input class="search_q q form-control" id="q" name="q" placeholder="Search..." type="text" value="World War II">
+
+  <span class="input-group-btn">
+    <button type="submit" class="btn btn-primary search-btn" id="search">
+      <span class="submit-search-text">Search</span>
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
+  </span>
+</div>
+</form>
+</div>
+
+        <div id="content">
+
+
+  <h2 class="hide-text top-content-title">Search</h2>
+
+
+  
+
+  
+      <div id="appliedParams" class="clearfix constraints-container">
+        <div class="pull-right">
+          <a class="catalog_startOverLink btn btn-sm btn-text" href="/catalog" id="startOverLink">Start Over</a>
+        </div>
+        <span class="constraints-label">You searched for:</span>
+        
+<span class="btn-group appliedFilter constraint query">
+  <span class="constraint-value btn btn-sm btn-default btn-disabled">
+      <span class="filterName">The Fales Library &amp; Special Collections</span>
+      <span class="filterValue" title="World War II">World War II</span>
+  </span>
+
+    <a class="btn btn-default btn-sm remove dropdown-toggle" href="/catalog?search_field=The+Fales+Library+%26+Special+Collections&amp;utf8=%E2%9C%93"><span class="glyphicon glyphicon-remove"></span><span class="sr-only">Remove constraint The Fales Library &amp; Special Collections: World War II</span></a>
+</span>
+
+      </div>
+
+
+  <div id="sortAndPerPage" class="clearfix">
+      <div class="page_links">
+      <span class="page_entries">
+        <strong>1</strong> entry found
+      </span>
+    </div> 
+
+  <div class="search-widgets pull-right"><div id="sort-dropdown" class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+      Sort by relevance <span class="caret"></span>
+  </button>
+
+  <ul class="dropdown-menu" role="menu">
+        <li><a href="/catalog?q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections&amp;sort=score+desc%2C+title_filing_si+asc%2C+format_si+desc">relevance</a></li>
+        <li><a href="/catalog?q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections&amp;sort=date_filing_si+desc%2C+title_filing_si+asc%2C+format_si+desc">date</a></li>
+        <li><a href="/catalog?q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections&amp;sort=title_filing_si+asc%2C+format_si+desc">title</a></li>
+        <li><a href="/catalog?q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections&amp;sort=series_si+asc%2C+box_filing_si+asc">series</a></li>
+  </ul>
+</div>
+
+
+  <span class="sr-only">Number of results to display per page</span>
+<div id="per_page-dropdown" class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    10 per page <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+      <li><a href="/catalog?per_page=10&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">10<span class="sr-only"> per page</span></a></li>
+      <li><a href="/catalog?per_page=20&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">20<span class="sr-only"> per page</span></a></li>
+      <li><a href="/catalog?per_page=50&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">50<span class="sr-only"> per page</span></a></li>
+      <li><a href="/catalog?per_page=100&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">100<span class="sr-only"> per page</span></a></li>
+  </ul>
+</div>
+
+</div>
+</div>
+
+
+  <h2 class="hide-text">Search Results</h2>
+
+  <div id="documents">
+  <div class="document blacklight-archival-collection">
+  <div class="documentHeader clearfix">
+  
+    <h5 class="index_title">1. <i class="contenttypes-archival_collection"></i><a href="http://dlib.nyu.edu/findingaids/html/fales/bloch/" target="_blank">Guide to the Mark Bloch Postal Art Network (PAN) Archive (MSS 170)</a></h5>
+
+  
+  <div class="documentFunctions col-md-2"></div>
+</div>
+
+
+
+  
+
+  <dl class="dl-horizontal dl-invert">
+
+	      <dt class="blacklight-repository_ssi">Library:</dt>
+	      <dd class="blacklight-repository_ssi"><a href="/fales">The Fales Library &amp; Special Collections</a></dd>
+	      <dt class="blacklight-title_ssm">Title:</dt>
+	      <dd class="blacklight-title_ssm">Mark Bloch Postal Art Network (PAN) Archive</dd>
+	      <dt class="blacklight-abstract_ssm">Abstract:</dt>
+	      <dd class="blacklight-abstract_ssm">Mark Bloch is an American fine artist and writer whose work utilizes both visuals and text to explore ideas of long distance communication. This collection contains thousands of examples of original “mail art” sent to and collected by Mark Bloch in New York City from all fifty states and dozens of countries in the form of objects, envelopes, artwork, and enclosures as well as publications, postcards and announcements documenting avant garde cultural activities in various media during the years 1978 to 2013.</dd>
+	      <dt class="blacklight-format_ssm">Format:</dt>
+	      <dd class="blacklight-format_ssm">Archival Collection</dd>
+	      <dt class="blacklight-language_ssm">Language:</dt>
+	      <dd class="blacklight-language_ssm">English</dd>
+	      <dt class="blacklight-unitdate_ssm">Dates:</dt>
+	      <dd class="blacklight-unitdate_ssm">Inclusive, 1978-2012</dd>
+	      <dt class="blacklight-collection_ssm">Archival Collection:</dt>
+	      <dd class="blacklight-collection_ssm"><a href="/catalog?f%5Bcollection_sim%5D%5B%5D=Mark+Bloch+Postal+Art+Network+%28PAN%29+Archive&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Mark Bloch Postal Art Network (PAN) Archive</a></dd>
+  <dt>Table of Contents:</dt>
+    <dd><a href="http://dlib.nyu.edu/findingaids/html/fales/bloch/" target="_blank">Descriptive Summary</a></dd>
+    <dd><a href="http://dlib.nyu.edu/findingaids/html/fales/bloch/bioghist.html" target="_blank">Historical/Biographical Note</a></dd>
+    <dd><a href="http://dlib.nyu.edu/findingaids/html/fales/bloch/scopecontent.html" target="_blank">Scope and Content Note and Arrangement</a></dd>
+    <dd><a href="http://dlib.nyu.edu/findingaids/html/fales/bloch/controlaccess.html" target="_blank">Access Points</a></dd>
+    
+  <dt>Archival Items:</dt>
+    <dd><b><a href="/catalog?f%5Bcollection_sim%5D%5B%5D=Mark+Bloch+Postal+Art+Network+%28PAN%29+Archive&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections&amp;sort=series_si+asc%2C+box_filing_si+asc">Click here to search within collection</a></b></dd>
+
+
+</dl>
+
+
+</div>
+
+</div>
+
+
+  
+
+</div>
+
+      </div>
+      <div class="col-sm-4">
+        <div id="sidebar" class="sidebar">
+<nav class="navbar navbar-default"><div class="navbar-header"><button class="navbar-toggle collapsed" data-target="#user_util_links.navbar-collapse" data-toggle="collapse" type="button"><span class="icon-bar"></span><span class="icon-bar"></span></button><h2>My Workspace</h2></div><div class="navbar-collapse collapse sidebar-section" id="user_util_links" style="">
+<ul>
+  <li><a href="/search_history">Search History</a></li>
+</ul>
+</div></nav>
+
+<div id="facets" class="facets sidenav">
+
+  <div class="top-panel-heading panel-heading">
+    <button type="button" class="facets-toggle" data-toggle="collapse" data-target="#facet-panel-collapse">
+      <span class="sr-only">Toggle facets</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+  <h4>
+  	Limit your search
+  </h4>
+    </div>
+
+  <div id="facet-panel-collapse" class="collapse panel-group">
+  <div class="panel panel-default facet_limit blacklight-repository_ssi ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-repository_ssi">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Library</a>
+    </h5>
+  </div>
+  <div id="facet-repository_ssi" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Brepository_ssi%5D%5B%5D=fales&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">The Fales Library &amp; Special Collections</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-format_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-format_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Format</a>
+    </h5>
+  </div>
+  <div id="facet-format_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bformat_sim%5D%5B%5D=Archival+Collection&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Archival Collection</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-collection_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-collection_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Collection Name</a>
+    </h5>
+  </div>
+  <div id="facet-collection_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bcollection_sim%5D%5B%5D=Mark+Bloch+Postal+Art+Network+%28PAN%29+Archive&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Mark Bloch Postal Art Network (PAN) Archive</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-name_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-name_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Name</a>
+    </h5>
+  </div>
+  <div id="facet-name_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bname_sim%5D%5B%5D=%C2%A9+2012+Fales+Library+and+Special+Collections&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">© 2012 Fales Library and Special Collections</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-subject_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-subject_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Subject</a>
+    </h5>
+  </div>
+  <div id="facet-subject_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=Art+and+society.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Art and society.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=Art+criticism.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Art criticism.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=Art+museums+%7Cv+Exhibitions.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Art museums |v Exhibitions.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=Mail+Art.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Mail Art.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=World+War+II&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">World War II</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bsubject_sim%5D%5B%5D=Zines.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Zines.</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-genre_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-genre_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Genre</a>
+    </h5>
+  </div>
+  <div id="facet-genre_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Collages+%28visual+works%29.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Collages (visual works).</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Correspondence.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Correspondence.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Direct+mail.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Direct mail.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Fliers+%28printed+matter%29&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Fliers (printed matter)</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Picture+postcards.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Picture postcards.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Postcards.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Postcards.</a></span><span class="facet-count">1</span></li><li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Bgenre_sim%5D%5B%5D=Posters.&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">Posters.</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default facet_limit blacklight-language_sim ">
+  <div class="collapsed collapse-toggle panel-heading" data-toggle="collapse" data-target="#facet-language_sim">
+    <h5 class="panel-title">
+      <a data-no-turbolink="true" href="#">Language</a>
+    </h5>
+  </div>
+  <div id="facet-language_sim" class="panel-collapse facet-content collapse">
+    <div class="panel-body">
+      <ul class="facet-values list-unstyled">
+  <li><span class="facet-label"><a class="facet_select" href="/catalog?f%5Blanguage_sim%5D%5B%5D=English&amp;q=World+War+II&amp;search_field=The+Fales+Library+%26+Special+Collections">English</a></span><span class="facet-count">1</span></li>
+
+</ul>
+
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+<footer>NYU Division of Libraries. Powered by <a href="http://projectblacklight.org/" target="blank">Blacklight</a></footer>
+  
+
+</body></html>

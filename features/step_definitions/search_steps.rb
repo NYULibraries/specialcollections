@@ -56,3 +56,18 @@ end
 Then(/^the results should be sorted by "(.*?)"$/) do |option|
   find(:css, "#sort-dropdown > button").text.should eq("Sort by #{option}")
 end
+
+##
+#Search across libraries steps
+Then(/^I should see a label "(.*?)" in the default scope$/) do |label|
+  expect(page.find('#search_field').find(:xpath,'option[1]')).to have_content "#{label}"
+end
+
+#I have a feeling list of libraries should be an array not separate arguments but not sure how  
+#to implement it
+Then(/^I should see results from "(.*?)" and from "(.*?)"$/) do |library1, library2|
+  within("#documents ") do
+   expect(page.all(:xpath, "//a[text()='#{library1}']")).to have_content
+   expect(page.all(:xpath, "//a[text()='#{library2}']")).to have_content
+  end
+end

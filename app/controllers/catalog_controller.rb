@@ -110,7 +110,7 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
 
-    config.add_search_field "all_fields", :label => "All Collections"
+    config.add_search_field "all_fields", :label => "All Libraries"
 
     ##
     # Add repository field query from config file
