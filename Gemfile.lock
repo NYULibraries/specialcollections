@@ -578,7 +578,7 @@ DEPENDENCIES
   rails (~> 4.1.0)
   rspec-rails (~> 2.14.2)
   sanitize (~> 2.1.0)
-  sass-rails (>= 5.0.0.beta1)
+  sass-rails (= 5.0.0.beta1)
   selenium-webdriver (~> 2.43.0)
   simplecov
   simplecov-rcov
