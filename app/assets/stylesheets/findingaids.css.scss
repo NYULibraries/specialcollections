@@ -105,6 +105,10 @@ input[type='file'] {
   }
 }
 
+h5.index_title > i {
+  margin-right: .5em;
+}
+
 @media (max-width: 480px) {
   select#search_field {
     width: 100%;

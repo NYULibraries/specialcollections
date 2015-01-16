@@ -3,7 +3,7 @@
         <eadid>bloch</eadid>
         <filedesc>
             <titlestmt>
-                <titleproper>Mark Bloch Postal Art Network (PAN) Archive, 
+                <titleproper>Mark Bloch Postal Art Network (PAN) Archive,
                     <lb/>1978-2012
                     <lb/>
                     <num>MSS 170</num>
@@ -47,6 +47,12 @@
             </physdesc>
             <unitdate normal="1978/2012" type="inclusive">1978-2012</unitdate>
             <abstract id="ref11" label="Abstract">Mark Bloch is an American fine artist and writer whose work utilizes both visuals and text to explore ideas of long distance communication. This collection contains thousands of examples of original “mail art” sent to and collected by Mark Bloch in New York City from all fifty states and dozens of countries in the form of objects, envelopes, artwork, and enclosures as well as publications, postcards and announcements documenting avant garde cultural activities in various media during the years 1978 to 2013.</abstract>
+            <origination label="creator">
+              <persname source="local">Bytsura, Bill</persname>
+              <persname source="naf">Belfrage, Sally, 1936-</persname>
+              <corpname rules="Anglo-American_Cataloguing_Rules__2nd_ed." source="naf">Kings County (N.Y.). Board of Supervisors.</corpname>
+              <famname source="naf">Lefferts family</famname>
+            </origination>
         </did>
         <bioghist id="ref12">
             <head>Biographical/Historical note</head>
