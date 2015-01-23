@@ -10,5 +10,11 @@
           <corpname rules="Anglo-American_Cataloguing_Rules__2nd_ed." source="naf">Kings County (N.Y.). Board of Supervisors.</corpname>
           <famname source="naf">Lefferts family</famname>
         </origination>
+        <controlaccess>
+          <genreform source="aat">Clippings (information artifacts)</genreform>
+          <genreform source="aat">Correspondence.</genreform>
+        </controlaccess>
+        <genreform>Material Type</genreform>
+        <corpname>Component Corp Inc.</corpname>
     </did>
 </c>
