@@ -46,16 +46,16 @@ class CatalogController < ApplicationController
     # on the solr side in the request handler itself. Requestd handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
-    config.add_facet_field solr_name("repository", :stored_sortable), label: "Library",         helper_method: :render_repository_facet_link
-    config.add_facet_field solr_name("format",     :facetable), :label => "Format",             :limit => 20
-    config.add_facet_field solr_name("collection", :facetable), :label => "Collection Name",    :limit => 20
-    config.add_facet_field solr_name("creator",    :facetable), :label => "Creator",            :limit => 20
-    config.add_facet_field solr_name("name",       :facetable), :label => "Name",               :limit => 20
-    config.add_facet_field solr_name("subject",    :facetable), :label => "Subject",            :limit => 20
-    config.add_facet_field solr_name("genre",      :facetable), :label => "Genre",              :limit => 20
-    config.add_facet_field solr_name("series",     :facetable), :label => "Series",             :limit => 20
-    config.add_facet_field solr_name("pub_date",   :facetable), :label => "Publication Date",   :limit => 20
-    config.add_facet_field solr_name("language",   :facetable), :label => "Language",           :limit => 20
+    config.add_facet_field solr_name("repository",    :stored_sortable), label: "Library",         helper_method: :render_repository_facet_link
+    config.add_facet_field solr_name("format",        :facetable), :label => "Format",             :limit => 20
+    config.add_facet_field solr_name("collection",    :facetable), :label => "Collection Name",    :limit => 20
+    config.add_facet_field solr_name("creator",       :facetable), :label => "Creator",            :limit => 20
+    config.add_facet_field solr_name("name",          :facetable), :label => "Name",               :limit => 20
+    config.add_facet_field solr_name("subject",       :facetable), :label => "Subject",            :limit => 20
+    config.add_facet_field solr_name("material_type", :facetable), :label => "Material Type",      :limit => 20
+    config.add_facet_field solr_name("series",        :facetable), :label => "Series",             :limit => 20
+    config.add_facet_field solr_name("pub_date",      :facetable), :label => "Publication Date",   :limit => 20
+    config.add_facet_field solr_name("language",      :facetable), :label => "Language",           :limit => 20
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
