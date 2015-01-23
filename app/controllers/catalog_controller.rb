@@ -48,7 +48,7 @@ class CatalogController < ApplicationController
     # app code to actually have it echo'd back to see it.
     config.add_facet_field solr_name("repository",    :stored_sortable), label: "Library",         helper_method: :render_repository_facet_link
     config.add_facet_field solr_name("format",        :facetable), :label => "Format",             :limit => 20
-    config.add_facet_field solr_name("collection",    :facetable), :label => "Collection Name",    :limit => 20
+    config.add_facet_field solr_name("collection",    :facetable), :label => "Collection",         :limit => 20
     config.add_facet_field solr_name("creator",       :facetable), :label => "Creator",            :limit => 20
     config.add_facet_field solr_name("name",          :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",       :facetable), :label => "Subject",            :limit => 20
