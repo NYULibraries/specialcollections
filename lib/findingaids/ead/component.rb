@@ -30,6 +30,7 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
     Solrizer.insert_field(solr_doc, "creator",    get_ead_creators,                             :displayable, :facetable)
+    Solrizer.insert_field(solr_doc, "name",       get_ead_names,                                :facetable)
 
     # Collection field
     Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),                :searchable, :displayable, :facetable)
