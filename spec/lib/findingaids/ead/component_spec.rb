@@ -10,7 +10,7 @@ describe Findingaids::Ead::Component do
   let(:additional_fields) do
     {
       "id" => "TEST-0001ref010",
-      Solrizer.solr_name("collection", :facetable)                => "Bytsura",
+      Solrizer.solr_name("collection", :facetable)                => "Bill Bytsura ACT UP Photography Collection",
       Solrizer.solr_name("ead", :stored_sortable)                 => "TEST-0001",
       Solrizer.solr_name("parent", :stored_sortable)              => "ref001",
       Solrizer.solr_name("parent", :displayable)                  => parent,
@@ -25,6 +25,19 @@ describe Findingaids::Ead::Component do
 
     describe "creator facet" do
       it { expect(solr_doc[Solrizer.solr_name("creator", :facetable)]).to eql ["Belfrage, Sally, 1936-", "Bytsura, Bill", "Kings County (N.Y.). Board of Supervisors.", "Lefferts family"] }
+    end
+
+    describe "name facet" do
+      it { expect(solr_doc[Solrizer.solr_name("name", :facetable)]).to include "Component Corp Inc." }
+    end
+
+    describe "material type facet" do
+      it { expect(document.material_type).to include "Clippings (information artifacts)" }
+      it { expect(document.material_type).to include "Material Type" }
+    end
+
+    describe "collection facet" do
+      it { expect(solr_doc[Solrizer.solr_name("collection", :facetable)]).to include "Bill Bytsura ACT UP Photography Collection" }
     end
 
     context "when component has parent titles" do

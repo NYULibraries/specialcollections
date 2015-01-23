@@ -37,7 +37,7 @@ namespace :findingaids do
       indexer.reindex_changed
     end
 
-    desc "Deletes everytyhing from the solr index"
+    desc "Deletes everything from the solr index"
     task :clean => :environment do
       Findingaids::Ead::Indexer.delete_all
     end

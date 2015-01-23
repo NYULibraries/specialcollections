@@ -51,6 +51,7 @@
                 <corpname rules="Anglo-American_Cataloguing_Rules__2nd_ed." source="naf">Kings County (N.Y.). Board of Supervisors.</corpname>
                 <famname source="naf">Lefferts family</famname>
             </origination>
+            <persname source="naf">Blakemore, Edith Rose, 1872-1947</persname>
         </did>
         <relatedmaterial id="ref475">
             <head>Related Archival Materials note</head>
@@ -150,6 +151,7 @@
                           <persname source="local">Component Level Name</persname>
                           <famname source="naf">Lefferts family</famname>
                         </origination>
+                        <genreform source="aat">Material Type</genreform>
                     </did>
                 </c>
                 <c id="ref15" level="file">

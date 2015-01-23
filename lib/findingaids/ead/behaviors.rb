@@ -82,15 +82,25 @@ module Findingaids::Ead::Behaviors
     return terms.flatten.compact.uniq.sort
   end
 
-  # Combine creator names into one group looking for one or more of the following:
+  # Combine creators into one group looking for one or more of the following:
   #
   #   <origination label="creator">
   #     <persname></persname>
   #     <corpname></corpname>
   #     <famname></famname>
   #    </origination>
+  def get_ead_creators
+    get_ead_creators = (search("//origination[@label='creator']/corpname") + search("//origination[@label='creator']/persname") + search("//origination[@label='creator']/famname"))
+    get_ead_creators.map(&:text).flatten.compact.uniq.sort
+  end
+
+  # Combine names into one group looking for one or more of the following:
+  #
+  #   <persname></persname>
+  #   <corpname></corpname>
+  #   <famname></famname>
   def get_ead_names
-    get_ead_names = (search("//origination[@label='creator']/corpname") + search("//origination[@label='creator']/persname") + search("//origination[@label='creator']/famname"))
+    get_ead_names = (search("//corpname") + search("//persname") + search("//famname"))
     get_ead_names.map(&:text).flatten.compact.uniq.sort
   end
 
