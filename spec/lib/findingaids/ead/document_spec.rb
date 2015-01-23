@@ -27,6 +27,10 @@ describe Findingaids::Ead::Document do
       it { expect(document.material_type).to include "Buttons (information artifacts)" }
     end
 
+    describe "collection facet" do
+      it { expect(document.collection).to include "Bill Bytsura ACT UP Photography Collection" }
+    end
+
     describe "date display" do
       context "when there is a valid date" do
         it { expect(solr_doc[Solrizer.solr_name("unitdate", :displayable)]).to include "Inclusive, 1981-2012 ; Bulk, 1989-1997" }
