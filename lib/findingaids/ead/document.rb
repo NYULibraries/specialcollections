@@ -44,8 +44,9 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :displayable)
     Solrizer.insert_field(solr_doc, "format",       0,                      :sortable)
     Solrizer.insert_field(solr_doc, "unitdate",     ead_date_display,       :displayable)
-    Solrizer.insert_field(solr_doc, "creator",      get_ead_names,          :displayable)
-    Solrizer.insert_field(solr_doc, "creator",      get_ead_names,          :facetable)
+    Solrizer.insert_field(solr_doc, "creator",      get_ead_creators,       :displayable)
+    Solrizer.insert_field(solr_doc, "creator",      get_ead_creators,       :facetable)
+    Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
 
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :facetable)
     Solrizer.set_field(solr_doc, "genre",           self.genreform,              :displayable)
