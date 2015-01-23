@@ -7,7 +7,7 @@ class Findingaids::Ead::Document < SolrEad::Document
   # Extend terminology from presets
   # https://github.com/awead/solr_ead/blob/master/lib/solr_ead/document.rb
   extend_terminology do |t|
-    t.title(:path=>"archdesc/did/unittitle", :index_as=>[:unstemmed_searchable])
+    t.title(:path=>"archdesc[@level='collection']/did/unittitle", :index_as=>[:unstemmed_searchable])
     t.title_num(:path=>"archdesc/did/unitid", :index_as=>[:searchable, :displayable])
     t.abstract(:path=>"archdesc/did/abstract", :index_as=>[:searchable, :displayable])
     t.sponsor(:path=>"sponsor", :index_as=>[:searchable,:displayable])
