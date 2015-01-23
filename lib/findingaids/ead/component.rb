@@ -4,7 +4,10 @@ class Findingaids::Ead::Component < SolrEad::Component
 
   use_terminology SolrEad::Component
 
+  # Extend terminology from presets
+  # https://github.com/awead/solr_ead/blob/master/lib/solr_ead/component.rb
   extend_terminology do |t|
+    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:displayable, :sortable, :searchable])
 
     # <odd> nodes
     # These guys depend on what's in <head> so we do some xpathy stuff...
@@ -14,29 +17,24 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.folder_filing(:path=>"container[@type='Folder']", :index_as=>[:sortable])
     t.title_filing(:path=>"unittitle", :index_as=>[:sortable])
 
+    t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
+
   end
 
   def to_solr(solr_doc = Hash.new)
     solr_doc = super(solr_doc)
-    solr_doc.merge!(Solrizer.solr_name("repository", :stored_sortable) => format_repository)
-    solr_doc.merge!(Solrizer.solr_name("repository", :facetable) => format_repository)
 
+    Solrizer.insert_field(solr_doc, "repository", format_repository,                            :stored_sortable, :facetable)
     Solrizer.insert_field(solr_doc, "format",     format_filing(solr_doc),                      :sortable)
-    Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable)
-    Solrizer.insert_field(solr_doc, "format",     format_display,                               :displayable)
+    Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable, :displayable)
     Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
-    Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable)
-    Solrizer.insert_field(solr_doc, "location",   location_display,                             :sortable)
-    Solrizer.insert_field(solr_doc, "title",      self.title,                                   :searchable)
-    Solrizer.insert_field(solr_doc, "creator",    get_ead_names,                                :displayable)
-    Solrizer.insert_field(solr_doc, "creator",    get_ead_names,                                :facetable)
+    Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
+    Solrizer.insert_field(solr_doc, "creator",    get_ead_creators,                             :displayable, :facetable)
 
     # Collection field
-    Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),          :searchable)
-    Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),          :displayable)
-    Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),          :facetable)
-    Solrizer.set_field(solr_doc, "series",            series_facets(solr_doc),            :facetable)
-    Solrizer.set_field(solr_doc, "series",            series_sortable(solr_doc),          :sortable)
+    Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),                :searchable, :displayable, :facetable)
+    Solrizer.set_field(solr_doc, "series",            series_facets(solr_doc),                  :facetable)
+    Solrizer.set_field(solr_doc, "series",            series_sortable(solr_doc),                :sortable)
 
     # Replace certain fields with their html-formatted equivalents
     Solrizer.set_field(solr_doc, "title", self.term_to_html("title"), :displayable)

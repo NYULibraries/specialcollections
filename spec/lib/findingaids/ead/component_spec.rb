@@ -27,6 +27,11 @@ describe Findingaids::Ead::Component do
       it { expect(solr_doc[Solrizer.solr_name("creator", :facetable)]).to eql ["Belfrage, Sally, 1936-", "Bytsura, Bill", "Kings County (N.Y.). Board of Supervisors.", "Lefferts family"] }
     end
 
+    describe "material type facet" do
+      it { expect(document.material_type).to include "Clippings (information artifacts)" }
+      it { expect(document.material_type).to include "Material Type" }
+    end
+
     context "when component has parent titles" do
       it { expect(solr_doc["id"]).to eql("TEST-0001ref010") }
       it { expect(solr_doc[Solrizer.solr_name("level", :facetable)]).to include "item" }
