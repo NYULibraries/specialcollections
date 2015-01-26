@@ -52,6 +52,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("creator",       :facetable), :label => "Creator",            :limit => 20
     config.add_facet_field solr_name("name",          :facetable), :label => "Name",               :limit => 20
     config.add_facet_field solr_name("subject",       :facetable), :label => "Subject",            :limit => 20
+    config.add_facet_field solr_name("place",         :facetable), :label => "Place",              :limit => 20
     config.add_facet_field solr_name("material_type", :facetable), :label => "Material Type",      :limit => 20
     config.add_facet_field solr_name("series",        :facetable), :label => "Series",             :limit => 20
     config.add_facet_field solr_name("pub_date",      :facetable), :label => "Publication Date",   :limit => 20

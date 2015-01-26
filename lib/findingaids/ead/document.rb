@@ -33,7 +33,7 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
     t.dsc
-
+    t.place(proxy: [:geogname], :index_as=>[:facetable, :displayable])
     t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
     t.collection(:proxy=>[:title], :index_as=>[:facetable, :displayable])
   end
