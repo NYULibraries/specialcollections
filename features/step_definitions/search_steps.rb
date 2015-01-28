@@ -42,8 +42,6 @@ And(/^I should see a "(.*?)" facet under the "(.*?)" category$/) do |facet, cate
 end
 
 #Check which option is selected in a dropdown
-Then (/^"([^"]*)" should be selected for sort$/) do |selected_value|
-  find(:css, "#sort-dropdown > button").text.should eq(selected_value.strip)
-  #find(:xpath, '//*[@id="sort-dropdown"]/button]').text.should eq(selected_value.strip)
-  #find_field("button").text.should eq(selected_value.strip)
+Then (/^"([^"]*)" should be selected for "(.*?)" dropdown$/) do |selected_value, dropdown|
+  find(:css, "##{dropdown}-dropdown > button").text.should eq(selected_value.strip)
 end
