@@ -97,7 +97,6 @@ module Findingaids::Ead::Behaviors
   #getting places and scrubbing out subfield demarcators
   def get_ead_places
     gep = search("//geogname")
-    c = gep.size
     get_ead_places = []
     gep.children.each{|n|
         t = n.text
