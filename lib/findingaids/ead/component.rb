@@ -16,7 +16,6 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.box_filing(:path=>"container[@type='Box']", :index_as=>[:sortable])
     t.folder_filing(:path=>"container[@type='Folder']", :index_as=>[:sortable])
     t.title_filing(:path=>"unittitle", :index_as=>[:sortable])
-    #t.place(proxy: [:geogname], :index_as=>[:facetable, :displayable])
     t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
 
   end
