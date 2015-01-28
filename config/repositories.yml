@@ -4,22 +4,22 @@ Catalog:
       display: 'The Fales Library & Special Collections'
       url: "fales"
       admin_code: fales
-    tamwag:
+    tamiment:
       display: 'The Tamiment Library & Robert F. Wagner Labor Archives'
-      url: "tamwag"
-      admin_code: "tamwag"
-    archives:
+      url: "tamiment"
+      admin_code: "tamiment"
+    universityarchives:
       display: 'New York University Archives'
-      url: "archives"
-      admin_code: "archives"
-    nyhs:
+      url: "universityarchives"
+      admin_code: "universityarchives"
+    nyhistory:
       display: 'New-York Historical Society'
-      url: "nyhs"
-      admin_code: "nyhs"
-    bhs:
+      url: "nyhistory"
+      admin_code: "nyhistory"
+    brooklynhistory:
       display: 'Brooklyn Historical Society'
-      url: "bhs"
-      admin_code: "bhs"
+      url: "brooklynhistory"
+      admin_code: "brooklynhistory"
     poly:
       display: 'Poly Archives'
       url: "poly"

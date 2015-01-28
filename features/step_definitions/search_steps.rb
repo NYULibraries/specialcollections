@@ -2,6 +2,10 @@ Given(/^I am on the default search page$/) do
   visit root_path
 end
 
+Given (/^I am on the "(.*)" search page$/) do |place|
+ visit "/#{place}"
+end
+
 When(/^I perform an empty search$/) do
   ensure_root_path
   search_phrase('')
@@ -10,6 +14,18 @@ end
 When(/^I search on the phrase "(.*?)"$/) do |phrase|
   ensure_root_path
   search_phrase(phrase)
+end
+
+When(/^I search "(.*?)" on the phrase "(.*?)"$/) do |coll, phrase|
+  search_phrase(phrase)
+end
+
+#Check which option is selected in a dropdown
+Then /^"([^"]*)" should be selected for "([^"]*)"$/ do |selected_value, dropdown|
+  #page.has_select?(dropdown, :selected => selected_value).should eq(true)
+  #page.has_select?(dropdown).should == false
+  #expect(page).to have_select(dropdown, selected: selected_value)
+  find_field(dropdown).find('option[selected]').text.should eq(selected_value)
 end
 
 ##
@@ -40,3 +56,5 @@ And(/^I should see a "(.*?)" facet under the "(.*?)" category$/) do |facet, cate
     expect(page.find(:xpath, "//a[text()='#{facet}']")).to have_content
   end
 end
+
+
