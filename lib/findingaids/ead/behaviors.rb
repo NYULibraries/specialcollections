@@ -94,6 +94,18 @@ module Findingaids::Ead::Behaviors
     get_ead_creators.map(&:text).flatten.compact.uniq.sort
   end
 
+  #getting places and scrubbing out subfield demarcators
+  def get_ead_places
+    gep = search("//geogname")
+    c = gep.size
+    get_ead_places = []
+    gep.children.each{|n|
+        t = n.text
+        get_ead_places.push(fix_subfield_demarcators(t))
+    } 
+    get_ead_places.compact.uniq.sort  #don't need to flatten since already an array
+  end
+
   # Combine names into one group looking for one or more of the following:
   #
   #   <persname></persname>
@@ -114,6 +126,10 @@ module Findingaids::Ead::Behaviors
     return fields
   end
 
+  def fix_subfield_demarcators(value)
+    v = value.gsub(/\|\w{1}/,"--")
+    return v
+  end
   # Wrap OM's find_by_xpath for convenience
   def search(path)
     self.find_by_xpath(path)

@@ -16,7 +16,7 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.box_filing(:path=>"container[@type='Box']", :index_as=>[:sortable])
     t.folder_filing(:path=>"container[@type='Folder']", :index_as=>[:sortable])
     t.title_filing(:path=>"unittitle", :index_as=>[:sortable])
-    t.place(proxy: [:geogname], :index_as=>[:facetable, :displayable])
+    #t.place(proxy: [:geogname], :index_as=>[:facetable, :displayable])
     t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
 
   end
@@ -31,6 +31,7 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
     Solrizer.insert_field(solr_doc, "creator",    get_ead_creators,                             :displayable, :facetable)
     Solrizer.insert_field(solr_doc, "name",       get_ead_names,                                :facetable)
+    Solrizer.insert_field(solr_doc, "place",      get_ead_places,                               :displayable, :facetable)
 
     # Get the collection field
     Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),                :searchable, :displayable, :facetable)
