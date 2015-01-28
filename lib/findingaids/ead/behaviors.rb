@@ -94,6 +94,11 @@ module Findingaids::Ead::Behaviors
     get_ead_creators.map(&:text).flatten.compact.uniq.sort
   end
 
+  #getting places and scrubbing out subfield demarcators
+  def get_ead_places
+    @get_ead_places ||= search("//geogname").map {|field| fix_subfield_demarcators(field.text) }.compact.uniq.sort
+  end
+
   # Combine names into one group looking for one or more of the following:
   #
   #   <persname></persname>
@@ -121,6 +126,13 @@ module Findingaids::Ead::Behaviors
      unless(value("//dao")).empty?
        "Online Access"
      end
+  end
+
+  # Replace MARC style subfield demarcators
+  #
+  # Usage: fix_subfield_demarcators("Subject 1 |z Sub-Subject 2") => "Subject 1 -- Sub-Subject 2"
+  def fix_subfield_demarcators(value)
+     value.gsub(/\|\w{1}/,"--")
   end
 
   # Wrap OM's find_by_xpath for convenience
