@@ -22,6 +22,10 @@ describe Findingaids::Ead::Document do
       it { expect(solr_doc[Solrizer.solr_name("name", :facetable)]).to include "Gay Men's Health Crisis, Inc.." }
     end
 
+    describe "place facet" do
+      it { expect(solr_doc[Solrizer.solr_name("place", :facetable)]).to include "Oxford (England)." }
+    end
+
     describe "material type facet" do
       it { expect(document.material_type).to include "Material Type" }
       it { expect(document.material_type).to include "Buttons (information artifacts)" }
