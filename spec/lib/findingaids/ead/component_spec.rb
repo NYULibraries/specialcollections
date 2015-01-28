@@ -31,6 +31,10 @@ describe Findingaids::Ead::Component do
       it { expect(solr_doc[Solrizer.solr_name("name", :facetable)]).to include "Component Corp Inc." }
     end
 
+    describe "place facet" do
+      it { expect(solr_doc[Solrizer.solr_name("place", :facetable)]).to include "Cambridge (Mass.)" }
+    end
+
     describe "material type facet" do
       it { expect(document.material_type).to include "Clippings (information artifacts)" }
       it { expect(document.material_type).to include "Material Type" }
