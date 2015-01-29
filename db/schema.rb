@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20141210211418) do
     t.integer  "user_id",       null: false
     t.string   "document_id"
     t.string   "title"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "user_type"
     t.string   "document_type"
   end
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20141210211418) do
   create_table "searches", force: true do |t|
     t.text     "query_params"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "user_type"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20141210211418) do
     t.string   "current_login_ip"
     t.text     "user_attributes"
     t.datetime "refreshed_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

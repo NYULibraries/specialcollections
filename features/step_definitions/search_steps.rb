@@ -41,7 +41,20 @@ And(/^I should see a "(.*?)" facet under the "(.*?)" category$/) do |facet, cate
   end
 end
 
+Given(/^I am on the brief results page$/) do
+  ensure_root_path
+  search_phrase('bloch')
+end
+
+When(/^I select "(.*?)" from the "(.*?)" dropdown$/) do |option, dropdown|
+  click_button(dropdown)
+  click_link(option)
+end
+#sort-dropdown > button
+#//*[@id="sort-dropdown"]/button
+
 #Check which option is selected in a dropdown
-Then (/^"([^"]*)" should be selected for "(.*?)" dropdown$/) do |selected_value, dropdown|
-  find(:css, "##{dropdown}-dropdown > button").text.should eq(selected_value.strip)
+#Then (/^"([^"]*)" should be selected for "(.*?)" dropdown$/) do |selected_value, dropdown|
+Then(/^the results should be sorted by "(.*?)"$/) do |option|
+  find(:css, "#sort-dropdown > button").text.should eq("Sort by #{option}")
 end
