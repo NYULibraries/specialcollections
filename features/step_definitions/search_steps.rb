@@ -40,3 +40,19 @@ And(/^I should see a "(.*?)" facet under the "(.*?)" category$/) do |facet, cate
     expect(page.find(:xpath, "//a[text()='#{facet}']")).to have_content
   end
 end
+
+Given(/^I am on the brief results page$/) do
+  ensure_root_path
+  search_phrase('bloch')
+end
+
+# Select a dropdown option
+When(/^I select "(.*?)" from the "(.*?)" dropdown$/) do |option, dropdown|
+  click_button(dropdown)
+  click_link(option)
+end
+
+# Check which option is selected in a dropdown
+Then(/^the results should be sorted by "(.*?)"$/) do |option|
+  find(:css, "#sort-dropdown > button").text.should eq("Sort by #{option}")
+end
