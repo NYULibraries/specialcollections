@@ -6,8 +6,15 @@ module FindingaidsFeatures
     end
 
     def limit_by_facet(category, facet)
-      within(:css, '#facets') do
-        click_on(category)
+      click_on(category)
+      if page.has_link? facet
+        click_on(facet)
+      else
+        click_on("more »")
+        click_on("A-Z Sort")
+        until page.has_link? facet do 
+          click_on("Next »")
+        end
         click_on(facet)
       end
     end
