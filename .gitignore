@@ -7,6 +7,7 @@
 /examples
 /jetty
 /wiki
+/spec/out.html
 
 /coverage
 
@@ -17,6 +18,7 @@ public/assets
 data/
 findingaids_eads/
 .pid
+sunspot-solr.pid
 
 # ignore jEnv files
 .java-version
