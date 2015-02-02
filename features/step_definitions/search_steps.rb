@@ -65,7 +65,6 @@ end
 
 Then(/^I should see results from "(.*?)"$/) do |library|
   within("#documents ") do
-    save_and_open_page("hyi")
     page.should have_selector(:link,"#{library}")
   end
 end
