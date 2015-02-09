@@ -51,6 +51,10 @@ describe Findingaids::Ead::Component do
       it { expect(solr_doc[Solrizer.solr_name("heading", :displayable)]).to include "August 19, 1992" }
     end
 
+    describe "describe digital content facet" do
+      it { expect(solr_doc[Solrizer.solr_name("dao", :facetable)]).to include "Online Access" }
+    end
+
   end
 
   describe ".title_for_heading" do

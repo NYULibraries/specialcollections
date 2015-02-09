@@ -16,5 +16,8 @@
         </controlaccess>
         <genreform>Material Type</genreform>
         <corpname>Component Corp Inc.</corpname>
+        <dao ns2:actuate="onRequest" ns2:show="embed" ns2:title="Washington Square Park, Aerial View" ns2:role="Image-Thumbnail" ns2:href="http://dlib.nyu.edu/washingtonsquare/2333.1/15dv41w7/wsp_av_1_1_01t.jpg">
+          <daodesc><p>Washington Square Park, Aerial View</p></daodesc>
+        </dao>
     </did>
 </c>

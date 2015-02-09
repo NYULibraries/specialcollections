@@ -33,7 +33,6 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     t.publisher(:path => "publisher", :index_as => [:searchable])
     t.dsc
-
     t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
     t.collection(:proxy=>[:title], :index_as=>[:facetable, :displayable])
   end
@@ -50,6 +49,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
 
     Solrizer.set_field(solr_doc, "subject",         get_ead_subject_facets, :facetable)
+    Solrizer.insert_field(solr_doc, "dao",          get_ead_dao_facet,      :facetable)
 
     # Replace certain fields with their html-formatted equivlents
     Solrizer.set_field(solr_doc, "title", self.term_to_html("title"), :displayable)

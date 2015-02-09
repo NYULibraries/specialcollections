@@ -18,6 +18,10 @@ describe Findingaids::Ead::Document do
       it { expect(solr_doc[Solrizer.solr_name("creator", :facetable)]).to eql ["Belfrage, Sally, 1936-", "Bytsura, Bill", "Component Level Name", "Kings County (N.Y.). Board of Supervisors.", "Lefferts family"] }
     end
 
+    describe "digital content facet" do
+      it { expect(solr_doc[Solrizer.solr_name("dao", :facetable)]).to include "Online Access" }
+    end
+
     describe "name facet" do
       it { expect(solr_doc[Solrizer.solr_name("name", :facetable)]).to include "Gay Men's Health Crisis, Inc.." }
     end

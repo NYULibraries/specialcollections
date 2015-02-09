@@ -56,6 +56,7 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("series",        :facetable), :label => "Series",             :limit => 20
     config.add_facet_field solr_name("pub_date",      :facetable), :label => "Publication Date",   :limit => 20
     config.add_facet_field solr_name("language",      :facetable), :label => "Language",           :limit => 20
+    config.add_facet_field solr_name("dao",           :facetable), :label => "Digital Content"
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request

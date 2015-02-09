@@ -114,6 +114,15 @@ module Findingaids::Ead::Behaviors
     return fields
   end
 
+  #Identify if resource is availble on line. Looks for
+  #
+  #<dao></dao>
+  def  get_ead_dao_facet
+     unless(value("//dao")).empty?
+       "Online Access"
+     end
+  end
+
   # Wrap OM's find_by_xpath for convenience
   def search(path)
     self.find_by_xpath(path)
