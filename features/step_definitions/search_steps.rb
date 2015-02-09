@@ -56,3 +56,25 @@ end
 Then(/^the results should be sorted by "(.*?)"$/) do |option|
   find(:css, "#sort-dropdown > button").text.should eq("Sort by #{option}")
 end
+
+##
+#Search across libraries steps
+Then(/^I should see a label "(.*?)" in the default scope$/) do |label|
+  expect(page.find('#search_field').find(:xpath,'option[1]')).to have_content "#{label}"
+end
+
+Then(/^I should see results from "(.*?)"$/) do |library|
+  within("#documents ") do
+    page.should have_selector(:link,"#{library}")
+  end
+end
+
+Then(/^I should not see results from "(.*?)"$/) do |library|
+  within("#documents ") do
+    page.should_not have_selector(:link,"#{library}")
+  end
+end
+
+Given(/^I choose "(.*?)" as a search scope$/) do |library|
+  select "#{library}", :from => "search_field"
+end

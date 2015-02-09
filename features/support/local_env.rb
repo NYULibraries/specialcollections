@@ -28,6 +28,7 @@ if Rails.env.test?
     indexer.index('spec/fixtures/fales/bloch.xml')
     indexer.index('spec/fixtures/fales/berol.xml')
     indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
+    indexer.index('spec/fixtures/tamwag/photos_114.xml')
   ensure
     WebMock.disable_net_connect!
   end
