@@ -33,6 +33,8 @@ describe Findingaids::Ead::Component do
 
     describe "place facet" do
       it { expect(solr_doc[Solrizer.solr_name("place", :facetable)]).to include "Cambridge (Mass.)" }
+      it { expect(solr_doc[Solrizer.solr_name("place", :facetable)]).to include "Spain -- History -- Civil War, 1936-1939 -- Atrocities." }
+
     end
 
     describe "material type facet" do

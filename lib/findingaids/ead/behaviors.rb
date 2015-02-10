@@ -94,7 +94,8 @@ module Findingaids::Ead::Behaviors
     get_ead_creators.map(&:text).flatten.compact.uniq.sort
   end
 
-  #getting places and scrubbing out subfield demarcators
+  # getting places and scrubbing out subfield demarcators
+  # 
   def get_ead_places
     @get_ead_places ||= search("//geogname").map {|field| fix_subfield_demarcators(field.text) }.compact.uniq.sort
   end
@@ -134,7 +135,7 @@ module Findingaids::Ead::Behaviors
   def fix_subfield_demarcators(value)
      value.gsub(/\|\w{1}/,"--")
   end
-
+  
   # Wrap OM's find_by_xpath for convenience
   def search(path)
     self.find_by_xpath(path)
