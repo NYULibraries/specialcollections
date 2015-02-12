@@ -77,6 +77,6 @@ VCR.configure do |c|
   c.filter_sensitive_data("http://localhost:8981/solr") { ENV['SOLR_URL'] }
 end
 
-def ead_fixture file
-  File.new(File.join(File.dirname(__FILE__), 'fixtures', 'examples', file))
+def ead_fixture(file, folder='examples')
+  File.new(File.join(File.dirname(__FILE__), 'fixtures', folder, file))
 end
