@@ -133,6 +133,14 @@
             <genreform source="aat">Photographic prints.</genreform>
             <subject source="lcsh">Portrait prints |y 20th century.</subject>
             <genreform source="aat">Printed ephemera.</genreform>
+            <note>
+                <p>For information about Prints and Photographs Division collections
+                and services, see the
+                Prints and Photographs Division's Reading Room Home Page:
+                <extptr actuate="onrequest" href="http://www.loc.gov/rr/print.htm">
+                    http://www.loc.gov/rr/print.htm" show="new">
+                </p>
+            </note>
         </controlaccess>
         <dsc>
             <c id="ref1" level="series">
