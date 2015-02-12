@@ -123,10 +123,8 @@ module Findingaids::Ead::Behaviors
   #Identify if resource is availble on line. Looks for
   #
   #<dao></dao>
-  def  get_ead_dao_facet
-     unless(value("//dao")).empty?
-       "Online Access"
-     end
+  def get_ead_dao_facet
+    "Online Access" unless(value("//dao")).empty?
   end
 
   # Replace MARC style subfield demarcators
