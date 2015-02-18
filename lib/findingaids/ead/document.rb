@@ -7,18 +7,24 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.root(path:"ead")
     t.eadid
 
+    # Descriptive information in <did>
     t.unittitle(path:"archdesc[@level='collection']/did/unittitle",index_as:[:searchable,:displayable])
     t.unitid(path:"archdesc[@level='collection']/did/unitid",index_as:[:searchable,:displayable])
     t.langcode(path:"archdesc[@level='collection']/did/langmaterial/language/@langcode")
     t.unitdate(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
     t.abstract(path:"archdesc[@level='collection']/did/abstract",index_as:[:searchable,:displayable])
     t.creator(path:"archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
+
+    # Fulltext in <p> under the following descriptive fields
     t.scopecontent(path:"archdesc[@level='collection']/scopecontent/p",index_as:[:searchable])
     t.bioghist(path:"archdesc[@level='collection']/bioghist/p",index_as:[:searchable])
     t.acqinfo(path:"archdesc[@level='collection']/acqinfo/p",index_as:[:searchable])
     t.custodhist(path:"archdesc[@level='collection']/custodhist/p",index_as:[:searchable])
     t.appraisal(path:"archdesc[@level='collection']/appraisal/p",index_as:[:searchable])
-    t.chronlist(path:"archdesc[@level='collection']/bioghist/chronlist/chronitem/event",index_as:[:searchable])
+
+    # Find the following wherever they exist in the tree structure under <archdesc level="collection">
+    # except under the inventory which starts at <dsc>
+    t.chronlist(path:"archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem/*/text()",index_as:[:searchable])
     t.corpname(path:"archdesc[@level='collection']/corpname",index_as:[:searchable,:displayable])
     t.famname(path:"archdesc[@level='collection']/famname",index_as:[:searchable,:displayable])
     t.function(path:"archdesc[@level='collection']/function",index_as:[:searchable,:displayable])
