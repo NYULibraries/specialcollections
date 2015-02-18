@@ -25,20 +25,6 @@ module Findingaids::Ead::Behaviors
     end
   end
 
-  # Takes the publisher string from EAD and
-  # * Strips non-ascii characters such as &copy;
-  # * Strips leading @ sign which is sometimes erroneously instead of a copyright
-  # * Strip leading year from publisher
-  def format_publisher(field)
-    encoding_options = {
-     :invalid           => :replace,  # Replace invalid byte sequences
-     :undef             => :replace,  # Replace anything not defined in ASCII
-     :replace           => '',        # Use a blank for those replacements
-     :UNIVERSAL_NEWLINE_DECORATOR => true       # Always break lines with \n
-    }
-    return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
-  end
-
   # Pulls the repository from the directory title when indexing from the rake task
   #
   #   rake findingaids:ead:index EAD=data/repos/test.xml
