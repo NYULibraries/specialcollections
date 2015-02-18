@@ -1,5 +1,7 @@
-require "fileutils"
-require "findingaids"
+require 'fileutils'
+require 'findingaids'
+require 'webmock'
+WebMock.allow_net_connect!
 
 namespace :findingaids do
 
