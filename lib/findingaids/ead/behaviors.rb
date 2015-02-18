@@ -94,7 +94,11 @@ module Findingaids::Ead::Behaviors
   #    </origination>
   def get_ead_creators
     get_ead_creators = CREATOR_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
-    get_ead_creators.map(&:text).flatten.compact.uniq.sort
+    # Flatten nested arrays into one top level array
+    get_ead_creators = get_ead_creators.flatten
+    # Map to the text value and remove nils
+    get_ead_creators = get_ead_creators.map(&:text).compact
+    return get_ead_creators
   end
 
   # getting places and scrubbing out subfield demarcators
