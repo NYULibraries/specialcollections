@@ -6,12 +6,13 @@ class Findingaids::Ead::Document < SolrEad::Document
   set_terminology do |t|
     t.root(path:"ead")
     t.eadid
+
     t.unittitle(path:"archdesc[@level='collection']/did/unittitle",index_as:[:searchable,:displayable])
     t.unitid(path:"archdesc[@level='collection']/did/unitid",index_as:[:searchable,:displayable])
     t.langcode(path:"archdesc[@level='collection']/did/langmaterial/language/@langcode")
     t.unitdate(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
     t.abstract(path:"archdesc[@level='collection']/did/abstract",index_as:[:searchable,:displayable])
-    t.creator(path:"archdesc[@level='collection']/did/origination[@label='creator']",index_as:[:searchable,:displayable])
+    t.creator(path:"archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
     t.scopecontent(path:"archdesc[@level='collection']/scopecontent/p",index_as:[:searchable])
     t.bioghist(path:"archdesc[@level='collection']/bioghist/p",index_as:[:searchable])
     t.acqinfo(path:"archdesc[@level='collection']/acqinfo/p",index_as:[:searchable])

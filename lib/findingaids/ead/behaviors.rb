@@ -3,17 +3,27 @@
 # A collection of instance methods used by our custom EadComponent and EadDocument
 # modules.  They're helpful for doing fancy things with the data when it gets
 # indexed into solr.
-
 module Findingaids::Ead::Behaviors
 
+  # Use default behaviors
   include SolrEad::Behaviors
 
-  # Config mapping for linking to specific pages from found text in Solr fields
+  # Allows us to use class methods from this module in document and component.rb
+  extend ActiveSupport::Concern
+
+  # Define Constants
   LINK_FIELDS = {
     :abstract => [:abstract],
     :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
     :dsc => [:odd, :unittitles]
   }
+  CREATOR_FIELDS = [:corpname, :famname, :persname] #Possible creator subfields
+
+  module ClassMethods
+    def creator_fields_to_xpath
+      @creator_fields_to_xpath ||= CREATOR_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
+    end
+  end
 
   # Takes the publisher string from EAD and
   # * Strips non-ascii characters such as &copy;
@@ -90,7 +100,7 @@ module Findingaids::Ead::Behaviors
   #     <famname></famname>
   #    </origination>
   def get_ead_creators
-    get_ead_creators = (search("//origination[@label='creator']/corpname") + search("//origination[@label='creator']/persname") + search("//origination[@label='creator']/famname"))
+    get_ead_creators = CREATOR_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
     get_ead_creators.map(&:text).flatten.compact.uniq.sort
   end
 
