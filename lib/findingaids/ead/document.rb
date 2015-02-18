@@ -1,3 +1,8 @@
+##
+# Ead Document
+#
+# Use OM to describe an EAD finding aid document (at the top
+# collection level) as XML so we can import it into Solr
 class Findingaids::Ead::Document < SolrEad::Document
 
   include Findingaids::Ead::Behaviors
@@ -37,7 +42,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.title(path:"archdesc[@level='collection']/*[name() != 'dsc']//title",index_as:[:searchable,:displayable])
     t.note(path:"archdesc[@level='collection']/*[name() != 'dsc']//note",index_as:[:searchable,:displayable])
 
-    #Facets
+    # Copy fields
     t.collection(proxy:[:unittitle],index_as:[:facetable,:displayable])
     t.material_type(proxy:[:genreform],index_as:[:facetable,:displayable])
   end

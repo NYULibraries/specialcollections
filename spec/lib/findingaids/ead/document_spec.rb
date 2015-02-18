@@ -50,41 +50,37 @@ describe Findingaids::Ead::Document do
   its("title.count") { should eql 1 }
   its(:note) { should be_empty } # No examples for note
 
-  describe "#to_solr" do
-  end
-
   describe "facets" do
+    let(:solr_doc) { document.to_solr }
+    let(:facet) { 'creator' }
+    subject { solr_doc[Solrizer.solr_name(facet, :facetable)] }
+
+    context "when the facet is Creator" do
+      it { should_not be_empty }
+      its(:size) { should be 3 }
+    end
+    context "when the facet is Digital Content" do
+      let(:facet) { 'dao' }
+      it { should include "Online Access" }
+    end
+    context "when the facet is Subject" do
+      let(:facet) { 'subject' }
+      it { should include "AT" }
+    end
+    context "when the facet is Name" do
+      let(:facet) { 'name' }
+      it { should_not be_empty }
+      its(:size) { should be 17 }
+    end
+    context "when the facet is Material Type" do
+      let(:facet) { 'material_type' }
+      it { should include "Subjects--GenreForm--AT" }
+    end
+    context "when the facet is Collection" do
+      let(:facet) { 'collection' }
+      it { should include "Resource--Title-AT" }
+    end
+
   end
-  # describe "creator facet" do
-  #   it { expect(solr_doc[Solrizer.solr_name("creator", :facetable)]).to eql ["Belfrage, Sally, 1936-", "Bytsura, Bill", "Component Level Name", "Kings County (N.Y.). Board of Supervisors.", "Lefferts family"] }
-  # end
-  #
-  # describe "digital content facet" do
-  #   it { expect(solr_doc[Solrizer.solr_name("dao", :facetable)]).to include "Online Access" }
-  # end
-  #
-  # describe "name facet" do
-  #   it { expect(solr_doc[Solrizer.solr_name("name", :facetable)]).to include "Gay Men's Health Crisis, Inc.." }
-  # end
-  #
-  # describe "material type facet" do
-  #   it { expect(document.material_type).to include "Material Type" }
-  #   it { expect(document.material_type).to include "Buttons (information artifacts)" }
-  # end
-  #
-  # describe "collection facet" do
-  #   it { expect(document.collection).to include "Bill Bytsura ACT UP Photography Collection" }
-  # end
-  #
-  # describe "date display" do
-  #   context "when there is a valid date" do
-  #     it { expect(document.unitdate).to include "Inclusive, 1981-2012 ; Bulk, 1989-1997" }
-  #   end
-  #
-  #   context "when there is no valid date" do
-  #     let(:document) { Findingaids::Ead::Document.from_xml(ead_fixture("ead_template.xml")) }
-  #     it { expect(document.unitdate).to include "sample date" }
-  #   end
-  # end
 
 end

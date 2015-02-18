@@ -1,3 +1,4 @@
+##
 # Ead Behaviors
 #
 # A collection of instance methods used by our custom EadComponent and EadDocument
@@ -11,19 +12,25 @@ module Findingaids::Ead::Behaviors
   # Allows us to use class methods from this module in document and component.rb
   extend ActiveSupport::Concern
 
+  ##
   # Define Constants
+  # Fields to link to in display view
   LINK_FIELDS = {
     :abstract => [:abstract],
     :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
     :dsc => [:odd, :unittitles]
   }
-  CREATOR_FIELDS = [:corpname, :famname, :persname] #Possible creator subfields
+  #Possible creator subfields
+  CREATOR_FIELDS = [:corpname, :famname, :persname]
+  #
+  ##
 
   module ClassMethods
     def creator_fields_to_xpath
       @creator_fields_to_xpath ||= CREATOR_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
     end
   end
+
 
   # Pulls the repository from the directory title when indexing from the rake task
   #
