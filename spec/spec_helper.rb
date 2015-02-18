@@ -15,27 +15,14 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'vcr'
 require 'capybara/rspec'
 require 'database_cleaner'
+
+WebMock.allow_net_connect! if Rails.env.test?
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
-
-# Refresh jetty data before rspec tests run
-if Rails.env.test?
-  begin
-    WebMock.allow_net_connect!
-    Findingaids::Ead::Indexer.delete_all
-    indexer = Findingaids::Ead::Indexer.new
-    indexer.index('spec/fixtures/fales/bloch.xml')
-    indexer.index('spec/fixtures/fales/berol.xml')
-    indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
-  ensure
-    WebMock.disable_net_connect!
-  end
-end
 
 RSpec.configure do |config|
   # ## Mock Framework
@@ -66,15 +53,6 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
-end
-
-VCR.configure do |c|
-  c.default_cassette_options = { allow_playback_repeats: true, record: :new_episodes }
-  c.cassette_library_dir = 'spec/vcr_cassettes'
-  c.ignore_localhost = true
-  c.configure_rspec_metadata!
-  c.hook_into :webmock
-  c.filter_sensitive_data("http://localhost:8981/solr") { ENV['SOLR_URL'] }
 end
 
 def ead_fixture(file, folder='examples')
