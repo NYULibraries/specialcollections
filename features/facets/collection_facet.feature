@@ -10,6 +10,6 @@ Feature: Collection facet
 
   Scenario: Filter search results by a collection facet
     Given I am on the default search page
-    When I search on the phrase "bloch"
-    And I limit my search to "Mark Bloch Postal Art Network (PAN) Archive" under the "Collection" category
+    When I search on the phrase "berol"
+    And I limit my search to "Alfred C. Berol Collection of Lewis Carroll" under the "Collection" category
     Then I should see search results

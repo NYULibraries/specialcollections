@@ -52,5 +52,20 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
+  describe "#fix_subfield_demarcators" do
+    let(:subfield) { "Long Island (N.Y.) |x History |y 17th century" }
+
+    subject { fix_subfield_demarcators(subfield) }
+
+    context "when subfield is Long Island (N.Y.) |x History |y 17th century" do
+      it { should eql("Long Island (N.Y.) -- History -- 17th century")}
+    end
+
+    context "when subfield is Chemistry |w History |y 19th century" do
+      let(:subfield) { "Chemistry |w History |y 19th century" }
+      it { should eql("Chemistry -- History -- 19th century")}
+    end
+  end
+
 
 end
