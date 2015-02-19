@@ -35,7 +35,7 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     # Get the collection field
     Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),                :searchable, :displayable, :facetable)
-    
+
     Solrizer.set_field(solr_doc, "series",            series_facets(solr_doc),                  :facetable)
     Solrizer.set_field(solr_doc, "series",            series_sortable(solr_doc),                :sortable)
 
@@ -64,7 +64,7 @@ protected
     return locations
   end
 
-  def heading_display solr_doc
+  def heading_display(solr_doc)
     if self.title.first.blank?
       self.term_to_html("unitdate") unless self.unitdate.empty?
     else
@@ -72,7 +72,7 @@ protected
     end
   end
 
-  def title_for_heading parent_titles = Array.new
+  def title_for_heading(parent_titles = Array.new)
     if parent_titles.length > 0
       [parent_titles, self.term_to_html("title")].join(" >> ")
     else
@@ -80,7 +80,7 @@ protected
     end
   end
 
-  def collection_name solr_doc
+  def collection_name(solr_doc)
     solr_doc[Solrizer.solr_name("collection", :facetable)].strip
   end
 
@@ -88,15 +88,15 @@ protected
     (self.title.first =~ /\ASeries|Subseries/) ? "Archival Series" : "Archival Item"
   end
 
-  def format_filing solr_doc
+  def format_filing(solr_doc)
     (([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten).length
   end
 
-  def series_facets solr_doc
+  def series_facets(solr_doc)
     solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)] unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
 
-  def series_sortable solr_doc
+  def series_sortable(solr_doc)
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
 end

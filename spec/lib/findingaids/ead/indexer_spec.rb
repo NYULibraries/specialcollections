@@ -17,7 +17,7 @@ describe Findingaids::Ead::Indexer do
     end
     context 'when file is passed in' do
       context 'and file is valid' do
-        let(:file) { Rails.root.join('spec','fixtures','examples','ead_sample.xml').to_s }
+        let(:file) { Rails.root.join('spec','fixtures','fales','bloch.xml').to_s }
         it 'should index file' do
           expect(subject).to be_true
         end

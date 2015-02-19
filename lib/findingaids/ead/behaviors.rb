@@ -1,33 +1,36 @@
+##
 # Ead Behaviors
 #
 # A collection of instance methods used by our custom EadComponent and EadDocument
 # modules.  They're helpful for doing fancy things with the data when it gets
 # indexed into solr.
-
 module Findingaids::Ead::Behaviors
 
+  # Use default behaviors
   include SolrEad::Behaviors
 
-  # Config mapping for linking to specific pages from found text in Solr fields
+  # Allows us to use class methods from this module in document and component.rb
+  extend ActiveSupport::Concern
+
+  ##
+  # Define Constants
+  # Fields to link to in display view
   LINK_FIELDS = {
     :abstract => [:abstract],
     :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
     :dsc => [:odd, :unittitles]
   }
+  #Possible creator subfields
+  CREATOR_FIELDS = [:corpname, :famname, :persname]
+  #
+  ##
 
-  # Takes the publisher string from EAD and
-  # * Strips non-ascii characters such as &copy;
-  # * Strips leading @ sign which is sometimes erroneously instead of a copyright
-  # * Strip leading year from publisher
-  def format_publisher(field)
-    encoding_options = {
-     :invalid           => :replace,  # Replace invalid byte sequences
-     :undef             => :replace,  # Replace anything not defined in ASCII
-     :replace           => '',        # Use a blank for those replacements
-     :UNIVERSAL_NEWLINE_DECORATOR => true       # Always break lines with \n
-    }
-    return (field.first.encode Encoding.find('ASCII'), encoding_options).strip.gsub(/\A@/,'').strip.gsub(/\A\d{4}/,'').strip
+  module ClassMethods
+    def creator_fields_to_xpath
+      @creator_fields_to_xpath ||= CREATOR_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
+    end
   end
+
 
   # Pulls the repository from the directory title when indexing from the rake task
   #
@@ -86,8 +89,12 @@ module Findingaids::Ead::Behaviors
   #     <famname></famname>
   #    </origination>
   def get_ead_creators
-    get_ead_creators = (search("//origination[@label='creator']/corpname") + search("//origination[@label='creator']/persname") + search("//origination[@label='creator']/famname"))
-    get_ead_creators.map(&:text).flatten.compact.uniq.sort
+    get_ead_creators = CREATOR_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
+    # Flatten nested arrays into one top level array
+    get_ead_creators = get_ead_creators.flatten
+    # Map to the text value and remove nils
+    get_ead_creators = get_ead_creators.map(&:text).compact
+    return get_ead_creators
   end
 
   # getting places and scrubbing out subfield demarcators
@@ -120,10 +127,8 @@ module Findingaids::Ead::Behaviors
   #Identify if resource is availble on line. Looks for
   #
   #<dao></dao>
-  def  get_ead_dao_facet
-     unless(value("//dao")).empty?
-       "Online Access"
-     end
+  def get_ead_dao_facet
+    "Online Access" unless(value("//dao")).empty?
   end
 
   # Replace MARC style subfield demarcators
