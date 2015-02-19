@@ -67,6 +67,10 @@ describe Findingaids::Ead::Document do
       let(:facet) { 'subject' }
       it { should include "AT" }
     end
+    context "when the facet is Place" do
+      let(:facet) { 'place' }
+      it { should include "Subjects--Geographic Name--AT" }
+    end
     context "when the facet is Name" do
       let(:facet) { 'name' }
       it { should_not be_empty }
