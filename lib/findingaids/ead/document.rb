@@ -61,6 +61,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     # Special formatting for some fields and facets
     Solrizer.insert_field(solr_doc, "creator",      get_ead_creators,       :displayable, :facetable)
     Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
+    Solrizer.insert_field(solr_doc, "place",        get_ead_places,         :facetable)
     Solrizer.insert_field(solr_doc, "subject",      get_ead_subject_facets, :facetable)
     Solrizer.insert_field(solr_doc, "dao",          get_ead_dao_facet,      :facetable)
 
