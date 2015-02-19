@@ -64,13 +64,9 @@ module Findingaids::Ead::Behaviors
     return parts.join(" ")
   end
 
-  # Returns the language terms as string from a given three-letter code found in language_map.properties
-  def get_language_from_code code, properties = Hash.new
-    file = File.new(File.path(Rails.root + "config/translation_maps/language_map.properties"))
-    IO.foreach(file) do |line|
-      properties[$1.strip] = $2 if line =~ /([^=]*)=(.*)\/\/(.*)/ || line =~ /([^=]*)=(.*)/
-    end
-    properties[code].nil? ? nil : properties[code].strip
+  # Returns the language term as string from a given three-letter code found in the ISO 639 gem
+  def get_language_from_code code
+    ISO_639.find(code).english_name if not(code.nil?)
   end
 
   # Split-up subject terms like we do for our marc records
@@ -117,6 +113,7 @@ module Findingaids::Ead::Behaviors
       Solrizer.set_field(fields, "language", language, :facetable)
       Solrizer.set_field(fields, "language", language, :displayable)
     end
+    
     return fields
   end
 
