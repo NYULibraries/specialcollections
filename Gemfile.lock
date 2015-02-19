@@ -412,7 +412,7 @@ DEPENDENCIES
   exlibris-aleph!
   factory_girl_rails (~> 4.5.0)
   formaggio!
-  iso-639
+  iso-639 (~> 0.2.5)
   jettywrapper (~> 1.7)
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 5.0.2)

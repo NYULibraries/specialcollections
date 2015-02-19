@@ -63,7 +63,7 @@ gem 'solr_ead', '~> 0.7.2'
 gem 'sanitize', '~> 2.1.0'
 
 # ISO 639 Language mapper
-gem 'iso-639'
+gem 'iso-639', '~> 0.2.5'
 
 # Transition gems
 gem 'exlibris-aleph', github: 'barnabyalter/exlibris-aleph'

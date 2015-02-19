@@ -66,24 +66,7 @@ module Findingaids::Ead::Behaviors
 
   # Returns the language term as string from a given three-letter code found in the ISO 639 gem
   def get_language_from_code code
-    iso_lang_code = ""
-    iso = ISO_639.search(code) 
-    #returns an array of arrays 
-    iso.each_index{|la|
-      iso[la].each{|l|
-      #if code is found in language array of arrays
-        if l == code
-          #the ISO English equivalent of the code or the language
-          #always in the 4th position of the array
-          iso_lang_code = iso[la][3]
-          #breaking loop if match found 
-          break
-        end
-      }
-           
-    }
-    iso_lang_code
-
+    ISO_639.find(code).english_name if not(code.nil?)
   end
 
   # Split-up subject terms like we do for our marc records
