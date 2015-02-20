@@ -80,7 +80,7 @@ class Findingaids::Ead::Document < SolrEad::Document
   #
   # self(title: "Interesting Items", title_num: "ABC.123") => "Guide to the Interesting Items (ABC.123)"
   def heading_display
-    "Guide to the " + self.term_to_html("unittitle") + " (" + self.unitid.first + ")"
+    "Guide to the " + self.term_to_html("unittitle").html_safe + " (" + self.unitid.first + ")"
   end
 
 end
