@@ -17,7 +17,7 @@ module ResultsHelper
     links_to_series = []
 
     series.each do |ser|
-      links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]).merge(sort_by_series))
+      links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
     end
     [links_to_series].join(" >> ").html_safe
   end
@@ -34,7 +34,9 @@ module ResultsHelper
   ##
   # Render clean link to components
   def render_components_facet_link(doc)
-    add_clean_facet_params_and_redirect([collection_facet, doc[Solrizer.solr_name("collection", :displayable)].first]).merge(sort_by_series)
+    unless Solrizer.solr_name("collection", :displayable).empty?
+      add_clean_facet_params_and_redirect([collection_facet, doc[Solrizer.solr_name("collection", :displayable)].first])
+    end
   end
 
   ##
@@ -43,7 +45,7 @@ module ResultsHelper
     collection = doc[Solrizer.solr_name("collection", :displayable)].first
     title = doc[Solrizer.solr_name("title", :displayable)].first
 
-    add_clean_facet_params_and_redirect([series_facet, title],[collection_facet, collection]).merge(sort_by_series)
+    add_clean_facet_params_and_redirect([series_facet, title],[collection_facet, collection])
   end
 
   ##
@@ -116,12 +118,6 @@ module ResultsHelper
     new_params[:action] = "index"
     new_params[:controller] = "catalog"
     new_params
-  end
-
-  ##
-  # Hash with sorting parameters for merging into facet redirect
-  def sort_by_series
-    {:sort => "#{Solrizer.solr_name("series", :sortable)} asc, #{Solrizer.solr_name("box_filing", :sortable)} asc"}
   end
 
   def collection_facet
