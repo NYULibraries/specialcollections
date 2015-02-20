@@ -9,7 +9,7 @@ describe ResultsHelper do
   let(:repositories) {{"fales" => {"display" => "The Fales Library"}}}
   let(:heading) { "Guide to titling finding aids" }
   let(:params) {{:controller => "catalog", :action => "index"}}
-  let(:default_sort_hash) {{:sort => "series_si asc, box_filing_si asc"}}
+  let(:default_sort_hash) { {} }
   let(:field) { "title_ssm" }
   let(:solr_document) { create(:solr_document) }
   let(:document) {{ document: solr_document, field: field }}
@@ -60,12 +60,6 @@ describe ResultsHelper do
     context "when the field is dsc" do
       let(:field) { "dsc" }
       it { should be_nil }
-    end
-  end
-
-  describe "#sort_by_series" do
-    it "should return a hash for sorting" do
-      expect(sort_by_series).to eql(default_sort_hash)
     end
   end
 
@@ -151,7 +145,7 @@ describe ResultsHelper do
     let(:field) { :parent_unittitles_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
     subject { render_series_facet_link(document) }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I&amp;sort=series_si+asc%2C+box_filing_si+asc\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV&amp;sort=series_si+asc%2C+box_filing_si+asc\">Subseries IV</a>" }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a>" }
     it { expect(sanitize(subject)).to eql("Series I &gt;&gt; Subseries IV") }
   end
 
@@ -159,14 +153,14 @@ describe ResultsHelper do
     let(:field) { :parent_unittitles_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
     subject { render_components_facet_link(document[:document]) }
-    it { should eql({"f"=>{"collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog", "sort"=>"series_si asc, box_filing_si asc"}) }
+    it { should eql({"f"=>{"collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
   end
 
   describe "#render_components_for_series_facet_link" do
     let(:field) { :parent_unittitles_ssm }
     let(:solr_document) { create(:solr_document, title: ["Series I"]) }
     subject { render_components_for_series_facet_link(document[:document]) }
-    it { should eql({"f"=>{"series_sim"=>document[:document][:title_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog", "sort"=>"series_si asc, box_filing_si asc"}) }
+    it { should eql({"f"=>{"series_sim"=>document[:document][:title_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
   end
 
   describe "#link_to_document" do
