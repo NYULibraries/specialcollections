@@ -34,7 +34,7 @@ module ResultsHelper
   ##
   # Render clean link to components
   def render_components_facet_link(doc)
-    unless Solrizer.solr_name("collection", :displayable).empty?
+    unless doc[Solrizer.solr_name("collection", :displayable)].blank?
       add_clean_facet_params_and_redirect([collection_facet, doc[Solrizer.solr_name("collection", :displayable)].first])
     end
   end
