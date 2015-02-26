@@ -98,7 +98,7 @@ module Findingaids::Ead::Behaviors
   end
 
   # getting places and scrubbing out subfield demarcators
-  # 
+  #
   def get_ead_places
     @get_ead_places ||= search("//geogname").map {|field| fix_subfield_demarcators(field.text) }.compact.uniq.sort
   end
@@ -114,13 +114,24 @@ module Findingaids::Ead::Behaviors
   end
 
   # Returns a hash of lanuage fields for an EAD document or component
-  def ead_language_fields fields = Hash.new
+  def ead_language_fields(fields = Hash.new)
     language = get_language_from_code(self.langcode.first)
     unless langcode.nil?
       Solrizer.set_field(fields, "language", language, :facetable)
       Solrizer.set_field(fields, "language", language, :displayable)
     end
-    
+
+    return fields
+  end
+
+  def ead_unitdate_fields(fields = Hash.new)
+    unless self.unitdate_normal.nil?
+      self.unitdate_normal.each do |unitdate|
+        unitdate_parts = unitdate.split(/\//)
+        Solrizer.set_field(fields, "unitdate_start", unitdate_parts.first, :facetable, :displayable)
+        Solrizer.set_field(fields, "unitdate_end", unitdate_parts.last, :facetable, :displayable)
+      end
+    end
     return fields
   end
 
@@ -137,7 +148,13 @@ module Findingaids::Ead::Behaviors
   def fix_subfield_demarcators(value)
      value.gsub(/\|\w{1}/,"--")
   end
-  
+
+  # Since <chronlist><chronitem> can contain multiple levels of elements
+  # we want to make sure we remove any blank or nil values
+  def get_chronlist_text
+    @get_chronlist_text ||= self.chronlist - ["", nil]
+  end
+
   # Wrap OM's find_by_xpath for convenience
   def search(path)
     self.find_by_xpath(path)
