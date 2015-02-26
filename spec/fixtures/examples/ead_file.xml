@@ -1,0 +1,104 @@
+<!-- This is a Frankenstein's monster of an EAD component
+     to make sure we test all fields that we want to index -->
+<c id="ref35" level="file">
+  <did>
+      <unittitle>Resource-C06-AT</unittitle>
+      <unitid>Resource-C06-ID-AT</unitid>
+      <langmaterial>
+          <language langcode="eng"/>
+      </langmaterial>
+      <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+      <container parent="cid6" type="Folder">6</container>
+      <container parent="cid6" type="Item">6</container>
+      <physdesc>
+          <extent>1.0 Linear feet</extent>
+          <extent>Resource-C06-ContainerSummary-AT</extent>
+      </physdesc>
+      <unitdate normal="1960/1970" type="bulk">Bulk, 1960-1970</unitdate>
+      <unitdate normal="1960/1970" type="inclusive">Resource-C06-Date-AT</unitdate>
+      <origination label="creator">
+          <corpname rules="dacs" source="naf" role="Creator (cre)">CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT)</corpname>
+      </origination>
+      <origination label="creator">
+          <famname rules="aacr" source="naf" role="Creator (cre)">FNames-FamilyName-AT, FNames-Prefix-AT, FNames-Qualifier-AT</famname>
+      </origination>
+      <origination label="creator">
+          <persname rules="local" source="local" role="Creator (cre)">PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT</persname>
+      </origination>
+  </did>
+  <bibliography id="ref48">
+      <head>Resource--C06-Bibliography</head>
+      <p>Resource--C06--Bibliography--Head</p>
+      <bibref>c06 bibItem2</bibref>
+      <bibref>c06 bibItem1</bibref>
+  </bibliography>
+  <index id="ref49">
+      <head>Resource--c06-Index</head>
+      <p>Resource--c06-Index--head</p>
+      <indexentry>
+          <function>c06-index1</function>
+      </indexentry>
+      <indexentry>
+          <famname>c06-index2</famname>
+      </indexentry>
+  </index>
+  <bioghist id="ref50">
+      <head>Resource--c06--biogHist-structured</head>
+      <p>c06--biogHist-part1</p>
+      <chronlist>
+          <head>resource-co6-chronology-bioHist-part2</head>
+          <chronitem>
+              <date>1895</date>
+              <eventgrp>
+                  <event>Event1</event>
+                  <event>Event2</event>
+              </eventgrp>
+          </chronitem>
+          <chronitem>
+              <date>1995</date>
+              <eventgrp>
+                  <event>Event A</event>
+                  <event>Event B</event>
+              </eventgrp>
+          </chronitem>
+      </chronlist>
+      <list type="deflist">
+          <head>Resource-c06-definedList</head>
+          <defitem>
+              <label>Intense spider 29</label>
+              <item>4500</item>
+          </defitem>
+          <defitem>
+              <label>Yeti big top</label>
+              <item>2700</item>
+          </defitem>
+          <defitem>
+              <label>Madone 5.5</label>
+              <item>3000</item>
+          </defitem>
+      </list>
+      <list type="ordered">
+          <head>Resource-c06-listOrdered</head>
+          <item>Masi</item>
+          <item>Intense</item>
+          <item>Trek</item>
+      </list>
+      <p>Resource-c06-BiogHist-EndPart</p>
+  </bioghist>
+  <dao ns2:actuate="onLoad" ns2:show="new" ns2:title="DO.Title-AT" ns2:href="DO.DigitalObjectID-AT">
+      <daodesc>
+          <p>DO.Title-AT, 1999-2000 (DO.Label-AT)</p>
+      </daodesc>
+  </dao>
+  <controlaccess>
+      <corpname rules="dacs" source="naf">CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT) -- Pictorial works</corpname>
+      <famname rules="aacr" source="naf">FNames-FamilyName-AT, FNames-Prefix-AT, FNames-Qualifier-AT -- Pictorial works</famname>
+      <persname rules="local" source="local">PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT -- Pictorial works</persname>
+      <function source="local">Subjects--Function-AT</function>
+      <genreform source="local">Subjects--GenreForm--AT</genreform>
+      <geogname source="local">Subjects--Geographic Name--AT</geogname>
+      <occupation source="local">Subjects--Occupation--AT</occupation>
+      <subject source="local">Subjects--Topical Term--AT</subject>
+      <title source="local">Subjects--Uniform Title--AT</title>
+  </controlaccess>
+</c>
