@@ -43,7 +43,7 @@ module ResultsHelper
   # Render clean link to components for series
   def render_components_for_series_facet_link(doc)
     collection = doc[Solrizer.solr_name("collection", :displayable)].first
-    title = doc[Solrizer.solr_name("title", :displayable)].first
+    title = doc[Solrizer.solr_name("unittitle", :displayable)].first
 
     add_clean_facet_params_and_redirect([series_facet, title],[collection_facet, collection])
   end

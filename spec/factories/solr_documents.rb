@@ -6,7 +6,7 @@ FactoryGirl.define do
       {
         id: id,
         format_ssm: format,
-        title_ssm: title,
+        unittitle_ssm: unittitle,
         abstract_ssm: abstract,
         repository_ssi: repository,
         ead_ssi: ead,
@@ -24,7 +24,7 @@ FactoryGirl.define do
       solr_response { create(:solr_response) }
       id { 'testead123' }
       format { ["Archival Collection"] }
-      title { ["The Title"] }
+      unittitle { ["The Title"] }
       abstract { "Interesting abstract" }
       repository { "fales" }
       ead { "testead" }

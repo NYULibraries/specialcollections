@@ -4,7 +4,7 @@ FactoryGirl.define do
     initialize_with { new(data, request_params) }
     data do
       {
-        highlighting: { "bytsura" => { :title_ssm => ["The <span class=\"highlight\">Title</span>"] } }
+        highlighting: { "bytsura" => { :unittitle_ssm => ["The <span class=\"highlight\">Title</span>"] } }
       }
     end
     request_params do
