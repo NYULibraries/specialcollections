@@ -8,13 +8,15 @@ describe Findingaids::Ead::Document do
 
   # Check "include" because these are all multi-valued fields in Solr
   its(:eadid) { should include "Resource-EAD-ID-AT" }
-  its(:unittitle) { should include "Resource--Title-AT" }
+  its(:unittitle) { should eql ["Resource--Title-AT"] }
+  its(:author) { should eql ["Finding aid prepared by Resource-FindingAidAuthor-AT"] }
   # Proxy for unittitle at the collection level
-  its(:collection) { should include "Resource--Title-AT" }
-  its(:unitid) { should include "Resource.ID.AT.AT" }
-  its(:langcode) { should include "eng" }
-  its(:unitdate) { should include "1960/1970" }
-  its(:abstract) { should include "Resource-Abstract-AT" }
+  its(:collection) { should eql ["Resource--Title-AT"] }
+  its(:unitid) { should eql ["Resource.ID.AT.AT"] }
+  its(:langcode) { should eql ["eng"] }
+  its(:unitdate_normal) { should include "1960/1970" }
+  its(:unitdate) { should eql ["Bulk, 1960-1970", "Resource-Date-Expression-AT"] }
+  its(:abstract) { should eql ["Resource-Abstract-AT"] }
   its(:creator) { should include "CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT)" }
   its(:scopecontent) { should include "Resource-ScopeContents-AT" }
   its(:scopecontent) { should_not include "Resource-C01-ScopecontentNoteContent-AT" }
@@ -83,6 +85,16 @@ describe Findingaids::Ead::Document do
     context "when the facet is Collection" do
       let(:facet) { 'collection' }
       it { should include "Resource--Title-AT" }
+    end
+
+    describe "unitdate start" do
+      subject { solr_doc[Solrizer.solr_name("unitdate_start", :facetable)] }
+      it { should eql ["1960"] }
+    end
+
+    describe "unitdate end" do
+      subject { solr_doc[Solrizer.solr_name("unitdate_end", :facetable)] }
+      it { should eql ["1970"] }
     end
 
   end

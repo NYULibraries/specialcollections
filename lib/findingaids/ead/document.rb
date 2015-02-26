@@ -11,12 +11,14 @@ class Findingaids::Ead::Document < SolrEad::Document
   set_terminology do |t|
     t.root(path:"ead")
     t.eadid
+    t.author(path:"filedesc/titlestmt/author",index_as:[:searchable,:displayable])
 
     # Descriptive information in <did>
     t.unittitle(path:"archdesc[@level='collection']/did/unittitle",index_as:[:searchable,:displayable])
     t.unitid(path:"archdesc[@level='collection']/did/unitid",index_as:[:searchable,:displayable])
     t.langcode(path:"archdesc[@level='collection']/did/langmaterial/language/@langcode")
-    t.unitdate(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
+    t.unitdate_normal(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
+    t.unitdate(path:"archdesc[@level='collection']/did/unitdate",index_as:[:displayable])
     t.abstract(path:"archdesc[@level='collection']/did/abstract",index_as:[:searchable,:displayable])
     t.creator(path:"archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
 
@@ -29,7 +31,7 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     # Find the following wherever they exist in the tree structure under <archdesc level="collection">
     # except under the inventory which starts at <dsc>
-    t.chronlist(path:"archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem/*/text()",index_as:[:searchable])
+    t.chronlist(path:"archdesc[@level='collection']/*[name() != 'dsc']//chronlist/chronitem//text()",index_as:[:searchable])
     t.corpname(path:"archdesc[@level='collection']/*[name() != 'dsc']//corpname",index_as:[:searchable,:displayable])
     t.famname(path:"archdesc[@level='collection']/*[name() != 'dsc']//famname",index_as:[:searchable,:displayable])
     t.function(path:"archdesc[@level='collection']/*[name() != 'dsc']//function",index_as:[:searchable,:displayable])
@@ -68,7 +70,10 @@ class Findingaids::Ead::Document < SolrEad::Document
     # Replace certain fields with their html-formatted equivlents
     Solrizer.set_field(solr_doc, "unittitle", self.term_to_html("unittitle"), :displayable)
 
-    # Set lanuage codes
+    # Set start and end date fields
+    solr_doc.merge!(ead_unitdate_fields)
+
+    # Set language codes
     solr_doc.merge!(ead_language_fields)
 
     return solr_doc
