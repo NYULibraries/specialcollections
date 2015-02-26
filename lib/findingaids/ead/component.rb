@@ -32,6 +32,7 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.appraisal(path:"appraisal/p",index_as:[:searchable])
 
     # Find the following wherever they exist in the tree structure under <c>
+    # Matches any text within <chronlist><chronitem>, nil and blank values trimmed in to_solr
     t.chronlist(path:"chronlist/chronitem//text()",index_as:[:searchable])
     t.corpname(index_as:[:searchable,:displayable])
     t.famname(index_as:[:searchable,:displayable])
@@ -55,7 +56,6 @@ class Findingaids::Ead::Component < SolrEad::Component
     solr_doc = super(solr_doc)
 
     Solrizer.insert_field(solr_doc, "repository", format_repository,                            :stored_sortable, :facetable)
-    Solrizer.insert_field(solr_doc, "format",     format_filing(solr_doc),                      :sortable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable, :displayable)
     Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
@@ -90,6 +90,8 @@ class Findingaids::Ead::Component < SolrEad::Component
 
 protected
 
+  # Take the containers and formats them to look like:
+  # => ["Box: 1, Folder: 2, Item: 3"]
   def location_display(locations = Array.new)
     self.container_id.each do |id|
       line = String.new
@@ -104,14 +106,21 @@ protected
     return locations
   end
 
+  # Finds the title to display as the result header
+  # If there is no unittitle, use the unitdate
+  # Otherwise get the title_for_heading
   def heading_display(solr_doc)
-    if self.title.first.blank?
+    if self.unittitle.first.blank?
       self.term_to_html("unitdate") unless self.unitdate.empty?
     else
       title_for_heading(([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
     end
   end
 
+  # Takes the combined headers of all parent titles to create the heading
+  # unless there are no parent titles.
+  #
+  # E.g. ["Collection Name","Series I", "Sub-series III"] => "Collection Name >> Series I >> Sub-series III >> Unit Title"
   def title_for_heading(parent_titles = Array.new)
     if parent_titles.length > 0
       [parent_titles, self.term_to_html("unittitle")].join(" >> ")
@@ -132,18 +141,19 @@ protected
     solr_doc[Solrizer.solr_name("author", :searchable)]
   end
 
+  # Hardcode the format name based on the @level attribute
   def format_display
     (self.level.first =~ /\Aseries|subseries/) ? "Archival Series" : "Archival Item"
   end
 
-  def format_filing(solr_doc)
-    (([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten).length
-  end
-
+  # Make this components parents (i.e. the series it belongs to) FACETABLE
+  # so that we can create faceted links to them
   def series_facets(solr_doc)
     solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)] unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
 
+  # Make this components parents (i.e. the series it belongs to) SORTABLE
+  # so that we can order series together
   def series_sortable(solr_doc)
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
