@@ -10,7 +10,7 @@ describe ResultsHelper do
   let(:heading) { "Guide to titling finding aids" }
   let(:params) {{:controller => "catalog", :action => "index"}}
   let(:default_sort_hash) { {} }
-  let(:field) { "title_ssm" }
+  let(:field) { "unittitle_ssm" }
   let(:solr_document) { create(:solr_document) }
   let(:document) {{ document: solr_document, field: field }}
   let(:blacklight_config) { create(:blacklight_config) }
@@ -32,7 +32,7 @@ describe ResultsHelper do
       it { should eql("The Title") }
     end
     context "when the title has html" do
-      let(:solr_document) { create(:solr_document, title: ["<b>The Title</b>"]) }
+      let(:solr_document) { create(:solr_document, unittitle: ["<b>The Title</b>"]) }
       it { should be_html_safe }
       it { should eql("<b>The Title</b>") }
     end
@@ -73,8 +73,8 @@ describe ResultsHelper do
       it { should eql("archival_series") }
     end
     context "when document is item level" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Item"]) }
-      it { should eql("archival_item") }
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"]) }
+      it { should eql("archival_object") }
     end
   end
 
@@ -158,9 +158,9 @@ describe ResultsHelper do
 
   describe "#render_components_for_series_facet_link" do
     let(:field) { :parent_unittitles_ssm }
-    let(:solr_document) { create(:solr_document, title: ["Series I"]) }
+    let(:solr_document) { create(:solr_document, unittitle: ["Series I"]) }
     subject { render_components_for_series_facet_link(document[:document]) }
-    it { should eql({"f"=>{"series_sim"=>document[:document][:title_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
+    it { should eql({"f"=>{"series_sim"=>document[:document][:unittitle_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
   end
 
   describe "#link_to_document" do
@@ -174,7 +174,7 @@ describe ResultsHelper do
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc1234.html\" target=\"_blank\">Guide to titling finding aids</a>") }
     end
     context "when document is item level" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Item"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
     end
   end

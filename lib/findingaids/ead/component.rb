@@ -2,29 +2,57 @@ class Findingaids::Ead::Component < SolrEad::Component
 
   include Findingaids::Ead::Behaviors
 
-  use_terminology SolrEad::Component
+  set_terminology do |t|
+    t.root(path:"c")
+    t.ref_(path:"/c/@id")
+    t.level(path:"/c/@level", index_as:[:facetable])
 
-  # Extend terminology from presets
-  # https://github.com/awead/solr_ead/blob/master/lib/solr_ead/component.rb
-  extend_terminology do |t|
-    t.title(:path=>"unittitle", :attributes=>{ :type => :none }, :index_as=>[:displayable, :sortable, :searchable])
+    # Item
+    t.container {
+      t.label(path:{:attribute=>"label"})
+      t.type(path:{:attribute=>"type"})
+      t.id(path:{:attribute=>"id"})
+    }
+    t.container_label(:proxy=>[:container, :label])
+    t.container_type(:proxy=>[:container, :type])
+    t.container_id(:proxy=>[:container, :id])
 
-    # <odd> nodes
-    # These guys depend on what's in <head> so we do some xpathy stuff...
-    t.odd(:path=>"odd", :index_as=>[:displayable,:searchable])
-    t.date_filing(:path=>"unitdate/@normal", :index_as=>[:sortable])
-    t.box_filing(:path=>"container[@type='Box']", :index_as=>[:sortable])
-    t.folder_filing(:path=>"container[@type='Folder']", :index_as=>[:sortable])
-    t.title_filing(:path=>"unittitle", :index_as=>[:sortable])
-    t.material_type(proxy: [:genreform], :index_as=>[:facetable, :displayable])
+    t.unittitle(path:"did/unittitle",index_as:[:displayable,:searchable])
 
+    t.unitid(path:"did/unitid",index_as:[:searchable,:displayable])
+    t.langcode(path:"did/langmaterial/language/@langcode")
+    t.unitdate_normal(path:"did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
+    t.unitdate(index_as:[:displayable])
+    t.creator(path:"did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
+
+    # Fulltext in <p> under the following descriptive fields
+    t.scopecontent(path:"scopecontent/p",index_as:[:searchable])
+    t.bioghist(path:"bioghist/p",index_as:[:searchable])
+    t.address(path:"address/p",index_as:[:searchable])
+    t.appraisal(path:"appraisal/p",index_as:[:searchable])
+
+    # Find the following wherever they exist in the tree structure under <c>
+    # Matches any text within <chronlist><chronitem>, nil and blank values trimmed in to_solr
+    t.chronlist(path:"chronlist/chronitem//text()",index_as:[:searchable])
+    t.corpname(index_as:[:searchable,:displayable])
+    t.famname(index_as:[:searchable,:displayable])
+    t.function(index_as:[:searchable,:displayable])
+    t.genreform(index_as:[:searchable,:displayable])
+    t.geogname(index_as:[:searchable,:displayable])
+    t.name(index_as:[:searchable,:displayable])
+    t.occupation(index_as:[:searchable,:displayable])
+    t.persname(index_as:[:searchable,:displayable])
+    t.subject(index_as:[:searchable,:displayable])
+    t.title(index_as:[:searchable,:displayable])
+    t.note(index_as:[:searchable,:displayable])
+
+    t.dao(path:"dao/daodesc/p",index_as:[:searchable,:displayable])
   end
 
   def to_solr(solr_doc = Hash.new)
     solr_doc = super(solr_doc)
 
     Solrizer.insert_field(solr_doc, "repository", format_repository,                            :stored_sortable, :facetable)
-    Solrizer.insert_field(solr_doc, "format",     format_filing(solr_doc),                      :sortable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable, :displayable)
     Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
@@ -34,15 +62,27 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "place",      get_ead_places,                               :displayable, :facetable)
 
     # Get the collection field
-    Solrizer.set_field(solr_doc, "collection",        collection_name(solr_doc),                :searchable, :displayable, :facetable)
+    Solrizer.set_field(solr_doc,    "collection", collection_name(solr_doc),                    :searchable, :displayable, :facetable)
+    # Get the author field
+    Solrizer.set_field(solr_doc,    "author",     author(solr_doc),                             :searchable, :displayable, :facetable)
 
-    Solrizer.set_field(solr_doc, "series",            series_facets(solr_doc),                  :facetable)
-    Solrizer.set_field(solr_doc, "series",            series_sortable(solr_doc),                :sortable)
+    # Index series so we can sort by it an crate links directly into the series search
+    Solrizer.set_field(solr_doc,    "series",     series_facets(solr_doc),                      :facetable)
+    Solrizer.set_field(solr_doc,    "series",     series_sortable(solr_doc),                    :sortable)
+
+    # Trim the fat from the various fields within the <chronlist>
+    Solrizer.set_field(solr_doc,    "chronlist",  get_chronlist_text,                           :searchable)
+
+    # Create the formatted Material Type facet from genreform
+    Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,                   :facetable, :displayable)
 
     # Replace certain fields with their html-formatted equivalents
-    Solrizer.set_field(solr_doc, "title", self.term_to_html("title"), :displayable)
+    Solrizer.set_field(solr_doc,    "unittitle",  self.term_to_html("unittitle"),               :displayable)
 
-    # Set lanuage codes
+    # Set start and end date fields
+    solr_doc.merge!(ead_unitdate_fields)
+
+    # Set language codes
     solr_doc.merge!(ead_language_fields)
 
     return solr_doc
@@ -50,6 +90,8 @@ class Findingaids::Ead::Component < SolrEad::Component
 
 protected
 
+  # Take the containers and formats them to look like:
+  # => ["Box: 1, Folder: 2, Item: 3"]
   def location_display(locations = Array.new)
     self.container_id.each do |id|
       line = String.new
@@ -64,38 +106,54 @@ protected
     return locations
   end
 
+  # Finds the title to display as the result header
+  # If there is no unittitle, use the unitdate
+  # Otherwise get the title_for_heading
   def heading_display(solr_doc)
-    if self.title.first.blank?
+    if self.unittitle.first.blank?
       self.term_to_html("unitdate") unless self.unitdate.empty?
     else
       title_for_heading(([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
     end
   end
 
+  # Takes the combined headers of all parent titles to create the heading
+  # unless there are no parent titles.
+  #
+  # E.g. ["Collection Name","Series I", "Sub-series III"] => "Collection Name >> Series I >> Sub-series III >> Unit Title"
   def title_for_heading(parent_titles = Array.new)
     if parent_titles.length > 0
-      [parent_titles, self.term_to_html("title")].join(" >> ")
+      [parent_titles, self.term_to_html("unittitle")].join(" >> ")
     else
-      self.term_to_html("title")
+      self.term_to_html("unittitle")
     end
   end
 
+  # Extract collection name from solr_doc
+  # it was passed in via additional information from the collection level indexer
   def collection_name(solr_doc)
-    solr_doc[Solrizer.solr_name("collection", :facetable)].strip
+    solr_doc[Solrizer.solr_name("collection", :facetable)]
   end
 
+  # Extract collection name from solr_doc
+  # it was passed in via additional information from the collection level indexer
+  def author(solr_doc)
+    solr_doc[Solrizer.solr_name("author", :searchable)]
+  end
+
+  # Hardcode the format name based on the @level attribute
   def format_display
-    (self.title.first =~ /\ASeries|Subseries/) ? "Archival Series" : "Archival Item"
+    (self.level.first =~ /\Aseries|subseries/) ? "Archival Series" : "Archival Object"
   end
 
-  def format_filing(solr_doc)
-    (([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten).length
-  end
-
+  # Make this components parents (i.e. the series it belongs to) FACETABLE
+  # so that we can create faceted links to them
   def series_facets(solr_doc)
     solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)] unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end
 
+  # Make this components parents (i.e. the series it belongs to) SORTABLE
+  # so that we can order series together
   def series_sortable(solr_doc)
     title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
   end

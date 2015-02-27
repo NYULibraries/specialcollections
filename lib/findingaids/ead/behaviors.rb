@@ -20,14 +20,12 @@ module Findingaids::Ead::Behaviors
     :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
     :dsc => [:odd, :unittitles]
   }
-  #Possible creator subfields
-  CREATOR_FIELDS = [:corpname, :famname, :persname]
-  #
-  ##
+  # Places to look for names
+  NAME_FIELDS = [:corpname, :famname, :persname]
 
   module ClassMethods
     def creator_fields_to_xpath
-      @creator_fields_to_xpath ||= CREATOR_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
+      @creator_fields_to_xpath ||= NAME_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
     end
   end
 
@@ -89,7 +87,7 @@ module Findingaids::Ead::Behaviors
   #     <famname></famname>
   #    </origination>
   def get_ead_creators
-    get_ead_creators = CREATOR_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
+    get_ead_creators = NAME_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
     # Flatten nested arrays into one top level array
     get_ead_creators = get_ead_creators.flatten
     # Map to the text value and remove nils
@@ -98,9 +96,14 @@ module Findingaids::Ead::Behaviors
   end
 
   # getting places and scrubbing out subfield demarcators
-  # 
+  #
   def get_ead_places
-    @get_ead_places ||= search("//geogname").map {|field| fix_subfield_demarcators(field.text) }.compact.uniq.sort
+    @get_ead_places ||= clean_facets_array(self.geogname)
+  end
+
+  # Copy material type from genreform and scrub out Marc subfield demarcators
+  def get_material_type_facets
+    @get_material_type_facets ||= clean_facets_array(self.genreform)
   end
 
   # Combine names into one group looking for one or more of the following:
@@ -108,19 +111,35 @@ module Findingaids::Ead::Behaviors
   #   <persname></persname>
   #   <corpname></corpname>
   #   <famname></famname>
-  def get_ead_names
-    get_ead_names = (search("//corpname") + search("//persname") + search("//famname"))
-    get_ead_names.map(&:text).flatten.compact.uniq.sort
+  #
+  # Exception: <corpname> results that are wrapped within the <repository> tag should be excluded from results
+  def get_ead_names(get_ead_names = Array.new)
+    NAME_FIELDS.each do |field|
+      get_ead_names += search("//#{field}") unless field == :corpname
+      get_ead_names += search("//*[local-name()!='repository']/#{field}") if field == :corpname
+    end
+    return clean_facets_array(get_ead_names.map(&:text))
   end
 
   # Returns a hash of lanuage fields for an EAD document or component
-  def ead_language_fields fields = Hash.new
+  def ead_language_fields(fields = Hash.new)
     language = get_language_from_code(self.langcode.first)
     unless langcode.nil?
       Solrizer.set_field(fields, "language", language, :facetable)
       Solrizer.set_field(fields, "language", language, :displayable)
     end
-    
+
+    return fields
+  end
+
+  def ead_unitdate_fields(fields = Hash.new)
+    unless self.unitdate_normal.nil?
+      self.unitdate_normal.each do |unitdate|
+        unitdate_parts = unitdate.split(/\//)
+        Solrizer.set_field(fields, "unitdate_start", unitdate_parts.first, :facetable, :displayable)
+        Solrizer.set_field(fields, "unitdate_end", unitdate_parts.last, :facetable, :displayable)
+      end
+    end
     return fields
   end
 
@@ -137,7 +156,20 @@ module Findingaids::Ead::Behaviors
   def fix_subfield_demarcators(value)
      value.gsub(/\|\w{1}/,"--")
   end
-  
+
+  # Since <chronlist><chronitem> can contain multiple levels of elements
+  # we want to make sure we remove any blank or nil values
+  def get_chronlist_text
+    @get_chronlist_text ||= self.chronlist - ["", nil]
+  end
+
+  # Return a cleaned array of facets without marc subfields
+  #
+  # E.g. clean_facets_array(['FacetValue1 |z FacetValue2','FacetValue3']) => ['FacetValue1 -- FacetValue2', 'FacetValue3']
+  def clean_facets_array(facets_array)
+    Array(facets_array).map {|text| fix_subfield_demarcators(text) }.compact.uniq
+  end
+
   # Wrap OM's find_by_xpath for convenience
   def search(path)
     self.find_by_xpath(path)
