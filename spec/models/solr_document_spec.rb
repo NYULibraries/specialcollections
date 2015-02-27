@@ -22,8 +22,8 @@ describe SolrDocument do
     end
 
     context "when document is an item" do
-      let(:format_ssm) { "Archival Item" }
-      it { should eql("archival_item") }
+      let(:format_ssm) { "Archival Object" }
+      it { should eql("archival_object") }
     end
 
   end
@@ -37,7 +37,7 @@ describe SolrDocument do
       subject { document.is_archival_collection? }
       it { should be_true }
       it { expect(document.is_archival_series?).to be_false }
-      it { expect(document.is_archival_item?).to be_false }
+      it { expect(document.is_archival_object?).to be_false }
     end
 
     context "when document is a series level item" do
@@ -45,12 +45,12 @@ describe SolrDocument do
       subject { document.is_archival_series? }
       it { should be_true }
       it { expect(document.is_archival_collection?).to be_false }
-      it { expect(document.is_archival_item?).to be_false }
+      it { expect(document.is_archival_object?).to be_false }
     end
 
     context "when document is an item" do
-      let(:format_ssm) { "Archival Item" }
-      subject { document.is_archival_item? }
+      let(:format_ssm) { "Archival Object" }
+      subject { document.is_archival_object? }
       it { should be_true }
       it { expect(document.is_archival_collection?).to be_false }
       it { expect(document.is_archival_series?).to be_false }

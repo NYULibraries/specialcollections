@@ -143,7 +143,7 @@ protected
 
   # Hardcode the format name based on the @level attribute
   def format_display
-    (self.level.first =~ /\Aseries|subseries/) ? "Archival Series" : "Archival Item"
+    (self.level.first =~ /\Aseries|subseries/) ? "Archival Series" : "Archival Object"
   end
 
   # Make this components parents (i.e. the series it belongs to) FACETABLE

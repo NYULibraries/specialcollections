@@ -73,8 +73,8 @@ describe ResultsHelper do
       it { should eql("archival_series") }
     end
     context "when document is item level" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Item"]) }
-      it { should eql("archival_item") }
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"]) }
+      it { should eql("archival_object") }
     end
   end
 
@@ -174,7 +174,7 @@ describe ResultsHelper do
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc1234.html\" target=\"_blank\">Guide to titling finding aids</a>") }
     end
     context "when document is item level" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Item"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
     end
   end

@@ -113,7 +113,7 @@ describe Findingaids::Ead::Component do
       context "when the facet is Format" do
         let(:facet) { 'format' }
         context "when the component is a file" do
-          it { should eql ["Archival Item"] }
+          it { should eql ["Archival Object"] }
         end
         context "when the component is a series" do
           let(:document) { Findingaids::Ead::Component.from_xml(ead_fixture("ead_series.xml")) }
