@@ -12,6 +12,11 @@ When(/^I search on the phrase "(.*?)"$/) do |phrase|
   search_phrase(phrase)
 end
 
+Given(/^I am on the brief results page$/) do
+  ensure_root_path
+  search_phrase('bloch')
+end
+
 ##
 # Results steps
 Then(/^I should (not )?see search results$/) do |negator|
@@ -20,30 +25,6 @@ Then(/^I should (not )?see search results$/) do |negator|
   else
     expect(documents_list).to have_at_least(1).items
   end
-end
-
-##
-# Faceting steps
-Given(/^I (limit|filter) my search to "(.*?)" under the "(.*?)" category$/) do |a, facet, category|
-  ensure_root_path
-  limit_by_facet(category, facet)
-end
-
-When(/^I limit my results to "(.*?)" under the "(.*?)" category$/) do |facet, category|
-  ensure_root_path
-  limit_by_facet(category, facet)
-end
-
-And(/^I should see a "(.*?)" facet under the "(.*?)" category$/) do |facet, category|
-  within(:css, "#facets") do
-    click_link(category)
-    expect(page.find(:xpath, "//a[text()='#{facet}']")).to have_content
-  end
-end
-
-Given(/^I am on the brief results page$/) do
-  ensure_root_path
-  search_phrase('bloch')
 end
 
 # Select a dropdown option
@@ -64,13 +45,13 @@ Then(/^I should see a label "(.*?)" in the default scope$/) do |label|
 end
 
 Then(/^I should see results from "(.*?)"$/) do |library|
-  within("#documents ") do
+  within("#documents") do
     page.should have_selector(:link,"#{library}")
   end
 end
 
 Then(/^I should not see results from "(.*?)"$/) do |library|
-  within("#documents ") do
+  within("#documents") do
     page.should_not have_selector(:link,"#{library}")
   end
 end

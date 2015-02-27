@@ -47,9 +47,6 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.note(index_as:[:searchable,:displayable])
 
     t.dao(path:"dao/daodesc/p",index_as:[:searchable,:displayable])
-
-    # Copy fields
-    t.material_type(proxy:[:genreform],index_as:[:facetable,:displayable])
   end
 
   def to_solr(solr_doc = Hash.new)
@@ -75,6 +72,9 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     # Trim the fat from the various fields within the <chronlist>
     Solrizer.set_field(solr_doc,    "chronlist",  get_chronlist_text,                           :searchable)
+
+    # Create the formatted Material Type facet from genreform
+    Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,                   :facetable, :displayable)
 
     # Replace certain fields with their html-formatted equivalents
     Solrizer.set_field(solr_doc,    "unittitle",  self.term_to_html("unittitle"),               :displayable)
