@@ -37,7 +37,6 @@ describe Findingaids::Ead::Component do
     its(:title) { should_not be_blank }
     its(:note) { should be_blank }
     its(:dao) { should eql ["DO.Title-AT, 1999-2000 (DO.Label-AT)"] }
-    its(:material_type) { should_not be_blank }
   end
 
   context "when component is file level" do
@@ -64,17 +63,16 @@ describe Findingaids::Ead::Component do
     its(:famname) { should include "c06-index2" }
     its("famname.count") { should eql 3 }
     its(:function) { should eql ["c06-index1", "Subjects--Function-AT"] }
-    its(:genreform) { should eql ["Subjects--GenreForm--AT"] }
+    its(:genreform) { should eql ["Subjects--GenreForm--AT", "SubjectsUgly |z GenreForm |x AT"] }
     its(:geogname) { should eql ["Subjects--Geographic Name--AT"] }
     its(:name) { should be_blank }
     its(:occupation) { should eql ["Subjects--Occupation--AT"] }
     its(:persname) { should include "PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT" }
-    its("persname.count") { should eql 2 }
+    its("persname.count") { should eql 3 }
     its(:subject) { should eql ["Subjects--Topical Term--AT"] }
     its(:title) { should eql ["Subjects--Uniform Title--AT"] }
     its(:note) { should be_blank }
     its(:dao) { should eql ["DO.Title-AT, 1999-2000 (DO.Label-AT)"] }
-    its(:material_type) { should eql ["Subjects--GenreForm--AT"] }
   end
 
   describe "#to_solr" do
@@ -124,7 +122,14 @@ describe Findingaids::Ead::Component do
       context "when the facet is Name" do
         let(:facet) { 'name' }
         it { should_not be_blank }
-        its(:count) { should eql 7 }
+        its(:count) { should eql 8 }
+        it { should_not include "PNames-Primary-AT-Ugly |z PNames-RestOfName-AT-Ugly" }
+        it { should include "PNames-Primary-AT-Ugly -- PNames-RestOfName-AT-Ugly" }
+      end
+      context "when the facet is Material Type" do
+        let(:facet) { 'material_type' }
+        it { should include "SubjectsUgly -- GenreForm -- AT"}
+        it { should_not include "SubjectsUgly |z GenreForm |x AT" }
       end
       context "when the facet is Digital Access" do
         let(:facet) { 'dao' }

@@ -46,7 +46,6 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     # Copy fields
     t.collection(proxy:[:unittitle],index_as:[:facetable,:displayable])
-    t.material_type(proxy:[:genreform],index_as:[:facetable,:displayable])
   end
 
   def to_solr(solr_doc = Hash.new)
@@ -66,6 +65,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "place",        get_ead_places,         :facetable)
     Solrizer.insert_field(solr_doc, "subject",      get_ead_subject_facets, :facetable)
     Solrizer.insert_field(solr_doc, "dao",          get_ead_dao_facet,      :facetable)
+    Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,:facetable, :displayable)
 
     # Replace certain fields with their html-formatted equivlents
     Solrizer.set_field(solr_doc, "unittitle", self.term_to_html("unittitle"), :displayable)

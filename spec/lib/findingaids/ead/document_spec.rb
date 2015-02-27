@@ -34,8 +34,6 @@ describe Findingaids::Ead::Document do
   its(:function) { should include "Subjects--Function-AT" }
   its(:function) { should_not include "c06-index1" }
   its(:genreform) { should include "Subjects--GenreForm--AT" }
-  # Proxy for genreform
-  its(:material_type) { should include "Subjects--GenreForm--AT" }
   its(:genreform) { should_not include "Bike 1" }
   its(:geogname) { should include "Subjects--Geographic Name--AT" }
   # No lower level examples, so make sure the value doesn't repeat
@@ -83,7 +81,8 @@ describe Findingaids::Ead::Document do
     end
     context "when the facet is Material Type" do
       let(:facet) { 'material_type' }
-      it { should include "Subjects--GenreForm--AT" }
+      it { should include "SubjectsUgly -- GenreForm -- AT"}
+      it { should_not include "SubjectsUgly |z GenreForm |x AT" }
     end
     context "when the facet is Collection" do
       let(:facet) { 'collection' }

@@ -98,7 +98,12 @@ module Findingaids::Ead::Behaviors
   # getting places and scrubbing out subfield demarcators
   #
   def get_ead_places
-    @get_ead_places ||= search("//geogname").map {|field| fix_subfield_demarcators(field.text) }.compact.uniq.sort
+    @get_ead_places ||= clean_facets_array(self.geogname)
+  end
+
+  # Copy material type from genreform and scrub out Marc subfield demarcators
+  def get_material_type_facets
+    @get_material_type_facets ||= clean_facets_array(self.genreform)
   end
 
   # Combine names into one group looking for one or more of the following:
@@ -113,7 +118,7 @@ module Findingaids::Ead::Behaviors
       get_ead_names += search("//#{field}") unless field == :corpname
       get_ead_names += search("//*[local-name()!='repository']/#{field}") if field == :corpname
     end
-    get_ead_names.map {|field| fix_subfield_demarcators(field.text) }.flatten.compact.uniq.sort
+    return clean_facets_array(get_ead_names.map(&:text))
   end
 
   # Returns a hash of lanuage fields for an EAD document or component
@@ -156,6 +161,13 @@ module Findingaids::Ead::Behaviors
   # we want to make sure we remove any blank or nil values
   def get_chronlist_text
     @get_chronlist_text ||= self.chronlist - ["", nil]
+  end
+
+  # Return a cleaned array of facets without marc subfields
+  #
+  # E.g. clean_facets_array(['FacetValue1 |z FacetValue2','FacetValue3']) => ['FacetValue1 -- FacetValue2', 'FacetValue3']
+  def clean_facets_array(facets_array)
+    Array(facets_array).map {|text| fix_subfield_demarcators(text) }.compact.uniq
   end
 
   # Wrap OM's find_by_xpath for convenience
