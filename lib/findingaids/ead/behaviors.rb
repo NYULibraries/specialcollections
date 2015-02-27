@@ -20,14 +20,12 @@ module Findingaids::Ead::Behaviors
     :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
     :dsc => [:odd, :unittitles]
   }
-  #Possible creator subfields
-  CREATOR_FIELDS = [:corpname, :famname, :persname]
-  #
-  ##
+  # Places to look for names
+  NAME_FIELDS = [:corpname, :famname, :persname]
 
   module ClassMethods
     def creator_fields_to_xpath
-      @creator_fields_to_xpath ||= CREATOR_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
+      @creator_fields_to_xpath ||= NAME_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
     end
   end
 
@@ -89,7 +87,7 @@ module Findingaids::Ead::Behaviors
   #     <famname></famname>
   #    </origination>
   def get_ead_creators
-    get_ead_creators = CREATOR_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
+    get_ead_creators = NAME_FIELDS.map {|field| search("//origination[@label='creator']/#{field}") }
     # Flatten nested arrays into one top level array
     get_ead_creators = get_ead_creators.flatten
     # Map to the text value and remove nils
@@ -108,9 +106,14 @@ module Findingaids::Ead::Behaviors
   #   <persname></persname>
   #   <corpname></corpname>
   #   <famname></famname>
-  def get_ead_names
-    get_ead_names = (search("//corpname") + search("//persname") + search("//famname"))
-    get_ead_names.map(&:text).flatten.compact.uniq.sort
+  #
+  # Exception: <corpname> results that are wrapped within the <repository> tag should be excluded from results
+  def get_ead_names(get_ead_names = Array.new)
+    NAME_FIELDS.each do |field|
+      get_ead_names += search("//#{field}") unless field == :corpname
+      get_ead_names += search("//*[local-name()!='repository']/#{field}") if field == :corpname
+    end
+    get_ead_names.map {|field| fix_subfield_demarcators(field.text) }.flatten.compact.uniq.sort
   end
 
   # Returns a hash of lanuage fields for an EAD document or component

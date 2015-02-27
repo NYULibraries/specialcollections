@@ -76,6 +76,9 @@ describe Findingaids::Ead::Document do
     context "when the facet is Name" do
       let(:facet) { 'name' }
       it { should_not be_empty }
+      it { should_not include "Archivists' Toolkit Migration Tracer" }
+      it { should include "CNames-PrimaryName-AT -- CNames-Subordinate1-AT -- CNames-Subordiate2-AT" }
+      it { should_not include "CNames-PrimaryName-AT |z CNames-Subordinate1-AT |x CNames-Subordiate2-AT" }
       its(:size) { should be 17 }
     end
     context "when the facet is Material Type" do
