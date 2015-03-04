@@ -102,5 +102,6 @@
       <occupation source="local">Subjects--Occupation--AT</occupation>
       <subject source="local">Subjects--Topical Term--AT</subject>
       <title source="local">Subjects--Uniform Title--AT</title>
+      <subject source="local">SubjectsUgly |z Topical Term |x AT</subject>
   </controlaccess>
 </c>

@@ -69,7 +69,8 @@ describe Findingaids::Ead::Component do
     its(:occupation) { should eql ["Subjects--Occupation--AT"] }
     its(:persname) { should include "PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT" }
     its("persname.count") { should eql 3 }
-    its(:subject) { should eql ["Subjects--Topical Term--AT"] }
+    its(:subject) { should eql ["Subjects--Topical Term--AT", "SubjectsUgly |z Topical Term |x AT"] }
+    its("subject.count") { should eql 2 }
     its(:title) { should eql ["Subjects--Uniform Title--AT"] }
     its(:note) { should be_blank }
     its(:dao) { should eql ["DO.Title-AT, 1999-2000 (DO.Label-AT)"] }
@@ -107,6 +108,12 @@ describe Findingaids::Ead::Component do
         let(:facet) { 'creator' }
         it { should_not be_blank }
         its(:count) { should eql 3 }
+      end
+      context "when the facet is Subject" do
+        let(:facet) { 'subject' }
+        it { should include "c06-index1" }
+        it { should_not include "SubjectsUgly |z Topical Term |x AT" }
+        its(:size) { should be 5 }
       end
       context "when the facet is Format" do
         let(:facet) { 'format' }
@@ -162,6 +169,12 @@ describe Findingaids::Ead::Component do
     describe "#location_display" do
       subject { solr_doc[Solrizer.solr_name("location", :displayable)] }
       it { should eql ["Box: 6, Folder: 6, Item: 6"] }
+    end
+
+    describe "#heading" do
+      let(:solr_doc) { document.to_solr }
+      subject { solr_doc[Solrizer.solr_name("heading", :displayable)] }
+      it { should eql ["Resource-C06-AT"] }
     end
   end
 

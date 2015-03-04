@@ -45,10 +45,16 @@ describe Findingaids::Ead::Document do
   # Only 3 persnames at the top-level, don't include the lower ones
   its("persname.count") { should eql 3 }
   its(:subject) { should include "Subjects--Topical Term--AT" }
-  its("subject.count") { should eql 1 }
+  its("subject.count") { should eql 2 }
   its(:title) { should include "Subjects--Uniform Title--AT" }
   its("title.count") { should eql 1 }
   its(:note) { should be_empty } # No examples for note
+
+  describe "#heading" do
+    let(:solr_doc) { document.to_solr }
+    subject { solr_doc[Solrizer.solr_name("heading", :displayable)] }
+    it { should eql ["Resource--Title-AT"] }
+  end
 
   describe "facets" do
     let(:solr_doc) { document.to_solr }
@@ -65,7 +71,9 @@ describe Findingaids::Ead::Document do
     end
     context "when the facet is Subject" do
       let(:facet) { 'subject' }
-      it { should include "AT" }
+      it { should include "c06-index1" }
+      it { should_not include "SubjectsUgly |z Topical Term |x AT" }
+      its(:size) { should be 5 }
     end
     context "when the facet is Place" do
       let(:facet) { 'place' }

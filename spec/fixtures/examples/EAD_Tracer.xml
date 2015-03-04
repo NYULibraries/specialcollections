@@ -258,6 +258,7 @@
             <geogname source="local">Subjects--Geographic Name--AT</geogname>
             <occupation source="local">Subjects--Occupation--AT</occupation>
             <subject source="local">Subjects--Topical Term--AT</subject>
+            <subject source="local">SubjectsUgly |z Topical Term |x AT</subject>
             <title source="local">Subjects--Uniform Title--AT</title>
         </controlaccess>
         <dsc>
