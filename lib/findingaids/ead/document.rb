@@ -53,8 +53,6 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     # Populate repository code from indexing folder structure
     Solrizer.insert_field(solr_doc, "repository",   repository_display,     :stored_sortable, :facetable)
-    # Create a formatted heading based on the title and unit id
-    Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.unitid.empty?
     # Set the format to Archival Collection
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable, :displayable)
     # Sortable element based on the type of thing this is, will help us sort by Collection, Series, etc.
@@ -67,8 +65,10 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "dao",          get_ead_dao_facet,      :facetable)
     Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,:facetable, :displayable)
 
-    # Replace certain fields with their html-formatted equivlents
-    Solrizer.set_field(solr_doc, "unittitle", self.term_to_html("unittitle"), :displayable)
+    # Replace certain fields with their html-formatted equivalents
+    Solrizer.set_field(solr_doc, "unittitle",       self.term_to_html("unittitle"), :displayable)
+    # Use the unittitle as the heading
+    Solrizer.insert_field(solr_doc, "heading",      self.unittitle,         :displayable)
 
     # Set start and end date fields
     solr_doc.merge!(ead_unitdate_fields)
@@ -77,15 +77,6 @@ class Findingaids::Ead::Document < SolrEad::Document
     solr_doc.merge!(ead_language_fields)
 
     return solr_doc
-  end
-
-  protected
-  ##
-  # Create a heading display for archival collections
-  #
-  # self(title: "Interesting Items", title_num: "ABC.123") => "Guide to the Interesting Items (ABC.123)"
-  def heading_display
-    "Guide to the " + self.term_to_html("unittitle").html_safe + " (" + self.unitid.first + ")"
   end
 
 end

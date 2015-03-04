@@ -54,12 +54,12 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     Solrizer.insert_field(solr_doc, "repository", repository_display,                           :stored_sortable, :facetable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable, :displayable)
-    Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
     Solrizer.insert_field(solr_doc, "creator",    get_ead_creators,                             :displayable, :facetable)
     Solrizer.insert_field(solr_doc, "name",       get_ead_names,                                :facetable)
     Solrizer.insert_field(solr_doc, "dao",        get_ead_dao_facet,                            :facetable)
     Solrizer.insert_field(solr_doc, "place",      get_ead_places,                               :displayable, :facetable)
+    Solrizer.insert_field(solr_doc, "subject",    get_ead_subject_facets,                       :facetable)
 
     # Get the collection field
     Solrizer.set_field(solr_doc,    "collection", collection_name(solr_doc),                    :searchable, :displayable, :facetable)
@@ -77,7 +77,10 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,                   :facetable, :displayable)
 
     # Replace certain fields with their html-formatted equivalents
-    Solrizer.set_field(solr_doc,    "unittitle",  self.term_to_html("unittitle"),               :displayable)
+    Solrizer.set_field(solr_doc,    "unittitle",   self.term_to_html("unittitle"),              :displayable)
+    # Use the unittitle as the heading
+    Solrizer.insert_field(solr_doc, "heading",     self.unittitle,                              :displayable)
+
 
     # Set start and end date fields
     solr_doc.merge!(ead_unitdate_fields)
@@ -104,17 +107,6 @@ protected
       locations << line
     end
     return locations
-  end
-
-  # Finds the title to display as the result header
-  # If there is no unittitle, use the unitdate
-  # Otherwise get the title_for_heading
-  def heading_display(solr_doc)
-    if self.unittitle.first.blank?
-      self.term_to_html("unitdate") unless self.unitdate.empty?
-    else
-      title_for_heading(([collection_name(solr_doc)]<< solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]).flatten) unless solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)].nil?
-    end
   end
 
   # Takes the combined headers of all parent titles to create the heading
