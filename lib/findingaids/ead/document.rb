@@ -52,7 +52,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     solr_doc = super(solr_doc)
 
     # Populate repository code from indexing folder structure
-    Solrizer.insert_field(solr_doc, "repository",   format_repository,      :stored_sortable, :facetable)
+    Solrizer.insert_field(solr_doc, "repository",   repository_display,     :stored_sortable, :facetable)
     # Create a formatted heading based on the title and unit id
     Solrizer.insert_field(solr_doc, "heading",      heading_display,        :displayable) unless self.unitid.empty?
     # Set the format to Archival Collection

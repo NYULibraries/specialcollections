@@ -4,9 +4,9 @@ describe Findingaids::Ead::Behaviors do
 
   include Findingaids::Ead::Behaviors
 
-  describe "#format_repository" do
+  describe "#repository_display" do
 
-    subject { format_repository }
+    subject { repository_display }
 
     context "when EAD variable is a folder" do
       before { stub_const('ENV', {'EAD' => 'spec/fixtures/examples'}) }

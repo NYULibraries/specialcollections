@@ -38,7 +38,7 @@ module Findingaids::Ead::Behaviors
   # Would both result in:
   #
   #   "repos"
-  def format_repository
+  def repository_display
     if ENV['EAD'].present?
       if File.directory?(Rails.root.join(ENV['EAD']))
         return ENV['EAD'].split("\/")[-1]

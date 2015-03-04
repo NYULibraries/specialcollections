@@ -52,7 +52,7 @@ class Findingaids::Ead::Component < SolrEad::Component
   def to_solr(solr_doc = Hash.new)
     solr_doc = super(solr_doc)
 
-    Solrizer.insert_field(solr_doc, "repository", format_repository,                            :stored_sortable, :facetable)
+    Solrizer.insert_field(solr_doc, "repository", repository_display,                           :stored_sortable, :facetable)
     Solrizer.insert_field(solr_doc, "format",     format_display,                               :facetable, :displayable)
     Solrizer.insert_field(solr_doc, "heading",    heading_display(solr_doc),                    :displayable)
     Solrizer.insert_field(solr_doc, "location",   location_display,                             :displayable, :sortable)
