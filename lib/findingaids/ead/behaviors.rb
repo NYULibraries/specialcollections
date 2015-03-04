@@ -70,13 +70,14 @@ module Findingaids::Ead::Behaviors
     ISO_639.find(code).english_name if not(code.nil?)
   end
 
-  # Split-up subject terms like we do for our marc records
-  def get_ead_subject_facets terms = Array.new
-    self.subject.each do |term|
-      splits = term.split(/--/)
-      terms << splits
-    end
-    return terms.flatten.compact.uniq.sort
+  # Combine subjets into one group from:
+  #
+  #   <subject></subject>
+  #   <function></function>
+  #   <occupation></occupation>
+  def get_ead_subject_facets(subjects = Array.new)
+    subjects << search("//*[local-name()='subject' or local-name()='function' or local-name() = 'occupation']")
+    return clean_facets_array(subjects.flatten.map(&:text))
   end
 
   # Combine creators into one group looking for one or more of the following:
@@ -98,12 +99,12 @@ module Findingaids::Ead::Behaviors
   # getting places and scrubbing out subfield demarcators
   #
   def get_ead_places
-    @get_ead_places ||= clean_facets_array(self.geogname)
+    @get_ead_places ||= clean_facets_array(search("//geogname").map(&:text))
   end
 
   # Copy material type from genreform and scrub out Marc subfield demarcators
   def get_material_type_facets
-    @get_material_type_facets ||= clean_facets_array(self.genreform)
+    @get_material_type_facets ||= clean_facets_array(search("//genreform").map(&:text))
   end
 
   # Combine names into one group looking for one or more of the following:
