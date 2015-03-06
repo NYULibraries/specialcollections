@@ -96,17 +96,18 @@ describe Findingaids::Ead::Document do
       let(:facet) { 'collection' }
       it { should include "Resource--Title-AT" }
     end
-
-    describe "unitdate start" do
-      subject { solr_doc[Solrizer.solr_name("unitdate_start", :facetable)] }
+    context "when the facet is Unitdate Start" do
+      let(:facet) { 'unitdate_start' }
       it { should eql ["1960"] }
     end
-
-    describe "unitdate end" do
-      subject { solr_doc[Solrizer.solr_name("unitdate_end", :facetable)] }
+    context "when the facet is Unitdate End" do
+      let(:facet) { 'unitdate_end' }
       it { should eql ["1970"] }
     end
-
+    context "when the facet is Date Range" do
+      let(:facet) { 'date_range' }
+      it { should eql ["1901-2000"] }
+    end
   end
 
 end

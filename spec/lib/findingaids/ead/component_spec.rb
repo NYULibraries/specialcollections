@@ -154,16 +154,18 @@ describe Findingaids::Ead::Component do
         let(:facet) { 'series' }
         it { should eql ["Series I", "Subseries A", "Subseries 1"] }
       end
-    end
-
-    describe "unitdate start" do
-      subject { solr_doc[Solrizer.solr_name("unitdate_start", :facetable)] }
-      it { should eql ["1960"] }
-    end
-
-    describe "unitdate end" do
-      subject { solr_doc[Solrizer.solr_name("unitdate_end", :facetable)] }
-      it { should eql ["1970"] }
+      context "when the facet is Unitdate Start" do
+        let(:facet) { 'unitdate_start' }
+        it { should eql ["1960"] }
+      end
+      context "when the facet is Unitdate End" do
+        let(:facet) { 'unitdate_end' }
+        it { should eql ["1970"] }
+      end
+      context "when the facet is Date Range" do
+        let(:facet) { 'date_range' }
+        it { should eql ["1901-2000"] }
+      end
     end
 
     describe "#location_display" do

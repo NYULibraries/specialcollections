@@ -1,3 +1,4 @@
+# require 'behaviors/dates'
 ##
 # Ead Behaviors
 #
@@ -9,11 +10,12 @@ module Findingaids::Ead::Behaviors
   # Use default behaviors
   include SolrEad::Behaviors
 
+  # Include external behaviors
+  include Findingaids::Ead::Behaviors::Dates
+
   # Allows us to use class methods from this module in document and component.rb
   extend ActiveSupport::Concern
 
-  ##
-  # Define Constants
   # Fields to link to in display view
   LINK_FIELDS = {
     :abstract => [:abstract],
@@ -28,7 +30,6 @@ module Findingaids::Ead::Behaviors
       @creator_fields_to_xpath ||= NAME_FIELDS.map {|field| "name() = '#{field}'"}.join(" or ")
     end
   end
-
 
   # Pulls the repository from the directory title when indexing from the rake task
   #
@@ -46,23 +47,6 @@ module Findingaids::Ead::Behaviors
         return ENV['EAD'].split("\/")[-2]
       end
     end
-  end
-
-  # Formats multiple data fields into a single field for display
-  def ead_date_display(parts = Array.new)
-    unless self.unitdate.empty?
-      parts << self.unitdate
-    else
-      unless self.unitdate_inclusive.empty? and self.unitdate_bulk.empty?
-        parts << "Inclusive,"
-        parts << self.unitdate_inclusive
-        unless self.unitdate_bulk.empty?
-          parts << ";"
-          parts << self.unitdate_bulk
-        end
-      end
-    end
-    return parts.join(" ")
   end
 
   # Returns the language term as string from a given three-letter code found in the ISO 639 gem
@@ -130,17 +114,6 @@ module Findingaids::Ead::Behaviors
       Solrizer.set_field(fields, "language", language, :displayable)
     end
 
-    return fields
-  end
-
-  def ead_unitdate_fields(fields = Hash.new)
-    unless self.unitdate_normal.nil?
-      self.unitdate_normal.each do |unitdate|
-        unitdate_parts = unitdate.split(/\//)
-        Solrizer.set_field(fields, "unitdate_start", unitdate_parts.first, :facetable, :displayable)
-        Solrizer.set_field(fields, "unitdate_end", unitdate_parts.last, :facetable, :displayable)
-      end
-    end
     return fields
   end
 

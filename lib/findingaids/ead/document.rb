@@ -6,6 +6,7 @@
 class Findingaids::Ead::Document < SolrEad::Document
 
   include Findingaids::Ead::Behaviors
+  include Findingaids::Ead::Behaviors::Document
 
   # Define each term in your ead that you want put into the solr document
   set_terminology do |t|
@@ -72,6 +73,9 @@ class Findingaids::Ead::Document < SolrEad::Document
 
     # Set start and end date fields
     solr_doc.merge!(ead_unitdate_fields)
+
+    # Set date range facet after we have start and end dates
+    Solrizer.insert_field(solr_doc, "date_range",   get_date_range_facets,  :facetable)
 
     # Set language codes
     solr_doc.merge!(ead_language_fields)
