@@ -9,11 +9,11 @@ Feature: Facets presence and order
       | 1 | Library |
       | 2 | Digital Content |
       | 3 | Creator |
-      #| 4 | Date Range |
-      | 4 | Subject |
-      | 5 | Name |
-      | 6 | Place |
-      | 7 | Material Type |
-      | 8 | Language |
-      | 9 | Collection |
-      | 10 | Format |
+      | 4 | Date Range |
+      | 5 | Subject |
+      | 6 | Name |
+      | 7 | Place |
+      | 8 | Material Type |
+      | 9 | Language |
+      | 10 | Collection |
+      | 11 | Format |
