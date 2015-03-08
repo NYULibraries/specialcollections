@@ -66,15 +66,16 @@ class CatalogController < ApplicationController
     # ------------------------------------------------------------------------------------------
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_link
-    config.add_index_field solr_name("unittitle",         :displayable),  :label => "Title", :helper_method => :render_field_item
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :helper_method => :render_field_item
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
-    config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates", :helper_method => :render_field_item
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link
-    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :helper_method => :render_series_facet_link
-    config.add_index_field solr_name("location",          :displayable),  :label => "Location", :helper_method => :render_field_item
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
+    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
+    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :highlight => true, :helper_method => :render_series_facet_link
+    config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
+    config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("location",          :displayable),  :label => "Location", :highlight => true, :helper_method => :render_field_item
+>>>>>>> changing order of fields in brief results. Also added call number field in accordance with user story
 
     # ------------------------------------------------------------------------------------------
     #
