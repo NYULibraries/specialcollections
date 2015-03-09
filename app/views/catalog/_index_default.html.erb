@@ -5,7 +5,15 @@
     <% if should_render_index_field? document, field %>
        <% if not((field.label == "Library") || (field.label == "Call no")) %>
 	      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
-	      <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
+	      <dd class="blacklight-<%= solr_fname.parameterize %>">
+          <% if field.label == "Abstract" %>
+            <% abstract = render_index_field_value :document => document, :field => solr_fname %>
+            <%= truncate abstract, length:450 %>
+          <% else %>
+             <%= render_index_field_value :document => document, :field => solr_fname %>
+          <% end -%>
+        </dd>
+       
         <% end -%>
     <% end -%>
   <% end -%>
