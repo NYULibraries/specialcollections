@@ -17,7 +17,8 @@ describe Findingaids::Ead::Component do
     its(:unitid) { should eql ["Resource-C02-ID-AT"] }
     its(:langcode) { should eql ["eng"] }
     its(:unitdate_normal) { should eql ["1999/2000", "1999/2000"] }
-    its(:unitdate) { should eql ["Bulk, 1999-2000", "Resource-C01-Date-AT"] }
+    its(:unitdate_inclusive) { should eql ["Resource-C01-Date-AT"] }
+    its(:unitdate_bulk) { should eql ["Bulk, 1999-2000"] }
     its(:creator) { should eql ["PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT"] }
     its(:scopecontent) { should eql ["Resource-C01-ScopecontentNoteContent-AT"] }
     its(:bioghist) { should be_blank }
@@ -49,7 +50,8 @@ describe Findingaids::Ead::Component do
     its(:container_id) { should eql ["cid6"] }
     its(:unitid) { should eql ["Resource-C06-ID-AT"] }
     its(:langcode) { should eql ["eng"] }
-    its(:unitdate) { should eql ["Bulk, 1960-1970", "Resource-C06-Date-AT"] }
+    its(:unitdate_inclusive) { should eql ["Resource-C06-Date-AT"] }
+    its(:unitdate_bulk) { should eql ["Bulk, 1960-1970"] }
     its(:unitdate_normal) { should eql ["1960/1970", "1960/1970"] }
     its(:creator) { should include "CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT)" }
     its("creator.count") { should eql 3 }
@@ -100,6 +102,11 @@ describe Findingaids::Ead::Component do
     describe "author" do
       subject { solr_doc[Solrizer.solr_name("author", :searchable)] }
       it { should eql ["Finding aid prepared by Resource-FindingAidAuthor-AT"] }
+    end
+
+    describe "unitdate" do
+      subject { solr_doc[Solrizer.solr_name("unitdate", :displayable)] }
+      it { should eql ["Inclusive, Resource-C06-Date-AT ; Bulk, 1960-1970"] }
     end
 
     describe "facets" do

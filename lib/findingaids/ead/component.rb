@@ -22,9 +22,13 @@ class Findingaids::Ead::Component < SolrEad::Component
 
     t.unitid(path:"did/unitid",index_as:[:searchable,:displayable])
     t.langcode(path:"did/langmaterial/language/@langcode")
-    t.unitdate_normal(path:"did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
-    t.unitdate(index_as:[:displayable])
     t.creator(path:"did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
+
+    # Dates
+    t.unitdate_normal(path:"did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
+    t.unitdate(:path=>"did/unitdate[not(@type)]",index_as:[:searchable])
+    t.unitdate_bulk(path:"did/unitdate[@type='bulk']",index_as:[:searchable])
+    t.unitdate_inclusive(path:"did/unitdate[@type='inclusive']",index_as:[:searchable])
 
     # Fulltext in <p> under the following descriptive fields
     t.scopecontent(path:"scopecontent/p",index_as:[:searchable])

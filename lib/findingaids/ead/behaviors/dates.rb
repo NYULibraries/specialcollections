@@ -54,6 +54,7 @@ module Findingaids::Ead::Behaviors
         end
         Solrizer.set_field(fields, "unitdate_start", start_dates.compact, :facetable, :displayable, :sortable)
         Solrizer.set_field(fields, "unitdate_end", end_dates.compact, :facetable, :displayable, :sortable)
+        Solrizer.insert_field(fields, "unitdate", ead_date_display, :displayable)
       end
       return fields
     end
