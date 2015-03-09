@@ -18,10 +18,14 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.unittitle(path:"archdesc[@level='collection']/did/unittitle",index_as:[:searchable,:displayable])
     t.unitid(path:"archdesc[@level='collection']/did/unitid",index_as:[:searchable,:displayable])
     t.langcode(path:"archdesc[@level='collection']/did/langmaterial/language/@langcode")
-    t.unitdate_normal(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
-    t.unitdate(path:"archdesc[@level='collection']/did/unitdate",index_as:[:displayable])
     t.abstract(path:"archdesc[@level='collection']/did/abstract",index_as:[:searchable,:displayable])
     t.creator(path:"archdesc[@level='collection']/did/origination[@label='creator']/*[#{creator_fields_to_xpath}]",index_as:[:searchable,:displayable])
+
+    # Dates
+    t.unitdate_normal(path:"archdesc[@level='collection']/did/unitdate/@normal",index_as:[:displayable,:searchable,:facetable])
+    t.unitdate(path:"archdesc[@level='collection']/did/unitdate[not(@type)]",index_as:[:searchable])
+    t.unitdate_bulk(path:"archdesc[@level='collection']/did/unitdate[@type='bulk']",index_as:[:searchable])
+    t.unitdate_inclusive(path:"archdesc[@level='collection']/did/unitdate[@type='inclusive']",index_as:[:searchable])
 
     # Fulltext in <p> under the following descriptive fields
     t.scopecontent(path:"archdesc[@level='collection']/scopecontent/p",index_as:[:searchable])

@@ -15,7 +15,8 @@ describe Findingaids::Ead::Document do
   its(:unitid) { should eql ["Resource.ID.AT.AT"] }
   its(:langcode) { should eql ["eng"] }
   its(:unitdate_normal) { should include "1960/1970" }
-  its(:unitdate) { should eql ["Bulk, 1960-1970", "Resource-Date-Expression-AT"] }
+  its(:unitdate_bulk) { should eql ["Bulk, 1960-1970"] }
+  its(:unitdate_inclusive) { should eql ["Resource-Date-Expression-AT"] }
   its(:abstract) { should eql ["Resource-Abstract-AT"] }
   its(:creator) { should include "CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT)" }
   its(:scopecontent) { should include "Resource-ScopeContents-AT" }
@@ -54,6 +55,12 @@ describe Findingaids::Ead::Document do
     let(:solr_doc) { document.to_solr }
     subject { solr_doc[Solrizer.solr_name("heading", :displayable)] }
     it { should eql ["Resource--Title-AT"] }
+  end
+
+  describe "unitdate" do
+    let(:solr_doc) { document.to_solr }
+    subject { solr_doc[Solrizer.solr_name("unitdate", :displayable)] }
+    it { should eql ["Inclusive, Resource-Date-Expression-AT ; Bulk, 1960-1970"] }
   end
 
   describe "facets" do
