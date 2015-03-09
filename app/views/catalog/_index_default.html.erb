@@ -3,7 +3,7 @@
 
   <% index_fields.each do |solr_fname, field| -%> 
     <% if should_render_index_field? document, field %>
-       <% if not((field.label == "Library") || (field.label == "Call no")) %>
+       <% if not((field.label == "Library") || (field.label == "Call no") || (field.label == "Title") || (field.label == "Location")) %>
 	      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
 	      <dd class="blacklight-<%= solr_fname.parameterize %>">
           <% if field.label == "Abstract" %>
@@ -33,7 +33,7 @@
   <!-- need to create a function for this -->
   <% index_fields.each do |solr_fname, field| -%> 
     <% if should_render_index_field? document, field %>
-    <% if ((field.label == "Library") || (field.label == "Call no")) %>
+    <% if ((field.label == "Library") || (field.label == "Call no") || (field.label == "Location")) %>
         <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
         <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
         <% end -%>
