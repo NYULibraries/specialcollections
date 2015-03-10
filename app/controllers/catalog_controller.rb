@@ -67,7 +67,7 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
-    config.add_index_field solr_name("breadcrumb",        :displayable),  :label => "Contained in", :helper_method => :render_field_item
+    config.add_index_field solr_name("breadcrumb",        :displayable),  :label => "Contained in", :helper_method => :render_breadcrumb
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item

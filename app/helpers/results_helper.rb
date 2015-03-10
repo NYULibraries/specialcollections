@@ -18,6 +18,13 @@ module ResultsHelper
     [links_to_series].join(" >> ").html_safe
   end
 
+  def render_breadcrumb(doc)
+    bcrumbs = doc[:document][doc[:field]].join(" >> ").split(" >> ")
+    bc = content_tag(:span,bcrumbs.last, class: "result_ut")
+    bcrumbs.pop
+    #bcrumbs.map{ |b| b.eql? bcrumbs.last ? bc : b }
+    [bcrumbs,bc].join(" >> ").html_safe 
+  end
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
