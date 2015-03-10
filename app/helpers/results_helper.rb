@@ -22,6 +22,13 @@ module ResultsHelper
     [links_to_series].join(" >> ").html_safe
   end
 
+  def render_breadcrumb(doc)
+    bcrumbs = doc[:document][doc[:field]].join(" >> ").split(" >> ")
+    bc = content_tag(:span,bcrumbs.last, class: "result_ut")
+    bcrumbs.pop
+    #bcrumbs.map{ |b| b.eql? bcrumbs.last ? bc : b }
+    [bcrumbs,bc].join(" >> ").html_safe 
+  end
   def render_repository_facet_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
