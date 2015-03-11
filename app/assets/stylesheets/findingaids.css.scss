@@ -106,6 +106,15 @@ h5.index_title > i {
 .result_ut{
   font-weight: bold;
 }
+
+.search_within{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.request_item_note{
+  padding-top:10px;
+}
 @media (max-width: 480px) {
   select#search_field {
     width: 100%;

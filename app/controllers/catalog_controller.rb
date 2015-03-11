@@ -70,15 +70,13 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("breadcrumb",        :displayable),  :label => "Contained in", :helper_method => :render_breadcrumb
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
-    config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
-    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :highlight => true, :helper_method => :render_series_facet_link
+    #config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
+    #config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
+    #config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :highlight => true, :helper_method => :render_series_facet_link
     config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
     config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("location",          :displayable),  :label => "Location", :highlight => true, :helper_method => :render_field_item
->>>>>>> changing order of fields in brief results. Also added call number field in accordance with user story
-
-    # ------------------------------------------------------------------------------------------
+   # ------------------------------------------------------------------------------------------
     #
     # Show view fields (individual record)
     #
