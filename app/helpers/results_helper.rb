@@ -93,19 +93,20 @@ module ResultsHelper
     end
   end
 
-  def pick_order_fields(doc, fields, publish, *list_fields)
+  def pick_order_fields(doc, fields, *list_fields)
     items = []
     values = []
     fields.each{ |solr_fname, field|
-      if publish == "yes" and list_fields[0].split(",").include? field.label
-        #binding.pry
+      if list_fields[0].split(",").include? field.label 
+       
         if should_render_index_field?(doc, field)
           # have to do the following because it wasn't rendering the html correctly otherwise
           item_label = render_index_field_label(:field => solr_fname)
           label = content_tag(:dt, item_label,class:"blacklight-#{solr_fname.parameterize}")
           item_value = render_index_field_value(:document => doc, :field => solr_fname)
+          #truncating abstract to 450 chars
           item_value = item_value.truncate(450) if field.label == "Abstract"
-          #binding.pry if field.label == "Abstract"
+         
           value = content_tag(:dd, item_value,class:"blacklight-#{solr_fname.parameterize}")
 
           items << [label,value]
