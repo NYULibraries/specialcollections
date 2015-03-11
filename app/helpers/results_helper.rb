@@ -30,8 +30,9 @@ module ResultsHelper
     bcrumbs.each do |ser|
         links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
     end
-    
+   
     [links_to_series,bc].join(" >> ").html_safe 
+    
   end
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
@@ -95,6 +96,29 @@ module ResultsHelper
     end
   end
 
+  def pick_order_fields(doc, fields, publish, *list_fields)
+    hsh = {}
+    items = []
+    values = []
+    fields.each{ |solr_fname, field|
+      unless publish == "yes" and list_fields.include? field.label
+        if should_render_index_field?(doc, field)
+          label = content_tag(:dt, render_index_field_label(:field => solr_fname),class:"blacklight-#{solr_fname.parameterize}")
+          value = content_tag(:dd, render_index_field_value(:document => doc, :field => solr_fname),class:"blacklight-#{solr_fname.parameterize}")
+          items << [label,value]
+          
+          #hsh[k] = v
+          #content_tag(:dt, render_index_field_label(:field => solr_fname),class:"blacklight-#{solr_fname.parameterize}").html_safe
+          #content_tag(:dd, render_index_field_value(:document => doc, :field => solr_fname),class:"blacklight-#{solr_fname.parameterize}").html_safe 
+        end
+      end
+      
+    }
+    items.join("").html_safe
+    #[labels,values].join("").html_safe
+
+    
+  end
   # Get icon from format type
   def document_icon(doc)
     doc.normalized_format

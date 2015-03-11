@@ -3,7 +3,8 @@
 
   <% index_fields.each do |solr_fname, field| -%> 
     <% if should_render_index_field? document, field %>
-       <% if not((field.label == "Library") || (field.label == "Call no") || (field.label == "Title") || (field.label == "Location")) %>
+
+       <% if not((field.label == "Library") || (field.label == "Call no") ||  (field.label == "Location")) %>
 	      <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
 	      <dd class="blacklight-<%= solr_fname.parameterize %>">
           <% if field.label == "Abstract" %>
@@ -24,7 +25,8 @@
      <% elsif document.is_archival_object? %>
     <dd class="request_item_note"><b>To request this item, please note the following information</b></dd>
   <% end %>
-  <!-- need to create a function for this -->
+  <%= pick_order_fields document, index_fields, "yes", "['Library', 'Call no']" %>
+  <!-- need to create a function for this 
   <% index_fields.each do |solr_fname, field| -%> 
     <% if should_render_index_field? document, field %>
     <% if ((field.label == "Library") || (field.label == "Call no") || (field.label == "Location")) %>
@@ -32,5 +34,5 @@
         <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
         <% end -%>
     <% end -%>
-  <% end -%>
+  <% end -%>-->
 </dl>
