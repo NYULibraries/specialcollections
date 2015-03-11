@@ -24,10 +24,16 @@ module ResultsHelper
 
   def render_breadcrumb(doc)
     bcrumbs = doc[:document][doc[:field]].join(" >> ").split(" >> ")
-    bc = content_tag(:span,bcrumbs.last, class: "result_ut")
+     collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+     bc = content_tag(:span,bcrumbs.last, class: "result_ut")
     bcrumbs.pop
+     links_to_series = []
+    bcrumbs.each do |ser|
+      links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
+    end
+    
     #bcrumbs.map{ |b| b.eql? bcrumbs.last ? bc : b }
-    [bcrumbs,bc].join(" >> ").html_safe 
+    [links_to_series,bc].join(" >> ").html_safe 
   end
   def render_repository_facet_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
