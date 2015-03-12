@@ -96,7 +96,8 @@ module ResultsHelper
     end
   end
 
-  def pick_order_fields(doc, fields, *list_fields)
+  # renders fields; has an option to submit a list of fields
+  def pick_fields(doc, fields, *list_fields)
     items = []
     values = []
     fields.each{ |solr_fname, field|
