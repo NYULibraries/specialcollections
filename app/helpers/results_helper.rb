@@ -100,7 +100,9 @@ module ResultsHelper
     items = []
     values = []
     fields.each{ |solr_fname, field|
-      if list_fields[0].split(",").include? field.label 
+      # if optional list fields arg list is empty, i.e. print all fields
+      # or print list of fields
+      if list_fields[0].nil? or list_fields[0].split(",").include? field.label 
        
         if should_render_index_field?(doc, field)
           # have to do the following because it wasn't rendering the html correctly otherwise
