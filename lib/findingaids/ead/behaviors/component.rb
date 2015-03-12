@@ -30,6 +30,19 @@ module Findingaids::Ead::Behaviors
       end
     end
 
+    # Prints titles for archival object breadcrumb
+    #
+    # Also adds collection name to the top of the breadcrumb 
+    # E.g Collection Name >> Series I >> Sub-series II >> Unit
+    def bread_crumb(solr_doc)
+      #get collection name
+      coll_name = collection_name(solr_doc)
+      #get breadcrumb
+      bc = title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)])
+      [coll_name,bc].join(" >> ")
+     
+    end
+
     # Extract collection name from solr_doc
     # it was passed in via additional information from the collection level indexer
     def collection_name(solr_doc)
