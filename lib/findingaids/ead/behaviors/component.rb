@@ -23,11 +23,13 @@ module Findingaids::Ead::Behaviors
     #
     # E.g. ["Collection Name","Series I", "Sub-series III"] => "Collection Name >> Series I >> Sub-series III >> Unit Title"
     def title_for_heading(parent_titles = Array.new)
+
       if parent_titles.length > 0
         [parent_titles, self.term_to_html("unittitle")].join(" >> ")
       else
         self.term_to_html("unittitle")
       end
+      
     end
 
     # Prints titles for archival object breadcrumb
@@ -38,7 +40,7 @@ module Findingaids::Ead::Behaviors
       #get collection name
       coll_name = collection_name(solr_doc)
       #get breadcrumb
-      bc = title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)])
+      bc = title_for_heading(solr_doc[Solrizer.solr_name("parent_unittitles", :displayable)]) 
       [coll_name,bc].join(" >> ")
      
     end
