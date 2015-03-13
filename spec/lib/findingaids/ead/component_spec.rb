@@ -175,13 +175,17 @@ describe Findingaids::Ead::Component do
       end
     end
 
+    describe "#bread_crumb" do
+      subject { solr_doc[Solrizer.solr_name("breadcrumb", :displayable)] }
+      it { should eql ["Resource--Title-AT >> Series I >> Subseries A >> Subseries 1 >> Resource-C06-AT"] }
+    end
+  
     describe "#location_display" do
       subject { solr_doc[Solrizer.solr_name("location", :displayable)] }
       it { should eql ["Box: 6, Folder: 6, Item: 6"] }
     end
 
     describe "#heading" do
-      let(:solr_doc) { document.to_solr }
       subject { solr_doc[Solrizer.solr_name("heading", :displayable)] }
       it { should eql ["Resource-C06-AT"] }
     end
