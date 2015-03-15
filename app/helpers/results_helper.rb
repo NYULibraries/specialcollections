@@ -15,6 +15,7 @@ module ResultsHelper
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
     end
+
     [links_to_series].join(" >> ").html_safe
   end
 
@@ -23,15 +24,27 @@ module ResultsHelper
   # Converting that into a string and then an easier to navigate array
   def render_breadcrumb(doc)
     bcrumbs = doc[:document][doc[:field]].join(" >> ").split(" >> ")
-    collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+
+    # getting collection
+    coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+
+    # getting collection link
+    coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
+
+    #creating the tag that will bold the final title
     bc = content_tag(:span,bcrumbs.last, class: "result_ut")
+
+    #removing the unit title from getting a link
     bcrumbs.pop
+
     links_to_series = []
     bcrumbs.each do |ser|
-        links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
-    end
+        links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
+    end unless bcrumbs.size == 0
    
-    [links_to_series,bc].join(" >> ").html_safe 
+    [coll_link,links_to_series,bc].reject(&:blank?).join(" >> ").html_safe 
+
+
     
   end
   def render_repository_facet_link(doc)
