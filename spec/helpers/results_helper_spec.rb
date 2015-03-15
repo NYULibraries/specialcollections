@@ -141,9 +141,17 @@ describe ResultsHelper do
     it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Guide to titling finding aids</a>" }
   end
 
+   describe "#render_breadcrumb" do
+    let(:field) { :breadcrumb_ssm }
+    let(:solr_document) { create(:solr_document, breadcrumb: ["Series I >> Subseries IV >> Object I"]) }
+    subject { render_breadcrumb(document) }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"result_ut\">Object I</span>" }
+    it { expect(sanitize(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; Object I") }
+  end
+
   describe "#render_series_facet_link" do
     let(:field) { :parent_unittitles_ssm }
-    let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
+    let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }     
     subject { render_series_facet_link(document) }
     it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a>" }
     it { expect(sanitize(subject)).to eql("Series I &gt;&gt; Subseries IV") }
@@ -163,14 +171,7 @@ describe ResultsHelper do
     it { should eql({"f"=>{"series_sim"=>document[:document][:unittitle_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
   end
 
-  describe "#render_breadcrumb" do
-    let(:field) { :breadcrumb_ssm }
-    let(:solr_document) { create(:solr_document, breadcrumb: ["Bytsura Collection of Things >> Series I >> Subseries IV >> Object I"]) }
-    subject { render_breadcrumb(document[:document]) }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;search_field=all_fields\"> Bytsura Collection of Things </a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >>  <span class=\"result_ut\"> Object I </span>" }
-    it { expect(sanitize(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; Object I") }
-  end
-
+ 
   describe "#link_to_document" do
     subject { link_to_document(collection, heading) }
     let(:collection) { document[:document] }
