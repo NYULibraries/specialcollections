@@ -24,8 +24,7 @@ module ResultsHelper
 
   def render_repository_facet_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
-#binding.pry()
-    link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
+    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
   
   def render_repository_link(doc)
