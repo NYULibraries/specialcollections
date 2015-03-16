@@ -35,7 +35,7 @@ The description of EAD in Solr proves to require more configuration so we use [a
 5. Load some test data in there:
 ```
 ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
-~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamiment
+~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
 ```
 6. Make sure all your tests are passing:
 ```
