@@ -26,10 +26,11 @@ Given(/^I am on the brief results page$/) do
 end
 
 #Check which option is selected in a dropdown
-Then /^"([^"]*)" should be selected for "([^"]*)"$/ do |selected_value, dropdown|
+Then /^the "([^"]*)" should have the selected value "([^"]*)"$/ do |label, selected_value|
   #page.has_select?(dropdown, :selected => selected_value).should eq(true)
   #page.has_select?(dropdown).should == false
   #expect(page).to have_select(dropdown, selected: selected_value)
+  dropdown = "search_field" if label == "Search Field"
   find_field(dropdown).find('option[selected]').text.should eq(selected_value)
 end
 
