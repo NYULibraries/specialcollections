@@ -72,10 +72,6 @@ Then(/^I should not see results from "(.*?)"$/) do |library|
   end
 end
 
-<<<<<<< HEAD
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
-=======
-
->>>>>>> Added cucumbers for repository links

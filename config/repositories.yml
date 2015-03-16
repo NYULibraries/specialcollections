@@ -7,24 +7,24 @@ Catalog:
     tamiment:
       display: 'The Tamiment Library & Robert F. Wagner Labor Archives'
       url: "tamiment"
-      admin_code: "tamiment"
+      admin_code: "tamwag"
     universityarchives:
       display: 'New York University Archives'
       url: "universityarchives"
-      admin_code: "universityarchives"
+      admin_code: "archives"
     nyhistory:
       display: 'New-York Historical Society'
       url: "nyhistory"
-      admin_code: "nyhistory"
+      admin_code: "nyhs"
     brooklynhistory:
       display: 'Brooklyn Historical Society'
       url: "brooklynhistory"
-      admin_code: "brooklynhistory"
+      admin_code: "bhs"
     poly:
       display: 'Poly Archives'
       url: "poly"
       admin_code: "poly"
     rism:
-      display: 'Research Institue for the Study of Man'
+      display: 'Research Institute for the Study of Man'
       url: "rism"
       admin_code: "rism"
