@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+  <eadid countrycode="US" mainagencycode="US-NNU-TL">photos_114</eadid>
+  <filedesc>
+    <titlestmt>
+      <titleproper>Guide to the John L. Spivak Photographs
+        <num>PHOTOS.114</num>
+      </titleproper>
+      <author>Finding aid prepared by Nicole Greenhouse</author>
+    </titlestmt>
+    <publicationstmt>
+      <publisher>Tamiment Library and Robert F. Wagner Labor Archive</publisher>
+      <address>
+        <addressline>Elmer Holmes Bobst Library</addressline>
+        <addressline>70 Washington Square South</addressline>
+        <addressline>New York, NY, 10012</addressline>
+        <addressline>(212) 998-2630</addressline>
+        <addressline>tamiment.wagner@library.nyu.edu</addressline>
+      </address>
+      <date>February 20, 2013</date>
+    </publicationstmt>
+  </filedesc>
+  <profiledesc>
+    <creation>This finding aid was produced using the Archivists' Toolkit
+      <date>2013-02-21T11:21-0500</date>
+    </creation>
+    <descrules>Describing Archives: A Content Standard</descrules>
+  </profiledesc>
+</eadheader>
+<archdesc level="collection">
+  <did>
+    <unittitle>John L. Spivak Photographs</unittitle>
+    <unitid>PHOTOS.114</unitid>
+    <repository>
+      <corpname>Tamiment Library and Robert F. Wagner Labor Archive</corpname>
+    </repository>
+    <langmaterial>
+      <language langcode="eng"/>
+    </langmaterial>
+    <physdesc>
+      <extent>0.25 linear feet</extent>
+      <extent>in 1 folder.</extent>
+    </physdesc>
+    <unitdate>undated</unitdate>
+    <langmaterial id="ref9" label="Language of Materials note">Materials are in English.</langmaterial>
+    <abstract id="ref1" label="Abstract">John Louis Spivak (1897-1981) was a writer, journalist, and communist, mostly active in the 1920s and 1930s. This collection contains four photographs of Spivak.</abstract>
+    <origination label="creator">
+      <persname source="naf">Spivak, John L. (John Louis), 1897-1981</persname>
+    </origination>
+  </did>
+  <relatedmaterial id="ref14">
+    <head>Related Archival Materials</head>
+    <p>Two collections at other institutions hold Spivak's papers:</p>
+    <p>John L. Spivak Papers at Syracuse University
+      <lb/> John L. Spivak Papers at the Harry Ransom Humanities Research Center, University of Texas at Austin
+      <lb/></p>
+    </relatedmaterial>
+    <scopecontent id="ref11">
+      <head>Scope and Content Note</head>
+      <p>The collection contains four undated sepia-toned black and white prints, all portraits of John Spivak.</p>
+    </scopecontent>
+    <prefercite id="ref10">
+      <head>Preferred Citation</head>
+      <p>Identification of item, date; John L. Spivak Photographs; PHOTOS 114; box number; folder number; Tamiment Library/Robert F. Wagner Labor Archives, New York University.</p>
+    </prefercite>
+    <acqinfo id="ref7">
+      <head>Immediate Source of Acquisition note</head>
+      <p>Source unknown.</p>
+    </acqinfo>
+    <userestrict id="ref6">
+      <head>Use Restrictions</head>
+      <p>Copyright status unknown. Permission to publish materials must be obtained in writing from the:
+        <lb/> Tamiment Library/Robert F. Wagner Labor Archives
+        <lb/> Elmer Holmes Bobst Library
+        <lb/> 70 Washington Square South
+        <lb/> New York, NY 10012
+        <lb/> Phone: (212) 998-2630
+        <lb/> Fax: (212) 995-4225
+        <lb/> E-mail: tamiment.wagner@library.nyu.edu
+        <lb/></p>
+      </userestrict>
+      <accessrestrict id="ref5">
+        <head>Access Restrictions</head>
+        <p>Open for research without restrictions.</p>
+      </accessrestrict>
+      <bioghist id="ref4">
+        <head>Historical/Biographical Note</head>
+        <p>John Louis Spivak, born June 13, 1897 in New Haven, CT, was an American journalist, who wrote articles and books on the rise of fascism, anti-Semitism, and the problems of the working class. Spivak wrote for the
+          <emph render="italic">Daily Worker,</emph>
+          <emph render="italic">New Masses</emph>,
+          <emph render="italic">Ken</emph>, and
+          <emph render="italic">the Call</emph>, the paper of the American Socialist Party, in addition to other other publications. During the rise of McCarthyism, Spivak wrote under pseudonyms, including Monroe Fry. His book credits include
+          <emph render="italic">Georgia Nigger</emph> (1933),
+          <emph render="italic">Europe Under the Terror </emph>(1936),
+          <emph render="italic">Secret Armies: the New Technique of Nazi Warfare</emph> (1939),
+          <emph render="italic">Honorable Spy: Exposing Japanese Military Intrigue in the United States</emph> (1939),
+          <emph render="italic">Shrine of the Silver Dollar</emph> (1940),
+          <emph render="italic">Sex, Vice and Business</emph> (1959), and his autobiography,
+          <emph render="italic">A Man In His Time</emph> (1967). He passed away on September 30, 1981 in Philadelphia, PA.</p>
+        </bioghist>
+        <arrangement id="ref2">
+          <head>Arrangement</head>
+          <p>This collection has not been arranged by an archivist.</p>
+        </arrangement>
+        <controlaccess>
+          <subject source="lcsh">Authors, American.</subject>
+          <subject source="lcsh">Journalists |z United States.</subject>
+          <subject source="lcsh">World War II</subject>
+          <genreform source="aat">Photographs.</genreform>
+        </controlaccess>
+        <dsc>
+          <c01 id="ref15" level="file">
+            <did>
+              <unittitle>Photographs</unittitle>
+              <container id="cid22224014" type="Box" label="Mixed materials">A002</container>
+              <unitdate>undated</unitdate>
+            </did>
+          </c01>
+        </dsc>
+      </archdesc>
+    </ead>
