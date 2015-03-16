@@ -59,3 +59,12 @@ end
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
+
+Then(/^I should see fields in the following order and value:$/) do |table|
+  table.rows_hash.each do |label, value|
+    within("#documents") do
+      expect(page.find(:xpath,'//dt[@class=\'blacklight-format_ssm\']')).first.to have_content "#{label}:"
+      expect(page.find(:xpath,'//dd[@class=\'blacklight-format_ssm\']')).first.to have_content "#{value}"
+    end
+  end
+end
