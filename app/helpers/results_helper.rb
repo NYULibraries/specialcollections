@@ -30,18 +30,9 @@ module ResultsHelper
   def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
-#binding.pry()
-#repositories.select{|key, hash| hash["url"] == [doc[:document][repos_id] }
-      #repocode = repositories.select{|key, hash| hash["url"] == doc[:document][repos_id] }
       link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
-      #Okay, so this actually returns the thing: repositories.select{|key,hash| hash["url"] == "fales" }
-      # But how do I get to it's parts?
-      # Ugh. Like this:  repositories.select{|key,hash| hash["url"] == "fales" }["fales"]["url"]
-      #repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
-      #link_to_repository repositories[doc[:document][repos_id]]["url"]
     elsif repositories[doc].present?
       repositories[doc]["display"]
-#binding.pry()
     end
   end
 
@@ -101,9 +92,7 @@ module ResultsHelper
   end
 
   def repository_label(repository)
-    #repositories.find{|key,hash| hash["url"] == repository}[1]["display"]
     repositories[repository]["display"]
-
   end
 
   def sanitize(html)

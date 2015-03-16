@@ -47,7 +47,6 @@ class CatalogController < ApplicationController
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
     config.add_facet_field solr_name("repository",    :facetable), label: "Library",            helper_method: :render_repository_facet_link
-    #config.add_facet_field solr_name("repository",    :facetable), label: "Library"
     config.add_facet_field solr_name("dao",           :facetable), label: "Digital Content"
     config.add_facet_field solr_name("creator",       :facetable), label: "Creator",            limit: 20
     config.add_facet_field solr_name("date_range",    :facetable), label: "Date Range",         limit: 20
