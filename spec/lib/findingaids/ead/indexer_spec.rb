@@ -30,7 +30,7 @@ describe Findingaids::Ead::Indexer do
       end
     end
     context 'when file is a directory' do
-      let(:file) { Rails.root.join('spec','fixtures','tamiment').to_s }
+      let(:file) { Rails.root.join('spec','fixtures','tamwag').to_s }
       it 'should index files in directory' do
         expect(subject).to be_true
       end
