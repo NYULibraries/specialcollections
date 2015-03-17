@@ -149,6 +149,20 @@ describe ResultsHelper do
     it { expect(sanitize(subject)).to eql("Series I &gt;&gt; Subseries IV") }
   end
 
+  describe "#render_repository_facet_link" do
+    let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
+    subject { render_repository_facet_link(document[:document][:repository_ssi]) }
+    it { should eql "The Fales Library" }
+  end
+
+  describe "#render_repository_link" do
+    let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
+    subject { render_repository_link(document) }
+    it { should eql "<a href=\"/fales\">The Fales Library</a>" }
+    it { expect(sanitize(subject)).to eql("The Fales Library") }
+  end
+
+
   describe "#render_components_facet_link" do
     let(:field) { :parent_unittitles_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
