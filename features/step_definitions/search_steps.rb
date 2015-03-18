@@ -56,10 +56,19 @@ Then(/^I should not see results from "(.*?)"$/) do |library|
   end
 end
 
-And(/^"(.*?)" should be "(\d.*?)" characters or less/) do |label,len|
+And(/^I should see "(.*?)" be "(\d.*?)" characters or less/) do |label,len|
   class_name = get_class_name(label)
   within(page.first("dl")) do
     page.find('dd.blacklight-'"#{class_name}").text.length.should be <= len.to_i
+  end
+end
+
+And(/^I should see "(.*?)" between "(.*?)" and "(.*?)"/) do |label,field1,field2|
+  within(page.first("dl")) do
+    f1 = page.find(:xpath, "dt[text()='#{field1}:']/following-sibling::dd[2]").text
+    f2 = page.find(:xpath, "dt[text()='#{field2}:']/preceding-sibling::dd[1]").text
+    f1.should be == label
+    f1.should be == f2
   end
 end
 
