@@ -4,7 +4,7 @@ module ResultsHelper
   # Render field value, and join as string if it's an array
   # If this field has a highlighted field, use that version, otherwise use the full field
   def render_field_item(doc)
-    (doc[:document].has_highlight_field? doc[:field]) ?
+    (doc[:document].has_highlight_field? doc[:field]) ? 
       doc[:document].highlight_field(doc[:field]).join(", ").html_safe :
         doc[:document][doc[:field]].join(", ").html_safe
   end
@@ -15,7 +15,6 @@ module ResultsHelper
     series = doc[:document][doc[:field]]
     collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
     links_to_series = []
-
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
     end
@@ -23,9 +22,13 @@ module ResultsHelper
   end
 
   def render_repository_facet_link(doc)
+    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
+  end
+  
+  def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
-      link_to_repository repositories[doc[:document][repos_id]]["admin_code"]
+      link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
     elsif repositories[doc].present?
       repositories[doc]["display"]
     end

@@ -71,7 +71,7 @@ class CatalogController < ApplicationController
     # ------------------------------------------------------------------------------------------
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
+    config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_link
     config.add_index_field solr_name("unittitle",         :displayable),  :label => "Title", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
@@ -113,7 +113,7 @@ class CatalogController < ApplicationController
     ##
     # Add repository field query from config file
     Findingaids::Repositories.repositories.each do |coll|
-      config.add_search_field(coll.last["display"],
+      config.add_search_field(coll.last["url_safe_display"],
         :label => coll.last["display"],
         :solr_parameters => { :fq => "#{solr_name("repository", :stored_sortable)}:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
         )
