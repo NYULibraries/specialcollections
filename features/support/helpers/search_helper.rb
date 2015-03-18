@@ -24,7 +24,10 @@ module FindingaidsFeatures
                    "Date range" => "unitdate_ssm", 
                    "Abstract" => "abstract_ssm", 
                    "Library" => "repository_ssi", 
-                   "Call no" => "unitid_ssm" }
+                   "Call no" => "unitid_ssm",
+                   "Location" => "location_ssm",
+                   "Contained in" => "breadcrumb_ssm"
+                    }
 
       
       class_hsh[label]

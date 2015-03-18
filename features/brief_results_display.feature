@@ -4,7 +4,7 @@ Feature: Brief result display
   I want to see relevant fields in the brief search display.
 
   
-  Scenario: Limit search by collection
+  Scenario: See brief results display at the collection level 
     Given I am on the brief results page
     And I limit my search to "Archival Collection" under the "Format" category
     Then I should see fields in the following order and value:
@@ -17,6 +17,16 @@ Feature: Brief result display
     And I should see "Search all archival materials within this collection" between "Abstract" and "Library"
     And I click on "Search all archival materials within this collection"
     Then I should see search results
+
+  @object
+  Scenario: See brief results display at the archival object level
+    Given I search on the phrase "Minka"
+    Then I should see fields in the following order and value:
+    | Format | Archival Object |
+    | Contained in | Oral History of the American Left: Radical Histories >> Minka Alesh |
+    | Date range | Oct 26, 1982 |
+    | Library | The Tamiment Library & Robert F. Wagner Labor Archives |
+    | Location | CD: Access OH-02-159, Box: 1, CD: Alesh 1, Cassette: 1, CD: ohaloh020146p1 / /ohaloh020146p2, Box: 1, Cassette: 1 |
 
  
  
