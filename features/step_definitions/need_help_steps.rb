@@ -1,4 +1,8 @@
-Given(/^I see a link "(.*?)"$/) do |arg1|
+Given(/^I see a pane with the title "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^I see a link "(.*?)" inside the "(.*?)" pane$/) do |arg1, arg2|
   pending # express the regexp above with the code you wish you had
 end
 
