@@ -126,9 +126,12 @@ Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, mult
 end
 
 Then(/^I should see fields in the following order and value:$/) do |table|
-  table.rows_hash.each do |label, value|
-      class_name = label.downcase
-      expect(documents_list.first.find('dt.blacklight-'"#{class_name}"'_ssm')).to have_content "#{label}:"
-      expect(documents_list.first.find('dd.blacklight-'"#{class_name}"'_ssm')).to have_content "#{value}"
+  within(page.first("dl")) do
+    table.rows_hash.each do |label, value|
+      class_name = get_class_name(label)
+      expect(page.find('dt.blacklight-'"#{class_name}")).to have_content "#{label}:"
+      expect(page.find('dd.blacklight-'"#{class_name}")).to have_content "#{value}"
+
+    end
   end
 end

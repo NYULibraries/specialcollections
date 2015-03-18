@@ -19,5 +19,16 @@ module FindingaidsFeatures
       click_button("Search")
     end
 
+    def get_class_name(label)
+      class_hsh = {"Format" => "format_ssm", 
+                   "Date range" => "unitdate_ssm", 
+                   "Abstract" => "abstract_ssm", 
+                   "Library" => "repository_ssi", 
+                   "Call no" => "unitid_ssm" }
+
+      
+      class_hsh[label]
+    end
+
   end
 end
