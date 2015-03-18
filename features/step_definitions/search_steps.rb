@@ -59,7 +59,7 @@ end
 And(/^"(.*?)" should be "(\d.*?)" characters or less/) do |label,len|
   class_name = get_class_name(label)
   within(page.first("dl")) do
-    page.find('dd.blacklight-'"#{class_name}").text.length.should be <= 450
+    page.find('dd.blacklight-'"#{class_name}").text.length.should be <= len.to_i
   end
 end
 

@@ -4,7 +4,7 @@
   <%= pick_fields document, index_fields, "Format,Date range,Abstract,Contained in" %>
   
   <% if document.is_archival_collection? %>
-    <dd class="search_within"><b><%= link_to "Click here to search within collection", render_components_facet_link(document) %></b></dd>
+    <dd class="search_within"><b><%= link_to "Search all archival materials within this collection", render_components_facet_link(document) %></b></dd>
   <% elsif document.is_archival_series? %>
     <dd class="search_within"><b><%= link_to "Click here to search within series", render_components_for_series_facet_link(document) %></b></dd>
      <% elsif document.is_archival_object? %>
