@@ -18,7 +18,7 @@ Feature: Brief result display
     When I click on "Search all archival materials within this collection" within css class ".search_within"
     Then I should see search results
 
-  Scenario: See brief results display at the archival object level
+  Scenario: See brief results display at non-collection level
     Given I search on the phrase "Minka"
     Then I should see fields in the following order and value:
     | Format | Archival Object |
