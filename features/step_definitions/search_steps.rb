@@ -56,6 +56,13 @@ Then(/^I should not see results from "(.*?)"$/) do |library|
   end
 end
 
+And(/^"(.*?)" should be "(\d.*?)" characters or less/) do |label,len|
+  class_name = get_class_name(label)
+  within(page.first("dl")) do
+    page.find('dd.blacklight-'"#{class_name}").text.length.should be <= 450
+  end
+end
+
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
