@@ -80,6 +80,14 @@ And(/^I should see "(.*?)" between "(.*?)" and "(.*?)"/) do |label,field1,field2
   end
 end
 
+And(/^I click on "(.*?)/) do |text|
+  within(page.first("dl")) do
+    within(:css,".search_within") do
+      click_on(text)
+    end
+  end
+end
+
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end

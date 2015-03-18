@@ -15,7 +15,8 @@ Feature: Brief result display
     | Call no | MSS 170 |
     And I should see "Abstract" be "450" characters or less
     And I should see "Search all archival materials within this collection" between "Abstract" and "Library"
-    
+    And I click on "Search all archival materials within this collection"
+    Then I should see search results
 
- Scenario: 
+ 
  
