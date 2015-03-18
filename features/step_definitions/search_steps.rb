@@ -80,10 +80,12 @@ And(/^I should see "(.*?)" between "(.*?)" and "(.*?)"/) do |label,field1,field2
   end
 end
 
-And(/^I click on "(.*?)/) do |text|
+
+
+When(/^I click on "(.*?)" within css class "(.*?)"/) do |link,class_name|
   within(page.first("dl")) do
-    within(:css,".search_within") do
-      click_on(text)
+    within(:css,class_name) do
+      click_on(link)
     end
   end
 end
