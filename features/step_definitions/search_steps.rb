@@ -62,9 +62,8 @@ end
 
 Then(/^I should see fields in the following order and value:$/) do |table|
   table.rows_hash.each do |label, value|
-    within("#documents") do
-      expect(page.find(:xpath,'//dt[@class=\'blacklight-format_ssm\']')).first.to have_content "#{label}:"
-      expect(page.find(:xpath,'//dd[@class=\'blacklight-format_ssm\']')).first.to have_content "#{value}"
-    end
+      class_name = label.downcase
+      expect(documents_list.first.find('dt.blacklight-'"#{class_name}"'_ssm')).to have_content "#{label}:"
+      expect(documents_list.first.find('dd.blacklight-'"#{class_name}"'_ssm')).to have_content "#{value}"
   end
 end
