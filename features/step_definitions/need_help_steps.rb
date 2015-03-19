@@ -1,5 +1,8 @@
-Given(/^I see a pane with the title "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^I see a pane with the title "(.*?)"$/) do |title|
+  ensure_root_path
+  within(:css, "#sidebar") do
+    expect(page).to have_content(title)
+  end
 end
 
 Given(/^I see a link "(.*?)" inside the "(.*?)" pane$/) do |arg1, arg2|
