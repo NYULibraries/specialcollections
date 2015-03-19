@@ -17,3 +17,62 @@ en:
       Or browse resources by the facets in the sidebar.
     footer: NYU Division of Libraries.
     create_record_help: "Create a comma-delimited list for multiple values, e.g. My Tag, My Other Tag, 'My, Tag, With, Commas'"
+
+    need_help_links:
+      title: 'Need help?'
+      search_tips:
+        title: 'Search tips'
+        text: >-
+          When searching, it’s good to keep a few things in mind: Try lots
+          of different terms. ‘ “NYU clubs”’ will produce different
+          results than ‘ “NYU society” ‘ or ‘ “New York University clubs”
+          ‘ The more words you use in your search, the more results will
+          come back to you. ‘Abraham Lincoln Brigade’ will produce more
+          results than ‘Lincoln’ but not all results for ‘Lincoln’ will be
+          about the Abraham Lincoln Brigade. You can search for specific
+          phrases by using double quotation marks “ “.  You can narrow
+          down your results to categories of content by using the facets
+          on the left of the screen.  Results in the facets, particularly
+          “Name,” “Material Type,” “Place,” and “Subject” can be thought
+          of as tags — if an item has been tagged with any of the terms in
+          the list, it will appear in the revised results. But some
+          relevant results may not have been tagged — narrowing this way
+          may result in missing good material!  Advanced tips: Archival
+          collections are organized by who collected the materials,
+          e.g. The Newspaper Guild of New York or Richard Courant. If you
+          are looking for a particular item or materials on a particular
+          subject, there may be material about that subject in several
+          collections. In other words, you may be pleasantly surprised by
+          searching outside of the collections that you think an item
+          should be in.  Search supports all capitals Boolean operators
+          (AND, OR, NOT).  The default search returns both records for
+          whole collections as well as more detailed descriptions from
+          within their inventories. To adjust the granularity of results,
+          use the ‘Format’ facet.
+
+      special_collections_contact_information:
+        title: 'Special Collections contact information'
+        text: |
+          Fales Library & Special Collections
+          fales.library@nyu.edu
+          212-998-2596
+
+          New York University Archives and Research Institute for the Study of Man
+          university.archives@library.nyu.edu
+          212-998-2646
+
+          The Tamiment Library & Robert F. Wagner Labor Archives
+          tamiment.wagner@library.nyu.edu
+          212-998-2630
+
+          Brooklyn Historical Society
+          library@brooklynhistory.org
+          718-222-4111
+
+          New York Historical Society
+          Email Reference Form (add hyperlink)
+          (212) 873-3400
+
+          New York University Polytechnic School of Engineering
+          archives@library.poly.edu
+          718-260-3943
