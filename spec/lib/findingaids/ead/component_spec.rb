@@ -175,7 +175,7 @@ describe Findingaids::Ead::Component do
       end
     end
 
-    describe "#bread_crumb" do
+    describe "#breadcrumb" do
       subject { solr_doc[Solrizer.solr_name("breadcrumb", :displayable)] }
       it { should eql ["Series I >> Subseries A >> Subseries 1 >> Resource-C06-AT"] }
     end
