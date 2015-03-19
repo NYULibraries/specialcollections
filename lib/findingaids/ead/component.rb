@@ -64,7 +64,6 @@ class Findingaids::Ead::Component < SolrEad::Component
     Solrizer.insert_field(solr_doc, "name",       get_ead_names,                                :facetable, :searchable)
     Solrizer.insert_field(solr_doc, "dao",        get_ead_dao_facet,                            :facetable)
     Solrizer.insert_field(solr_doc, "place",      get_ead_places,                               :displayable, :facetable)
-
     Solrizer.insert_field(solr_doc, "subject",    get_ead_subject_facets,                       :facetable, :searchable)
 
     # Get the collection field
