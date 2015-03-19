@@ -10,13 +10,18 @@ module ResultsHelper
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
     series = doc[:document][doc[:field]]
-    collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+    item_format = doc[:document][Solrizer.solr_name("format", :displayable)][0]
+    item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
+    title = content_tag(:span,item_title, class: "result_ut")
+    coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+    coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
     links_to_series = []
     series.each do |ser|
-      links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
+      links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
     end
 
-    [links_to_series].join(" >> ").html_safe
+    [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
+    binding.pry if item_format == "Archival Series"
   end
 
   # Getting list of collection and parent titles
@@ -83,11 +88,13 @@ module ResultsHelper
   ##
   # Render clean facet link to just guide
   def render_collection_facet_link(doc)
-    item = doc[:document][doc[:field]].first
+    item_format = doc[:document][Solrizer.solr_name("format", :displayable)][0]
+    if  item_format == "Archival Collection"
+      item = doc[:document][doc[:field]].first
+      local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
+      link_to t('search_all_archival_items_within_collection'), local_params 
+    end
 
-    local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
-
-    link_to doc[:document][doc[:field]].first, local_params
   end
 
   ##
