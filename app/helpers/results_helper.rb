@@ -18,38 +18,17 @@ module ResultsHelper
     links_to_series = []
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
-    end
+    end unless series[0] == item_title # if there is no series info at all 
 
     [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
-    binding.pry if item_format == "Archival Series"
+    #binding.pry 
   end
 
-  # Getting list of collection and parent titles
-  # Getting the list in the form of an array
-  # Converting that into a string and then an easier to navigate array
+  # Using this function to call series_facet_link 
+  # if parent_unittitles don't exist
   def render_breadcrumb(doc)
-    bcrumbs = doc[:document][doc[:field]].join(" >> ").split(" >> ")
-
-    # getting collection
-    coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
-
-    # getting collection link
-    coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
-
-    #creating the tag that will bold the final title
-    bc = content_tag(:span,bcrumbs.last, class: "result_ut")
-
-    #removing the unit title from getting a link
-    bcrumbs.pop
-
-    links_to_series = []
-    bcrumbs.each do |ser|
-        links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
-    end unless bcrumbs.size == 0
-   
-    [coll_link,links_to_series,bc].reject(&:blank?).join(" >> ").html_safe 
-
-
+    
+    render_series_facet_link(doc) if doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil?
     
   end
   def render_repository_facet_link(doc)
