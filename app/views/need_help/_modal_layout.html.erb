@@ -1,0 +1,19 @@
+<div id="<%= id_prefix %>-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal menu" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="<%= id_prefix %>-modal-label"><%= title %></h4>
+        </div>
+        <div class="modal-body">
+          <%= yield %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary"
+                  data-dismiss="modal">Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
