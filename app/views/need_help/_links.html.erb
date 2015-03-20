@@ -1,5 +1,5 @@
 <%= sidebar_section("need_help_links", content_tag(:h2, t('blacklight.need_help_links.title'))) do %>
 <ul>
-  <li><%= link_to t('blacklight.need_help_links.search_tips.title'), root_path %></li>
+  <li> <%= render partial: '/need_help/search_tips' %></li>
 </ul>
 <% end %>

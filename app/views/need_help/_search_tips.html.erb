@@ -1,0 +1,23 @@
+<a data-toggle="modal" data-target="#search-tips-modal">
+  <%= t('blacklight.need_help_links.search_tips.title') %>
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="search-tips-modal" tabindex="-1" role="dialog"
+     aria-labelledby="<%= t('blacklight.need_help_links.search_tips.title') %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="search-tips-modal-label"><%= t('blacklight.need_help_links.search_tips.title') %></h4>
+      </div>
+      <div class="modal-body">
+        <%= t('blacklight.need_help_links.search_tips.text') %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default"
+                data-dismiss="modal">Close
+        </button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
