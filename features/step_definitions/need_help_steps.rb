@@ -1,6 +1,6 @@
 Given(/^I see a pane with the title "(.*?)"$/) do |title|
   ensure_root_path
-  within(:css, "#sidebar") do
+  within(:css, "##{text_to_enclosing_id(title)}") do
     expect(page).to have_content(title)
   end
 end
