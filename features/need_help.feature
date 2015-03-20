@@ -12,6 +12,7 @@ Scenario: Clicking on the "Search tips" link brings up the expected dialog
   Then I should see a pop-up window labeled "Search tips"
   And the pop-up window should contain the text "When searching, it's good to keep a few things in mind:"
 
+@wip
 Scenario: Clicking on the "Special Collections contact information" link brings up the expected dialog
   Given I am on the default search page
   And I see a pane with the title "Need help?"
