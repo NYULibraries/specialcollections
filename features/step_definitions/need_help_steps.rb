@@ -12,14 +12,14 @@ Given(/^I see a link "(.*?)" inside the "(.*?)" pane$/) do |anchor_text, pane_ti
   end
 end
 
-When(/^I clink on the "(.*?)" link$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+When(/^I clink on the "(.*?)" link$/) do |link|
+  click_link(link)
 end
 
-Then(/^I should see a pop\-up window labeled "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see a pop\-up window with the title "(.*?)"$/) do |title|
+  expect(find("##{title_to_modal_id(title)}")).to have_content(title)
 end
 
-Then(/^the pop\-up window should contain the text "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Then(/^the pop\-up window with the title "(.*?)" should contain the text "(.*?)"$/) do |title, text|
+  expect(find("##{title_to_modal_id(title)}")).to have_content(text)
 end
