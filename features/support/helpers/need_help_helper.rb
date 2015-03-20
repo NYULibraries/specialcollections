@@ -7,5 +7,12 @@ module FindingaidsFeatures
       else fail "unrecognized text: #{text}"
       end
     end
+
+    def title_to_modal_id(title)
+      case title
+      when 'Search tips' then 'search-tips-modal-label'
+      else fail "unrecognized title: #{title}"
+      end
+    end
   end
 end
