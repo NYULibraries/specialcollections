@@ -17,9 +17,13 @@ When(/^I clink on the "(.*?)" link$/) do |link|
 end
 
 Then(/^I should see a pop\-up window with the title "(.*?)"$/) do |title|
-  expect(find("##{title_to_modal_id(title)}")).to have_content(title)
+  expect(find("##{title_to_id_prefix(title)}-modal-label")).to have_content(title)
 end
 
 Then(/^the pop\-up window with the title "(.*?)" should contain the text "(.*?)"$/) do |title, text|
-  expect(find("##{title_to_modal_id(title)}")).to have_content(text)
+  # within("##{title_to_modal_id(title)}") do
+  #   expect(page).to have_content(text)
+  # end
+  # expect(find("#modal-body")).to have_content(text)
+  pending
 end

@@ -10,7 +10,7 @@ Scenario: Clicking on the "Search tips" link brings up the expected dialog
   And I see a link "Search tips" inside the "Need help?" pane
   When I clink on the "Search tips" link
   Then I should see a pop-up window with the title "Search tips"
-  And the pop-up window should contain the text "When searching, it's good to keep a few things in mind:"
+  And the pop-up window with the title "Search tips" should contain the text "Lincoln"
 
 @wip
 Scenario: Clicking on the "Special Collections contact information" link brings up the expected dialog

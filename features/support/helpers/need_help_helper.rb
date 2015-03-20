@@ -8,9 +8,9 @@ module FindingaidsFeatures
       end
     end
 
-    def title_to_modal_id(title)
+    def title_to_id_prefix(title)
       case title
-      when 'Search tips' then 'search-tips-modal-label'
+      when 'Search tips' then 'search-tips'
       else fail "unrecognized title: #{title}"
       end
     end
