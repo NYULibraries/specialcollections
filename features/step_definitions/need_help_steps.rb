@@ -21,9 +21,5 @@ Then(/^I should see a pop\-up window with the title "(.*?)"$/) do |title|
 end
 
 Then(/^the pop\-up window with the title "(.*?)" should contain the text "(.*?)"$/) do |title, text|
-  # within("##{title_to_modal_id(title)}") do
-  #   expect(page).to have_content(text)
-  # end
-  # expect(find("#modal-body")).to have_content(text)
-  pending
+  expect(find("##{title_to_id_prefix(title)}-modal-body")).to have_content(text)
 end
