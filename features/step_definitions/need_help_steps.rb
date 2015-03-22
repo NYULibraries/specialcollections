@@ -12,7 +12,7 @@ Given(/^I see a link "(.*?)" inside the "(.*?)" pane$/) do |anchor_text, pane_ti
   end
 end
 
-When(/^I clink on the "(.*?)" link$/) do |link|
+When(/^I click on the "(.*?)" link$/) do |link|
   click_link(link)
 end
 
