@@ -1,0 +1,11 @@
+$ ->
+  $("#facets").find("h4").append($("<i />").addClass("fa fa-info-circle"))
+  $("#facets").find(".panel h5 a").attr({
+    'data-container': "body",
+    'data-toggle': "popover",
+    'data-placement': "right",
+    'data-trigger': 'hover focus'
+  }).popover({ trigger: "hover focus", delay: { show: 500 } })
+  <% I18n.t('facets.help').each do |facet_key, facet_value| %>
+  $("#facets .blacklight-<%= Solrizer.solr_name(facet_key, :facetable)%>").find("a[data-toggle='popover']").attr('data-content': '<%= I18n.t("facets.help.#{facet_key}") %>')
+  <% end %>

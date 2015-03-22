@@ -18,6 +18,9 @@ gem 'jquery-rails', '~> 3.1.0'
 # Use jQuery UI as well
 gem 'jquery-ui-rails', '~> 5.0.2'
 
+# Use font-awesome
+gem 'font-awesome-rails', '~> 4.2.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.5.0'
 
