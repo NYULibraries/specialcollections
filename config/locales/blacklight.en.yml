@@ -25,3 +25,11 @@ en:
 
       special_collections_contact_information:
         title: 'Special Collections contact information and hours'
+
+    help:
+      title: 'Need help?'
+      search_tips:
+        title: 'Search tips'
+
+      contact_information:
+        title: 'Special Collections contact information and hours'
