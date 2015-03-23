@@ -31,4 +31,7 @@ Findingaids::Application.routes.draw do
   # get "holdings/:id" => "holdings#show", :as => :holdings
   # match "*a", :to => "catalog#index", :via => [:get, :post] if Rails.env.match?("production")
 
+  get 'help/search_tips', :as => :search_tips
+  get 'help/contact_information', :as => :contact_information
+
 end
