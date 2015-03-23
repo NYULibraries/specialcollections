@@ -1,5 +1,5 @@
 module FindingaidsFeatures
-  module NeedHelpHelper
+  module HelpHelper
     def text_to_enclosing_id(text)
       case text
       when 'Need help?'  then 'sidebar'
