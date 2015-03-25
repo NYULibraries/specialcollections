@@ -20,6 +20,6 @@ Then(/^I should see a pop\-up window with the title "(.*?)"$/) do |title|
   expect(find(:xpath, '//h3[@class="modal-title"]')).to have_content(title)
 end
 
-Then(/^the pop\-up window with the title "(.*?)" should contain the text "(.*?)"$/) do |title, text|
+Then(/^the pop\-up window should contain the text "(.*?)"$/) do |text|
   expect(find(:xpath, '//div[@class="modal-body"]')).to have_content(text)
 end
