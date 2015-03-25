@@ -17,9 +17,9 @@ When(/^I click on the "(.*?)" link$/) do |link|
 end
 
 Then(/^I should see a pop\-up window with the title "(.*?)"$/) do |title|
-  expect(find("##{title_to_id_prefix(title)}-modal-title")).to have_content(title)
+  expect(find(:xpath, '//h3[@class="modal-title"]')).to have_content(title)
 end
 
 Then(/^the pop\-up window with the title "(.*?)" should contain the text "(.*?)"$/) do |title, text|
-  expect(find("##{title_to_id_prefix(title)}-modal-body")).to have_content(text)
+  expect(find(:xpath, '//div[@class="modal-body"]')).to have_content(text)
 end
