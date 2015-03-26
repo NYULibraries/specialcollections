@@ -3,6 +3,7 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
+  include BlacklightAdvancedSearch::ParseBasicQ
   include Findingaids::Solr::CatalogHelpers
 
   configure_blacklight do |config|
@@ -46,17 +47,9 @@ class CatalogController < ApplicationController
     # on the solr side in the request handler itself. Requestd handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
-    config.add_facet_field solr_name("repository",    :facetable), label: "Library",            helper_method: :render_repository_facet_link
-    config.add_facet_field solr_name("dao",           :facetable), label: "Digital Content"
-    config.add_facet_field solr_name("creator",       :facetable), label: "Creator",            limit: 20
-    config.add_facet_field solr_name("date_range",    :facetable), label: "Date Range",         limit: 20
-    config.add_facet_field solr_name("subject",       :facetable), label: "Subject",            limit: 20
-    config.add_facet_field solr_name("name",          :facetable), label: "Name",               limit: 20
-    config.add_facet_field solr_name("place",         :facetable), label: "Place",              limit: 20
-    config.add_facet_field solr_name("material_type", :facetable), label: "Material Type",      limit: 20
-    config.add_facet_field solr_name("language",      :facetable), label: "Language",           limit: 20
-    config.add_facet_field solr_name("collection",    :facetable), label: "Collection",         limit: 20
-    config.add_facet_field solr_name("format",        :facetable), label: "Format",             limit: 20
+    facet_fields.each do |facet|
+      config.add_facet_field solr_name(facet[:field], :facetable), label: facet[:label], helper_method: facet[:helper_method], limit: (facet[:limit] || 20)
+    end
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -108,16 +101,55 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
 
-    config.add_search_field "all_fields", :label => "All Libraries"
+    config.advanced_search = {
+      :form_solr_parameters => {
+        "facet" => true,
+        "facet.field" => [facet_fields.map {|facet| solr_name(facet[:field], :facetable)}],
+        "facet.limit" => -1, # return all facet values
+        "facet.sort" => "index" # sort by byte order of values
+      },
+      # :form_facet_partial => "advanced_search_facets_as_select"
+    }
+
+    config.add_search_field("all_fields",
+      :label => "All Libraries",
+      :advanced_parse => false,
+      :include_in_advanced_search => true
+    )
 
     ##
     # Add repository field query from config file
     Findingaids::Repositories.repositories.each do |coll|
       config.add_search_field(coll.last["display"],
         :label => coll.last["display"],
-        :solr_parameters => { :fq => "#{solr_name("repository", :stored_sortable)}:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
+        :solr_parameters => { :fq => "#{solr_name("repository", :stored_sortable)}:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" },
+        :advanced_parse => false,
+        :include_in_advanced_search => false
         )
     end
+
+    ##
+    # Add advanced search fields
+    config.add_search_field(solr_name("title",:searchable),
+      :label => "Title",
+      :include_in_advanced_search => true,
+      :include_in_simple_select => false
+    )
+    config.add_search_field(solr_name("name",:searchable),
+      :label => "Name",
+      :include_in_advanced_search => true,
+      :include_in_simple_select => false
+    )
+    config.add_search_field(solr_name("subject",:searchable),
+      :label => "Subject",
+      :include_in_advanced_search => true,
+      :include_in_simple_select => false
+    )
+    config.add_search_field(solr_name("unitid",:searchable),
+      :label => "Call No.",
+      :include_in_advanced_search => true,
+      :include_in_simple_select => false
+    )
   end
 
 end

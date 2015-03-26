@@ -8,3 +8,5 @@ $ ->
     $('#ajax-modal .modal-header').prepend($('<button />').attr({type: 'button', class: 'close', 'data-dismiss': 'modal'}).html('&times;'))
     $('#ajax-modal .modal-content').append($('<div />').addClass('modal-body').load($(this).attr('href')))
     $('#ajax-modal').modal()
+
+  $(".advanced-search-field label[for='all_fields']").html("All Fields")
