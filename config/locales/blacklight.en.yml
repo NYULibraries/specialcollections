@@ -17,3 +17,11 @@ en:
       Or browse resources by the facets in the sidebar.
     footer: NYU Division of Libraries.
     create_record_help: "Create a comma-delimited list for multiple values, e.g. My Tag, My Other Tag, 'My, Tag, With, Commas'"
+
+    help:
+      title: 'Need help?'
+      search_tips:
+        title: 'Search tips'
+
+      contact_information:
+        title: 'Special Collections contact information'

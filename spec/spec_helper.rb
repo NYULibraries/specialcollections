@@ -24,6 +24,9 @@ WebMock.allow_net_connect! if Rails.env.test?
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
+# reuse Cucumber setup to login user
+require_relative '../features/support/login'
+
 RSpec.configure do |config|
   # ## Mock Framework
   #
