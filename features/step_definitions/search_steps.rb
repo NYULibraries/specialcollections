@@ -59,3 +59,33 @@ end
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
+
+When(/^I click on the "(.*?)" link$/) do |link|
+  click_link link
+end
+
+Then(/^I should see the advanced search form$/) do
+  expect(page).to have_content "More Search Options"
+end
+
+Given(/^I am on the advanced search page$/) do
+  visit advanced_search_path
+end
+
+Then(/^I should see the following search fields:$/) do |table|
+  table.rows_hash.each do |field_title, value|
+    expect(page.find_field(field_title)).to have_content
+  end
+end
+
+When(/^I submit the search form$/) do
+  click_button "Search"
+end
+
+When(/^I fill-in the field "(.*?)" with the term "(.*?)"$/) do |field, value|
+  fill_in field, with: value
+end
+
+Then(/^I should see results$/) do
+  pending # express the regexp above with the code you wish you had
+end

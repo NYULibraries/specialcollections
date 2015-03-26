@@ -27,6 +27,7 @@ if Rails.env.test?
     indexer = Findingaids::Ead::Indexer.new
     indexer.index('spec/fixtures/fales/bloch.xml')
     indexer.index('spec/fixtures/fales/berol.xml')
+    indexer.index('spec/fixtures/fales/bytsura.xml')
     indexer.index('spec/fixtures/fales/washsquarephoto.xml')
     indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
     indexer.index('spec/fixtures/tamwag/photos_114.xml')
