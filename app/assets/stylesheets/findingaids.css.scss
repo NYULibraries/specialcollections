@@ -107,9 +107,16 @@ h5.index_title > i {
   font-weight: bold;
 }
 
+dt.blacklight-collection_ssm{
+  display:none;
+}
+dd.blacklight-collection_ssm{
+   padding-top: 10px;
+  padding-bottom: 5px;
+}
 .search_within{
-  padding-top: 10px;
-  padding-bottom: 10px;
+ 
+  font-weight: bold;
 }
 
 .request_item_note{
