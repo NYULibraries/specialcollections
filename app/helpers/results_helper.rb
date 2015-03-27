@@ -6,6 +6,9 @@ module ResultsHelper
     doc[:document][doc[:field]].join(", ").html_safe
   end
 
+   def render_abstract(doc)
+     doc[:document][doc[:field]][0].truncate(450).html_safe
+   end
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
@@ -77,7 +80,7 @@ module ResultsHelper
     if  item_format == "Archival Collection"
       item = doc[:document][doc[:field]].first
       local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
-      link_to "Search all archival items within collection", local_params, :class => "search_within"
+      link_to "Search all archival materials within this collection", local_params, :class => "search_within"
     else
       item = []
       item << content_tag(:span,"To request this item, please note the following information",class:"search_within")

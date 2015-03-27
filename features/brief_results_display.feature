@@ -3,7 +3,7 @@ Feature: Brief result display
   As a researcher
   I want to see relevant fields in the brief search display.
 
- 
+  @coll
   Scenario: See brief results display at the collection level 
     Given I am on the brief results page
     And I limit my search to "Archival Collection" under the "Format" category
@@ -18,6 +18,7 @@ Feature: Brief result display
     When I click on "Search all archival materials within this collection" within css class ".search_within"
     Then I should see search results
 
+  @non-coll
   Scenario: See brief results display at non-collection level
     Given I search on the phrase "Minka"
     Then I should see fields in the following order and value:
@@ -27,7 +28,7 @@ Feature: Brief result display
     | Library | The Tamiment Library & Robert F. Wagner Labor Archives |
     | Location | CD: Access OH-02-159, Box: 1, CD: Alesh 1, Cassette: 1, CD: ohaloh020146p1 / /ohaloh020146p2, Box: 1, Cassette: 1 |
     And I should see "To request this item, please note the following information" between "Date range" and "Library"
-    When I click on "Oral History of the American Left: Radical Histories" within css class "dd.blacklight-breadcrumb_ssm" 
+    When I click on "Oral History of the American Left: Radical Histories" within css class "dd.blacklight-heading_ssm" 
     Then I should see search results
 
  

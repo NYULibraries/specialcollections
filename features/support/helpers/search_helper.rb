@@ -26,7 +26,7 @@ module FindingaidsFeatures
                    "Library" => "repository_ssi", 
                    "Call no" => "unitid_ssm",
                    "Location" => "location_ssm",
-                   "Contained in" => "breadcrumb_ssm"
+                   "Contained in" => "heading_ssm"
                     }
 
       
