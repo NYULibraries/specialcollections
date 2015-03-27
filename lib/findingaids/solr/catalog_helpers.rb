@@ -58,7 +58,7 @@ module Findingaids
         # Fields that should only exist in the advanced search
         def advanced_search_fields
           @advanced_search_fields ||= [
-            { field: "title", label: "Title" },
+            { field: "unittitle", label: "Title" },
             { field: "name", label: "Name" },
             { field: "subject", label: "Subject" },
             { field: "unitid", label: "Call No." }

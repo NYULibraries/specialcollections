@@ -10,7 +10,7 @@ class CatalogController < ApplicationController
     config.default_solr_params = {
       :qt => 'search',
       :fl => display_fields,
-      :qf => pf_fields,
+      :qf => qf_fields,
       :pf => pf_fields,
       "hl.fragsize" => 0,
       ("hl.fl").to_sym => hl_fields,
@@ -132,7 +132,8 @@ class CatalogController < ApplicationController
       config.add_search_field(solr_name(field[:field],:searchable),
         :label => field[:label],
         :include_in_advanced_search => true,
-        :include_in_simple_select => false
+        :include_in_simple_select => false,
+        :solr_parameters => { :qf => solr_name(field[:field], :searchable) }
       )
     end
   end

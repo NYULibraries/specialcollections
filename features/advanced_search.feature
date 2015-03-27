@@ -21,6 +21,66 @@ Feature: Advanced Search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup"
     And I submit the search form
-    Then I should see search results
+    Then I should see exactly 2 search results
+    And those results should include:
+      | 1 | Bill Bytsura ACT UP Photography Collection |
+      | 2 | September 16, 1991 [Ann Northup, Stop Forced HIV Testing] |
+
+  Scenario: Advanced keyword search pre-selecting Archival Collections only
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup"
+    And I select "Archival Collection" from the "Format" attributes dropdown
+    And I submit the search form
+    Then I should see exactly 1 search result
+    And that result should be:
+      | 1 | Bill Bytsura ACT UP Photography Collection |
 
   Scenario: Advanced title search
+    Given I am on the advanced search page
+    When I fill-in the field "Title" with the term "Northup"
+    And I submit the search form
+    Then I should see exactly 1 search result
+    And that result should be:
+      | 1 | September 16, 1991 [Ann Northup, Stop Forced HIV Testing]|
+
+  Scenario: Advanced keyword search pre-selecting Archival Series only
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup"
+    And I select "Archival Series" from the "Format" attributes dropdown
+    And I submit the search form
+    Then I should see exactly 0 search results
+
+  Scenario: Advanced AND boolean keyword search
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup AND Randy"
+    And I submit the search form
+    Then I should see exactly 1 search result
+    And that result should be:
+      | 1 | Bill Bytsura ACT UP Photography Collection |
+
+  Scenario: Advanced AND boolean keyword and subject search
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup"
+    And I fill-in the field "Subject" with the term "demonstrations"
+    And I submit the search form
+    Then I should see exactly 1 search result
+    And that result should be:
+      | 1 | Bill Bytsura ACT UP Photography Collection |
+
+  Scenario: Advanced OR boolean keyword search
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup OR Fleck"
+    And I submit the search form
+    Then I should see exactly 3 search results
+    And those results should include:
+      | 1 | Bill Bytsura ACT UP Photography Collection |
+      | 2 | September 16, 1991 [Ann Northup, Stop Forced HIV Testing] |
+      | 2 | Fleck, Dave |
+
+  Scenario: Advanced NOT boolean keyword search
+    Given I am on the advanced search page
+    When I fill-in the field "All Fields" with the term "Northup NOT Randy"
+    And I submit the search form
+    Then I should see exactly 1 search result
+    And that result should be:
+      | 1 | September 16, 1991 [Ann Northup, Stop Forced HIV Testing] |

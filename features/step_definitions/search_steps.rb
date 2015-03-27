@@ -86,6 +86,22 @@ When(/^I fill-in the field "(.*?)" with the term "(.*?)"$/) do |field, value|
   fill_in field, with: value
 end
 
-Then(/^I should see results$/) do
-  pending # express the regexp above with the code you wish you had
+Then(/^I should see exactly (\d+) search result(s)?$/) do |number_of_results, plural|
+  expect(documents_list).to have_exactly(number_of_results).items
+end
+
+Given(/^I select "(.*?)" from the "(.*?)" attributes dropdown$/) do |value, dropdown|
+  within("#advanced_search_facets") do
+    click_on(dropdown)
+    find('.facet-label', text: /\A#{value}\z/).click
+  end
+end
+
+# Includes different cases for multiple or single results:
+# => Then those results should include: ...
+# => Then that result should be: ...
+Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, multiple_state, table|
+  table.rows_hash.each do |index, result_title|
+    expect(documents_list_container).to have_content result_title
+  end
 end
