@@ -9,19 +9,25 @@ module ResultsHelper
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
-    series = doc[:document][doc[:field]]
-    item_format = doc[:document][Solrizer.solr_name("format", :displayable)][0]
-    item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
-    title = content_tag(:span,item_title, class: "result_ut")
+    series = doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)]
+   
     coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
+
+    if doc[:document][Solrizer.solr_name("unittitle", :displayable)].nil?
+      item_title =  doc[:document][doc[:field]][0].split(">>").last.html_safe
+    else
+      item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
+    end
+  
+    title = content_tag(:span,item_title, class: "result_ut") if item_title != coll  # don't get title if it is a collection
     coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
     links_to_series = []
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
-    end unless series[0] == item_title # if there is no series info at all 
+    end unless doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil? # if there is no series info at all 
 
     [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
-    #binding.pry 
+    
   end
 
   # Using this function to call series_facet_link 
