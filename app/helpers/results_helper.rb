@@ -74,7 +74,11 @@ module ResultsHelper
     if  item_format == "Archival Collection"
       item = doc[:document][doc[:field]].first
       local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
-      link_to t('search_all_archival_items_within_collection'), local_params 
+      link_to "Search all archival items within collection", local_params, :class => "search_within"
+    else
+      item = []
+      item << content_tag(:span,"To request this item, please note the following information",class:"search_within")
+      item.join("").html_safe
     end
 
   end
