@@ -1,2 +1,15 @@
 en:
   application_title: "Archival Collections"
+  facets:
+    help:
+      repository: "View materials from one special collection (e.g. Fales Library or New-York Historical Society)."
+      dao: "View digitized and digital materials that are available online."
+      creator: "View materials by the person, organization, or family who created or assembled them."
+      date_range: "View results from a select time period."
+      subject: "View results related to a topic (e.g. 'labor unions' or 'ships')."
+      name: "View results related to a person, organization, or family."
+      place: "View results related to a geographic location (e.g. 'Lower East Side' or 'Spain')."
+      material_type: "View results of a particular genre or form (e.g. 'correspondence')."
+      language: "View results by language of the materials."
+      collection: "View results only within a single archival collection."
+      format: "View only collection level, series level, or lower (e.g. file or item) level descriptions."
