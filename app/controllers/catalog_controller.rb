@@ -25,6 +25,14 @@ class CatalogController < ApplicationController
       :ps => 50,
       :defType => "edismax"
     }
+    config.advanced_search = {
+      :form_solr_parameters => {
+        "facet" => true,
+        "facet.field" => [facet_fields.map {|facet| solr_name(facet[:field], :facetable)}],
+        "facet.limit" => -1, # return all facet values
+        "facet.sort" => "index" # sort by byte order of values
+      },
+    }
 
     config.index.title_field = solr_name("heading", :displayable)
     config.index.display_type_field = solr_name("format", :displayable)
@@ -101,16 +109,6 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
 
-    config.advanced_search = {
-      :form_solr_parameters => {
-        "facet" => true,
-        "facet.field" => [facet_fields.map {|facet| solr_name(facet[:field], :facetable)}],
-        "facet.limit" => -1, # return all facet values
-        "facet.sort" => "index" # sort by byte order of values
-      },
-      # :form_facet_partial => "advanced_search_facets_as_select"
-    }
-
     config.add_search_field("all_fields",
       :label => "All Libraries",
       :advanced_parse => false,
@@ -130,26 +128,13 @@ class CatalogController < ApplicationController
 
     ##
     # Add advanced search fields
-    config.add_search_field(solr_name("title",:searchable),
-      :label => "Title",
-      :include_in_advanced_search => true,
-      :include_in_simple_select => false
-    )
-    config.add_search_field(solr_name("name",:searchable),
-      :label => "Name",
-      :include_in_advanced_search => true,
-      :include_in_simple_select => false
-    )
-    config.add_search_field(solr_name("subject",:searchable),
-      :label => "Subject",
-      :include_in_advanced_search => true,
-      :include_in_simple_select => false
-    )
-    config.add_search_field(solr_name("unitid",:searchable),
-      :label => "Call No.",
-      :include_in_advanced_search => true,
-      :include_in_simple_select => false
-    )
+    advanced_search_fields.each do |field|
+      config.add_search_field(solr_name(field[:field],:searchable),
+        :label => field[:label],
+        :include_in_advanced_search => true,
+        :include_in_simple_select => false
+      )
+    end
   end
 
 end

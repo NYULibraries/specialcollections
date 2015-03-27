@@ -5,14 +5,17 @@ module Findingaids
 
       # Adds the solr_name method, etc. to the catalog controller
       module ClassMethods
+        # Convenience method for use in the Catalog config
         def solr_name(name, *opts)
           Solrizer.solr_name(name, *opts)
         end
 
+        # Display fields
         def display_fields
           @display_fields ||= "*"
         end
 
+        # Query fields
         def qf_fields
           @qf_fields ||= [
             "#{solr_name("title", :displayable)}^2000.0",
@@ -35,6 +38,7 @@ module Findingaids
           ].join(" ")
         end
 
+        # Facet fields and their relevant configs
         def facet_fields
           @facet_fields ||= [
             { field: "repository", label: "Library", helper_method: :render_repository_facet_link },
@@ -51,10 +55,22 @@ module Findingaids
           ]
         end
 
+        # Fields that should only exist in the advanced search
+        def advanced_search_fields
+          @advanced_search_fields ||= [
+            { field: "title", label: "Title" },
+            { field: "name", label: "Name" },
+            { field: "subject", label: "Subject" },
+            { field: "unitid", label: "Call No." }
+          ]
+        end
+
+        # Phrase fields
         def pf_fields
           @pf_fields ||= qf_fields
         end
 
+        # Highlight fields
         def hl_fields
           @hl_fields ||= ["title","author","publisher","collection","parent_unittitles","location"].map { |field| solr_name(field, :displayable) }
         end
