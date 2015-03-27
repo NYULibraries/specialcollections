@@ -19,7 +19,7 @@ en:
     create_record_help: "Create a comma-delimited list for multiple values, e.g. My Tag, My Other Tag, 'My, Tag, With, Commas'"
 
     help:
-      title: 'Need help?'
+      title: 'Need Help?'
       search_tips:
         title: 'Search tips'
 
