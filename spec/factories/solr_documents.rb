@@ -16,7 +16,6 @@ FactoryGirl.define do
         parent_ssm: parent,
         heading_ssm: heading,
         parent_unittitles_ssm: parent_unittitles,
-        breadcrumb_ssm: breadcrumb,
         collection_ssm: collection,
         score: score
         }, solr_response
@@ -34,7 +33,6 @@ FactoryGirl.define do
       ref { "123" }
       parent { nil }
       heading { ["Guide to titling finding aids"] }
-      breadcrumb { nil }
       parent_unittitles { nil }
       collection { ["Bytsura Collection of Things"] }
       score { 4.944287 }
