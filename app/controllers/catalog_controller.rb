@@ -126,7 +126,7 @@ class CatalogController < ApplicationController
         :label => field[:label],
         :include_in_advanced_search => true,
         :include_in_simple_select => false,
-        :solr_parameters => { :qf => solr_name(field[:field], :searchable) }
+        :solr_parameters => { :qf => (field[:qf] || solr_name(field[:field], :searchable)) }
       )
     end
   end

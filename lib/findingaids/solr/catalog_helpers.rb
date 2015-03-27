@@ -58,10 +58,10 @@ module Findingaids
         # Advanced search facet fields and their relevant configs
         def advanced_facet_fields
           @advanced_facet_fields ||= [
-            { field: "repository", label: "Library", helper_method: :render_repository_facet_link },
+            { field: "repository", label: "Library" },
             { field: "dao", label: "Digital Content" },
-            { field: "date_range", label: "Date Range", limit: 20 },
-            { field: "collection", label: "Collection", limit: 20 },
+            { field: "date_range", label: "Date Range" },
+            { field: "language", label: "Language"},
             { field: "format", label: "Format" }
           ]
         end
@@ -73,10 +73,7 @@ module Findingaids
             { field: "name", label: "Name" },
             { field: "subject", label: "Subject" },
             { field: "unitid", label: "Call No." },
-            { field: "creator", label: "Creator" },
-            { field: "place", label: "Place" },
-            { field: "material_type", label: "Material Type" },
-            { field: "language", label: "Language" }
+            { field: "collection", label: "Collection" }
           ]
         end
 

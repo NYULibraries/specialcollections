@@ -50,7 +50,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.note(path:"archdesc[@level='collection']/*[name() != 'dsc']//note",index_as:[:searchable,:displayable])
 
     # Copy fields
-    t.collection(proxy:[:unittitle],index_as:[:facetable,:displayable])
+    t.collection(proxy:[:unittitle],index_as:[:facetable,:displayable,:searchable])
   end
 
   def to_solr(solr_doc = Hash.new)
@@ -64,9 +64,9 @@ class Findingaids::Ead::Document < SolrEad::Document
     Solrizer.insert_field(solr_doc, "format",       0,                      :sortable)
     # Special formatting for some fields and facets
     Solrizer.insert_field(solr_doc, "creator",      get_ead_creators,       :displayable, :facetable)
-    Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable)
+    Solrizer.insert_field(solr_doc, "name",         get_ead_names,          :facetable, :searchable)
     Solrizer.insert_field(solr_doc, "place",        get_ead_places,         :facetable)
-    Solrizer.insert_field(solr_doc, "subject",      get_ead_subject_facets, :facetable)
+    Solrizer.insert_field(solr_doc, "subject",      get_ead_subject_facets, :facetable, :searchable)
     Solrizer.insert_field(solr_doc, "dao",          get_ead_dao_facet,      :facetable)
     Solrizer.insert_field(solr_doc, "material_type",get_material_type_facets,:facetable, :displayable)
 
