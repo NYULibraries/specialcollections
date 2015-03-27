@@ -69,11 +69,6 @@ module Findingaids
         def pf_fields
           @pf_fields ||= qf_fields
         end
-
-        # Highlight fields
-        def hl_fields
-          @hl_fields ||= ["title","author","publisher","collection","parent_unittitles","location"].map { |field| solr_name(field, :displayable) }
-        end
       end
     end
   end
