@@ -42,11 +42,11 @@ describe Findingaids::Solr::CatalogHelpers do
     let(:advanced_search_fields) { catalog_helper.advanced_search_fields }
     context "when looking at the field keys" do
       subject { advanced_search_fields.map { |field| field[:field] } }
-      it { should eql ["unittitle", "name", "subject", "unitid"] }
+      it { should eql ["unittitle", "name", "subject", "unitid", "creator", "place", "material_type", "language"] }
     end
     context "when looking at the field label values" do
       subject { advanced_search_fields.map { |field| field[:label] } }
-      it { should eql ["Title", "Name", "Subject", "Call No."] }
+      it { should eql ["Title", "Name", "Subject", "Call No.", "Creator", "Place", "Material Type", "Language"] }
     end
   end
 
