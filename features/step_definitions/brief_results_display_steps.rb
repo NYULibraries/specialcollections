@@ -22,14 +22,15 @@ end
 
 When(/^I click on "(.*?)" within css class "(.*?)"/) do |link,class_name|
   within(page.first("dl")) do
-    find('a.'"#{class_name}").click
+    within(:css,class_name) do
+      find('a', text: link).click
+    end
   end
 end
 
 
 Then(/^I should see fields in the following order and value:$/) do |table|
   within(page.first("dl")) do
-    save_and_open_page
     table.rows_hash.each do |label, value|
       class_name = get_class_name(label)
       expect(page.find('dt.blacklight-'"#{class_name}")).to have_content "#{label}:"

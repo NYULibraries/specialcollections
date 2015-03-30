@@ -3,7 +3,7 @@ Feature: Brief result display
   As a researcher
   I want to see relevant fields in the brief search display.
 
-  @coll
+  
   Scenario: See brief results display at the collection level 
     Given I am on the brief results page
     And I limit my search to "Archival Collection" under the "Format" category
@@ -15,10 +15,10 @@ Feature: Brief result display
     | Call no | MSS 170 |
     And I should see "Abstract" be "450" characters or less
     And I should see "Search all archival materials within this collection" between "Abstract" and "Library"
-    When I click on "Search all archival materials within this collection" within css class ".search_within"
+    When I click on "Search all archival materials within this collection" within css class "dd.blacklight-collection_ssm"
     Then I should see search results
 
-  @non-coll
+
   Scenario: See brief results display at non-collection level
     Given I search on the phrase "Minka"
     Then I should see fields in the following order and value:
