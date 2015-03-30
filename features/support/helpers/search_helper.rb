@@ -20,16 +20,15 @@ module FindingaidsFeatures
     end
 
     def get_class_name(label)
-      class_hsh = {"Format" => "format_ssm", 
-                   "Date range" => "unitdate_ssm", 
-                   "Abstract" => "abstract_ssm", 
-                   "Library" => "repository_ssi", 
-                   "Call no" => "unitid_ssm",
-                   "Location" => "location_ssm",
-                   "Contained in" => "heading_ssm"
-                    }
+      class_hsh = { "Format"       =>  Solrizer.solr_name("format", :displayable), 
+                    "Date range"   =>  Solrizer.solr_name("unitdate", :displayable), 
+                    "Abstract"     =>  Solrizer.solr_name("abstract", :displayable), 
+                    "Library"      =>  Solrizer.solr_name("repository", :stored_sortable), 
+                    "Call no"      =>  Solrizer.solr_name("unitid", :displayable),
+                    "Location"     =>  Solrizer.solr_name("location", :displayable),
+                    "Contained in" =>  Solrizer.solr_name("heading", :displayable)
+                  }
 
-      
       class_hsh[label]
     end
 
