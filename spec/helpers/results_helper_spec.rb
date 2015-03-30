@@ -138,7 +138,7 @@ describe ResultsHelper do
   describe "#render_collection_facet_link" do
     subject { render_collection_facet_link(document) }
     let(:field) { :heading_ssm }
-    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Search all archival items within collection</a>" }
+    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Search all archival materials within this collection</a>" }
   end
 
   describe "#render_series_facet_link" do
