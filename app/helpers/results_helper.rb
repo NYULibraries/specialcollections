@@ -9,9 +9,10 @@ module ResultsHelper
         doc[:document][doc[:field]].join(", ").html_safe
   end
 
-   def render_abstract(doc)
-     doc[:document][doc[:field]][0].truncate(450).html_safe
-   end
+  # truncate abstract to 450 characters
+  def render_abstract(doc)
+    doc[:document][doc[:field]][0].truncate(450).html_safe
+  end
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
@@ -105,38 +106,7 @@ module ResultsHelper
     end
   end
 
-  # renders fields; has an option to submit a list of fields
-  def pick_fields(doc, fields, *list_fields)
-    items = []
-    values = []
-    fields.each{ |solr_fname, field|
-      # if optional list fields arg list is empty, i.e. print all fields
-      # or print list of fields
-      if list_fields[0].nil? or list_fields[0].split(",").include? field.label 
-       
-        if should_render_index_field?(doc, field)
-          # have to do the following because it wasn't rendering the html correctly otherwise
-          item_label = render_index_field_label(:field => solr_fname)
-          label = content_tag(:dt, item_label,class:"blacklight-#{solr_fname.parameterize}")
-          item_value = render_index_field_value(:document => doc, :field => solr_fname)
-          #truncating abstract to 450 chars
-          item_value = item_value.truncate(450) if field.label == "Abstract"
-         
-          value = content_tag(:dd, item_value,class:"blacklight-#{solr_fname.parameterize}")
-
-          items << [label,value]
-          
-          #content_tag(:dt, render_index_field_label(:field => solr_fname),class:"blacklight-#{solr_fname.parameterize}")
-          #content_tag(:dd, render_index_field_value(:document => doc, :field => solr_fname),class:"blacklight-#{solr_fname.parameterize}")
-        end
-      end
-      
-    }
-    items.join("").html_safe
-   
-
-    
-  end
+  
   # Get icon from format type
   def document_icon(doc)
     doc.normalized_format
