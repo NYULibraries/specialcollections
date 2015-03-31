@@ -18,7 +18,7 @@ module CitationHelper
     display_fields_hsh.each_pair{ |order,solr_name|
       cite << render_index_field_value(:document => doc, :field => solr_name) 
     }
-    title = cite.slice!(0) if Solrizer.solr_name("unittitle",  :displayable)
+    title = cite.slice!(0) if doc[Solrizer.solr_name("unittitle",  :displayable)]
     title = "#{title}, "
     [title,cite.reject(&:blank?).join("; ")].join("").html_safe
 
