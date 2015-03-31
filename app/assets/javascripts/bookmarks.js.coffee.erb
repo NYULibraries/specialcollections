@@ -1,0 +1,12 @@
+$ ->
+  # Set a delayed popover for each facet
+  $('.bookmarksTools').find('li a').attr({
+    'data-container': 'body',
+    'data-toggle': 'popover',
+    'data-placement': 'top',
+    'data-trigger': 'hover focus'
+  }).popover({ trigger: 'hover focus', delay: { show: 500 } })
+  # Then populate the content for each popover from locales
+  <% I18n.t('bookmarks.help').each do |bm_key, bm_value| %>
+  $('#<%= bm_key %>Link').attr('data-content': "<%= bm_value %>")
+  <% end %>

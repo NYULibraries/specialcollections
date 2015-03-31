@@ -13,3 +13,7 @@ en:
       language: "View results by language of the materials."
       collection: "View results only within a single archival collection."
       format: "View only collection level, series level, or lower (e.g. file or item) level descriptions."
+  bookmarks:
+    help:
+      email: "Email a list of my bookmarks"
+      citation: "Display a list of my bookmarks"
