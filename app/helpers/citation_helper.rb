@@ -16,10 +16,13 @@ module CitationHelper
     cite = []
     cite_title = ""
     display_fields_hsh.each_pair{ |order,solr_name|
-      cite << render_index_field_value(:document => doc, :field => solr_name) 
+      cite << render_index_field_value(:document => doc, :field => solr_name) unless doc[solr_name].blank?
     }
-    title = cite.slice!(0) if doc[Solrizer.solr_name("unittitle",  :displayable)]
-    title = "#{title}, "
+    if doc[Solrizer.solr_name("unittitle",  :displayable)]
+      title = cite.slice!(0) 
+      title = "#{title}, "
+    end
+
     [title,cite.reject(&:blank?).join("; ")].join("").html_safe
 
   end
