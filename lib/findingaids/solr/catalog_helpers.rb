@@ -56,13 +56,13 @@ module Findingaids
         end
 
         # Advanced search facet fields and their relevant configs
+        # NOTE: The order of this doesn't matter because it uses the order from the facets above
         def advanced_facet_fields
           @advanced_facet_fields ||= [
+            { field: "format", label: "Format" },
             { field: "repository", label: "Library" },
             { field: "dao", label: "Digital Content" },
-            { field: "date_range", label: "Date Range" },
-            { field: "language", label: "Language"},
-            { field: "format", label: "Format" }
+            { field: "date_range", label: "Date Range" }
           ]
         end
 
@@ -70,8 +70,6 @@ module Findingaids
         def advanced_search_fields
           @advanced_search_fields ||= [
             { field: "unittitle", label: "Title" },
-            { field: "name", label: "Name" },
-            { field: "subject", label: "Subject" },
             { field: "unitid", label: "Call No." },
             { field: "collection", label: "Collection" }
           ]

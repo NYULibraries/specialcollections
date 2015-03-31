@@ -21,10 +21,11 @@ class CatalogController < ApplicationController
     config.advanced_search = {
       :form_solr_parameters => {
         "facet" => true,
-        "facet.field" => [advanced_facet_fields.map {|facet| solr_name(facet[:field], :facetable)}],
+        "facet.field" => advanced_facet_fields.map {|facet| solr_name(facet[:field], :facetable)},
         "facet.limit" => -1, # return all facet values
-        "facet.sort" => "index" # sort by byte order of values
+        "facet.sort" => "count" # sort by byte order of values
       },
+      # :form_facet_partial => "advanced_search_facets_as_select"
     }
 
     config.index.title_field = solr_name("heading", :displayable)

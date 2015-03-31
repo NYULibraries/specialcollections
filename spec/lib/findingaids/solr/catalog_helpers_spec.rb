@@ -43,15 +43,12 @@ describe Findingaids::Solr::CatalogHelpers do
     context "when looking at the field keys" do
       subject { advanced_search_fields.map { |field| field[:field] } }
       it { should include "unittitle" }
-      it { should include "name" }
-      it { should include "subject" }
       it { should include "unitid" }
+      it { should include "collection" }
     end
     context "when looking at the field label values" do
       subject { advanced_search_fields.map { |field| field[:label] } }
       it { should include "Title" }
-      it { should include "Name" }
-      it { should include "Subject" }
       it { should include "Call No." }
       it { should include "Collection" }
     end

@@ -13,9 +13,8 @@ Feature: Advanced Search
     Then I should see the following search fields:
       | All Fields | |
       | Title | |
-      | Name | |
-      | Subject | |
       | Call No. | |
+      | Collection | |
 
   Scenario: Advanced keyword search
     Given I am on the advanced search page
@@ -53,15 +52,6 @@ Feature: Advanced Search
   Scenario: Advanced AND boolean keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup AND Randy"
-    And I submit the search form
-    Then I should see exactly 1 search result
-    And that result should be:
-      | 1 | Bill Bytsura ACT UP Photography Collection |
-
-  Scenario: Advanced AND boolean keyword and subject search
-    Given I am on the advanced search page
-    When I fill-in the field "All Fields" with the term "Northup"
-    And I fill-in the field "Subject" with the term "demonstrations"
     And I submit the search form
     Then I should see exactly 1 search result
     And that result should be:
