@@ -73,7 +73,7 @@ class CatalogController < ApplicationController
     #   The ordering of the field names is the order of the display
 
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
-    config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :highlight => true, :helper_method => :render_series_facet_link
+    config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :highlight => true, :helper_method => :render_series_facet_link, unless: :is_collection?
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
