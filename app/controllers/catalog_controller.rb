@@ -69,7 +69,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
     config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :highlight => true, :helper_method => :render_series_facet_link
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_abstract
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
     config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
     config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
     config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :highlight => true, :helper_method => :render_field_item

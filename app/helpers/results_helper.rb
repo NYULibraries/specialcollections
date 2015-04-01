@@ -4,12 +4,9 @@ module ResultsHelper
   # Render field value, and join as string if it's an array
   def render_field_item(doc)
     doc[:document][doc[:field]].join(", ").html_safe
-  end
+ end
 
-  # truncate abstract to 450 characters
-  def render_abstract(doc)
-    doc[:document][doc[:field]][0].truncate(450).html_safe
-  end
+   
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
@@ -17,12 +14,8 @@ module ResultsHelper
    
     coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
 
-    if doc[:document][Solrizer.solr_name("unittitle", :displayable)].nil?
-      item_title =  doc[:document][doc[:field]][0].split(">>").last.html_safe
-    else
-      item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
-    end
-  
+    item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
+    
     title = content_tag(:span,item_title, class: "result_ut") if item_title != coll  # don't get title if it is a collection
     coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
     links_to_series = []
@@ -31,16 +24,9 @@ module ResultsHelper
     end unless doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil? # if there is no series info at all 
 
     [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
-    
   end
 
-  # Using this function to call series_facet_link 
-  # if parent_unittitles don't exist
-  def render_breadcrumb(doc)
-    
-    render_series_facet_link(doc) if doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil?
-    
-  end
+ 
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
