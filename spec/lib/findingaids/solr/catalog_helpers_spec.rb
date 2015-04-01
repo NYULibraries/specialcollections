@@ -29,7 +29,7 @@ describe Findingaids::Solr::CatalogHelpers do
     end
     context "when looking at the field label values" do
       subject { facet_fields.map { |field| field[:label] } }
-      it { should eql ["Library", "Digital Content", "Creator", "Date Range", "Subject", "Name", "Place", "Material Type", "Language", "Collection", "Format"] }
+      it { should eql ["Library", "Digital Content", "Creator", "Date Range", "Subject", "Name", "Place", "Material Type", "Language", "Collection", "Level"] }
     end
   end
 

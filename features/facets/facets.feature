@@ -16,4 +16,4 @@ Feature: Facets presence and order
       | 8 | Material Type |
       | 9 | Language |
       | 10 | Collection |
-      | 11 | Format |
+      | 11 | Level |

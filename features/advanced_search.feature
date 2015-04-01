@@ -28,7 +28,7 @@ Feature: Advanced Search
   Scenario: Advanced keyword search pre-selecting Archival Collections only
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup"
-    And I select "Archival Collection" from the "Format" attributes dropdown
+    And I select "Archival Collection" from the "Level" attributes dropdown
     And I submit the search form
     Then I should see exactly 1 search result
     And that result should be:
@@ -45,7 +45,7 @@ Feature: Advanced Search
   Scenario: Advanced keyword search pre-selecting Archival Series only
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup"
-    And I select "Archival Series" from the "Format" attributes dropdown
+    And I select "Archival Series" from the "Level" attributes dropdown
     And I submit the search form
     Then I should see exactly 0 search results
 

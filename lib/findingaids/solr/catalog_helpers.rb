@@ -51,7 +51,7 @@ module Findingaids
             { field: "material_type", label: "Material Type", limit: 20 },
             { field: "language", label: "Language", limit: 20 },
             { field: "collection", label: "Collection", limit: 20 },
-            { field: "format", label: "Format", limit: 20 }
+            { field: "format", label: "Level", limit: 20 }
           ]
         end
 
@@ -59,7 +59,7 @@ module Findingaids
         # NOTE: The order of this doesn't matter because it uses the order from the facets above
         def advanced_facet_fields
           @advanced_facet_fields ||= [
-            { field: "format", label: "Format" },
+            { field: "format", label: "Level" },
             { field: "repository", label: "Library" },
             { field: "dao", label: "Digital Content" },
             { field: "date_range", label: "Date Range" }
