@@ -1,3 +1,4 @@
+<% unless request.path == advanced_search_path %>
 <%= form_tag search_action_url, :method => :get, :class => 'search-query-form form-inline clearfix' do %>
 <%= render_hash_as_hidden_fields(params_for_search().except(:q, :search_field, :qt, :page, :utf8)) %>
 
@@ -19,7 +20,6 @@
 </div>
 <% end %>
 
-<% unless request.path == advanced_search_path %>
 <%= link_to 'More options', advanced_search_path(params), class: 'advanced_search'%>
 <% else %>
 <%= link_to 'Less options', catalog_index_path(params) %>

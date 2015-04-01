@@ -49,7 +49,6 @@ Feature: Advanced Search
     And I submit the search form
     Then I should see exactly 0 search results
 
-  @wip
   Scenario: Advanced AND boolean keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup AND Randy"
@@ -58,7 +57,6 @@ Feature: Advanced Search
     And that result should be:
       | 1 | Bill Bytsura ACT UP Photography Collection |
 
-  @wip
   Scenario: Advanced OR boolean keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup OR Fleck"
@@ -69,7 +67,6 @@ Feature: Advanced Search
       | 2 | September 16, 1991 [Ann Northup, Stop Forced HIV Testing] |
       | 2 | Fleck, Dave |
 
-  @wip
   Scenario: Advanced NOT boolean keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup NOT Randy"
