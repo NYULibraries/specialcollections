@@ -36,10 +36,6 @@ describe ResultsHelper do
       it { should be_html_safe }
       it { should eql("<b>The Title</b>") }
     end
-    context "when the title has highlighting" do
-      let(:solr_document) { create(:solr_document, id: "bytsura", ead: "bytsura") }
-      it { should eql("The <span class=\"highlight\">Title</span>") }
-    end
   end
 
   describe "#link_to_toc_page" do

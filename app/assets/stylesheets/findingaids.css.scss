@@ -72,12 +72,6 @@ input[type='file'] {
   line-height: 12px;
 }
 
-.highlight {
-  color: #c09853;
-  background-color: #fcf8e3;
-  padding: 0;
-}
-
 .rounded {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -107,6 +101,11 @@ input[type='file'] {
 
 h5.index_title > i {
   margin-right: .5em;
+}
+
+.advanced.page-header .advanced-search-start-over,
+.blacklight-advanced form.search-query-form {
+  display: none;
 }
 
 @media (max-width: 480px) {

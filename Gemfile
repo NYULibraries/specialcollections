@@ -44,6 +44,9 @@ gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 5.8.0'
 
+# Use the Blacklight Advanced Search
+gem 'blacklight_advanced_search', '~> 5.1.2'
+
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
 # Use sorted for sorting columns

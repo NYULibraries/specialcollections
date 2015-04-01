@@ -5,8 +5,8 @@ module FindingaidsFeatures
       visit root_path unless current_path == root_path
     end
 
-    def limit_by_facet(category, facet)
-      within(:css, '#facets') do
+    def limit_by_facet(category, facet, facets_id = "facets")
+      within(:css, "\##{facets_id}") do
         click_on(category)
         click_on(facet)
       end

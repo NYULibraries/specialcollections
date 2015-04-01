@@ -2,11 +2,8 @@ module ResultsHelper
 
   ##
   # Render field value, and join as string if it's an array
-  # If this field has a highlighted field, use that version, otherwise use the full field
   def render_field_item(doc)
-    (doc[:document].has_highlight_field? doc[:field]) ?
-      doc[:document].highlight_field(doc[:field]).join(", ").html_safe :
-        doc[:document][doc[:field]].join(", ").html_safe
+    doc[:document][doc[:field]].join(", ").html_safe
   end
 
   ##

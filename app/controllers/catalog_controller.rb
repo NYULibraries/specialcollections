@@ -3,26 +3,29 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
+  include BlacklightAdvancedSearch::ParseBasicQ
   include Findingaids::Solr::CatalogHelpers
 
   configure_blacklight do |config|
     config.default_solr_params = {
       :qt => 'search',
       :fl => display_fields,
-      :qf => pf_fields,
+      :qf => qf_fields,
       :pf => pf_fields,
-      "hl.fragsize" => 0,
-      ("hl.fl").to_sym => hl_fields,
-      "hl.simple.pre" => "<span class=\"highlight\">",
-      "hl.simple.post" => "</span>",
-      "hl.requireFieldMatch" => true,
-      "hl.usePhraseHighlighter" => true,
-      :hl => true,
       :facet => true,
       "facet.mincount" => 1,
       :echoParams => "explicit",
       :ps => 50,
       :defType => "edismax"
+    }
+    config.advanced_search = {
+      :form_solr_parameters => {
+        "facet" => true,
+        "facet.field" => advanced_facet_fields.map {|facet| solr_name(facet[:field], :facetable)},
+        "facet.limit" => -1, # return all facet values
+        "facet.sort" => "count" # sort by byte order of values
+      },
+      # :form_facet_partial => "advanced_search_facets_as_select"
     }
 
     config.index.title_field = solr_name("heading", :displayable)
@@ -46,17 +49,9 @@ class CatalogController < ApplicationController
     # on the solr side in the request handler itself. Requestd handler defaults
     # sniffing requires solr requests to be made with "echoParams=all", for
     # app code to actually have it echo'd back to see it.
-    config.add_facet_field solr_name("repository",    :facetable), label: "Library",            helper_method: :render_repository_facet_link
-    config.add_facet_field solr_name("dao",           :facetable), label: "Digital Content"
-    config.add_facet_field solr_name("creator",       :facetable), label: "Creator",            limit: 20
-    config.add_facet_field solr_name("date_range",    :facetable), label: "Date Range",         limit: 20
-    config.add_facet_field solr_name("subject",       :facetable), label: "Subject",            limit: 20
-    config.add_facet_field solr_name("name",          :facetable), label: "Name",               limit: 20
-    config.add_facet_field solr_name("place",         :facetable), label: "Place",              limit: 20
-    config.add_facet_field solr_name("material_type", :facetable), label: "Material Type",      limit: 20
-    config.add_facet_field solr_name("language",      :facetable), label: "Language",           limit: 20
-    config.add_facet_field solr_name("collection",    :facetable), label: "Collection",         limit: 20
-    config.add_facet_field solr_name("format",        :facetable), label: "Format",             limit: 20
+    facet_fields.each do |facet|
+      config.add_facet_field solr_name(facet[:field], :facetable), label: facet[:label], helper_method: facet[:helper_method], limit: (facet[:limit] || 20)
+    end
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -72,14 +67,14 @@ class CatalogController < ApplicationController
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
     config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_facet_link
-    config.add_index_field solr_name("unittitle",         :displayable),  :label => "Title", :highlight => true, :helper_method => :render_field_item
-    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("unittitle",         :displayable),  :label => "Title", :helper_method => :render_field_item
+    config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :helper_method => :render_field_item
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
     config.add_index_field solr_name("language",          :displayable),  :label => "Language", :helper_method => :render_field_item
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Dates", :helper_method => :render_field_item
-    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link, :highlight => true
-    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :highlight => true, :helper_method => :render_series_facet_link
-    config.add_index_field solr_name("location",          :displayable),  :label => "Location", :highlight => true, :helper_method => :render_field_item
+    config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_collection_facet_link
+    config.add_index_field solr_name("parent_unittitles", :displayable),  :label => "Series", :helper_method => :render_series_facet_link
+    config.add_index_field solr_name("location",          :displayable),  :label => "Location", :helper_method => :render_field_item
 
     # ------------------------------------------------------------------------------------------
     #
@@ -108,15 +103,32 @@ class CatalogController < ApplicationController
     # mean") suggestion is offered.
     config.spell_max = 5
 
-    config.add_search_field "all_fields", :label => "All Libraries"
+    config.add_search_field("all_fields",
+      :label => "All Libraries",
+      :advanced_parse => false,
+      :include_in_advanced_search => true
+    )
 
     ##
     # Add repository field query from config file
     Findingaids::Repositories.repositories.each do |coll|
       config.add_search_field(coll.last["display"],
         :label => coll.last["display"],
-        :solr_parameters => { :fq => "#{solr_name("repository", :stored_sortable)}:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" }
+        :solr_parameters => { :fq => "#{solr_name("repository", :stored_sortable)}:#{(coll.last["admin_code"].present?) ? coll.last["admin_code"].to_s : '*'}" },
+        :advanced_parse => false,
+        :include_in_advanced_search => false
         )
+    end
+
+    ##
+    # Add advanced search fields
+    advanced_search_fields.each do |field|
+      config.add_search_field(solr_name(field[:field],:searchable),
+        :label => field[:label],
+        :include_in_advanced_search => true,
+        :include_in_simple_select => false,
+        :solr_parameters => { :qf => (field[:qf] || solr_name(field[:field], :searchable)) }
+      )
     end
   end
 
