@@ -78,6 +78,12 @@ Then(/^I should see the following search fields:$/) do |table|
   end
 end
 
+When(/^I submit the advanced search form$/) do
+  within(:css, "form.advanced") do
+    click_button "Search"
+  end
+end
+
 When(/^I submit the search form$/) do
   click_button "Search"
 end
