@@ -137,11 +137,17 @@ describe ResultsHelper do
 
   describe "#render_collection_facet_link" do
     subject { render_collection_facet_link(document) }
-    let(:field) { :heading_ssm }
-    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Guide+to+titling+finding+aids&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Search all archival materials within this collection</a>" }
+    context "when document is a collection level item" do
+      let(:field) { :collection_ssm }
+      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bformat_sim%5D%5B%5D=Archival+Collection\">Search all archival materials within this collection</a>" }
+    end
+    context "when document is a series level item" do
+      let(:solr_document) { create(:solr_document, format: ["Archival Series"]) }
+      it { should eql("<span class=\"search_within\">To request this item, please note the following information</span>") }
+    end
   end
 
-
+ 
   describe "#render_series_facet_link" do
     let(:field) { :heading_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }     

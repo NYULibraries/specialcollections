@@ -16,7 +16,7 @@ module ResultsHelper
 
     item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
     
-    title = content_tag(:span,item_title, class: "result_ut") if item_title != coll  # don't get title if it is a collection
+    title = content_tag(:span,item_title, class: "result_ut") 
     coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
     links_to_series = []
     series.each do |ser|
@@ -26,6 +26,11 @@ module ResultsHelper
     [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
   end
 
+  ##
+  # Helper function to determine if collection
+  def is_collection?(field_config, doc)
+    doc.is_archival_collection?
+  end
  
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
@@ -63,17 +68,15 @@ module ResultsHelper
   ##
   # Render clean facet link to just guide
   def render_collection_facet_link(doc)
-    item_format = doc[:document][Solrizer.solr_name("format", :displayable)][0]
-    if  item_format == "Archival Collection"
+    if  doc[:document].is_archival_collection?
       item = doc[:document][doc[:field]].first
       local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
-      link_to "Search all archival materials within this collection", local_params, :class => "search_within"
+      link_to t('blacklight.brief_display_text.type.collection'), local_params, :class => "search_within"
     else
       item = []
-      item << content_tag(:span,"To request this item, please note the following information",class:"search_within")
+      item << content_tag(:span,t('blacklight.brief_display_text.type.other'),class:"search_within")
       item.join("").html_safe
     end
-
   end
 
   ##
