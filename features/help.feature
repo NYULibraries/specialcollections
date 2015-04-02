@@ -18,6 +18,7 @@ Scenario: Clicking on the "Special Collections Contact Information and Hours" li
   And I see a link "Special Collections Contact Information and Hours" inside the "Need Help?" pane
   When I click on the "Special Collections Contact Information and Hours" link
   Then I should see a pop-up window with the title "Special Collections Contact Information and Hours"
+  And the pop-up window should contain the text "Special Collections located in the Elmer Holmes Bobst Library"
   And the pop-up window should contain the text "New York University Archives and Research Institute for the Study of Man"
   And the pop-up window should contain the text "Summer regular hours*:"
 
