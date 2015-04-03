@@ -2,10 +2,6 @@ Given(/^I am on the default search page$/) do
   visit root_path
 end
 
-Given (/^I am on the "(.*)" search page$/) do |place|
- visit "/#{place}"
-end
-
 When(/^I perform an empty search$/) do
   ensure_root_path
   search_phrase('')
@@ -16,22 +12,9 @@ When(/^I search on the phrase "(.*?)"$/) do |phrase|
   search_phrase(phrase)
 end
 
-When(/^I search "(.*?)" on the phrase "(.*?)"$/) do |coll, phrase|
-  search_phrase(phrase)
-end
-
 Given(/^I am on the brief results page$/) do
   ensure_root_path
   search_phrase('bloch')
-end
-
-#Check which option is selected in a dropdown
-Then /^the "([^"]*)" should have the selected value "([^"]*)"$/ do |label, selected_value|
-  #page.has_select?(dropdown, :selected => selected_value).should eq(true)
-  #page.has_select?(dropdown).should == false
-  #expect(page).to have_select(dropdown, selected: selected_value)
-  dropdown = "search_field" if label == "Search Field"
-  find_field(dropdown).find('option[selected]').text.should eq(selected_value)
 end
 
 ##
@@ -76,7 +59,6 @@ end
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
-<<<<<<< HEAD
 
 When(/^I click on the "(.*?)" link$/) do |link|
   click_link link
@@ -129,5 +111,3 @@ Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, mult
     expect(documents_list_container).to have_content result_title
   end
 end
-=======
->>>>>>> Links working; tests passing; need to fix facets
