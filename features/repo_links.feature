@@ -15,8 +15,10 @@ Feature: Stable Repository Links
 
   Scenario: Tamiment page selects Tamiment search limit
     Given I am on the "tamiment" search page
-    Then the "Search Field" should have the selected value "The Tamiment Library & Robert F. Wagner Labor Archives"
+    Then I should see results from "The Tamiment Library & Robert F. Wagner Labor Archives"
+    And I should not see results from "The Fales Library & Special Collections"
 
   Scenario: Fales search selects Fales search limit
     Given I am on the "fales" search page
-    Then the "Search Field" should have the selected value "The Fales Library & Special Collections"
+    Then I should see results from "The Fales Library & Special Collections"
+    And I should not see results from "The Tamiment Library & Robert F. Wagner Labor Archives"
