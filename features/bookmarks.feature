@@ -1,8 +1,7 @@
 Feature: Cite and Email Bookmarks
-  As a logged in user,
-  I would like to bookmark certain records
-  and be able to share them 
-  by citing and emailing them.
+  In order to cite and share my research
+  As a researcher
+  I would like to be able to bookmark records, cite and email them.
 
 @bm
 Scenario: Clicking on "Bookmark" saves the bookmark
@@ -10,6 +9,8 @@ Scenario: Clicking on "Bookmark" saves the bookmark
   When I search on the phrase "Ben Alexrod"
   Then I should see search results 
   And each result should have a "Bookmark"
+  When I click on a "Bookmark"
+  Then my "Your Bookmarks" count should increase by "1"
   
 
 

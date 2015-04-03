@@ -1,8 +1,9 @@
 Given(/^I am a logged in user$/) do 
-	user = FactoryGirl.create(:user)
-	user.save!
+	@current_user
 end
 
 And(/^each result should have a "(.*?)"$/) do |term|
-	save_and_open_page
+  within(:css,"div.document > div.documentHeader > div.documentFunctions") do
+	 find('span', text: term)
+  end
 end
