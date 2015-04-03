@@ -22,6 +22,9 @@ module ResultsHelper
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
   
+  # This is a bit of a hack to work around the fact that we don't want to change repo names
+  # in the source repository folder hierarchy. Since folder names match admin_codes, 
+  # this looks up the looks up the repo by admin_code and grabs the URL.
   def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
