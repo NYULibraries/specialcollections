@@ -1,13 +1,17 @@
-@wip
 Feature: Advanced Search
   In order to be able to quickly locate archival materials of interest
   As an archivist or expert user of archives
   I want an advanced search form.
 
-  Scenario: Advanced search option is available
+  Scenario: Advanced search option is available from search box
     Given I am on the default search page
-    When I click on the "More options" link
+    When I click on the "Advanced Search" link
     Then I should see the advanced search form
+
+  Scenario: Simple search option is available from advanced page
+    Given I am on the advanced search page
+    When I click on the "Return to Basic Search" link
+    Then I should see the basic search form
 
   Scenario: Advanced search contains correct fields
     Given I am on the advanced search page

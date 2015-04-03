@@ -68,6 +68,10 @@ Then(/^I should see the advanced search form$/) do
   expect(page).to have_content "More Search Options"
 end
 
+Then(/^I should see the basic search form$/) do
+  expect(page.find("form.search-query-form")).to have_content
+end
+
 Given(/^I am on the advanced search page$/) do
   visit advanced_search_path
 end

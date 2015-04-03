@@ -20,7 +20,7 @@
 </div>
 <% end %>
 
-<%= link_to 'More options', advanced_search_path(params), class: 'advanced_search'%>
+<%= link_to t('search.advanced.link_text'), advanced_search_path(params), class: 'advanced_search'%>
 <% else %>
-<%= link_to 'Less options', catalog_index_path(params) %>
+<%= link_to t('search.simple.link_text'), catalog_index_path(params) %>
 <% end %>
