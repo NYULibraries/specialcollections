@@ -7,3 +7,9 @@ And(/^each result should have a "(.*?)"$/) do |term|
 	 find('span', text: term)
   end
 end
+
+When(/^I check a bookmark$/) do 
+   	#check('toggle_bookmark_oh_002ref713')
+	save_and_open_page
+end
+
