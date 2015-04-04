@@ -12,7 +12,6 @@ module ResultsHelper
     series = doc[:document][doc[:field]]
     collection = doc[:document][Solrizer.solr_name("collection", :displayable)].first
     links_to_series = []
-
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, collection]))
     end
@@ -20,9 +19,16 @@ module ResultsHelper
   end
 
   def render_repository_facet_link(doc)
+    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
+  end
+  
+  # This is a bit of a hack to work around the fact that we don't want to change repo names
+  # in the source repository folder hierarchy. Since folder names match admin_codes, 
+  # this looks up the looks up the repo by admin_code and grabs the URL.
+  def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
-      link_to_repository repositories[doc[:document][repos_id]]["admin_code"]
+      link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
     elsif repositories[doc].present?
       repositories[doc]["display"]
     end

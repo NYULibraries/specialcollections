@@ -2,6 +2,10 @@ Given(/^I am on the default search page$/) do
   visit root_path
 end
 
+Given (/^I am on the "(.*)" search page$/) do |place|
+ visit "/#{place}"
+end
+
 When(/^I perform an empty search$/) do
   ensure_root_path
   search_phrase('')
@@ -9,6 +13,10 @@ end
 
 When(/^I search on the phrase "(.*?)"$/) do |phrase|
   ensure_root_path
+  search_phrase(phrase)
+end
+
+When(/^I search "(.*?)" on the phrase "(.*?)"$/) do |coll, phrase|
   search_phrase(phrase)
 end
 
