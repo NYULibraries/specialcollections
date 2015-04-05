@@ -6,7 +6,7 @@ Feature: Brief result display
   
   Scenario: See brief results display at the collection level 
     Given I am on the brief results page
-    And I limit my search to "Archival Collection" under the "Format" category
+    And I limit my search to "Archival Collection" under the "Level" category
     Then I should see fields in the following order and value:
     | Format | Archival Collection |
     | Date range | Inclusive, 1978-2012 |
