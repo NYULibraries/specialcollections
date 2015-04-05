@@ -37,32 +37,25 @@ describe CatalogController do
       assigns_response.should include("weightref42").in_first(9).results
       assigns_response.should include("weightref38").in_first(9).results
       assigns_response.should include("weightref39").in_first(10).results
-      assigns_response.should include("weightref43").in_first(11).results
-
-      
+      assigns_response.should include("weightref43").in_first(11).results   
     end
 
      it "should include solr weights, assigned on the document fields author to the relevancy caculations " do
       get :index, :q => "Accuracy", :search_field => "all_fields"
 
-      assigns_response.should include("weightcollection").as_first_result
-      
+      assigns_response.should include("weightcollection").as_first_result    
     end
 
      it "should include solr weights, assigned on the document fields abstract to the relevancy caculations " do
       get :index, :q => "Simplicity", :search_field => "all_fields"
 
       assigns_response.should include("weightcollection").as_first_result
-
     end
 
      it "should include solr weights, assigned on the document fields aqcinfo to the relevancy caculations " do
       get :index, :q => "Transperancy", :search_field => "all_fields"
 
       assigns_response.should include("weightcollection").as_first_result
-
     end
-
   end
-
 end

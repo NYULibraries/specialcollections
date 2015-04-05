@@ -18,7 +18,7 @@ describe Findingaids::Solr::CatalogHelpers do
 
   describe ".qf_fields" do
     subject { catalog_helper.qf_fields }
-    it { should eql "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
+    it { should eql  "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
   end
 
   describe ".facet_fields" do
@@ -36,6 +36,11 @@ describe Findingaids::Solr::CatalogHelpers do
   describe ".pf_fields" do
     subject { catalog_helper.pf_fields }
     it { should eql "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
+  end
+
+  describe ".pf_fields" do
+    subject { catalog_helper.bf_functions }
+    it { should eql ["exists(query({!v=format_sim:*Collection*}))^600", "exists(query({!v=level_sim:series}))^150", "exists(query({!v=level_sim:subseries}))^70", "exists(query({!v=level_sim:file}))^50", "exists(query({!v=level_sim:item}))^40"] }
   end
 
   describe ".advanced_search_fields" do
