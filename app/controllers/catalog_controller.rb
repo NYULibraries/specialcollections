@@ -3,7 +3,7 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
-  #include BlacklightAdvancedSearch::ParseBasicQ
+  include BlacklightAdvancedSearch::ParseBasicQ
   include Findingaids::Solr::CatalogHelpers
 
   configure_blacklight do |config|
