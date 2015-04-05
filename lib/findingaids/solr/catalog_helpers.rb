@@ -90,7 +90,8 @@ module Findingaids
 
         #Boost functions
         def bf_functions
-           @bf_functions ||= ["{exists(query({!v='component_level_isim:4'}))}^50"]
+           @bf_functions ||= [ "exists(query({!v=component_level_isim:4}))^50",
+             "exists(query({!v=component_level_isim:4}))^50"]
         end
       end
     end
