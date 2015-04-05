@@ -3,7 +3,7 @@ require 'blacklight/catalog'
 
 class CatalogController < ApplicationController
   include Blacklight::Catalog
-  include BlacklightAdvancedSearch::ParseBasicQ
+  #include BlacklightAdvancedSearch::ParseBasicQ
   include Findingaids::Solr::CatalogHelpers
 
   configure_blacklight do |config|
@@ -12,7 +12,7 @@ class CatalogController < ApplicationController
       :fl => display_fields,
       :qf => qf_fields,
       :pf => pf_fields,
-      :bf => bf_fields,
+      :bf => bf_functions,
       :facet => true,
       "facet.mincount" => 1,
       :echoParams => "explicit",
