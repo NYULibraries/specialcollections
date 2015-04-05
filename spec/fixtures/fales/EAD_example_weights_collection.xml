@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader findaidstatus="unverified-full-draft" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>weightcollection</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Mocked Correspondence Collection for testin on collection level for fields abstract, acqinfo,
+                    <lb/>
+                    <date calendar="gregorian" era="ce">1845 - 1993</date>
+                    <lb/>
+                    <num>MSS 059</num>
+                </titleproper>
+                 <author>Finding aid prepared by Kate Pechekhonova, February 2015 -  March 2015 for testing on collection level-Accuracy</author>
+            </titlestmt>
+            <editionstmt>
+                <p>This version was created for testing</p>
+            </editionstmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced manually for testing
+                <date>2015-02-27T11:05-0400</date>
+            </creation>
+            <langusage>Description is in
+            <language>English</language>.</langusage>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Mocked Collection for testing</unittitle>
+            <unitid>mocked-collection</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>7.0 linear feet</extent>
+                <extent>(15 boxes)</extent>
+            </physdesc>
+            <unitdate>1845 - 1993</unitdate>
+            <abstract id="ref3" label="Abstract">test abstract on collection level-Simplicity</abstract>
+            <origination label="creator">
+                <persname source="local">Test Author</persname>
+            </origination>
+        </did>
+        <accessrestrict id="ref5">
+            <head>Access Restrictions</head>
+            <p>Open to researchers.</p>
+        </accessrestrict>
+        <userestrict id="ref6">
+            <head>Use Restrictions</head>
+            <p>Collection use is subject to all copyright laws. Permission to publish materials must be obtained in writing from the Director of Fales Library and Special Collections. Please contact fales.library@nyu.edu. or call 212 998 2596.</p>
+        </userestrict>
+        <bioghist id="ref8">
+            <head>Historical/Biographical Note:</head>
+            <p>This is used for testing</p>
+        </bioghist>
+        <acqinfo id="ref17">
+            <head>Resource-ImmediateSourceAcquisition</head>
+            <p>test acquisition on collection level- Transperancy</p>
+        </acqinfo>
+        <scopecontent id="ref9">
+            <head>Scope and Content Note</head>
+            <p>This finding aid is created for testing
+        </scopecontent>
+        <controlaccess>
+            <persname source="naf">Blakemore, Edith Rose, 1872-1947</persname>
+            <persname source="naf">Carroll, Lewis, 1832-1898</persname>
+            <persname source="naf">Rossetti, Dante Gabriel, 1828-1882</persname>
+            <persname source="naf">Ruskin, John, 1819-1900</persname>
+            <persname source="naf">Tenniel, John, Sir, 1820-1914</persname>
+            <persname source="naf">Yonge, Charlotte Mary, 1823-1901</persname>
+            <genreform source="aat">Theater programs.</genreform>
+            <genreform source="aat">Visiting cards.</genreform>
+        </controlaccess>
+        <dsc>
+            <c id="ref33" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, illus, 3pp
+                                <lb/>Christ Church, Oxford, January 27, 1882
+                                <lb/>(VI 99)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 451).</unittitle>
+                            <unitid>0072</unitid>
+                            <container id="cid114734" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114734" type="Folder">20</container>
+                            <unitdate>1882</unitdate>
+                        </did>
+                    </c>
+        </dsc>
+    </archdesc>
+</ead>
