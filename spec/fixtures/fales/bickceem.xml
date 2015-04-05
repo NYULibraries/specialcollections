@@ -1,0 +1,1744 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>bikceem</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Guide to the Ramdasha Bikceem Riot Grrrl Collection
+                    <lb/>1974-1998 (Bulk 1991-1995)
+                    <lb/>
+                    <num>MSS 354</num>
+                </titleproper>
+                <author>Finding aid prepared by Emily King, 2012.</author>
+            </titlestmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced using the Archivists' Toolkit
+                <date>2013-04-15T12:50-0400</date>
+            </creation>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Ramdasha Bikceem Riot Grrrl Collection</unittitle>
+            <unitid>MSS 354</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>3.0 linear feet</extent>
+                <extent>(7 Boxes)</extent>
+            </physdesc>
+            <unitdate normal="1991/1995" type="bulk">Bulk, 1991-1995</unitdate>
+            <unitdate normal="1974/1998" type="inclusive">1974-1998</unitdate>
+            <abstract id="ref216" label="Abstract">Ramdasha Bikceem is a New York City DJ and vintage clothing store owner, and was a zine writer while she was a teenager, in the early 1990s. In her zine GUNK, Bikceem wrote about her girl skater gang and band of the same name, as well as on topics of race, feminism, youth angst, and the lack of diversity in the Riot Grrrl movement. The Ramdasha Bikceem Riot Grrrl Collection includes zines, zine masters, flyers, comics, correspondence, photos, media stills, and audiovisual material associated with Bikceem's participation in the punk and Riot Grrrl movements as both a writer and zine collector.</abstract>
+            <origination label="creator">
+                <persname source="local">Bikceem, Ramdasha</persname>
+            </origination>
+        </did>
+        <prefercite id="ref225">
+            <head>Preferred Citation</head>
+            <p>Published citations should take the following form:
+                <lb/>
+                <lb/> Identification of item, date (if known); Ramdasha Bikceem Riot Grrrl Collection; MSS 354; box number; folder number; Fales Library and Special Collections, New York University Libraries.</p>
+        </prefercite>
+        <userestrict id="ref224">
+            <head>Conditions Governing Use</head>
+            <p>Collection use is subject to all copyright laws. Permission to publish materials must be obtained in writing from the Director of Fales Library and Special Collections. Please contact fales.library@nyu.edu. or call 212 998 2596.</p>
+        </userestrict>
+        <accessrestrict id="ref223">
+            <head>Conditions Governing Access</head>
+            <p>Open to researchers. Appointments are necessary for the use of manuscript and archival collections.</p>
+            <p>Audiovisual materials have not been preserved and may not be available to researchers.</p>
+        </accessrestrict>
+        <arrangement id="ref218">
+            <head>Arrangement</head>
+            <p>The collection is arranged into three series:</p>
+            <p>1. Series I: Zines 
+                <lb/> 2. Series II: Ephemera and Correspondence
+                <lb/> 3. Series III: Video
+                <lb/></p>
+            <p>The subseries within Series I represent Bikceem's own arrangement and categorizations. Materials within series and suberies are arranged alphabetically.</p>
+        </arrangement>
+        <scopecontent id="ref215">
+            <head>Scope and Content</head>
+            <p>The Ramdasha Bikceem Riot Grrrl Collection consists of zines, zine masters, comics, ephemera, flyers, catalogues, photos, media stills, correspondence, and media.The collection documents Bikceem's participation in the Riot Grrrl movement. A majority of the collection is comprised of Bikceem's personal collection of zines (bulk 1992-1996) and materials from her own zine, GUNK.</p>
+            <p>This collection is divided into 3 series:</p>
+            <p>
+                <emph render="bold">Series I: Zines:</emph> This series comprises Bikceem's collection of zines related to punk and the Riot Grrrl Movement. It also includes materials pertaining to Bikceem's own zine, GUNK. It is further divided into seven subseries that were designated by Bikceem:</p>
+            <p>Subseries A: General Zines
+                <lb/> Subseries B: Feminist Zines
+                <lb/> Subseries C: Larger Zines
+                <lb/> Subseries D: Dude Zines
+                <lb/> Subseries E: Mini Zines
+                <lb/> Subseries F: Unidentified Zines
+                <lb/> Subseries G: GUNK
+                <lb/></p>
+            <p>
+                <emph render="bold">Series II: Ephemera and Correspondence:</emph> This series contains flyers, comics, catalogues, and correspondence (bulk 1992-1995). It is further divided into two subseries:</p>
+            <p>Subseries A: Ephemera
+                <lb/> Subseries B: Correspondence
+                <lb/></p>
+            <p>
+                <emph render="bold">Series III: Video:</emph> This series contains 2 VHS casettes, "A Cinezine by K8 Hardy" and "[Frenchified lifestyle]."</p>
+        </scopecontent>
+        <prefercite id="ref222">
+            <head>Preferred Citation</head>
+            <p>Published citations should take the following form:
+                <lb/>
+                <lb/> Identification of item, date (if known); collection name; MSS number; box number; folder number; Fales Library and Special Collections, New York University Libraries.</p>
+        </prefercite>
+        <bioghist id="ref204">
+            <head>Biographical Note</head>
+            <p>Ramdasha Bikceem grew up in New Jersey, where she started writing a fanzine in 1990, when she was 15 years old. She was inspired by an older friend who had lived next door to Tobi Vail of Bikini Kill, who brought her copies of Girl Germs and Bikini Kill zines. These fanzines inspired her to start her own zine named GUNK. It mostly focused on her skater girl gang and band of the same name. Through this zine she connected with Kathleen Hanna, Johanna Fateman, and other seminal figures in the Riot Grrrl scene. She travelled to Olympia, Washington, and later her band performed at the first Riot Grrrrl convention in 1992 in Washington D.C.</p>
+            <p>Bikceem completed five issues of her zine, which focused on topics of race, feminism and general youth angst. Particularly in the last few issues of Gunk, Ramdasha wrote about the lack of diversity within the scene, and expressed her opinions around racial dilemmas and class conflicts within the Riot Grrrl movement.</p>
+            <p>In 1993 she moved to Brooklyn, where she attended Pratt University. She currently lives in New York City where she DJs and makes music. She also runs a online vintage clothing store called Klub Kid Vintage.</p>
+        </bioghist>
+        <custodhist id="ref229">
+            <head>Provenance</head>
+            <p>The Ramdasha Bikceem Riot Grrrl Collection was donated to NYU's Fales Library by Ramdasha Bikceem in 2012.</p>
+        </custodhist>
+        <controlaccess>
+            <persname source="local">Bikceem, Ramdasha</persname>
+            <genreform source="aat">Comic books.</genreform>
+            <genreform source="aat">Correspondence.</genreform>
+            <genreform source="aat">Fanzines.</genreform>
+            <subject source="lcsh">Feminism.</subject>
+            <genreform source="aat">Fliers (printed matter)</genreform>
+            <subject source="lcsh">Punk rock music.</subject>
+            <subject source="lcsh">Racism.</subject>
+            <subject source="lcsh">Riot grrrl movement.</subject>
+            <subject source="lcsh">Skateboarding.</subject>
+            <subject source="lcsh">Teenage girls.</subject>
+            <genreform source="aat">Videocassettes.</genreform>
+            <subject source="lcsh">Zines.</subject>
+        </controlaccess>
+        <dsc>
+            <c id="ref1" level="series">
+                <did>
+                    <unittitle>Series I: Zines</unittitle>
+                </did>
+                <scopecontent id="ref226">
+                    <head>Scope and Content</head>
+                    <p>
+                        <emph render="bold">Series I: Zines:</emph> This series comprises Bikceem's collection of zines related to punk and the Riot Grrrl Movement. It also includes materials pertaining to Bikceem's own zine, GUNK.</p>
+                </scopecontent>
+                <c id="ref3" level="subseries">
+                    <did>
+                        <unittitle>Subseries A: General Zines</unittitle>
+                    </did>
+                    <c id="ref9" level="file">
+                        <did>
+                            <unittitle>AAHDD</unittitle>
+                            <container id="cid17665001" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665001" type="Folder">1</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref10" level="file">
+                        <did>
+                            <unittitle>Artaud-Mania</unittitle>
+                            <container id="cid17665002" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665002" type="Folder">2</container>
+                            <unitdate normal="1996/1997" type="inclusive">1996-1997</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref11" level="file">
+                        <did>
+                            <unittitle>Bagel Quest</unittitle>
+                            <container id="cid17665003" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665003" type="Folder">3</container>
+                            <unitdate>[1996]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref12" level="file">
+                        <did>
+                            <unittitle>Bantha Fodder</unittitle>
+                            <container id="cid17665004" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665004" type="Folder">4</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref13" level="file">
+                        <did>
+                            <unittitle>Blow Your Mind</unittitle>
+                            <container id="cid17665005" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665005" type="Folder">5</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref14" level="file">
+                        <did>
+                            <unittitle>Catherine's hair</unittitle>
+                            <container id="cid17665006" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665006" type="Folder">6</container>
+                            <unitdate>[1995], undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref15" level="file">
+                        <did>
+                            <unittitle>Channel Seven</unittitle>
+                            <container id="cid17665007" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665007" type="Folder">7</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref16" level="file">
+                        <did>
+                            <unittitle>Chatterbox</unittitle>
+                            <container id="cid17665008" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665008" type="Folder">8</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref17" level="file">
+                        <did>
+                            <unittitle>Chocolate Impulse</unittitle>
+                            <container id="cid17665009" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665009" type="Folder">9</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref18" level="file">
+                        <did>
+                            <unittitle>The Colour of Shadow</unittitle>
+                            <container id="cid17665010" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665010" type="Folder">10</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref19" level="file">
+                        <did>
+                            <unittitle>Copper Beech</unittitle>
+                            <container id="cid17665011" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665011" type="Folder">11</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref20" level="file">
+                        <did>
+                            <unittitle>D.A.M.</unittitle>
+                            <container id="cid17665012" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665012" type="Folder">12</container>
+                            <unitdate>[1992]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref21" level="file">
+                        <did>
+                            <unittitle>Daggy Madeline</unittitle>
+                            <container id="cid17665013" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665013" type="Folder">13</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref51" level="file">
+                        <did>
+                            <unittitle>Double Bill</unittitle>
+                            <container id="cid17674014" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674014" type="Folder">14</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref22" level="file">
+                        <did>
+                            <unittitle>Drum Core</unittitle>
+                            <container id="cid17665014" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665014" type="Folder">15</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref23" level="file">
+                        <did>
+                            <unittitle>Ea</unittitle>
+                            <container id="cid17665015" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665015" type="Folder">16</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref26" level="file">
+                        <did>
+                            <unittitle>Erreakzoia-reaccion</unittitle>
+                            <container id="cid17665017" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665017" type="Folder">17</container>
+                            <unitdate normal="1994/1995" type="inclusive">1994-1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref27" level="file">
+                        <did>
+                            <unittitle>Eureka/Arcata Riot Grrrls</unittitle>
+                            <container id="cid17665018" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665018" type="Folder">18</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref28" level="file">
+                        <did>
+                            <unittitle>Fists of Fury</unittitle>
+                            <container id="cid17665019" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665019" type="Folder">19</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref29" level="file">
+                        <did>
+                            <unittitle>Freak Mama</unittitle>
+                            <container id="cid17665020" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665020" type="Folder">20</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref30" level="file">
+                        <did>
+                            <unittitle>G is for Girl</unittitle>
+                            <container id="cid17665021" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665021" type="Folder">21</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref31" level="file">
+                        <did>
+                            <unittitle>Holy titclamps</unittitle>
+                            <container id="cid17665022" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665022" type="Folder">22</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref32" level="file">
+                        <did>
+                            <unittitle>I wake up cuz I have stopped breathing</unittitle>
+                            <container id="cid17665023" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17665023" type="Folder">23</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref33" level="file">
+                        <did>
+                            <unittitle>I'm Not Having Garbonzo Beans</unittitle>
+                            <container id="cid17669001" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17669001" type="Folder">24</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref34" level="file">
+                        <did>
+                            <unittitle>Jank</unittitle>
+                            <container id="cid17669002" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17669002" type="Folder">25</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref35" level="file">
+                        <did>
+                            <unittitle>The Jigsaw</unittitle>
+                            <container id="cid17669003" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17669003" type="Folder">26</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref36" level="file">
+                        <did>
+                            <unittitle>Jing Bang So</unittitle>
+                            <container id="cid17669004" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17669004" type="Folder">27</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref37" level="file">
+                        <did>
+                            <unittitle>Kingfish</unittitle>
+                            <container id="cid17669005" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17669005" type="Folder">28</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref38" level="file">
+                        <did>
+                            <unittitle>Kissy Kissy (the Creep Issue)</unittitle>
+                            <container id="cid17674001" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674001" type="Folder">29</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref39" level="file">
+                        <did>
+                            <unittitle>Little Girl</unittitle>
+                            <container id="cid17674002" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674002" type="Folder">30</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref40" level="file">
+                        <did>
+                            <unittitle>Molasses Soulkiss</unittitle>
+                            <container id="cid17674003" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674003" type="Folder">31</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref41" level="file">
+                        <did>
+                            <unittitle>MTM</unittitle>
+                            <container id="cid17674004" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674004" type="Folder">32</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref42" level="file">
+                        <did>
+                            <unittitle>My need to speak on the subject of Jackson Pollock</unittitle>
+                            <container id="cid17674005" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674005" type="Folder">33</container>
+                            <unitdate normal="1996/1996">1996</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref43" level="file">
+                        <did>
+                            <unittitle>Nerd Girl</unittitle>
+                            <container id="cid17674006" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674006" type="Folder">34</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref44" level="file">
+                        <did>
+                            <unittitle>Never Revere</unittitle>
+                            <container id="cid17674007" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid17674007" type="Folder">35</container>
+                            <unitdate normal="1998/1998">1998</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref45" level="file">
+                        <did>
+                            <unittitle>Pixie Girl</unittitle>
+                            <container id="cid17674008" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674008" type="Folder">1</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref46" level="file">
+                        <did>
+                            <unittitle>Plain Jane</unittitle>
+                            <container id="cid17674009" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674009" type="Folder">2</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref47" level="file">
+                        <did>
+                            <unittitle>Pretty Shield</unittitle>
+                            <container id="cid17674010" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674010" type="Folder">3</container>
+                            <unitdate>[1996]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref48" level="file">
+                        <did>
+                            <unittitle>Private Catholic</unittitle>
+                            <container id="cid17674011" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674011" type="Folder">4</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref49" level="file">
+                        <did>
+                            <unittitle>Prone to Fall</unittitle>
+                            <container id="cid17674012" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674012" type="Folder">5</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref50" level="file">
+                        <did>
+                            <unittitle>Purge</unittitle>
+                            <container id="cid17674013" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674013" type="Folder">6</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref52" level="file">
+                        <did>
+                            <unittitle>Recess Records</unittitle>
+                            <container id="cid17674015" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674015" type="Folder">7</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref53" level="file">
+                        <did>
+                            <unittitle>Reticence and Anxiety</unittitle>
+                            <container id="cid17674016" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674016" type="Folder">8</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref54" level="file">
+                        <did>
+                            <unittitle>Riot Geeek!</unittitle>
+                            <container id="cid17674017" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674017" type="Folder">9</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref55" level="file">
+                        <did>
+                            <unittitle>[riot Pro-Teen]</unittitle>
+                            <container id="cid17674018" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674018" type="Folder">10</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref56" level="file">
+                        <did>
+                            <unittitle>Risk</unittitle>
+                            <container id="cid17674019" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674019" type="Folder">11</container>
+                            <unitdate normal="1994/1995" type="inclusive">1994-1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref57" level="file">
+                        <did>
+                            <unittitle>Salsa Amoeba</unittitle>
+                            <container id="cid17674020" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674020" type="Folder">12</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref58" level="file">
+                        <did>
+                            <unittitle>Sandbox Brats</unittitle>
+                            <container id="cid17674021" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674021" type="Folder">13</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref59" level="file">
+                        <did>
+                            <unittitle>Satan Wears a Bra</unittitle>
+                            <container id="cid17674022" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674022" type="Folder">14</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref60" level="file">
+                        <did>
+                            <unittitle>Silly</unittitle>
+                            <container id="cid17674023" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674023" type="Folder">15</container>
+                            <unitdate>[1993]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref61" level="file">
+                        <did>
+                            <unittitle>Size 9 1/2</unittitle>
+                            <container id="cid17674024" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674024" type="Folder">16</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref62" level="file">
+                        <did>
+                            <unittitle>Skagboy</unittitle>
+                            <container id="cid17674025" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674025" type="Folder">17</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref63" level="file">
+                        <did>
+                            <unittitle>Smile for Me</unittitle>
+                            <container id="cid17674026" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674026" type="Folder">18</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref64" level="file">
+                        <did>
+                            <unittitle>Starfucker</unittitle>
+                            <container id="cid17674027" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674027" type="Folder">19</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref65" level="file">
+                        <did>
+                            <unittitle>...sometimes i'm a pretty girl</unittitle>
+                            <container id="cid17674028" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674028" type="Folder">20</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref66" level="file">
+                        <did>
+                            <unittitle>Southern Hysteria</unittitle>
+                            <container id="cid17674029" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674029" type="Folder">21</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref67" level="file">
+                        <did>
+                            <unittitle>Square One</unittitle>
+                            <container id="cid17674030" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674030" type="Folder">22</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref68" level="file">
+                        <did>
+                            <unittitle>Subterranean Mailorder</unittitle>
+                            <container id="cid17674031" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674031" type="Folder">23</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref69" level="file">
+                        <did>
+                            <unittitle>Such is Life</unittitle>
+                            <container id="cid17674032" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674032" type="Folder">24</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref70" level="file">
+                        <did>
+                            <unittitle>Tease</unittitle>
+                            <container id="cid17674033" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674033" type="Folder">25</container>
+                            <unitdate normal="1994/1994">1994, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref71" level="file">
+                        <did>
+                            <unittitle>Too Far</unittitle>
+                            <container id="cid17674034" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674034" type="Folder">26</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref72" level="file">
+                        <did>
+                            <unittitle>Ultramodern</unittitle>
+                            <container id="cid17674035" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674035" type="Folder">27</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref73" level="file">
+                        <did>
+                            <unittitle>Winkypinky</unittitle>
+                            <container id="cid17674036" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674036" type="Folder">28</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref74" level="file">
+                        <did>
+                            <unittitle>words and smiles</unittitle>
+                            <container id="cid17674037" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674037" type="Folder">29</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref75" level="file">
+                        <did>
+                            <unittitle>Wow Cool</unittitle>
+                            <container id="cid17674038" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674038" type="Folder">30</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref76" level="file">
+                        <did>
+                            <unittitle>Y(our) Ass + My Face</unittitle>
+                            <container id="cid17674039" type="Box" label="Mixed materials">2</container>
+                            <container parent="cid17674039" type="Folder">31</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref4" level="subseries">
+                    <did>
+                        <unittitle>Subseries B: Feminist Zines</unittitle>
+                    </did>
+                    <c id="ref77" level="file">
+                        <did>
+                            <unittitle>Crusade</unittitle>
+                            <container id="cid17674040" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674040" type="Folder">1</container>
+                            <unitdate normal="1993/1994" type="inclusive">1993-1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref78" level="file">
+                        <did>
+                            <unittitle>HAPPYLAND</unittitle>
+                            <container id="cid17674041" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674041" type="Folder">2</container>
+                            <unitdate>[1991, 1992]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref79" level="file">
+                        <did>
+                            <unittitle>Knotwork</unittitle>
+                            <container id="cid17674042" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674042" type="Folder">3</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref80" level="file">
+                        <did>
+                            <unittitle>Live Beat</unittitle>
+                            <container id="cid17674043" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674043" type="Folder">4</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref81" level="file">
+                        <did>
+                            <unittitle>Rocktober</unittitle>
+                            <container id="cid17674044" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674044" type="Folder">5</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref82" level="file">
+                        <did>
+                            <unittitle>TRUSTKILL</unittitle>
+                            <container id="cid17674045" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674045" type="Folder">6</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref83" level="file">
+                        <did>
+                            <unittitle>Weird City</unittitle>
+                            <container id="cid17674046" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674046" type="Folder">7</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref5" level="subseries">
+                    <did>
+                        <unittitle>Subseries C: Larger Zines</unittitle>
+                    </did>
+                    <c id="ref84" level="file">
+                        <did>
+                            <unittitle>Agra</unittitle>
+                            <container id="cid17674047" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674047" type="Folder">8</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref85" level="file">
+                        <did>
+                            <unittitle>All Hail the Nuns</unittitle>
+                            <container id="cid17674048" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674048" type="Folder">9</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref86" level="file">
+                        <did>
+                            <unittitle>Attitude Problem</unittitle>
+                            <container id="cid17674049" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674049" type="Folder">10</container>
+                            <unitdate normal="1993/1994" type="inclusive">1993-1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref87" level="file">
+                        <did>
+                            <unittitle>Bruce On A Stick</unittitle>
+                            <container id="cid17674050" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674050" type="Folder">11</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref115" level="file">
+                        <did>
+                            <unittitle>Chainletter</unittitle>
+                            <container id="cid17676023" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676023" type="Folder">12</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref88" level="file">
+                        <did>
+                            <unittitle>Eat Me!</unittitle>
+                            <container id="cid17674051" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674051" type="Folder">13</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref89" level="file">
+                        <did>
+                            <unittitle>Evacuation Day</unittitle>
+                            <container id="cid17674052" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674052" type="Folder">14</container>
+                            <unitdate>[1993]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref90" level="file">
+                        <did>
+                            <unittitle>Feminine Napkins</unittitle>
+                            <container id="cid17674053" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674053" type="Folder">15</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref91" level="file">
+                        <did>
+                            <unittitle>Fenceclimber</unittitle>
+                            <container id="cid17674054" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674054" type="Folder">16</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref92" level="file">
+                        <did>
+                            <unittitle>Fiat Lux</unittitle>
+                            <container id="cid17674055" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17674055" type="Folder">17</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref93" level="file">
+                        <did>
+                            <unittitle>Grit</unittitle>
+                            <container id="cid17676001" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676001" type="Folder">18</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref94" level="file">
+                        <did>
+                            <unittitle>Grot Grrrl</unittitle>
+                            <container id="cid17676002" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676002" type="Folder">19</container>
+                            <unitdate>[1993]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref95" level="file">
+                        <did>
+                            <unittitle>I Hate Valentine's Day!</unittitle>
+                            <container id="cid17676003" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676003" type="Folder">20</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref96" level="file">
+                        <did>
+                            <unittitle>K Records</unittitle>
+                            <container id="cid17676004" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676004" type="Folder">21</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref97" level="file">
+                        <did>
+                            <unittitle>Modern Shaman</unittitle>
+                            <container id="cid17676005" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676005" type="Folder">22</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref98" level="file">
+                        <did>
+                            <unittitle>Monsters Unleashed!</unittitle>
+                            <container id="cid17676006" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676006" type="Folder">23</container>
+                            <unitdate normal="1974/1974">1974</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref99" level="file">
+                        <did>
+                            <unittitle>Mousie</unittitle>
+                            <container id="cid17676007" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676007" type="Folder">24</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref100" level="file">
+                        <did>
+                            <unittitle>Plunger</unittitle>
+                            <container id="cid17676008" type="Box" label="Mixed materials">3</container>
+                            <container parent="cid17676008" type="Folder">25</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref101" level="file">
+                        <did>
+                            <unittitle>Rock Fight</unittitle>
+                            <container id="cid17676009" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676009" type="Folder">1</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref102" level="file">
+                        <did>
+                            <unittitle>Rock 'N Roll High School Newsletter</unittitle>
+                            <container id="cid17676010" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676010" type="Folder">2</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref103" level="file">
+                        <did>
+                            <unittitle>Shrill</unittitle>
+                            <container id="cid17676011" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676011" type="Folder">3</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref104" level="file">
+                        <did>
+                            <unittitle>Skunk</unittitle>
+                            <container id="cid17676012" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676012" type="Folder">4</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref105" level="file">
+                        <did>
+                            <unittitle>Slug and Lettuce</unittitle>
+                            <container id="cid17676013" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676013" type="Folder">5</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref106" level="file">
+                        <did>
+                            <unittitle>Super Star Forever</unittitle>
+                            <container id="cid17676014" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676014" type="Folder">6</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref107" level="file">
+                        <did>
+                            <unittitle>Switch Hitter</unittitle>
+                            <container id="cid17676015" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676015" type="Folder">7</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref108" level="file">
+                        <did>
+                            <unittitle>Teenage Gang Debs</unittitle>
+                            <container id="cid17676016" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676016" type="Folder">8</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref109" level="file">
+                        <did>
+                            <unittitle>Teenage Suicide</unittitle>
+                            <container id="cid17676017" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676017" type="Folder">9</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref110" level="file">
+                        <did>
+                            <unittitle>Tooth Fairy</unittitle>
+                            <container id="cid17676018" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676018" type="Folder">10</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref111" level="file">
+                        <did>
+                            <unittitle>Toxic Shock</unittitle>
+                            <container id="cid17676019" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676019" type="Folder">11</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref112" level="file">
+                        <did>
+                            <unittitle>TWB</unittitle>
+                            <container id="cid17676020" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676020" type="Folder">12</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref113" level="file">
+                        <did>
+                            <unittitle>Virus</unittitle>
+                            <container id="cid17676021" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676021" type="Folder">13</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref114" level="file">
+                        <did>
+                            <unittitle>Wiglet</unittitle>
+                            <container id="cid17676022" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676022" type="Folder">14</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref6" level="subseries">
+                    <did>
+                        <unittitle>Subseries D: Dude Zines</unittitle>
+                    </did>
+                    <c id="ref116" level="file">
+                        <did>
+                            <unittitle>The Adventures of Absolutely Zippo!</unittitle>
+                            <container id="cid17676024" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676024" type="Folder">15</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref117" level="file">
+                        <did>
+                            <unittitle>annoyance</unittitle>
+                            <container id="cid17676025" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676025" type="Folder">16</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref118" level="file">
+                        <did>
+                            <unittitle>bobby is fred</unittitle>
+                            <container id="cid17676026" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676026" type="Folder">17</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref119" level="file">
+                        <did>
+                            <unittitle>Boredom</unittitle>
+                            <container id="cid17676027" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676027" type="Folder">18</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref120" level="file">
+                        <did>
+                            <unittitle>Boy Does High School Ever Suck</unittitle>
+                            <container id="cid17676028" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676028" type="Folder">19</container>
+                            <unitdate normal="1991/1991">1991</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref121" level="file">
+                        <did>
+                            <unittitle>COMETBUS</unittitle>
+                            <container id="cid17676029" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676029" type="Folder">20</container>
+                            <unitdate normal="1994/1994">1994, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref122" level="file">
+                        <did>
+                            <unittitle>Dishwasher</unittitle>
+                            <container id="cid17676030" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676030" type="Folder">21</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref123" level="file">
+                        <did>
+                            <unittitle>The dissonant accost</unittitle>
+                            <container id="cid17676031" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676031" type="Folder">22</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref124" level="file">
+                        <did>
+                            <unittitle>Fuck Tooth</unittitle>
+                            <container id="cid17676032" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676032" type="Folder">23</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref125" level="file">
+                        <did>
+                            <unittitle>Gizzard Gazette</unittitle>
+                            <container id="cid17676033" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676033" type="Folder">24</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref126" level="file">
+                        <did>
+                            <unittitle>I HATE YOU</unittitle>
+                            <container id="cid17676034" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676034" type="Folder">25</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref127" level="file">
+                        <did>
+                            <unittitle>LA COSTRA</unittitle>
+                            <container id="cid17676035" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676035" type="Folder">26</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref128" level="file">
+                        <did>
+                            <unittitle>Pants that Don't Fit</unittitle>
+                            <container id="cid17676036" type="Box" label="Mixed materials">4</container>
+                            <container parent="cid17676036" type="Folder">27</container>
+                            <unitdate>[1993], [1995], undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref129" level="file">
+                        <did>
+                            <unittitle>PHLOX</unittitle>
+                            <container id="cid17676037" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676037" type="Folder">1</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref130" level="file">
+                        <did>
+                            <unittitle>Pocho</unittitle>
+                            <container id="cid17676038" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676038" type="Folder">2</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref131" level="file">
+                        <did>
+                            <unittitle>Pook</unittitle>
+                            <container id="cid17676039" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676039" type="Folder">3</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref132" level="file">
+                        <did>
+                            <unittitle>Reasonably Martian's</unittitle>
+                            <container id="cid17676040" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676040" type="Folder">4</container>
+                            <unitdate>[1994]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref133" level="file">
+                        <did>
+                            <unittitle>SILVULLINEN</unittitle>
+                            <container id="cid17676041" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676041" type="Folder">5</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref134" level="file">
+                        <did>
+                            <unittitle>Sticks and Stones</unittitle>
+                            <container id="cid17676042" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676042" type="Folder">6</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref7" level="subseries">
+                    <did>
+                        <unittitle>Subseries E: Mini Zines</unittitle>
+                    </did>
+                    <c id="ref135" level="file">
+                        <did>
+                            <unittitle>BLEMISH</unittitle>
+                            <container id="cid17676043" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676043" type="Folder">7</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref136" level="file">
+                        <did>
+                            <unittitle>Christy Sprite</unittitle>
+                            <container id="cid17676044" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676044" type="Folder">8</container>
+                            <unitdate>[1993]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref137" level="file">
+                        <did>
+                            <unittitle>Cow/boy Love</unittitle>
+                            <container id="cid17676045" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676045" type="Folder">9</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref138" level="file">
+                        <did>
+                            <unittitle>Cubbyhole</unittitle>
+                            <container id="cid17676046" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676046" type="Folder">10</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref139" level="file">
+                        <did>
+                            <unittitle>The Diane Files</unittitle>
+                            <container id="cid17676047" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676047" type="Folder">11</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref140" level="file">
+                        <did>
+                            <unittitle>Graham Cracker Cereal</unittitle>
+                            <container id="cid17676048" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676048" type="Folder">12</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref141" level="file">
+                        <did>
+                            <unittitle>Guilt</unittitle>
+                            <container id="cid17676049" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676049" type="Folder">13</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref142" level="file">
+                        <did>
+                            <unittitle>half-life</unittitle>
+                            <container id="cid17676050" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676050" type="Folder">14</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref143" level="file">
+                        <did>
+                            <unittitle>Impress Your Friends</unittitle>
+                            <container id="cid17676051" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676051" type="Folder">15</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref144" level="file">
+                        <did>
+                            <unittitle>It Grosses Her Out</unittitle>
+                            <container id="cid17676052" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676052" type="Folder">16</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref145" level="file">
+                        <did>
+                            <unittitle>The Jimmy Saga</unittitle>
+                            <container id="cid17676053" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676053" type="Folder">17</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref146" level="file">
+                        <did>
+                            <unittitle>Mickey Rourke</unittitle>
+                            <container id="cid17676054" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676054" type="Folder">18</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref147" level="file">
+                        <did>
+                            <unittitle>SOURPUSS</unittitle>
+                            <container id="cid17676055" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676055" type="Folder">19</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref150" level="subseries">
+                    <did>
+                        <unittitle>Subseries F: Unidentified Zines</unittitle>
+                    </did>
+                    <c id="ref151" level="file">
+                        <did>
+                            <unittitle>Unidentified Zines</unittitle>
+                            <container id="cid17676056" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17676056" type="Folder">20</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref196" level="subseries">
+                    <did>
+                        <unittitle>Subseries G: GUNK</unittitle>
+                    </did>
+                    <c id="ref197" level="file">
+                        <did>
+                            <unittitle>GUNK Masters</unittitle>
+                            <container id="cid17700001" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700001" type="Folder">21</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref198" level="file">
+                        <did>
+                            <unittitle>GUNK #4 Original Master</unittitle>
+                            <container id="cid17700002" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700002" type="Folder">22</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref199" level="file">
+                        <did>
+                            <unittitle>GUNK #4 Complete Copy</unittitle>
+                            <container id="cid17700003" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700003" type="Folder">23</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref200" level="file">
+                        <did>
+                            <unittitle>GUNK #4 Incomplete Copies</unittitle>
+                            <container id="cid17700004" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700004" type="Folder">24</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref201" level="file">
+                        <did>
+                            <unittitle>GUNK #5 [Incomplete]</unittitle>
+                            <container id="cid17700005" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700005" type="Folder">25</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref202" level="file">
+                        <did>
+                            <unittitle>GUNK Ephemera</unittitle>
+                            <container id="cid17700006" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700006" type="Folder">26</container>
+                            <unitdate normal="1992/1992">1992, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref203" level="file">
+                        <did>
+                            <unittitle>Photos and Media Stills</unittitle>
+                            <container id="cid17700007" type="Box" label="Mixed materials">5</container>
+                            <container parent="cid17700007" type="Folder">27</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                </c>
+            </c>
+            <c id="ref2" level="series">
+                <did>
+                    <unittitle>Series II: Ephemera and Correspondence</unittitle>
+                </did>
+                <scopecontent id="ref228">
+                    <head>Scope and Content</head>
+                    <p>
+                        <emph render="bold">Series II: Ephemera and Correspondence:</emph> This series contains flyers, comics, catalogues, and correspondence (bulk 1992-1995).</p>
+                </scopecontent>
+                <c id="ref148" level="subseries">
+                    <did>
+                        <unittitle>Subseries A: Ephemera</unittitle>
+                    </did>
+                    <c id="ref152" level="file">
+                        <did>
+                            <unittitle>Activism (Flyers, etc)</unittitle>
+                            <container id="cid17676057" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676057" type="Folder">1</container>
+                            <unitdate normal="1993/1997" type="inclusive">1993-1997, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref153" level="file">
+                        <did>
+                            <unittitle>Dirty Plotte [comic]</unittitle>
+                            <container id="cid17676058" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676058" type="Folder">2</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref154" level="file">
+                        <did>
+                            <unittitle>Hate [comic]</unittitle>
+                            <container id="cid17676059" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676059" type="Folder">3</container>
+                            <unitdate normal="1990/1993" type="inclusive">1990-1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref155" level="file">
+                        <did>
+                            <unittitle>Mail Order Catalogs</unittitle>
+                            <container id="cid17676060" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676060" type="Folder">4</container>
+                            <unitdate normal="1993/1993">1993, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref156" level="file">
+                        <did>
+                            <unittitle>Mini Flyers</unittitle>
+                            <container id="cid17676061" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676061" type="Folder">5</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref157" level="file">
+                        <did>
+                            <unittitle>Naughty Birds [comic]</unittitle>
+                            <container id="cid17676062" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676062" type="Folder">6</container>
+                            <unitdate normal="1991/1992" type="inclusive">1991-1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref158" level="file">
+                        <did>
+                            <unittitle>Tank Girl 2 [comic]</unittitle>
+                            <container id="cid17676063" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17676063" type="Folder">7</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                </c>
+                <c id="ref149" level="subseries">
+                    <did>
+                        <unittitle>Subseries B: Correspondence</unittitle>
+                    </did>
+                    <scopecontent id="ref227">
+                        <head>Scope and Content</head>
+                        <p>Series II: Suberies B inlcudes correspondence sent to Bikceem from people asking for zines, responding to the contents of GUNK, or sending their own zines.</p>
+                    </scopecontent>
+                    <c id="ref159" level="file">
+                        <did>
+                            <unittitle>Andrew</unittitle>
+                            <container id="cid17682001" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682001" type="Folder">8</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref160" level="file">
+                        <did>
+                            <unittitle>Badger</unittitle>
+                            <container id="cid17682002" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682002" type="Folder">9</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref181" level="file">
+                        <did>
+                            <unittitle>Bean, Chris</unittitle>
+                            <container id="cid17682023" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682023" type="Folder">10</container>
+                            <unitdate normal="1992/1992">1992, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref182" level="file">
+                        <did>
+                            <unittitle>Brat, Allison</unittitle>
+                            <container id="cid17682024" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682024" type="Folder">11</container>
+                            <unitdate normal="1992/1992">1992, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref161" level="file">
+                        <did>
+                            <unittitle>Christina</unittitle>
+                            <container id="cid17682003" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682003" type="Folder">12</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref162" level="file">
+                        <did>
+                            <unittitle>D</unittitle>
+                            <container id="cid17682004" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682004" type="Folder">13</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref183" level="file">
+                        <did>
+                            <unittitle>Difference, Sam</unittitle>
+                            <container id="cid17682025" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682025" type="Folder">14</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref184" level="file">
+                        <did>
+                            <unittitle>Droogas, Adrienne</unittitle>
+                            <container id="cid17682026" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682026" type="Folder">15</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref163" level="file">
+                        <did>
+                            <unittitle>Emcee</unittitle>
+                            <container id="cid17682005" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682005" type="Folder">16</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref185" level="file">
+                        <did>
+                            <unittitle>Enriquez, Denise</unittitle>
+                            <container id="cid17682027" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682027" type="Folder">17</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref164" level="file">
+                        <did>
+                            <unittitle>Grace</unittitle>
+                            <container id="cid17682006" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682006" type="Folder">18</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref186" level="file">
+                        <did>
+                            <unittitle>Greenwood, Wynne</unittitle>
+                            <container id="cid17682028" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682028" type="Folder">19</container>
+                            <unitdate normal="1993/1994" type="inclusive">1993-1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref165" level="file">
+                        <did>
+                            <unittitle>Griff</unittitle>
+                            <container id="cid17682007" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682007" type="Folder">20</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref187" level="file">
+                        <did>
+                            <unittitle>Habe-Evans, Mito</unittitle>
+                            <container id="cid17682029" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682029" type="Folder">21</container>
+                            <unitdate normal="1997/1997">1997</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref188" level="file">
+                        <did>
+                            <unittitle>Hanna, Kathleen</unittitle>
+                            <container id="cid17682030" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682030" type="Folder">22</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref189" level="file">
+                        <did>
+                            <unittitle>Harris, Selwyn</unittitle>
+                            <container id="cid17682031" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682031" type="Folder">23</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref166" level="file">
+                        <did>
+                            <unittitle>Ian</unittitle>
+                            <container id="cid17682008" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682008" type="Folder">24</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref167" level="file">
+                        <did>
+                            <unittitle>Jane</unittitle>
+                            <container id="cid17682009" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682009" type="Folder">25</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref168" level="file">
+                        <did>
+                            <unittitle>Janelle/Olga</unittitle>
+                            <container id="cid17682010" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682010" type="Folder">26</container>
+                            <unitdate normal="1993/1994" type="inclusive">1993, 1994, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref169" level="file">
+                        <did>
+                            <unittitle>Joaquin</unittitle>
+                            <container id="cid17682011" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682011" type="Folder">27</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref170" level="file">
+                        <did>
+                            <unittitle>John</unittitle>
+                            <container id="cid17682012" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682012" type="Folder">28</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref171" level="file">
+                        <did>
+                            <unittitle>Josh</unittitle>
+                            <container id="cid17682013" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682013" type="Folder">29</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref172" level="file">
+                        <did>
+                            <unittitle>Khourey</unittitle>
+                            <container id="cid17682014" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682014" type="Folder">30</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref173" level="file">
+                        <did>
+                            <unittitle>Kim</unittitle>
+                            <container id="cid17682015" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682015" type="Folder">31</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref174" level="file">
+                        <did>
+                            <unittitle>Mike</unittitle>
+                            <container id="cid17682016" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682016" type="Folder">32</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref175" level="file">
+                        <did>
+                            <unittitle>Mindy</unittitle>
+                            <container id="cid17682017" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682017" type="Folder">33</container>
+                            <unitdate normal="1994/1994">1994</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref190" level="file">
+                        <did>
+                            <unittitle>Morris, Maggie</unittitle>
+                            <container id="cid17682032" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682032" type="Folder">34</container>
+                            <unitdate normal="1996/1996">1996, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref191" level="file">
+                        <did>
+                            <unittitle>Murphy, Lori</unittitle>
+                            <container id="cid17682033" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682033" type="Folder">35</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref176" level="file">
+                        <did>
+                            <unittitle>Nick</unittitle>
+                            <container id="cid17682018" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682018" type="Folder">36</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref192" level="file">
+                        <did>
+                            <unittitle>Padrino, Laura</unittitle>
+                            <container id="cid17682034" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682034" type="Folder">37</container>
+                            <unitdate normal="1993/1993">1993, undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref177" level="file">
+                        <did>
+                            <unittitle>Pariah</unittitle>
+                            <container id="cid17682019" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682019" type="Folder">38</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref193" level="file">
+                        <did>
+                            <unittitle>Rivera, Mabel</unittitle>
+                            <container id="cid17682035" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682035" type="Folder">39</container>
+                            <unitdate normal="1993/1993">1993</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref178" level="file">
+                        <did>
+                            <unittitle>Robert</unittitle>
+                            <container id="cid17682020" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682020" type="Folder">40</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref179" level="file">
+                        <did>
+                            <unittitle>Sandra</unittitle>
+                            <container id="cid17682021" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682021" type="Folder">41</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref180" level="file">
+                        <did>
+                            <unittitle>Theo</unittitle>
+                            <container id="cid17682022" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682022" type="Folder">42</container>
+                            <unitdate normal="1992/1992">1992</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref194" level="file">
+                        <did>
+                            <unittitle>Vail, Tobi</unittitle>
+                            <container id="cid17682036" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682036" type="Folder">43</container>
+                            <unitdate normal="1995/1995">1995</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref195" level="file">
+                        <did>
+                            <unittitle>Unknown Correspondence</unittitle>
+                            <container id="cid17682037" type="Box" label="Mixed materials">6</container>
+                            <container parent="cid17682037" type="Folder">44</container>
+                            <unitdate normal="1995/1995">1995, undated</unitdate>
+                        </did>
+                    </c>
+                </c>
+            </c>
+            <c id="ref8" level="series">
+                <did>
+                    <unittitle>Series III: Video</unittitle>
+                </did>
+                <accessrestrict id="ref209">
+                    <head>Conditions Governing Access</head>
+                    <p>Audiovisual materials have not been preserved and may not be available to researchers.</p>
+                </accessrestrict>
+                <c id="ref219" level="item">
+                    <did>
+                        <unittitle>A Cinezine by K8 Hardy</unittitle>
+                        <container id="cid18020001" type="Box" label="Media">7</container>
+                        <container parent="cid18020001" type="Media">ID: 354.0001</container>
+                        <unitdate>[1997-1998]</unitdate>
+                        <physdesc id="ref220" label="General Physical Description note">Format: VHS</physdesc>
+                    </did>
+                    <scopecontent id="ref221">
+                        <head>Scope and Content</head>
+                        <p>3 videos made by K8 Hardy: [1]--"This Red Envelope" [2]--"Believe Me" [3]--"A Little Off"</p>
+                    </scopecontent>
+                </c>
+                <c id="ref212" level="item">
+                    <did>
+                        <unittitle>[Frenchified lifestyle]</unittitle>
+                        <container id="cid18015002" type="Box" label="Media">7</container>
+                        <container parent="cid18015002" type="Media">ID: 354.0002</container>
+                        <unitdate>undated</unitdate>
+                        <physdesc id="ref214" label="General Physical Description note">Format: VHS</physdesc>
+                    </did>
+                </c>
+            </c>
+        </dsc>
+    </archdesc>
+</ead>

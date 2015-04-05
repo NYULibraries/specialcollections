@@ -90,8 +90,17 @@ module Findingaids
 
         #Boost functions
         def bf_functions
-           @bf_functions ||= [ "exists(query({!v=component_level_isim:4}))^50",
-             "exists(query({!v=component_level_isim:4}))^50"]
+           @bf_functions ||= ["#{solr_field_value_filter(solr_name("format", :facetable), "*Collection*")}^600",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "series")}^150",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "subseries")}^70",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "file")}^50",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "item")}^40",
+           ]
+        end
+
+        #query function
+        def solr_field_value_filter field_name, filter_value
+             "exists(query({!v=#{field_name}:#{filter_value}}))"
         end
       end
     end
