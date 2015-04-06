@@ -10,7 +10,7 @@ Scenario: Clicking on "Bookmark" saves the bookmark
   Then I should see search results 
   And each result should have a "Bookmark"
   When I check a bookmark
-  #Then my "Your Bookmarks" count should increase by "1"
+  Then my bookmarks count should be "1"
   
 
 
