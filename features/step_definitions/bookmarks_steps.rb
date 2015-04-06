@@ -21,3 +21,11 @@ Then(/^my bookmarks count should be "(.*?)"$/) do |count|
 	end
 end
 
+When(/^I click on "(.*?)"$/) do |link|
+	find('#bookmarks_nav', text: link).click
+end
+
+Then(/^I should see bookmarks$/) do
+	save_and_open_page
+end
+
