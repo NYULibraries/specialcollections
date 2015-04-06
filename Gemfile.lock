@@ -16,10 +16,10 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries-assets.git
-  revision: 7a5f2cf43107ee7fa144b614f0a40fca68ad94fc
-  tag: v4.1.2
+  revision: 59a262d14d78b8976c389cf8da06fbba1b569208
+  branch: feature/findingaids_layout
   specs:
-    nyulibraries-assets (4.1.0)
+    nyulibraries-assets (4.2.1)
       bootstrap-sass (~> 3.2.0.2)
       compass (~> 1.0.1)
       font-awesome-rails (~> 4.2.0.0)
