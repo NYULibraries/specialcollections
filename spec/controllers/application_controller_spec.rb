@@ -58,6 +58,7 @@ describe ApplicationController do
   end
 
   describe "#current_user_dev" do
+    let(:user) { FactoryGirl.create :user_dev }
     subject(:user) { controller.current_user_dev }
     it { should be_instance_of(User) }
     it { expect(user.username).to eql("dev123") }
