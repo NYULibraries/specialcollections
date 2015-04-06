@@ -13,6 +13,11 @@ When(/^I check a bookmark$/) do
    	Timeout.timeout(Capybara.default_wait_time) do
       loop until page.evaluate_script('jQuery.active').zero?
     end
-	save_and_open_page
+end
+
+Then(/^my bookmarks count should be "(.*?)"$/) do |count|
+	within(:css,"#bookmarks_nav") do
+		find('span', text: count)
+	end
 end
 
