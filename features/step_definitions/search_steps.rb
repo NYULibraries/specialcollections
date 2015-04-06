@@ -119,4 +119,3 @@ Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, mult
     expect(documents_list_container).to have_content result_title
   end
 end
-

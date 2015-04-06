@@ -3,39 +3,22 @@ Given(/^I am on the brief results page$/) do
   search_phrase('bloch')
 end
 
-And(/^I should see "(.*?)" be "(\d.*?)" characters or less/) do |label,len|
-  class_name = get_class_name(label)
-  within(page.first("dl")) do
-    page.find('dd.blacklight-'"#{class_name}").text.length.should be <= len.to_i
-  end
+Then(/^the "(.*?)" field should be "(\d.*?)" characters or less$/) do |label, length|
+  expect(documents_list.first.find(:xpath, "//dt[text()='#{label}:']/following-sibling::dd[1]").text.length).to be <= length.to_i
 end
-
-And(/^I should see "(.*?)" between "(.*?)" and "(.*?)"/) do |label,field1,field2|
-  within(page.first("dl")) do
-    f1 = page.find(:xpath, "dt[text()='#{field1}:']/following-sibling::dd[2]").text
-    f2 = page.find(:xpath, "dt[text()='#{field2}:']/preceding-sibling::dd[1]").text
-    f1.should be == label
-    f1.should be == f2
-  end
-end
-
-
-When(/^I click on "(.*?)" within css class "(.*?)"/) do |link,class_name|
-  within(page.first("dl")) do
-    within(:css,class_name) do
-      find('a', text: link).click
-    end
-  end
-end
-
 
 Then(/^I should see fields in the following order and value:$/) do |table|
-  within(page.first("dl")) do
-    table.rows_hash.each do |label, value|
-      class_name = get_class_name(label)
-      expect(page.find('dt.blacklight-'"#{class_name}")).to have_content "#{label}:"
-      expect(page.find('dd.blacklight-'"#{class_name}")).to have_content "#{value}"
-
+  table.rows_hash.each do |label, value|
+    unless label.blank?
+      expect(documents_list.first.find(:xpath, "//dt[text()='#{label}:']/following-sibling::dd[1]")).to have_content
+    else
+      expect(documents_list.first.find(:xpath, "//dd//*[text()='#{value}']")).to have_content
     end
+  end
+end
+
+When(/^I click on "(.*?)" within the first result$/) do |link_text|
+  within("#documents .document:first-child") do
+    click_link link_text
   end
 end
