@@ -1,3 +1,6 @@
+// Redefine some default boostrap variables
+$panel-default-heading-bg: #fff;
+
 @import "nyulibraries";
 @import "blacklight";
 
@@ -15,6 +18,30 @@
   padding: 0 2px;
 }
 
+h1.page_header {
+  color: $nyu-purple;
+  font-size: 150%;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+
+.home_text {
+  margin-top: 2em;
+  h3 {
+    line-height: 1.5em;
+    font-weight: normal;
+    font-size: 120%;
+  }
+  h4 {
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 100%;
+  }
+  div {
+    margin-top: 1.5em;
+  }
+}
+
 // Override blacklight styles because our search box is not in a navbar
 #q {
   border-radius: 4px;
@@ -23,7 +50,10 @@
   height: 2.5em;
 }
 form.search-query-form {
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
+  .search-input-group {
+    padding-left: 0;
+  }
 }
 select#search_field {
   height: 2.5em !important;
@@ -124,6 +154,52 @@ dd.blacklight-collection_ssm{
   padding-top:10px;
 }
 
+#facets, #advanced_search_facets {
+  .top-panel-heading {
+    h4 {
+      font-size: 100%;
+      color: #666;
+      text-transform: uppercase;
+    }
+  }
+  .panel-group .panel-heading {
+    h5 {
+      font-weight: bold;
+      font-size: 100%;
+      a {
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+.facets-toggle {
+  margin-top: -2px;
+}
+
+.panel-heading.collapse-toggle .panel-title:after,
+.panel-heading.collapse-toggle.collapsed .panel-title:after {
+  content: "";
+}
+
+.panel-heading.collapse-toggle .panel-title:before {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: left;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+    font-size: 0.8em;
+    line-height: normal;
+}
+.panel-heading.collapse-toggle.collapsed .panel-title:before {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.advanced.page-header .advanced-search-start-over {
+  display: none !important;
+}
+
 @media (max-width: 480px) {
   select#search_field {
     width: 100%;
@@ -135,8 +211,4 @@ dd.blacklight-collection_ssm{
     float: none;
     padding-left: 0;
   }
-}
-
-.advanced.page-header .advanced-search-start-over {
-  display: none !important;
 }

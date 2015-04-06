@@ -14,4 +14,9 @@ $ ->
   # Hack the Format to be the top facet in advance search and automatically uncollapsed
   # Doing this here because I don't wanna override the view
   $("#advanced_search_facets").find(".advanced-facet-limits.panel-group").prepend($(".blacklight-format_sim"))
-  $("#advanced_search_facets").find("#facet-format_sim").collapse()
+
+  # Open certain facets by default
+  unless $("#advanced_search_facets").find("#facet-format_sim").is(":visible")
+    $("#advanced_search_facets").find("div[data-target='#facet-format_sim']").trigger("click")
+  unless $("#facets").find("#facet-repository_sim").is(":visible")
+    $("#facets").find("div[data-target='#facet-repository_sim']").trigger("click")
