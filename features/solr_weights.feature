@@ -22,5 +22,3 @@ Scenario: Documents with matching unitid should appear at the begining of the se
   Given I am on the default search page
   When I search on the phrase "RG 7.2"
   Then the document with title "Records of the Office of the Vice President for University Relations (John J. O'Connor)" should appear in the "3" first results
-
-
