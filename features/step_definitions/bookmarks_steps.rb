@@ -9,7 +9,10 @@ And(/^each result should have a "(.*?)"$/) do |term|
 end
 
 When(/^I check a bookmark$/) do 
-   	#check('toggle_bookmark_oh_002ref713')
+   	check('toggle_bookmark_oh_002ref713')
+   	Timeout.timeout(Capybara.default_wait_time) do
+      loop until page.evaluate_script('jQuery.active').zero?
+    end
 	save_and_open_page
 end
 
