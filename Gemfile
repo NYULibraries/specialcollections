@@ -100,8 +100,8 @@ group :test do
   # Rspec as the test framework
   gem 'rspec-rails', '~> 2.14.2'
   # Phantomjs for headless browser testing
-  gem 'phantomjs', '>= 1.9.0'
-  gem 'poltergeist', '~> 1.5.0'
+  gem 'poltergeist', '~> 1.6.0'
+  gem 'phantomjs', '>= 1.9.0', :require => 'phantomjs/poltergeist'
   # Use SimpleCov for generating local coverage reports
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false

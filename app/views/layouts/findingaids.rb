@@ -17,7 +17,7 @@ module Views
       end
 
       def searching?
-        params[:q].present? || params[:f].present? || params[:commit] == "Search"
+        !params[:q].nil? || !params[:f].nil? || params[:commit] == "Search"
       end
 
       # Render footer partial

@@ -14,7 +14,7 @@ module FindingaidsFeatures
 
     def search_phrase(phrase)
       within(:css, "form.search-query-form") do
-        fill_in 'Search...', :with => phrase
+        fill_in "q", :with => phrase
       end
       click_button("Search")
     end
