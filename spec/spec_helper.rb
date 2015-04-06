@@ -20,9 +20,11 @@ require 'database_cleaner'
 
 WebMock.allow_net_connect! if Rails.env.test?
 
+
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 
 # reuse Cucumber setup to login user
 require_relative '../features/support/login'
