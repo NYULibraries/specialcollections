@@ -29,3 +29,8 @@ Then(/^I should see bookmarks$/) do
 	save_and_open_page
 end
 
+When(/^I go to my bookmarks page$/) do
+	visit bookmarks_path
+	save_and_open_page
+end
+
