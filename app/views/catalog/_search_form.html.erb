@@ -1,4 +1,3 @@
-<% unless request.path == advanced_search_path %>
 <%= form_tag search_action_url, :method => :get, :class => 'search-query-form form-inline clearfix' do %>
 <%= render_hash_as_hidden_fields(params_for_search().except(:q, :search_field, :qt, :page, :utf8)) %>
 
@@ -14,13 +13,7 @@
   <span class="input-group-btn">
     <button type="submit" class="btn btn-primary search-btn" id="search">
       <span class="submit-search-text"><%=t('blacklight.search.form.submit')%></span>
-      <span class="glyphicon glyphicon-search"></span>
     </button>
   </span>
 </div>
-<% end %>
-
-<%= link_to t('search.advanced.link_text'), advanced_search_path(params), class: 'advanced_search'%>
-<% else %>
-<%= link_to t('search.simple.link_text'), catalog_index_path(params) %>
 <% end %>
