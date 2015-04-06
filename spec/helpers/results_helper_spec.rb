@@ -37,7 +37,7 @@ describe ResultsHelper do
       it { should eql("<b>The Title</b>") }
     end
     context "when the there are more than 450 characters in a field" do
-       let(:solr_document) { create(:solr_document, unittitle: ["Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu ped"]) } 
+       let(:solr_document) { create(:solr_document, unittitle: ["Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu ped"]) }
        it { should eql "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis e..."}
     end
   end
@@ -147,10 +147,10 @@ describe ResultsHelper do
     end
   end
 
- 
+
   describe "#render_series_facet_link" do
     let(:field) { :heading_ssm }
-    let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }     
+    let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
     subject { render_series_facet_link(document) }
     it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"result_ut\">The Title</span>" }
     it { expect(sanitize(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; The Title") }
@@ -184,7 +184,7 @@ describe ResultsHelper do
     it { should eql({"f"=>{"series_sim"=>document[:document][:unittitle_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
   end
 
- 
+
   describe "#link_to_document" do
     subject { link_to_document(collection, heading) }
     let(:collection) { document[:document] }
@@ -198,6 +198,17 @@ describe ResultsHelper do
     context "when document is item level" do
       let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
       it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
+    end
+  end
+
+  describe "#is_collection?" do
+    subject { is_collection?({}, document[:document]) }
+    context "when document is a collection" do
+      it { should be_true }
+    end
+    context "when document is a component" do
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"]) }
+      it { should be_false }
     end
   end
 
