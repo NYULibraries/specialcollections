@@ -11,6 +11,8 @@ Scenario: Clicking on "Bookmark" saves the bookmark
   And each result should have a "Bookmark"
   When I check a bookmark
   Then my bookmarks count should be "1"
+  When I click on "Your Bookmarks"
+  Then I should see bookmarks
   
 
 
