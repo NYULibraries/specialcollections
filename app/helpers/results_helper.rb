@@ -6,22 +6,22 @@ module ResultsHelper
     doc[:document][doc[:field]].join(", ").truncate(450).html_safe
  end
 
-   
+
   ##
   # Render clean faceted link to items in series
   def render_series_facet_link(doc)
     series = doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)]
-   
+
     coll = doc[:document][Solrizer.solr_name("collection", :displayable)].first
 
     item_title = doc[:document][Solrizer.solr_name("unittitle", :displayable)][0]
-    
-    title = content_tag(:span,item_title, class: "result_ut") 
+
+    title = content_tag(:span,item_title, class: "result_ut")
     coll_link = link_to(coll,add_clean_facet_params_and_redirect([collection_facet, coll]))
     links_to_series = []
     series.each do |ser|
       links_to_series << link_to(ser, add_clean_facet_params_and_redirect([series_facet, ser],[collection_facet, coll]))
-    end unless doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil? # if there is no series info at all 
+    end unless doc[:document][Solrizer.solr_name("parent_unittitles", :displayable)].nil? # if there is no series info at all
 
     [coll_link,links_to_series,title].reject(&:blank?).join(" >> ").html_safe
   end
@@ -31,20 +31,18 @@ module ResultsHelper
   def is_collection?(field_config, doc)
     doc.is_archival_collection?
   end
- 
+
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
-  
+
   # This is a bit of a hack to work around the fact that we don't want to change repo names
-  # in the source repository folder hierarchy. Since folder names match admin_codes, 
+  # in the source repository folder hierarchy. Since folder names match admin_codes,
   # this looks up the looks up the repo by admin_code and grabs the URL.
   def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
       link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
-    elsif repositories[doc].present?
-      repositories[doc]["display"]
     end
   end
 
@@ -98,7 +96,7 @@ module ResultsHelper
     end
   end
 
-  
+
   # Get icon from format type
   def document_icon(doc)
     doc.normalized_format
