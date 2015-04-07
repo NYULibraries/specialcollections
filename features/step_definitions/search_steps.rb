@@ -120,3 +120,11 @@ Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, mult
     expect(page.find(:css, "#documents")).to have_content result_title
   end
 end
+
+Then(/^I should see the following informational text "(.*?)"$/) do |info_text|
+  expect(page.find("p.repository_info")).to have_content info_text
+end
+
+Then(/^I should see the following link "(.*?)"$/) do |link_url|
+  expect(page.find(:xpath, "//p[@class='repository_info']/span[@class='repository_url']/a[@href='#{link_url}']")).to have_content
+end

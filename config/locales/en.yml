@@ -1,5 +1,22 @@
 en:
   application_title: "Archival Collections"
+  repositories:
+    fales:
+      home_text: The Fales Library & Special Collections, comprising 350,000 volumes of book and print items, over 11,000 linear feet of archive and manuscript materials, and about 90,000 audiovisual elements, houses the Fales Collection of rare books and manuscripts in English and American literature, the Downtown Collection, the Food and Cookery Collection, the Riot Grrrl Collection, and the general Special Collections of the NYU Libraries.
+      url: http://www.nyu.edu/library/bobst/research/fales/
+    tamiment:
+      home_text: The Tamiment Library and Robert F. Wagner Labor Archives collects material in all formats documenting the history of labor, the Left, political radicalism, and social movements in the United States, with particular strengths in communism, anarchism, and socialism.  It is also the repository for the Archives of Irish America and the Abraham Lincoln Brigade Archives.
+      url: http://www.nyu.edu/library/bobst/research/tam/
+    universityarchives:
+      home_text: The New York University Archives serves as the final repository for the historical records of NYU. Its primary purpose is to document the history of the University and to provide source material for administrators, faculty, students, alumni, and other members of the University community, as well as scholars, authors, and other interested persons who seek to evaluate the impact of the University's activities on the history of American social, cultural, and intellectual development.
+      url: http://www.nyu.edu/library/bobst/research/arch/
+    rism:
+      home_text: The RISM Research Collections and Archives have been transferred to the New York University Archives.
+      url: http://www.nyu.edu/library/bobst/research/arch/
+    poly:
+      url: http://library.poly.edu/archives
+    nyhistory:
+      url: http://www.nyhistory.org/library/
   facets:
     help:
       repository: "View materials from one special collection (e.g. Fales Library or New-York Historical Society)."
