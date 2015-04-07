@@ -16,10 +16,6 @@ module Views
         return breadcrumbs
       end
 
-      def searching?
-        !params[:q].nil? || !params[:f].nil? || params[:commit] == "Search"
-      end
-
       # Render footer partial
       def footer_html
         render :partial => 'shared/footer'

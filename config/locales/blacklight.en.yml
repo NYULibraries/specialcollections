@@ -5,7 +5,8 @@ en:
       form:
         q: "Names, places, subjects, material types..."
       facets:
-        title: 'Browse All'
+        default_title: 'Browse all'
+        search_title: 'Limit my results'
 
     header_links:
       login: 'Login'

@@ -7,4 +7,8 @@ module ApplicationHelper
     return "http://#{ENV['FINDINGAIDS_FULL_HOST']}#{[ENV['FINDINGAIDS_FULL_PATH'], repository, eadid, page].join("/")}#{"#" + anchor unless anchor.nil?}"
   end
 
+  def searching?
+    !params[:q].nil? || !params[:f].nil? || params[:commit] == "Search"
+  end
+
 end
