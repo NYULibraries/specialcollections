@@ -1,5 +1,5 @@
 Given(/^I am a logged in user$/) do 
-	@current_user
+	@current_user = FactoryGirl.create(:user)
 end
 
 And(/^each result should have a "(.*?)"$/) do |term|
@@ -31,6 +31,7 @@ end
 
 When(/^I go to my bookmarks page$/) do
 	visit bookmarks_path
-	save_and_open_page
+
+	
 end
 
