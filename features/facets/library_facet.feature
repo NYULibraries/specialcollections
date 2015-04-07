@@ -5,11 +5,11 @@ Feature: Library facet
 
   Scenario: Pre limit search by a library facet
     Given I am on the default search page
-    When I limit my search to "The Fales Library" under the "Library" category
+    When I limit my search to "The Fales Library & Special Collections" under the "Library" category
     Then I should see search results
 
   Scenario: Filter search results by a library facet
     Given I am on the default search page
     When I search on the phrase "presidents"
-    And I limit my search to "The Fales Library" under the "Library" category
+    And I limit my search to "The Fales Library & Special Collections" under the "Library" category
     Then I should see search results

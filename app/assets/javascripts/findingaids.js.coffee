@@ -19,4 +19,4 @@ $ ->
   unless $("#advanced_search_facets").find("#facet-format_sim").is(":visible")
     $("#advanced_search_facets").find("div[data-target='#facet-format_sim']").trigger("click")
   # unless $("#facets").find("#facet-repository_sim").is(":visible")
-  #   $("#facets").find("div[data-target='#facet-repository_sim']").trigger("click")
+    # $("#facets").find("div[data-target='#facet-repository_sim']").trigger("click")
