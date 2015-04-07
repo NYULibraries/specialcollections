@@ -7,6 +7,9 @@ en:
       facets:
         default_title: 'Browse all'
         search_title: 'Limit my results'
+      start_over: New Search
+      filters:
+        title: 'Search terms:'
 
     header_links:
       login: 'Login'
