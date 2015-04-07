@@ -1,4 +1,3 @@
-@wip @wip-jenkins
 Feature: Advanced Search
   In order to be able to quickly locate archival materials of interest
   As an archivist or expert user of archives
