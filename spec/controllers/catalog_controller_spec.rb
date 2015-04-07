@@ -32,7 +32,7 @@ describe CatalogController do
     end
 
     it "should include solr weights, assigned on the component/document fields unittitle,unitid,subject,creator,scopcontent,
-         bioghist,note,componenet level to the relevancy caculations " do
+         bioghist,note,componenet level to the relevancy calculations " do
       get :index, :q => "solr", :search_field => "all_fields", :rows => 20
 
       doc_ids=get_doc_ids(assigns_response.docs)
@@ -50,19 +50,19 @@ describe CatalogController do
       doc_ids.should include("weightref43").in_first(11).results
     end
 
-     it "should include solr weights, assigned on the document fields author to the relevancy caculations " do
+     it "should include solr weights, assigned on the document fields author to the relevancy calculations " do
       get :index, :q => "Accuracy", :search_field => "all_fields"
        
       get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
     end
 
-     it "should include solr weights, assigned on the document fields abstract to the relevancy caculations " do
+     it "should include solr weights, assigned on the document fields abstract to the relevancy calculations " do
       get :index, :q => "Simplicity", :search_field => "all_fields"
 
       get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
     end
 
-     it "should include solr weights, assigned on the document fields aqcinfo to the relevancy caculations " do
+     it "should include solr weights, assigned on the document fields aqcinfo to the relevancy calculations " do
       get :index, :q => "Transperancy", :search_field => "all_fields"
 
       get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result

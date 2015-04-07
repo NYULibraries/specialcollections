@@ -5,7 +5,7 @@ Feature: Subject facet
 
   Scenario: Pre limit search by a subject facet
     Given I am on the default search page
-    When I limit my search to "Art and society." under the "Subject" category
+    When I limit my search to "African American radicals -- Interviews." under the "Subject" category
     Then I should see search results
 
   Scenario: Filter search results by a name facet
