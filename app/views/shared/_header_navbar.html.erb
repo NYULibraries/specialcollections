@@ -1,5 +1,16 @@
 <h1 class="page_header"><%= (params[:repository].present?) ? "#{params[:repository]}" : t('application_title') %></h1>
 
+<% if params[:repository].present? %>
+<p class="repository_info">
+  <% if current_repository_home_text? %>
+  <%= t("repositories.#{current_repository_url}.home_text") %>
+  <% end %>
+  <span class="repository_url">
+  <%= link_to "#{fa_icon('globe')} Website".html_safe, t("repositories.#{current_repository_url}.url"), target: '_blank' %>
+  </span>
+</p>
+<% end %>
+
 <% unless request.path == advanced_search_path %>
 <div class="search">
   <%= render_search_bar  %>
