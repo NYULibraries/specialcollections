@@ -15,7 +15,7 @@ describe ApplicationController do
 
     context "when repository is Tamiment " do
       subject(:repository) { repositories[:tamiment] }
-      it { expect(repository[:display]).to eql("The Tamiment Library & Robert F. Wagner Labor Archives") }
+      it { expect(repository[:display]).to eql("The Tamiment Library & Wagner Labor Archives") }
       it { expect(repository[:url]).to eql("tamiment") }
       it { expect(repository[:admin_code]).to eql("tamwag") }
     end
