@@ -7,7 +7,6 @@ Findingaids::Application.routes.draw do
   # Create named routes for each collection specified in the Repositories Class
   Findingaids::Repositories.repositories.each do |coll|
      get "#{coll[1]['url']}" => "catalog#index", :search_field => "#{coll[1]['url_safe_display']}", :repository => "#{coll[1]['display']}"
-
   end
 
   scope "admin" do

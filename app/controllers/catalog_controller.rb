@@ -102,7 +102,7 @@ class CatalogController < ApplicationController
     config.spell_max = 5
 
     config.add_search_field("all_fields",
-      :label => "All Libraries",
+      :label => "All Fields",
       :advanced_parse => false,
       :include_in_advanced_search => true
     )
