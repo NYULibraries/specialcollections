@@ -103,6 +103,27 @@ h5.index_title > i {
   margin-right: .5em;
 }
 
+.result_ut{
+  font-weight: bold;
+}
+
+dt.blacklight-collection_ssm{
+  display:none;
+}
+
+dd.blacklight-collection_ssm{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.search_within{
+  font-weight: bold;
+}
+
+.request_item_note{
+  padding-top:10px;
+}
+
 @media (max-width: 480px) {
   select#search_field {
     width: 100%;

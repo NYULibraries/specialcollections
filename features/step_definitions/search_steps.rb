@@ -20,11 +20,6 @@ When(/^I search "(.*?)" on the phrase "(.*?)"$/) do |coll, phrase|
   search_phrase(phrase)
 end
 
-Given(/^I am on the brief results page$/) do
-  ensure_root_path
-  search_phrase('bloch')
-end
-
 ##
 # Results steps
 Then(/^I should (not )?see search results$/) do |negator|
@@ -67,6 +62,7 @@ end
 Given(/^I choose "(.*?)" as a search scope$/) do |library|
   select "#{library}", :from => "search_field"
 end
+
 
 When(/^I click on the "(.*?)" link$/) do |link|
   click_link link

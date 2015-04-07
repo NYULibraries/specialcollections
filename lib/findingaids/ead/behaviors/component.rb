@@ -23,12 +23,15 @@ module Findingaids::Ead::Behaviors
     #
     # E.g. ["Collection Name","Series I", "Sub-series III"] => "Collection Name >> Series I >> Sub-series III >> Unit Title"
     def title_for_heading(parent_titles = Array.new)
+
       if parent_titles.length > 0
         [parent_titles, self.term_to_html("unittitle")].join(" >> ")
       else
         self.term_to_html("unittitle")
       end
+      
     end
+
 
     # Extract collection name from solr_doc
     # it was passed in via additional information from the collection level indexer
