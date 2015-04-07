@@ -13,6 +13,7 @@ Scenario: Adding a bookmark
   Then my bookmarks count should be "1"
   #When I click on "Your Bookmarks"
   When I go to my bookmarks page
+  Then I should see bookmarks
   
 
 
