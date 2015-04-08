@@ -6,8 +6,8 @@ Catalog:
       url: "fales"
       admin_code: fales
     tamiment:
-      display: 'The Tamiment Library & Wagner Labor Archives'
-      url_safe_display: 'The Tamiment Library %26 Wagner Labor Archives'
+      display: 'Tamiment Library & Wagner Labor Archives'
+      url_safe_display: 'Tamiment Library %26 Wagner Labor Archives'
       url: "tamiment"
       admin_code: "tamwag"
     universityarchives:
