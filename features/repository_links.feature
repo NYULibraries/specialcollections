@@ -12,7 +12,7 @@ Feature: Stable Repository Links
 
   Scenario: Tamiment homepage
     Given I am on the "tamiment" search page
-    Then the limit "The Tamiment Library & Robert F. Wagner Labor Archives" should be selected under the "Library" category
+    Then the limit "Tamiment Library & Wagner Labor Archives" should be selected under the "Library" category
     And I should see the following informational text "The Tamiment Library and Robert F. Wagner Labor Archives collects material in all formats documenting the history of labor, the Left, political radicalism, and social movements in the United States, with particular strengths in communism, anarchism, and socialism.  It is also the repository for the Archives of Irish America and the Abraham Lincoln Brigade Archives."
     And I should see the following link "http://www.nyu.edu/library/bobst/research/tam/"
     And I should see search results
