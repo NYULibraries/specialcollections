@@ -17,7 +17,7 @@ end
 
 Then(/^I should see facets in the following order:$/) do |table|
   table.rows_hash.each do |order, value|
-    expect(page.find("#facets div.panel-group > div:nth-child(#{order})").text).to eq(value)
+    expect(page.find("#facets div.panel-group > div:nth-child(#{order}) h5 > a").text).to eq(value)
   end
 end
 

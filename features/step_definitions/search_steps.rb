@@ -1,5 +1,5 @@
 Given(/^I am on the default search page$/) do
-  visit root_path
+  visit catalog_index_path
 end
 
 Given (/^I am on the "(.*)" search page$/) do |place|
@@ -23,10 +23,11 @@ end
 ##
 # Results steps
 Then(/^I should (not )?see search results$/) do |negator|
+  documents = page.find(:css, "#documents").all(:css, ".document")
   if negator
-    expect(documents_list).to have_exactly(0).items
+    expect(documents).to have_exactly(0).items
   else
-    expect(documents_list).to have_at_least(1).items
+    expect(documents).to have_at_least(1).items
   end
 end
 
@@ -101,7 +102,7 @@ When(/^I fill-in the field "(.*?)" with the term "(.*?)"$/) do |field, value|
 end
 
 Then(/^I should see exactly (\d+) search result(s)?$/) do |number_of_results, plural|
-  expect(documents_list).to have_exactly(number_of_results).items
+  expect(page.find(:css, "#documents").all(:css, ".document")).to have_exactly(number_of_results).items
 end
 
 Given(/^I select "(.*?)" from the "(.*?)" attributes dropdown$/) do |value, dropdown|
@@ -116,6 +117,14 @@ end
 # => Then that result should be: ...
 Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, multiple_state, table|
   table.rows_hash.each do |index, result_title|
-    expect(documents_list_container).to have_content result_title
+    expect(page.find(:css, "#documents")).to have_content result_title
   end
+end
+
+Then(/^I should see the following informational text "(.*?)"$/) do |info_text|
+  expect(page.find("p.repository_info")).to have_content info_text
+end
+
+Then(/^I should see the following link "(.*?)"$/) do |link_url|
+  expect(page.find(:xpath, "//p[@class='repository_info']/span[@class='repository_url']/a[@href='#{link_url}']")).to have_content
 end

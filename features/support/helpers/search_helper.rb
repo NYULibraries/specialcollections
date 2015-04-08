@@ -7,23 +7,23 @@ module FindingaidsFeatures
 
     def limit_by_facet(category, facet, facets_id = "facets")
       within(:css, "\##{facets_id}") do
-        click_on(category)
+        click_on(category) unless category == "Library"
         click_on(facet)
       end
     end
 
     def search_phrase(phrase)
       within(:css, "form.search-query-form") do
-        fill_in 'Search...', :with => phrase
+        fill_in "q", :with => phrase
       end
       click_button("Search")
     end
 
     def get_class_name(label)
-      class_hsh = { "Format"       =>  Solrizer.solr_name("format", :displayable), 
-                    "Date range"   =>  Solrizer.solr_name("unitdate", :displayable), 
-                    "Abstract"     =>  Solrizer.solr_name("abstract", :displayable), 
-                    "Library"      =>  Solrizer.solr_name("repository", :stored_sortable), 
+      class_hsh = { "Format"       =>  Solrizer.solr_name("format", :displayable),
+                    "Date range"   =>  Solrizer.solr_name("unitdate", :displayable),
+                    "Abstract"     =>  Solrizer.solr_name("abstract", :displayable),
+                    "Library"      =>  Solrizer.solr_name("repository", :stored_sortable),
                     "Call no"      =>  Solrizer.solr_name("unitid", :displayable),
                     "Location"     =>  Solrizer.solr_name("location", :displayable),
                     "Contained in" =>  Solrizer.solr_name("heading", :displayable)

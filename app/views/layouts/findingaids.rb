@@ -1,7 +1,6 @@
-# app/views/layouts/bobcat.rb
 module Views
   module Layouts
-    class Application < ActionView::Mustache
+    class Findingaids < ActionView::Mustache
 
       def application_title
         t("application_title")
@@ -10,9 +9,10 @@ module Views
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
-        breadcrumbs << link_to_unless_current(application_title, {:controller =>'catalog', :repository => nil})
-        breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name.eql? "catalog"
-        breadcrumbs << params[:repository] if params[:repository].present?
+        breadcrumbs << link_to_if(searching? || request.path != '/catalog', application_title, {:controller =>'catalog', :repository => nil})
+        breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name == "catalog"
+        breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
+        breadcrumbs << "Search" if searching?
         return breadcrumbs
       end
 
@@ -48,6 +48,11 @@ module Views
       # Add blacklight body classes to layout
       def body_class
         render_body_class.html_safe
+      end
+
+      # Conditionally load left sidebar if we are searching and there are some facets
+      def left_sidebar
+        controller.controller_name == "catalog" && has_facet_values?
       end
 
     end

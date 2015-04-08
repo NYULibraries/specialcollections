@@ -1,6 +1,15 @@
 en:
   blacklight:
     application_name: 'NYU Division of Libraries'
+    search:
+      form:
+        q: "Names, places, subjects, material types..."
+      facets:
+        default_title: 'Browse all'
+        search_title: 'Limit my results'
+      start_over: New Search
+      filters:
+        title: 'Search terms:'
 
     header_links:
       login: 'Login'
