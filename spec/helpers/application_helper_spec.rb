@@ -27,8 +27,8 @@ describe ApplicationHelper do
     context "when the repository is The Fales Library & Special Collections" do
       it { should eql "fales" }
     end
-    context "when the repository is The Tamiment Library & Robert F. Wagner Labor Archives" do
-      let(:repository) { "The Tamiment Library & Robert F. Wagner Labor Archives" }
+    context "when the repository is Tamiment Library & Wagner Labor Archives" do
+      let(:repository) { "Tamiment Library & Wagner Labor Archives" }
       it { should eql "tamiment" }
     end
   end

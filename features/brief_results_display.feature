@@ -23,7 +23,7 @@ Feature: Brief result display
       | Contained in | Oral History of the American Left: Radical Histories >> Minka Alesh |
       | Date range | Oct 26, 1982 |
       | | To request this item, please note the following information |
-      | Library | The Tamiment Library & Robert F. Wagner Labor Archives |
+      | Library | Tamiment Library & Wagner Labor Archives |
       | Location | CD: Access OH-02-159, Box: 1, CD: Alesh 1, Cassette: 1, CD: ohaloh020146p1 / /ohaloh020146p2, Box: 1, Cassette: 1 |
 
   Scenario: Link to search all materials within collection launches faceted search
