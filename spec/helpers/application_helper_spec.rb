@@ -38,7 +38,7 @@ describe ApplicationHelper do
     context "when current repository has home text" do
       it { should_not be_empty }
     end
-    context "when current repository doesn't have home text" do
+    context "when current repository doesn't exist" do
       let(:repository) { "The Nothing Library" }
       it { should be_false }
     end

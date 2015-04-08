@@ -22,9 +22,7 @@ module ApplicationHelper
   def current_repository_home_text?
     begin
       I18n.translate!("repositories.#{current_repository_url}.home_text", :raise => true)
-    rescue I18n::MissingTranslationData
-      false
-    rescue NoMethodError
+    rescue
       false
     end
   end
