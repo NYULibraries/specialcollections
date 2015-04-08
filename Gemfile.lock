@@ -16,8 +16,8 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries-assets.git
-  revision: 59a262d14d78b8976c389cf8da06fbba1b569208
-  branch: feature/findingaids_layout
+  revision: b3b21e219839c147a5cb0bb28b44d937e8b68072
+  tag: v4.3.0
   specs:
     nyulibraries-assets (4.2.1)
       bootstrap-sass (~> 3.2.0.2)
