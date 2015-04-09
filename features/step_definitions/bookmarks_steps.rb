@@ -15,29 +15,10 @@ When(/^I check a bookmark$/) do
     end
 end
 
-Then(/^my bookmarks should be saved$/) do
+Then(/^my bookmark should be saved$/) do
 	within(:css,"#bookmarks_nav") do
 		find('span', text: "1")
 	end
 end
 
-Then(/^my bookmarks count should be "(.*?)"$/) do |count|
-	within(:css,"#bookmarks_nav") do
-		find('span', text: count)
-	end
-end
-
-When(/^I click on "(.*?)"$/) do |link|
-	find('#bookmarks_nav', text: link).click
-end
-
-Then(/^I should see bookmarks$/) do
-	save_and_open_page
-end
-
-When(/^I go to my bookmarks page$/) do
-	visit bookmarks_path
-
-	
-end
 
