@@ -90,7 +90,7 @@ module Findingaids
 
         #Boost functions
         def bf_functions
-           @bf_functions ||= ["#{solr_field_value_filter(solr_name("format", :facetable), "*Collection*")}^1500",
+           @bf_functions ||= ["#{solr_field_value_filter(solr_name("format", :facetable), "*Collection*")}^3000",
              "#{solr_field_value_filter(solr_name("level", :facetable), "series")}^300",
              "#{solr_field_value_filter(solr_name("level", :facetable), "subseries")}^70",
              "#{solr_field_value_filter(solr_name("level", :facetable), "file")}^50",
