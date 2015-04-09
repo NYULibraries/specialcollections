@@ -4,6 +4,7 @@ module CitationHelper
   # Render citation field value
   # hash contains order in which fields should be output for citation
   def render_citation_field(doc)
+
     display_fields_hsh = { 1 =>  Solrizer.solr_name("unittitle",  :displayable),
                            2 =>  Solrizer.solr_name("unitdate",   :displayable),
                            3 =>  Solrizer.solr_name("collection", :displayable),
@@ -20,13 +21,14 @@ module CitationHelper
     }
     # Need comma after title according to user story
     if doc[Solrizer.solr_name("unittitle",  :displayable)]
-      title = cite.slice!(0) 
-      title = "#{title}, "
+      cite_title = cite.slice!(0) 
+      cite_title = "#{cite_title}, "
     end
 
     # rest of the fields should be separated by a semi colon
-    [title,cite.reject(&:blank?).join("; ")].join("").html_safe
+    [cite_title,cite.reject(&:blank?).join("; ")].join("").html_safe
   end
+
 end
 
   
