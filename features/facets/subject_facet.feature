@@ -11,5 +11,5 @@ Feature: Subject facet
   Scenario: Filter search results by a name facet
     Given I am on the default search page
     When I search on the phrase "Broadcasting"
-    And I limit my search to "Art and society." under the "Subject" category
+    And I limit my search to "African American radicals -- Interviews." under the "Subject" category
     Then I should see search results
