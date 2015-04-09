@@ -40,7 +40,7 @@ describe Findingaids::Solr::CatalogHelpers do
 
   describe ".bf_functions" do
     subject { catalog_helper.bf_functions }
-    it { should eql ["exists(query({!v=format_sim:*Collection*}))^600", "exists(query({!v=level_sim:series}))^150", "exists(query({!v=level_sim:subseries}))^70", "exists(query({!v=level_sim:file}))^50", "exists(query({!v=level_sim:item}))^40"] }
+    it { should eql ["exists(query({!v=format_sim:*Collection*}))^1000", "exists(query({!v=level_sim:series}))^150", "exists(query({!v=level_sim:subseries}))^70", "exists(query({!v=level_sim:file}))^50", "exists(query({!v=level_sim:item}))^40"] }
   end
 
   describe ".advanced_search_fields" do
