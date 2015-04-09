@@ -15,6 +15,12 @@ When(/^I check a bookmark$/) do
     end
 end
 
+Then(/^my bookmarks should be saved$/) do
+	within(:css,"#bookmarks_nav") do
+		find('span', text: "1")
+	end
+end
+
 Then(/^my bookmarks count should be "(.*?)"$/) do |count|
 	within(:css,"#bookmarks_nav") do
 		find('span', text: count)
