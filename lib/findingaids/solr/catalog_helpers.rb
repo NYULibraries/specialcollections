@@ -18,23 +18,31 @@ module Findingaids
         # Query fields
         def qf_fields
           @qf_fields ||= [
-            "#{solr_name("title", :displayable)}^2000.0",
-            "#{solr_name("parent_unittitles", :displayable)}^500.0",
-            "#{solr_name("collection", :searchable)}^1000.0",
-            "#{solr_name("title", :stored_searchable)}^1000.0",
-            "#{solr_name("title", :searchable)}^1000.0",
-            "#{solr_name("subject", :searchable)}^250.0",
-            "#{solr_name("abstract", :searchable)}^250.0" ,
-            "#{solr_name("controlaccess", :searchable)}^100.0",
-            "#{solr_name("scopecontent", :searchable)}^90.0",
-            "#{solr_name("bioghist", :searchable)}^80.0",
-            "#{solr_name("unittitle", :searchable)}^70.0",
-            "#{solr_name("odd", :searchable)}^60.0",
-            "#{solr_name("index", :searchable)}^50.0",
-            "#{solr_name("phystech", :searchable)}^40.0",
-            "#{solr_name("acqinfo", :searchable)}^30.0",
-            "#{solr_name("sponsor", :searchable)}^20.0",
-            "#{solr_name("custodhist", :searchable)}^10.0"
+            "#{solr_name("unittitle", :searchable)}^145.0",
+            "#{solr_name("parent_unittitles", :searchable)}",
+            "#{solr_name("collection", :searchable)}",
+            "#{solr_name("unitid", :searchable)}^60",
+            "#{solr_name("language", :displayable)}",
+            "#{solr_name("unitdate_start", :searchable)}",
+            "#{solr_name("unitdate_end", :searchable)}",
+            "#{solr_name("unitdate", :searchable)}",
+            "#{solr_name("name", :searchable)}",
+            "#{solr_name("subject", :searchable)}^60.0",
+            "#{solr_name("abstract", :searchable)}^55.0" ,
+            "#{solr_name("creator", :searchable)}^60.0",
+            "#{solr_name("scopecontent", :searchable)}^60.0",
+            "#{solr_name("bioghist", :searchable)}^55.0",
+            "#{solr_name("title", :searchable)}",
+            "#{solr_name("material_type", :searchable)}",
+            "#{solr_name("place", :searchable)}",
+            "#{solr_name("dao", :searchable)}",
+            "#{solr_name("chronlist", :searchable)}",
+            "#{solr_name("appraisal", :searchable)}",
+            "#{solr_name("custodhist", :searchable)}^15",
+            "#{solr_name("acqinfo", :searchable)}^20.0",
+            "#{solr_name("address", :searchable)}",
+            "#{solr_name("note", :searchable)}^30.0",
+            "#{solr_name("author", :searchable)}^10.0"
           ].join(" ")
         end
 
@@ -78,6 +86,21 @@ module Findingaids
         # Phrase fields
         def pf_fields
           @pf_fields ||= qf_fields
+        end
+
+        #Boost functions
+        def bf_functions
+           @bf_functions ||= ["#{solr_field_value_filter(solr_name("format", :facetable), "*Collection*")}^600",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "series")}^150",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "subseries")}^70",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "file")}^50",
+             "#{solr_field_value_filter(solr_name("level", :facetable), "item")}^40",
+           ]
+        end
+
+        #query function
+        def solr_field_value_filter field_name, filter_value
+             "exists(query({!v=#{field_name}:#{filter_value}}))"
         end
       end
     end

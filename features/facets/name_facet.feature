@@ -5,11 +5,11 @@ Feature: Name facet
 
   Scenario: Pre limit search by a name facet
     Given I am on the default search page
-    When I limit my search to "Bloom, Jonathan" under the "Name" category
+    When I limit my search to "Bartlett family" under the "Name" category
     Then I should see search results
 
   Scenario: Filter search results by a name facet
     Given I am on the default search page
-    When I search on the phrase "radical"
-    And I limit my search to "Bloom, Jonathan" under the "Name" category
+    When I search on the phrase "Kings"
+    And I limit my search to "Bartlett family" under the "Name" category
     Then I should see search results

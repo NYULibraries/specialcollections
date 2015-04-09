@@ -12,6 +12,7 @@ class CatalogController < ApplicationController
       :fl => display_fields,
       :qf => qf_fields,
       :pf => pf_fields,
+      :bf => bf_functions,
       :facet => true,
       "facet.mincount" => 1,
       :echoParams => "explicit",

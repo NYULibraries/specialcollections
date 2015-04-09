@@ -105,6 +105,9 @@ group :test do
   gem 'simplecov-rcov', require: false
   # Use Coveralls to publish coverage on the open web
   gem 'coveralls', '~> 0.7.0', require: false
+  #to be able to use rspec matchers
+  gem 'rspec-expectations' 
+  gem 'rspec-solr', '~> 1.0.1'
 end
 
 # Pry for debubbing
