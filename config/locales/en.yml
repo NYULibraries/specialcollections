@@ -35,3 +35,8 @@ en:
       link_text: Advanced Search
     simple:
       link_text: "&laquo; Return to Basic Search"
+    zero_results:
+      title: "- Sorry, no results matched your search."
+      modify_search: "- Consider searching with different terms - for example, a search for ‘ “NYU clubs”’  will produce different results than ‘ “NYU society” ‘ or ‘ “New York University clubs” ‘
+                      - Double check spelling.
+                      - Consider using the facets on the left to browse for related terms."
