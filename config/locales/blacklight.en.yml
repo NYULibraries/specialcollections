@@ -11,12 +11,15 @@ en:
       filters:
         title: 'Search terms:'
       pagination_info:
-        no_items_found: ' Sorry, no results matched your search.
-     <li>Consider searching with different terms - for example, a search for ‘ “NYU clubs”’
-     will produce different results than ‘ “NYU society” ‘ or ‘ “New York University clubs” ‘</li>
-     <li>Double check spelling.</li>
-     <li>Consider using the facets on the left to browse for related terms.</li>'
-  
+        no_items_found: ""
+      zero_results:
+        title: Sorry, no results matched your search.
+        check_spelling: Double check spelling.
+        use_facets: Consider using the facets on the left to browse for related terms.
+        modify_search: |
+          Consider searching with different terms - for example, a search for ' "NYU clubs" '
+          will produce different results than ' "NYU society" ' or ' "New York University clubs" '
+
     header_links:
       login: 'Login'
       logout: 'Log Out'
@@ -46,4 +49,3 @@ en:
 
       contact_information:
         title: 'Special Collections Contact Information and Hours'
-       

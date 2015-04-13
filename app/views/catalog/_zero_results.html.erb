@@ -1,0 +1,18 @@
+<div class="alert alert-info">
+<h2><%= t 'blacklight.search.zero_results.title' %></h2>
+<div id="documents" class="noresults">
+  <ul>
+    <li><%= t 'blacklight.search.zero_results.modify_search' %></li>
+    <li><%= t 'blacklight.search.zero_results.check_spelling' %></li>
+    <li><%= t 'blacklight.search.zero_results.use_facets' %></li>
+
+    <%- # Change out of the box search tip to match our searching needs -%>
+    <%- if params[:q] and params[:search_field] and params[:search_field] != blacklight_config.default_search_field.try(:key) -%>
+      <li><%= t 'blacklight.search.zero_results.search_fields', :search_fields => search_field_label(params).gsub('&amp;','&') %> -
+      <%= link_to t('blacklight.search.zero_results.search_everything', field: blacklight_config.default_search_field.label), url_for(params_for_search(:search_field=>blacklight_config.default_search_field.key,:repository=>nil,:f=>nil)) %>
+      </li>
+    <%- end %>
+
+  </ul>
+</div>
+</div>
