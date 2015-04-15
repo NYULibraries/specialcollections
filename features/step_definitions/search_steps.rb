@@ -128,3 +128,9 @@ end
 Then(/^I should see the following link "(.*?)"$/) do |link_url|
   expect(page.find(:xpath, "//p[@class='repository_info']/span[@class='repository_url']/a[@href='#{link_url}']")).to have_content
 end
+
+Then(/^I should see the following text:$/) do |multiline_content|
+  multiline_content.split("\n").each do |line_of_text|
+    expect(page.find("#content")).to have_content line_of_text
+  end
+end
