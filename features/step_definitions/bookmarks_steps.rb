@@ -1,4 +1,4 @@
-Given(/^I am a logged in user$/) do 
+Given(/^I am a logged in user$/) do
 	@current_user = FactoryGirl.create(:user)
 end
 
@@ -8,11 +8,8 @@ And(/^each result should have a "(.*?)"$/) do |term|
   end
 end
 
-When(/^I check a bookmark$/) do 
-   	check('toggle_bookmark_oh_002ref713')
-   	Timeout.timeout(Capybara.default_wait_time) do
-      loop until page.evaluate_script('jQuery.active').zero?
-    end
+When(/^I check a bookmark$/) do
+	check('toggle_bookmark_oh_002ref713')
 end
 
 Then(/^my bookmark should be saved$/) do
@@ -21,4 +18,14 @@ Then(/^my bookmark should be saved$/) do
 	end
 end
 
+When(/^I check "(.*?)" for the first result$/) do |link|
+	within(:css, "#documents .document:first-child") do
+		check(link)
+		wait_for_ajax
+	end
+end
 
+Then(/^I should see my saved bookmarks$/) do
+	binding.pry
+  pending # express the regexp above with the code you wish you had
+end
