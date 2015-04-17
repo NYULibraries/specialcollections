@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+
   ##
   # Create url for finding aid
   def url_for_findingaid(repository, eadid, page = nil, anchor = nil)
