@@ -78,6 +78,9 @@ gem 'authpds', github: 'barnabyalter/authpds'
 gem 'authpds-nyu', github: 'barnabyalter/authpds-nyu'
 # /Transition gems
 
+# Faraday for http calls
+gem 'faraday', '~> 0.9.1'
+
 group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller', '~> 0.7.2'
