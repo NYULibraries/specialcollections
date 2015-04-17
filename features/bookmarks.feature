@@ -22,7 +22,7 @@ Feature: Cite and Email Bookmarks
     And I click on the "Your Bookmarks" link
     Then I should not see "Ben Alexrod" saved in my bookmarks
 
-  Scenario: Deleting a bookmark from Your Booksmarks
+  Scenario: Deleting a bookmark from Your Bookmarks
     Given I am on the bookmarks page
     When I uncheck "In Bookmarks" for the first result
     And I reload the page
@@ -35,7 +35,7 @@ Feature: Cite and Email Bookmarks
       """
       """
 
-  Scenario: Citing a bookmark
+  Scenario: Emailing a bookmark
     Given I am on the bookmarks page
     When I click on the "Email" button
     Then I should receive an email containing the following citation:

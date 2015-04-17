@@ -34,11 +34,11 @@ Given(/^I see "In Bookmarks" checked for the first result$/) do
 end
 
 Given(/^I am on the bookmarks page$/) do
-  visit bookmarks_url
+  visit bookmarks_path
 end
 
 When(/^I reload the page$/) do
-  visit curent_url
+  visit current_url
 end
 
 Then(/^I should see a popup containing the following citation:$/) do |string|
