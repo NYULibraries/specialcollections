@@ -41,10 +41,18 @@ When(/^I reload the page$/) do
   visit current_url
 end
 
+When(/^I submit the email form$/) do
+  within("#email_form") do
+    fill_in "Email:", with: "pyramidman@library.nyu.edu"
+    fill_in "Message:", with: "Check out these wicked awesome bookmarks"
+    click_on "Send"
+  end
+end
+
 Then(/^I should see a popup containing the following citation:$/) do |string|
-  pending # express the regexp above with the code you wish you had
+  expect(page.find("#ajax-modal .modal-content").text).to have_content
 end
 
 Then(/^I should receive an email containing the following citation:$/) do |string|
-  pending # express the regexp above with the code you wish you had
+  expect(last_email).to have_content "string"
 end
