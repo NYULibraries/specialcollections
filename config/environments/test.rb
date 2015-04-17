@@ -1,5 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.default_options = {from: 'no-reply@library.nyu.edu'}
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that
@@ -22,7 +23,6 @@ Rails.application.configure do
 
   # Raise exceptions instead of rendering exception templates.
   config.action_dispatch.show_exceptions = false
-  config.action_mailer.raise_delivery_errors = false
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
