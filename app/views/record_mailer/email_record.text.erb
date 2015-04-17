@@ -1,0 +1,5 @@
+<% @documents.each do |document| %>
+<%= document.to_email_text %>
+<%= t('blacklight.email.text.url', :url =>get_url_for_findingaid_from_document(document)) %>
+<% end %>
+<%= t('blacklight.email.text.message', :message => @message) %>
