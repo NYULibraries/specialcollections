@@ -43,16 +43,19 @@ end
 
 When(/^I submit the email form$/) do
   within("#email_form") do
-    fill_in "Email:", with: "pyramidman@library.nyu.edu"
+    fill_in "Email:", with: "ba36@nyu.edu"
     fill_in "Message:", with: "Check out these wicked awesome bookmarks"
     click_on "Send"
   end
+  sleep 3
 end
 
 Then(/^I should see a popup containing the following citation:$/) do |string|
   expect(page.find("#ajax-modal .modal-content").text).to have_content
 end
 
-Then(/^I should receive an email containing the following citation:$/) do |string|
-  expect(last_email).to have_content "string"
+Then(/^I should receive an email containing a link to the "(.*?)" record$/) do |record_title|
+  record_page = last_email.body.raw_source.split("\n")[1].gsub(/URL: /,"")
+  visit record_page rescue Capybara::Poltergeist::JavascriptError
+  expect(page).to have_content record_title
 end
