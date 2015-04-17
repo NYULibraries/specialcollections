@@ -1,15 +1,7 @@
-Given(/^I am a logged in user$/) do
-	@current_user = FactoryGirl.create(:user)
-end
-
 And(/^each result should have a "(.*?)"$/) do |term|
   within(:css,"div.document > div.documentHeader > div.documentFunctions") do
 	 find('span', text: term)
   end
-end
-
-When(/^I check a bookmark$/) do
-	check('toggle_bookmark_oh_002ref713')
 end
 
 Then(/^my bookmark should be saved$/) do
@@ -18,14 +10,41 @@ Then(/^my bookmark should be saved$/) do
 	end
 end
 
-When(/^I check "(.*?)" for the first result$/) do |link|
+When(/^I (un)?check "(.*?)" for the first result$/) do |negator,link|
 	within(:css, "#documents .document:first-child") do
-		check(link)
+    (negator) ? uncheck(link) : check(link)
 		wait_for_ajax
 	end
 end
 
-Then(/^I should see my saved bookmarks$/) do
-	binding.pry
+Then(/^I should (not )?see "(.*?)" saved in my bookmarks$/) do |negator, bookmark|
+  if negator
+    expect(page).to have_content "You have no bookmarks"
+  else
+    expect(find("#documents .document:first-child h5.index_title a").text).to eql bookmark
+  end
+end
+
+Then(/^I should see "In Bookmarks" checked for the first result$/) do
+  expect(find("#documents .document:first-child input.toggle_bookmark:checked")).to have_content
+end
+
+Given(/^I see "In Bookmarks" checked for the first result$/) do
+  expect(find("#documents .document:first-child")).to have_content
+end
+
+Given(/^I am on the bookmarks page$/) do
+  visit bookmarks_url
+end
+
+When(/^I reload the page$/) do
+  visit curent_url
+end
+
+Then(/^I should see a popup containing the following citation:$/) do |string|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should receive an email containing the following citation:$/) do |string|
   pending # express the regexp above with the code you wish you had
 end
