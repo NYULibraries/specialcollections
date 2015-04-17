@@ -166,16 +166,32 @@ describe ResultsHelper do
   describe "#link_to_document" do
     subject { link_to_document(collection, heading) }
     let(:collection) { document[:document] }
-    context "when document is a collection level item" do
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/\" target=\"_blank\">Guide to titling finding aids</a>") }
+    context "when document is not a real url" do
+      context "and document is a collection level item" do
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc.html#123\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
+      context "and document is a series level item" do
+        let(:solr_document) { create(:solr_document, format: ["Archival Series"], parent: ["ref344"], ref: "ref350") }
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc.html#ref350\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
+      context "and document is an object level item" do
+        let(:solr_document) { create(:solr_document, format: ["Archival Object"], parent: ["ref3"], ref: "ref309") }
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc.html#ref309\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
     end
-    context "when document is a series level item" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Series"], parent: ["1234"], ref: nil) }
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc1234.html\" target=\"_blank\">Guide to titling finding aids</a>") }
-    end
-    context "when document is item level" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["1234"], ref: "5678") }
-      it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dsc1234.html#5678\" target=\"_blank\">Guide to titling finding aids</a>") }
+    context "when document is a real url" do
+      context "and document is an collection level item" do
+        let(:solr_document) { create(:solr_document, format: ["Archival Collection"], id: "bytsura", ead: "bytsura") }
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
+      context "and document is an series level item" do
+        let(:solr_document) { create(:solr_document, format: ["Archival Series"], id: "bytsura", ead: "bytsura", parent: nil, ref: "ref3") }
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dscref3.html\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
+      context "and document is an object level item" do
+        let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["ref3"], ref: "ref309") }
+        it { should eql("<a href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dscref3.html#ref309\" target=\"_blank\">Guide to titling finding aids</a>") }
+      end
     end
   end
 
