@@ -40,7 +40,4 @@ Feature: Cite and Email Bookmarks
     Given I am on the bookmarks page
     When I click on the "Email" button
     And I submit the email form
-    Then I should receive an email containing the following citation:
-      """
-      1. Ben Alexrod, Oct 4, 1979; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
-      """
+    Then I should receive an email containing a link to the "Ben Alexrod" record
