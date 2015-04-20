@@ -35,3 +35,8 @@ en:
       link_text: Advanced Search
     simple:
       link_text: "&laquo; Return to Basic Search"
+  bookmarks:
+    help:
+      email: "Email a list of my bookmarks"
+      citation: "Display a list of my bookmarks"
+

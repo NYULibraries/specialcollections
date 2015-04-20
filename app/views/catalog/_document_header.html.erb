@@ -1,6 +1,7 @@
 <% # header bar for doc items in index view -%>
 <div class="documentHeader clearfix">
-
+	 <% # bookmark functions for items/docs -%>
+  <%= render_index_doc_actions document, :wrapping_class => "documentFunctions col-md-2" %>
   <% # main title container for doc partial view -%>
     <h5 class="index_title">
       <i class="contenttypes-<%= document_icon document %>"></i>
@@ -8,6 +9,5 @@
     </h5>
 
 
-  <% # bookmark functions for items/docs -%>
-  <%= render_index_doc_actions document, :wrapping_class => "documentFunctions col-md-2" %>
+ 
 </div>
