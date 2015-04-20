@@ -65,9 +65,6 @@ Given(/^I choose "(.*?)" as a search scope$/) do |library|
 end
 
 
-When(/^I click on the "(.*?)" link$/) do |link|
-  click_link link
-end
 
 Then(/^I should see the advanced search form$/) do
   expect(page).to have_content "More Search Options"
