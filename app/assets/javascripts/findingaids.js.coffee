@@ -1,7 +1,8 @@
 $ ->
   # Show library facet by default
-  $("#facets").find("#facet-repository_sim").show()
-  $("#facets").find(".blacklight-repository_sim").find(".panel-heading.collapse-toggle.collapsed").removeClass("collapsed")
+  unless $("#facets").find("#facet-repository_sim").is(":visible")
+    $("#facets").find("#facet-repository_sim").addClass("in")
+    $("#facets").find(".blacklight-repository_sim").find(".panel-heading.collapse-toggle.collapsed").removeClass("collapsed")
 
   $('a[data-remote=true]').click ->
     $('#ajax-modal .modal-content').html($('<div />').addClass('modal-header').append($('<h3 />').addClass('modal-title').html($(this).html())))
