@@ -35,6 +35,12 @@ en:
       link_text: Advanced Search
     simple:
       link_text: "&laquo; Return to Basic Search"
+    brief_results:
+      popovers:
+        search_within: Search descriptions of materials in this collection.
+        archival_collection: See a full description and inventory of this collection.
+        archival_series_and_object: View in context of the full collection inventory.
+        library: View descriptions of materials held by this library.
   bookmarks:
     help:
       email: "Email a list of my bookmarks"
