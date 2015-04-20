@@ -34,18 +34,4 @@ en:
 
       Or browse resources by the facets in the sidebar.
 
-    brief_display_text:
-      type:
-        collection: 'Search all archival materials within this collection'
-        other: 'To request this item, please note the following information'
-
     footer: NYU Division of Libraries.
-    create_record_help: "Create a comma-delimited list for multiple values, e.g. My Tag, My Other Tag, 'My, Tag, With, Commas'"
-
-    help:
-      title: 'Need Help?'
-      search_tips:
-        title: 'Search Tips'
-
-      contact_information:
-        title: 'Special Collections Contact Information and Hours'

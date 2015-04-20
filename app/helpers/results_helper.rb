@@ -69,10 +69,10 @@ module ResultsHelper
     if  doc[:document].is_archival_collection?
       item = doc[:document][doc[:field]].first
       local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
-      link_to t('blacklight.brief_display_text.type.collection'), local_params, :class => "search_within"
+      link_to t('search.brief_results.link_text.collection'), local_params, :class => "search_within"
     else
       item = []
-      item << content_tag(:span,t('blacklight.brief_display_text.type.other'),class:"search_within")
+      item << content_tag(:span,t('search.brief_results.link_text.other'),class:"search_within")
       item.join("").html_safe
     end
   end
