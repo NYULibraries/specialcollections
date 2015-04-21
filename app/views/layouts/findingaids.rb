@@ -9,7 +9,7 @@ module Views
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
-        breadcrumbs << link_to_if(searching? || request.path != '/catalog', application_title, {:controller =>'catalog', :repository => nil})
+        breadcrumbs << link_to_if(searching? || request.path != "#{ENV['RAILS_RELATIVE_URL_ROOT']}/catalog", application_title, {:controller =>'catalog', :repository => nil})
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name == "catalog"
         breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
         breadcrumbs << "Search" if searching?
