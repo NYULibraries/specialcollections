@@ -9,7 +9,7 @@ module Views
       # Print breadcrumb navigation
       def breadcrumbs
         breadcrumbs = super
-        breadcrumbs << link_to_if(searching? || request.path != "#{ENV['RAILS_RELATIVE_URL_ROOT']}/catalog", application_title, {:controller =>'catalog', :repository => nil})
+        breadcrumbs << link_to_if(link_to_root?, application_title, {:controller =>'catalog', :repository => nil})
         breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name == "catalog"
         breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
         breadcrumbs << "Search" if searching?
@@ -53,6 +53,13 @@ module Views
       # Conditionally load left sidebar if we are searching and there are some facets
       def left_sidebar
         controller.controller_name == "catalog" && has_facet_values?
+      end
+
+      # Link to root if searching or if on any page that isn't the root
+      # /search/catalog
+      # /search
+      def link_to_root?
+        searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{catalog_index_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
       end
 
     end
