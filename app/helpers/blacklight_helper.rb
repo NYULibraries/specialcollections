@@ -1,4 +1,6 @@
 module BlacklightHelper
+  # Make our application helper functions available to core blacklight views
+  include ApplicationHelper
   include Blacklight::BlacklightHelperBehavior
 
   # Change link to document to link out to external guide
