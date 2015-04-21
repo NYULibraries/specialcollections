@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader findaidstatus="Completed" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>heti</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Guide to the Sheila Heti Riot Grrrl Collection
+                    <lb/> 1994-1997
+                    <lb/>
+                    <num>MSS 366</num>
+                </titleproper>
+                <author>Finding aid prepared by Emily Dunlay, 2013.</author>
+            </titlestmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced using the Archivists' Toolkit
+                <date>2013-03-20T12:42-0400</date>
+            </creation>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Sheila Heti Riot Grrrl Collection</unittitle>
+            <unitid>MSS 366</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>2.0 linear feet</extent>
+            </physdesc>
+            <unitdate normal="1994/1997" type="inclusive">1994-1997</unitdate>
+            <abstract id="ref118" label="Abstract">Sheila Heti is a Canadian writer and author of the novels Ticknor and How Should a Person Be? and the story collection The Middle Stories. While Heti was still a teenager, she was asked by Random House to compile an anthology of writing by young women. The Sheila Heti Riot Grrrl Collection represents the zines, poetry and artwork that she solicited for the book, as well as the letters she received from the young women who submitted their work. It covers the years 1994-1997. Random House later decided not to publish the book.</abstract>
+            <origination label="creator">
+                <persname source="naf">Heti,  Sheila, 1976-</persname>
+            </origination>
+        </did>
+        <arrangement id="ref113">
+            <head>Arrangement</head>
+            <p>The collection is arranged into two series:</p>
+            <p>Series I: Anthology Submissions
+                <lb/> Series II: Administrative Files
+                <lb/></p>
+            <p>Within each series, materials are arranged alphabetically by author's last name or, when no author is available, item title. Loose materials with no discernible author or related submissions are described as miscellaneous submissions.</p>
+        </arrangement>
+        <bioghist id="ref111">
+            <head>Biographical Note</head>
+            <p>Sheila Heti is a writer who was born into a Jewish-Hungarian family in 1976 and grew up in Toronto, Canada. Heti first discovered feminism and the Riot Grrrl movement when she was around 15 or 16 through reading Sassy magazine, Naomi Wolf's The Beauty Myth, and Lynn Crosbie's The Girl Wants To. At a lecture by Wolf in Toronto, Heti spoke during the Q+A about how her own zines ("Iron Maiden"), which she had been putting up around the school, had been torn down by school authorities. She gave an envelope of the zines to Wolf after the talk. Several weeks later, Heti received a letter from Wolf's publicist at Random House, Susan Roxborough, suggesting that they meet to discuss a possible anthology of writing by young women. Heti began soliciting material from all across North America, writing to English teachers at schools and putting out the word through the zine network by exchanging her new zine ("Brillantine") for the zines she received. After about a year and a half of work, she handed in a first draft of the book. It was rejected because the material was too controversial.</p>
+            <p>Heti studied playwriting at the National Theatre School in Montreal before attending the University of Toronto to study art history and philosophy. In 2001, she created the Trampoline Hall lecture series (hosted by Misha Glouberman). Heti has published five books, including the novels Ticknor and How Should a Person Be? and the story collection The Middle Stories. Her books have been translated into German, French, Spanish, Dutch, Italian and Serbian. Her writing has appeared in The New York Times, The Guardian, The London Review of Books, n+1, McSweeney’s, Bookforum, and other places.</p>
+        </bioghist>
+        <scopecontent id="ref112">
+            <head>Scope and Content</head>
+            <p>The Sheila Heti Riot Grrrl Collection comprises correspondence and submissions relating to Heti's unpublished anthology of young women's writing, originally commissioned by Random House Canada.</p>
+            <p>
+                <emph render="bold">Series I: Anthology Submissions</emph> contains submissions mailed to Heti for inclusion in her anthology; these submissions include zines as well as original artwork and poetry, often in addition to correspondence from the authors.</p>
+            <p>
+                <emph render="bold">Series II: Administrative Files</emph> contains material relating to the publication of the anthology, including Heti's contract with Random House, correspondence regarding the selection of a cover image, and the letter informing participants of the anthology's cancellation. Series II also contains material relating to "Reluctant Hero," one of Heti's zines that features many of the same participants as the anthology.</p>
+        </scopecontent>
+        <custodhist id="ref117">
+            <head>Provenance</head>
+            <p>The Sheila Heti Riot Grrrl Collection was donated to NYU's Fales Library and Special Collections by Sheila Heti in 2012.</p>
+        </custodhist>
+        <prefercite id="ref116">
+            <head>Preferred Citation</head>
+            <p>Published citations should take the following form:
+                <lb/>
+                <lb/> Identification of item, date (if known); Sheila Heti Riot Grrrl Collection; MSS 366; box number; folder number; Fales Library and Special Collections, New York University Libraries.</p>
+        </prefercite>
+        <userestrict id="ref115">
+            <head>Conditions Governing Use</head>
+            <p>Collection use is subject to all copyright laws. Permission to publish materials must be obtained in writing from the Director of Fales Library and Special Collections. Please contact fales.library@nyu.edu. or call 212 998 2596.</p>
+        </userestrict>
+        <accessrestrict id="ref114">
+            <head>Conditions Governing Access</head>
+            <p>Open to researchers. Appointments are required for the use of manuscript and archival collections.</p>
+        </accessrestrict>
+        <controlaccess>
+            <persname source="naf">Heti,  Sheila, 1976-</persname>
+            <corpname source="naf">Random House.</corpname>
+            <subject source="lcsh">Anthologies|x Editing.</subject>
+            <genreform source="aat">Correspondence.</genreform>
+            <genreform source="aat">Drawings.</genreform>
+            <subject source="lcsh">Feminism.</subject>
+            <genreform source="aat">Poetry.</genreform>
+            <subject source="lcsh">Riot grrrl movement.</subject>
+            <subject source="lcsh">Teenage girls.</subject>
+            <subject source="lcsh">Zines.</subject>
+        </controlaccess>
+        <dsc>
+            <c id="ref1" level="series">
+                <did>
+                    <unittitle>Series I: Anthology Submissions</unittitle>
+                </did>
+                <scopecontent id="ref119">
+                    <head>Scope and Content</head>
+                    <p>Series I: Anthology Submissions contains submissions mailed to Heti for inclusion in her anthology; these submissions include zines as well as original artwork and poetry, often in addition to correspondence from the authors.</p>
+                </scopecontent>
+                <c id="ref11" level="file">
+                    <did>
+                        <unittitle>Acker, Lori Maleea</unittitle>
+                        <container id="cid17897001" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897001" type="Folder">1</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref3" level="file">
+                    <did>
+                        <unittitle>Adleman, Alison</unittitle>
+                        <container id="cid17897002" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897002" type="Folder">2</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref5" level="file">
+                    <did>
+                        <unittitle>Andrea 
+                            <lb/> "Residential Garbage" #2-3 
+                            <lb/> "A Girl" #1-3 
+                            <lb/> "Song for a Rockstar"</unittitle>
+                        <container id="cid17897003" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897003" type="Folder">3</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref6" level="file">
+                    <did>
+                        <unittitle>Anne 
+                            <lb/> "Loud As Hell" #2-6</unittitle>
+                        <container id="cid17897004" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897004" type="Folder">4</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref7" level="file">
+                    <did>
+                        <unittitle>Aron, Nina 
+                            <lb/> "Charm School" #5</unittitle>
+                        <container id="cid17897005" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897005" type="Folder">5</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref8" level="file">
+                    <did>
+                        <unittitle>Avery, Felicity</unittitle>
+                        <container id="cid17897006" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897006" type="Folder">6</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref12" level="file">
+                    <did>
+                        <unittitle>Azoulay, Karen</unittitle>
+                        <container id="cid17897007" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897007" type="Folder">7</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref13" level="file">
+                    <did>
+                        <unittitle>Barnett-Dyer, Sophie</unittitle>
+                        <container id="cid17897008" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897008" type="Folder">8</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref14" level="file">
+                    <did>
+                        <unittitle>Bennett, Courtney</unittitle>
+                        <container id="cid17897009" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897009" type="Folder">9</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref15" level="file">
+                    <did>
+                        <unittitle>Bikceem, Ramdasha 
+                            <lb/> "Gunk" #4</unittitle>
+                        <container id="cid17897010" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897010" type="Folder">10</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref16" level="file">
+                    <did>
+                        <unittitle>Bordeaux, Ariel 
+                            <lb/> "Deep Girl" #4</unittitle>
+                        <container id="cid17897011" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897011" type="Folder">11</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref17" level="file">
+                    <did>
+                        <unittitle>Burnstein, Anna-Lise</unittitle>
+                        <container id="cid17897012" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897012" type="Folder">12</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref18" level="file">
+                    <did>
+                        <unittitle>Burt, Mary</unittitle>
+                        <container id="cid17897013" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897013" type="Folder">13</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref19" level="file">
+                    <did>
+                        <unittitle>Capo, Venessa</unittitle>
+                        <container id="cid17897014" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897014" type="Folder">14</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref20" level="file">
+                    <did>
+                        <unittitle>Castleman, Amanda</unittitle>
+                        <container id="cid17897015" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897015" type="Folder">15</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref21" level="file">
+                    <did>
+                        <unittitle>Catching, Rebecca</unittitle>
+                        <container id="cid17897016" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897016" type="Folder">16</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref22" level="file">
+                    <did>
+                        <unittitle>Cengel, Katya</unittitle>
+                        <container id="cid17897017" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897017" type="Folder">17</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref23" level="file">
+                    <did>
+                        <unittitle>Chan, Kristy 
+                            <lb/> "Wild Honey" #9-10</unittitle>
+                        <container id="cid17897018" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897018" type="Folder">18</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref24" level="file">
+                    <did>
+                        <unittitle>Christie, Rachel E.</unittitle>
+                        <container id="cid17897019" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897019" type="Folder">19</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref25" level="file">
+                    <did>
+                        <unittitle>Courtney, Meighlin
+                            <lb/>"Esteria"</unittitle>
+                        <container id="cid17897020" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897020" type="Folder">20</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref26" level="file">
+                    <did>
+                        <unittitle>Crane, Robin 
+                            <lb/> "Sweetheart" #8</unittitle>
+                        <container id="cid17897021" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897021" type="Folder">21</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref28" level="file">
+                    <did>
+                        <unittitle>Dainow, Susannah</unittitle>
+                        <container id="cid17905060" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905060" type="Folder">22</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref27" level="file">
+                    <did>
+                        <unittitle>Daley, Sarah Joie</unittitle>
+                        <container id="cid17897022" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17897022" type="Folder">23</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref29" level="file">
+                    <did>
+                        <unittitle>"Dame Darcy"</unittitle>
+                        <container id="cid17905061" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905061" type="Folder">24</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref30" level="file">
+                    <did>
+                        <unittitle>Dart, Rebecca</unittitle>
+                        <container id="cid17905062" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905062" type="Folder">25</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref31" level="file">
+                    <did>
+                        <unittitle>Davis, Jaina A. 
+                            <lb/> "Flatter" #5</unittitle>
+                        <container id="cid17905063" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905063" type="Folder">26</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref32" level="file">
+                    <did>
+                        <unittitle>Dean, Hilary</unittitle>
+                        <container id="cid17905064" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905064" type="Folder">27</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref33" level="file">
+                    <did>
+                        <unittitle>Diaz, Karla</unittitle>
+                        <container id="cid17905065" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905065" type="Folder">28</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref34" level="file">
+                    <did>
+                        <unittitle>Doyle, Chantale Elena 
+                            <lb/> "Misery and Vomit"</unittitle>
+                        <container id="cid17905066" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905066" type="Folder">29</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref35" level="file">
+                    <did>
+                        <unittitle>Druffner, Kristen</unittitle>
+                        <container id="cid17905067" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17905067" type="Folder">30</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref36" level="file">
+                    <did>
+                        <unittitle>Emmenegger, Nicole 
+                            <lb/> "Beri-Beri" #1-2 
+                            <lb/> "Busy Bea's Bush" #3</unittitle>
+                        <container id="cid17905068" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905068" type="Folder">1</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref37" level="file">
+                    <did>
+                        <unittitle>Faith, Emily</unittitle>
+                        <container id="cid17905069" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905069" type="Folder">2</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref38" level="file">
+                    <did>
+                        <unittitle>Fatila, Rita 
+                            <lb/> "Ugly" #11 
+                            <lb/> "Pure Tuna Fish" #1, 5 
+                            <lb/> "The Sleeping Pill" #1-2</unittitle>
+                        <container id="cid17905070" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905070" type="Folder">3</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref39" level="file">
+                    <did>
+                        <unittitle>Fierro, Julia</unittitle>
+                        <container id="cid17905071" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905071" type="Folder">4</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref40" level="file">
+                    <did>
+                        <unittitle>Flood, Margaret Theresa</unittitle>
+                        <container id="cid17905072" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905072" type="Folder">5</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref41" level="file">
+                    <did>
+                        <unittitle>Forbes, Latham</unittitle>
+                        <container id="cid17905073" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905073" type="Folder">6</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref42" level="file">
+                    <did>
+                        <unittitle>Garber, Jodi</unittitle>
+                        <container id="cid17905074" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905074" type="Folder">7</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref43" level="file">
+                    <did>
+                        <unittitle>Goodman, Sarah</unittitle>
+                        <container id="cid17905075" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905075" type="Folder">8</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref44" level="file">
+                    <did>
+                        <unittitle>Gretchen 
+                            <lb/> "Good Faerie" #12</unittitle>
+                        <container id="cid17905076" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905076" type="Folder">9</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref45" level="file">
+                    <did>
+                        <unittitle>Hamilton, Sarah</unittitle>
+                        <container id="cid17905077" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905077" type="Folder">10</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref46" level="file">
+                    <did>
+                        <unittitle>Harris, Megan</unittitle>
+                        <container id="cid17905078" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905078" type="Folder">11</container>
+                        <unitdate normal="1994/1994">1994</unitdate>
+                    </did>
+                </c>
+                <c id="ref47" level="file">
+                    <did>
+                        <unittitle>Harvey, Roseanne</unittitle>
+                        <container id="cid17905079" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905079" type="Folder">12</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref48" level="file">
+                    <did>
+                        <unittitle>Hebden, Lisa</unittitle>
+                        <container id="cid17905080" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905080" type="Folder">13</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref49" level="file">
+                    <did>
+                        <unittitle>Heinowitz, Rebecca Cole</unittitle>
+                        <container id="cid17905081" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905081" type="Folder">14</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref51" level="file">
+                    <did>
+                        <unittitle>Hill, Christy</unittitle>
+                        <container id="cid17905082" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905082" type="Folder">15</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref52" level="file">
+                    <did>
+                        <unittitle>Horng, Menghsin Cindy 
+                            <lb/> "Sidetracked" #1-3, 5-8 
+                            <lb/> "Qiviut" #2</unittitle>
+                        <container id="cid17905083" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905083" type="Folder">16</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref53" level="file">
+                    <did>
+                        <unittitle>Hui, Emily</unittitle>
+                        <container id="cid17905084" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905084" type="Folder">17</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref54" level="file">
+                    <did>
+                        <unittitle>Ishiguro, Rachel</unittitle>
+                        <container id="cid17905085" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905085" type="Folder">18</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref55" level="file">
+                    <did>
+                        <unittitle>Jasper Place Composite High School</unittitle>
+                        <container id="cid17905086" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17905086" type="Folder">19</container>
+                        <unitdate normal="1994/1994">1994</unitdate>
+                    </did>
+                </c>
+                <c id="ref56" level="file">
+                    <did>
+                        <unittitle>Julie 
+                            <lb/> "Hell Kitty" #6</unittitle>
+                        <container id="cid17909001" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17909001" type="Folder">20</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref57" level="file">
+                    <did>
+                        <unittitle>Jurisz, Rebecca 
+                            <lb/> "Vilde Chaya" Winter 1995</unittitle>
+                        <container id="cid17909002" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17909002" type="Folder">21</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref58" level="file">
+                    <did>
+                        <unittitle>Kaysha</unittitle>
+                        <container id="cid17909003" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17909003" type="Folder">22</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref59" level="file">
+                    <did>
+                        <unittitle>Kelly, Trish 
+                            <lb/> "The Make Out Club" #4-5</unittitle>
+                        <container id="cid17909004" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17909004" type="Folder">23</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref60" level="file">
+                    <did>
+                        <unittitle>Kyra 
+                            <lb/> "Died Laughing" #2</unittitle>
+                        <container id="cid17909005" type="Box" label="Mixed materials">2</container>
+                        <container parent="cid17909005" type="Folder">24</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref61" level="file">
+                    <did>
+                        <unittitle>Lake, Meghan 
+                            <lb/> "Pout" #6-7</unittitle>
+                        <container id="cid17909006" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909006" type="Folder">1</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref62" level="file">
+                    <did>
+                        <unittitle>Lambert, Andrea 
+                            <lb/> "Bedtime Stories For Trivial Teens" #3-4</unittitle>
+                        <container id="cid17909007" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909007" type="Folder">2</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref63" level="file">
+                    <did>
+                        <unittitle>Landry, Stephanie 
+                            <lb/> "Modest No More" #1-2</unittitle>
+                        <container id="cid17909008" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909008" type="Folder">3</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref64" level="file">
+                    <did>
+                        <unittitle>Larned, Emily K. 
+                            <lb/> "Muffin Bones" #10, 15</unittitle>
+                        <container id="cid17909009" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909009" type="Folder">4</container>
+                        <unitdate normal="1995/1997" type="inclusive">1995-1997</unitdate>
+                    </did>
+                </c>
+                <c id="ref65" level="file">
+                    <did>
+                        <unittitle>Lavender, Heart</unittitle>
+                        <container id="cid17909010" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909010" type="Folder">5</container>
+                        <unitdate normal="1994/1995" type="inclusive">1994-1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref66" level="file">
+                    <did>
+                        <unittitle>Levine, Shira ("She-Ra") 
+                            <lb/> "Noisy Jewelry" #1-2</unittitle>
+                        <container id="cid17909011" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909011" type="Folder">6</container>
+                        <unitdate normal="1994/1994">1994</unitdate>
+                    </did>
+                </c>
+                <c id="ref67" level="file">
+                    <did>
+                        <unittitle>Luellen, Michelle 
+                            <lb/> "Design #816" #7-8</unittitle>
+                        <container id="cid17909012" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909012" type="Folder">7</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref68" level="file">
+                    <did>
+                        <unittitle>Lynn, Heather 
+                            <lb/> "Pacifier" 2 issues unnumbered 
+                            <lb/> "Hands Off" #3</unittitle>
+                        <container id="cid17909013" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909013" type="Folder">8</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref69" level="file">
+                    <did>
+                        <unittitle>Manvel, Sarah 
+                            <lb/> "Edna's Edibles" #6</unittitle>
+                        <container id="cid17909014" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909014" type="Folder">9</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref70" level="file">
+                    <did>
+                        <unittitle>Martin, Lauren 
+                            <lb/> "Boredom Sucks" #7-9 
+                            <lb/> "You Might As Well Live" #1</unittitle>
+                        <container id="cid17909015" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909015" type="Folder">10</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref71" level="file">
+                    <did>
+                        <unittitle>Mehta, Nishi</unittitle>
+                        <container id="cid17909016" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909016" type="Folder">11</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref72" level="file">
+                    <did>
+                        <unittitle>Meyer, Hazel</unittitle>
+                        <container id="cid17909017" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909017" type="Folder">12</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref73" level="file">
+                    <did>
+                        <unittitle>Moss, Ceci 
+                            <lb/> "Suburbia" #1-6</unittitle>
+                        <container id="cid17909018" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909018" type="Folder">13</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref74" level="file">
+                    <did>
+                        <unittitle>Mulholland, Sharon 
+                            <lb/> "Some Dumb Girl"</unittitle>
+                        <container id="cid17909019" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909019" type="Folder">14</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref75" level="file">
+                    <did>
+                        <unittitle>Neill, Courtney</unittitle>
+                        <container id="cid17909020" type="Box" label="Mixed materials">1</container>
+                        <container parent="cid17909020" type="Folder">15</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref76" level="file">
+                    <did>
+                        <unittitle>[O'Conerr], [Elane]</unittitle>
+                        <container id="cid17909021" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909021" type="Folder">16</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref77" level="file">
+                    <did>
+                        <unittitle>Penny, Marie 
+                            <lb/> "Rabbit Hole" 
+                            <lb/> "Pearl" #1 
+                            <lb/> "Persephone" #3</unittitle>
+                        <container id="cid17909022" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909022" type="Folder">17</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref78" level="file">
+                    <did>
+                        <unittitle>Philpot, Allison</unittitle>
+                        <container id="cid17909023" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909023" type="Folder">18</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref79" level="file">
+                    <did>
+                        <unittitle>Poster, Zoe 
+                            <lb/> "Pixxiebitch" #5</unittitle>
+                        <container id="cid17909024" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909024" type="Folder">19</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref80" level="file">
+                    <did>
+                        <unittitle>Precosky, Krista 
+                            <lb/> "What's Life?" #1-2</unittitle>
+                        <container id="cid17909025" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909025" type="Folder">20</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref81" level="file">
+                    <did>
+                        <unittitle>"Queen Itchie" 
+                            <lb/> "Everything I Touch Turns to Shit &amp; Garbage" #1-2</unittitle>
+                        <container id="cid17909026" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909026" type="Folder">21</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref82" level="file">
+                    <did>
+                        <unittitle>Quinlan, Erin 
+                            <lb/> "Ritalin" #8</unittitle>
+                        <container id="cid17909027" type="Box" label="Mixed materials">3</container>
+                        <container parent="cid17909027" type="Folder">22</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref83" level="file">
+                    <did>
+                        <unittitle>Robbins, Katharine</unittitle>
+                        <container id="cid17909028" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909028" type="Folder">1</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref84" level="file">
+                    <did>
+                        <unittitle>Rodd, Megan</unittitle>
+                        <container id="cid17909029" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909029" type="Folder">2</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref85" level="file">
+                    <did>
+                        <unittitle>Rogal, Aren 
+                            <lb/> "My Straight-Faced Twin" #2</unittitle>
+                        <container id="cid17909030" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909030" type="Folder">3</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref86" level="file">
+                    <did>
+                        <unittitle>Seymour, Ellesen</unittitle>
+                        <container id="cid17909031" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909031" type="Folder">4</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref87" level="file">
+                    <did>
+                        <unittitle>Shearn, Amy</unittitle>
+                        <container id="cid17909032" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909032" type="Folder">5</container>
+                        <unitdate normal="1995/1997" type="inclusive">1995-1997</unitdate>
+                    </did>
+                </c>
+                <c id="ref88" level="file">
+                    <did>
+                        <unittitle>Sinclair, Leslie</unittitle>
+                        <container id="cid17909033" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909033" type="Folder">6</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref89" level="file">
+                    <did>
+                        <unittitle>Snider, Lisa</unittitle>
+                        <container id="cid17909034" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909034" type="Folder">7</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref90" level="file">
+                    <did>
+                        <unittitle>Sorensen, Jennifer</unittitle>
+                        <container id="cid17909035" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909035" type="Folder">8</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref91" level="file">
+                    <did>
+                        <unittitle>Stehr, Sonia Leonie</unittitle>
+                        <container id="cid17909036" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909036" type="Folder">9</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref92" level="file">
+                    <did>
+                        <unittitle>Stone, Emily</unittitle>
+                        <container id="cid17909037" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909037" type="Folder">10</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref93" level="file">
+                    <did>
+                        <unittitle>Sturino, Idella</unittitle>
+                        <container id="cid17909038" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909038" type="Folder">11</container>
+                        <unitdate normal="1994/1994">1994</unitdate>
+                    </did>
+                </c>
+                <c id="ref94" level="file">
+                    <did>
+                        <unittitle>Terk, Hilary 
+                            <lb/> "Weetzie Bat: The Zine" #1-3</unittitle>
+                        <container id="cid17909039" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909039" type="Folder">12</container>
+                        <unitdate normal="1994/1995" type="inclusive">1994-1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref95" level="file">
+                    <did>
+                        <unittitle>Urbanski, Debbie</unittitle>
+                        <container id="cid17909040" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909040" type="Folder">13</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref96" level="file">
+                    <did>
+                        <unittitle>Varner, Christina</unittitle>
+                        <container id="cid17909041" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909041" type="Folder">14</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref97" level="file">
+                    <did>
+                        <unittitle>Welch, Jenny</unittitle>
+                        <container id="cid17909042" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909042" type="Folder">15</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref98" level="file">
+                    <did>
+                        <unittitle>Witknee 
+                            <lb/> "Alien" #6, 8 
+                            <lb/> "Spinsterwitch" #4 
+                            <lb/> "Slumber Party Games"</unittitle>
+                        <container id="cid17909043" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909043" type="Folder">16</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref99" level="file">
+                    <did>
+                        <unittitle>Wubbenhorst, Audrey 
+                            <lb/> "Rampage" #2-5</unittitle>
+                        <container id="cid17909044" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909044" type="Folder">17</container>
+                        <unitdate normal="1995/1995">1995</unitdate>
+                    </did>
+                </c>
+                <c id="ref100" level="file">
+                    <did>
+                        <unittitle>Yun, Blenda</unittitle>
+                        <container id="cid17909045" type="Box" label="Mixed materials">4</container>
+                        <container parent="cid17909045" type="Folder">18</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+            </c>
+            <c id="ref2" level="series">
+                <did>
+                    <unittitle>Series II: Administrative Files</unittitle>
+                </did>
+                <scopecontent id="ref120">
+                    <head>Scope and Content</head>
+                    <p>Series II: Administrative Files contains material relating to the publication of the anthology, including Heti's contract with Random House, correspondence regarding the selection of a cover image, and the letter informing participants of the anthology's cancellation. Series II also contains material relating to "Reluctant Hero," one of Heti's zines that features many of the same participants as the anthology.</p>
+                </scopecontent>
+                <c id="ref101" level="file">
+                    <did>
+                        <unittitle>Anthology - Cancellation Letter</unittitle>
+                        <container id="cid17920001" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920001" type="Folder">1</container>
+                        <unitdate normal="1997/1997">1997</unitdate>
+                    </did>
+                </c>
+                <c id="ref102" level="file">
+                    <did>
+                        <unittitle>Anthology - Cover Photo and Related Correspondence</unittitle>
+                        <container id="cid17920002" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920002" type="Folder">2</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref103" level="file">
+                    <did>
+                        <unittitle>Anthology - Draft Correspondence</unittitle>
+                        <container id="cid17920003" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920003" type="Folder">3</container>
+                        <unitdate normal="1996/1996">1996</unitdate>
+                    </did>
+                </c>
+                <c id="ref104" level="file">
+                    <did>
+                        <unittitle>Anthology - Miscellaneous Submissions</unittitle>
+                        <container id="cid17920004" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920004" type="Folder">4</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref105" level="file">
+                    <did>
+                        <unittitle>Anthology - Random House Contract</unittitle>
+                        <container id="cid17920005" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920005" type="Folder">5</container>
+                        <unitdate normal="1997/1997">1997</unitdate>
+                    </did>
+                </c>
+                <c id="ref107" level="file">
+                    <did>
+                        <unittitle>"Reluctant Hero" - Author Bios</unittitle>
+                        <container id="cid17920007" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920007" type="Folder">6</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref108" level="file">
+                    <did>
+                        <unittitle>"Reluctant Hero" - Correspondence</unittitle>
+                        <container id="cid17920008" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920008" type="Folder">7</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref109" level="file">
+                    <did>
+                        <unittitle>"Reluctant Hero" - Draft</unittitle>
+                        <container id="cid17920009" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920009" type="Folder">8</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+                <c id="ref110" level="file">
+                    <did>
+                        <unittitle>"Reluctant Hero" - Miscellaneous Submissions</unittitle>
+                        <container id="cid17920010" type="Box" label="Mixed materials">5</container>
+                        <container parent="cid17920010" type="Folder">9</container>
+                        <unitdate>undated</unitdate>
+                    </did>
+                </c>
+            </c>
+        </dsc>
+    </archdesc>
+</ead>

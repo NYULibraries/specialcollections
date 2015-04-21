@@ -3,7 +3,7 @@
 
 <% unless search_fields.empty? %>
 <label for="search_field" class="sr-only"><%= t('blacklight.search.form.search_field.label') %></label>
-<%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field form-control") %>
+<%#= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field form-control") %>
 <span class="sr-only"><%= t('blacklight.search.form.search_field.post_label') %></span>
 <% end %>
 <div class="input-group search-input-group">
@@ -13,7 +13,6 @@
   <span class="input-group-btn">
     <button type="submit" class="btn btn-primary search-btn" id="search">
       <span class="submit-search-text"><%=t('blacklight.search.form.submit')%></span>
-      <span class="glyphicon glyphicon-search"></span>
     </button>
   </span>
 </div>

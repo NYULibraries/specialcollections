@@ -1,4 +1,21 @@
+<h1 class="page_header"><%= (params[:repository].present?) ? "#{params[:repository]}" : t('application_title') %></h1>
+
+<% if params[:repository].present? %>
+<p class="repository_info">
+  <% if current_repository_home_text? %>
+  <%= t("repositories.#{current_repository_url}.home_text") %>
+  <% end %>
+  <span class="repository_url">
+  <%= link_to "#{fa_icon('globe')} Website".html_safe, t("repositories.#{current_repository_url}.url"), target: '_blank' %>
+  </span>
+</p>
+<% end %>
+
+<% unless request.path == advanced_search_path %>
 <div class="search">
-    <h2><%= t('application_title') %><span id="repository_header"><%= (params[:repository].present?) ? ": #{params[:repository]}" : ""%></span></h2>
-    <%= render_search_bar  %>
+  <%= render_search_bar  %>
+  <%= link_to t('search.advanced.link_text'), advanced_search_path(params), class: 'advanced_search'%>
 </div>
+<% else %>
+<%= link_to t('search.simple.link_text').html_safe, catalog_index_path(params) %>
+<% end %>

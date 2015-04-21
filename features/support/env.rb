@@ -4,6 +4,7 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
+ENV['RAILS_ENV'] ||= 'test'
 require 'cucumber/rails'
 
 # Capybara defaults to CSS3 selectors rather than XPath.
@@ -55,3 +56,25 @@ ActionController::Base.allow_rescue = false
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
 Cucumber::Rails::Database.javascript_strategy = :truncation
+
+# Refresh jetty data before cucumber tests run
+if Rails.env.test?
+  begin
+    WebMock.allow_net_connect!
+    Findingaids::Ead::Indexer.delete_all
+    indexer = Findingaids::Ead::Indexer.new
+    indexer.index('spec/fixtures/fales/bloch.xml')
+    indexer.index('spec/fixtures/fales/berol.xml')
+    indexer.index('spec/fixtures/fales/bytsura.xml')
+    indexer.index('spec/fixtures/fales/heti.xml')
+    indexer.index('spec/fixtures/fales/bickceem.xml')
+    indexer.index('spec/fixtures/fales/bartlett.xml')
+    indexer.index('spec/fixtures/fales/oconor.xml')
+    indexer.index('spec/fixtures/fales/washsquarephoto.xml')
+    indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
+    indexer.index('spec/fixtures/tamwag/photos_114.xml')
+    indexer.index('spec/fixtures/tamwag/OH.002-ead.xml')
+  ensure
+    WebMock.disable_net_connect!
+  end
+end

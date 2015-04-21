@@ -1,6 +1,15 @@
 require 'solr_ead'
 require 'fileutils'
-require 'pry'
+##
+# Ead Indexer
+#
+# This class will index a file or directory into a Solr index configured via solr.yml
+# It essentially wraps the functionality of SolrEad::Indexer with some customizations
+# mainly the ability to index directories and reindex changed files from a Git diff.
+#
+# The #index function takes in a file or directory and calls update on all the valid .xml files it finds.
+# The #reindex_changed function finds all the files changed since the previous commit and updates, adds or deletes accordingly.
+# The .delete_all convenience method wraps Blacklight.solr to easily clear the index
 class Findingaids::Ead::Indexer
 
   def self.delete_all

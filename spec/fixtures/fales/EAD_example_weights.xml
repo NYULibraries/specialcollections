@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader findaidstatus="unverified-full-draft" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>weight</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Mocked Correspondence Collection to Test Solr Weights
+                    <lb/>
+                    <date calendar="gregorian" era="ce">1845 - 1993</date>
+                    <lb/>
+                    <num>MSS 057</num>
+                </titleproper>
+                <author>Finding aid prepared by Kate Pechekhonova, February 2015 -  March 2015</author>
+            </titlestmt>
+            <editionstmt>
+                <p>This version was created to test assigned weights</p>
+            </editionstmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced manually for testing
+                <date>2015-02-27T11:05-0400</date>
+            </creation>
+            <langusage>Description is in
+            <language>English</language>.</langusage>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Mocked Correspondence Collection to test Solr Weights</unittitle>
+            <unitid>test-solr-weights</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>7.0 linear feet</extent>
+                <extent>(15 boxes)</extent>
+            </physdesc>
+            <unitdate>1845 - 1993</unitdate>
+            <abstract id="ref3" label="Abstract">Test</abstract>
+            <origination label="creator">
+                <persname source="local">Solr Weights</persname>
+            </origination>
+        </did>
+        <custodhist>
+            <p> Added for tesing abstract- Simplicity,Added for tesing author-Accuracy,Added for tesing acqinfo- Transperancy</p>
+        </custodhist>
+        <accessrestrict id="ref5">
+            <head>Access Restrictions</head>
+            <p>Open to researchers.</p>
+        </accessrestrict>
+        <userestrict id="ref6">
+            <head>Use Restrictions</head>
+            <p>Collection use is subject to all copyright laws. Permission to publish materials must be obtained in writing from the Director of Fales Library and Special Collections. Please contact fales.library@nyu.edu. or call 212 998 2596.</p>
+        </userestrict>
+        <bioghist id="ref8">
+            <head>Historical/Biographical Note:</head>
+            <p>This is used to test solr Weights</p>
+
+        </bioghist>
+        <scopecontent id="ref9">
+            <head>Scope and Content Note</head>
+            <p>This finding aid is created to test solr weights
+            <title render="bold" type="simple">SERIES DESCRIPTION</title></p>
+            <p>
+            <title render="bold" type="simple">SERIES 1: Mocked Correspondence Series</title></p>
+            <p>Subseries A contains correspondence to test solr weights</p>
+            <p>
+        </scopecontent>
+        <controlaccess>
+            <persname source="naf">Blakemore, Edith Rose, 1872-1947</persname>
+            <persname source="naf">Carroll, Lewis, 1832-1898</persname>
+            <persname source="naf">Rossetti, Dante Gabriel, 1828-1882</persname>
+            <persname source="naf">Ruskin, John, 1819-1900</persname>
+            <persname source="naf">Tenniel, John, Sir, 1820-1914</persname>
+            <persname source="naf">Yonge, Charlotte Mary, 1823-1901</persname>
+            <genreform source="aat">Theater programs.</genreform>
+            <genreform source="aat">Visiting cards.</genreform>
+        </controlaccess>
+        <dsc>
+            <c id="ref11" level="series">
+                <did>
+                    <unittitle>Series 1: Correspondence to test solr weights in series</unittitle>
+                </did>
+                <c id="ref12" level="subseries">
+                    <did>
+                        <unittitle>Subseries 1A: Correspondence to test solr weights</unittitle>
+                    </did>
+                    <c id="ref35" level="file">
+                        <did>
+                            <unittitle>Mocked correspondence title to test solr weights</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                        </did>
+                    </c>
+                    <c id="ref36" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT UNITID </unittitle>
+                            <unitid>mocked unitid to test solr weights</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                        </did>
+                    </c>
+                    <c id="ref37" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT Creator</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+
+                            <origination label="creator">
+                                <persname rules="local" source="local" role="Creator (cre)">mocked creator to test solr weights</persname>
+                            </origination>
+                        </did>
+
+                    </c>
+                    <c id="ref38" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT Subject</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                            <unitdate normal="1960/1970" type="bulk">Bulk, 1960-1970</unitdate>
+                        </did>
+                        <controlaccess>
+                            <subject source="local">Subjects--Topical Term--AT</subject>
+                            <title source="local">Subjects--Uniform Title--AT</title>
+                            <subject source="local">mocked subject to test Solr Weight</subject>
+                        </controlaccess>
+                    </c>
+                    <c id="ref39" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT Bioghist</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                            <unitdate normal="1960/1970" type="bulk">Bulk, 1960-1970</unitdate>
+                            <unitdate normal="1960/1970" type="inclusive">Resource-C06-Date-AT</unitdate>
+                        </did>
+                        <bioghist id="ref50">
+                            <head>Test Solr Weight</head>
+                            <p>c06--biogHist-part1-Test Solr Weight</p>
+                            <chronlist>
+                                <head>resource-co6-chronology-bioHist-part2</head>
+                                <chronitem>
+                                    <date>1895</date>
+                                    <eventgrp>
+                                        <event>Event1</event>
+                                        <event>Event2</event>
+                                    </eventgrp>
+                                </chronitem>
+                            </chronlist>
+
+                        </bioghist>
+                        <dao ns2:actuate="onLoad" ns2:show="new" ns2:title="DO.Title-AT" ns2:href="DO.DigitalObjectID-AT">
+                            <daodesc>
+                                <p>DO.Title-AT, 1999-2000 (DO.Label-AT)</p>
+                            </daodesc>
+                        </dao>
+                    </c>
+                    <c id="ref41" level="item">
+                        <did>
+                            <unittitle>mocked title to test solr weight for item</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                        </did>
+                         <controlaccess>
+                            <subject source="local">Subjects--Topical Term--AT</subject>
+                            <title source="local">Subjects--Uniform Title--AT</title>
+                        </controlaccess>
+
+                    </c>
+                    <c id="ref42" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT scope</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                        </did>
+                          <scopecontent id="ref52" >
+            <head>Scope and Content Note</head>
+            <p>This finding aid is created to test solr weights</p>
+        </scopecontent>
+
+                    </c>
+  <c id="ref43" level="file">
+                        <did>
+                            <unittitle>Resource-C06-AT NOTE</unittitle>
+                            <unitid>Resource-C06-ID-AT</unitid>
+                            <langmaterial>
+                                <language langcode="eng"/>
+                            </langmaterial>
+                            <container id="cid6" type="Box" label="Text (Resource C06 Instance Barcode)">6</container>
+                            <container parent="cid6" type="Folder">6</container>
+                            <container parent="cid6" type="Item">6</container>
+                            <physdesc>
+                                <extent>1.0 Linear feet</extent>
+                                <extent>Resource-C06-ContainerSummary-AT</extent>
+                            </physdesc>
+                        </did>
+                        <note>
+                               note to test Solr Weights
+                            </note>
+
+                    </c>
+                </c>
+               
+            </c>
+        </dsc>
+    </archdesc>
+</ead>

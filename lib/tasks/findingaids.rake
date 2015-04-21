@@ -1,5 +1,9 @@
-require "fileutils"
-require "findingaids"
+require 'fileutils'
+require 'findingaids'
+if ENV['RAILS_ENV'] == 'test'
+  require 'webmock'
+  WebMock.allow_net_connect!
+end
 
 namespace :findingaids do
 
@@ -24,7 +28,7 @@ namespace :findingaids do
 
   namespace :ead do
 
-    desc "Index ead into solr and create both html and json"
+    desc "Index ead into solr using EAD=<FILE|DIR>"
     task :index => :environment do
       ENV['EAD'] = "spec/fixtures/ead" unless ENV['EAD']
       indexer = Findingaids::Ead::Indexer.new
@@ -37,7 +41,7 @@ namespace :findingaids do
       indexer.reindex_changed
     end
 
-    desc "Deletes everytyhing from the solr index"
+    desc "Deletes everything from the solr index"
     task :clean => :environment do
       Findingaids::Ead::Indexer.delete_all
     end

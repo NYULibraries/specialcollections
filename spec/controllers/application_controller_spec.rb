@@ -14,30 +14,30 @@ describe ApplicationController do
     end
 
     context "when repository is Tamiment " do
-      subject(:repository) { repositories[:tamwag] }
-      it { expect(repository[:display]).to eql("The Tamiment Library & Robert F. Wagner Labor Archives") }
-      it { expect(repository[:url]).to eql("tamwag") }
+      subject(:repository) { repositories[:tamiment] }
+      it { expect(repository[:display]).to eql("Tamiment Library & Wagner Labor Archives") }
+      it { expect(repository[:url]).to eql("tamiment") }
       it { expect(repository[:admin_code]).to eql("tamwag") }
     end
 
     context "when repository is NYU Archives " do
-      subject(:repository) { repositories[:archives] }
+      subject(:repository) { repositories[:universityarchives] }
       it { expect(repository[:display]).to eql("New York University Archives") }
-      it { expect(repository[:url]).to eql("archives") }
+      it { expect(repository[:url]).to eql("universityarchives") }
       it { expect(repository[:admin_code]).to eql("archives") }
     end
 
     context "when repository is NYHS" do
-      subject(:repository) { repositories[:nyhs] }
+      subject(:repository) { repositories[:nyhistory] }
       it { expect(repository[:display]).to eql("New-York Historical Society") }
-      it { expect(repository[:url]).to eql("nyhs") }
+      it { expect(repository[:url]).to eql("nyhistory") }
       it { expect(repository[:admin_code]).to eql("nyhs") }
     end
 
     context "when repository is BHS" do
-      subject(:repository) { repositories[:bhs] }
+      subject(:repository) { repositories[:brooklynhistory] }
       it { expect(repository[:display]).to eql("Brooklyn Historical Society") }
-      it { expect(repository[:url]).to eql("bhs") }
+      it { expect(repository[:url]).to eql("brooklynhistory") }
       it { expect(repository[:admin_code]).to eql("bhs") }
     end
 
@@ -50,7 +50,7 @@ describe ApplicationController do
 
     context "when repository is RISM" do
       subject(:repository) { repositories[:rism] }
-      it { expect(repository[:display]).to eql("Research Institue for the Study of Man") }
+      it { expect(repository[:display]).to eql("Research Institute for the Study of Man") }
       it { expect(repository[:url]).to eql("rism") }
       it { expect(repository[:admin_code]).to eql("rism") }
     end
@@ -58,9 +58,10 @@ describe ApplicationController do
   end
 
   describe "#current_user_dev" do
-    subject(:user) { controller.current_user_dev }
+    before(:each) { FactoryGirl.create(:user_dev) }
+    subject { controller.current_user_dev }
     it { should be_instance_of(User) }
-    it { expect(user.username).to eql("admin123") }
+    its(:username) { should be == "dev123" } 
   end
 
 end

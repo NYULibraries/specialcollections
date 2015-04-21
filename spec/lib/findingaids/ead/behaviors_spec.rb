@@ -4,17 +4,9 @@ describe Findingaids::Ead::Behaviors do
 
   include Findingaids::Ead::Behaviors
 
-  describe ".format_publisher" do
+  describe "#repository_display" do
 
-    it "should strip ugly characters from publisher" do
-      expect(format_publisher(["@ 2012 Fales Library and Special Collections     "])).to eql("Fales Library and Special Collections")
-    end
-
-  end
-
-  describe ".format_repository" do
-
-    subject { format_repository }
+    subject { repository_display }
 
     context "when EAD variable is a folder" do
       before { stub_const('ENV', {'EAD' => 'spec/fixtures/examples'}) }
@@ -35,7 +27,7 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
-  describe ".get_language_from_code" do
+  describe "#get_language_from_code" do
 
     let(:language_code) { "eng" }
 
@@ -52,8 +44,20 @@ describe Findingaids::Ead::Behaviors do
 
   end
 
-  describe ".ead_date_display" do
+  describe "#fix_subfield_demarcators" do
+    let(:subfield) { "Long Island (N.Y.) |x History |y 17th century" }
 
+    subject { fix_subfield_demarcators(subfield) }
+
+    context "when subfield is Long Island (N.Y.) |x History |y 17th century" do
+      it { should eql("Long Island (N.Y.) -- History -- 17th century")}
+    end
+
+    context "when subfield is Chemistry |w History |y 19th century" do
+      let(:subfield) { "Chemistry |w History |y 19th century" }
+      it { should eql("Chemistry -- History -- 19th century")}
+    end
   end
+
 
 end

@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ead xsi:schemaLocation="urn:isbn:1-931666-22-9 http://www.loc.gov/ead/ead.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="urn:isbn:1-931666-22-9">    <eadheader findaidstatus="unverified-full-draft" repositoryencoding="iso15511" countryencoding="iso3166-1" dateencoding="iso8601" langencoding="iso639-2b">
+        <eadid>berol</eadid>
+        <filedesc>
+            <titlestmt>
+                <titleproper>Guide to The Alfred C. Berol Collection of Lewis Carroll
+                    <lb/>
+                    <date calendar="gregorian" era="ce">1845 - 1993</date>
+                    <lb/>
+                    <num>MSS 057</num>
+                </titleproper>
+                <author>Finding aid prepared by Chatham Ewing, October 1997 - February 1998</author>
+            </titlestmt>
+            <editionstmt>
+                <p>This version was derived from Berol Finding Aid.doc</p>
+            </editionstmt>
+            <publicationstmt>
+                <publisher>© 2012 Fales Library and Special Collections</publisher>
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                    <addressline>Elmer Holmes Bobst Library</addressline>
+                    <addressline>70 Washington Square South</addressline>
+                    <addressline>New York, NY 10012</addressline>
+                    <addressline>Phone: (212) 998-2596</addressline>
+                    <addressline>Email: fales.library@nyu.edu</addressline>
+                </address>
+            </publicationstmt>
+        </filedesc>
+        <profiledesc>
+            <creation>This finding aid was produced using the Archivists' Toolkit
+                <date>2012-08-27T11:05-0400</date>
+            </creation>
+            <langusage>Description is in
+                <language>English</language>.</langusage>
+        </profiledesc>
+    </eadheader>
+    <archdesc level="collection">
+        <did>
+            <unittitle>Alfred C. Berol Collection of Lewis Carroll</unittitle>
+            <unitid>MSS 057</unitid>
+            <repository>
+                <corpname>© 2012 Fales Library and Special Collections</corpname>
+            </repository>
+            <langmaterial>
+                <language langcode="eng"/>
+            </langmaterial>
+            <physdesc>
+                <extent>7.0 linear feet</extent>
+                <extent>(15 boxes)</extent>
+            </physdesc>
+            <unitdate>1845 - 1993</unitdate>
+            <abstract id="ref3" label="Abstract">The Alfred C. Berol Collection of Lewis Carroll is one of the pre-eminent collections of Lewis Carroll (a pseudonym of Charles L. Dodgson) materials in the United States. It contains his correspondence, manuscripts (firsts, autographed copies, presentation copies, and proofs), drawings, and photographs. It also contains drawings by his foremost illustrators John Tenniel and Harry Furniss. Additionally, there is a wide cross section of ephemeral materials related to Lewis Carroll which illustrate his work's contemporary and ongoing cultural impact, as well as, Alfred C. Berol's correspondence and notes on the provenance of the materials in the collection.</abstract>
+            <origination label="creator">
+                <persname source="local">Berol, Alfred C., (collector)</persname>
+            </origination>
+        </did>
+        <custodhist id="ref4">
+            <head>Provenance</head>
+            <p>The Alfred C. Berol Collection of Lewis Carroll was donated to NYU by Mrs. Madelin Rossin Berol and her son Kenneth Berol in 1975, soon after Mr. Alfred C. Berol's death. The preliminary checklist of the collection was prepared by John Frost and George Winchester Stone in 1975.</p>
+        </custodhist>
+        <accessrestrict id="ref5">
+            <head>Access Restrictions</head>
+            <p>Open to researchers.</p>
+        </accessrestrict>
+        <userestrict id="ref6">
+            <head>Use Restrictions</head>
+            <p>Collection use is subject to all copyright laws. Permission to publish materials must be obtained in writing from the Director of Fales Library and Special Collections. Please contact fales.library@nyu.edu. or call 212 998 2596.</p>
+        </userestrict>
+        <prefercite id="ref7">
+            <head>Preferred Citation</head>
+            <p>Published citations should take the following form:
+                <lb/>
+                <lb/>Identification of item, date (if known); The Alfred C. Berol Collection; MSS 057; box number; folder number;
+                <address>
+                    <addressline>Fales Library and Special Collections</addressline>
+                </address>, New York University Libraries.</p>
+        </prefercite>
+        <bioghist id="ref8">
+            <head>Historical/Biographical Note:</head>
+            <p>Alfred C. Berol (1892-1974), who assembled this substantial collection of Lewis Carrol letters, manuscripts and ephemera, was the president of the Eagle Pencil Company (later renamed Berol Corp.) of Danbury, Connecticut. Though an avid collector of a wide array of rare books and manuscripts, Berol was a particularly ardent collector of Lewis Carroll materials .</p>
+            <p>Lewis Carroll, the pseudonym used by Charles Lutwidge Dodgson, was born in Daresbury, Cheshire, England in 1832. He was a writer, teacher, photography enthusiast, mathematician and Oxford don. While Lecturer in Mathematics at Oxford, Dodgson met Alice Liddell who was the daughter of the Dean of Christ Church College. Alice Liddell became the inspiration for Dodgson's abiding classic of children's literature: Alice's Adventures in Wonderland.</p>
+        </bioghist>
+        <scopecontent id="ref9">
+            <head>Scope and Content Note</head>
+            <p>This finding aid describes a portion of the Alfred C. Berol collection of Lewis Carroll materials, which can by found at the Fales Library. The Fales Library is the primary special collections division of the NYU libraries, housing over 200,000 volumes of English and American Literature from 1700 to the present. Strengths of the Collection include the development of the English and American novel, with an emphasis on the Gothic, the Victorian novel, the Edwardian Novel, and New York Writing.</p>
+            <p>The Alfred C. Berol Collection of Lewis Carroll is one of the pre-eminent collections of Lewis Carroll materials in the United States. The archival portion of the collection contains correspondence, manuscripts (firsts, autographed copies, presentation copies, and proofs), drawings, and photographs of Charles L. Dodgson. It also contains drawings by his foremost illustrators John Tenniel and Harry Furniss. Many of the items in the collection are unique. Additionally, there is a wide cross section of ephemeral materials related to Carroll which illustrate his work's contemporary and ongoing cultural impact. It also contains Alfred C. Berol's correspondence and notes on the provenance of the materials in the collection.</p>
+            <p>This finding aid is the result of reprocessing the collection and imposing standard manuscript processing rules on the materials. The preliminary checklist of the collection prepared by John Frost and George Winchester Stone in 1975, soon after the collection arrived at NYU, never adequately provided for either intellectual control of the materials or adequate and efficient scholarly access to the materials. This finding aid rectifies the numerous inconsistencies, repetitions, and errors in the preliminary checklist, finally giving the research scholar an adequate tool for truly effective access to the Alfred C. Berol Collection.</p>
+            <p>
+                <title render="bold" type="simple">SERIES DESCRIPTION</title></p>
+            <p>
+                <title render="bold" type="simple">SERIES 1: Correspondence</title></p>
+            <p>The letters have been processed at the item level, and the correspondence is arranged alphabetically by recipient. If there is more than one letter to a recipient, the letters are arranged chronologically, with the undated letters appearing at the end of the sequence.</p>
+            <p>An exemplary entry from this section:</p>
+            <p>1. Dodgson, Charles
+                <lb/>To the Duchess of Albany; ALs, 2pp
+                <lb/>Christ Church, Oxford, November 30, 1893
+                <lb/>(XIX 557)</p>
+            <p>Each entry may have up to five fields, the first the name of the author of the letter, the second the name of the recipient, the third a description of the letter, the fourth the place and date of the letter's composition. The fifth field is for notes, and if the letter was marked with a number in grease-pencil by Frost as he made up his checklist, that number is found in parentheses at the beginning of the notes field. Not all documents have been marked by Frost, and some documents may have no notes field at all. Some items may also have a Cohen number, which will appear at the very end of the record.</p>
+            <p>Subseries A contains correspondence from Charles L. Dodgson to numerous contemporaries.</p>
+            <p>Subseries B contains correspondence to Charles L. Dodgson from numerous contemporaries.</p>
+            <p>Subseries C has contemporary correspondence which does not involve Dodgson.</p>
+            <p>Subseries D contains calling cards.</p>
+            <p>
+                <title render="bold" type="simple">SERIES 2: Manuscripts</title></p>
+            <p>The manuscripts have been processed at the item level.</p>
+            <p>An exemplary entry from this section:</p>
+            <p>492. Dodgson, Charles
+                <lb/>"My first's a drink resembling wine;" Ms, 1p [n.p.], February 23, 1880
+                <lb/>(III 42)
+                <lb/>Acrostic originally sent to Alexandra Kitchin.</p>
+            <p>The first field has the author's name, the second either the title (if there is one) or the first line (if there is no title), the third a description of the document, the fourth the place and time of the document's composition, and the fifth has notes. If John Frost marked the text in grease-pencil with a number, that note appears in parentheses at the beginning of the notes field. Not all documents have been marked by Frost, and some documents may have no notes field at all.</p>
+            <p>Subseries A contains manuscripts by Charles L. Dodgson.</p>
+            <p>Subseries B contains proofs with holograph corrections.</p>
+            <p>Subseries C contains manuscripts not by Dodgson.</p>
+            <p>
+                <title render="bold" type="simple">SERIES 3: Drawings</title></p>
+            <p>The drawings have been processed at the item level.</p>
+            <p>An example of an entry from this section:</p>
+            <p>521. Dodgson, Charles
+                <lb/>Untitled; Drawing, pen and ink
+                <lb/>[n.p.], [n.d.]
+                <lb/>(I 1) Russian Drawings. Multiple heads and Russian annotations. Holograph on verso.</p>
+            <p>The first field contains the artist's name, the second its title, the third a description of the document, the fourth the place and date of its composition, and the fifth has notes. If John Frost marked the text in grease-pencil with a number, that number appears in parentheses at the beginning of the notes field. Not all documents have been marked by Frost, or Cohen and some documents may have no notes field at all.</p>
+            <p>Subseries A contains drawings by Dodgson.</p>
+            <p>Subseries B contains drawings by others including Harry Furniss and John Tenniel.</p>
+            <p>
+                <title render="bold" type="simple">SERIES 4: Photographs</title></p>
+            <p>The photographs have been processed at the item level.</p>
+            <p>589. Dodgson, Charles
+                <lb/>Photo of Benjamin and Sarah Terry
+                <lb/>Modern Photographic Print, Negative Number[1342]
+                <lb/>[n.p.][n.d.]
+                <lb/>2 full length figures, one seated other standing. Against a cloth backdrop.</p>
+            <p>The first field contains the artist's name, the second the photograph's subject, the third a description of the photograph (which will occasionally include the number with which Dodgson marked his negatives], the fourth the place and date of its composition, and the fifth notes. Most photographs have not been marked by Frost or Cohen, though there are some cross references to Frost numbers when the photograph relates to a letter or other text in some way.</p>
+            <p>Subseries A contains prints of photographs by Charles Dodgson.</p>
+            <p>Subseries B contains one glass negative of a Dodgson photograph.</p>
+            <p>Subseries C contains prints of photographs by Dodgson's contemporaries.</p>
+            <p>
+                <title render="bold" type="simple">SERIES 5: Related Material</title></p>
+            <p>These files have been processed at the folder level.</p>
+            <p>The entries should be self explanatory.</p>
+            <p>Subseries A contains advertisements using the collection.</p>
+            <p>Subseries B contains articles and offprints on Dodgson and his works</p>
+            <p>Subseries C contains ephemera.</p>
+            <p>Subseries D contains entire magazines which have articles relating to Dodgson and/or his works.</p>
+            <p>Subseries E contains newspaper clippings regarding Dodgson and his books.</p>
+            <p>Subseries F has Dodgson reprints</p>
+            <p>Subseries G contains theatrical adaptations, programs, and posters.</p>
+            <p>
+                <title render="bold" type="simple">SERIES 6: Provenance Notes</title></p>
+            <p>These files have been processed at the folder level.</p>
+            <p>The entries should be self explanatory.</p>
+            <p>Subseries A includes checklists regarding the Berol Collection.</p>
+            <p>Subseries B includes typescript versions of selected Dodgson letters.</p>
+            <p>Subseries C includes correspondence by Berol, scholars, collectors, and dealers relating to the development and provenance of the Berol collection.</p>
+            <p>Subseries C1 has correspondence to Alfred C. Berol, arranged alphabetically by author</p>
+            <p>Subseries C2 has correspondence to and from others</p>
+            <p>
+                <title render="bold" type="simple">OVERSIZE</title></p>
+            <p>Three flat oversize boxes at the end of the collection contains oversize materials from series 2 through 6.</p>
+        </scopecontent>
+        <arrangement id="ref10">
+            <head>Arrangement</head>
+            <p>In general, the folders are arranged alphabetically by subject/author heading.</p>
+            <p>The files are grouped into six series.</p>
+            <list numeration="arabic" type="ordered">
+                <item>Series I: Correspondence</item>
+                <item>Series II: Manuscripts</item>
+                <item>Series III: Drawings</item>
+                <item>Series IV: Photographs</item>
+                <item>Series V: Related Materials</item>
+                <item>Series VI: Provenance</item>
+                <item>Oversize - Series II</item>
+                <item>Oversize - Series III</item>
+                <item>Oversize - Series IV</item>
+                <item>Oversize - Series V</item>
+                <item>Oversize - Series VI</item>
+            </list>
+        </arrangement>
+        <separatedmaterial id="ref980">
+            <head>Separated Material</head>
+            <p>There is no information about materials that are associated by provenance to the described materials that have been physically separated or removed.</p>
+        </separatedmaterial>
+        <controlaccess>
+            <persname source="naf">Blakemore, Edith Rose, 1872-1947</persname>
+            <persname source="naf">Carroll, Lewis, 1832-1898</persname>
+            <persname source="local">Chataway, Gertrude</persname>
+            <persname source="naf">Collingwood, Stuart Dodgson, b. 1870</persname>
+            <persname source="naf">De la Mare, Walter, 1873-1956</persname>
+            <persname source="naf">Furniss, Harry, 1854-1925</persname>
+            <persname source="naf">Langbridge, Frederick, 1849-1922</persname>
+            <persname source="naf">Rossetti, Dante Gabriel, 1828-1882</persname>
+            <persname source="naf">Ruskin, John, 1819-1900</persname>
+            <persname source="ingest"></persname>
+            <persname source="naf">Tenniel, John, Sir, 1820-1914</persname>
+            <persname source="naf">Yonge, Charlotte Mary, 1823-1901</persname>
+            <genreform source="aat">Advertisements.</genreform>
+            <subject source="lcsh">Authors, English |x Correspondence.</subject>
+            <subject source="lcsh">Authors, English |y 19th century |x Correspondence.</subject>
+            <subject source="lcsh">Book collecting.</subject>
+            <subject source="lcsh">Book collectors.</subject>
+            <genreform source="aat">Clippings (information artifacts)</genreform>
+            <genreform source="aat">Correspondence.</genreform>
+            <subject source="lcsh">Drawing, English |y 19th century.</subject>
+            <genreform source="aat">Drawings.</genreform>
+            <subject source="lcsh">English literature |y 19th century.</subject>
+            <subject source="lcsh">English poetry |y 19th century.</subject>
+            <subject source="lcsh">Illustration of books |y 19th century.</subject>
+            <genreform source="aat">Manuscripts for publication.</genreform>
+            <subject source="lcsh">Mathematical recreations.</subject>
+            <subject source="lcsh">Mathematics |v Formulae.</subject>
+            <genreform source="aat">Offprints.</genreform>
+            <geogname source="lcsh">Oxford (England).</geogname>
+            <subject source="lcsh">Photography of children.</subject>
+            <genreform source="aat">Picture books.</genreform>
+            <subject source="lcsh">Pre-Raphaelitism |z England.</subject>
+            <genreform source="aat">Sketchbooks.</genreform>
+            <genreform source="aat">Theater programs.</genreform>
+            <genreform source="aat">Visiting cards.</genreform>
+        </controlaccess>
+        <dsc>
+            <c id="ref11" level="series">
+                <did>
+                    <unittitle>Series 1: Correspondence</unittitle>
+                </did>
+                <c id="ref12" level="subseries">
+                    <did>
+                        <unittitle>Subseries 1A: Correspondence from Charles L. Dodgson</unittitle>
+                    </did>
+                    <c id="ref13" level="otherlevel">
+                        <did>
+                            <unittitle>For Dodgson, Charles to Acland, Arthur see Dodgson, Charles to Steward, Christ Church.</unittitle>
+                            <container id="cid114754" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114754" type="Folder"></container>
+                            <unitdate>n/a</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref14" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To the Duchess of Albany
+                                <lb/>ALs, 2pp
+                                <lb/>Christ Church, Oxford, November 30, 1893
+                                <lb/>(XIX 557)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 997).</unittitle>
+                            <unitid>0001</unitid>
+                            <container id="cid114753" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114753" type="Folder">1</container>
+                            <unitdate>1893</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref15" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Argles, Agnes Beatrice Jane
+                                <lb/>ALs, 2pp
+                                <lb/>Christ Church, Oxford, March 5, 1879
+                                <lb/>(XIX 339) With envelope
+                                <lb/>6.25 x 8.</unittitle>
+                            <unitid>0004</unitid>
+                            <container id="cid114752" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114752" type="Folder">2</container>
+                            <unitdate>1879</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref16" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Argles, Edith
+                                <lb/>ALs, 2pp
+                                <lb/>The Chestnuts, Guildford, September 7, 1869
+                                <lb/>(XIX 459)
+                                <lb/>9 x 6.75
+                                <lb/>(Cohen pg. #: 138).</unittitle>
+                            <unitid>0007</unitid>
+                            <container id="cid114751" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114751" type="Folder">3</container>
+                            <unitdate>1869</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref17" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Argles, Edith
+                                <lb/>AD, 2pp
+                                <lb/>n.p., n.d. (XIX 458) With envelope.
+                                <lb/>6.75 x 8.</unittitle>
+                            <unitid>0010</unitid>
+                            <container id="cid114750" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114750" type="Folder">4</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref18" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Atkinson, F.H. (1840-1901)
+                                <lb/>ALs, 4pp
+                                <lb/>Christ Church, Oxford, December 10, 1881
+                                <lb/>(XIX 490)
+                                <lb/>5.5 x 7
+                                <lb/>(Cohen pg. #: 445).</unittitle>
+                            <unitid>0013</unitid>
+                            <container id="cid114749" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114749" type="Folder">5</container>
+                            <unitdate>1881</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref19" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Atkinson, F.H. ALs, illus, 4pp,
+                                <lb/>Christ Church, Oxford, April 10, 1890
+                                <lb/>(XIX 491)
+                                <lb/>5.5 x 7
+                                <lb/>(Cohen pg. #: 785).</unittitle>
+                            <unitid>0018</unitid>
+                            <container id="cid114748" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114748" type="Folder">6</container>
+                            <unitdate>1890</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref20" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Barry, Mrs. John
+                                <lb/>ALs, 3pp
+                                <lb/>Croft Rectory, Darlington, December 28, 1863
+                                <lb/>(XIX 453)
+                                <lb/>7.25 x 9.</unittitle>
+                            <unitid>0023</unitid>
+                            <container id="cid114747" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114747" type="Folder">7</container>
+                            <unitdate>1863</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref21" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Barry, Mrs. John
+                                <lb/>ALs, 4pp
+                                <lb/>[Christ Church, Oxford], June 28, [1869]
+                                <lb/>(XIX 452)
+                                <lb/>6.25 x 7.75
+                                <lb/>(Cohen pg. #: 132).</unittitle>
+                            <unitid>0028</unitid>
+                            <container id="cid114746" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114746" type="Folder">8</container>
+                            <unitdate>[1869]</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref22" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Barry, Mrs. John
+                                <lb/>ALs, 2pp
+                                <lb/>Christ Church, Oxford, February 15, 1871
+                                <lb/>(XIX 451)Handwritten note added to typeset questionnaire sent out about Jabberwocky frontispiece
+                                <lb/>7 x 4.5
+                                <lb/>(Cohen pg. #: 162).</unittitle>
+                            <unitid>0033</unitid>
+                            <container id="cid114745" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114745" type="Folder">9</container>
+                            <unitdate>1871</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref23" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Bayne, Thomas Vere
+                                <lb/>Envelope (1)
+                                <lb/>[n.p., n.d.].</unittitle>
+                            <container id="cid114744" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114744" type="Folder">10</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref24" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Bell, Mr. George Charles
+                                <lb/>ALs, 3pp
+                                <lb/>Christ Church, Oxford, November 13, 1882
+                                <lb/>(XIX 554)
+                                <lb/>5.25 x 7.25
+                                <lb/>(Cohen pg. #: 469).</unittitle>
+                            <unitid>0036</unitid>
+                            <container id="cid114743" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114743" type="Folder">11</container>
+                            <unitdate>1882</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref25" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Bell, Mrs. C.F. Moberly
+                                <lb/>ALs, 4pp
+                                <lb/>7 Lushington Road, Eastbourne, September 22, 1893
+                                <lb/>(XIX 555)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 978).</unittitle>
+                            <unitid>0040</unitid>
+                            <container id="cid114742" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114742" type="Folder">12</container>
+                            <unitdate>1893</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref26" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Bell, Mrs. C.F. Moberly
+                                <lb/>ALs, 4pp
+                                <lb/>7 Lushington Road, Eastbourne, September 27, 1893
+                                <lb/>(XIX 556)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 979).</unittitle>
+                            <unitid>0045</unitid>
+                            <container id="cid114741" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114741" type="Folder">13</container>
+                            <unitdate>1893</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref27" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Biddle, Daniel
+                                <lb/>ALs, 3pp
+                                <lb/>Christ Church, Oxford, July 16, 1885
+                                <lb/>(XIX 504)
+                                <lb/>3 x 4.5
+                                <lb/>(Cohen pg. #: 589).</unittitle>
+                            <unitid>0053</unitid>
+                            <container id="cid114740" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114740" type="Folder">14</container>
+                            <unitdate>1885</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref28" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Biddle, Daniel
+                                <lb/>ACs, 1p
+                                <lb/>[n.p., n.d.]
+                                <lb/>(XIX 503)
+                                <lb/>7 x 9.</unittitle>
+                            <unitid>0056</unitid>
+                            <container id="cid114739" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114739" type="Folder">15</container>
+                            <unitdate>undated</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref29" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith "Dolly"
+                                <lb/>ALs, 3pp
+                                <lb/>Christ Church, Oxford, January 27, 1878
+                                <lb/>(VI 94)
+                                <lb/>7 x 8
+                                <lb/>(Cohen pg. #: 301).</unittitle>
+                            <unitid>0060</unitid>
+                            <container id="cid114738" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114738" type="Folder">16</container>
+                            <unitdate>1878</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref30" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, 2pp
+                                <lb/>Christ Church, Oxford, November 30, 1879
+                                <lb/>(VI 95)
+                                <lb/>6 x 8
+                                <lb/>(Cohen pg. #: 355).</unittitle>
+                            <unitid>0064</unitid>
+                            <container id="cid114737" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114737" type="Folder">17</container>
+                            <unitdate>1879</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref31" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, 1p
+                                <lb/>Guildford, December 27, 1880
+                                <lb/>(VI 97)
+                                <lb/>5.75 x 4
+                                <lb/>(Cohen pg. #: 402).</unittitle>
+                            <unitid>0067</unitid>
+                            <container id="cid114736" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114736" type="Folder">18</container>
+                            <unitdate>1880</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref32" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, 3pp
+                                <lb/>Christ Church, Oxford, February 1, 1881
+                                <lb/>(VI 98)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 406).</unittitle>
+                            <unitid>0068</unitid>
+                            <container id="cid114735" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114735" type="Folder">19</container>
+                            <unitdate>1881</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref33" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, illus, 3pp
+                                <lb/>Christ Church, Oxford, January 27, 1882
+                                <lb/>(VI 99)
+                                <lb/>7 x 9
+                                <lb/>(Cohen pg. #: 451).</unittitle>
+                            <unitid>0072</unitid>
+                            <container id="cid114734" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114734" type="Folder">20</container>
+                            <unitdate>1882</unitdate>
+                        </did>
+                    </c>
+                    <c id="ref34" level="otherlevel">
+                        <did>
+                            <unittitle>Dodgson, Charles
+                                <lb/>To Blakemore, Edith , "Dolly"
+                                <lb/>ALs, 1p
+                                <lb/>Christ Church, Oxford, January 27, 1885
+                                <lb/>(VI 101)
+                                <lb/>6 x 8
+                                <lb/>(Cohen pg. #: 557).</unittitle>
+                            <unitid>0076</unitid>
+                            <container id="cid114733" type="Box" label="Mixed materials">1</container>
+                            <container parent="cid114733" type="Folder">21</container>
+                            <unitdate>1885</unitdate>
+                        </did>
+                    </c>
+                </c>
+            </c>
+        </dsc>
+    </archdesc>
+</ead>

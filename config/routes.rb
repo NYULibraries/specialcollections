@@ -4,9 +4,9 @@ Findingaids::Application.routes.draw do
 
   root :to => "catalog#index"
 
-  # Create named routes for each collection specified in tabs.yml
-  YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )["Catalog"]["repositories"].each do |coll|
-     get "#{coll[0]}" => "catalog#index", :search_field => "#{coll[1]['display']}", :repository => "#{coll[1]['display']}"
+  # Create named routes for each collection specified in the Repositories Class
+  Findingaids::Repositories.repositories.each do |coll|
+   get "#{coll[1]['url']}" => "catalog#index", :search_field => "#{coll[1]['url_safe_display']}", :repository => "#{coll[1]['display']}", :f => { :repository_sim => ["#{coll[1]['admin_code']}"] }
   end
 
   scope "admin" do
@@ -22,13 +22,6 @@ Findingaids::Application.routes.draw do
   get 'validate', :to => 'user_sessions#validate', :as => :validate
   resources :user_sessions
 
-  # For EAD
-  get "components/:id(/:ref)", :to => "components#index"
-  get "catalog/:id/:ref", :to => "catalog#show"
-
-  # Don't know what these are for so commenting out for now
-  # Holdings
-  # get "holdings/:id" => "holdings#show", :as => :holdings
-  # match "*a", :to => "catalog#index", :via => [:get, :post] if Rails.env.match?("production")
-
+  get 'help/search_tips', :as => :search_tips
+  get 'help/contact_information', :as => :contact_information
 end
