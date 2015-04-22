@@ -41,7 +41,7 @@ class Findingaids::Ead::Indexer
     changed_files.each do |file|
       status, filename = file.split("\t")
       fullpath = File.join(data_path, filename)
-      update_or_delete(fullpath)
+      update_or_delete(status, fullpath)
     end
   end
 
@@ -58,7 +58,7 @@ private
   end
 
   # Update or delete depending on git status
-  def update_or_delete(file)
+  def update_or_delete(status, file)
     if File.exists?(file)
       update(file)
     # Status == D means the file was deleted

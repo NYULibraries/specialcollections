@@ -9,7 +9,7 @@ A search interface powered by [Blacklight](http://projectblacklight.org/) for sp
 
 ## See it in action!
 
-Visit https://webdev3.library.nyu.edu/findingaids
+Development: https://dev.specialcollections.library.nyu.edu/search
 
 ## Use with WebSolr
 
