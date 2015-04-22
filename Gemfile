@@ -36,7 +36,7 @@ gem 'mustache', '0.99.4'
 gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie', tag: 'v0.2.3'
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
-gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.3.0'
+gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.4.0'
 
 # Deploy the application with Formaggio deploy recipes
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
@@ -109,7 +109,7 @@ group :test do
   # Use Coveralls to publish coverage on the open web
   gem 'coveralls', '~> 0.7.0', require: false
   #to be able to use rspec matchers
-  gem 'rspec-expectations' 
+  gem 'rspec-expectations'
   gem 'rspec-solr', '~> 1.0.1'
 end
 
