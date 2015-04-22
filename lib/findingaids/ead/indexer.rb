@@ -37,24 +37,44 @@ class Findingaids::Ead::Indexer
     end
   end
 
-  def reindex_changed
-    changed_files.each do |file|
+  # Reindex files changed only since the last commit
+  def reindex_changed_since_last_commit
+    reindex_changed(last_commit)
+  end
+
+  # Reindex all files changed in the last day
+  def reindex_changed_since_yesterday
+    reindex_changed(last_day_of_commits)
+  end
+
+private
+
+  # Reindex files changed in list of commit SHAs
+  def reindex_changed(last_commits)
+    changed_files(last_commits).each do |file|
       status, filename = file.split("\t")
       fullpath = File.join(data_path, filename)
       update_or_delete(status, fullpath)
     end
   end
 
-private
-
   # Get the sha for the last commit
   def last_commit
-    @last_commit ||= `cd #{data_path} && git log --pretty=format:'%h' -1 && cd ..`
+    @last_commit ||= [`cd #{data_path} && git log --pretty=format:'%h' -1 && cd ..`]
+  end
+
+  # Get the last day of commits
+  def last_day_of_commits
+    @last_day_of_commits ||= `cd #{data_path} && git log --pretty=format:'%h' --since=1.day && cd ..`.split("\n")
   end
 
   # Get list of files changed since last commit
-  def changed_files
-    @changed_files ||= (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{last_commit} && cd ..`).split("\n")
+  def changed_files(last_commits)
+    changed_files = []
+    last_commits.each do |commit|
+      changed_files << (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{commit} && cd ..`).split("\n")
+    end
+    changed_files.flatten
   end
 
   # Update or delete depending on git status

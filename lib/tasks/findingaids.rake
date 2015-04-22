@@ -38,7 +38,13 @@ namespace :findingaids do
     desc "Reindex only the files in the data repository that have changed since the last commit"
     task :reindex_changed => :environment do
       indexer = Findingaids::Ead::Indexer.new
-      indexer.reindex_changed
+      indexer.reindex_changed_since_last_commit
+    end
+
+    desc "Reindex only the files in the data repository that have changed since the last commit"
+    task :reindex_changed_since_yesterday => :environment do
+      indexer = Findingaids::Ead::Indexer.new
+      indexer.reindex_changed_since_yesterday
     end
 
     desc "Deletes everything from the solr index"
