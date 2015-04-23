@@ -19,7 +19,7 @@ class Findingaids::Ead::Indexer
 
   attr_accessor :indexer, :data_path
 
-  def initialize(data_path="data")
+  def initialize(data_path="findingaids_eads")
     @data_path = data_path
     @indexer = SolrEad::Indexer.new(document: Findingaids::Ead::Document, component: Findingaids::Ead::Component)
   end
