@@ -57,7 +57,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     solr_doc = super(solr_doc)
 
     # Populate repository code from indexing folder structure
-    Solrizer.insert_field(solr_doc, "repository",   repository_display,     :stored_sortable, :facetable)
+    Solrizer.insert_field(solr_doc, "repository",   repository_display,     :stored_sortable, :facetable, :displayable)
     # Set the format to Archival Collection
     Solrizer.insert_field(solr_doc, "format",       "Archival Collection",  :facetable, :displayable)
     # Sortable element based on the type of thing this is, will help us sort by Collection, Series, etc.
