@@ -458,7 +458,6 @@ DEPENDENCIES
   rspec-expectations
   rspec-rails (~> 2.14.2)
   rspec-solr (~> 1.0.1)
-  sanitize (~> 2.1.0)
   sass-rails (= 5.0.0.beta1)
   selenium-webdriver (~> 2.43.0)
   simplecov

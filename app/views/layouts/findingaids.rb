@@ -62,6 +62,14 @@ module Views
         searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{catalog_index_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
       end
 
+      def gauges_tracking_code
+        ENV['GAUGES_TRACKING_CODE']
+      end
+
+      # def google_analytics_tracking_code
+      #   ENV['GOOGLE_ANALYTICS_TRACKING_CODE']
+      # end
+
     end
   end
 end

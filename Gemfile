@@ -65,9 +65,6 @@ gem 'comma', '~> 3.2.0'
 gem 'solr_ead', '~> 0.7.2'
 # gem 'solr_ead', path: '/apps/solr_ead'
 
-# HTML sanitizer
-gem 'sanitize', '~> 2.1.0'
-
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
 

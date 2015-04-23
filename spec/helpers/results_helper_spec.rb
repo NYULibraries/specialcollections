@@ -42,27 +42,6 @@ describe ResultsHelper do
     end
   end
 
-  describe "#link_to_toc_page" do
-    let(:collection) { document[:document] }
-    subject { link_to_toc_page(collection, "Click Here", field) }
-    context "when the field is the abstract" do
-      let(:field) { "abstract" }
-      it { should eql("<dd><a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/\" target=\"_blank\">Click Here</a></dd>") }
-    end
-    context "when the field is bioghist" do
-      let(:field) { "bioghist" }
-      it { should eql("<dd><a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/bioghist.html\" target=\"_blank\">Click Here</a></dd>") }
-    end
-    context "when the field is admininfo" do
-      let(:field) { "admininfo" }
-      it { should eql("<dd><a href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/admininfo.html\" target=\"_blank\">Click Here</a></dd>") }
-    end
-    context "when the field is dsc" do
-      let(:field) { "dsc" }
-      it { should be_nil }
-    end
-  end
-
   describe "#document_icon" do
     subject { document_icon(document[:document]) }
     context "when document is a collection level item" do
@@ -89,11 +68,6 @@ describe ResultsHelper do
   describe "#repository_label" do
     subject { repository_label(document[:document][:repository_ssi]) }
     it { should eq("The Fales Library") }
-  end
-
-  describe "#sanitize" do
-    subject { sanitize("<b>Sanitize me!</b>") }
-    it { should eq("Sanitize me!") }
   end
 
   describe "#facet_name" do
@@ -147,13 +121,12 @@ describe ResultsHelper do
     end
   end
 
-
-  describe "#render_series_facet_link" do
+  describe "#render_contained_in_links" do
     let(:field) { :heading_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
-    subject { render_series_facet_link(document) }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"result_ut\">The Title</span>" }
-    it { expect(sanitize(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; The Title") }
+    subject { render_contained_in_links(document) }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"unittitle\">The Title</span>" }
+    it { expect(sanitize_html(subject)).to eql("Bytsura Collection of Things >> Series I >> Subseries IV >> The Title") }
   end
 
   describe "#render_repository_facet_link" do
@@ -166,24 +139,8 @@ describe ResultsHelper do
     let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
     subject { render_repository_link(document) }
     it { should eql "<a href=\"/fales\">The Fales Library</a>" }
-    it { expect(sanitize(subject)).to eql("The Fales Library") }
+    it { expect(sanitize_html(subject)).to eql("The Fales Library") }
   end
-
-
-  describe "#render_components_facet_link" do
-    let(:field) { :parent_unittitles_ssm }
-    let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
-    subject { render_components_facet_link(document[:document]) }
-    it { should eql({"f"=>{"collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
-  end
-
-  describe "#render_components_for_series_facet_link" do
-    let(:field) { :parent_unittitles_ssm }
-    let(:solr_document) { create(:solr_document, unittitle: ["Series I"]) }
-    subject { render_components_for_series_facet_link(document[:document]) }
-    it { should eql({"f"=>{"series_sim"=>document[:document][:unittitle_ssm], "collection_sim"=>["Bytsura Collection of Things"]}, "action"=>"index", "controller"=>"catalog"}) }
-  end
-
 
   describe "#link_to_document" do
     subject { link_to_document(collection, heading) }
@@ -227,5 +184,28 @@ describe ResultsHelper do
       it { should be_false }
     end
   end
+
+  describe "#link_to_collection" do
+    subject { link_to_collection("The Collection") }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection\">The Collection</a>" }
+  end
+
+  describe "#links_to_series" do
+    subject { links_to_series(["Series I", "Series II"], "The Collection").join(" >> ") }
+    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+II\">Series II</a>" }
+  end
+
+  describe "#sanitize_html" do
+    let(:html_to_sanitize) { "<strong>Whassup</strong>" }
+    subject { sanitize_html(html_to_sanitize) }
+    context "when the string contains accepted html" do
+      it { should eql "<strong>Whassup</strong>" }
+    end
+    context "when the string contains unaccepted html" do
+      let(:html_to_sanitize) { "<iframe>Whassup</iframe>" }
+      it { should eql "Whassup" }
+    end
+  end
+
 
 end

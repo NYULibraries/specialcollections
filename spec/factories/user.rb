@@ -1,13 +1,13 @@
 FactoryGirl.define do
   factory :user do
-    sequence(:username) {|n| "test123#{n}"}
-    sequence(:email) { |n| "test123#{n}@library.edu" }
+    sequence(:username) {|n| "bigPharaoh#{n}"}
+    sequence(:email) { |n| "bigPharaoh#{n}@library.edu" }
     firstname "Ptolemy"
   end
 
   factory :user_dev, class: User do
     firstname "Ramses"
-  	username "dev123"
-  	email    "dev.loper@library.edu"
+    username "hardenedheart4life"
+    email "hardenedheart4life@library.edu"
   end
 end
