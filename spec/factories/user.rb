@@ -7,7 +7,7 @@ FactoryGirl.define do
 
   factory :user_dev, class: User do
     firstname "Ramses"
-    sequence(:username) {|n| "hardenedheart4life#{n}"}
-    sequence(:email) {|n| "hardenedheart4life#{n}@library.edu"}
+    username "hardenedheart4life"
+    email "hardenedheart4life@library.edu"
   end
 end
