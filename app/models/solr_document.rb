@@ -17,9 +17,15 @@ class SolrDocument
   # and Blacklight::Solr::Document#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension( Blacklight::Solr::Document::DublinCore)
-  
+
   def normalized_format
     self[Solrizer.solr_name("format", :displayable)].first.downcase.gsub(/\s/,"_")
+  end
+
+  def export_as_ead_citation_txt
+    # Array of citation fields eliminating blank and nil ones
+    citation_fields = ["<strong>#{unittitle}</strong>", "#{unitdate}","#{collection}", "#{location.gsub(",",";")}", "#{repository}"] - ["",nil]
+    citation_fields.join("; ")
   end
 
   ##
@@ -27,12 +33,18 @@ class SolrDocument
   def method_missing(method_id, *args)
     if match = matches_dynamic_format_check?(method_id)
       self.normalized_format == match.captures.first
+    elsif whitelisted_attributes.include?(method_id)
+      self[Solrizer.solr_name(method_id, :displayable)].first rescue ""
     else
       super
     end
   end
 
   private
+
+  def whitelisted_attributes
+    @whitelisted_attributes ||= [:unittitle, :unitdate, :collection, :location, :repository]
+  end
 
   ##
   # Check if method_id matches the is_role? schema
