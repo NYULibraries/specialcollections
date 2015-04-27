@@ -26,8 +26,12 @@ class SolrDocument
   # Print formatted citation
   def export_as_ead_citation_txt
     # Array of citation fields eliminating blank and nil ones
-    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}", "#{unitdate}","#{collection}", "#{location.gsub(",",";")}", "#{repository}"] - ["",nil]
+    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}#{", #{unitdate}" if unitdate.present?}", "#{unitid}", "#{collection}", "#{location.gsub(",",";")}", "#{library}"] - ["",nil]
     citation_fields.join("; ")
+  end
+
+  def library
+    @library ||= Findingaids::Repositories.repositories.values.select { |repos| repos["admin_code"] == repository }.first["display"]
   end
 
   def method_missing(method_id, *args)
@@ -63,7 +67,7 @@ class SolrDocument
 
   # Attributes you're allowed to call as instance methods
   def whitelisted_attributes
-    @whitelisted_attributes ||= [:unittitle, :unitdate, :collection, :location, :repository, :parent_unittitles]
+    @whitelisted_attributes ||= [:unittitle, :unitdate, :unitid, :collection, :location, :parent_unittitles, :repository]
   end
 
   ##

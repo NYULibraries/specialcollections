@@ -6,9 +6,10 @@ describe SolrDocument do
   let(:unittitle_ssm) { "The Unit Title" }
   let(:parent_unittitles_ssm) { ["Series I", "Series II"] }
   let(:unitdate_ssm) { "Inclusive: 91-95 ; Bulk: April 95" }
-  let(:repository_ssm) { "The Fales Library" }
+  let(:repository_ssm) { "fales" }
   let(:location_ssm) { "Box 12, Folder 99" }
   let(:collection_ssm) { "The Papers of Bartholomew Jenkins" }
+  let(:unitid_ssm) { "MSS 122" }
   let(:document) do
     SolrDocument.new({
       :unittitle_ssm => [unittitle_ssm],
@@ -17,7 +18,8 @@ describe SolrDocument do
       :unitdate_ssm => [unitdate_ssm],
       :repository_ssm => [repository_ssm],
       :location_ssm => [location_ssm],
-      :collection_ssm => [collection_ssm]
+      :collection_ssm => [collection_ssm],
+      :unitid_ssm => [unitid_ssm]
     })
   end
 
@@ -42,7 +44,7 @@ describe SolrDocument do
 
   describe "#export_as_ead_citation_txt" do
     subject { document.export_as_ead_citation_txt }
-    it { should eql "<strong>The Unit Title</strong>; Inclusive: 91-95 ; Bulk: April 95; The Papers of Bartholomew Jenkins; Box 12; Folder 99; The Fales Library" }
+    it { should eql "<strong>The Unit Title</strong>, Inclusive: 91-95 ; Bulk: April 95; MSS 122; The Papers of Bartholomew Jenkins; Box 12; Folder 99; The Fales Library & Special Collections" }
   end
 
   describe "#method_missing" do
@@ -91,6 +93,11 @@ describe SolrDocument do
     describe "#unittitle" do
       subject { document.unittitle }
       it { should eql "The Unit Title" }
+    end
+
+    describe "#library" do
+      subject { document.library }
+      it { should eql "The Fales Library & Special Collections" }
     end
 
   end
