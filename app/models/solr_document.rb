@@ -26,7 +26,7 @@ class SolrDocument
   # Print formatted citation
   def export_as_ead_citation_txt
     # Array of citation fields eliminating blank and nil ones
-    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}#{", #{unitdate}" if unitdate.present?}", "#{unitid}", "#{collection}", "#{location.gsub(",",";")}", "#{library}"] - ["",nil]
+    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}#{", #{unitdate}" if unitdate.present?}", "#{unitid}", "#{collection unless is_archival_collection?}", "#{location.gsub(",",";")}", "#{library}"] - ["",nil]
     citation_fields.join("; ")
   end
 

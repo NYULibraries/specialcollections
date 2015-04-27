@@ -44,7 +44,7 @@ describe SolrDocument do
 
   describe "#export_as_ead_citation_txt" do
     subject { document.export_as_ead_citation_txt }
-    it { should eql "<strong>The Unit Title</strong>, Inclusive: 91-95 ; Bulk: April 95; MSS 122; The Papers of Bartholomew Jenkins; Box 12; Folder 99; The Fales Library & Special Collections" }
+    it { should eql "<strong>The Unit Title</strong>, Inclusive: 91-95 ; Bulk: April 95; MSS 122; Box 12; Folder 99; The Fales Library & Special Collections" }
   end
 
   describe "#method_missing" do
