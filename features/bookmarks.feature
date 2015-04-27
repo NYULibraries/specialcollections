@@ -33,7 +33,7 @@ Feature: Cite and Email Bookmarks
     When I click on the "Cite" button
     Then I should see a popup containing the following citation:
       """
-      1. Ben Alexrod, Oct 4, 1979; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
+      1. Ben Alexrod, Oct 4, 1979; OH.002; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
       """
 
   Scenario: Emailing a bookmark
