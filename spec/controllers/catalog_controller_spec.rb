@@ -52,7 +52,7 @@ describe CatalogController do
 
      it "should include solr weights, assigned on the document fields author to the relevancy calculations " do
       get :index, :q => "Accuracy", :search_field => "all_fields"
-       
+
       get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
     end
 
