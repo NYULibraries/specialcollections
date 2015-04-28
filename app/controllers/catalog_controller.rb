@@ -8,16 +8,15 @@ class CatalogController < ApplicationController
 
   configure_blacklight do |config|
     config.default_solr_params = {
-      :qt => 'search',
       :fl => display_fields,
       :qf => qf_fields,
       :pf => pf_fields,
-      :bf => bf_functions,
+      :bq => bq_fields,
       :facet => true,
       "facet.mincount" => 1,
-      :echoParams => "explicit",
       :ps => 50,
-      :defType => "edismax"
+      :defType => "edismax",
+      :timeAllowed => -1
     }
     config.advanced_search = {
       :form_solr_parameters => {
