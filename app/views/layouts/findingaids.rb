@@ -66,9 +66,9 @@ module Views
         ENV['GAUGES_TRACKING_CODE']
       end
 
-      # def google_analytics_tracking_code
-      #   ENV['GOOGLE_ANALYTICS_TRACKING_CODE']
-      # end
+      def google_analytics_tracking_code
+        ENV['GOOGLE_ANALYTICS_TRACKING_CODE']
+      end
 
     end
   end

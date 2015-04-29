@@ -88,19 +88,20 @@ module Findingaids
           @pf_fields ||= qf_fields
         end
 
-        #Boost functions
-        def bf_functions
-           @bf_functions ||= ["#{solr_field_value_filter(solr_name("format", :facetable), "*Collection*")}^3000",
-             "#{solr_field_value_filter(solr_name("level", :facetable), "series")}^300",
-             "#{solr_field_value_filter(solr_name("level", :facetable), "subseries")}^70",
-             "#{solr_field_value_filter(solr_name("level", :facetable), "file")}^50",
-             "#{solr_field_value_filter(solr_name("level", :facetable), "item")}^40",
-           ]
-        end
-
-        #query function
-        def solr_field_value_filter field_name, filter_value
-             "exists(query({!v=#{field_name}:#{filter_value}}))"
+        # Boost query fields will boost relevance in descending order of EAD level:
+        # =>  Collection by 250
+        # =>  Series by 150
+        # =>  Subseries by 50
+        # =>  File by 20
+        # =>  Item not at all
+        def bq_fields
+          @bq_fields ||= [
+            "#{solr_name("format", :facetable)}:\"Archival Collection\"^250",
+            "#{solr_name("level", :facetable)}:series^150",
+            "#{solr_name("level", :facetable)}:subseries^50",
+            "#{solr_name("level", :facetable)}:file^20",
+            "#{solr_name("level", :facetable)}:item"
+          ]
         end
       end
     end

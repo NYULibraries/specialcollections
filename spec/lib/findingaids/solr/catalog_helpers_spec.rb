@@ -38,9 +38,9 @@ describe Findingaids::Solr::CatalogHelpers do
     it { should eql "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
   end
 
-  describe ".bf_functions" do
-    subject { catalog_helper.bf_functions }
-    it { should eql ["exists(query({!v=format_sim:*Collection*}))^3000", "exists(query({!v=level_sim:series}))^300", "exists(query({!v=level_sim:subseries}))^70", "exists(query({!v=level_sim:file}))^50", "exists(query({!v=level_sim:item}))^40"] }
+  describe ".bq_fields" do
+    subject { catalog_helper.bq_fields }
+    it { should eql ["format_sim:\"Archival Collection\"^250", "level_sim:series^150", "level_sim:subseries^50", "level_sim:file^20", "level_sim:item"] }
   end
 
   describe ".advanced_search_fields" do
