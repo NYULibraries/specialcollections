@@ -62,7 +62,7 @@ module ResultsHelper
   def render_collection_facet_link(doc)
     if  doc[:document].is_archival_collection?
       item = doc[:document][doc[:field]].first
-      local_params = add_clean_facet_params_and_redirect([collection_facet, item],[format_facet,"Archival Collection"])
+      local_params = add_clean_facet_params_and_redirect([collection_facet, item])
       link_to t('search.brief_results.link_text.collection'), local_params, :class => "search_within"
     else
       item = []
