@@ -88,7 +88,8 @@ describe Findingaids::Ead::Component do
         Solrizer.solr_name("parent_unittitles", :displayable)       => ["Series I", "Subseries A", "Subseries 1"],
         Solrizer.solr_name("component_children", :type => :boolean) => FALSE,
         Solrizer.solr_name("collection", :facetable)                => ["Resource--Title-AT"],
-        Solrizer.solr_name("author", :searchable)                  => ["Finding aid prepared by Resource-FindingAidAuthor-AT"]
+        Solrizer.solr_name("collection_unitid", :displayable)       => ["Resource.ID.AT.AT"],
+        Solrizer.solr_name("author", :searchable)                   => ["Finding aid prepared by Resource-FindingAidAuthor-AT"]
       }
     end
     let(:document) { Findingaids::Ead::Component.from_xml(ead_fixture("ead_file.xml")) }
@@ -107,6 +108,11 @@ describe Findingaids::Ead::Component do
     describe "unitdate" do
       subject { solr_doc[Solrizer.solr_name("unitdate", :displayable)] }
       it { should eql ["Inclusive, Resource-C06-Date-AT ; Bulk, 1960-1970"] }
+    end
+
+    describe "collection_unitid" do
+      subject { solr_doc[Solrizer.solr_name("collection_unitid", :displayable)] }
+      it { should eql ["Resource.ID.AT.AT"] }
     end
 
     describe "facets" do
@@ -175,7 +181,7 @@ describe Findingaids::Ead::Component do
       end
     end
 
-  
+
     describe "#location_display" do
       subject { solr_doc[Solrizer.solr_name("location", :displayable)] }
       it { should eql ["Box: 6, Folder: 6, Item: 6"] }
