@@ -15,12 +15,6 @@ module Findingaids::Ead::Behaviors
   # Allows us to use class methods from this module in document and component.rb
   extend ActiveSupport::Concern
 
-  # Fields to link to in display view
-  LINK_FIELDS = {
-    :abstract => [:abstract],
-    :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
-    :dsc => [:odd, :unittitles]
-  }
   # Places to look for names
   NAME_FIELDS = [:corpname, :famname, :persname]
 
