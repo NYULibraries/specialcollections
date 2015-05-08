@@ -21,6 +21,10 @@ Then(/^I should see facets in the following order:$/) do |table|
   end
 end
 
-Then(/^the limit "(.*?)" should be selected under the "(.*?)" category$/) do |facet, category|
-  expect(page.find(:xpath, "//span[@class='facet-label']/span[@class='selected'][text()='#{facet}']")).to have_content
+Then(/^the limit "(.*?)" should (not )?be selected under the "(.*?)" category$/) do |facet, negator, category|
+  if negator
+    expect(page.should have_no_selector(:xpath, "//span[@class='facet-label']/span[@class='selected'][text()='#{facet}']"))
+  else
+    expect(page.find(:xpath, "//span[@class='facet-label']/span[@class='selected'][text()='#{facet}']")).to have_content
+  end
 end

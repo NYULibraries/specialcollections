@@ -31,7 +31,7 @@ Feature: Brief result display
     When I limit my search to "Archival Collection" under the "Level" category
     And I limit my search to "Mark Bloch Postal Art Network (PAN) Archive" under the "Collection" category
     When I click on "Search all archival materials within this collection" within the first result
-    Then the limit "Archival Collection" should be selected under the "Level" category
+    Then the limit "Archival Collection" should not be selected under the "Level" category
     And the limit "Mark Bloch Postal Art Network (PAN) Archive" should be selected under the "Collection" category
     And I should see search results
 
