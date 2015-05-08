@@ -1,4 +1,3 @@
-# require 'behaviors/dates'
 ##
 # Ead Behaviors
 #
@@ -16,12 +15,6 @@ module Findingaids::Ead::Behaviors
   # Allows us to use class methods from this module in document and component.rb
   extend ActiveSupport::Concern
 
-  # Fields to link to in display view
-  LINK_FIELDS = {
-    :abstract => [:abstract],
-    :admininfo => [:custodhist, :sponsor, :acqinfo, :physctech, :index],
-    :dsc => [:odd, :unittitles]
-  }
   # Places to look for names
   NAME_FIELDS = [:corpname, :famname, :persname]
 
@@ -117,11 +110,11 @@ module Findingaids::Ead::Behaviors
     return fields
   end
 
-  #Identify if resource is availble on line. Looks for
+  #Identify if resource is available on line. Looks for
   #
   #<dao></dao>
   def get_ead_dao_facet
-    "Online Access" unless(value("//dao")).empty?
+    I18n.t('indexer.fields.dao') unless(value("//dao")).empty?
   end
 
   # Replace MARC style subfield demarcators
@@ -153,4 +146,22 @@ module Findingaids::Ead::Behaviors
     search(path).text
   end
 
+end
+
+# Override to add parent_unitid
+SolrEad::Behaviors.module_eval do
+  def additional_component_fields(node, addl_fields = Hash.new)
+    addl_fields["id"]                                                        = [node.xpath("//eadid").text, node.attr("id")].join
+    addl_fields[Solrizer.solr_name("ead", :stored_sortable)]                 = node.xpath("//eadid").text
+    addl_fields[Solrizer.solr_name("parent", :stored_sortable)]              = node.parent.attr("id") unless node.parent.attr("id").nil?
+    addl_fields[Solrizer.solr_name("parent", :displayable)]                  = parent_id_list(node)
+    addl_fields[Solrizer.solr_name("parent_unittitles", :displayable)]       = parent_unittitle_list(node)
+    addl_fields[Solrizer.solr_name("parent_unittitles", :searchable)]        = parent_unittitle_list(node)
+    addl_fields[Solrizer.solr_name("component_level", :type => :integer)]    = parent_id_list(node).length + 1
+    addl_fields[Solrizer.solr_name("component_children", :type => :boolean)] = component_children?(node)
+    addl_fields[Solrizer.solr_name("collection", :facetable)]                = node.xpath("//archdesc/did/unittitle").text
+    addl_fields[Solrizer.solr_name("collection", :displayable)]              = node.xpath("//archdesc/did/unittitle").text
+    addl_fields[Solrizer.solr_name("collection_unitid", :displayable)]       = node.xpath("//archdesc/did/unitid").text
+    return addl_fields
+  end
 end

@@ -22,6 +22,7 @@ module Findingaids
             "#{solr_name("parent_unittitles", :searchable)}",
             "#{solr_name("collection", :searchable)}",
             "#{solr_name("unitid", :searchable)}^60",
+            "#{solr_name("collection_unitid", :searchable)}^40",
             "#{solr_name("language", :displayable)}",
             "#{solr_name("unitdate_start", :searchable)}",
             "#{solr_name("unitdate_end", :searchable)}",

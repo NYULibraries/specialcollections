@@ -26,7 +26,7 @@ class SolrDocument
   # Print formatted citation
   def export_as_ead_citation_txt
     # Array of citation fields eliminating blank and nil ones
-    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}#{", #{unitdate}" if unitdate.present?}", "#{unitid}", "#{collection unless is_archival_collection?}", "#{location.gsub(",",";")}", "#{library}"] - ["",nil]
+    citation_fields = ["#{"<strong>"+unittitle+"</strong>" if unittitle.present?}#{", #{unitdate}" if unitdate.present?}", "#{unitid if self.is_archival_collection?}", "#{collection_unitid unless self.is_archival_collection?}", "#{collection unless is_archival_collection?}", "#{location.join("; ").gsub(/,/,";")}", "#{library}"] - ["",nil]
     citation_fields.join("; ")
   end
 
@@ -42,7 +42,8 @@ class SolrDocument
     elsif whitelisted_attributes.include?(method_id)
       attribute = self[Solrizer.solr_name(method_id, :displayable)]
       # If term is plural assume it's an array and treat it as such
-      if is_plural?(method_id.to_s)
+      # Or location shuld be titled locations, but it is not
+      if is_plural?(method_id.to_s) || method_id.to_s == "location"
         (attribute.present?) ? attribute : []
       # If term is singular assume it's a string and treat it as such
       elsif is_singular?(method_id.to_s)
@@ -67,7 +68,7 @@ class SolrDocument
 
   # Attributes you're allowed to call as instance methods
   def whitelisted_attributes
-    @whitelisted_attributes ||= [:unittitle, :unitdate, :unitid, :collection, :location, :parent_unittitles, :repository]
+    @whitelisted_attributes ||= [:unittitle, :unitdate, :unitid, :collection_unitid, :collection, :location, :parent_unittitles, :repository]
   end
 
   ##

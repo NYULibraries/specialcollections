@@ -8,7 +8,9 @@ require 'fileutils'
 # mainly the ability to index directories and reindex changed files from a Git diff.
 #
 # The #index function takes in a file or directory and calls update on all the valid .xml files it finds.
-# The #reindex_changed function finds all the files changed since the previous commit and updates, adds or deletes accordingly.
+# The #reindex_changed_since_last_commit function finds all the files changed since the previous commit and updates, adds or deletes accordingly.
+# The #reindex_changed_since_yesterday function finds all the files changed since yesterday and updates, adds or deletes accordingly.
+# The #reindex_changed_since_last_week function finds all the files changed since last week and updates, adds or deletes accordingly.
 # The .delete_all convenience method wraps Blacklight.solr to easily clear the index
 class Findingaids::Ead::Indexer
 
@@ -39,12 +41,17 @@ class Findingaids::Ead::Indexer
 
   # Reindex files changed only since the last commit
   def reindex_changed_since_last_commit
-    reindex_changed(last_commit)
+    reindex_changed(commits)
   end
 
   # Reindex all files changed in the last day
   def reindex_changed_since_yesterday
-    reindex_changed(last_day_of_commits)
+    reindex_changed(commits('--since=1.day'))
+  end
+
+  # Reindex all files changed in the last day
+  def reindex_changed_since_last_week
+    reindex_changed(commits('--since=1.week'))
   end
 
 private
@@ -58,14 +65,15 @@ private
     end
   end
 
-  # Get the sha for the last commit
-  def last_commit
-    @last_commit ||= [`cd #{data_path} && git log --pretty=format:'%h' -1 && cd ..`]
-  end
+  # TODO: Make time range configurable by instance variable
+  #       and cascade through to rake jobs
 
-  # Get the last day of commits
-  def last_day_of_commits
-    @last_day_of_commits ||= `cd #{data_path} && git log --pretty=format:'%h' --since=1.day && cd ..`.split("\n")
+  # Get the sha for the time range given
+  #
+  # time_range    git option to get set of results based on a date/time range;
+  #               default is -1, just the last commit
+  def commits(time_range = '-1')
+    @commits ||= `cd #{data_path} && git log --pretty=format:'%h' #{time_range} && cd ..`.split("\n")
   end
 
   # Get list of files changed since last commit

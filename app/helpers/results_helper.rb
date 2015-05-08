@@ -4,7 +4,7 @@ module ResultsHelper
   # Render field value, and join as string if it's an array
   def render_field_item(doc)
     doc[:document][doc[:field]].join(", ").truncate(450).html_safe
- end
+  end
 
   ##
   # Render clean faceted link to items in series
