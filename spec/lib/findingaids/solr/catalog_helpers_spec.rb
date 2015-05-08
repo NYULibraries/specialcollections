@@ -18,7 +18,7 @@ describe Findingaids::Solr::CatalogHelpers do
 
   describe ".qf_fields" do
     subject { catalog_helper.qf_fields }
-    it { should eql  "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
+    it { should eql  "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 collection_unitid_teim^40 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
   end
 
   describe ".facet_fields" do
@@ -35,7 +35,7 @@ describe Findingaids::Solr::CatalogHelpers do
 
   describe ".pf_fields" do
     subject { catalog_helper.pf_fields }
-    it { should eql "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
+    it { should eql "unittitle_teim^145.0 parent_unittitles_teim collection_teim unitid_teim^60 collection_unitid_teim^40 language_ssm unitdate_start_teim unitdate_end_teim unitdate_teim name_teim subject_teim^60.0 abstract_teim^55.0 creator_teim^60.0 scopecontent_teim^60.0 bioghist_teim^55.0 title_teim material_type_teim place_teim dao_teim chronlist_teim appraisal_teim custodhist_teim^15 acqinfo_teim^20.0 address_teim note_teim^30.0 author_teim^10.0" }
   end
 
   describe ".bq_fields" do

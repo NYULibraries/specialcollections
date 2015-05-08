@@ -71,6 +71,9 @@ class Findingaids::Ead::Component < SolrEad::Component
     # Get the author field
     Solrizer.set_field(solr_doc,    "author",     author(solr_doc),                             :searchable, :displayable, :facetable)
 
+    # Prepend collection unitid to list of unitids
+    Solrizer.set_field(solr_doc,    "collection_unitid", collection_unitid(solr_doc),           :displayable, :searchable)
+
     # Index series so we can sort by it an crate links directly into the series search
     Solrizer.set_field(solr_doc,    "series",     series_facets(solr_doc),                      :facetable)
     Solrizer.set_field(solr_doc,    "series",     series_sortable(solr_doc),                    :sortable)
