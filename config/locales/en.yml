@@ -17,6 +17,8 @@ en:
       url: http://library.poly.edu/archives
     nyhistory:
       url: http://www.nyhistory.org/library/
+    brooklynhistory:
+      url: http://www.brooklynhistory.org/
   facets:
     help:
       repository: "View materials from one special collection (e.g. Fales Library or New-York Historical Society)."
