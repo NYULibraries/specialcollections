@@ -26,6 +26,10 @@ Feature: Stable Repository Links
     Given I am on the "nyhistory" search page
     Then I should see the following link "http://www.nyhistory.org/library/"
 
+  Scenario: Brooklyn Historical Society homepage
+    Given I am on the "brooklynhistory" search page
+    Then I should see the following link "http://www.brooklynhistory.org/"
+
   Scenario: Poly Archives homepage
     Given I am on the "poly" search page
     Then I should see the following link "http://library.poly.edu/archives"
