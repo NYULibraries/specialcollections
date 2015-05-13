@@ -28,7 +28,8 @@ Feature: Stable Repository Links
 
   Scenario: Brooklyn Historical Society homepage
     Given I am on the "brooklynhistory" search page
-    Then I should see the following link "http://www.brooklynhistory.org/"
+    Then I should see the following informational text "The Library & Archives department collects, preserves, and makes accessible one of the most comprehensive collection of materials related to Brooklyn’s history and culture. Its holdings include over 33,000 books, 1,600 archival collections, 1,200 oral history interviews, 50,000 photographs, 2,000 maps, 8,000 artifacts, and 300 paintings which document the commercial, residential, community, and civic development of the borough. The collections foster new and cutting-edge scholarship; support public learning and research; and enrich BHS's exhibits, educational activities, and public programming."
+    Then I should see the following link "http://www.brooklynhistory.org/library/search.html"
 
   Scenario: Poly Archives homepage
     Given I am on the "poly" search page
