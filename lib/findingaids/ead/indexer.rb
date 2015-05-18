@@ -121,7 +121,7 @@ private
     end
     id = File.basename(file).split("\.")[0]
     begin
-      delete(id)
+      indexer.delete(id)
       log.info "Deleted #{File.basename(file)} with id #{id}."
     rescue Exception => e
       log.info "Failed to delete #{File.basename(file)} with id #{id}: #{e}"
