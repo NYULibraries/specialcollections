@@ -25,7 +25,7 @@ describe Findingaids::Solr::CatalogHelpers do
     let(:facet_fields) { catalog_helper.facet_fields }
     context "when looking at the field keys" do
       subject { facet_fields.map { |field| field[:field] } }
-      it { should eql ["repository", "dao", "creator", "date_range", "subject", "name", "place", "material_type", "language", "collection", "format"] }
+      it { should eql ["repository", "dao", "creator", "date_range", "subject", "name", "place", "language", "collection", "format"] }
     end
     context "when looking at the field label values" do
       subject { facet_fields.map { |field| field[:label] } }

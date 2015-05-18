@@ -29,7 +29,6 @@ en:
       subject: "View results related to a topic (e.g. 'labor unions' or 'ships')."
       name: "View results related to a person, organization, or family."
       place: "View results related to a geographic location (e.g. 'Washington Square' or 'Spain')."
-      material_type: "View results of a particular genre or form (e.g. 'correspondence', 'audiotapes')."
       language: "View results by language of the materials."
       collection: "View results only within a single archival collection."
       format: "View only collection level, series level, or lower (e.g. file or item) level descriptions."
