@@ -94,11 +94,6 @@ describe Findingaids::Ead::Document do
       it { should_not include "CNames-PrimaryName-AT |z CNames-Subordinate1-AT |x CNames-Subordiate2-AT" }
       its(:size) { should be 17 }
     end
-    context "when the facet is Material Type" do
-      let(:facet) { 'material_type' }
-      it { should include "SubjectsUgly -- GenreForm -- AT"}
-      it { should_not include "SubjectsUgly |z GenreForm |x AT" }
-    end
     context "when the facet is Collection" do
       let(:facet) { 'collection' }
       it { should include "Resource--Title-AT" }
