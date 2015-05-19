@@ -13,7 +13,6 @@ Feature: Facets presence and order
       | 5 | Subject |
       | 6 | Name |
       | 7 | Place |
-      | 8 | Material Type |
-      | 9 | Language |
-      | 10 | Collection |
-      | 11 | Level |
+      | 8 | Language |
+      | 9 | Collection |
+      | 10 | Level |

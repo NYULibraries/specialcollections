@@ -34,11 +34,12 @@ module Findingaids::Ead::Behaviors
     # Ex. in_range?("1900/1910", { start_date: 1900, end_date: 1902 }) => true
     # =>  in_range?("1900/1910", { start_date: 2000, end_date: 2100 }) => false
     def in_range?(unitdate, date_range)
+      return false unless date_range[:start_date] && date_range[:end_date]
       begin
-        (unitdate_start(unitdate).to_i >= date_range[:start_date] &&
-          unitdate_start(unitdate).to_i <= date_range[:end_date]) ||
-        (unitdate_end(unitdate).to_i >= date_range[:start_date] &&
-          unitdate_end(unitdate).to_i <= date_range[:end_date])
+        (unitdate_start(unitdate).to_i >= date_range[:start_date].to_i &&
+          unitdate_start(unitdate).to_i <= date_range[:end_date].to_i) ||
+        (unitdate_end(unitdate).to_i >= date_range[:start_date].to_i &&
+          unitdate_end(unitdate).to_i <= date_range[:end_date].to_i)
       rescue
         false
       end
