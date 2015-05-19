@@ -109,16 +109,39 @@ describe ResultsHelper do
     it { should eql({"leftover" => "Yup", "q" => "ephemera"}) }
   end
 
-  describe "#render_collection_facet_link" do
-    subject { render_collection_facet_link(document) }
+  describe "#render_parent_facet_link" do
+    subject { render_parent_facet_link(document) }
     context "when document is a collection level item" do
-      let(:field) { :collection_ssm }
+      let(:field) {:collection_ssm}
       it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
     end
     context "when document is a series level item" do
-      let(:solr_document) { create(:solr_document, format: ["Archival Series"]) }
-      it { should eql("<span class=\"search_within\">To request this item, please note the following information</span>") }
+      let(:field) {:collection_ssm}
+      let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
+      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
     end
+    context "when document is an object level item" do
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"]) }
+      it { should eql "<span class=\"search_within\">To request this item, please note the following information</span>" }
+    end
+  end
+
+  describe "#render_collection_facet_link" do
+    let(:field) {:collection_ssm}
+    subject { render_collection_facet_link(document) }
+    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
+  end
+
+  describe "#render_series_facet_link" do
+    let(:field) {:collection_ssm}
+    let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
+    subject { render_series_facet_link(document) }
+    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
+  end
+
+  describe "#render_request_item_istructions" do
+    subject { render_request_item_istructions }
+    it { should eql "<span class=\"search_within\">To request this item, please note the following information</span>" }
   end
 
   describe "#render_contained_in_links" do
