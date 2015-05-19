@@ -63,27 +63,6 @@ module ResultsHelper
     end
   end
 
-  ##
-  # Render clean facet link to parent collection/series
-  def render_collection_facet_link(doc)
-    if  doc[:document].is_archival_collection?
-      item = doc[:document][doc[:field]].first
-      local_params = add_clean_facet_params_and_redirect([collection_facet, item])
-      link_to t('search.brief_results.link_text.collection'), local_params, :class => "search_within"
-    else
-      if  doc[:document].is_archival_series?
-        collection = doc[:document][doc[:field]].first
-        ser = doc[:document][:unittitle_ssm].first
-        local_params = add_clean_facet_params_and_redirect([series_facet,ser],[collection_facet,collection])
-        link_to t('search.brief_results.link_text.series'),local_params , :class => "search_within"
-      else
-        item = []
-        item << content_tag(:span,t('search.brief_results.link_text.other'),class:"search_within")
-        item.join("").html_safe
-      end
-    end
-  end
-
    ##
   # Render clean facet link to parent collection/series
   def render_parent_facet_link(doc)
