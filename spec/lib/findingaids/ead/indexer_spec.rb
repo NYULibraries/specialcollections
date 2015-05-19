@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Findingaids::Ead::Indexer do
 
-  let(:indexer) { Findingaids::Ead::Indexer.new }
+  let(:indexer) { Findingaids::Ead::Indexer.new('./spec/fixtures') }
 
   describe '.delete_all' do
   end
@@ -37,7 +37,111 @@ describe Findingaids::Ead::Indexer do
     end
   end
 
-  describe '#reindex_changed' do
+  describe '#update_or_delete' do
+    before {
+      Findingaids::Ead::Indexer.any_instance.stub(:update).and_return(:true)
+      Findingaids::Ead::Indexer.any_instance.stub(:delete).and_return(:true)
+    }
+    subject { indexer.send(:update_or_delete, status, file) }
+    context 'when file exists' do
+      let(:file) { './spec/fixtures/fales/bytsura.xml' }
+      let(:status) { 'M' }
+      it { should be_true }
+    end
+    context 'when file does not exist' do
+      let(:file) { './spec/fixtures/nothing_here' }
+      context 'and status is Delete' do
+        let(:status) { 'D' }
+        it { should be_true }
+      end
+      context 'and status IS NOT Delete' do
+        let(:status) { 'M' }
+        it { should be_nil }
+      end
+    end
   end
+
+  describe '#reindex_changed_since_last_commit' do
+    before {
+      Findingaids::Ead::Indexer.any_instance.stub(:reindex_changed).and_return(:true)
+    }
+    subject { indexer.send(:reindex_changed_since_last_commit) }
+    it { should be_true }
+  end
+
+  describe '#reindex_changed_since_yesterday' do
+    before {
+      Findingaids::Ead::Indexer.any_instance.stub(:reindex_changed).and_return(:true)
+    }
+    subject { indexer.send(:reindex_changed_since_yesterday) }
+    it { should be_true }
+  end
+
+  describe '#reindex_changed_since_last_week' do
+    before {
+      Findingaids::Ead::Indexer.any_instance.stub(:reindex_changed).and_return(:true)
+    }
+    subject { indexer.send(:reindex_changed_since_last_week) }
+    it { should be_true }
+  end
+
+  describe '#reindex_changed' do
+    before {
+      Findingaids::Ead::Indexer.any_instance.stub(:update_or_delete).and_return(:true)
+    }
+    subject { indexer.send(:reindex_changed, indexer.send(:commits)) }
+    it { should be_true }
+  end
+
+  describe '#update' do
+    let(:file) { './spec/fixtures/fales/bytsura.xml' }
+    subject { indexer.send(:update, file) }
+    before { SolrEad::Indexer.any_instance.stub(:update).and_return(:true) }
+    context 'when file is not passed in' do
+      let(:file) { nil }
+      it 'should throw an argument error' do
+        expect { subject }.to raise_error ArgumentError
+      end
+    end
+    context 'when file is passed in' do
+      it { should be_true }
+    end
+    context 'when SolrEad::Indexer.update fails' do
+      before { SolrEad::Indexer.any_instance.stub(:update).and_raise(:ArgumentError) }
+      it { should be_false }
+    end
+  end
+
+  describe '#delete' do
+    let(:file) { './spec/fixtures/fales/bytsura.xml' }
+    subject { indexer.send(:delete, file) }
+    before { SolrEad::Indexer.any_instance.stub(:delete).and_return(:true) }
+    context 'when file is not passed in' do
+      let(:file) { nil }
+      it 'should throw an argument error' do
+        expect { subject }.to raise_error ArgumentError
+      end
+    end
+    context 'when file is passed in' do
+      it { should be_true }
+    end
+    context 'when SolrEad::Indexer.delete fails' do
+      before { SolrEad::Indexer.any_instance.stub(:delete).and_raise(:ArgumentError) }
+      it { should be_false }
+    end
+  end
+
+  describe '#commits' do
+    subject { indexer.send(:commits) }
+    it { should_not be_nil }
+    it { should be_a Array }
+  end
+
+ describe '#changed_files' do
+   subject { indexer.send(:changed_files, indexer.send(:commits)) }
+   it { should_not be_nil }
+   it { should be_a Array }
+ end
+
 
 end

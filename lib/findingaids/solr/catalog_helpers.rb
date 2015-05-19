@@ -57,7 +57,6 @@ module Findingaids
             { field: "subject", label: "Subject", limit: 20 },
             { field: "name", label: "Name", limit: 20 },
             { field: "place", label: "Place", limit: 20 },
-            { field: "material_type", label: "Material Type", limit: 20 },
             { field: "language", label: "Language", limit: 20 },
             { field: "collection", label: "Collection", limit: 20 },
             { field: "format", label: "Level", limit: 20 }

@@ -146,11 +146,6 @@ describe Findingaids::Ead::Component do
         it { should_not include "PNames-Primary-AT-Ugly |z PNames-RestOfName-AT-Ugly" }
         it { should include "PNames-Primary-AT-Ugly -- PNames-RestOfName-AT-Ugly" }
       end
-      context "when the facet is Material Type" do
-        let(:facet) { 'material_type' }
-        it { should include "SubjectsUgly -- GenreForm -- AT"}
-        it { should_not include "SubjectsUgly |z GenreForm |x AT" }
-      end
       context "when the facet is Digital Access" do
         let(:facet) { 'dao' }
         it { should eql ["Online Access"] }
