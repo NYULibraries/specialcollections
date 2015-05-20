@@ -208,6 +208,21 @@ describe ResultsHelper do
     end
   end
 
+   describe "#is_series?" do
+    subject { is_series?({}, document[:document]) }
+    context "when document is collection" do
+      it { should be_false }
+    end
+    context "when document is an archival object" do
+      let(:solr_document) { create(:solr_document, format: ["Archival Object"]) }
+      it { should be_false }
+    end
+    context "when document is a series" do
+      let(:solr_document) { create(:solr_document, format: ["Archival Series"]) }
+      it { should be_true }
+    end
+  end
+
   describe "#link_to_collection" do
     subject { link_to_collection("The Collection") }
     it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection\">The Collection</a>" }
