@@ -141,9 +141,6 @@ module ResultsHelper
     new_params
   end
 
-  def add_query_to_facets(params,q)
-    params[:q]=q
-  end
   # Shortcut to collection facet name
   def collection_facet
     @collection_facet ||= facet_name("collection")
