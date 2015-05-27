@@ -15,7 +15,7 @@ Feature: Brief result display
       | Library | The Fales Library & Special Collections |
       | Call no | MSS 170 |
     And the "Abstract" field should be "450" characters or less
-
+     
   Scenario: Brief results display at the component level
     Given I search on the phrase "Minka"
     Then I should see fields in the following order and value:
@@ -27,6 +27,10 @@ Feature: Brief result display
       | Collection call no | OH.002 |
       | Location | CD: Access OH-02-159, Box: 1, CD: Alesh 1, Cassette: 1, CD: ohaloh020146p1 / /ohaloh020146p2, Box: 1, Cassette: 1 |
 
+  Scenario: Link to low level results for the series level components
+    Given I search on the phrase "Addendum 7/5/2007"
+    Then I should see link "Search all archival materials within this series" within the first result
+     
   Scenario: Link to search all materials within collection launches faceted search
     Given I am on the default search page
     When I limit my search to "Archival Collection" under the "Level" category
@@ -34,6 +38,14 @@ Feature: Brief result display
     When I click on "Search all archival materials within this collection" within the first result
     Then the limit "Archival Collection" should not be selected under the "Level" category
     And the limit "Mark Bloch Postal Art Network (PAN) Archive" should be selected under the "Collection" category
+    And I should see search results
+
+Scenario: Link to search all materials within series launches faceted search
+    Given I am on the default search page
+    When I limit my search to "Archival Series" under the "Level" category
+    When I click on "Search all archival materials within this series" within the first result
+    Then the limit "Archival Series" should not be selected under the "Level" category
+    Then the limit "Archival Collections" should not be selected under the "Collection" category
     And I should see search results
 
   Scenario: Link to collection in component result launches faceted search

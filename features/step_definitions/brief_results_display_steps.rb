@@ -22,3 +22,7 @@ When(/^I click on "(.*?)" within the first result$/) do |link_text|
     click_link link_text
   end
 end
+
+Then(/^I should see link "(.*?)" within the first result$/) do |link_text|
+   expect(documents_list.first).to have_link(link_text)
+end
