@@ -34,7 +34,7 @@ module ApplicationHelper
     Rails.cache.fetch "url_exists_#{url}", :expires_in => 1.month do
       begin
         Faraday.head(url).status == 200
-      rescue Net::ReadTimeout => e
+      rescue
         false
       end
     end
