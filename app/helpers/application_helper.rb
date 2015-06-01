@@ -32,7 +32,11 @@ module ApplicationHelper
   # Does the url actually return a valid page
   def url_exists?(url)
     Rails.cache.fetch "url_exists_#{url}", :expires_in => 1.month do
-      Faraday.head(url).status == 200
+      begin
+        Faraday.head(url).status == 200
+      rescue Net::ReadTimeout => e
+        false
+      end
     end
   end
 
