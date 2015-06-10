@@ -43,6 +43,12 @@ module ResultsHelper
     doc.is_archival_collection?
   end
 
+  ##
+  # Helper function to determine if series
+  def is_series?(field_config, doc)
+    doc.is_archival_series?
+  end
+
   def render_repository_facet_link(doc)
     repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
@@ -57,18 +63,43 @@ module ResultsHelper
     end
   end
 
-  ##
-  # Render clean facet link to just guide
-  def render_collection_facet_link(doc)
-    if  doc[:document].is_archival_collection?
-      item = doc[:document][doc[:field]].first
-      local_params = add_clean_facet_params_and_redirect([collection_facet, item])
-      link_to t('search.brief_results.link_text.collection'), local_params, :class => "search_within"
-    else
-      item = []
-      item << content_tag(:span,t('search.brief_results.link_text.other'),class:"search_within")
-      item.join("").html_safe
+   ##
+  # Render clean facet link to parent collection/series
+  def render_parent_facet_link(doc)
+    if doc[:document].is_archival_collection?
+      render_collection_facet_link(doc)
+    else     
+      if doc[:document].is_archival_series?
+        render_series_facet_link(doc)
+      else (doc[:document].is_archival_object?)
+        render_request_item_istructions
+      end
     end
+  end
+
+  ##
+  # Render clean facet link to collection
+  def render_collection_facet_link(doc)
+    item = doc[:document][doc[:field]].first
+    local_params = add_clean_facet_params_and_redirect([collection_facet, item])
+    link_to t('search.brief_results.link_text.collection'), local_params, :class => "search_within"
+  end
+
+  ##
+  #Render clean facet link to series
+  def render_series_facet_link(doc)
+    collection = doc[:document][doc[:field]].first
+    ser = doc[:document][:unittitle_ssm].first
+    local_params = add_clean_facet_params_and_redirect([series_facet,ser],[collection_facet,collection])
+    link_to t('search.brief_results.link_text.series'),local_params , :class => "search_within"
+  end
+
+  ##
+  #Render instructions to request item
+  def render_request_item_istructions
+    item = []
+    item << content_tag(:span,t('search.brief_results.link_text.other'),class:"search_within")
+    item.join("").html_safe
   end
 
   # Get icon from format type

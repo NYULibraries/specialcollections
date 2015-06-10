@@ -45,6 +45,7 @@ en:
         library: View descriptions of materials held by this library.
       link_text:
         collection: 'Search all archival materials within this collection'
+        series: 'Search all archival materials within this series'
         other: 'To request this item, please note the following information'
   help:
     title: 'Need Help?'

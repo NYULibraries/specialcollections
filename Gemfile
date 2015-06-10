@@ -33,13 +33,13 @@ gem 'compass-rails', '~> 2.0.0'
 # Use mustache for templating
 # Fix to 0.99.4 cuz 0.99.5 broke my shit.
 gem 'mustache', '0.99.4'
-gem 'mustache-rails', github: 'josh/mustache-rails', require: 'mustache/railtie', tag: 'v0.2.3'
+gem 'mustache-rails', github: 'NYULibraries/mustache-rails', require: 'mustache/railtie'
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.4.0'
 
 # Deploy the application with Formaggio deploy recipes
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.3.0'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 5.8.0'
