@@ -29,6 +29,10 @@
           <p>DO.Title-AT, 1999-2000 (DO.Label-AT)</p>
       </daodesc>
   </dao>
+  <phystech id="ref24">
+      <head>Resource-PhysicalCharacteristicsTechnicalRequirements-AT</head>
+      <p>Resource-PhysicalCharacteristicsTechnicalRequirements-AT</p>
+  </phystech>
   <controlaccess>
       <subject source="local">Subjects--Topical Term--AT</subject>
       <corpname rules="dacs" source="naf">CNames-PrimaryName-AT. CNames-Subordinate1-AT. CNames-Subordiate2-AT. (CNames-Number-AT) (CNames-Qualifier-AT) -- Pictorial works</corpname>
