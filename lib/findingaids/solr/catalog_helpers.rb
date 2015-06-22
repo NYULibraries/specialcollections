@@ -43,6 +43,7 @@ module Findingaids
             "#{solr_name("acqinfo", :searchable)}^20.0",
             "#{solr_name("address", :searchable)}",
             "#{solr_name("note", :searchable)}^30.0",
+            "#{solr_name("phystech", :searchable)}^30.0",
             "#{solr_name("author", :searchable)}^10.0"
           ].join(" ")
         end
