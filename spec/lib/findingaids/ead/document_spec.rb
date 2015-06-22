@@ -24,6 +24,7 @@ describe Findingaids::Ead::Document do
   its(:bioghist) { should include "Resource-BiographicalHistorical-AT" }
   its(:bioghist) { should_not include "c06--biogHist-part1" }
   its(:acqinfo) { should include "Resource-ImmediateSourceAcquisition" }
+  its(:phystech) { should include "Resource-PhysicalCharacteristicsTechnicalRequirements-AT" }
   its(:custodhist) { should include "Resource--CustodialHistory-AT" }
   its(:appraisal) { should include "Resource-Appraisal-AT" }
   its(:chronlist) { should include "Christmas 1985" }

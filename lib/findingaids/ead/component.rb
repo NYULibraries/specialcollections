@@ -35,6 +35,7 @@ class Findingaids::Ead::Component < SolrEad::Component
     t.bioghist(path:"bioghist/p",index_as:[:searchable])
     t.address(path:"address/p",index_as:[:searchable])
     t.appraisal(path:"appraisal/p",index_as:[:searchable])
+    t.phystech(path:"phystech/p",index_as:[:searchable])
 
     # Find the following wherever they exist in the tree structure under <c>
     # Matches any text within <chronlist><chronitem>, nil and blank values trimmed in to_solr

@@ -31,6 +31,7 @@ describe Findingaids::Ead::Component do
     its(:function) { should_not be_blank }
     its(:genreform) { should_not be_blank }
     its(:geogname) { should_not be_blank }
+    its(:phystech) { should_not be_blank }
     its(:name) { should be_blank }
     its(:occupation) { should_not be_blank }
     its(:persname) { should include "PNames-Primary-AT, PNames-RestOfName-AT, PNames-Prefix-AT, PName-Number-AT, PNames-Suffix-AT, PNames-Title-AT,  (PNames-FullerForm-AT), PNames-Dates-AT, PNames-Qualifier-AT" }

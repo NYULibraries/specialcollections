@@ -33,6 +33,7 @@ class Findingaids::Ead::Document < SolrEad::Document
     t.acqinfo(path:"archdesc[@level='collection']/acqinfo/p",index_as:[:searchable])
     t.custodhist(path:"archdesc[@level='collection']/custodhist/p",index_as:[:searchable])
     t.appraisal(path:"archdesc[@level='collection']/appraisal/p",index_as:[:searchable])
+    t.phystech(path:"archdesc[@level='collection']/phystech/p",index_as:[:searchable])
 
     # Find the following wherever they exist in the tree structure under <archdesc level="collection">
     # except under the inventory which starts at <dsc>
