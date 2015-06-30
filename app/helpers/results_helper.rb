@@ -7,6 +7,8 @@ module ResultsHelper
   end
 
   ##
+
+  ##
   # Render clean faceted link to items in series
   def render_contained_in_links(doc)
     series = doc[:document].parent_unittitles
@@ -67,13 +69,29 @@ module ResultsHelper
   # Render clean facet link to parent collection/series
   def render_parent_facet_link(doc)
     if doc[:document].is_archival_collection?
-      render_collection_facet_link(doc)
+      render_search_within_collection_instructions(doc)
     else     
       if doc[:document].is_archival_series?
-        render_series_facet_link(doc)
+        render_search_within_series_instructions(doc)
       else (doc[:document].is_archival_object?)
         render_request_item_istructions
       end
+    end
+  end
+
+  # Render link to collection materials or error message if collection is untitled
+  def render_search_within_collection_instructions(doc)
+    unless doc[:document].unittitle.blank?
+      render_collection_facet_link(doc)
+    end
+  end
+
+  # Render link to series materials or error message if series is untitled
+  def  render_search_within_series_instructions(doc)
+    unless doc[:document].unittitle.blank?
+      render_series_facet_link(doc)
+    else
+      content_tag(:span,t('search.brief_results.link_text.no_parents_title.series'),class:"search_within")
     end
   end
 

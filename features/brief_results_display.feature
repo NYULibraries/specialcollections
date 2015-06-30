@@ -40,7 +40,7 @@ Feature: Brief result display
     And the limit "Mark Bloch Postal Art Network (PAN) Archive" should be selected under the "Collection" category
     And I should see search results
 
-Scenario: Link to search all materials within series launches faceted search
+  Scenario: Link to search all materials within series launches faceted search
     Given I am on the default search page
     When I limit my search to "Archival Series" under the "Level" category
     When I click on "Search all archival materials within this series" within the first result
@@ -53,3 +53,11 @@ Scenario: Link to search all materials within series launches faceted search
     When I click on "Oral History of the American Left: Radical Histories" within the first result
     Then the limit "Oral History of the American Left: Radical Histories" should be selected under the "Collection" category
     And I should see search results
+ 
+  Scenario: If series doesn't have title then a link to lower level materials is not provided
+    Given I search on the phrase "Kopit"
+    Then I should see text "Series doesn't have unittitle you can't search within it"
+
+  Scenario: If document doesn't have title display "No Title"
+    Given I search on the phrase "Manuscript of novel"
+    Then I should see text "No Title"
