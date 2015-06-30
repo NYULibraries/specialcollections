@@ -32,9 +32,9 @@ en:
       language: "View results by language of the materials."
       collection: "View results only within a single archival collection."
       format: "View only collection level, series level, or lower (e.g. file or item) level descriptions."
-       search:
+  search:
     advanced:
-      link_text: Advanced Search
+      link_text: "Advanced Search"
     simple:
       link_text: "&laquo; Return to Basic Search"
     brief_results:

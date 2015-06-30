@@ -6,7 +6,6 @@ module BlacklightHelper
   # Change link to document to link out to external guide
   def link_to_document(doc, field, opts={:counter => nil})
     if(doc.unittitle.blank?)
-      doc
       label=t('blacklight.search.brief_results.link_text.no_title')
     else
       field ||= document_show_link_field(doc)

@@ -7,8 +7,6 @@ module ResultsHelper
   end
 
   ##
-
-  ##
   # Render clean faceted link to items in series
   def render_contained_in_links(doc)
     series = doc[:document].parent_unittitles

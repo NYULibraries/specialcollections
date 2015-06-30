@@ -109,6 +109,7 @@ group :test do
   #to be able to use rspec matchers
   gem 'rspec-expectations'
   gem 'rspec-solr', '~> 1.0.1'
+  gem 'term-ansicolor', '>= 1.3.2'
 end
 
 # Pry for debubbing

@@ -278,4 +278,7 @@ describe ResultsHelper do
       it { should eql "Whassup" }
     end
   end
+
+
 end
+
