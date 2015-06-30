@@ -61,3 +61,4 @@ Feature: Brief result display
   Scenario: If document doesn't have title display "No Title"
     Given I search on the phrase "Manuscript of novel"
     Then I should see text "No Title"
+
