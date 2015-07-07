@@ -281,4 +281,3 @@ describe ResultsHelper do
 
 
 end
-
