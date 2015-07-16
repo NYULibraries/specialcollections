@@ -34,7 +34,7 @@ en:
       format: "View only collection level, series level, or lower (e.g. file or item) level descriptions."
   search:
     advanced:
-      link_text: Advanced Search
+      link_text: "Advanced Search"
     simple:
       link_text: "&laquo; Return to Basic Search"
     brief_results:
@@ -44,9 +44,12 @@ en:
         archival_series_and_object: View in context of the full collection inventory.
         library: View descriptions of materials held by this library.
       link_text:
-        collection: 'Search all archival materials within this collection'
-        series: 'Search all archival materials within this series'
-        other: 'To request this item, please note the following information'
+        collection: "Search all archival materials within this collection"
+        series: "Search all archival materials within this series"
+        other: "To request this item, please note the following information"
+        no_title: "No Title"
+        no_parents_title:
+          series: "Series doesn't have unittitle you can't search within it"
   help:
     title: 'Need Help?'
     search_tips:

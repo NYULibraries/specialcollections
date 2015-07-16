@@ -26,3 +26,8 @@ end
 Then(/^I should see link "(.*?)" within the first result$/) do |link_text|
    expect(documents_list.first).to have_link(link_text)
 end
+
+Then(/^I should see text "(.*?)"$/) do |text|
+   save_and_open_page
+   expect(page).to have_text(text)
+end

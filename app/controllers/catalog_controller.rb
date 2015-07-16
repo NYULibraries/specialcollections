@@ -75,7 +75,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :helper_method => :render_field_item, if: :is_collection?
     config.add_index_field solr_name("collection_unitid", :displayable),  :label => "Collection call no", :helper_method => :render_field_item, unless: :is_collection?
     config.add_index_field solr_name("location",          :displayable),  :label => "Location", :helper_method => :render_field_item
-   # ------------------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------------------
     #
     # Show view fields (individual record)
     #
