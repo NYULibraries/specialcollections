@@ -71,9 +71,8 @@ gem 'iso-639', '~> 0.2.5'
 
 # Transition gems
 gem 'exlibris-aleph', github: 'barnabyalter/exlibris-aleph'
-# Use AuthPDS for authentication and authorization
-gem 'authpds', github: 'barnabyalter/authpds'
-gem 'authpds-nyu', github: 'barnabyalter/authpds-nyu'
+gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v1.1.2'
+gem 'devise', '~> 3.4.1'
 # /Transition gems
 
 # Faraday for http calls
