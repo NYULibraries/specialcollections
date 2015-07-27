@@ -8,10 +8,20 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "findingaids" }
 
-  # Adds authentication actions in application controller
-  # Implements current_user and user_session
-  require 'authpds'
-  include Authpds::Controllers::AuthpdsController
+  # Alias new_session_path as login_path for default devise config
+  def new_session_path(scope)
+    login_path
+  end
+
+  # After signing out from the local application,
+  # redirect to the logout path for the Login app
+  def after_sign_out_path_for(resource_or_scope)
+    if ENV['SSO_LOGOUT_URL'].present?
+      ENV['SSO_LOGOUT_URL']
+    else
+      super(resource_or_scope)
+    end
+  end
 
   # Imitate logged in user
   def current_user_dev
