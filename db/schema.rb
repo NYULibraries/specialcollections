@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210211418) do
+ActiveRecord::Schema.define(version: 20150727194319) do
 
   create_table "bookmarks", force: true do |t|
     t.integer  "user_id",       null: false
     t.string   "document_id"
     t.string   "title"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "user_type"
     t.string   "document_type"
   end
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20141210211418) do
   create_table "searches", force: true do |t|
     t.text     "query_params"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "user_type"
   end
 
@@ -40,21 +40,20 @@ ActiveRecord::Schema.define(version: 20141210211418) do
     t.string   "email"
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "mobile_phone"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "session_id"
-    t.string   "persistence_token"
-    t.integer  "login_count"
-    t.string   "last_request_at"
-    t.string   "current_login_at"
-    t.string   "last_login_at"
-    t.string   "last_login_ip"
-    t.string   "current_login_ip"
-    t.text     "user_attributes"
     t.datetime "refreshed_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sign_in_count",      default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "provider",           default: "", null: false
+    t.string   "aleph_id"
+    t.string   "institution_code"
+    t.string   "patron_status"
   end
+
+  add_index "users", ["username", "provider"], name: "index_users_on_username_and_provider", unique: true, using: :btree
 
 end
