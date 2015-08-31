@@ -66,4 +66,8 @@ module ApplicationHelper
     end
   end
 
+  def maintenance_mode?
+    false
+  end
+
 end
