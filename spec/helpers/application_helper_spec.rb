@@ -44,4 +44,9 @@ describe ApplicationHelper do
     end
   end
 
+  describe "#maintenance_mode?" do
+    subject { maintenance_mode? }
+    it { should_not be_nil }
+  end
+
 end

@@ -1,6 +1,8 @@
 <h1 class="page_header"><%= (params[:repository].present?) ? "#{params[:repository]}" : t('application_title') %></h1>
 
-<div class="alert alert-warning"><strong>Alert!</strong> This site is undergoing maintenance. During this time, searches may only provide partial results. We encourage you to repeat your search after September 2nd, 2015 to ensure you find all of the archival materials that match your query.</div>
+<% if maintenance_mode? %>
+<div class="alert alert-warning"><strong>Alert!</strong> <%= t('maintenance_alert') %></div>
+<% end %>
 
 <% if params[:repository].present? %>
 <p class="repository_info">
