@@ -8,14 +8,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "findingaids" }
 
-  prepend_before_filter :passive_login, unless: -> { Rails.env.test? || Rails.env.development? }
-  def passive_login
-    if !cookies[:_check_passive_login]
-      cookies[:_check_passive_login] = true
-      redirect_to passive_login_url
-    end
-  end
-
   # Alias new_session_path as login_path for default devise config
   def new_session_path(scope)
     login_path
@@ -43,10 +35,6 @@ class ApplicationController < ActionController::Base
   helper_method :repositories
 
   private
-
-  def passive_login_url
-    "#{ENV['LOGIN_URL']}#{ENV['PASSIVE_LOGIN_PATH']}?client_id=#{ENV['APP_ID']}&return_uri=#{request_url_escaped}&login_path=#{login_path_escaped}"
-  end
 
   def request_url_escaped
     CGI::escape(request.url)
