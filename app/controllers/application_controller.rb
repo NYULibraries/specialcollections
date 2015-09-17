@@ -21,6 +21,12 @@ class ApplicationController < ActionController::Base
     login_path
   end
 
+  # This makes sure you redirect to the correct location after passively
+  # logging in or after getting sent back not logged in
+  def after_sign_in_path_for(resource)
+    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  end
+
   # After signing out from the local application,
   # redirect to the logout path for the Login app
   def after_sign_out_path_for(resource_or_scope)
@@ -53,7 +59,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_path_escaped
-    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")
+    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/search/users/auth/nyulibraries")
   end
 
 end
