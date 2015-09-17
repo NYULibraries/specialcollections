@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
   end
 
   def login_path_escaped
-    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/users/auth/nyulibraries")
+    CGI::escape("#{Rails.application.config.action_controller.relative_url_root}/login")
   end
 
 end
