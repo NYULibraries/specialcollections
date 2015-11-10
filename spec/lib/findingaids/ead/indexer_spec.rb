@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Findingaids::Ead::Indexer do
 
   let(:indexer) { Findingaids::Ead::Indexer.new('./spec/fixtures') }
+  let(:message) { "Deleting file tamwag/TAM.075-ead.xml EADID='tam_075', Deleting file tamwag/WAG.221-ead.xml EADID='wag_221'" }
 
   describe '.delete_all' do
   end
@@ -42,7 +43,7 @@ describe Findingaids::Ead::Indexer do
       Findingaids::Ead::Indexer.any_instance.stub(:update).and_return(:true)
       Findingaids::Ead::Indexer.any_instance.stub(:delete).and_return(:true)
     }
-    subject { indexer.send(:update_or_delete, status, file) }
+    subject { indexer.send(:update_or_delete, status, file, message) }
     context 'when file exists' do
       let(:file) { './spec/fixtures/fales/bytsura.xml' }
       let(:status) { 'M' }
@@ -114,9 +115,10 @@ describe Findingaids::Ead::Indexer do
 
   describe '#delete' do
     let(:file) { './spec/fixtures/fales/bytsura.xml' }
-    subject { indexer.send(:delete, file) }
-    before { SolrEad::Indexer.any_instance.stub(:delete).and_return(:true) }
+    let(:eadid) { 'bytsura' }
+    subject { indexer.send(:delete, file, eadid) }
     context 'when file is not passed in' do
+      before { SolrEad::Indexer.any_instance.stub(:delete).and_return(:true) }
       let(:file) { nil }
       it 'should throw an argument error' do
         expect { subject }.to raise_error ArgumentError
@@ -124,6 +126,13 @@ describe Findingaids::Ead::Indexer do
     end
     context 'when file is passed in' do
       it { should be_true }
+      context 'and eadid is passed in' do
+        it { should be_true }
+      end
+      context 'but eadid is not passed in' do
+        let(:eadid) { nil }
+        it { should be_true }
+      end
     end
     context 'when SolrEad::Indexer.delete fails' do
       before { SolrEad::Indexer.any_instance.stub(:delete).and_raise(:ArgumentError) }
@@ -143,5 +152,29 @@ describe Findingaids::Ead::Indexer do
    it { should be_a Array }
  end
 
+ describe '#get_eadid_from_message' do
+   let(:filename) { "tamwag/WAG.221-ead.xml" }
+   subject { indexer.send(:get_eadid_from_message, filename, message)}
+   context 'when commit message contains multiple deletes' do
+     it { should eql 'wag_221' }
+   end
+   context 'when commit message contains multiple updates' do
+     let(:message) { "Updating file tamwag/oh_065.xml, Updating file tamwag/tam_085.xml" }
+     let(:filename) { "tamwag/oh_065.xml" }
+     it { should be_nil }
+   end
+   context 'when commit message does not contain the filename' do
+     let(:filename) { "tamwag/notthere.xml" }
+     it { should be_nil }
+   end
+   context 'when commit message contains a single update' do
+     let(:message) { "Updating file tamwag/wag_221.xml" }
+     it { should be_nil }
+   end
+   context 'when commit message contains a single delete' do
+     let(:message) { "Deleting file tamwag/WAG.221-ead.xml EADID='wag_221'" }
+     it { should eql 'wag_221' }
+   end
+ end
 
 end
