@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_options = {from: 'no-reply@library.nyu.edu'}
+  config.action_mailer.default_options = {from: 'lib-no-reply@nyu.edu'}
 
   # The test environment is used exclusively to run your application's
   # test suite. You never need to work with it otherwise. Remember that

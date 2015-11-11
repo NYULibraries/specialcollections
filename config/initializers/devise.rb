@@ -1,5 +1,5 @@
 Devise.setup do |config|
-  config.mailer_sender = 'no-reply@library.nyu.edu'
+  config.mailer_sender = 'lib-no-reply@nyu.edu'
   require 'devise/orm/active_record'
   config.secret_key = ENV['SECRET_TOKEN']
   config.strip_whitespace_keys = [ :email ]

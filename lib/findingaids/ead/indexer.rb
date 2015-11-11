@@ -59,9 +59,9 @@ private
   # Reindex files changed in list of commit SHAs
   def reindex_changed(last_commits)
     changed_files(last_commits).each do |file|
-      status, filename = file.split("\t")
+      status, filename, message = file.split("\t")
       fullpath = File.join(data_path, filename)
-      update_or_delete(status, fullpath)
+      update_or_delete(status, fullpath, message)
     end
   end
 
@@ -80,19 +80,27 @@ private
   def changed_files(last_commits)
     changed_files = []
     last_commits.each do |commit|
-      changed_files << (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{commit} && cd ..`).split("\n")
+      files_in_commit = (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{commit} && cd ..`).split("\n")
+      commit_message = (`cd #{data_path} && git log -1 --pretty=%B -c #{commit} && cd ..`).gsub(/(\n+)$/,'')
+      changed_files << [files_in_commit, commit_message].join("\t")
     end
     changed_files.flatten
   end
 
   # Update or delete depending on git status
-  def update_or_delete(status, file)
+  def update_or_delete(status, file, message)
+    eadid = get_eadid_from_message(file, message)
     if File.exists?(file)
       update(file)
     # Status == D means the file was deleted
     elsif status.eql? "D"
-      delete(file)
+      delete(file, eadid)
     end
+  end
+
+  def get_eadid_from_message(file, message)
+    eadid_matches = message.match(/#{file} EADID='(.+?)'/)
+    eadid_matches.captures.first unless eadid_matches.nil?
   end
 
   # Wrapper method for SolrEad::Indexer#update(file)
@@ -115,11 +123,13 @@ private
 
   # Wrapper method for SolrEad::Indexer#delete
   # => @id        EAD id
-  def delete(file)
+  def delete(file, eadid)
     if file.blank?
       raise ArgumentError.new("Expecting #{file} to be a file or directory")
     end
-    id = File.basename(file).split("\.")[0]
+    # If eadid was passed in, use it to delete
+    # it not, make a guess based on filename
+    id = (eadid || File.basename(file).split("\.")[0])
     begin
       indexer.delete(id)
       log.info "Deleted #{File.basename(file)} with id #{id}."
