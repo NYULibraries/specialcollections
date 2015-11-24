@@ -82,10 +82,6 @@ private
     last_commits.each do |commit|
       files_in_commit = (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{commit} && cd ..`).split("\n")
       commit_message = (`cd #{data_path} && git log --pretty=format:'%s' -1 -c #{commit} && cd ..`).gsub(/(\n+)$/,'')
-      log.info "Data path: #{data_path}"
-      log.info "Files in commit: #{files_in_commit}"
-      log.info "Commit: #{commit}"
-      log.info "Commit message: #{commit_message}"
       changed_files << [files_in_commit, commit_message].join("\t")
     end
     changed_files.flatten
@@ -103,12 +99,9 @@ private
   end
 
   def get_eadid_from_message(file, message)
-    log.info "File: #{file}"
-    log.info "Message: #{message}"
     # Strip out initial folder name to match filename in commit message
     file_without_data_path = file.gsub(/#{data_path}(\/)?/,'')
     eadid_matches = message.match(/#{file_without_data_path} EADID='(.+?)'/)
-    log.info "Matches: #{eadid_matches.inspect}"
     eadid_matches.captures.first unless eadid_matches.nil?
   end
 
