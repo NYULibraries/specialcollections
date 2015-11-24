@@ -99,9 +99,12 @@ private
   end
 
   def get_eadid_from_message(file, message)
+    log.info "File: #{file}"
+    log.info "Message: #{message}"
     # Strip out initial folder name to match filename in commit message
     file_without_data_path = file.gsub(/#{data_path}(\/)?/,'')
     eadid_matches = message.match(/#{file_without_data_path} EADID='(.+?)'/)
+    log.info "Matches: #{eadid_matches.inspect}"
     eadid_matches.captures.first unless eadid_matches.nil?
   end
 
