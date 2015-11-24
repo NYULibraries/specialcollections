@@ -99,7 +99,7 @@ private
   end
 
   def get_eadid_from_message(file, message)
-    eadid_matches = message.match(/#{file} EADID='(.+?)'/)
+    eadid_matches = message.match(/EADID='(.+?)'/)
     eadid_matches.captures.first unless eadid_matches.nil?
   end
 
