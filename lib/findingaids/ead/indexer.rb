@@ -116,9 +116,9 @@ private
       # since it does not exist consistently in the EAD, so we pass in the full path to extract the repos.
       ENV["EAD"] = file
       indexer.update(file)
-      log.info "Indexed #{File.basename(file)}."
+      log.info "Indexed #{file}."
     rescue Exception => e
-      log.info "Failed to index #{File.basename(file)}: #{e}."
+      log.info "Failed to index #{file}: #{e}."
       false
     end
   end
@@ -134,9 +134,9 @@ private
     id = (eadid || File.basename(file).split("\.")[0])
     begin
       indexer.delete(id)
-      log.info "Deleted #{File.basename(file)} with id #{id}."
+      log.info "Deleted #{file} with id #{id}."
     rescue Exception => e
-      log.info "Failed to delete #{File.basename(file)} with id #{id}: #{e}"
+      log.info "Failed to delete #{file} with id #{id}: #{e}"
       false
     end
   end
