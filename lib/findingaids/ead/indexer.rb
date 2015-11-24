@@ -81,7 +81,9 @@ private
     changed_files = []
     last_commits.each do |commit|
       files_in_commit = (`cd #{data_path} && git diff-tree --no-commit-id --name-status -r #{commit} && cd ..`).split("\n")
-      commit_message = (`cd #{data_path} && git log -1 --pretty=%B -c #{commit} && cd ..`).gsub(/(\n+)$/,'')
+      commit_message = (`cd #{data_path} && git log -1 --pretty='%B' -c #{commit} && cd ..`).gsub(/(\n+)$/,'')
+      log.info "Commit: #{commit}"
+      log.info "Commit message: #{commit_message}"
       changed_files << [files_in_commit, commit_message].join("\t")
     end
     changed_files.flatten
