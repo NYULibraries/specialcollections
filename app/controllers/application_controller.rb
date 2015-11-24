@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout Proc.new{ |controller| (controller.request.xhr?) ? false : "findingaids" }
 
-  prepend_before_filter :passive_login
+  prepend_before_filter :passive_login, unless: -> { request.format.json? }
   def passive_login
     if !cookies[:_check_passive_login]
       cookies[:_check_passive_login] = true
