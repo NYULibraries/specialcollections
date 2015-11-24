@@ -99,7 +99,9 @@ private
   end
 
   def get_eadid_from_message(file, message)
-    eadid_matches = message.match(/EADID='(.+?)'/)
+    # Strip out initial folder name to match filename in commit message
+    file_without_prefix = file.split("/")[1..-1].join("/")
+    eadid_matches = message.match(/#{file_without_prefix} EADID='(.+?)'/)
     eadid_matches.captures.first unless eadid_matches.nil?
   end
 
