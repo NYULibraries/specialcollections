@@ -70,7 +70,7 @@ gem 'solr_ead', '~> 0.7.2'
 gem 'iso-639', '~> 0.2.5'
 
 # Transition gems
-gem 'exlibris-aleph', github: 'barnabyalter/exlibris-aleph'
+gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 3.4.1'
 # /Transition gems
