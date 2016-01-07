@@ -474,6 +474,3 @@ DEPENDENCIES
   unicode (~> 0.4.4)
   vcr (~> 2.9.3)
   webmock (~> 1.20.0)
-
-BUNDLED WITH
-   1.11.2
