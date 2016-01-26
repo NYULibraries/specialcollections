@@ -1,7 +1,7 @@
 # Configure Capybara
 require 'capybara/poltergeist'
 
-Capybara.default_wait_time = 30
+Capybara.default_max_wait_time = 30
 
 if ENV['IN_BROWSER']
   # On demand: non-headless tests via Selenium/WebDriver
