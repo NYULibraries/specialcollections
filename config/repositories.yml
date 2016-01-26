@@ -35,3 +35,13 @@ Catalog:
       url_safe_display: 'Research Institute for the Study of Man'
       url: "rism"
       admin_code: "rism"
+    akkasah:
+      display: 'Akkasah Center for Photography at NYU Abu Dhabi'
+      url_safe_display: 'Akkasah Center for Photography at NYU Abu Dhabi'
+      url: "akkasah"
+      admin_code: "akkasah"
+    nyuad:
+      display: 'NYU Abu Dhabi Archives and Special Collections'
+      url_safe_display: 'NYU Abu Dhabi Archives and Special Collections'
+      url: "nyuad"
+      admin_code: "nyuad"
