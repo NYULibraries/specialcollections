@@ -86,6 +86,20 @@ describe Findingaids::Ead::Indexer do
     it { should be_true }
   end
 
+  describe '#reindex_changed_since_x_days_ago' do
+    context 'when given a valid number of days' do
+      subject { indexer.send(:reindex_changed_since_x_days_ago, 0) }
+      it { should be_true }
+    end
+
+    context 'when invalid number of days' do
+      subject { indexer.send(:reindex_changed_since_x_days_ago, 'foo') }
+      it 'should throw an argument error' do
+        expect { subject }.to raise_error ArgumentError
+      end
+    end
+  end
+
   describe '#reindex_changed' do
     before {
       Findingaids::Ead::Indexer.any_instance.stub(:update_or_delete).and_return(:true)

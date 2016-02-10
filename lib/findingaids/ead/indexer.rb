@@ -49,9 +49,16 @@ class Findingaids::Ead::Indexer
     reindex_changed(commits('--since=1.day'))
   end
 
-  # Reindex all files changed in the last day
+  # Reindex all files changed in the last week
   def reindex_changed_since_last_week
     reindex_changed(commits('--since=1.week'))
+  end
+
+  # Reindex all files changed since x days ago
+  def reindex_changed_since_x_days_ago(x)
+    # assert that argument can be converted to an integer
+    days = Integer(x)
+    reindex_changed(commits("--since=#{days}.day"))
   end
 
 private

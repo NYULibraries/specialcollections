@@ -53,6 +53,13 @@ namespace :findingaids do
       indexer.reindex_changed_since_last_week
     end
 
+    # rake findingaids:ead:reindex_changed_since_x_days_ago[20]
+    desc "Reindex only the files in the data repository that have changed since [days] days ago"
+    task :reindex_changed_since_x_days_ago, [:days] => :environment do |_, args|
+      indexer = Findingaids::Ead::Indexer.new
+      indexer.reindex_changed_since_x_days_ago(args.days)
+    end
+
     desc "Deletes everything from the solr index"
     task :clean => :environment do
       Findingaids::Ead::Indexer.delete_all
