@@ -21,6 +21,6 @@ Scenario: Clicking on the "Special Collections Contact Information and Hours" li
   And the pop-up window should contain the text "Special Collections located in the Elmer Holmes Bobst Library"
   And the pop-up window should contain the text "New York University Archives and Research Institute for the Study of Man"
   And the pop-up window should contain the text "Summer regular hours*:"
-  And the pop-up window should contain the text "university.archives@library.nyu.edu"
-  And the pop-up window should contain the text "tamiment.wagner@library.nyu.edu"
+  And the pop-up window should contain the text "university-archives@nyu.edu"
+  And the pop-up window should contain the text "tamiment.wagner@nyu.edu"
 
