@@ -37,6 +37,7 @@ gem 'mustache-rails', github: 'NYULibraries/mustache-rails', require: 'mustache/
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
 gem 'nyulibraries-assets', github: 'NYULibraries/nyulibraries-assets', tag: 'v4.4.0'
+gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.0'
 
 # Deploy the application with Formaggio deploy recipes
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
