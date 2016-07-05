@@ -35,9 +35,10 @@ GIT
 
 GIT
   remote: git://github.com/NYULibraries/nyulibraries_errors.git
-  revision: 99f4bb34493da983100dc20be10f185ca6f97449
+  revision: c77c8c8a8699d5af7ceb2775fe6ac7aa81f6a5f5
+  tag: v1.0.0
   specs:
-    nyulibraries_errors (0.0.1)
+    nyulibraries_errors (1.0.0)
 
 GIT
   remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
