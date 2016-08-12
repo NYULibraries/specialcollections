@@ -2,6 +2,7 @@ module BlacklightHelper
   # Make our application helper functions available to core blacklight views
   include ApplicationHelper
   include Blacklight::BlacklightHelperBehavior
+  include Findingaids::Solr::CatalogHelpers::ClassMethods
 
   # Change link to document to link out to external guide
   def link_to_document(doc, field, opts={:counter => nil})
@@ -12,6 +13,16 @@ module BlacklightHelper
       label=presenter(doc).render_document_index_label field, opts
     end
     link_to_findingaid(doc, label)
+  end
+
+  def sanitize_search_params(params)
+    params.permit(:q, :f => whitelisted_facets)
+  rescue NoMethodError => e
+    params
+  end
+
+  def whitelisted_facets
+    @whitelisted_facets ||= Hash[facet_fields.map(&:first).map(&:last).map {|f| ["#{f}_sim".to_sym, []]}]
   end
 
 end
