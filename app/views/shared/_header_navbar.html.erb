@@ -17,9 +17,9 @@
 
 <% unless request.path == advanced_search_path %>
 <div class="search">
-  <%= render_search_bar  %>
-  <%= link_to t('search.advanced.link_text'), advanced_search_path(params), class: 'advanced_search'%>
+  <%= render_search_bar %>
+  <%= link_to t('search.advanced.link_text'), advanced_search_path(sanitize_search_params(params)), class: 'advanced_search'%>
 </div>
 <% else %>
-<%= link_to t('search.simple.link_text').html_safe, catalog_index_path(params) %>
+<%= link_to t('search.simple.link_text').html_safe, catalog_index_path(sanitize_search_params(params)) %>
 <% end %>
