@@ -83,8 +83,8 @@ group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.14.0'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
+  gem 'guard-rspec', '~> 4.3.1'
+  gem 'guard-cucumber', '~> 2.1.2'
 end
 
 group :test do
