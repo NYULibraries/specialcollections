@@ -84,6 +84,7 @@ group :development do
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.14.0'
   gem 'guard-rspec'
+  gem 'guard-cucumber'
 end
 
 group :test do
