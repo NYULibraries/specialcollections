@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_controller.relative_url_root = '/search'
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.default_options = {from: 'lib-no-reply@nyu.edu'}
