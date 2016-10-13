@@ -18,6 +18,7 @@ Then(/^I should see fields in the following order and value:$/) do |table|
 end
 
 When(/^I click on "(.*?)" within the first result$/) do |link_text|
+  expect(page).to have_text link_text
   within("#documents .document:first-child") do
     click_link link_text
   end
