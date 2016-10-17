@@ -420,9 +420,8 @@ GEM
       sprockets (~> 2.12)
       sprockets-rails (>= 2.0, < 4.0)
     scrub_rb (1.0.1)
-    selenium-webdriver (2.43.0)
+    selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
-      multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
@@ -532,7 +531,7 @@ DEPENDENCIES
   rspec-rails (~> 2.14.2)
   rspec-solr (~> 1.0.1)
   sass-rails (= 5.0.0.beta1)
-  selenium-webdriver (~> 2.43.0)
+  selenium-webdriver (~> 2.53.4)
   simplecov
   simplecov-rcov
   solr_ead (~> 0.7.2)

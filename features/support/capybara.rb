@@ -3,22 +3,7 @@ require 'capybara/poltergeist'
 
 Capybara.default_max_wait_time = 30
 
-if ENV['IN_BROWSER']
-  # On demand: non-headless tests via Selenium/WebDriver
-  # To run the scenarios in browser (default: Firefox), use the following command line:
-  # IN_BROWSER=true bundle exec cucumber
-  # or (to have a pause of 1 second between each step):
-  # IN_BROWSER=true PAUSE=1 bundle exec cucumber
-  Capybara.register_driver :selenium do |app|
-    http_client = Selenium::WebDriver::Remote::Http::Default.new
-    http_client.timeout = 300
-    Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => http_client)
-  end
-  Capybara.default_driver = :selenium
-  AfterStep do
-    sleep (ENV['PAUSE'] || 0).to_i
-  end
-else
+def configure_poltergeist
   # DEFAULT: headless tests with poltergeist/PhantomJS
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(
@@ -29,6 +14,27 @@ else
     debug: false
     )
   end
+end
+
+def configure_selenium(browser)
+  Capybara.register_driver :selenium do |app|
+    profile = Kernel.const_get("Selenium::WebDriver::#{browser.to_s.capitalize}::Profile").new
+    Capybara::Selenium::Driver.new(
+      app,
+      browser: browser.to_sym,
+      profile: profile,
+    )
+  end
+end
+
+if ENV['IN_BROWSER']
+  configure_selenium(:firefox)
+  Capybara.default_driver = :selenium
+  AfterStep do
+    sleep (ENV['PAUSE'] || 0).to_i
+  end
+else
+  configure_poltergeist
   Capybara.default_driver    = :poltergeist
   Capybara.javascript_driver = :poltergeist
 end

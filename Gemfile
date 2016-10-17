@@ -94,7 +94,7 @@ group :test do
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.20.0'
   # Use Selenium as the web driver for Cucumber
-  gem 'selenium-webdriver', '~> 2.43.0'
+  gem 'selenium-webdriver', '~> 2.53.4'
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.3.0'
   # Use factory girl for creating models
