@@ -97,6 +97,7 @@ describe ResultsHelper do
   describe "#reset_facet_params" do
     let(:local_params) do
       source_params.merge({
+        :leftover => "Yup",
         :smorgas => nil,
         :page => 1,
         :counter => 10,
@@ -105,7 +106,7 @@ describe ResultsHelper do
       }).with_indifferent_access
     end
     subject { reset_facet_params(local_params) }
-    it { should eql({"q" => "ephemera"}) }
+    it { should eql({"q" => "ephemera", "leftover"=>"Yup"}) }
   end
 
   describe "#render_parent_facet_link" do
