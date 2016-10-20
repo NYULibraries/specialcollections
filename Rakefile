@@ -10,3 +10,5 @@ if Rails.env.development? || Rails.env.test?
   ZIP_URL = "https://github.com/projectblacklight/blacklight-jetty/archive/v4.9.0.zip"
   require 'jettywrapper'
 end
+
+require 'solr_wrapper/rake_task' unless Rails.env.production?

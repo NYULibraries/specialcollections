@@ -1,11 +1,7 @@
-# -*- encoding : utf-8 -*-
+# frozen_string_literal: true
 class SolrDocument
 
-  # def self.base_class
-  #   "BASE CLASS"
-  # end
-
-  include Blacklight::Document
+  include Blacklight::Solr::Document
 
   # self.unique_key = 'id'
 
@@ -17,8 +13,8 @@ class SolrDocument
 
   # DublinCore uses the semantic field mappings below to assemble an OAI-compliant Dublin Core document
   # Semantic mappings of solr stored fields. Fields may be multi or
-  # single valued. See Blacklight::Document::ExtendableClassMethods#field_semantics
-  # and Blacklight::Document#to_semantic_values
+  # single valued. See Blacklight::Document::SemanticFields#field_semantics
+  # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension( Blacklight::Document::DublinCore)
 

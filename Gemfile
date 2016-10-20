@@ -120,3 +120,9 @@ gem 'pry', group: [:test, :development]
 
 # Use Jetty for test and development Solr
 gem 'jettywrapper', '~> 1.7', group: [:test, :development]
+
+group :development, :test do
+  gem 'solr_wrapper', '>= 0.3'
+end
+
+gem 'rsolr', '~> 1.0'

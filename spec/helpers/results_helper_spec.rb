@@ -97,7 +97,6 @@ describe ResultsHelper do
   describe "#reset_facet_params" do
     let(:local_params) do
       source_params.merge({
-        :leftover => "Yup",
         :smorgas => nil,
         :page => 1,
         :counter => 10,
