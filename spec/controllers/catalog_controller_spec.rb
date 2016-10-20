@@ -28,7 +28,7 @@ describe CatalogController do
       get :index, :q => "bloch", :search_field => "all_fields"
 
       assigns_response.docs.size.should > 0
-      assigns_response.facets.size.should > 0
+      assigns_response.aggregations.size.should > 0
     end
 
     it "should include solr weights, assigned on the component/document fields unittitle,unitid,subject,creator,scopcontent,

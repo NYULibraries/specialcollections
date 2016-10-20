@@ -68,7 +68,7 @@ module ResultsHelper
   def render_parent_facet_link(doc)
     if doc[:document].is_archival_collection?
       render_search_within_collection_instructions(doc)
-    else     
+    else
       if doc[:document].is_archival_series?
         render_search_within_series_instructions(doc)
       else (doc[:document].is_archival_object?)

@@ -1,5 +1,5 @@
 Given(/^I am on the default search page$/) do
-  visit catalog_index_path
+  visit search_catalog_path
 end
 
 Given (/^I am on the "(.*)" search page$/) do |place|

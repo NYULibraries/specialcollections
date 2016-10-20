@@ -59,7 +59,7 @@ module Views
       # /search/catalog
       # /search
       def link_to_root?
-        searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{catalog_index_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
+        searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{search_catalog_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
       end
 
       def gauges_tracking_code

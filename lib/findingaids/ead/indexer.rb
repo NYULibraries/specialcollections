@@ -3,7 +3,7 @@ require 'fileutils'
 ##
 # Ead Indexer
 #
-# This class will index a file or directory into a Solr index configured via solr.yml
+# This class will index a file or directory into a Solr index configured via blacklight.yml
 # It essentially wraps the functionality of SolrEad::Indexer with some customizations
 # mainly the ability to index directories and reindex changed files from a Git diff.
 #
@@ -11,12 +11,14 @@ require 'fileutils'
 # The #reindex_changed_since_last_commit function finds all the files changed since the previous commit and updates, adds or deletes accordingly.
 # The #reindex_changed_since_yesterday function finds all the files changed since yesterday and updates, adds or deletes accordingly.
 # The #reindex_changed_since_last_week function finds all the files changed since last week and updates, adds or deletes accordingly.
-# The .delete_all convenience method wraps Blacklight.solr to easily clear the index
+# The .delete_all convenience method wraps Blacklight.default_index.connection to easily clear the index
 class Findingaids::Ead::Indexer
 
   def self.delete_all
-    Blacklight.solr.delete_by_query("*:*")
-    Blacklight.solr.commit
+    Blacklight.default_index.connection.tap do |solr|
+      solr.delete_by_query("*:*")
+      solr.commit
+    end
   end
 
   attr_accessor :indexer, :data_path

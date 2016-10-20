@@ -21,5 +21,5 @@
   <%= link_to t('search.advanced.link_text'), advanced_search_path(sanitize_search_params(params)), class: 'advanced_search'%>
 </div>
 <% else %>
-<%= link_to t('search.simple.link_text').html_safe, catalog_index_path(sanitize_search_params(params)) %>
+<%= link_to t('search.simple.link_text').html_safe, search_catalog_path(sanitize_search_params(params)) %>
 <% end %>

@@ -4,6 +4,8 @@ module BlacklightHelper
   include Blacklight::BlacklightHelperBehavior
   include Findingaids::Solr::CatalogHelpers::ClassMethods
 
+  # delegate :blacklight_config, to: CatalogController
+
   # Change link to document to link out to external guide
   def link_to_document(doc, field, opts={:counter => nil})
     if(doc.unittitle.blank?)
@@ -23,6 +25,10 @@ module BlacklightHelper
 
   def whitelisted_facets
     @whitelisted_facets ||= Hash[facet_fields.map(&:first).map(&:last).map {|f| ["#{f}_sim".to_sym, []]}]
+  end
+
+  def render_bookmarks_control?
+    has_user_authentication_provider? and current_or_guest_user.present?
   end
 
 end
