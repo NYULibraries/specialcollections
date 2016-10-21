@@ -31,4 +31,12 @@ module BlacklightHelper
     has_user_authentication_provider? and current_or_guest_user.present?
   end
 
+  protected
+
+    ##
+    # Context in which to evaluate blacklight configuration conditionals
+    def blacklight_configuration_context
+      @blacklight_configuration_context ||= Blacklight::Configuration::Context.new(self)
+    end
+
 end
