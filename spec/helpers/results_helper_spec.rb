@@ -113,7 +113,7 @@ describe ResultsHelper do
     subject { render_parent_facet_link(document) }
     context "when document is a collection level item" do
       let(:field) {:collection_ssm}
-      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
+      it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
       context "when document title is nil" do
         let(:solr_document) { create(:solr_document, unittitle: []) }
         it { should eql nil }
@@ -122,7 +122,7 @@ describe ResultsHelper do
     context "when document is a series level item" do
       let(:field) {:collection_ssm}
       let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
-      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
+      it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
       context "when document title is nil" do
         let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: []) }
         it { should eql "<span class=\"search_within\">Series doesn&#39;t have unittitle you can&#39;t search within it</span>" }
@@ -138,7 +138,7 @@ describe ResultsHelper do
     let(:field) {:collection_ssm}
     subject { render_search_within_collection_instructions(document) }
     context "when collection has title" do
-      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
+      it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
     end
     context "when collection doesn't have title" do
       let(:solr_document) { create(:solr_document, unittitle: []) }
@@ -151,7 +151,7 @@ describe ResultsHelper do
     subject { render_search_within_series_instructions(document) }
     context "when series has title" do
       let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
-      it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
+      it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
     end
     context "when series doesn't have title" do
       let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: []) }
@@ -163,14 +163,14 @@ describe ResultsHelper do
   describe "#render_collection_facet_link" do
     let(:field) {:collection_ssm}
     subject { render_collection_facet_link(document) }
-    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
+    it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
   end
 
   describe "#render_series_facet_link" do
     let(:field) {:collection_ssm}
     let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
     subject { render_series_facet_link(document) }
-    it { should eql "<a class=\"search_within\" href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
+    it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
   end
 
   describe "#render_request_item_istructions" do
@@ -182,7 +182,7 @@ describe ResultsHelper do
     let(:field) { :heading_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
     subject { render_contained_in_links(document) }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"unittitle\">The Title</span>" }
+    it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"unittitle\">The Title</span>" }
     it { expect(sanitize_html(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; The Title") }
   end
 
@@ -259,12 +259,12 @@ describe ResultsHelper do
 
   describe "#link_to_collection" do
     subject { link_to_collection("The Collection") }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection\">The Collection</a>" }
+    it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection\">The Collection</a>" }
   end
 
   describe "#links_to_series" do
     subject { links_to_series(["Series I", "Series II"], "The Collection").join(" >> ") }
-    it { should eql "<a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/catalog?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+II\">Series II</a>" }
+    it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+II\">Series II</a>" }
   end
 
   describe "#sanitize_html" do
