@@ -4,6 +4,7 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   # include BlacklightAdvancedSearch::ParseBasicQ TODO: replace
   include Findingaids::Solr::CatalogHelpers
+  delegate :is_collection?, to: :view_context
 
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
@@ -130,13 +131,13 @@ class CatalogController < ApplicationController
     # config.add_index_field 'lc_callnum_display', label: 'Call number'
 
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
-    config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :helper_method => :render_contained_in_links, unless: 'is_collection?'
+    config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :helper_method => :render_contained_in_links, unless: :is_collection?
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
     config.add_index_field solr_name("abstract",          :displayable),  :label => "Abstract", :helper_method => :render_field_item
     config.add_index_field solr_name("collection",        :displayable),  :label => "Archival Collection", :helper_method => :render_parent_facet_link
     config.add_index_field solr_name("repository",        :stored_sortable), label: "Library", helper_method: :render_repository_link
-    config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :helper_method => :render_field_item, if: 'is_collection?'
-    config.add_index_field solr_name("collection_unitid", :displayable),  :label => "Collection call no", :helper_method => :render_field_item, unless: 'is_collection?'
+    config.add_index_field solr_name("unitid",            :displayable),  :label => "Call no", :helper_method => :render_field_item, if: :is_collection?
+    config.add_index_field solr_name("collection_unitid", :displayable),  :label => "Collection call no", :helper_method => :render_field_item, unless: :is_collection?
     config.add_index_field solr_name("location",          :displayable),  :label => "Location", :helper_method => :render_field_item
 
     # solr fields to be displayed in the show (single result) view
