@@ -4,8 +4,6 @@ module BlacklightHelper
   include Blacklight::BlacklightHelperBehavior
   include Findingaids::Solr::CatalogHelpers::ClassMethods
 
-  # delegate :blacklight_config, to: CatalogController
-
   # Change link to document to link out to external guide
   def link_to_document(doc, field, opts={:counter => nil})
     if(doc.unittitle.blank?)

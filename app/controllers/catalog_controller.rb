@@ -16,7 +16,8 @@ class CatalogController < ApplicationController
     ## Model that maps search index responses to the blacklight response model
     # config.response_model = Blacklight::Solr::Response
 
-    ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
+    ## Default parameters to send on single-document requests to Solr. These settings are the Blacklight defaults (see SearchHelper#solr_doc_params) or
+    ## parameters included in the Blacklight-jetty document requestHandler.
     config.default_solr_params = {
       :fl => display_fields,
       :qf => qf_fields,
@@ -46,20 +47,7 @@ class CatalogController < ApplicationController
     # items to show per page, each number in the array represent another option to choose from.
     #config.per_page = [10,20,50,100]
 
-    ## Default parameters to send on single-document requests to Solr. These settings are the Blackligt defaults (see SearchHelper#solr_doc_params) or
-    ## parameters included in the Blacklight-jetty document requestHandler.
-    #
-    #config.default_document_solr_params = {
-    #  qt: 'document',
-    #  ## These are hard-coded in the blacklight 'document' requestHandler
-    #  # fl: '*',
-    #  # rows: 1,
-    #  # q: '{!term f=id v=$id}'
-    #}
-
     # solr field configuration for search results/index views
-    # config.index.title_field = 'title_display'
-    # config.index.display_type_field = 'format'
     config.index.title_field = solr_name("heading", :displayable)
     config.index.display_type_field = solr_name("format", :displayable)
 
@@ -92,14 +80,6 @@ class CatalogController < ApplicationController
     # set :index_range to true if you want the facet pagination view to have facet prefix-based navigation
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
-
-    # config.add_facet_field 'format', label: 'Format'
-    # config.add_facet_field 'pub_date', label: 'Publication Year', single: true
-    # config.add_facet_field 'subject_topic_facet', label: 'Topic', limit: 20, index_range: 'A'..'Z'
-    # config.add_facet_field 'language_facet', label: 'Language', limit: true
-    # config.add_facet_field 'lc_1letter_facet', label: 'Call Number'
-    # config.add_facet_field 'subject_geo_facet', label: 'Region'
-    # config.add_facet_field 'subject_era_facet', label: 'Era'
     #
     # config.add_facet_field 'example_pivot_field', label: 'Pivot Field', :pivot => ['format', 'language_facet']
     #
@@ -121,16 +101,6 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the index (search results) view
     #   The ordering of the field names is the order of the display
-    # config.add_index_field 'title_display', label: 'Title'
-    # config.add_index_field 'title_vern_display', label: 'Title'
-    # config.add_index_field 'author_display', label: 'Author'
-    # config.add_index_field 'author_vern_display', label: 'Author'
-    # config.add_index_field 'format', label: 'Format'
-    # config.add_index_field 'language_facet', label: 'Language'
-    # config.add_index_field 'published_display', label: 'Published'
-    # config.add_index_field 'published_vern_display', label: 'Published'
-    # config.add_index_field 'lc_callnum_display', label: 'Call number'
-
     config.add_index_field solr_name("format",            :displayable),  :label => "Format", :helper_method => :render_field_item
     config.add_index_field solr_name("heading",           :displayable),  :label => "Contained in", :helper_method => :render_contained_in_links, unless: :is_collection?
     config.add_index_field solr_name("unitdate",          :displayable),  :label => "Date range", :helper_method => :render_field_item
@@ -143,20 +113,6 @@ class CatalogController < ApplicationController
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
-    # config.add_show_field 'title_display', label: 'Title'
-    # config.add_show_field 'title_vern_display', label: 'Title'
-    # config.add_show_field 'subtitle_display', label: 'Subtitle'
-    # config.add_show_field 'subtitle_vern_display', label: 'Subtitle'
-    # config.add_show_field 'author_display', label: 'Author'
-    # config.add_show_field 'author_vern_display', label: 'Author'
-    # config.add_show_field 'format', label: 'Format'
-    # config.add_show_field 'url_fulltext_display', label: 'URL'
-    # config.add_show_field 'url_suppl_display', label: 'More Information'
-    # config.add_show_field 'language_facet', label: 'Language'
-    # config.add_show_field 'published_display', label: 'Published'
-    # config.add_show_field 'published_vern_display', label: 'Published'
-    # config.add_show_field 'lc_callnum_display', label: 'Call number'
-    # config.add_show_field 'isbn_t', label: 'ISBN'
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
@@ -205,17 +161,6 @@ class CatalogController < ApplicationController
     #   }
     # end
     #
-    # # Specifying a :qt only to show it's possible, and so our internal automated
-    # # tests can test it. In this case it's the same as
-    # # config[:default_solr_parameters][:qt], so isn't actually neccesary.
-    # config.add_search_field('subject') do |field|
-    #   field.solr_parameters = { :'spellcheck.dictionary' => 'subject' }
-    #   field.qt = 'search'
-    #   field.solr_local_parameters = {
-    #     qf: '$subject_qf',
-    #     pf: '$subject_pf'
-    #   }
-    # end
 
     config.add_search_field("all_fields",
       :label => "All Fields",
