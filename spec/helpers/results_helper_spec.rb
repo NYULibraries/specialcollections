@@ -2,10 +2,6 @@ require "spec_helper"
 
 describe ResultsHelper do
 
-  include ApplicationHelper
-  include BlacklightHelper
-  include ActionView::Helpers::UrlHelper
-
   let(:repositories) {{"fales" => {"display" => "The Fales Library"}}}
   let(:heading) { "Guide to titling finding aids" }
   let(:params) {{:controller => "catalog", :action => "index"}}
@@ -27,7 +23,7 @@ describe ResultsHelper do
   end
 
   describe "#render_field_item" do
-    subject { render_field_item(document) }
+    subject { helper.render_field_item(document) }
     context "when the title is plain text" do
       it { should eql("The Title") }
     end
@@ -43,7 +39,7 @@ describe ResultsHelper do
   end
 
   describe "#document_icon" do
-    subject { document_icon(document[:document]) }
+    subject { helper.document_icon(document[:document]) }
     context "when document is a collection level item" do
       it { should eql("archival_collection") }
     end
@@ -59,42 +55,45 @@ describe ResultsHelper do
 
   describe "#link_to_repository" do
     let(:collection) { "fales" }
-    subject { link_to_repository(collection)}
+    subject { helper.link_to_repository(collection)}
+    before { allow(helper).to receive(:repositories).and_return repositories }
     context "when document is a collection level item" do
       it { should eql("<a href=\"/fales\">The Fales Library</a>") }
     end
   end
 
   describe "#repository_label" do
-    subject { repository_label(document[:document][:repository_ssi]) }
+    subject { helper.repository_label(document[:document][:repository_ssi]) }
+    before { allow(helper).to receive(:repositories).and_return repositories }
     it { should eq("The Fales Library") }
   end
 
   describe "#facet_name" do
     it "should return the Solrized name of the facet" do
-      expect(facet_name("test")).to eql("test_sim")
+      expect(helper.facet_name("test")).to eql("test_sim")
     end
   end
 
   describe "#collection_facet" do
     it "should alias facet_name function for collection facet" do
-      expect(collection_facet).to eql("collection_sim")
+      expect(helper.collection_facet).to eql("collection_sim")
     end
   end
 
   describe "#format_facet" do
     it "should alias facet_name function for format facet" do
-      expect(format_facet).to eql("format_sim")
+      expect(helper.format_facet).to eql("format_sim")
     end
   end
 
   describe "#series_facet" do
     it "should alias facet_name for series facet" do
-      expect(series_facet).to eql("series_sim")
+      expect(helper.series_facet).to eql("series_sim")
     end
   end
 
   describe "#reset_facet_params" do
+    subject { helper.reset_facet_params(local_params) }
     let(:local_params) do
       source_params.merge({
         :leftover => "Yup",
@@ -105,12 +104,13 @@ describe ResultsHelper do
         :f => {:repository_sim => ["fales"]}
       }).with_indifferent_access
     end
-    subject { reset_facet_params(local_params) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql({"q" => "ephemera", "leftover"=>"Yup"}) }
   end
 
   describe "#render_parent_facet_link" do
-    subject { render_parent_facet_link(document) }
+    subject { helper.render_parent_facet_link(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     context "when document is a collection level item" do
       let(:field) {:collection_ssm}
       it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
@@ -135,8 +135,9 @@ describe ResultsHelper do
   end
 
   describe "#render_search_within_collection_instructions" do
+    subject { helper.render_search_within_collection_instructions(document) }
     let(:field) {:collection_ssm}
-    subject { render_search_within_collection_instructions(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     context "when collection has title" do
       it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
     end
@@ -147,8 +148,9 @@ describe ResultsHelper do
   end
 
   describe "#render_search_within_series_instructions" do
+    subject { helper.render_search_within_series_instructions(document) }
     let(:field) {:collection_ssm}
-    subject { render_search_within_series_instructions(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     context "when series has title" do
       let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
       it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
@@ -161,47 +163,54 @@ describe ResultsHelper do
 
 
   describe "#render_collection_facet_link" do
+    subject { helper.render_collection_facet_link(document) }
     let(:field) {:collection_ssm}
-    subject { render_collection_facet_link(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Search all archival materials within this collection</a>" }
   end
 
   describe "#render_series_facet_link" do
+    subject { helper.render_series_facet_link(document) }
     let(:field) {:collection_ssm}
     let(:solr_document) { create(:solr_document, format: ["Archival Series"], unittitle: ["Series I"] ) }
-    subject { render_series_facet_link(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<a class=\"search_within\" href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Search all archival materials within this series</a>" }
   end
 
   describe "#render_request_item_istructions" do
-    subject { render_request_item_istructions }
+    subject { helper.render_request_item_istructions }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<span class=\"search_within\">To request this item, please note the following information</span>" }
   end
 
   describe "#render_contained_in_links" do
+    subject { helper.render_contained_in_links(document) }
     let(:field) { :heading_ssm }
     let(:solr_document) { create(:solr_document, parent_unittitles: ["Series I", "Subseries IV"]) }
-    subject { render_contained_in_links(document) }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things\">Bytsura Collection of Things</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=Bytsura+Collection+of+Things&amp;f%5Bseries_sim%5D%5B%5D=Subseries+IV\">Subseries IV</a> >> <span class=\"unittitle\">The Title</span>" }
     it { expect(sanitize_html(subject)).to eql("Bytsura Collection of Things &gt;&gt; Series I &gt;&gt; Subseries IV &gt;&gt; The Title") }
   end
 
   describe "#render_repository_facet_link" do
+    subject { helper.render_repository_facet_link(document[:document][:repository_ssi]) }
     let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
-    subject { render_repository_facet_link(document[:document][:repository_ssi]) }
+    before { allow(helper).to receive(:repositories).and_return repositories }
     it { should eql "The Fales Library" }
   end
 
   describe "#render_repository_link" do
+    subject { helper.render_repository_link(document) }
     let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
-    subject { render_repository_link(document) }
+    before { allow(helper).to receive(:repositories).and_return repositories }
     it { should eql "<a href=\"/fales\">The Fales Library</a>" }
     it { expect(sanitize_html(subject)).to eql("The Fales Library") }
   end
 
   describe "#link_to_document" do
-    subject { link_to_document(collection, heading) }
+    subject { helper.link_to_document(collection, heading) }
     let(:collection) { document[:document] }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     context "when document is not a real url" do
       context "and document is a collection level item" do
         it { should eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc.html#123\">Guide to titling finding aids</a>") }
@@ -232,7 +241,7 @@ describe ResultsHelper do
   end
 
   describe "#is_collection?" do
-    subject { is_collection?({}, document[:document]) }
+    subject { helper.is_collection?({}, document[:document]) }
     context "when document is a collection" do
       it { should be_true }
     end
@@ -243,7 +252,7 @@ describe ResultsHelper do
   end
 
    describe "#is_series?" do
-    subject { is_series?({}, document[:document]) }
+    subject { helper.is_series?({}, document[:document]) }
     context "when document is collection" do
       it { should be_false }
     end
@@ -258,18 +267,20 @@ describe ResultsHelper do
   end
 
   describe "#link_to_collection" do
-    subject { link_to_collection("The Collection") }
+    subject { helper.link_to_collection("The Collection") }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection\">The Collection</a>" }
   end
 
   describe "#links_to_series" do
-    subject { links_to_series(["Series I", "Series II"], "The Collection").join(" >> ") }
+    subject { helper.links_to_series(["Series I", "Series II"], "The Collection").join(" >> ") }
+    before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
     it { should eql "<a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+I\">Series I</a> >> <a href=\"/?f%5Bcollection_sim%5D%5B%5D=The+Collection&amp;f%5Bseries_sim%5D%5B%5D=Series+II\">Series II</a>" }
   end
 
   describe "#sanitize_html" do
     let(:html_to_sanitize) { "<strong>Whassup</strong>" }
-    subject { sanitize_html(html_to_sanitize) }
+    subject { helper.sanitize_html(html_to_sanitize) }
     context "when the string contains accepted html" do
       it { should eql "<strong>Whassup</strong>" }
     end

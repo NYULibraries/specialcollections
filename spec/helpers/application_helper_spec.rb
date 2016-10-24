@@ -6,13 +6,18 @@ describe ApplicationHelper do
   let(:params) {{:repository => repository}}
   let(:repositories) { Findingaids::Repositories.repositories }
 
+  before do
+    allow(helper).to receive(:repositories).and_return repositories
+    allow(helper).to receive(:params).and_return params
+  end
+
   describe "#current_repository" do
-    subject { current_repository.first }
+    subject { helper.current_repository.first }
     it { should eql "fales" }
   end
 
   describe "#searching?" do
-    subject { searching? }
+    subject { helper.searching? }
     context "when we ARE NOT actively searching the index" do
       it { should be_false }
     end
@@ -23,7 +28,7 @@ describe ApplicationHelper do
   end
 
   describe "#current_repository_url" do
-    subject { current_repository_url }
+    subject { helper.current_repository_url }
     context "when the repository is The Fales Library & Special Collections" do
       it { should eql "fales" }
     end
@@ -34,7 +39,7 @@ describe ApplicationHelper do
   end
 
   describe "#current_repository_home_text?" do
-    subject { current_repository_home_text? }
+    subject { helper.current_repository_home_text? }
     context "when current repository has home text" do
       it { should_not be_empty }
     end
@@ -45,7 +50,7 @@ describe ApplicationHelper do
   end
 
   describe "#maintenance_mode?" do
-    subject { maintenance_mode? }
+    subject { helper.maintenance_mode? }
     it { should_not be_nil }
   end
 
