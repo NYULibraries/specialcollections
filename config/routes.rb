@@ -1,6 +1,8 @@
 Findingaids::Application.routes.draw do
 
   mount Blacklight::Engine => '/'
+  mount BlacklightAdvancedSearch::Engine => '/'
+
   root to: "catalog#index"
     concern :searchable, Blacklight::Routes::Searchable.new
 
@@ -23,6 +25,8 @@ Findingaids::Application.routes.draw do
   end
 
   # mount Blacklight::Engine => '/'
+  # mount BlacklightAdvancedSearch::Engine => '/'
+
   # blacklight_for :catalog
   # concern :searchable, Blacklight::Routes::Searchable.new
 
