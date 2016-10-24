@@ -58,7 +58,7 @@ module ResultsHelper
   # this looks up the looks up the repo by admin_code and grabs the URL.
   def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
-    if doc.is_a?(Hash) && doc[:document].present? && doc[:document][repos_id].present?
+    if doc.is_a?(Hash) && doc[:document].to_h.present? && doc[:document][repos_id].present?
       link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
     end
   end
@@ -138,7 +138,7 @@ module ResultsHelper
     new_params = reset_facet_params(params)
 
     fields.each do |field, item|
-      new_params = add_facet_params(field, item, new_params)
+      new_params = Blacklight::SearchState.new(new_params, blacklight_config).add_facet_params(field, item)
     end
 
     # Delete page, if needed.
@@ -181,7 +181,7 @@ module ResultsHelper
   ##
   # Reset facet parameters to clean search
   def reset_facet_params(source_params)
-    reset_search_params(source_params.except(:f))
+    Blacklight::Parameters.sanitize(source_params.except(:f)).except(:page, :counter)
   end
 
 end
