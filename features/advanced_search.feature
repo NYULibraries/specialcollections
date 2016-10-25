@@ -22,6 +22,7 @@ Feature: Advanced Search
       | Call No. | |
       | Collection | |
 
+  @wip
   Scenario: Advanced keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup"
