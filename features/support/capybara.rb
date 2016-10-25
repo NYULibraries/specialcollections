@@ -1,7 +1,7 @@
 # Configure Capybara
 require 'capybara/poltergeist'
 
-Capybara.default_max_wait_time = 30
+Capybara.default_max_wait_time = (ENV['MAX_WAIT'] || 30).to_i
 
 def configure_poltergeist
   # DEFAULT: headless tests with poltergeist/PhantomJS
