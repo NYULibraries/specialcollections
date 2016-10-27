@@ -1,9 +1,9 @@
 module ApplicationHelper
 
   # Link to the finding aid with the passed in label
-  def link_to_findingaid(doc, label = nil)
+  def link_to_findingaid(doc, label = nil, opts = {})
     url = get_url_for_findingaid_from_document(doc)
-    link_to (label || url), url, { :target => "_blank" }
+    link_to (label || url), url, opts.merge({ :target => "_blank" })
   end
 
   # Abstract actually constructing the url to the finding aids document

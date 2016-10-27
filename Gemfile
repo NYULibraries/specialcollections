@@ -43,11 +43,11 @@ gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
 
 # Use Blacklight for searching Solr
-gem 'blacklight', '~> 5.8.0'
+gem 'blacklight', '~> 6.6'
 # gem 'blacklight', path: '/apps/blacklight'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search', '~> 5.1.2'
+gem 'blacklight_advanced_search'
 
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
@@ -94,7 +94,7 @@ group :test do
   gem 'vcr', '~> 2.9.3'
   gem 'webmock', '~> 1.20.0'
   # Use Selenium as the web driver for Cucumber
-  gem 'selenium-webdriver', '~> 2.43.0'
+  gem 'selenium-webdriver', '~> 2.53.4'
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.3.0'
   # Use factory girl for creating models
@@ -102,8 +102,8 @@ group :test do
   # Rspec as the test framework
   gem 'rspec-rails', '~> 2.14.2'
   # Phantomjs for headless browser testing
-  gem 'poltergeist', '~> 1.6.0'
-  gem 'phantomjs', '>= 1.9.0', :require => 'phantomjs/poltergeist'
+  gem 'poltergeist'
+  gem 'phantomjs'
   # Use SimpleCov for generating local coverage reports
   gem 'simplecov', require: false
   gem 'simplecov-rcov', require: false
@@ -120,3 +120,9 @@ gem 'pry', group: [:test, :development]
 
 # Use Jetty for test and development Solr
 gem 'jettywrapper', '~> 1.7', group: [:test, :development]
+
+group :development, :test do
+  gem 'solr_wrapper', '>= 0.3'
+end
+
+gem 'rsolr', '~> 1.0'

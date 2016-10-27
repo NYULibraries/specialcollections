@@ -7,17 +7,12 @@ Then(/^the "(.*?)" field should be "(\d.*?)" characters or less$/) do |label, le
   expect(documents_list.first.find(:xpath, "//dt[text()='#{label}:']/following-sibling::dd[1]").text.length).to be <= length.to_i
 end
 
-Then(/^I should see fields in the following order and value:$/) do |table|
-  table.rows_hash.each do |label, value|
-    unless label.blank?
-      expect(documents_list.first.find(:xpath, "//dt[text()='#{label}:']/following-sibling::dd[1]")).to have_content
-    else
-      expect(documents_list.first.find(:xpath, "//dd//*[text()='#{value}']")).to have_content
-    end
-  end
+Then(/^the first result should have a field "(.+)" with value "(.+)"$/) do |field_name, value_text|
+  expect(documents_list.first.find(:xpath, "//dt[text()='#{field_name}:']/following-sibling::dd[1]")).to have_text value_text
 end
 
 When(/^I click on "(.*?)" within the first result$/) do |link_text|
+  expect(page).to have_text link_text
   within("#documents .document:first-child") do
     click_link link_text
   end

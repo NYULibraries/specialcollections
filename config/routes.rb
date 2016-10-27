@@ -1,6 +1,36 @@
 Findingaids::Application.routes.draw do
-  blacklight_for :catalog
-  root :to => "catalog#index"
+
+  mount Blacklight::Engine => '/'
+  mount BlacklightAdvancedSearch::Engine => '/'
+
+  root to: "catalog#index"
+    concern :searchable, Blacklight::Routes::Searchable.new
+
+  resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
+    concerns :searchable
+  end
+
+  concern :exportable, Blacklight::Routes::Exportable.new
+
+  resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
+    concerns :exportable
+  end
+
+  resources :bookmarks do
+    concerns :exportable
+
+    collection do
+      delete 'clear'
+    end
+  end
+
+  # mount Blacklight::Engine => '/'
+  # mount BlacklightAdvancedSearch::Engine => '/'
+
+  # blacklight_for :catalog
+  # concern :searchable, Blacklight::Routes::Searchable.new
+
+  get 'advanced' => 'advanced#index', as: 'advanced_search'
 
   # Create named routes for each collection specified in the Repositories Class
   Findingaids::Repositories.repositories.each do |coll|

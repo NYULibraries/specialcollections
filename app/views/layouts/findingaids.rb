@@ -10,7 +10,7 @@ module Views
       def breadcrumbs
         breadcrumbs = super
         breadcrumbs << link_to_if(link_to_root?, application_title, {:controller =>'catalog', :repository => nil})
-        breadcrumbs << link_to_unless_current(controller.controller_name.humanize) unless controller.controller_name == "catalog"
+        breadcrumbs << link_to_unless_current(controller.controller_name.humanize, current_route_including_engine) unless controller.controller_name == "catalog"
         breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
         breadcrumbs << "Search" if searching?
         return breadcrumbs
@@ -59,7 +59,7 @@ module Views
       # /search/catalog
       # /search
       def link_to_root?
-        searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{catalog_index_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
+        searching? || !["#{ENV['RAILS_RELATIVE_URL_ROOT']}#{search_catalog_path}","#{ENV['RAILS_RELATIVE_URL_ROOT']}#{root_path}"].include?(request.path)
       end
 
       def gauges_tracking_code
@@ -68,6 +68,13 @@ module Views
 
       def google_analytics_tracking_code
         ENV['GOOGLE_ANALYTICS_TRACKING_CODE']
+      end
+
+      private
+      def current_route_including_engine
+        url_for(params)
+      rescue ActionController::UrlGenerationError => e
+        blacklight.url_for(params)
       end
 
     end

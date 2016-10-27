@@ -6,13 +6,13 @@ $ ->
     'data-trigger': 'hover focus'
   }
   popover_default_settings = { trigger: 'hover focus', delay: { show: 500 } }
-  
+
   ##
   # Set a delayed popover for each facet
-  $('#facets').find('.panel h5').attr(popover_default_attributes).popover(popover_default_settings)
+  $('#facets').find('.panel h3').attr(popover_default_attributes).popover(popover_default_settings)
   # Then populate the content for each popover from locales
   <% I18n.t('facets.help').each do |facet_key, facet_value| %>
-  $('#facets .blacklight-<%= Solrizer.solr_name(facet_key, :facetable)%>').find('h5[data-toggle="popover"]').attr('data-content': "<%= I18n.t("facets.help.#{facet_key}") %>")
+  $('#facets .blacklight-<%= Solrizer.solr_name(facet_key, :facetable)%>').find('h3[data-toggle="popover"]').attr('data-content': "<%= I18n.t("facets.help.#{facet_key}") %>")
   <% end %>
 
   ##

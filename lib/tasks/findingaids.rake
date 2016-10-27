@@ -11,7 +11,12 @@ namespace :findingaids do
     desc "Copies the default SOLR config for the bundled jetty"
     task :config_solr do
       FileList['solr/conf/*'].each do |f|
-        cp("#{f}", Rails.root.join('jetty','solr','blacklight-core','conf',"#{File.basename(f)}"), verbose: true)
+        destination_path = Rails.root.join('jetty','solr','blacklight-core','conf',"#{File.basename(f)}")
+        if File.directory?(f)
+          cp_r("#{f}", destination_path, verbose: true)
+        else
+          cp("#{f}", destination_path, verbose: true)
+        end
       end
       cp('solr/solr.xml', Rails.root.join('jetty','solr','solr.xml'), verbose: true)
       mv(Rails.root.join('jetty','solr','blacklight-core'), Rails.root.join('jetty','solr','development-core'))
