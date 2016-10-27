@@ -1,4 +1,4 @@
-@wip-jenkins
+@wip @wip-jenkins
 Feature: Advanced Search
   In order to be able to quickly locate archival materials of interest
   As an archivist or expert user of archives
@@ -22,7 +22,6 @@ Feature: Advanced Search
       | Call No. | |
       | Collection | |
 
-  @wip
   Scenario: Advanced keyword search
     Given I am on the advanced search page
     When I fill-in the field "All Fields" with the term "Northup"
