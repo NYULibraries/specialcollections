@@ -16,3 +16,8 @@ Feature: Facets presence and order
       | 8 | Language |
       | 9 | Collection |
       | 10 | Level |
+
+  Scenario: Facet popover
+    Given I am on the default search page
+    When I hover over the "Library" facets
+    Then I should see a popover with "View materials from one special collection"

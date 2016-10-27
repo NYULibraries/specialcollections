@@ -1,6 +1,14 @@
 module FindingaidsFeatures
   module SelectorsHelper
 
+    def facets_container
+      page.find("#facets")
+    end
+
+    def link_with_text(text)
+      page.find(:xpath, "//a[text()='#{text}']")
+    end
+
     def documents_list_container
       page.find("#documents")
     end
