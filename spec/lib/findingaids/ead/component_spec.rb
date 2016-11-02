@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 ##
 # Test as much of the index structure of the component as possible from the examples available to us
