@@ -70,4 +70,7 @@ module ApplicationHelper
     false
   end
 
+  def repositories
+    @repositories ||= Findingaids::Repositories.repositories
+  end
 end
