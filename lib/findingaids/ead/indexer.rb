@@ -35,9 +35,11 @@ class Findingaids::Ead::Indexer
     unless File.directory?(file)
       update(file)
     else
+      updated_files = []
       Dir.glob(File.join(file,"*")).each do |file|
-        update(file)
+        updated_files << update(file)
       end
+      updated_files.all?
     end
   end
 
@@ -67,11 +69,15 @@ private
 
   # Reindex files changed in list of commit SHAs
   def reindex_changed(last_commits)
+    updated_files = []
     changed_files(last_commits).each do |file|
       status, filename, message = file.split("\t")
       fullpath = File.join(data_path, filename)
-      update_or_delete(status, fullpath, message)
+      updated_files << update_or_delete(status, fullpath, message)
     end
+    # Return true is all the files were sucessfully updated
+    # or if there were no files
+    (updated_files.all? || updated_files.empty?)
   end
 
   # TODO: Make time range configurable by instance variable
