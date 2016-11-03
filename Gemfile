@@ -78,6 +78,7 @@ gem 'devise', '~> 3.5.4'
 
 # Faraday for http calls
 gem 'faraday', '~> 0.9.1'
+gem 'jbuilder'
 
 group :development do
   gem 'better_errors', '~> 2.0.0'
