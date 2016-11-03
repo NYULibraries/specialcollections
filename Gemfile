@@ -30,6 +30,8 @@ gem 'therubyracer', '~> 0.12.0'
 # Use the Compass CSS framework for sprites, etc.
 gem 'compass-rails', '~> 2.0.0'
 
+gem 'jbuilder', '~> 2.6.0'
+
 # Use mustache for templating
 # Fix to 0.99.4 cuz 0.99.5 broke my shit.
 gem 'mustache', '0.99.4'
@@ -78,7 +80,6 @@ gem 'devise', '~> 3.5.4'
 
 # Faraday for http calls
 gem 'faraday', '~> 0.9.1'
-gem 'jbuilder'
 
 group :development do
   gem 'better_errors', '~> 2.0.0'

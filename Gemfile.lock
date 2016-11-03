@@ -534,7 +534,7 @@ DEPENDENCIES
   guard-cucumber (~> 2.1.2)
   guard-rspec (~> 4.3.1)
   iso-639 (~> 0.2.5)
-  jbuilder
+  jbuilder (~> 2.6.0)
   jettywrapper (~> 1.7)
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 5.0.2)
