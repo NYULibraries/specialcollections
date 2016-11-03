@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
   # Adds a few additional behaviors into the application controller
   include Blacklight::Controller
-  layout 'blacklight'
 
   # Please be sure to impelement current_user and user_session. Blacklight depends on
   # these methods in order to perform user specific actions.
 
   protect_from_forgery
-  layout Proc.new{ |controller| (controller.request.xhr?) ? false : "findingaids" }
+  layout Proc.new{ |controller| (controller.request.xhr? || controller.request.format.json?) ? false : "findingaids" }
 
   prepend_before_filter :passive_login, unless: -> { request.format.json? }
   def passive_login
