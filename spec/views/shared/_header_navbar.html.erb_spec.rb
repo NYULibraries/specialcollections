@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_header_navbar.html.erb' do
   before { allow(view).to receive(:render_search_bar).and_return('') }

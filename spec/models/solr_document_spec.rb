@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SolrDocument do
 
@@ -27,41 +27,47 @@ describe SolrDocument do
     subject { document.normalized_format }
 
     context "when document is a collection level item" do
-      it { should eql("archival_collection") }
+      it { is_expected.to eql("archival_collection") }
     end
 
     context "when document is a series level item" do
       let(:format_ssm) { "Archival Series" }
-      it { should eql("archival_series") }
+      it { is_expected.to eql("archival_series") }
     end
 
     context "when document is an item" do
       let(:format_ssm) { "Archival Object" }
-      it { should eql("archival_object") }
+      it { is_expected.to eql("archival_object") }
     end
 
   end
 
   describe "#export_as_ead_citation_txt" do
     subject { document.export_as_ead_citation_txt }
-    it { should eql "<strong>The Unit Title</strong>, Inclusive: 91-95 ; Bulk: April 95; MSS 122; Box 12; Folder 99; The Fales Library & Special Collections" }
+    it { is_expected.to eql "<strong>The Unit Title</strong>, Inclusive: 91-95 ; Bulk: April 95; MSS 122; Box 12; Folder 99; The Fales Library & Special Collections" }
   end
 
   describe "#method_missing" do
     context "when there is no matcher" do
-      it { expect{ document.eats_cheese? }.to raise_error(NoMethodError) }
+      it 'should throw a no method erro' do
+        expect{ document.eats_cheese? }.to raise_error(NoMethodError)
+      end
     end
 
     describe "#is_archival_collection?" do
       subject { document.is_archival_collection? }
       context "when document is a collection level item" do
-        it { should be_true }
-        it { expect(document.is_archival_series?).to be_false }
-        it { expect(document.is_archival_object?).to be_false }
+        it { is_expected.to be true }
+        it 'should not also identify as an archival series' do
+          expect(document.is_archival_series?).to be false
+        end
+        it 'should not also identify as an archival object' do
+          expect(document.is_archival_object?).to be false
+        end
       end
       context "when document is a series level item" do
         let(:format_ssm) { "Archival Series" }
-        it { should be_false }
+        it { is_expected.to be false }
       end
     end
 
@@ -69,9 +75,13 @@ describe SolrDocument do
       context "when document is a series level item" do
         let(:format_ssm) { "Archival Series" }
         subject { document.is_archival_series? }
-        it { should be_true }
-        it { expect(document.is_archival_collection?).to be_false }
-        it { expect(document.is_archival_object?).to be_false }
+        it { is_expected.to be true }
+        it 'should not also identify as an archival collection' do
+          expect(document.is_archival_collection?).to be false
+        end
+        it 'should not also identify as an archival object' do
+          expect(document.is_archival_object?).to be false
+        end
       end
     end
 
@@ -79,25 +89,29 @@ describe SolrDocument do
       context "when document is an item" do
         let(:format_ssm) { "Archival Object" }
         subject { document.is_archival_object? }
-        it { should be_true }
-        it { expect(document.is_archival_collection?).to be_false }
-        it { expect(document.is_archival_series?).to be_false }
+        it { is_expected.to be true }
+        it 'should not also identify as an archival collection' do
+          expect(document.is_archival_collection?).to be false
+        end
+        it 'should not also identify as an archival series' do
+          expect(document.is_archival_series?).to be false
+        end
       end
     end
 
     describe "#parent_unittitles" do
       subject { document.parent_unittitles }
-      it { should eql ["Series I", "Series II"] }
+      it { is_expected.to eql ["Series I", "Series II"] }
     end
 
     describe "#unittitle" do
       subject { document.unittitle }
-      it { should eql "The Unit Title" }
+      it { is_expected.to eql "The Unit Title" }
     end
 
     describe "#library" do
       subject { document.library }
-      it { should eql "The Fales Library & Special Collections" }
+      it { is_expected.to eql "The Fales Library & Special Collections" }
     end
 
   end

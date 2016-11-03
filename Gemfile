@@ -90,40 +90,34 @@ end
 
 group :test do
   # Use Cucumber for integration testing
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', '~> 1.4.5', require: false
   # Use VCR for testing with deterministic HTTP interactions
-  gem 'vcr', '~> 2.9.3'
-  gem 'webmock', '~> 1.20.0'
+  gem 'vcr', '~> 3.0.3'
+  gem 'webmock', '~> 2.1'
   # Use Selenium as the web driver for Cucumber
-  gem 'selenium-webdriver', '~> 2.53.4'
+  gem 'selenium-webdriver', '~> 3.0'
   # Use DatabaseCleaner for clearing the test database
-  gem 'database_cleaner', '~> 1.3.0'
+  gem 'database_cleaner', '~> 1.5.3'
   # Use factory girl for creating models
-  gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'factory_girl_rails', '~> 4.7.0'
   # Rspec as the test framework
-  gem 'rspec-rails', '~> 2.14.2'
+  gem 'rspec-rails', '~> 3'
+  gem 'rspec-its', '~> 1.2.0'
+  gem 'rspec-collection_matchers', '~> 1.1.2'
   # Phantomjs for headless browser testing
-  gem 'poltergeist'
-  gem 'phantomjs'
+  gem 'poltergeist', '~> 1.11.0'
+  gem 'phantomjs', '~> 2.1.1'
   # Use SimpleCov for generating local coverage reports
-  gem 'simplecov', require: false
-  gem 'simplecov-rcov', require: false
+  gem 'simplecov', '~> 0.9.2', require: false
+  gem 'simplecov-rcov', '~> 0.2.3', require: false
   # Use Coveralls to publish coverage on the open web
   gem 'coveralls', '~> 0.7.0', require: false
-  #to be able to use rspec matchers
-  gem 'rspec-expectations'
-  gem 'rspec-solr', '~> 1.0.1'
   gem 'term-ansicolor', '>= 1.3.2'
 end
 
-# Pry for debubbing
-gem 'pry', group: [:test, :development]
-
-# Use Jetty for test and development Solr
-gem 'jettywrapper', '~> 1.7', group: [:test, :development]
-
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
+  # Use Jetty for test and development Solr
+  gem 'jettywrapper', '~> 1.7'
+  gem 'pry'
 end
-
-gem 'rsolr', '~> 1.0'

@@ -25,5 +25,9 @@ module FindingaidsFeatures
       document_container.find(:xpath, "//dt[text()='#{field}']/following-sibling::dd[1]")
     end
 
+    def document_titles
+      documents_list_container.all(:xpath, '//h5[@class="index_title"]').map(&:text)
+    end
+
   end
 end

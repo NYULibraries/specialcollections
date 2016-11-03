@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 describe 'routes for users' do
   describe 'GET /users/auth/nyulibraries' do

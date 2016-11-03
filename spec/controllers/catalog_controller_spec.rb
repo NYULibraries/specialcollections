@@ -1,7 +1,10 @@
-require 'spec_helper'
-require 'rspec-solr'
+require 'rails_helper'
 
 describe CatalogController do
+
+  let(:search_field) { "all_fields" }
+  let(:q) { "" }
+  let(:rows) { "20" }
 
   before(:all) do
     Findingaids::Ead::Indexer.delete_all
@@ -11,61 +14,54 @@ describe CatalogController do
     indexer.index(Rails.root.join('spec','fixtures','fales','EAD_example_weights_collection.xml').to_s)
   end
 
-  def assigns_response
-    RSpecSolr::SolrResponseHash.new(@controller.instance_variable_get("@response"))
-  end
+  describe "GET /catalog" do
+    before { get :index, q: q, search_field: search_field, rows: rows }
+    subject { assigns(:document_list) }
 
-  def get_doc_ids solr_docs
-    @doc_ids=[]
-    solr_docs.each do |doc|
-      @doc_ids << doc[:id]
-    end
-    @doc_ids
-  end
-
-  describe "GET /index" do
-    it "should return some results" do
-      get :index, :q => "bloch", :search_field => "all_fields"
-
-      assigns_response.docs.size.should > 0
-      assigns_response.aggregations.size.should > 0
+    context 'when searching for a known indexed collection by keyword' do
+      let(:q) { "bloch" }
+      its(:count) { is_expected.to be 1 }
     end
 
-    it "should include solr weights, assigned on the component/document fields unittitle,unitid,subject,creator,scopcontent,
-         bioghist,note,componenet level to the relevancy calculations " do
-      get :index, :q => "solr", :search_field => "all_fields", :rows => 20
+    context 'when searching for a keyword found in many different levels of a document' do
+      let(:q) { "solr" } # A bit confusingly "solr" is used as a keyword in the test EAD loaded above, EAD_example_weights.xml
 
-      doc_ids=get_doc_ids(assigns_response.docs)
+      # See #qf_fields in Findingaids::Solr::CatalogHelpers for solr weighting
 
-      doc_ids.should include("weight").as_first_result
-      doc_ids.should include("weightref11").in_first(2).results
-      doc_ids.should include("weightref12").in_first(3).results
-      doc_ids.should include("weightref35").in_first(4).results
-      doc_ids.should include("weightref41").in_first(5).results
-      doc_ids.should include("weightref36").in_first(9).results
-      doc_ids.should include("weightref37").in_first(9).results
-      doc_ids.should include("weightref42").in_first(9).results
-      doc_ids.should include("weightref38").in_first(9).results
-      doc_ids.should include("weightref39").in_first(10).results
-      doc_ids.should include("weightref43").in_first(11).results
+      its(:count) { is_expected.to be 11 }
+      it { expect(subject[0].id).to eql "weight" }
+      it { expect(subject[1].id).to eql "weightref11" }
+      it { expect(subject[2].id).to eql "weightref12" }
+      it { expect(subject[3].id).to eql "weightref35" }
+      it { expect(subject[4].id).to eql "weightref37" }
+      it { expect(subject[5].id).to eql "weightref36" }
+      it { expect(subject[6].id).to eql "weightref41" }
+      it { expect(subject[7].id).to eql "weightref42" }
+      it { expect(subject[8].id).to eql "weightref38" }
+      it { expect(subject[9].id).to eql "weightref39" }
+      it { expect(subject[10].id).to eql "weightref43" }
     end
 
-     it "should include solr weights, assigned on the document fields author to the relevancy calculations " do
-      get :index, :q => "Accuracy", :search_field => "all_fields"
-
-      get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
+    context 'when searching for a specific author' do
+      let(:q) { "Kate Pechekhonova Accuracy" }
+      it 'should boost results with that author in the <author> field' do
+        expect(subject.first.id).to eql "weightcollection"
+      end
     end
 
-     it "should include solr weights, assigned on the document fields abstract to the relevancy calculations " do
-      get :index, :q => "Simplicity", :search_field => "all_fields"
-
-      get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
+    context 'when searching for a keyword in the abstract field' do
+      let(:q) { "Simplicity" }
+      it 'should boost results with that keyword in the <abstract> field' do
+        expect(subject.first.id).to eql "weightcollection"
+      end
     end
 
-     it "should include solr weights, assigned on the document fields aqcinfo to the relevancy calculations " do
-      get :index, :q => "Transperancy", :search_field => "all_fields"
-
-      get_doc_ids(assigns_response.docs).should include("weightcollection").as_first_result
+    context 'when searching for a keyword in the acqinfo field' do
+      let(:q) { "Transparency" }
+      it 'should boost results with that keyword in the <acqinfo> field' do
+        expect(subject.first.id).to eql "weightcollection"
+      end
     end
   end
+
 end

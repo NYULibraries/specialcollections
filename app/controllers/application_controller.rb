@@ -43,11 +43,6 @@ class ApplicationController < ActionController::Base
   end
   alias_method :current_user, :current_user_dev if Rails.env.development?
 
-  def repositories
-    @repositories ||= Findingaids::Repositories.repositories
-  end
-  helper_method :repositories
-
   private
 
   def logout_path
