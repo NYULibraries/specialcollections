@@ -15,38 +15,48 @@ GIT
       rvm-capistrano (~> 1.5)
 
 GIT
-  remote: git://github.com/NYULibraries/mustache-rails.git
-  revision: d219b298ddc94ca0c4b749125a803f74157ddd03
-  specs:
-    mustache-rails (0.2.3)
-      actionpack (>= 3.1)
-      mustache (~> 0.99.4)
-
-GIT
-  remote: git://github.com/NYULibraries/nyulibraries-assets.git
-  revision: 4bc784f765a1d994ae37e993edb1fd3ce690a962
-  tag: v4.4.0
-  specs:
-    nyulibraries-assets (4.4.0)
-      bootstrap-sass (~> 3.2.0.2)
-      compass (~> 1.0.1)
-      font-awesome-rails (~> 4.2.0.0)
-      institutions (~> 0.1.3)
-
-GIT
-  remote: git://github.com/NYULibraries/nyulibraries_errors.git
-  revision: c77c8c8a8699d5af7ceb2775fe6ac7aa81f6a5f5
-  tag: v1.0.0
-  specs:
-    nyulibraries_errors (1.0.0)
-
-GIT
   remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
   revision: 352bd2c76350483667c603c1a7e63735e4a283b8
   tag: v2.0.0
   specs:
     omniauth-nyulibraries (1.1.0)
       omniauth-oauth2 (~> 1.2.0)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_errors
+  revision: c77c8c8a8699d5af7ceb2775fe6ac7aa81f6a5f5
+  tag: v1.0.0
+  specs:
+    nyulibraries_errors (1.0.0)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_institutions
+  revision: 7095e9c341f9e2ed59748443db9bd86d2969fb5f
+  specs:
+    nyulibraries_institutions (0.0.0)
+      institutions (~> 0.1.3)
+      rails (>= 4)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_javascripts
+  revision: b7391f5bdd52ef2633015e747750369dd7c585e8
+  specs:
+    nyulibraries_javascripts (0.0.1)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_stylesheets
+  revision: 4d3586ec74aa0c6895e56febf2078a9025090921
+  specs:
+    nyulibraries_stylesheets (0.0.0)
+      bootstrap-sass (~> 3.2)
+      compass (>= 1.0.1)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_templates
+  revision: 438549baeb22d38ee65f41681e2131c74fd3d78e
+  specs:
+    nyulibraries_templates (0.0.1)
+      rails (>= 4)
 
 GEM
   remote: https://rubygems.org/
@@ -296,7 +306,6 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mustache (0.99.4)
     mysql2 (0.3.21)
     nenv (0.3.0)
     net-scp (1.2.1)
@@ -538,12 +547,13 @@ DEPENDENCIES
   jettywrapper (~> 1.7)
   jquery-rails (~> 3.1.0)
   jquery-ui-rails (~> 5.0.2)
-  mustache (= 0.99.4)
-  mustache-rails!
   mysql2 (~> 0.3.16)
   newrelic_rpm (~> 3.6)
-  nyulibraries-assets!
   nyulibraries_errors!
+  nyulibraries_institutions!
+  nyulibraries_javascripts!
+  nyulibraries_stylesheets!
+  nyulibraries_templates!
   omniauth-nyulibraries!
   phantomjs (~> 2.1.1)
   poltergeist (~> 1.11.0)

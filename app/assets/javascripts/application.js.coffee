@@ -3,5 +3,5 @@
 #= require jquery-ui
 #= require blacklight/blacklight
 #= require blacklight_advanced_search
-#= require nyulibraries
+#= require nyulibraries_javascripts/nyulibraries
 #= require_tree .
