@@ -23,3 +23,5 @@ findingaids_eads/
 
 # ignore RVM gemset files
 .ruby-gemset
+
+app/assets/images/nyulibraries_stylesheets/icons-*.png
