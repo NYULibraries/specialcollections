@@ -66,7 +66,7 @@ gem 'comma', '~> 3.2.0'
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.2'
 # EAD indexing
-gem 'ead_indexer', git: 'https://github.com/NYULibraries/ead_indexer'
+gem 'ead_indexer', git: 'https://github.com/NYULibraries/ead_indexer', tag: 'v0.0.1'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
