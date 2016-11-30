@@ -7,8 +7,8 @@ describe CatalogController do
   let(:rows) { "20" }
 
   before(:all) do
-    Findingaids::Ead::Indexer.delete_all
-    indexer = Findingaids::Ead::Indexer.new
+    EadIndexer::Indexer.delete_all
+    indexer = EadIndexer::Indexer.new
     indexer.index(Rails.root.join('spec','fixtures','fales','bloch.xml').to_s)
     indexer.index(Rails.root.join('spec','fixtures','fales','EAD_example_weights.xml').to_s)
     indexer.index(Rails.root.join('spec','fixtures','fales','EAD_example_weights_collection.xml').to_s)

@@ -61,8 +61,8 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 if Rails.env.test?
   begin
     WebMock.allow_net_connect!
-    Findingaids::Ead::Indexer.delete_all
-    indexer = Findingaids::Ead::Indexer.new
+    EadIndexer::Indexer.delete_all
+    indexer = EadIndexer::Indexer.new
     indexer.index('spec/fixtures/fales/bloch.xml')
     indexer.index('spec/fixtures/fales/berol.xml')
     indexer.index('spec/fixtures/fales/bytsura.xml')
