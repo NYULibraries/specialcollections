@@ -14,35 +14,49 @@ The description of EAD in Solr proves to require more configuration so we use [a
 # Setting Up Your Environment
 
 1. Start by cloning this repository locally:
-```
-~$ git clone git@github.com:NYULibraries/findingaids.git
-~$ cd findingaids; bundle install
-```
+
+  ```
+  ~$ git clone git@github.com:NYULibraries/findingaids.git
+  ~$ cd findingaids; bundle install
+  ```
+
 2. Create your database and run your migrations:
-```
-~$ bundle exec rake db:create
-~$ bundle exec rake db:migrate
-~$ RAILS_ENV=test bundle exec rake db:migrate
-```
+
+  ```
+  ~$ bundle exec rake db:create
+  ~$ bundle exec rake db:migrate
+  ~$ RAILS_ENV=test bundle exec rake db:migrate
+  ```
+
 3. Generate a local jetty-solr that is Finding Aids ready:
-```
-~$ bundle exec rake findingaids:jetty:install
-```
+
+  ```
+  ~$ bundle exec rake findingaids:jetty:install
+  ```
+
 4. And start it up:
-```
-~$ bundle exec rake jetty:start
-```
+
+  ```
+  ~$ bundle exec rake jetty:start
+  ```
+
 5. Load some test data in there:
-```
-~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
-~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
-```
+
+  ```
+  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
+  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
+  ```
+
 6. Make sure all your tests are passing:
-```
-~$ bundle exec rake
-```
+
+  ```
+  ~$ bundle exec rake
+  ```
+
 7. And start up your local server:
-```
-~$ bundle exec rails s
-```
+
+  ```
+  ~$ bundle exec rails s
+  ```
+  
 8. Visiting `http://localhost:3000` should present you with the development application.
