@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.7.1'
 
 # Use MySQL for the database
-gem 'mysql2', '~> 0.3.16'
+gem 'mysql2', '~> 0.4.5'
 
 # Use SCSS for stylesheets
 # Locked in at beta1 release because major release doesn't play nice with compass-rails yet
-gem 'sass-rails', '5.0.0.beta1'
+gem 'sass-rails', '~> 5.0.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -28,7 +28,7 @@ gem 'uglifier', '~> 2.7.0'
 gem 'therubyracer', '~> 0.12.0'
 
 # Use the Compass CSS framework for sprites, etc.
-gem 'compass-rails', '~> 2.0.0'
+gem 'compass-rails', '~> 3.0.0'
 
 gem 'jbuilder', '~> 2.6.0'
 
@@ -61,7 +61,7 @@ gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.6'
 
 # Comma to download CSV
-gem 'comma', '~> 3.2.0'
+gem 'comma', '~> 4.0.0'
 
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.2'
