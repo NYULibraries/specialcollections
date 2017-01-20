@@ -6,9 +6,9 @@ services:
 env: FINDINGAIDS_FULL_HOST="dlib.nyu.edu" FINDINGAIDS_FULL_PATH="/findingaids/html" FINDINGAIDS_FULL_DEFAULT_EXTENSION="html"
 
 rvm:
-  - 2.1.5
-  - 2.2.5
-  - 2.3.1
+  - 2.1.10
+  - 2.2.6
+  - 2.3.3
 
 before_script:
   - mysql -e 'create database findingaids_test;'
