@@ -8,7 +8,7 @@ gem 'mysql2', '~> 0.4.5'
 # Use SCSS for stylesheets
 # Locked in at beta1 release because major release doesn't play nice with compass-rails yet
 gem 'sass-rails', '~> 5.0.0'
-gem 'sass', '= 3.4.22'
+gem 'sass', '= 3.4.22' # https://github.com/sass/sass/issues/2214
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
@@ -20,7 +20,7 @@ gem 'jquery-rails', '~> 3.1.0'
 gem 'jquery-ui-rails', '~> 5.0.2'
 
 # Use font-awesome
-gem 'font-awesome-rails', '~> 4.2.0'
+gem 'font-awesome-rails', '~> 4.7.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 2.7.0'
