@@ -44,11 +44,10 @@ gem 'nyulibraries_errors', git: 'https://github.com/NYULibraries/nyulibraries_er
 gem 'formaggio', git: 'https://github.com/NYULibraries/formaggio', tag: 'v1.4.2'
 
 # Use Blacklight for searching Solr
-gem 'blacklight', '~> 6.6'
-# gem 'blacklight', path: '/apps/blacklight'
+gem 'blacklight', '= 6.7.2'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search'
+gem 'blacklight_advanced_search', '~> 6.1.0'
 
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
