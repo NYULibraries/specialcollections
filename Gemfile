@@ -23,7 +23,7 @@ gem 'jquery-ui-rails', '~> 5.0.2'
 gem 'font-awesome-rails', '~> 4.7.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.7.0'
+gem 'uglifier', '~> 3.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', '~> 0.12.0'
@@ -52,7 +52,7 @@ gem 'blacklight_advanced_search', '~> 6.2.0'
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
 # Use sorted for sorting columns
-gem 'sorted', '~> 1.0.0'
+gem 'sorted', '~> 2.0'
 
 # Use Dalli for memcached
 gem 'dalli', '~> 2.7.0'
