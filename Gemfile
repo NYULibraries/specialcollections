@@ -14,10 +14,10 @@ gem 'sass', '= 3.4.22' # https://github.com/sass/sass/issues/2214
 gem 'coffee-rails', '~> 4.1.0'
 
 # Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 3.1.0'
+gem 'jquery-rails', '~> 4.2.0'
 
 # Use jQuery UI as well
-gem 'jquery-ui-rails', '~> 5.0.2'
+gem 'jquery-ui-rails', '~> 6.0.1'
 
 # Use font-awesome
 gem 'font-awesome-rails', '~> 4.7.0'
