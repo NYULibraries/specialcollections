@@ -3,32 +3,33 @@ source 'https://rubygems.org'
 gem 'rails', '~> 4.2.7.1'
 
 # Use MySQL for the database
-gem 'mysql2', '~> 0.3.16'
+gem 'mysql2', '~> 0.4.5'
 
 # Use SCSS for stylesheets
 # Locked in at beta1 release because major release doesn't play nice with compass-rails yet
-gem 'sass-rails', '5.0.0.beta1'
+gem 'sass-rails', '~> 5.0.0'
+gem 'sass', '= 3.4.22' # https://github.com/sass/sass/issues/2214
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.0'
 
 # Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 3.1.0'
+gem 'jquery-rails', '~> 4.2.0'
 
 # Use jQuery UI as well
-gem 'jquery-ui-rails', '~> 5.0.2'
+gem 'jquery-ui-rails', '~> 6.0.1'
 
 # Use font-awesome
-gem 'font-awesome-rails', '~> 4.2.0'
+gem 'font-awesome-rails', '~> 4.7.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 2.7.0'
+gem 'uglifier', '~> 3.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', '~> 0.12.0'
 
 # Use the Compass CSS framework for sprites, etc.
-gem 'compass-rails', '~> 2.0.0'
+gem 'compass-rails', '~> 3.0.0'
 
 gem 'jbuilder', '~> 2.6.0'
 
@@ -43,16 +44,15 @@ gem 'nyulibraries_errors', git: 'https://github.com/NYULibraries/nyulibraries_er
 gem 'formaggio', git: 'https://github.com/NYULibraries/formaggio', tag: 'v1.4.2'
 
 # Use Blacklight for searching Solr
-gem 'blacklight', '~> 6.6'
-# gem 'blacklight', path: '/apps/blacklight'
+gem 'blacklight', '~> 6.7.2'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search'
+gem 'blacklight_advanced_search', '~> 6.2.0'
 
 gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
 
 # Use sorted for sorting columns
-gem 'sorted', '~> 1.0.0'
+gem 'sorted', '~> 2.0'
 
 # Use Dalli for memcached
 gem 'dalli', '~> 2.7.0'
@@ -61,7 +61,7 @@ gem 'dalli', '~> 2.7.0'
 gem 'newrelic_rpm', '~> 3.6'
 
 # Comma to download CSV
-gem 'comma', '~> 3.2.0'
+gem 'comma', '~> 4.0.0'
 
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.2'
@@ -74,7 +74,7 @@ gem 'iso-639', '~> 0.2.5'
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', git: 'https://github.com/NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
-gem 'devise', '~> 3.5.4'
+gem 'devise', '~> 4.2.0'
 # /Transition gems
 
 # Faraday for http calls

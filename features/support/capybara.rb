@@ -7,11 +7,12 @@ def configure_poltergeist
   # DEFAULT: headless tests with poltergeist/PhantomJS
   Capybara.register_driver :poltergeist do |app|
     Capybara::Poltergeist::Driver.new(
-    app,
-    phantomjs_options: ['--debug=no', '--load-images=no', '--ignore-ssl-errors=yes'],#, '--ssl-protocol=any'],
-    window_size: [1280, 1024],
-    timeout: 300,
-    debug: false
+      app,
+      phantomjs: ENV['PHANTOMJS'],
+      phantomjs_options: ['--debug=no', '--load-images=no', '--ignore-ssl-errors=yes'],#, '--ssl-protocol=any'],
+      window_size: [1280, 1024],
+      timeout: 300,
+      debug: false
     )
   end
 end
