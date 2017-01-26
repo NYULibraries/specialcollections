@@ -74,7 +74,7 @@ gem 'iso-639', '~> 0.2.5'
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', git: 'https://github.com/NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
-gem 'devise', '~> 3.5.4'
+gem 'devise', '~> 4.2.0'
 # /Transition gems
 
 # Faraday for http calls
