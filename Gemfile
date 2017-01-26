@@ -80,6 +80,8 @@ gem 'devise', '~> 4.2.0'
 # Faraday for http calls
 gem 'faraday', '~> 0.9.1'
 
+gem 'jekyll', '~> 3.3.1'
+
 group :development do
   gem 'better_errors', '~> 2.0.0'
   gem 'binding_of_caller', '~> 0.7.2'
