@@ -11,7 +11,7 @@ gem 'sass-rails', '~> 5.0.0'
 gem 'sass', '= 3.4.22' # https://github.com/sass/sass/issues/2214
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.0'
 
 # Use jQuery as the JavaScript library
 gem 'jquery-rails', '~> 4.2.0'
