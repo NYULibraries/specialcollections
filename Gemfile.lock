@@ -348,6 +348,8 @@ GEM
     method_source (0.8.2)
     mime-types (2.99.3)
     mini_portile2 (2.1.0)
+    minima (2.1.0)
+      jekyll (~> 3.3)
     minitest (5.10.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
@@ -598,6 +600,7 @@ DEPENDENCIES
   jettywrapper (~> 1.7)
   jquery-rails (~> 4.2.0)
   jquery-ui-rails (~> 6.0.1)
+  minima
   mysql2 (~> 0.4.5)
   newrelic_rpm (~> 3.6)
   nyulibraries_errors!

@@ -17,6 +17,7 @@ public/assets
 data/
 findingaids_eads/
 .pid
+.sass-cache/
 
 # ignore jEnv files
 .java-version
@@ -24,4 +25,8 @@ findingaids_eads/
 # ignore RVM gemset files
 .ruby-gemset
 
+# compass-generated file
 app/assets/images/nyulibraries_stylesheets/icons-*.png
+
+# jekyll-generated files
+public/items/

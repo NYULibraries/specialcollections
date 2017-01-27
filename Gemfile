@@ -81,6 +81,7 @@ gem 'devise', '~> 4.2.0'
 gem 'faraday', '~> 0.9.1'
 
 gem 'jekyll', '~> 3.3.1'
+gem 'minima'
 
 group :development do
   gem 'better_errors', '~> 2.0.0'
