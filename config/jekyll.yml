@@ -31,3 +31,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
 baseurl: "/items"
+collections:
+  findingaids:
+    output: true
+    permalink: /findingaids/:path/:title:output_ext
