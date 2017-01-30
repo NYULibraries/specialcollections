@@ -27,6 +27,3 @@ findingaids_eads/
 
 # compass-generated file
 app/assets/images/nyulibraries_stylesheets/icons-*.png
-
-# jekyll-generated files
-public/items/
