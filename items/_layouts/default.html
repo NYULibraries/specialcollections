@@ -11,23 +11,15 @@
 
       <div class="content">
         <div class="row">
-          <div id="content" class="span9">
+          <div id="content" class="col-xs-12">
             {{ content }}
           </div>
-          <nav class="span3">
-            <h3>Recent Posts</h3>
-            <div id="posts">
-              {% for post in site.posts limit:10%}
-                <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-              {% endfor %}
-            </div>
-          </nav>
         </div>
       </div>
 
     </div>
 
-    <!-- {% include footer.html %} -->
+    {% include footer.html %}
 
   </body>
 
