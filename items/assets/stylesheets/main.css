@@ -1,0 +1,9 @@
+header {
+  padding-bottom: 10px;
+  background: #57068c;
+}
+
+header .title {
+  color: white;
+  text-align: right;
+}
