@@ -5,4 +5,4 @@
 layout: default
 ---
 
-View an item [here](items/findingaids/some_item/some_item)
+View an item [here](/items/findingaids/some_item/some_item.html)
