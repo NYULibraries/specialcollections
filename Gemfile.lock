@@ -9,7 +9,7 @@ GIT
       solr_ead (>= 0.7.2)
 
 GIT
-  remote: https://github.com/NYULibraries/formaggio
+  remote: https://github.com/NYULibraries/formaggio.git
   revision: 645de8c59def833c2717000a7ca4ed5b9c709376
   tag: v1.4.2
   specs:
@@ -25,43 +25,43 @@ GIT
       rvm-capistrano (~> 1.5)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_errors
-  revision: c77c8c8a8699d5af7ceb2775fe6ac7aa81f6a5f5
-  tag: v1.0.0
+  remote: https://github.com/NYULibraries/nyulibraries_errors.git
+  revision: 16c7a14892e439c48e6fc1f8ce261c3cbe635e4c
+  tag: v1.0.1
   specs:
-    nyulibraries_errors (1.0.0)
+    nyulibraries_errors (1.0.1)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_institutions
-  revision: 809799538d1e08e6b096da567ec4278a412b8779
-  tag: v1.0.0
+  remote: https://github.com/NYULibraries/nyulibraries_institutions.git
+  revision: c02e5c5c99d7c9f1443e786299eb438687e762ce
+  tag: v1.0.1
   specs:
-    nyulibraries_institutions (1.0.0)
+    nyulibraries_institutions (1.0.1)
       institutions (~> 0.1.3)
       rails (>= 4)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_javascripts
+  remote: https://github.com/NYULibraries/nyulibraries_javascripts.git
   revision: f2637c4891f273a6227b4f0fed9245a88539f9b2
   tag: v1.0.0
   specs:
     nyulibraries_javascripts (1.0.0)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_stylesheets
-  revision: 8556ead9e51dc13c4dad883a9c30ea6aed6eaca6
-  tag: v1.0.0
+  remote: https://github.com/NYULibraries/nyulibraries_stylesheets.git
+  revision: 624975c97ef327fae9876714951cf64cb0e34603
+  tag: v1.0.1
   specs:
-    nyulibraries_stylesheets (1.0.0)
+    nyulibraries_stylesheets (1.0.1)
       bootstrap-sass (~> 3.2)
       compass (>= 1.0.1)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_templates
-  revision: 68466155fbaa21cda97e106a502c90bff4c73c4e
-  tag: v1.0.0
+  remote: https://github.com/NYULibraries/nyulibraries_templates.git
+  revision: ba897ab4edf78b77611aa5c0025b1cf2ab22897d
+  tag: v1.0.1
   specs:
-    nyulibraries_templates (1.0.0)
+    nyulibraries_templates (1.0.1)
       rails (>= 4)
 
 GIT
@@ -243,7 +243,7 @@ GEM
     faraday (0.9.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
-    figs (2.0.3)
+    figs (2.0.4)
       git (~> 1.2.6)
       rake (~> 10.1)
     font-awesome-rails (4.7.0.1)
@@ -340,8 +340,8 @@ GEM
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
     net-ssh (4.0.1)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
+    net-ssh-gateway (2.0.0)
+      net-ssh (>= 4.0.0)
     netrc (0.11.0)
     newrelic_rpm (3.18.0.329)
     nokogiri (1.7.0.1)
@@ -605,4 +605,4 @@ DEPENDENCIES
   webmock (~> 2.1)
 
 BUNDLED WITH
-   1.13.7
+   1.14.4
