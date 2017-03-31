@@ -23,7 +23,7 @@ gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'font-awesome-rails', '~> 4.7.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 3.0.0'
+gem 'uglifier', '~> 3.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', '~> 0.12.0'
@@ -82,7 +82,7 @@ gem 'devise', '~> 4.2.0'
 gem 'faraday', '~> 0.9.1'
 
 group :development do
-  gem 'better_errors', '~> 2.0.0'
+  gem 'better_errors', '~> 2.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.14.0'
   gem 'guard-rspec', '~> 4.3.1'
@@ -100,16 +100,16 @@ group :test do
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.5.3'
   # Use factory girl for creating models
-  gem 'factory_girl_rails', '~> 4.7.0'
+  gem 'factory_girl_rails', '~> 4.8.0'
   # Rspec as the test framework
   gem 'rspec-rails', '~> 3'
   gem 'rspec-its', '~> 1.2.0'
   gem 'rspec-collection_matchers', '~> 1.1.2'
   # Phantomjs for headless browser testing
-  gem 'poltergeist', '~> 1.11.0'
+  gem 'poltergeist', '~> 1.14.0'
   gem 'phantomjs', '~> 2.1.1'
   # Use SimpleCov for generating local coverage reports
-  gem 'simplecov', '~> 0.9.2', require: false
+  gem 'simplecov', '~> 0.14.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   # Use Coveralls to publish coverage on the open web
   gem 'coveralls', '~> 0.7.0', require: false
