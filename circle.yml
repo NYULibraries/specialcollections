@@ -8,7 +8,6 @@ machine:
     FINDINGAIDS_FULL_PATH: /findingaids/html
     FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
     MAX_WAIT: 60
-    TEST_JETTY_PORT: 8984
 
 dependencies:
   pre:
@@ -16,7 +15,7 @@ dependencies:
   post:
     - bundle exec rake findingaids:jetty:install
     - bundle exec rake jetty:start
-    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8984/
+    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/solr
 
 database:
   override:
