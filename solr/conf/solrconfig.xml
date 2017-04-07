@@ -64,7 +64,7 @@
   </requestDispatcher>
   <requestHandler name="standard" class="solr.SearchHandler" default="true">
     <lst name="invariants">
-      <str name="timeAllowed">200</str>
+      <str name="timeAllowed">10000</str>
     </lst>
     <lst name="defaults">
       <str name="echoParams">explicit</str>
