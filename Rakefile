@@ -11,3 +11,9 @@ if Rails.env.development? || Rails.env.test?
   require 'jettywrapper'
   require 'solr_wrapper/rake_task'
 end
+
+if Rails.env.test?
+  require 'coveralls/rake/task'
+  Coveralls::RakeTask.new
+  task :default => [:spec, :cucumber, 'coveralls:push']
+end

@@ -1,0 +1,29 @@
+machine:
+
+  ruby:
+    version: 2.3.3
+
+  environment:
+    FINDINGAIDS_FULL_HOST: dlib.nyu.edu
+    FINDINGAIDS_FULL_PATH: /findingaids/html
+    FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
+    MAX_WAIT: 60
+
+dependencies:
+  pre:
+    - bundle config --global github.https true
+
+database:
+  override:
+    - mysql -e 'create database findingaids_test;'
+    - RAILS_ENV=test bundle exec rake db:schema:load
+    - bundle exec rake db:fixtures:load
+
+test:
+  pre:
+    - bundle exec rake findingaids:jetty:install
+    - bundle exec foreman start
+    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/
+  override:
+    - RAILS_ENV=test bundle exec rake spec
+    - RAILS_ENV=test bundle exec rake cucumber
