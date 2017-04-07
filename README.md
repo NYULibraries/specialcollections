@@ -1,6 +1,6 @@
 # Finding Aids
 
-[![Build Status](https://api.travis-ci.org/NYULibraries/findingaids.png)](https://travis-ci.org/NYULibraries/findingaids)
+[![CircleCI](https://circleci.com/gh/NYULibraries/findingaids.svg?style=svg)](https://circleci.com/gh/NYULibraries/findingaids)
 [![Dependency Status](https://gemnasium.com/NYULibraries/findingaids.png)](https://gemnasium.com/NYULibraries/findingaids)
 [![Code Climate](https://codeclimate.com/github/NYULibraries/findingaids.png)](https://codeclimate.com/github/NYULibraries/findingaids)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/findingaids/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/findingaids)
@@ -26,6 +26,6 @@ Development: https://specialcollections.library.nyu.edu/search
 
 In WebSolr set up a new instance for EAD indexing with the Blacklight Demo schema.xml.
 
-See the [`solr/solrconfig.xml`](solr/solrconfig.xml) for solr config tweaks.
+See the [`solr/conf/solrconfig.xml`](solr/conf/solrconfig.xml) for solr config tweaks.
 
-See the [`solr/schema.xml`](solr/schema.xml) for schema tweaks.
+See the [`solr/conf/schema.xml`](solr/conf/schema.xml) for schema tweaks.
