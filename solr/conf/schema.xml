@@ -153,11 +153,11 @@ Plain numeric field types that store and index the text
 value verbatim (and hence don't support range queries, since the
 lexicographic ordering isn't equal to the numeric ordering)
 -->
-<fieldType name="pint" class="solr.IntField" omitNorms="true"/>
-<fieldType name="plong" class="solr.LongField" omitNorms="true"/>
-<fieldType name="pfloat" class="solr.FloatField" omitNorms="true"/>
-<fieldType name="pdouble" class="solr.DoubleField" omitNorms="true"/>
-<fieldType name="pdate" class="solr.DateField" sortMissingLast="true" omitNorms="true"/>
+<fieldType name="pint" class="solr.TrieIntField" />
+<fieldType name="plong" class="solr.TrieIntField" />
+<fieldType name="pfloat" class="solr.TrieFloatField" />
+<fieldType name="pdouble" class="solr.TrieDoubleField" />
+<fieldType name="pdate" class="solr.TrieDateField" sortMissingLast="true" />
 
 
 <!--
@@ -170,10 +170,10 @@ a string value that isn't human-readable in its internal form,
 but with a lexicographic ordering the same as the numeric ordering,
 so that range queries work correctly.
 -->
-<fieldType name="sint" class="solr.SortableIntField" sortMissingLast="true" omitNorms="true"/>
-<fieldType name="slong" class="solr.SortableLongField" sortMissingLast="true" omitNorms="true"/>
-<fieldType name="sfloat" class="solr.SortableFloatField" sortMissingLast="true" omitNorms="true"/>
-<fieldType name="sdouble" class="solr.SortableDoubleField" sortMissingLast="true" omitNorms="true"/>
+<fieldType name="sint" class="solr.TrieIntField" sortMissingLast="true" omitNorms="true"/>
+<fieldType name="slong" class="solr.TrieLongField" sortMissingLast="true" omitNorms="true"/>
+<fieldType name="sfloat" class="solr.TrieFloatField" sortMissingLast="true" omitNorms="true"/>
+<fieldType name="sdouble" class="solr.TrieDoubleField" sortMissingLast="true" omitNorms="true"/>
 
 
 <!-- The "RandomSortField" is not used to store or search any

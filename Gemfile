@@ -116,7 +116,5 @@ end
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
-  # Use Jetty for test and development Solr
-  gem 'jettywrapper', '~> 2.0'
   gem 'pry'
 end
