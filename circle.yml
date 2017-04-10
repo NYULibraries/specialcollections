@@ -12,7 +12,8 @@ dependencies:
     - bundle config --global github.https true
   post:
     - RAILS_ENV=test bundle exec solr_wrapper &
-    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/solr
+    # - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/solr
+    - sleep 25
 
 database:
   override:
