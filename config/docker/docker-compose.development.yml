@@ -1,0 +1,19 @@
+web:
+  extends:
+    file: docker-compose.yml
+    service: web
+  ports:
+    - "3000:3000"
+  links:
+    - db
+  environment:
+    FINDINGAIDS_DB_HOST: db
+    FINDINGAIDS_FULL_HOST: dlib.nyu.edu
+    FINDINGAIDS_FULL_PATH: /findingaids/html
+    FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
+    MAX_WAIT: 60
+    RAILS_ENV: development
+db:
+  extends:
+    file: docker-compose.test.yml
+    service: db

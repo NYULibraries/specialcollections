@@ -1,0 +1,4 @@
+web:
+  build: ../..
+  volumes:
+    - .:/findingaids

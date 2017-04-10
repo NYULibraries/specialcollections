@@ -11,11 +11,36 @@ A search interface powered by [Blacklight](http://projectblacklight.org/) for sp
 
 Read the [GETTING STARTED guide](GETTING_STARTED.md) for a fuller walkthrough, or follow the steps below to get started quickly.
 
-Use the foreman Procfile to manage startup tasks:
+You could run the tests on your machine:
 
 ```
-~$ bundle exec foreman start
-~$ guard
+RAILS_ENV=test bundle exec solr_wrapper &
+RAILS_ENV=test bundle exec rake
+```
+
+Or use docker:
+
+### Test
+
+Assuming docker is setup and running in your development environment:
+
+```bash
+~$ docker-compose -f config/docker/docker-compose.test.yml up -d
+~$ docker-compose -f config/docker/docker-compose.test.yml run web rake db:create
+~$ docker-compose -f config/docker/docker-compose.test.yml run web rake db:schema:load
+# Run tests
+~$ docker-compose -f config/docker/docker-compose.test.yml run web rake
+```
+
+### Development
+
+```bash
+~$ docker-compose -f config/docker/docker-compose.development.yml up -d
+~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:create
+~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:schema:load
+~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:seed
+# Run the server
+~$ docker-compose -f config/docker/docker-compose.development.yml run --service-ports web bundle exec rails server -b 0.0.0.0
 ```
 
 ## See it in action!
