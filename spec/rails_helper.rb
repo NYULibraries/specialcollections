@@ -3,11 +3,11 @@ require 'simplecov-rcov'
 require 'coveralls'
 
 SimpleCov.merge_timeout 3600
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::RcovFormatter,
   Coveralls::SimpleCov::Formatter
-]
+])
 SimpleCov.start
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -81,10 +81,10 @@ RSpec.configure do |config|
   # where `stub_me` isn't implemented in the helper,
   # but is in the controller with `helper_method`
   # Solution found from this lengthy discussion: https://github.com/rspec/rspec-rails/issues/1076
-  config.around(:each) do |ex|
+  config.around(:each) do |example|
     config.mock_with :rspec do |mocks|
       mocks.verify_partial_doubles = false
-      ex.run
+      example.run
       mocks.verify_partial_doubles = true
     end
   end
