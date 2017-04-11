@@ -4,6 +4,6 @@ port: 8983
 managed: true
 version: 5.5.4
 collection:
-  name: <% if ENV['RAILS_ENV'] == 'test' %>test-core<% else %>development-code<% end %>
+  name: <% if ENV['RAILS_ENV'] == 'test' %>test-core<% else %>development-core<% end %>
   dir: 'solr/conf'
   persist: true

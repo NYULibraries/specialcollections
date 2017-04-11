@@ -30,8 +30,10 @@ The description of EAD in Solr proves to require more configuration so we use [a
 3. Generate and start a local solr that is Finding Aids ready with the SolWrapper gem:
 
   ```
-  ~$ RAILS_ENV=test bundle exec solr_wrapper &
+  ~$ RAILS_ENV=test bundle exec solr_wrapper
   ```
+
+  You could run this in the background by appending `&` but it's also useful to know when you're running which version of solr.
 
 4. Make sure all your tests are passing:
 
@@ -42,20 +44,26 @@ The description of EAD in Solr proves to require more configuration so we use [a
 5. Kill the test solr if you're not currently using it and start up a development one:
 
   ```
-  ~$ bundle exec solr_wrapper &
+  ~$ bundle exec solr_wrapper
   ```
 
-6. Load some test data in there:
+6. We're actively persisting the data in these test and development solr cores so if you need to purge the persisted data run the following:
 
   ```
-  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
-  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
+  ~$ bundle exec solr_wrapper clean
   ```
 
-7. And start up your local server:
+7. Load some test data in there:
 
   ```
-  ~$ bundle exec rails s
+  ~$ bundle exec rake ead_indexer:index EAD=spec/fixtures/fales/bytsura.xml
+  ~$ bundle exec rake ead_indexer:index EAD=spec/fixtures/tamwag/PHOTOS.107-ead.xml
   ```
 
-8. Visiting `http://localhost:3000` should present you with the development application.
+8. And start up your local server:
+
+  ```
+  ~$ bundle exec rails server
+  ```
+
+9. Visiting `http://localhost:3000` should present you with the development application.
