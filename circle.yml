@@ -25,7 +25,7 @@ database:
 
 test:
   pre:
-    - RAILS_ENV=test bundle exec solr_wrapper
+    - RAILS_ENV=test bundle exec solr_wrapper:
         background: true
     - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/solr
   override:
