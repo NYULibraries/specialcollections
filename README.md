@@ -20,19 +20,17 @@ RAILS_ENV=test bundle exec rake
 
 Or use docker:
 
-### Test
-
 Assuming docker is setup and running in your development environment:
 
 ```bash
-~$ docker-compose -f config/docker/docker-compose.test.yml up -d
-~$ docker-compose -f config/docker/docker-compose.test.yml run web rake db:create
-~$ docker-compose -f config/docker/docker-compose.test.yml run web rake db:schema:load
+docker-compose -f config/docker/docker-compose.test.yml up -d
+docker-compose -f config/docker/docker-compose.test.yml run web rake db:create
+docker-compose -f config/docker/docker-compose.test.yml run web rake db:schema:load
 # Run tests
-~$ docker-compose -f config/docker/docker-compose.test.yml run web rake
+docker-compose -f config/docker/docker-compose.test.yml run web rake
 ```
 
-### Development
+### Developing in Docker
 
 ```bash
 ~$ docker-compose -f config/docker/docker-compose.development.yml up -d
@@ -42,6 +40,8 @@ Assuming docker is setup and running in your development environment:
 # Run the server
 ~$ docker-compose -f config/docker/docker-compose.development.yml run --service-ports web bundle exec rails server -b 0.0.0.0
 ```
+
+Then you should be able to go to `http://{docker-machine ip}:3000` or if you've set it up in your `/etc/hosts` `http://dockerhost:3000`
 
 ## See it in action!
 

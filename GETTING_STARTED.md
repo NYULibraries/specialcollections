@@ -10,7 +10,6 @@ The description of EAD in Solr proves to require more configuration so we use [a
   - We are using Java 1.7.  
   - If you need to run multiple versions of Java on your machine, you might want to look at [jEnv](http://www.jenv.be/)
 
-
 # Setting Up Your Environment
 
 1. Start by cloning this repository locally:
@@ -28,29 +27,29 @@ The description of EAD in Solr proves to require more configuration so we use [a
   ~$ RAILS_ENV=test bundle exec rake db:migrate
   ```
 
-3. Generate a local jetty-solr that is Finding Aids ready:
+3. Generate and start a local solr that is Finding Aids ready with the SolWrapper gem:
 
   ```
-  ~$ bundle exec rake findingaids:jetty:install
+  ~$ RAILS_ENV=test bundle exec solr_wrapper &
   ```
 
-4. And start it up:
+4. Make sure all your tests are passing:
 
   ```
-  ~$ bundle exec rake jetty:start
+  ~$ bundle exec rake
   ```
 
-5. Load some test data in there:
+5. Kill the test solr if you're not currently using it and start up a development one:
+
+  ```
+  ~$ bundle exec solr_wrapper &
+  ```
+
+6. Load some test data in there:
 
   ```
   ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
   ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
-  ```
-
-6. Make sure all your tests are passing:
-
-  ```
-  ~$ bundle exec rake
   ```
 
 7. And start up your local server:
@@ -58,5 +57,5 @@ The description of EAD in Solr proves to require more configuration so we use [a
   ```
   ~$ bundle exec rails s
   ```
-  
+
 8. Visiting `http://localhost:3000` should present you with the development application.
