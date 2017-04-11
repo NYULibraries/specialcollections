@@ -17,4 +17,3 @@ db:
     - "13306:3306"
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-  container_name: findingaids_db
