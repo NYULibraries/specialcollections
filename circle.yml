@@ -15,4 +15,4 @@ database:
 
 test:
   override:
-    - docker-compose run -e RAILS_ENV=test -e CI=$CI -e CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN -e COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN web rake
+    - docker-compose run -e RAILS_ENV=test web rake
