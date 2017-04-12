@@ -1,26 +1,18 @@
 machine:
-  ruby:
-    version: 2.3.3
-  environment:
-    FINDINGAIDS_FULL_HOST: dlib.nyu.edu
-    FINDINGAIDS_FULL_PATH: /findingaids/html
-    FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
-    MAX_WAIT: 60
+  services:
+    - docker
 
 dependencies:
-  pre:
-    - bundle config --global github.https true
+  override:
+    - docker-compose version
+    - docker-compose up -d
+    - docker-compose run web rake db:create
+    - docker-compose run -e RAILS_ENV=test web rake db:schema:load
 
 database:
   override:
-    - mysql -e 'create database findingaids_test;'
-    - RAILS_ENV=test bundle exec rake db:schema:load
-    - bundle exec rake db:fixtures:load
+    - echo "Database running in docker..."
 
 test:
-  pre:
-    - RAILS_ENV=test bundle exec solr_wrapper:
-        background: true
-    - sleep 10 && wget --waitretry=5 --retry-connrefused -v http://127.0.0.1:8983/solr
   override:
-    - RAILS_ENV=test bundle exec rake
+    - docker-compose run -e RAILS_ENV=test -e CI=$CI -e CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN -e COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN web rake

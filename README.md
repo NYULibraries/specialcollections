@@ -18,30 +18,28 @@ RAILS_ENV=test bundle exec solr_wrapper &
 RAILS_ENV=test bundle exec rake
 ```
 
-Or use docker:
+Or use docker...
 
-Assuming docker is setup and running in your development environment:
+The following assumes you've set up docker/docker-compose/docker-machine running on your station:
 
 ```bash
-docker-compose -f config/docker/docker-compose.test.yml up -d
-docker-compose -f config/docker/docker-compose.test.yml run web rake db:create
-docker-compose -f config/docker/docker-compose.test.yml run web rake db:schema:load
+docker-compose up -d
+docker-compose run web rake db:create
+docker-compose run -e RAILS_ENV=test web rake db:schema:load
 # Run tests
-docker-compose -f config/docker/docker-compose.test.yml run web rake
+docker-compose run web rake
 ```
 
 ### Developing in Docker
 
 ```bash
-~$ docker-compose -f config/docker/docker-compose.development.yml up -d
-~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:create
-~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:schema:load
-~$ docker-compose -f config/docker/docker-compose.development.yml run web rake db:seed
+# Load schema in the dev database
+~$ docker-compose run web bundle exec rake db:create
 # Run the server
-~$ docker-compose -f config/docker/docker-compose.development.yml run --service-ports web bundle exec rails server -b 0.0.0.0
+~$ docker-compose run --service-ports web rails s -b 0.0.0.0
 ```
 
-Then you should be able to go to `http://{docker-machine ip}:3000` or if you've set it up in your `/etc/hosts` `http://dockerhost:3000`
+Then you should be able to go to `http://{docker-machine ip}:3000` or if you've set it up in your `/etc/hosts`.
 
 ## See it in action!
 
