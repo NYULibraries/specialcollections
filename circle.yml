@@ -6,12 +6,11 @@ dependencies:
   override:
     - docker-compose version
     - docker-compose up -d
-    - docker-compose run web rake db:create
-    - docker-compose run -e RAILS_ENV=test web rake db:schema:load
 
 database:
   override:
-    - echo "Database running in docker..."
+    - docker-compose run web rake db:create
+    - docker-compose run -e RAILS_ENV=test web rake db:schema:load
 
 test:
   override:

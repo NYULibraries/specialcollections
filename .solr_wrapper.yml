@@ -1,4 +1,4 @@
-# bundle exec solr_wrapper -i solr-test -p 8983 -n test-core -n test-core -d solr/conf --persist --version 5.5.4
+# bundle exec solr_wrapper -i solr-test -p 8983 -n test-core -d solr/conf --persist --version 5.5.4
 instance_dir: solr-test
 port: <%= ENV['SOLR_PORT'] || '8983' %>
 managed: true
