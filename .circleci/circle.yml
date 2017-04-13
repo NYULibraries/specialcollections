@@ -5,6 +5,7 @@ jobs:
       - image: buildpack-deps:trusty
     working_directory: ~/
     steps:
+      - setup_remote_docker
       - run:
         name: Install Docker Compose
         command: |
