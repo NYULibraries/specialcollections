@@ -1,26 +1,17 @@
-version: 2
-jobs:
-  build:
-    docker:
-      - image: buildpack-deps:trusty
-    working_directory: /root/findingaids
-    steps:
-      - setup_remote_docker
-      - run:
-        name: Install Docker Compose
-        command: |
-          set -x
-          curl -L https://github.com/docker/compose/releases/download/1.11.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-          chmod +x /usr/local/bin/docker-compose
-      - checkout
-      - run:
-          name: Docker Compose Up
-          command: docker-compose up -d
-      - run:
-          name: Create Test DB
-          command: |
-            docker-compose run web rake db:create
-            docker-compose run -e RAILS_ENV=test web rake db:schema:load
-      - run:
-          name: Run tests
-          command: docker-compose run -e RAILS_ENV=test web rake
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker-compose version
+    - docker-compose up -d
+
+database:
+  override:
+    - docker-compose run web rake db:create
+    - docker-compose run -e RAILS_ENV=test web rake db:schema:load
+
+test:
+  override:
+    - docker-compose run -e RAILS_ENV=test web rake

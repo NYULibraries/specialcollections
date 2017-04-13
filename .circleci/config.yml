@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: buildpack-deps:trusty
-    working_directory: ~/
+    working_directory: /root/findingaids
     steps:
       - setup_remote_docker
       - run:
