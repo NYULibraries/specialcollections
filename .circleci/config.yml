@@ -8,6 +8,9 @@ jobs:
       - setup_remote_docker
       - checkout
       - run:
+          name: Docker Compose Build
+          command: docker-compose build
+      - run:
           name: Docker Compose Up
           command: docker-compose up -d
       - run:
