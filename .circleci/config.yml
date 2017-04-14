@@ -3,20 +3,21 @@ jobs:
   build:
     docker:
       - image: nyulibraries/circleci
-      - image: nyulibraries/solr-test:5.5.4
-      - image: nyulibraries/rails:4.2
-      - image: library/mysql:5.6.22
-        environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     working_directory: /root/findingaids
     steps:
       - setup_remote_docker
       - checkout
       - run:
+          name: Docker Compose Build
+          command: docker-compose build
+      - run:
+          name: Docker Compose Up
+          command: docker-compose up -d
+      - run:
           name: Create Test DB
           command: |
-            docker run --rm nyulibraries/rails:4.2 rake db:create
-            docker run -e RAILS_ENV=test --rm nyulibraries/rails:4.2 rake db:schema:load
+            docker-compose run web rake db:create
+            docker-compose run -e RAILS_ENV=test web rake db:schema:load
       - run:
           name: Run tests
-          command: docker run -e RAILS_ENV=test --rm nyulibraries/rails:4.2 rake
+          command: docker-compose run -e RAILS_ENV=test web rake
