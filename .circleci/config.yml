@@ -2,22 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: barnabyalter/circleci
+      - image: nyulibraries/circleci
+      - image: library/mysql:5.6.22
+      - image: nyulibraries/solr-test:5.5.4
     working_directory: /root/findingaids
     steps:
       - setup_remote_docker
       - checkout
       - run:
-          name: Docker Compose Build
-          command: docker-compose build
-      - run:
-          name: Docker Compose Up
-          command: docker-compose up -d
-      - run:
           name: Create Test DB
           command: |
-            docker-compose run web rake db:create
-            docker-compose run -e RAILS_ENV=test web rake db:schema:load
+            rake db:create
+            RAILS_ENV=test rake db:schema:load
       - run:
           name: Run tests
-          command: docker-compose run -e RAILS_ENV=test web rake
+          command: RAILS_ENV=test web rake
