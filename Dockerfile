@@ -3,7 +3,7 @@ FROM ruby:2.3
 RUN apt-get update -qq && apt-get install -y build-essential nodejs npm nodejs-legacy mysql-client vim
 RUN npm install -g phantomjs-prebuilt
 
-ENV INSTALL_PATH /apps/findingaids
+ENV INSTALL_PATH /app
 RUN mkdir -p $INSTALL_PATH
 
 WORKDIR $INSTALL_PATH
