@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     machine: true
-    working_directory: /root
+    working_directory: $HOME
     steps:
       - run:
           name: Install Docker Engine
