@@ -4,14 +4,13 @@ machine:
 
 dependencies:
   override:
-    - docker-compose version
     - docker-compose up -d
 
 database:
   override:
-    - docker-compose run web rake db:create
-    - docker-compose run -e RAILS_ENV=test web rake db:schema:load
+    - docker-compose run app rake db:create
+    - docker-compose run -e RAILS_ENV=test app rake db:schema:load
 
 test:
   override:
-    - docker-compose run -e RAILS_ENV=test web rake
+    - docker-compose run -e RAILS_ENV=test app rake

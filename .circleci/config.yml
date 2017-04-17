@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     machine: true
-    working_directory: /findingaids
+    working_directory: /root
     steps:
       - run:
           name: Install Docker Engine
@@ -29,8 +29,8 @@ jobs:
       - run:
           name: Create Test DB
           command: |
-            docker-compose run web rake db:create
-            docker-compose run -e RAILS_ENV=test web rake db:schema:load
+            docker-compose run app rake db:create
+            docker-compose run -e RAILS_ENV=test app rake db:schema:load
       - run:
           name: Run tests
-          command: docker-compose run -e RAILS_ENV=test web rake
+          command: docker-compose run -e RAILS_ENV=test app rake

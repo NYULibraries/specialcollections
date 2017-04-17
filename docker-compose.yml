@@ -1,9 +1,9 @@
-web:
-  build: .
+app:
+  image: nyulibraries/rails
   ports:
     - "3000:3000"
   volumes:
-    - .:/findingaids
+    - .:/app
   links:
     - db
     - solr:solrhost
@@ -25,6 +25,6 @@ db:
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 solr:
-  build: ./solr
+  image: nyulibraries/solr-test
   expose:
     - "8983"
