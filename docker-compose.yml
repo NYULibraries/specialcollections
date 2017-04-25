@@ -25,6 +25,6 @@ db:
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 solr:
-  image: nyulibraries/solr-test
+  image: nyulibraries/solr-test:5.5.4
   expose:
     - "8983"
