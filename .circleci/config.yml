@@ -1,26 +1,19 @@
-version: 2
-jobs:
-  build:
-    machine: true
-    working_directory: $HOME
-    steps:
-      - checkout
-      - run:
-          name: Install Docker
-          command: |
-            curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-            pip install docker-compose
-      - run:
-          name: Docker Compose Build
-          command: docker-compose build
-      - run:
-          name: Docker Compose Up
-          command: docker-compose up -d
-      - run:
-          name: Create Test DB
-          command: |
-            docker-compose run app rake db:create
-            docker-compose run -e RAILS_ENV=test app rake db:schema:load
-      - run:
-          name: Run tests
-          command: docker-compose run -e RAILS_ENV=test app rake
+machine:
+  pre:
+    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
+    - pip install docker-compose
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker-compose version
+    - docker-compose up -d
+
+database:
+  override:
+    - docker-compose run web rake db:create db:schema:load --trace
+
+test:
+  override:
+    - docker-compose run web rake
