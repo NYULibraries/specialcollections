@@ -4,12 +4,12 @@ jobs:
     machine: true
     working_directory: $HOME
     steps:
+      - checkout
       - run:
           name: Install Docker
           command: |
             curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
             pip install docker-compose
-      - checkout
       - run:
           name: Docker Compose Build
           command: docker-compose build
