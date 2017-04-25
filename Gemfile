@@ -65,7 +65,7 @@ gem 'newrelic_rpm', '~> 3.6'
 gem 'comma', '~> 4.0.0'
 
 # SolrEad to index EAD into Solr
-gem 'solr_ead', '~> 0.7.2'
+gem 'solr_ead', '~> 0.7.4'
 # EAD indexing
 gem 'ead_indexer', git: 'https://github.com/NYULibraries/ead_indexer', tag: 'v0.0.1'
 
