@@ -1,1 +1,13 @@
-solr.yml
+default: &default
+  adapter: solr
+development:
+  <<: *default
+  url: <%= ENV['DEV_SOLR_URL'] || ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/development-core" %>
+test: &test
+  <<: *default
+  url: <%= ENV['TEST_SOLR_URL'] || "http://127.0.0.1:#{ENV['SOLR_PORT'] || 8983}/solr/test-core" %>
+staging: &staging
+  <<: *default
+  url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr" %>
+production:
+  <<: *staging

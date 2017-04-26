@@ -6,15 +6,13 @@ gem 'rails', '~> 4.2.7.1'
 gem 'mysql2', '~> 0.4.5'
 
 # Use SCSS for stylesheets
-# Locked in at beta1 release because major release doesn't play nice with compass-rails yet
 gem 'sass-rails', '~> 5.0.0'
-gem 'sass', '= 3.4.22' # https://github.com/sass/sass/issues/2214
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.2.0'
 
 # Use jQuery as the JavaScript library
-gem 'jquery-rails', '~> 4.2.0'
+gem 'jquery-rails', '~> 4.3.0'
 
 # Use jQuery UI as well
 gem 'jquery-ui-rails', '~> 6.0.1'
@@ -36,12 +34,12 @@ gem 'jbuilder', '~> 2.6.0'
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
 gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets', tag: 'v1.0.1'
 gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.0.1'
-gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.1'
+gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
 
 # Deploy the application with Formaggio deploy recipes
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.4.2'
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.8.0'
@@ -50,8 +48,6 @@ gem 'nokogiri', '~> 1.7.1'
 # Use the Blacklight Advanced Search
 gem 'blacklight_advanced_search', '~> 6.2.0'
 
-gem 'unicode', '~> 0.4.4', :platforms => [:mri_18, :mri_19]
-
 # Use sorted for sorting columns
 gem 'sorted', '~> 2.0'
 
@@ -59,7 +55,7 @@ gem 'sorted', '~> 2.0'
 gem 'dalli', '~> 2.7.0'
 
 # New Recic for tracking performance
-gem 'newrelic_rpm', '~> 3.6'
+gem 'newrelic_rpm', '~> 4'
 
 # Comma to download CSV
 gem 'comma', '~> 4.0.0'
@@ -67,25 +63,25 @@ gem 'comma', '~> 4.0.0'
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.4'
 # EAD indexing
-gem 'ead_indexer', git: 'https://github.com/NYULibraries/ead_indexer', tag: 'v0.0.1'
+gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v0.0.1'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
 
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
-gem 'omniauth-nyulibraries', git: 'https://github.com/NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
+gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 4.2.0'
 # /Transition gems
 
 # Faraday for http calls
-gem 'faraday', '~> 0.9.1'
+gem 'faraday', '~> 0.9.0'
 
 group :development do
   gem 'better_errors', '~> 2.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'guard', '~> 2.14.0'
-  gem 'guard-rspec', '~> 4.3.1'
+  gem 'guard-rspec', '~> 4.7'
   gem 'guard-cucumber', '~> 2.1.2'
 end
 
@@ -112,13 +108,11 @@ group :test do
   gem 'simplecov', '~> 0.14.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   # Use Coveralls to publish coverage on the open web
-  gem 'coveralls', '~> 0.7.0', require: false
+  gem 'coveralls', '~> 0.8', require: false
   gem 'term-ansicolor', '>= 1.3.2'
 end
 
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
-  # Use Jetty for test and development Solr
-  gem 'jettywrapper', '~> 1.7'
   gem 'pry'
 end

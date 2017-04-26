@@ -10,7 +10,6 @@ The description of EAD in Solr proves to require more configuration so we use [a
   - We are using Java 1.7.  
   - If you need to run multiple versions of Java on your machine, you might want to look at [jEnv](http://www.jenv.be/)
 
-
 # Setting Up Your Environment
 
 1. Start by cloning this repository locally:
@@ -28,35 +27,43 @@ The description of EAD in Solr proves to require more configuration so we use [a
   ~$ RAILS_ENV=test bundle exec rake db:migrate
   ```
 
-3. Generate a local jetty-solr that is Finding Aids ready:
+3. Generate and start a local solr that is Finding Aids ready with the SolWrapper gem:
 
   ```
-  ~$ bundle exec rake findingaids:jetty:install
+  ~$ RAILS_ENV=test bundle exec solr_wrapper
   ```
 
-4. And start it up:
+  You could run this in the background by appending `&` but it's also useful to know when you're running which version of solr.
 
-  ```
-  ~$ bundle exec rake jetty:start
-  ```
-
-5. Load some test data in there:
-
-  ```
-  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/fales
-  ~$ bundle exec rake findingaids:ead:index EAD=spec/fixtures/tamwag
-  ```
-
-6. Make sure all your tests are passing:
+4. Make sure all your tests are passing:
 
   ```
   ~$ bundle exec rake
   ```
 
-7. And start up your local server:
+5. Kill the test solr if you're not currently using it and start up a development one:
 
   ```
-  ~$ bundle exec rails s
+  ~$ bundle exec solr_wrapper
   ```
-  
-8. Visiting `http://localhost:3000` should present you with the development application.
+
+6. We're actively persisting the data in these test and development solr cores so if you need to purge the persisted data run the following:
+
+  ```
+  ~$ bundle exec solr_wrapper clean
+  ```
+
+7. Load some test data in there:
+
+  ```
+  ~$ bundle exec rake ead_indexer:index EAD=spec/fixtures/fales/bytsura.xml
+  ~$ bundle exec rake ead_indexer:index EAD=spec/fixtures/tamwag/PHOTOS.107-ead.xml
+  ```
+
+8. And start up your local server:
+
+  ```
+  ~$ bundle exec rails server
+  ```
+
+9. Visiting `http://localhost:3000` should present you with the development application.
