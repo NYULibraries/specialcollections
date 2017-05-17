@@ -334,7 +334,7 @@ GEM
     net-ssh-gateway (2.0.0)
       net-ssh (>= 4.0.0)
     newrelic_rpm (4.1.0.333)
-    nokogiri (1.7.1)
+    nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
     nokogumbo (1.4.10)
       nokogiri
@@ -556,7 +556,6 @@ DEPENDENCIES
   jquery-ui-rails (~> 6.0.1)
   mysql2 (~> 0.4.5)
   newrelic_rpm (~> 4)
-  nokogiri (~> 1.7.1)
   nyulibraries_errors!
   nyulibraries_institutions!
   nyulibraries_javascripts!

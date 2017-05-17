@@ -43,7 +43,6 @@ gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.8.0'
-gem 'nokogiri', '~> 1.7.1'
 
 # Use the Blacklight Advanced Search
 gem 'blacklight_advanced_search', '~> 6.2.0'
