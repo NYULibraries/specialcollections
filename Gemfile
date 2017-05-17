@@ -43,7 +43,6 @@ gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.8.0'
-gem 'nokogiri', '~> 1.7.1'
 
 # Use the Blacklight Advanced Search
 gem 'blacklight_advanced_search', '~> 6.2.0'
@@ -71,7 +70,7 @@ gem 'iso-639', '~> 0.2.5'
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
-gem 'devise', '~> 4.2.0'
+gem 'devise', '~> 4.3.0'
 # /Transition gems
 
 # Faraday for http calls
