@@ -308,7 +308,7 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
-    mail (2.6.5)
+    mail (2.6.6.rc1)
       mime-types (>= 1.16, < 4)
     marc (0.8.2)
       ensure_valid_encoding
