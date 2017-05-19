@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/NYULibraries/ead_indexer.git
-  revision: 9f9fc24dc4d07d451e596df3c5e550c6c52054ea
-  tag: v0.0.1
+  revision: 1b52a614cfe666c995837cf39169f4501b68dad5
+  tag: v0.0.2
   specs:
-    ead_indexer (0.0.1)
+    ead_indexer (0.0.2)
       iso-639 (>= 0.2.5)
       rails (>= 4.2.7.1)
+      rsolr (~> 1.0)
       solr_ead (>= 0.7.2)
 
 GIT
@@ -308,7 +309,7 @@ GEM
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.12)
-    mail (2.6.6.rc1)
+    mail (2.6.5)
       mime-types (>= 1.16, < 4)
     marc (0.8.2)
       ensure_valid_encoding
@@ -336,7 +337,7 @@ GEM
     newrelic_rpm (4.1.0.333)
     nokogiri (1.7.2)
       mini_portile2 (~> 2.1.0)
-    nokogumbo (1.4.10)
+    nokogumbo (1.4.11)
       nokogiri
     notiffany (0.1.1)
       nenv (~> 0.1)
@@ -408,9 +409,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
-    rsolr (2.0.2)
+    rsolr (1.1.2)
       builder (>= 2.1.2)
-      faraday
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)
