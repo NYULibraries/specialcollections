@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.2.7.1'
+gem 'mail', '2.6.6.rc1'
 
 # Use MySQL for the database
 gem 'mysql2', '~> 0.4.5'
