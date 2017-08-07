@@ -18,25 +18,14 @@ RAILS_ENV=test bundle exec solr_wrapper &
 RAILS_ENV=test bundle exec rake
 ```
 
-Or use docker...
-
-The following assumes you've set up docker/docker-compose/docker-machine running on your station:
+Or use docker:
 
 ```bash
 docker-compose up -d
-docker-compose run web rake db:create
-docker-compose run -e RAILS_ENV=test web rake db:schema:load
 # Run tests
-docker-compose run web rake
-```
-
-### Developing in Docker
-
-```bash
-# Load schema in the dev database
-~$ docker-compose run web bundle exec rake db:create
-# Run the server
-~$ docker-compose run --service-ports web rails s -b 0.0.0.0
+docker-compose exec app rake
+# Run the dev server
+docker-compose exec app rails s -b 0.0.0.0
 ```
 
 Then you should be able to go to `http://{docker-machine ip}:3000` or if you've set it up in your `/etc/hosts`.

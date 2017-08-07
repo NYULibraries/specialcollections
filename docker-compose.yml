@@ -1,30 +1,46 @@
-app:
-  build: .
-  ports:
-    - "3000:3000"
-  volumes:
-    - .:/app
-  links:
-    - db
-    - solr:solrhost
-  environment:
-    FINDINGAIDS_DB_HOST: db
-    FINDINGAIDS_FULL_HOST: dlib.nyu.edu
-    FINDINGAIDS_FULL_PATH: /findingaids/html
-    FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
-    DEV_SOLR_URL: http://solrhost:8983/solr/development-core
-    TEST_SOLR_URL: http://solrhost:8983/solr/test-core
-    MAX_WAIT: 60
-    CI:
-    CODECLIMATE_REPO_TOKEN:
-    COVERALLS_REPO_TOKEN:
-db:
-  image: library/mysql:5.6.22
-  expose:
-    - "3306"
-  environment:
-    MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
-solr:
-  image: nyulibraries/solr-test:5.5.4
-  expose:
-    - "8983"
+version: '3'
+services:
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      FINDINGAIDS_DB_HOST: db
+      FINDINGAIDS_FULL_HOST: dlib.nyu.edu
+      FINDINGAIDS_FULL_PATH: /findingaids/html
+      FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
+      DEV_SOLR_URL: http://solr:8983/solr/development-core
+      TEST_SOLR_URL: http://solr:8983/solr/test-core
+      MAX_WAIT: 60
+      CI:
+      CODECLIMATE_REPO_TOKEN:
+      COVERALLS_REPO_TOKEN:
+    command: "tail -f /dev/null"
+    depends_on:
+      - setup_dbs
+      - solr
+
+  db:
+    image: library/mysql:5.6.22
+    expose:
+      - "3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+
+  solr:
+    image: nyulibraries/solr-test:5.5.4
+    expose:
+      - "8983"
+
+  setup_dbs:
+    build: .
+    volumes:
+      - .:/app
+    environment:
+      FINDINGAIDS_DB_HOST: db
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
+      - db
