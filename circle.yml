@@ -1,15 +1,16 @@
 machine:
   pre:
-    - curl -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` > /home/ubuntu/bin/docker-compose
+    # - curl -L https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` > /home/ubuntu/bin/docker-compose
     - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-    - chmod +x /home/ubuntu/bin/docker-compose
+    # - chmod +x /home/ubuntu/bin/docker-compose
     - docker-compose version
+    - docker version
   services:
     - docker
 
 dependencies:
   override:
-    - docker-compose version
+    # - docker-compose version
     - docker-compose up -d
 
 database:
