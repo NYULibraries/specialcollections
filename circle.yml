@@ -18,7 +18,7 @@ database:
 
 test:
   override:
-    - docker-compose exec -e RAILS_ENV=test app rake
+    - docker-compose exec app rake
 
 deployment:
   production:
