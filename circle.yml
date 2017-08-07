@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    - RAILS_ENV=test bundle exec solr_wrapper
+    - RAILS_ENV=test bundle exec solr_wrapper:
         background: true
 
 deployment:
