@@ -1,16 +1,7 @@
-machine:
-  pre:
-    - curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
-    - curl -sSL https://github.com/docker/compose/releases/download/1.10.0/docker-compose-`uname -s`-`uname -m` > /home/ubuntu/bin/docker-compose
-    - chmod +x /home/ubuntu/bin/docker-compose
-  services:
-    - docker
-
 dependencies:
   override:
-    - docker version
-    - docker-compose version
-    - docker-compose up -d
+    - RAILS_ENV=test bundle exec solr_wrapper
+      background: true
 
 database:
   override:
@@ -18,7 +9,7 @@ database:
 
 test:
   override:
-    - docker-compose exec app rake
+    - RAILS_ENV=test bundle exec rake
 
 deployment:
   production:
