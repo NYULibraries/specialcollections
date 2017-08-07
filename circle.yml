@@ -3,7 +3,7 @@ machine:
     version: 2.3.3
 
 dependencies:
-  override:
+  post:
     - RAILS_ENV=test bundle exec solr_wrapper:
         background: true
 
