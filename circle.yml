@@ -8,6 +8,7 @@ machine:
 
 dependencies:
   override:
+    - docker-compose version
     - docker-compose up -d
 
 database:
