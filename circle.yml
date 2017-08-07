@@ -1,15 +1,11 @@
+machine:
+  ruby:
+    version: 2.3.3
+
 dependencies:
   override:
     - RAILS_ENV=test bundle exec solr_wrapper
       background: true
-
-database:
-  override:
-    - echo "All good"
-
-test:
-  override:
-    - RAILS_ENV=test bundle exec rake
 
 deployment:
   production:
