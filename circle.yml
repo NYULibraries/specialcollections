@@ -1,19 +1,26 @@
 machine:
-  services:
-    - docker
 
-dependencies:
-  override:
-    - docker-compose up -d
+  ruby:
+    version: 2.3.3
+
+  environment:
+    FINDINGAIDS_FULL_HOST: dlib.nyu.edu
+    FINDINGAIDS_FULL_PATH: /findingaids/html
+    FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
+    MAX_WAIT: 60
 
 database:
   override:
-    - docker-compose run app rake db:create
-    - docker-compose run -e RAILS_ENV=test app rake db:schema:load
+    - mysql -e 'create database findingaids_test;'
+    - RAILS_ENV=test bundle exec rake db:schema:load
+    - bundle exec rake db:fixtures:load
 
-test:
-  override:
-    - docker-compose run -e RAILS_ENV=test app rake
+dependencies:
+  pre:
+    - bundle config --global github.https true
+  post:
+    - RAILS_ENV=test bundle exec solr_wrapper:
+        background: true
 
 deployment:
   production:
