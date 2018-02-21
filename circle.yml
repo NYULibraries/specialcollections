@@ -8,12 +8,11 @@ machine:
     FINDINGAIDS_FULL_PATH: /findingaids/html
     FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
     MAX_WAIT: 60
+    SOLR_PORT: 8984
 
 database:
   override:
-    - mysql -e 'create database findingaids_test;'
-    - RAILS_ENV=test bundle exec rake db:schema:load
-    - bundle exec rake db:fixtures:load
+    - RAILS_ENV=test bundle exec rake db:setup
 
 dependencies:
   pre:
@@ -21,6 +20,7 @@ dependencies:
   post:
     - RAILS_ENV=test bundle exec solr_wrapper:
         background: true
+    - sleep 10; curl --retry 10 --retry-delay 5 --retry-connrefused -v http://127.0.0.1:8984
 
 deployment:
   production:
