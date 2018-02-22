@@ -23,12 +23,12 @@ Or use docker:
 ```bash
 docker-compose up -d
 # Run tests
-docker-compose exec app rake
+docker-compose exec test rake
 # Run the dev server
-docker-compose exec app rails s -b 0.0.0.0
+docker-compose exec dev rails s -b 0.0.0.0
 ```
 
-Then you should be able to go to `http://{docker-machine ip}:3000` or if you've set it up in your `/etc/hosts`.
+Then you should be able to go to `http://{docker-machine ip}:3000`.
 
 ## See it in action!
 

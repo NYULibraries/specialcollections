@@ -13,11 +13,9 @@ services:
       CI:
       CODECLIMATE_REPO_TOKEN:
       COVERALLS_REPO_TOKEN:
-    # command: "tail -f /dev/null"
-    command: bash -c "sleep 5 && rake db:setup && rails server -b 0.0.0.0"
+    command: "tail -f /dev/null"
     depends_on:
-      - solr
-      - db
+      - setup_dbs
 
   test:
     build: .
@@ -25,8 +23,26 @@ services:
       RAILS_ENV: test
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
-    command: bash -c "sleep 5 && rake db:setup && rake"
+    command: "tail -f /dev/null"
+    depends_on:
+      - setup_test_dbs
+
+  setup_dbs:
+    build: .
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
+      - solr
+      - db
+
+  setup_test_dbs:
+    build: .
+    environment:
+      RAILS_ENV: test
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
     depends_on:
       - solr
       - db
