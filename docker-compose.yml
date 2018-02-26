@@ -1,27 +1,51 @@
 version: '2'
 services:
 
-  app:
+  dev:
     build: .
     ports:
       - "3000:3000"
     volumes:
       - .:/app
+    env_file:
+      - test.env
     environment:
-      FINDINGAIDS_DB_HOST: db
-      FINDINGAIDS_FULL_HOST: dlib.nyu.edu
-      FINDINGAIDS_FULL_PATH: /findingaids/html
-      FINDINGAIDS_FULL_DEFAULT_EXTENSION: html
-      DEV_SOLR_URL: http://solr:8983/solr/development-core
-      TEST_SOLR_URL: http://solr:8983/solr/test-core
-      MAX_WAIT: 60
       CI:
       CODECLIMATE_REPO_TOKEN:
       COVERALLS_REPO_TOKEN:
     command: "tail -f /dev/null"
     depends_on:
       - setup_dbs
+
+  test:
+    build: .
+    environment:
+      RAILS_ENV: test
+    env_file:
+      - test.env
+    command: "tail -f /dev/null"
+    depends_on:
+      - setup_test_dbs
+
+  setup_dbs:
+    build: .
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
       - solr
+      - db
+
+  setup_test_dbs:
+    build: .
+    environment:
+      RAILS_ENV: test
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
+      - solr
+      - db
 
   db:
     image: library/mysql:5.6.22
@@ -34,13 +58,3 @@ services:
     image: nyulibraries/solr-test:5.5.4
     expose:
       - "8983"
-
-  setup_dbs:
-    build: .
-    volumes:
-      - .:/app
-    environment:
-      FINDINGAIDS_DB_HOST: db
-    command: bash -c "sleep 5; rake db:setup"
-    depends_on:
-      - db

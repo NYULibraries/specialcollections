@@ -50,19 +50,19 @@ GIT
 
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_stylesheets.git
-  revision: 624975c97ef327fae9876714951cf64cb0e34603
-  tag: v1.0.1
+  revision: 7635383d77ac815f4a28219138c75f8971f680f6
+  tag: v1.0.5
   specs:
-    nyulibraries_stylesheets (1.0.1)
+    nyulibraries_stylesheets (1.0.5)
       bootstrap-sass (~> 3.2)
       compass (>= 1.0.1)
 
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_templates.git
-  revision: f81a20d7badee6b8bc046d1ea63c99c80fe54692
-  tag: v1.1.0
+  revision: 245dea4a7af547de8442c31484dd2888012298de
+  tag: v1.1.2
   specs:
-    nyulibraries_templates (1.1.0)
+    nyulibraries_templates (1.1.2)
       rails (>= 4)
 
 GIT
