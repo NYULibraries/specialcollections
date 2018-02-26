@@ -59,10 +59,10 @@ GIT
 
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_templates.git
-  revision: f81a20d7badee6b8bc046d1ea63c99c80fe54692
-  tag: v1.1.0
+  revision: 245dea4a7af547de8442c31484dd2888012298de
+  tag: v1.1.2
   specs:
-    nyulibraries_templates (1.1.0)
+    nyulibraries_templates (1.1.2)
       rails (>= 4)
 
 GIT
