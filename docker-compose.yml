@@ -17,16 +17,6 @@ services:
     depends_on:
       - setup_dbs
 
-  test:
-    build: .
-    environment:
-      RAILS_ENV: test
-    env_file:
-      - test.env
-    command: "tail -f /dev/null"
-    depends_on:
-      - setup_test_dbs
-
   setup_dbs:
     build: .
     env_file:
@@ -36,8 +26,20 @@ services:
       - solr
       - db
 
+  test:
+    # build: .
+    image: nyulibraries/findingaids
+    environment:
+      RAILS_ENV: test
+    env_file:
+      - test.env
+    command: "tail -f /dev/null"
+    depends_on:
+      - setup_test_dbs
+
   setup_test_dbs:
-    build: .
+    # build: .
+    image: nyulibraries/findingaids
     environment:
       RAILS_ENV: test
     env_file:
