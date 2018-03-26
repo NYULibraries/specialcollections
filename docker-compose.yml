@@ -28,7 +28,7 @@ services:
 
   test:
     # build: .
-    image: nyulibraries/findingaids
+    image: nyulibraries/findingaids:dev
     environment:
       RAILS_ENV: test
     env_file:
@@ -39,7 +39,7 @@ services:
 
   setup_test_dbs:
     # build: .
-    image: nyulibraries/findingaids
+    image: nyulibraries/findingaids:dev
     environment:
       RAILS_ENV: test
     env_file:
