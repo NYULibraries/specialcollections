@@ -2,7 +2,6 @@ data
 findingaids_eads
 jetty
 solr-*
-
 tmp
 log
 .git
