@@ -2,19 +2,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.3
-    working_directory: ~/findingaids
+      - image: docker:18.03.0-ce-git
+    working_directory: ~/app
     steps:
       - checkout
       - setup_remote_docker
       - run:
-          name: Install Docker Compose
+          name: Install dependencies
           command: |
-            set -x
-            sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
-
+            apk add --no-cache \
+              py-pip
+            pip install \
+              docker-compose==1.20.1
       - run:
           name: Start container and run tests
           command: |
