@@ -73,6 +73,8 @@ gem 'devise', '~> 4.3.0'
 # Faraday for http calls
 gem 'faraday', '~> 0.9.0'
 
+gem 'unicorn', '~> 5.3.0'
+
 group :development do
   gem 'better_errors', '~> 2.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
