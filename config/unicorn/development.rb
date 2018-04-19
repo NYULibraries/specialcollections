@@ -1,4 +1,4 @@
-ENV['RAILS_ENV'] = ENV['RACK_ENV']
+# ENV['RAILS_ENV'] = 'development'
 
 require 'fileutils'
 # set path to app that will be used to configure unicorn,

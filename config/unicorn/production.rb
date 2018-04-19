@@ -1,4 +1,4 @@
-ENV['RAILS_ENV'] = ENV['RACK_ENV']
+# ENV['RAILS_ENV'] = 'production'
 
 require 'fileutils'
 # set path to app that will be used to configure unicorn,
@@ -13,9 +13,6 @@ working_directory @dir
 timeout 15
 preload_app true
 
-# Specify path to socket unicorn listens to,
-# this location because its a permissions thing
-# listen "/var/run/unicorn-#{ENV['APP_NAME']}.sock", backlog: 64
 listen (ENV['UNICORN_PORT'] || 8080)
 
 # create tmp/pids and logs/ in root
