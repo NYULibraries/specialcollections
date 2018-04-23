@@ -36,4 +36,4 @@ RUN bundle config --global github.https true
 RUN gem install bundler && bundle install --jobs 20 --retry 5
 
 # Copy source into container
-COPY . .
+COPY --chown=docker:docker . .
