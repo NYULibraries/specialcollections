@@ -13,11 +13,14 @@ RUN apt-get update -qq && apt-get install -y \
 
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1
-RUN wget --no-check-certificate -q -O - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 | tar xjC /opt
+
+RUN wget --no-check-certificate -q -O - https://cnpmjs.org/mirrors/phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 | tar xjC /opt
 RUN ln -s /opt/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
 
-# Setup working directory
-RUN mkdir -p $INSTALL_PATH
+RUN groupadd -g 2000 docker -r && \
+    useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
+USER docker
+
 WORKDIR $INSTALL_PATH
 
 # For working with locally installed gems
