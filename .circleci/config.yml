@@ -1,31 +1,55 @@
+docker-defaults: &docker-defaults
+  docker:
+    - image: docker:18.03.0-ce-git
+  working_directory: ~/app
+
+dc-setup: &dc-setup
+  run:
+    name: Setup docker-compose dependency
+    command: |
+      apk add --no-cache python3
+      pip3 install docker-compose==1.20.1
+
+test: &test
+  run:
+    name: Test
+    command: docker-compose run test
+
 version: 2
 jobs:
-  build:
-    docker:
-      - image: docker:18.03.0-ce-git
-    working_directory: ~/app
+  deploy-dev:
+    <<: *docker-defaults
     steps:
       - checkout
       - setup_remote_docker
+      - <<: *dc-setup
+      - <<: *test
       - run:
-          name: Install dependencies
+          name: Deploy into staging via Jenkins
           command: |
-            apk add --no-cache \
-              py-pip
-            pip install \
-              docker-compose==1.20.1
-      - run:
-          name: Start container and run tests
-          command: |
-            docker-compose run test rake
+            curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
 
-      - deploy:
-          name: Deploy
+  deploy-prod:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - <<: *test
+      - run:
+          name: Deploy into production via Jenkins
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "Deploying to production"
-              curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
-            elif [[ "${CIRCLE_BRANCH}" =~ (.+) ]]; then
-              echo "Deploying to development"
-              curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
-            fi
+            curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
+
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - deploy-dev:
+          filters:
+            branches:
+              ignore: master
+      - deploy-prod:
+          filters:
+            branches:
+              only: master
