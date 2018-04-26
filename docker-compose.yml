@@ -33,7 +33,7 @@ services:
       COVERALLS_REPO_TOKEN:
     env_file:
       - test.env
-    command: "tail -f /dev/null"
+    command: "rake"
     depends_on:
       - setup_test_dbs
 
