@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
 
   dev:
@@ -9,10 +9,6 @@ services:
       - .:/app
     env_file:
       - test.env
-    environment:
-      CI:
-      CODECLIMATE_REPO_TOKEN:
-      COVERALLS_REPO_TOKEN:
     command: "tail -f /dev/null"
     depends_on:
       - setup_dbs
@@ -27,19 +23,24 @@ services:
       - db
 
   test:
-    # build: .
-    image: nyulibraries/findingaids:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.test
     environment:
       RAILS_ENV: test
+      CI:
+      CODECLIMATE_REPO_TOKEN:
+      COVERALLS_REPO_TOKEN:
     env_file:
       - test.env
-    command: "tail -f /dev/null"
+    command: "rake"
     depends_on:
       - setup_test_dbs
 
   setup_test_dbs:
-    # build: .
-    image: nyulibraries/findingaids:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.test
     environment:
       RAILS_ENV: test
     env_file:

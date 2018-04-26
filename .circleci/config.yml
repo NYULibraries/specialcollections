@@ -1,32 +1,55 @@
+docker-defaults: &docker-defaults
+  docker:
+    - image: docker:18.03.0-ce-git
+  working_directory: ~/app
+
+dc-setup: &dc-setup
+  run:
+    name: Setup docker-compose dependency
+    command: |
+      apk add --no-cache python3
+      pip3 install docker-compose==1.20.1
+
+test: &test
+  run:
+    name: Test
+    command: docker-compose run test
+
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.3
-    working_directory: ~/findingaids
+  deploy-dev:
+    <<: *docker-defaults
     steps:
       - checkout
       - setup_remote_docker
+      - <<: *dc-setup
+      - <<: *test
       - run:
-          name: Install Docker Compose
+          name: Deploy into staging via Jenkins
           command: |
-            set -x
-            sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
+            docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
 
+  deploy-prod:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - <<: *test
       - run:
-          name: Start container and run tests
+          name: Deploy into production via Jenkins
           command: |
-            docker-compose run test rake
+            docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
 
-      - deploy:
-          name: Deploy
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo "Deploying to production"
-              curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
-            elif [[ "${CIRCLE_BRANCH}" =~ (feature|bug|hotfix|chore)\/(.+) ]]; then
-              echo "Deploying to development"
-              curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
-            fi
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - deploy-dev:
+          filters:
+            branches:
+              ignore: master
+      - deploy-prod:
+          filters:
+            branches:
+              only: master
