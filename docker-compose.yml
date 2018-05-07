@@ -5,8 +5,8 @@ services:
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
+    # volumes:
+    #   - .:/app
     env_file:
       - test.env
     command: "tail -f /dev/null"
@@ -33,7 +33,7 @@ services:
       COVERALLS_REPO_TOKEN:
     env_file:
       - test.env
-    command: "rake"
+    command: "tail -f /dev/null"
     depends_on:
       - setup_test_dbs
 
