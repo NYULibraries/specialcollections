@@ -14,6 +14,7 @@ timeout 15
 preload_app true
 
 listen (ENV['UNICORN_PORT'] || 8080)
+host 0.0.0.0
 
 # create tmp/pids and logs/ in root
 pids_dir = "#{@dir}tmp/pids/"
