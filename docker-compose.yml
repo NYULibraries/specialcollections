@@ -58,6 +58,6 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   solr:
-    image: nyulibraries/solr-test:5.5.4
+    image: nyulibraries/specialcollections-solr:test
     expose:
       - "8983"
