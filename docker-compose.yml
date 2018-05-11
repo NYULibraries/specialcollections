@@ -17,6 +17,37 @@ services:
     depends_on:
       - setup_dbs
 
+  setup_dbs:
+    build: .
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
+      - solr
+      - db
+
+  deploy_dev_assets:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      RAILS_ENV: "staging"
+      SECRET_KEY_BASE:
+    command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn-dev.library.nyu.edu/specialcollections --delete"
+
+  deploy_prod_assets:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    environment:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      RAILS_ENV: "production"
+      SECRET_KEY_BASE:
+    command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn.library.nyu.edu/specialcollections --delete"
+
   test:
     build:
       context: .
@@ -64,8 +95,6 @@ services:
 
   db:
     image: library/mysql:5.6.22
-    expose:
-      - "3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
