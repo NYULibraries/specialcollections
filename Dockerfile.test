@@ -11,7 +11,7 @@ RUN apt-get update -qq && apt-get install -y \
   libfreetype6 \
   libpython-dev \
   python \
-  python-pip
+  python-pip \
   vim \
   wget
 
