@@ -1,5 +1,3 @@
-# ENV['RAILS_ENV'] = 'production'
-
 require 'fileutils'
 # set path to app that will be used to configure unicorn,
 # note the trailing slash in this example
@@ -13,8 +11,7 @@ working_directory @dir
 timeout 15
 preload_app true
 
-listen (ENV['UNICORN_PORT'] || 8080)
-host 0.0.0.0
+listen (ENV['UNICORN_PORT'] || 9292)
 
 # create tmp/pids and logs/ in root
 pids_dir = "#{@dir}tmp/pids/"
