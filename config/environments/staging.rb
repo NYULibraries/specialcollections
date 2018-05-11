@@ -1,5 +1,4 @@
 Rails.application.configure do
-  config.action_controller.relative_url_root = '/search'
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.action_mailer.default_options = {from: 'lib-no-reply@nyu.edu'}
@@ -45,7 +44,8 @@ Rails.application.configure do
   # config.force_ssl = true
 
   # Set to :debug to see everything in the log.
-  config.log_level = :info
+  config.logger = Logger.new(STDOUT)
+  config.log_level = ENV.fetch("LOG_LEVEL", "ERROR")
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
