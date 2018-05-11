@@ -7,8 +7,4 @@
 ./script/stop.sh $1
 
 echo "Starting up unicorn..."
-if [ "$2" == "production" ]; then
-  bundle exec unicorn -c config/unicorn/production.rb -E production
-else
-  bundle exec unicorn -c config/unicorn/development.rb
-fi
+bundle exec unicorn -c config/unicorn/config.rb -E $2
