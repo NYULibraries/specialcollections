@@ -4,12 +4,19 @@ ENV INSTALL_PATH /app
 
 # Essential dependencies
 RUN apt-get update -qq && apt-get install -y \
-      bzip2 \
-      git \
-      libfontconfig \
-      libfreetype6 \
-      vim \
-      wget
+  bzip2 \
+  curl \
+  git \
+  libfontconfig \
+  libfreetype6 \
+  libpython-dev \
+  python \
+  python-pip
+  vim \
+  wget
+
+RUN pip install --upgrade pip && pip install \
+  awscli
 
 # PhantomJS
 ENV PHANTOMJS_VERSION 2.1.1
