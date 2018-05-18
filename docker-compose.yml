@@ -17,6 +17,23 @@ services:
     depends_on:
       - setup_dbs
 
+  setup_dbs:
+    build: .
+    env_file:
+      - test.env
+    command: bash -c "sleep 5; rake db:setup"
+    depends_on:
+      - solr
+      - db
+
+  reindex:
+    build:
+      context: .
+      dockerfile: Dockerfile.reindex
+    environment:
+      FINDINGAIDS_LOG: STDOUT
+    command: "tail -f /dev/null"
+
   test:
     build:
       context: .

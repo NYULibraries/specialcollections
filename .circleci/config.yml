@@ -41,6 +41,17 @@ jobs:
           command: |
             docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
 
+  reindex_changed_since_yesterday:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - run:
+          name: Reindex EADS changed in past 24 hours
+          command: |
+            docker-compose run -e "RAILS_ENV=production" -e "SOLR_URL=$PRODUCTION_SOLR_URL" -e "SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE" reindex rake ead_indexer:reindex_changed_since_yesterday
+
 workflows:
   version: 2
   build-test-and-deploy:
@@ -53,3 +64,13 @@ workflows:
           filters:
             branches:
               only: master
+  reindex_nightly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - feature/move_crons_to_circle
+    jobs:
+      - reindex_changed_since_yesterday
