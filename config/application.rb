@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Load the figs variables before the rest of the bundle
 # so we can use env vars in other gems
-unless Rails.env.test?
+unless Rails.env.test? || ENV['CIRCLECI']
   require 'figs'
   Figs.load(stage: Rails.env)
 end
