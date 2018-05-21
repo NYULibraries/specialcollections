@@ -27,9 +27,7 @@ services:
       - db
 
   reindex:
-    build:
-      context: .
-      dockerfile: Dockerfile.reindex
+    build: .
     environment:
       FINDINGAIDS_LOG: STDOUT
     command: "tail -f /dev/null"

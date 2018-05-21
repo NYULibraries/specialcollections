@@ -50,7 +50,9 @@ jobs:
       - run:
           name: Reindex EADS changed in past 24 hours
           command: |
-            docker-compose run -e "RAILS_ENV=production" -e "SOLR_URL=$PRODUCTION_SOLR_URL" -e "SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE" reindex rake ead_indexer:reindex_changed_since_yesterday
+            docker-compose run -d --name findingaids_reindex reindex
+            docker exec findingaids_reindex git clone https://github.com/NYULibraries/findingaids_eads.git findingaids_eads
+            docker exec -e "RAILS_ENV=production" -e "SOLR_URL=$PRODUCTION_SOLR_URL" -e "SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE" findingaids_reindex rake ead_indexer:reindex_changed_since_yesterday
 
 workflows:
   version: 2
