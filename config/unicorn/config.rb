@@ -11,7 +11,7 @@ working_directory @dir
 timeout 15
 preload_app true
 
-listen (ENV['UNICORN_PORT'] || 9292)
+listen Integer(ENV['UNICORN_PORT'] || 9292)
 
 # create tmp/pids and logs/ in root
 pids_dir = "#{@dir}tmp/pids/"
