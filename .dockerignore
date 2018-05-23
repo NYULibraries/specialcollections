@@ -11,3 +11,5 @@ coverage
 *.bak
 .DS_Store
 .sekrets.key
+solr-test
+nginx
