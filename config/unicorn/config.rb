@@ -8,7 +8,7 @@ require 'fileutils'
 worker_processes Integer(ENV["UNICORN_WEB_CONCURRENCY"] || 2)
 working_directory @dir
 
-timeout 15
+timeout 60
 preload_app true
 
 listen Integer(ENV['UNICORN_PORT'] || 9292)
