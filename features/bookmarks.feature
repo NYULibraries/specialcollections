@@ -36,6 +36,7 @@ Feature: Cite and Email Bookmarks
       1. Ben Alexrod, Oct 4, 1979; OH.002; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
       """
 
+  @wip
   Scenario: Emailing a bookmark
     Given I am on the bookmarks page
     When I click on the "Email" button
