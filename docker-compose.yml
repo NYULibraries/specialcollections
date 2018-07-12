@@ -6,21 +6,14 @@ services:
     ports:
       - "3000:3000"
     # volumes:
-    #   - .:/app
+    #   - ./vendor:/app/vendor
+    #   - ./app:/app/app
     env_file:
       - test.env
-    command: "tail -f /dev/null"
+    # command: "tail -f /dev/null"
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
     depends_on:
       - setup_dbs
-
-  setup_dbs:
-    build: .
-    env_file:
-      - test.env
-    command: bash -c "sleep 5; rake db:setup"
-    depends_on:
-      - solr
-      - db
 
   test:
     build:
@@ -33,7 +26,8 @@ services:
       COVERALLS_REPO_TOKEN:
     env_file:
       - test.env
-    command: "tail -f /dev/null"
+    # command: "tail -f /dev/null"
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake"]
     depends_on:
       - setup_test_dbs
 
@@ -45,10 +39,19 @@ services:
       RAILS_ENV: test
     env_file:
       - test.env
-    command: bash -c "sleep 5; rake db:setup"
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
     depends_on:
-      - solr
       - db
+      - solr
+
+  setup_dbs:
+    build: .
+    env_file:
+      - test.env
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
+    depends_on:
+      - db
+      - solr
 
   db:
     image: library/mysql:5.6.22
