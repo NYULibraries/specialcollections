@@ -9,6 +9,7 @@ Feature: Cite and Email Bookmarks
     And I should see search results
     And I check "Bookmark" for the first result
 
+  @wip
   Scenario: Adding a bookmark from brief results
     Given I click on the "Your Bookmarks" link
     Then I should see "Ben Alexrod" saved in my bookmarks
