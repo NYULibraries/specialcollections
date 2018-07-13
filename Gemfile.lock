@@ -49,25 +49,27 @@ GIT
     nyulibraries_javascripts (1.0.0)
 
 GIT
+  remote: https://github.com/NYULibraries/nyulibraries_stylesheets.git
+  revision: b0c8125f98ab979d2ba769ef5e99207f8ba80bef
+  specs:
+    nyulibraries_stylesheets (1.0.6)
+      bootstrap-sass (~> 3.2)
+      compass (>= 1.0.1)
+
+GIT
+  remote: https://github.com/NYULibraries/nyulibraries_templates.git
+  revision: bed34ea9f17afd7cf9291a7c0bc67fa079d3b700
+  specs:
+    nyulibraries_templates (1.1.4)
+      rails (>= 4)
+
+GIT
   remote: https://github.com/NYULibraries/omniauth-nyulibraries.git
   revision: 352bd2c76350483667c603c1a7e63735e4a283b8
   tag: v2.0.0
   specs:
     omniauth-nyulibraries (1.1.0)
       omniauth-oauth2 (~> 1.2.0)
-
-PATH
-  remote: vendor/nyulibraries_stylesheets
-  specs:
-    nyulibraries_stylesheets (1.0.6)
-      bootstrap-sass (~> 3.2)
-      compass (>= 1.0.1)
-
-PATH
-  remote: vendor/nyulibraries_templates
-  specs:
-    nyulibraries_templates (1.1.4)
-      rails (>= 4)
 
 GEM
   remote: https://rubygems.org/
