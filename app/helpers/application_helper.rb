@@ -66,6 +66,10 @@ module ApplicationHelper
     end
   end
 
+  def get_facet_label_from_key(key)
+    facet_fields.select{|f| f[:label] == facet_field_label(key)}.try(:first).try(:[], :field)
+  end
+
   def maintenance_mode?
     false
   end
