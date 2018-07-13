@@ -1,13 +1,14 @@
-version: '3'
+version: '3.6'
 services:
 
   dev:
     build: .
     ports:
       - "3000:3000"
-    # volumes:
-    #   - ./vendor:/app/vendor
-    #   - ./app:/app/app
+    volumes:
+      - ./eads:/app/eads
+      - ./vendor:/app/vendor
+      - ./app:/app/app
     env_file:
       - test.env
     # command: "tail -f /dev/null"
@@ -39,7 +40,7 @@ services:
       RAILS_ENV: test
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
     depends_on:
       - db
       - solr
@@ -48,7 +49,7 @@ services:
     build: .
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "rake", "db:setup"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
     depends_on:
       - db
       - solr

@@ -16,6 +16,9 @@ WORKDIR $INSTALL_PATH
 RUN wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh
 RUN chmod a+x /tmp/wait-for-it.sh
 
+# For working with locally installed gems
+#COPY vendor ./vendor
+
 # Add github to known_hosts
 RUN mkdir -p ~/.ssh
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
