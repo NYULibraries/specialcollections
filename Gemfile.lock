@@ -550,7 +550,6 @@ DEPENDENCIES
   jquery-ui-rails (~> 6.0.1)
   mail (= 2.6.6.rc1)
   mysql2 (~> 0.4.5)
-  newrelic_rpm (~> 4)
   nyulibraries_errors!
   nyulibraries_institutions!
   nyulibraries_javascripts!

@@ -54,9 +54,6 @@ gem 'sorted', '~> 2.0'
 # Use Dalli for memcached
 gem 'dalli', '~> 2.7.0'
 
-# New Recic for tracking performance
-gem 'newrelic_rpm', '~> 4'
-
 # Comma to download CSV
 gem 'comma', '~> 4.0.0'
 
