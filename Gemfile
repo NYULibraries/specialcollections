@@ -90,9 +90,6 @@ end
 group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', '~> 1.4.5', require: false
-  # Use VCR for testing with deterministic HTTP interactions
-  gem 'vcr', '~> 3.0.3'
-  gem 'webmock', '~> 2.1'
   # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 3.0'
   # Use DatabaseCleaner for clearing the test database

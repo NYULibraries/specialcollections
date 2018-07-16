@@ -59,23 +59,19 @@ Cucumber::Rails::Database.javascript_strategy = :truncation
 
 # Refresh jetty data before cucumber tests run
 if Rails.env.test?
-  begin
-    WebMock.allow_net_connect!
-    EadIndexer::Indexer.delete_all
-    indexer = EadIndexer::Indexer.new
-    indexer.index('spec/fixtures/fales/bloch.xml')
-    indexer.index('spec/fixtures/fales/berol.xml')
-    indexer.index('spec/fixtures/fales/bytsura.xml')
-    indexer.index('spec/fixtures/fales/heti.xml')
-    indexer.index('spec/fixtures/fales/bickceem.xml')
-    indexer.index('spec/fixtures/fales/bartlett.xml')
-    indexer.index('spec/fixtures/fales/oconor.xml')
-    indexer.index('spec/fixtures/fales/washsquarephoto.xml')
-    indexer.index('spec/fixtures/fales/kopit_revised.xml')
-    indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
-    indexer.index('spec/fixtures/tamwag/photos_114.xml')
-    indexer.index('spec/fixtures/tamwag/OH.002-ead.xml')
-  ensure
-    WebMock.disable_net_connect!
-  end
+  binding.pry
+  EadIndexer::Indexer.delete_all
+  indexer = EadIndexer::Indexer.new
+  indexer.index('spec/fixtures/fales/bloch.xml')
+  indexer.index('spec/fixtures/fales/berol.xml')
+  indexer.index('spec/fixtures/fales/bytsura.xml')
+  indexer.index('spec/fixtures/fales/heti.xml')
+  indexer.index('spec/fixtures/fales/bickceem.xml')
+  indexer.index('spec/fixtures/fales/bartlett.xml')
+  indexer.index('spec/fixtures/fales/oconor.xml')
+  indexer.index('spec/fixtures/fales/washsquarephoto.xml')
+  indexer.index('spec/fixtures/fales/kopit_revised.xml')
+  indexer.index('spec/fixtures/tamwag/PHOTOS.107-ead.xml')
+  indexer.index('spec/fixtures/tamwag/photos_114.xml')
+  indexer.index('spec/fixtures/tamwag/OH.002-ead.xml')
 end
