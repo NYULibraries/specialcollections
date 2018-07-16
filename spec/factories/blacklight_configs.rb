@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :blacklight_config, class: Blacklight::Configuration do
     skip_create
     initialize_with {

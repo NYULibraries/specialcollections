@@ -98,7 +98,7 @@ group :test do
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.5.3'
   # Use factory girl for creating models
-  gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'factory_bot_rails', '~> 4.8.0'
   # Rspec as the test framework
   gem 'rspec-rails', '~> 3'
   gem 'rspec-its', '~> 1.2.0'
