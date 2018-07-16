@@ -26,7 +26,7 @@ module FindingaidsFeatures
     end
 
     def document_titles
-      documents_list_container.all(:xpath, '//h5[@class="index_title"]').map(&:text)
+      documents_list_container.all(:xpath, '//*[@class="index_title"]').map(&:text)
     end
 
   end

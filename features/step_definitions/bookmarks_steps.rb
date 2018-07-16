@@ -21,7 +21,7 @@ Then(/^I should (not )?see "(.*?)" saved in my bookmarks$/) do |negator, bookmar
   if negator
     expect(page).to have_content "You have no bookmarks"
   else
-    expect(find("#documents .document:first-child h5.index_title a").text).to eql bookmark
+    expect(find("#documents .document:first-child .index_title a").text).to eql bookmark
   end
 end
 
@@ -43,7 +43,7 @@ end
 
 When(/^I submit the email form$/) do
   within("#email_form") do
-    fill_in "Email:", with: "ba36@nyu.edu"
+    fill_in "Email:", with: "lib-webservices@nyu.edu"
     fill_in "Message:", with: "Check out these wicked awesome bookmarks"
     click_on "Send"
   end
@@ -55,7 +55,6 @@ Then(/^I should see a popup containing the following citation:$/) do |string|
 end
 
 Then(/^I should receive an email containing a link to the "(.*?)" record$/) do |record_title|
-  record_page = last_email.body.raw_source.split("\n")[1].gsub(/URL: /,"")
-  visit record_page rescue Capybara::Poltergeist::JavascriptError
-  expect(page).to have_content record_title
+  record_url = last_email.body.raw_source.split("\n")[1].gsub(/URL: /,"")
+  expect(find("#documents .document:first-child .index_title a")[:href]).to eql record_url
 end
