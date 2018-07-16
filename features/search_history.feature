@@ -1,3 +1,4 @@
+@bickceem
 Feature: Search history and saved searches
   In order to be able to return to my research uninterrupted
   As a researcher

@@ -1,6 +1,7 @@
+@washsquarephoto
 Feature: Digital content facet
   As a researcher I want to filter on results
-  that have digital content 
+  that have digital content
   so that I can do research from home.
 
   Scenario: Filter search results by digital content facet

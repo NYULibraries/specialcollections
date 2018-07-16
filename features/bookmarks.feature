@@ -1,3 +1,4 @@
+@OH_002
 Feature: Cite and Email Bookmarks
   In order to cite and share my research
   As a researcher
@@ -9,7 +10,6 @@ Feature: Cite and Email Bookmarks
     And I should see search results
     And I check "Bookmark" for the first result
 
-  @wip
   Scenario: Adding a bookmark from brief results
     Given I click on the "Your Bookmarks" link
     Then I should see "Ben Alexrod" saved in my bookmarks
@@ -37,7 +37,6 @@ Feature: Cite and Email Bookmarks
       1. Ben Alexrod, Oct 4, 1979; OH.002; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
       """
 
-  @wip
   Scenario: Emailing a bookmark
     Given I am on the bookmarks page
     When I click on the "Email" button

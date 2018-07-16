@@ -1,3 +1,4 @@
+@OH_002
 Feature: Place facet
   In order to identify which materials are most relevant
   As a researcher
@@ -13,5 +14,3 @@ Feature: Place facet
     When I search on the phrase "carroll"
     And I limit my search to "Oxford (England)." under the "Place" category
     Then I should see search results
-
-

@@ -1,3 +1,4 @@
+@washsquarephoto @OH_002 @bloch @kopit_revised @oconor
 Feature: Facets presence and order
   In order to home in on the information I want
   As a researcher

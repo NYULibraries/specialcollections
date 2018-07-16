@@ -1,3 +1,4 @@
+@bartlett
 Feature: Name facet
   In order to identify which materials are most relevant
   As a researcher
