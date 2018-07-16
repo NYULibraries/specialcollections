@@ -1,9 +1,5 @@
 require 'fileutils'
 require 'findingaids'
-if ENV['RAILS_ENV'] == 'test'
-  require 'webmock'
-  WebMock.allow_net_connect!
-end
 
 namespace :findingaids do
 

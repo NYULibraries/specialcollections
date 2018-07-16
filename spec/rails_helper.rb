@@ -20,8 +20,6 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'database_cleaner'
 
-WebMock.allow_net_connect! if Rails.env.test?
-
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
