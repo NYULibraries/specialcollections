@@ -3,8 +3,8 @@
 # 1) Open up ApplicationController and set the current_user method to a dummy user
 ApplicationController.class_eval do
   def current_user
-    existing_user = User.where(username: FactoryGirl.attributes_for(:user_dev)[:username]).first
-    @current_user ||= (existing_user.blank?) ? FactoryGirl.create(:user_dev) : existing_user
+    existing_user = User.where(username: FactoryBot.attributes_for(:user_dev)[:username]).first
+    @current_user ||= (existing_user.blank?) ? FactoryBot.create(:user_dev) : existing_user
   end
 end
 

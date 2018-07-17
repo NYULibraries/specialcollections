@@ -13,7 +13,7 @@ dc-setup: &dc-setup
 test: &test
   run:
     name: Test
-    command: docker-compose run test rake
+    command: docker-compose run test
 
 version: 2
 jobs:

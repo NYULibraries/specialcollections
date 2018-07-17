@@ -23,7 +23,7 @@ end
 ##
 # Results steps
 Then(/^I should (not )?see search results$/) do |negator|
-  documents = page.find(:css, "#documents").all(:css, ".document")
+  documents = page.find("#documents").all(".document")
   if negator
     expect(documents).to have_exactly(0).items
   else
@@ -39,7 +39,7 @@ end
 
 # Check which option is selected in a dropdown
 Then(/^the results should be sorted by "(.*?)"$/) do |option|
-  find(:css, "#sort-dropdown > button").text.should eq("Sort by #{option}")
+  find("#sort-dropdown > button").text.should eq("Sort by #{option}")
 end
 
 ##
@@ -99,7 +99,7 @@ When(/^I fill-in the field "(.*?)" with the term "(.*?)"$/) do |field, value|
 end
 
 Then(/^I should see exactly (\d+) search result(s)?$/) do |number_of_results, plural|
-  expect(page.find(:css, "#documents").all(:css, ".document")).to have_exactly(number_of_results).items
+  expect(page.find("#documents").all(".document")).to have_exactly(number_of_results).items
 end
 
 Given(/^I select "(.*?)" from the "(.*?)" attributes dropdown$/) do |value, dropdown|
@@ -114,7 +114,7 @@ end
 # => Then that result should be: ...
 Then(/^(those|that) result(s)? should (include|be):$/) do |pronoun, plural, multiple_state, table|
   table.rows_hash.each do |index, result_title|
-    expect(page.find(:css, "#documents")).to have_content result_title
+    expect(page.find("#documents")).to have_content result_title
   end
 end
 

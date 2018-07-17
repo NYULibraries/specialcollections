@@ -38,7 +38,7 @@ h1.page_header {
     font-weight: normal;
     font-size: 120%;
   }
-  h4 {
+  h2 {
     font-weight: normal;
     text-transform: uppercase;
     font-size: 1em;
@@ -82,6 +82,9 @@ button.search-btn {
   background-color: $nyu-purple;
   border-color: $nyu-purple;
 }
+input#advanced-search-submit:hover {
+  color: white;
+}
 
 .toggle_bookmark {
   margin: 0;
@@ -123,6 +126,9 @@ input[type='file'] {
 
 .document {
   border-bottom: 1px solid #efefef;
+  .dl-invert dt {
+    color: #666;
+  }
   dl dd {
     a {
       display: inline;
@@ -142,7 +148,7 @@ input[type='file'] {
   }
 }
 
-h5.index_title > i {
+.index_title > i {
   margin-right: .5em;
 }
 
@@ -169,7 +175,7 @@ dd.blacklight-collection_ssm{
 
 #facets, #advanced_search_facets {
   .top-panel-heading {
-    h4 {
+    .facets-heading {
       font-size: 100%;
       color: #666;
       text-transform: uppercase;

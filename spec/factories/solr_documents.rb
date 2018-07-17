@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :solr_document do
     skip_create
     initialize_with do

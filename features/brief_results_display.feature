@@ -1,3 +1,4 @@
+@OH_002 @bloch @kopit_revised @oconor
 Feature: Brief result display
   In order to be able to pinpoint the item I'm looking for
   As a researcher

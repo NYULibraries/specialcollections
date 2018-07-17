@@ -1,7 +1,6 @@
 # Finding Aids
 
 [![CircleCI](https://circleci.com/gh/NYULibraries/findingaids.svg?style=svg)](https://circleci.com/gh/NYULibraries/findingaids)
-[![Dependency Status](https://gemnasium.com/NYULibraries/findingaids.png)](https://gemnasium.com/NYULibraries/findingaids)
 [![Code Climate](https://codeclimate.com/github/NYULibraries/findingaids.png)](https://codeclimate.com/github/NYULibraries/findingaids)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/findingaids/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/findingaids)
 
@@ -21,14 +20,13 @@ RAILS_ENV=test bundle exec rake
 Or use docker:
 
 ```bash
-docker-compose up -d
 # Run tests
-docker-compose exec test rake
+docker-compose run test
 # Run the dev server
-docker-compose exec dev rails s -b 0.0.0.0
+docker-compose run --service-ports dev
 ```
 
-Then you should be able to go to `http://{docker-machine ip}:3000`.
+Then you should be able to go to `http://localhost:3000`.
 
 ## See it in action!
 

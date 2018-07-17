@@ -1,3 +1,4 @@
+@bickceem @heti @bartlett @oconor
 Feature: Enhanced search relevancy
   In order to get the most relevant materials
   As a researcher

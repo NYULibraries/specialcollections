@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :solr_response, class: Blacklight::Solr::Response do
     skip_create
     initialize_with { new(data, request_params) }

@@ -33,8 +33,8 @@ gem 'compass-rails', '~> 3.0.0'
 gem 'jbuilder', '~> 2.6.0'
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
-gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets', tag: 'v1.0.5'
-gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.1.3'
+gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets', tag: 'v1.1.2'
+gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.2.1'
 gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
@@ -43,19 +43,16 @@ gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.
 gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
 
 # Use Blacklight for searching Solr
-gem 'blacklight', '~> 6.8.0'
+gem 'blacklight', '~> 6.15.0'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search', '~> 6.2.0'
+gem 'blacklight_advanced_search', '~> 6.3.1'
 
 # Use sorted for sorting columns
 gem 'sorted', '~> 2.0'
 
 # Use Dalli for memcached
 gem 'dalli', '~> 2.7.0'
-
-# New Recic for tracking performance
-gem 'newrelic_rpm', '~> 4'
 
 # Comma to download CSV
 gem 'comma', '~> 4.0.0'
@@ -90,15 +87,12 @@ end
 group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', '~> 1.4.5', require: false
-  # Use VCR for testing with deterministic HTTP interactions
-  gem 'vcr', '~> 3.0.3'
-  gem 'webmock', '~> 2.1'
   # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 3.0'
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.5.3'
   # Use factory girl for creating models
-  gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'factory_bot_rails', '~> 4.8.0'
   # Rspec as the test framework
   gem 'rspec-rails', '~> 3'
   gem 'rspec-its', '~> 1.2.0'

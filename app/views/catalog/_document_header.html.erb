@@ -3,10 +3,10 @@
 	 <% # bookmark functions for items/docs -%>
   <%= render_index_doc_actions document, :wrapping_class => "documentFunctions col-md-2" %>
   <% # main title container for doc partial view -%>
-    <h5 class="index_title">
-      <i class="contenttypes-<%= document_icon document %>"></i>
+    <h2 class="index_title">
+      <i class="contenttypes-<%= document_icon document %>" aria-hidden="true"></i>
       <%= link_to_document document, document_show_link_field(document), :counter => (document_counter + 1 + @response.params[:start].to_i) %>
-    </h5>
+    </h2>
 
 
 

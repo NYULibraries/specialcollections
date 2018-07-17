@@ -1,3 +1,4 @@
+@berol
 Feature: Collection facet
   In order to identify materials of interest within a known collection
   As a researcher
