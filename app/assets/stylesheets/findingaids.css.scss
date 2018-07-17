@@ -82,6 +82,9 @@ button.search-btn {
   background-color: $nyu-purple;
   border-color: $nyu-purple;
 }
+input#advanced-search-submit:hover {
+  color: white;
+}
 
 .toggle_bookmark {
   margin: 0;
