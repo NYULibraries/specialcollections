@@ -33,7 +33,7 @@ gem 'compass-rails', '~> 3.0.0'
 gem 'jbuilder', '~> 2.6.0'
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
-gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets'#, tag: 'v1.1.1'
+gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets', tag: 'v1.1.2'
 gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.2.1'
 gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'

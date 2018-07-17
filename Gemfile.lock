@@ -51,6 +51,7 @@ GIT
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_stylesheets.git
   revision: cdb3c1e15e6ef178dc244b9b82201736a3330285
+  tag: v1.1.2
   specs:
     nyulibraries_stylesheets (1.1.2)
       bootstrap-sass (~> 3.2)
