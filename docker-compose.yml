@@ -6,9 +6,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./eads:/app/eads
-      - ./vendor:/app/vendor
-      - ./app:/app/app
+      # - ./eads:/app/eads
+      # - ./vendor:/app/vendor
+      # - ./app:/app/app
+      - bundle_cache:/bundle
     env_file:
       - test.env
     # command: "tail -f /dev/null"
@@ -20,6 +21,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.test
+    volumes:
+      # - .:/app
+      - bundle_cache:/bundle
     environment:
       RAILS_ENV: test
       CI:
@@ -36,6 +40,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.test
+    volumes:
+      - bundle_cache:/bundle
     environment:
       RAILS_ENV: test
     env_file:
@@ -47,6 +53,8 @@ services:
 
   setup_dbs:
     build: .
+    volumes:
+      - bundle_cache:/bundle
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
@@ -65,3 +73,6 @@ services:
     image: nyulibraries/specialcollections-solr:test
     expose:
       - "8983"
+
+volumes:
+  bundle_cache:
