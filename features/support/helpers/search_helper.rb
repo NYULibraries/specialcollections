@@ -10,6 +10,8 @@ module FindingaidsFeatures
         click_on(category) unless category == "Library"
         find("a", text: facet).hover
         click_on(facet)
+        # save_and_open_screenshot
+        sleep 1 # Uhhhh... hack
       end
     end
 

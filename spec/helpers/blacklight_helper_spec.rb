@@ -19,4 +19,16 @@ describe BlacklightHelper do
       it { should eql( "<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/testead/dsc.html#123\">No Title</a>") }
     end
   end
+
+  describe '#render_filter_name' do
+    let(:name) { 'Title' }
+    subject { helper.render_filter_name(name)}
+    context 'when name is a simple string' do
+      it { should eql '<span class="filterName">Title:</span>' }
+    end
+    context 'when name is a hash' do
+      let(:name) { { default: 'Keyword' } }
+      it { should eql '<span class="filterName">Keyword:</span>' }
+    end
+  end
 end

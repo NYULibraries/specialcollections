@@ -2,6 +2,7 @@ module BlacklightHelper
   # Make our application helper functions available to core blacklight views
   include ApplicationHelper
   include Blacklight::BlacklightHelperBehavior
+  include Blacklight::SearchHistoryConstraintsHelperBehavior
   include Findingaids::Solr::CatalogHelpers::ClassMethods
 
   # Change link to document to link out to external guide
@@ -36,6 +37,16 @@ module BlacklightHelper
       repository: nil,
       f: nil
     ))
+  end
+
+  ##
+  # Render the name of the facet
+  #
+  # Overridden to account for name in format {:default=>"Keyword"}
+  def render_filter_name(name)
+    return "".html_safe if name.blank?
+    name = (name.is_a?Hash) ? name.try(:first).try(:last) : name
+    content_tag(:span, t('blacklight.search.filters.label', :label => name), :class => 'filterName')
   end
 
   protected
