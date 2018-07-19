@@ -1,10 +1,6 @@
 FROM ruby:2.3.6
 
 ENV INSTALL_PATH /app
-ENV BUNDLE_PATH=/bundle \
-    BUNDLE_BIN=/bundle/bin \
-    GEM_HOME=/bundle
-ENV PATH="${BUNDLE_BIN}:${PATH}"
 
 # Essential dependencies
 RUN apt-get update -qq && apt-get install -y \
@@ -30,6 +26,10 @@ RUN chmod a+x /tmp/wait-for-it.sh
 RUN mkdir -p ~/.ssh
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
-RUN gem install bundler -v 1.16.3
-
 COPY --chown=docker:docker . .
+
+ENV BUNDLE_PATH=/bundle \
+    BUNDLE_BIN=/bundle/bin \
+    GEM_HOME=/bundle
+ENV PATH="${BUNDLE_BIN}:${PATH}"
+RUN gem install bundler -v 1.16.3
