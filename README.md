@@ -23,7 +23,7 @@ Or use docker:
 # Run tests
 docker-compose run test
 # Run the dev server
-docker-compose run --service-ports dev
+docker-compose up dev
 ```
 
 Then you should be able to go to `http://localhost:3000`.
