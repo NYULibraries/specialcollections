@@ -13,7 +13,7 @@ dc-setup: &dc-setup
 test: &test
   run:
     name: Test
-    command: docker-compose up test
+    command: docker-compose up --abort-on-container-exit test
 
 version: 2
 jobs:
