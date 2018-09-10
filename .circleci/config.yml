@@ -41,18 +41,61 @@ jobs:
           command: |
             docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
 
-  reindex_changed_since_yesterday:
+  reindex_changed_since_yesterday-dev:
     <<: *docker-defaults
     steps:
       - checkout
       - setup_remote_docker
       - <<: *dc-setup
       - run:
-          name: Reindex EADS changed in past 24 hours
+          name: Reindex EADS changed in past 24 hours into development index
           command: |
-            docker-compose run -d --name findingaids_reindex reindex
-            docker exec findingaids_reindex git clone https://github.com/NYULibraries/findingaids_eads.git findingaids_eads
-            docker exec -e "RAILS_ENV=production" -e "SOLR_URL=$PRODUCTION_SOLR_URL" -e "SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE" findingaids_reindex rake ead_indexer:reindex_changed_since_yesterday
+            export RAILS_ENV=staging
+            export SOLR_URL=$SHARED_SOLR_URL
+            export SECRET_KEY_BASE=$DEV_SECRET_KEY_BASE
+            docker-compose run reindex rake ead_indexer:reindex_changed_since_yesterday
+
+  reindex_changed_since_yesterday-prod:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - run:
+          name: Reindex EADS changed in past 24 hours into production index
+          command: |
+            export RAILS_ENV=production
+            export SOLR_URL=$SHARED_SOLR_URL
+            export SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE
+            docker-compose run reindex rake ead_indexer:reindex_changed_since_yesterday
+
+  reindex_changed_since_last_week-dev:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - run:
+          name: Reindex EADS changed in past week into development index
+          command: |
+            export RAILS_ENV=staging
+            export SOLR_URL=$SHARED_SOLR_URL
+            export SECRET_KEY_BASE=$DEV_SECRET_KEY_BASE
+            docker-compose run reindex rake ead_indexer:reindex_changed_since_last_week
+
+  reindex_changed_since_last_week-prod:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *dc-setup
+      - run:
+          name: Reindex EADS changed in past week into production index
+          command: |
+            export RAILS_ENV=production
+            export SOLR_URL=$SHARED_SOLR_URL
+            export SECRET_KEY_BASE=$PRODUCTION_SECRET_KEY_BASE
+            docker-compose run reindex rake ead_indexer:reindex_changed_since_last_week
 
 workflows:
   version: 2
@@ -61,7 +104,9 @@ workflows:
       - deploy-dev:
           filters:
             branches:
-              ignore: master
+              ignore:
+                - master
+                - feature/move_crons_to_circle
       - deploy-prod:
           filters:
             branches:
@@ -69,10 +114,24 @@ workflows:
   reindex_nightly:
     triggers:
       - schedule:
-          cron: "0 4 * * *"
+          # cron: "0 4 * * *"
+          cron: "* * * * *"
           filters:
             branches:
               only:
                 - feature/move_crons_to_circle
     jobs:
-      - reindex_changed_since_yesterday
+      - reindex_changed_since_yesterday-dev
+      - reindex_changed_since_yesterday-prod
+  reindex_weekly:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 6"
+          # cron: "* * * * *"
+          filters:
+            branches:
+              only:
+                - feature/move_crons_to_circle
+    jobs:
+      - reindex_changed_since_last_week-dev
+      - reindex_changed_since_last_week-prod
