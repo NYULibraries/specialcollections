@@ -1,6 +1,7 @@
 FROM ruby:2.3.6
 
 ENV INSTALL_PATH /app
+ARG reindex_env="false"
 
 # Essential dependencies
 RUN apt-get update -qq && apt-get install -y \
@@ -27,6 +28,8 @@ RUN mkdir -p ~/.ssh
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 COPY --chown=docker:docker . .
+
+RUN sh -c 'if [ "$reindex_env" = true ]; then git clone https://github.com/NYULibraries/findingaids_eads.git findingaids_eads; fi'
 
 ENV BUNDLE_PATH=/bundle \
     BUNDLE_BIN=/bundle/bin \
