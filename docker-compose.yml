@@ -22,7 +22,7 @@ services:
       FINDINGAIDS_LOG: STDOUT
       SOLR_URL:
       SECRET_KEY_BASE:
-      RAILS_ENV: production
+      RAILS_ENV:
     command: "tail -f /dev/null"
 
   test:
