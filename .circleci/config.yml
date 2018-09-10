@@ -125,8 +125,8 @@ workflows:
   reindex_weekly:
     triggers:
       - schedule:
-          # cron: "0 0 * * 6"
-          cron: "* * * * *"
+          cron: "0 0 * * 6"
+          # cron: "* * * * *"
           filters:
             branches:
               only:
