@@ -1,14 +1,7 @@
 docker-defaults: &docker-defaults
   docker:
-    - image: docker:18.03.0-ce-git
+    - image: nyulibraries/circleci_docker:18.06.1-ce-git
   working_directory: ~/app
-
-dc-setup: &dc-setup
-  run:
-    name: Setup docker-compose dependency
-    command: |
-      apk add --no-cache python3
-      pip3 install docker-compose==1.20.1
 
 test: &test
   run:
@@ -22,7 +15,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - <<: *test
       - run:
           name: Deploy into staging via Jenkins
@@ -34,7 +26,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - <<: *test
       - run:
           name: Deploy into production via Jenkins
@@ -46,7 +37,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - run:
           no_output_timeout: 5h
           name: Reindex EADS changed in past 24 hours into production index
@@ -61,7 +51,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - run:
           no_output_timeout: 2h
           name: Reindex EAD changed in the last commit
@@ -76,7 +65,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - run:
           no_output_timeout: 1h
           name: Reindex EAD changed in the last commit
