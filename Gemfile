@@ -88,7 +88,7 @@ group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', '~> 1.4.5', require: false
   # Use Selenium as the web driver for Cucumber
-  gem 'selenium-webdriver', '~> 3.0'
+  gem 'selenium-webdriver', '~> 3.14'
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.5.3'
   # Use factory girl for creating models
@@ -109,6 +109,6 @@ group :test do
 end
 
 group :development, :test do
-  gem 'solr_wrapper', '>= 0.3'
-  gem 'pry'
+  gem 'solr_wrapper', '~> 1'
+  gem 'pry', '~> 0'
 end
