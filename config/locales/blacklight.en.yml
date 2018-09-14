@@ -3,6 +3,7 @@ en:
     application_name: 'NYU Division of Libraries'
     search:
       form:
+        q_label: "Search for names, places, subjects, material types..."
         q: "Names, places, subjects, material types..."
       facets:
         default_title: 'Browse all'
