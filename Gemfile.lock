@@ -59,11 +59,11 @@ GIT
 
 GIT
   remote: https://github.com/NYULibraries/nyulibraries_templates.git
-  revision: b7c7c2ab23643e7ab6e798e117fe0152045f4534
-  tag: v1.2.1
+  revision: cdd9721d0fac0386562f34927d81fec80b435109
+  tag: v1.2.3
   specs:
-    nyulibraries_templates (1.2.1)
-      rails (>= 4)
+    nyulibraries_templates (1.2.3)
+      rails (>= 4, <= 5.2)
 
 GIT
   remote: https://github.com/NYULibraries/omniauth-nyulibraries.git
