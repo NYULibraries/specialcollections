@@ -6,13 +6,6 @@ ENV INSTALL_PATH /app
 RUN apt-get update -qq && apt-get install -y \
       wget
 
-RUN mkdir -p /bundle && chown 1000:2000 /bundle
-
-# Add bundle entry point to handle bundle cache
-COPY ./docker-entrypoint.sh /
-RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
 RUN groupadd -g 2000 docker -r && \
     useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
 USER docker
@@ -26,10 +19,17 @@ RUN chmod a+x /tmp/wait-for-it.sh
 RUN mkdir -p ~/.ssh
 RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+# bundle install
+COPY --chown=docker:docker Gemfile Gemfile.lock ./
+USER root
+RUN bundle config --local github.https true \
+  && gem install bundler && bundle install --jobs 20 --retry 5 \
+  && chown -R docker:docker /usr/local/bundle
+USER docker
+
+# copy source
 COPY --chown=docker:docker . .
 
-ENV BUNDLE_PATH=/bundle \
-    BUNDLE_BIN=/bundle/bin \
-    GEM_HOME=/bundle
-ENV PATH="${BUNDLE_BIN}:${PATH}"
-RUN gem install bundler -v 1.16.3
+RUN rm -rf bin/ && bundle install
+
+CMD bundle exec rails server -b 0.0.0.0
