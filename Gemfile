@@ -25,7 +25,9 @@ gem 'font-awesome-rails', '~> 4.7.0'
 gem 'uglifier', '~> 3.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', '~> 0.12.0'
+group :no_docker do
+  gem 'therubyracer', '~> 0.12.0'
+end
 
 # Use the Compass CSS framework for sprites, etc.
 gem 'compass-rails', '~> 3.0.0'
