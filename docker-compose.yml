@@ -60,6 +60,7 @@ services:
       CI:
       CODECLIMATE_REPO_TOKEN:
       COVERALLS_REPO_TOKEN:
+      SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
     # command: "tail -f /dev/null"
