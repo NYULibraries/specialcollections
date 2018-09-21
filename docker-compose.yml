@@ -101,8 +101,6 @@ services:
 
   solr:
     image: nyulibraries/specialcollections-solr:test
-    expose:
-      - "8983"
 
 volumes:
   bundle_cache:
