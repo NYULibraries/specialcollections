@@ -1,53 +1,36 @@
-FROM ruby:2.3.6
+FROM nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
 
 ENV INSTALL_PATH /app
 
-# Essential dependencies
-RUN apt-get update -qq && apt-get install -y \
-  bzip2 \
-  curl \
-  git \
-  libfontconfig \
-  libfreetype6 \
-  libpython-dev \
-  python \
-  python-pip \
-  vim \
-  wget
-
-RUN pip install --upgrade pip && pip install \
-  awscli
-
-# PhantomJS
-ENV PHANTOMJS_VERSION 2.1.1
-
-RUN wget --no-check-certificate -q -O - https://cnpmjs.org/mirrors/phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 | tar xjC /opt
-RUN ln -s /opt/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
-
 RUN groupadd -g 2000 docker -r && \
-    useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
-USER docker
+  useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
 
 WORKDIR $INSTALL_PATH
+RUN chown docker:docker .
 
-RUN wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh
-RUN chmod a+x /tmp/wait-for-it.sh
+RUN wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh \
+  && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh
+# RUN apk add --no-cache wget \
+#   && wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh \
+#   && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh \
+#   && apk del wget
 
-# Add github to known_hosts
-RUN mkdir -p ~/.ssh
-RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-# bundle install
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-USER root
-RUN bundle config --local github.https true \
-  && gem install bundler && bundle install --jobs 20 --retry 5 \
+# ARG RUN_PACKAGES="bash ca-certificates fontconfig git mariadb-dev nodejs tzdata"
+ARG RUN_PACKAGES="nodejs git ruby-mysql2 default-libmysqlclient-dev"
+# ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
+ARG BUILD_PACKAGES="build-essential zlib1g-dev"
+RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
+  && gem install bundler && bundle config --local github.https true \
+  && bundle install --without non_docker --jobs 20 --retry 5 \
+  && apt-get --purge -y autoremove $BUILD_PACKAGES \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && chown -R docker:docker /usr/local/bundle
+
 USER docker
 
-# copy source
 COPY --chown=docker:docker . .
 
-RUN rm -rf bin/ && bundle install
+RUN bundle install --without non_docker
 
 CMD bundle exec rake
