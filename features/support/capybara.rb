@@ -1,5 +1,5 @@
 # Configure Capybara
-require 'capybara/poltergeist'
+require 'capybara/poltergeist' if ENV['DRIVER'] == "phantomjs"
 
 Capybara.default_max_wait_time = (ENV['MAX_WAIT'] || 30).to_i
 
@@ -17,27 +17,33 @@ def configure_poltergeist
   end
 end
 
-def configure_selenium(browser)
+# configure selenium on chrome headless
+def configure_selenium
   Capybara.register_driver :selenium do |app|
-    profile = Kernel.const_get("Selenium::WebDriver::#{browser.to_s.capitalize}::Profile").new
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: browser.to_sym,
-      profile: profile,
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: {
+        args: %w[ no-sandbox headless disable-gpu window-size=1280,1024]
+      }
     )
+
+    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
   end
 end
 
-if ENV['IN_BROWSER']
-  configure_selenium(:firefox)
-  Capybara.default_driver = :selenium
-  AfterStep do
-    sleep (ENV['PAUSE'] || 0).to_i
-  end
-else
+case ENV['DRIVER']
+# if driver not set, default to poltergeist
+when "phantomjs"
   configure_poltergeist
-  Capybara.default_driver    = :poltergeist
+  Capybara.default_driver = :poltergeist
   Capybara.javascript_driver = :poltergeist
+  Capybara.current_driver = :poltergeist
+  Capybara.default_max_wait_time = (ENV['MAX_WAIT'] || 8).to_i
+# run chrome headless when specified
+when nil, "chrome"
+  configure_selenium
+  Capybara.javascript_driver = :selenium
+  Capybara.default_driver = :selenium
+  Capybara.current_driver = :selenium
 end
 
 Before do

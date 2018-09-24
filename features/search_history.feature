@@ -22,7 +22,7 @@ Feature: Search history and saved searches
     When I search on the phrase "Ramdasha"
     And I search on the phrase "Kimchi"
     And I click on the "Search History" link
-    And I click on the "Clear Search History" button
+    And I click on the "Clear Search History" button, accepting the alert "Clear your search history?"
     Then I should see an alert "Cleared your search history"
     And I should see no search history links
 
@@ -57,6 +57,6 @@ Feature: Search history and saved searches
     And I click on the "Search History" link
     And I click on the "save" button
     And I click on the "Saved Searches" link
-    And I click on the "Clear Saved Searches" button
+    And I click on the "Clear Saved Searches" button, accepting the alert "Clear your saved searches?"
     Then I should see an alert "Cleared your saved searches"
     And I should see no saved searches links
