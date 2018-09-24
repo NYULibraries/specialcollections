@@ -14,5 +14,6 @@ coverage
 solr-test
 nginx
 
+.circleci/
 Dockerfile*
 docker-compose.yml
