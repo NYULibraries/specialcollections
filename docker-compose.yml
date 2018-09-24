@@ -4,7 +4,7 @@ services:
   dev:
     build: .
     ports:
-      - "3000:3000"
+      - "9292:9292"
     volumes:
       # - ./eads:/app/eads
       # - ./vendor:/app/vendor
@@ -13,7 +13,7 @@ services:
     env_file:
       - test.env
     # command: "tail -f /dev/null"
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "./script/start.sh", "development"]
     depends_on:
       - setup_dbs
 
