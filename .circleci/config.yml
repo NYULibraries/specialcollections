@@ -47,6 +47,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - <<: *pull_docker
       - <<: *build_docker
       - <<: *test
       - <<: *push_docker
@@ -60,6 +61,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      - <<: *pull_docker
       - <<: *build_docker
       - <<: *test
       - <<: *push_docker
