@@ -2,23 +2,31 @@ version: '3.6'
 services:
 
   dev:
-    build: .
+    image: findingaids
+    build:
+      context: .
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids
+        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids:latest
     ports:
       - "9292:9292"
-    volumes:
-      # - ./eads:/app/eads
-      # - ./vendor:/app/vendor
-      # - ./app:/app/app
-      - bundle_cache:/bundle
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "./script/start.sh", "development"]
     depends_on:
       - setup_dbs
 
   setup_dbs:
-    build: .
+    image: findingaids
+    build:
+      context: .
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids
+        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids:latest
     env_file:
       - test.env
     command: bash -c "sleep 5; rake db:setup"
@@ -27,9 +35,15 @@ services:
       - db
 
   deploy_dev_assets:
+    image: findingaids_test
     build:
       context: .
       dockerfile: Dockerfile.test
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids_test
+        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids_test:latest
     environment:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
@@ -38,9 +52,15 @@ services:
     command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn-dev.library.nyu.edu/specialcollections --delete"
 
   deploy_prod_assets:
+    image: findingaids_test
     build:
       context: .
       dockerfile: Dockerfile.test
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids_test
+        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids_test:latest
     environment:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
@@ -49,12 +69,15 @@ services:
     command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn.library.nyu.edu/specialcollections --delete"
 
   test:
+    image: findingaids_test
     build:
       context: .
       dockerfile: Dockerfile.test
-    volumes:
-      # - .:/app
-      - bundle_cache:/bundle
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids_test
+        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids_test:latest
     environment:
       RAILS_ENV: test
       CI:
@@ -63,17 +86,20 @@ services:
       SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake"]
     depends_on:
       - setup_test_dbs
 
   setup_test_dbs:
+    image: findingaids_test
     build:
       context: .
       dockerfile: Dockerfile.test
-    volumes:
-      - bundle_cache:/bundle
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids_test
+        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids_test:latest
     environment:
       RAILS_ENV: test
     env_file:
@@ -84,9 +110,14 @@ services:
       - solr
 
   setup_dbs:
-    build: .
-    volumes:
-      - bundle_cache:/bundle
+    image: findingaids
+    build:
+      context: .
+      cache_from:
+        - ruby:2.3.7-alpine
+        - findingaids
+        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+        - nyulibraries/findingaids:latest
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
