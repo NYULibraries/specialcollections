@@ -1,15 +1,29 @@
 version: '3.6'
+
+x-build_default: &build_default
+  build:
+    context: .
+    cache_from:
+      - ruby:2.3.7-alpine
+      - findingaids
+      - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+      - nyulibraries/findingaids:latest
+
+x-build_test: &build_test
+  build:
+    context: .
+    dockerfile: Dockerfile.test
+    cache_from:
+      - nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
+      - findingaids_test
+      - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
+      - nyulibraries/findingaids_test:latest
+
 services:
 
   dev:
     image: findingaids
-    build:
-      context: .
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids
-        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids:latest
+    <<: *build_default
     ports:
       - "9292:9292"
     env_file:
@@ -20,13 +34,7 @@ services:
 
   setup_dbs:
     image: findingaids
-    build:
-      context: .
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids
-        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids:latest
+    <<: *build_default
     env_file:
       - test.env
     command: bash -c "sleep 5; rake db:setup"
@@ -36,14 +44,7 @@ services:
 
   deploy_dev_assets:
     image: findingaids_test
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids_test
-        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids_test:latest
+    <<: *build_test
     environment:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
@@ -53,14 +54,7 @@ services:
 
   deploy_prod_assets:
     image: findingaids_test
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids_test
-        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids_test:latest
+    <<: *build_test
     environment:
       AWS_ACCESS_KEY_ID:
       AWS_SECRET_ACCESS_KEY:
@@ -70,14 +64,7 @@ services:
 
   test:
     image: findingaids_test
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids_test
-        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids_test:latest
+    <<: *build_test
     environment:
       RAILS_ENV: test
       CI:
@@ -92,14 +79,7 @@ services:
 
   setup_test_dbs:
     image: findingaids_test
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids_test
-        - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids_test:latest
+    <<: *build_test
     environment:
       RAILS_ENV: test
     env_file:
@@ -111,13 +91,7 @@ services:
 
   setup_dbs:
     image: findingaids
-    build:
-      context: .
-      cache_from:
-        - ruby:2.3.7-alpine
-        - findingaids
-        - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-        - nyulibraries/findingaids:latest
+    <<: *build_default
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
