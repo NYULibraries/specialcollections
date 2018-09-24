@@ -1,4 +1,4 @@
-FROM ruby:2.3.6-alpine
+FROM ruby:2.3.7-alpine
 
 ENV INSTALL_PATH /app
 
@@ -14,8 +14,8 @@ RUN apk add --no-cache wget \
   && apk del wget
 
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-ARG RUN_PACKAGES="bash ca-certificates fontconfig git mariadb-dev nodejs tzdata python"
-ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev"
+ARG RUN_PACKAGES="bash ca-certificates fontconfig git mariadb-dev nodejs tzdata"
+ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && bundle config --local github.https true \
   && gem install bundler && bundle install --without non_docker --jobs 20 --retry 5 \
@@ -30,6 +30,6 @@ COPY --chown=docker:docker . .
 
 RUN bundle install --without non_docker
 
-EXPOSE 3000
+EXPOSE 9292
 
 CMD ./scripts/start.sh development

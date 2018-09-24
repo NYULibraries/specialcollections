@@ -13,3 +13,6 @@ coverage
 .sekrets.key
 solr-test
 nginx
+
+Dockerfile*
+docker-compose.yml
