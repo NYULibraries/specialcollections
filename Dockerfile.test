@@ -10,20 +10,14 @@ RUN chown docker:docker .
 
 RUN wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh \
   && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh
-# RUN apk add --no-cache wget \
-#   && wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh \
-#   && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh \
-#   && apk del wget
 
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-# ARG RUN_PACKAGES="bash ca-certificates fontconfig git mariadb-dev nodejs tzdata"
 ARG RUN_PACKAGES="nodejs git ruby-mysql2 default-libmysqlclient-dev"
-# ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
 ARG BUILD_PACKAGES="build-essential zlib1g-dev"
 RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
   && gem install bundler -v '1.16.5' \
   && bundle config --local github.https true \
-  && bundle install --without non_docker --jobs 20 --retry 5 --deployment \
+  && bundle install --without non_docker --jobs 20 --retry 5 \
   && rm -rf /root/.bundle && rm -rf /root/.gem \
   && rm -rf /usr/local/bundle/cache \
   && apt-get --purge -y autoremove $BUILD_PACKAGES \
@@ -33,5 +27,6 @@ RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES
 USER docker
 
 COPY --chown=docker:docker . .
+RUN bundle exec rake assets:precompile
 
 CMD bundle exec rake

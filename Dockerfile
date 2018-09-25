@@ -19,7 +19,7 @@ ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && gem install bundler -v '1.16.5' \
   && bundle config --local github.https true \
-  && bundle install --without non_docker --jobs 20 --retry 5 --deployment \
+  && bundle install --without non_docker --jobs 20 --retry 5 \
   && rm -rf /root/.bundle && rm -rf /root/.gem \
   && rm -rf /usr/local/bundle/cache \
   && apk del $BUILD_PACKAGES \
@@ -28,6 +28,7 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
 USER docker
 
 COPY --chown=docker:docker . .
+RUN bundle exec rake assets:precompile
 
 EXPOSE 9292
 

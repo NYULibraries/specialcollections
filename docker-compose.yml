@@ -42,26 +42,6 @@ services:
       - solr
       - db
 
-  deploy_dev_assets:
-    image: findingaids_test
-    <<: *build_test
-    environment:
-      AWS_ACCESS_KEY_ID:
-      AWS_SECRET_ACCESS_KEY:
-      RAILS_ENV: "staging"
-      SECRET_KEY_BASE:
-    command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn-dev.library.nyu.edu/specialcollections --delete"
-
-  deploy_prod_assets:
-    image: findingaids_test
-    <<: *build_test
-    environment:
-      AWS_ACCESS_KEY_ID:
-      AWS_SECRET_ACCESS_KEY:
-      RAILS_ENV: "production"
-      SECRET_KEY_BASE:
-    command: "bundle exec rake assets:precompile && aws s3 sync public/assets s3://cdn.library.nyu.edu/specialcollections --delete"
-
   test:
     image: findingaids_test
     <<: *build_test
@@ -106,6 +86,3 @@ services:
 
   solr:
     image: nyulibraries/specialcollections-solr:test
-
-volumes:
-  bundle_cache:
