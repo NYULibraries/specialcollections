@@ -12,12 +12,12 @@ RUN wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnu
   && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh
 
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-ARG RUN_PACKAGES="nodejs git ruby-mysql2 default-libmysqlclient-dev"
-ARG BUILD_PACKAGES="build-essential zlib1g-dev"
+ARG RUN_PACKAGES="nodejs ruby-mysql2 default-libmysqlclient-dev"
+ARG BUILD_PACKAGES="build-essential zlib1g-dev git"
 RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
   && gem install bundler -v '1.16.5' \
   && bundle config --local github.https true \
-  && bundle install --without non_docker --jobs 20 --retry 5 \
+  && bundle install --without non_docker --jobs 20 --retry 5 --binstubs \
   && rm -rf /root/.bundle && rm -rf /root/.gem \
   && rm -rf /usr/local/bundle/cache \
   && apt-get --purge -y autoremove $BUILD_PACKAGES \

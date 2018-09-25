@@ -37,6 +37,8 @@ vendor/nyulibraries_*
 nginx
 
 script/rails
+script/cucumber
+bin/
 
 .circleci/
 Dockerfile*
