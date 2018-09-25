@@ -45,7 +45,7 @@ gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.
 gem 'blacklight', '~> 6.15.0'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search', '~> 6.3.1'
+gem 'blacklight_advanced_search', '~> 6.4.0'
 
 # Use sorted for sorting columns
 gem 'sorted', '~> 2.0'
