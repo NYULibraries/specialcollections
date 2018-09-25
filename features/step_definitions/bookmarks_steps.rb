@@ -47,7 +47,7 @@ When(/^I submit the email form$/) do
     fill_in "Message:", with: "Check out these wicked awesome bookmarks"
     click_on "Send"
   end
-  sleep 3
+  expect(page).to have_no_text "Email This"
 end
 
 Then(/^I should see a popup containing the following citation:$/) do |string|
