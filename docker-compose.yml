@@ -73,7 +73,7 @@ services:
       SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rake"]
     depends_on:
       - setup_test_dbs
 

@@ -21,8 +21,11 @@ ARG RUN_PACKAGES="nodejs git ruby-mysql2 default-libmysqlclient-dev"
 # ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
 ARG BUILD_PACKAGES="build-essential zlib1g-dev"
 RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
-  && gem install bundler && bundle config --local github.https true \
-  && bundle install --without non_docker --jobs 20 --retry 5 \
+  && gem install bundler -v '1.16.5' \
+  && bundle config --local github.https true \
+  && bundle install --without non_docker --jobs 20 --retry 5 --deployment \
+  && rm -rf /root/.bundle && rm -rf /root/.gem \
+  && rm -rf /usr/local/bundle/cache \
   && apt-get --purge -y autoremove $BUILD_PACKAGES \
   && apt-get clean && rm -rf /var/lib/apt/lists/* \
   && chown -R docker:docker /usr/local/bundle
@@ -30,7 +33,5 @@ RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES
 USER docker
 
 COPY --chown=docker:docker . .
-
-RUN bundle install --without non_docker
 
 CMD bundle exec rake
