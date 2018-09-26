@@ -34,8 +34,7 @@ RUN bundle exec rake assets:precompile
 # run microscanner
 USER root
 ARG AQUA_MICROSCANNER_TOKEN
-RUN apk add --no-cache ca-certificates && update-ca-certificates && \
-  wget -O /microscanner https://get.aquasec.com/microscanner && \
+RUN wget -O /microscanner https://get.aquasec.com/microscanner && \
   chmod +x /microscanner && \
   /microscanner ${AQUA_MICROSCANNER_TOKEN} && \
   rm -rf /microscanner
