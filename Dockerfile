@@ -13,6 +13,7 @@ RUN apk add --no-cache wget \
   && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh \
   && apk del wget
 
+# bundle install
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
 ARG RUN_PACKAGES="bash ca-certificates fontconfig mariadb-dev nodejs tzdata"
 ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python git"
@@ -25,11 +26,21 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && apk del $BUILD_PACKAGES \
   && chown -R docker:docker /usr/local/bundle
 
+# precompile assets
 USER docker
-
 COPY --chown=docker:docker . .
 RUN bundle exec rake assets:precompile
 
+# run microscanner
+USER root
+ARG AQUA_MICROSCANNER_TOKEN
+RUN apk add --no-cache ca-certificates && update-ca-certificates && \
+  wget -O /microscanner https://get.aquasec.com/microscanner && \
+  chmod +x /microscanner && \
+  /microscanner ${AQUA_MICROSCANNER_TOKEN} && \
+  rm -rf /microscanner
+
+USER docker
 EXPOSE 9292
 
 CMD ./scripts/start.sh development
