@@ -30,19 +30,9 @@ services:
       - "9292:9292"
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "./script/start.sh", "development"]
+    command: ["./script/start.sh", "development"]
     depends_on:
       - setup_dbs
-
-  setup_dbs:
-    image: findingaids
-    <<: *build_default
-    env_file:
-      - test.env
-    command: bash -c "sleep 5; rake db:setup"
-    depends_on:
-      - solr
-      - db
 
   test:
     image: findingaids_test
@@ -55,7 +45,7 @@ services:
       SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rake"]
+    command: ["bundle", "exec", "rake"]
     depends_on:
       - setup_test_dbs
 
