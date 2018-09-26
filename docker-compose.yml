@@ -3,6 +3,8 @@ version: '3.6'
 x-build_default: &build_default
   build:
     context: .
+    args:
+      - AQUA_MICROSCANNER_TOKEN
     cache_from:
       - ruby:2.3.7-alpine
       - findingaids
