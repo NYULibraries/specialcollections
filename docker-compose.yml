@@ -1,6 +1,7 @@
 version: '3.6'
 
 x-build_default: &build_default
+  image: findingaids
   build:
     context: .
     args:
@@ -12,6 +13,7 @@ x-build_default: &build_default
       - nyulibraries/findingaids:latest
 
 x-build_test: &build_test
+  image: findingaids_test
   build:
     context: .
     dockerfile: Dockerfile.test
@@ -24,7 +26,6 @@ x-build_test: &build_test
 services:
 
   dev:
-    image: findingaids
     <<: *build_default
     ports:
       - "9292:9292"
@@ -35,7 +36,6 @@ services:
       - setup_dbs
 
   test:
-    image: findingaids_test
     <<: *build_test
     environment:
       RAILS_ENV: test
@@ -50,7 +50,6 @@ services:
       - setup_test_dbs
 
   setup_test_dbs:
-    image: findingaids_test
     <<: *build_test
     environment:
       RAILS_ENV: test
@@ -62,7 +61,6 @@ services:
       - solr
 
   setup_dbs:
-    image: findingaids
     <<: *build_default
     env_file:
       - test.env
