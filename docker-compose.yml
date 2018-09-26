@@ -32,8 +32,6 @@ services:
     env_file:
       - test.env
     command: ["./script/start.sh", "development"]
-    depends_on:
-      - setup_dbs
 
   test:
     <<: *build_test
@@ -61,7 +59,7 @@ services:
       - solr
 
   setup_dbs:
-    <<: *build_default
+    <<: *build_test
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]

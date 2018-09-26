@@ -8,14 +8,9 @@ RUN addgroup -g 1000 -S docker && \
 WORKDIR $INSTALL_PATH
 RUN chown docker:docker .
 
-RUN apk add --no-cache wget \
-  && wget --no-check-certificate -q -O - https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh > /tmp/wait-for-it.sh \
-  && chown docker:docker /tmp/wait-for-it.sh && chmod a+x /tmp/wait-for-it.sh \
-  && apk del wget
-
 # bundle install
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-ARG RUN_PACKAGES="bash ca-certificates fontconfig mariadb-dev nodejs tzdata"
+ARG RUN_PACKAGES="ca-certificates fontconfig mariadb-dev nodejs tzdata"
 ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python git"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && gem install bundler -v '1.16.5' \
