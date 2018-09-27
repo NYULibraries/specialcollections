@@ -24,12 +24,14 @@ module Findingaids
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # output rails logs to unicorn; thanks to https://gist.github.com/soultech67/67cf623b3fbc732291a2
-    config.unicorn_logger = Logger.new(STDOUT)
-    config.unicorn_logger.formatter = Logger::Formatter.new
-    config.logger = ActiveSupport::TaggedLogging.new(config.unicorn_logger)
+    unless Rails.env.test?
+      config.unicorn_logger = Logger.new(STDOUT)
+      config.unicorn_logger.formatter = Logger::Formatter.new
+      config.logger = ActiveSupport::TaggedLogging.new(config.unicorn_logger)
 
-    config.logger.level = Logger.const_get('INFO')
-    config.log_level = :info
+      config.logger.level = Logger.const_get('INFO')
+      config.log_level = :info
+    end
   end
 end
 
