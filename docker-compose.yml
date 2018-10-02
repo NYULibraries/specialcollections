@@ -1,45 +1,29 @@
 version: '3.6'
 
-x-build_default_build_args: &build_default_build_args
-  context: .
-  args:
-    - AQUA_MICROSCANNER_TOKEN
-    - ASSETS_RAILS_ENV=development
-  cache_from:
-    - ruby:2.3.7-alpine
-    - findingaids
-    - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-    - nyulibraries/findingaids:latest
-
 x-build_default: &build_default
-  image: findingaids
+  image: specialcollections
   build:
-    <<: *build_default_build_args
-
-x-build_staging: &build_staging
-  image: findingaids_staging
-  build:
-    <<: *build_default_build_args
+    context: .
     args:
       - AQUA_MICROSCANNER_TOKEN
-      - ASSETS_RAILS_ENV=staging
-
-x-build_production: &build_production
-  image: findingaids_production
-  build:
-    <<: *build_default_build_args
-    args:
-      - AQUA_MICROSCANNER_TOKEN
-      - ASSETS_RAILS_ENV=production
+    cache_from:
+      - ruby:2.3.7-alpine
+      - specialcollections
+      - nyulibraries/specialcollections:${BRANCH_NO_SLASH}
+      - nyulibraries/specialcollections:latest
+      - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+      - nyulibraries/findingaids:latest
 
 x-build_test: &build_test
-  image: findingaids_test
+  image: specialcollections_test
   build:
     context: .
     dockerfile: Dockerfile.test
     cache_from:
       - nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
-      - findingaids_test
+      - specialcollections_test
+      - nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
+      - nyulibraries/specialcollections_test:latest
       - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
       - nyulibraries/findingaids_test:latest
 
@@ -49,24 +33,6 @@ services:
     <<: *build_default
     ports:
       - "9292:9292"
-    env_file:
-      - test.env
-    command: ["./script/start.sh", "development"]
-
-  staging:
-    <<: *build_staging
-    ports:
-      - "9293:9292"
-    env_file:
-      - test.env
-    environment:
-      RAILS_ENV: staging
-    command: ["./script/start.sh", "staging"]
-
-  production:
-    <<: *build_production
-    ports:
-      - "9294:9292"
     env_file:
       - test.env
     command: ["./script/start.sh", "production"]
