@@ -38,6 +38,7 @@ nginx
 
 script/rails
 script/cucumber
+script/push_docker.sh
 
 .circleci/
 Dockerfile*

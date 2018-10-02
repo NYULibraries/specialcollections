@@ -26,19 +26,7 @@ push_docker: &push_docker
   run:
     name: Push Docker
     command: |
-      docker tag findingaids nyulibraries/findingaids:${CIRCLE_BRANCH//\//_}
-      docker tag findingaids nyulibraries/findingaids:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker tag findingaids nyulibraries/findingaids:latest
-      docker tag findingaids_test nyulibraries/findingaids_test:${CIRCLE_BRANCH//\//_}
-      docker tag findingaids_test nyulibraries/findingaids_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker tag findingaids_test nyulibraries/findingaids_test:latest
-      docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-      docker push nyulibraries/findingaids:${CIRCLE_BRANCH//\//_}
-      docker push nyulibraries/findingaids:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker push nyulibraries/findingaids:latest
-      docker push nyulibraries/findingaids_test:${CIRCLE_BRANCH//\//_}
-      docker push nyulibraries/findingaids_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker push nyulibraries/findingaids_test:latest
+      script/push_docker.sh
 
 version: 2
 jobs:

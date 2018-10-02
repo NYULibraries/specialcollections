@@ -1,16 +1,36 @@
 version: '3.6'
 
+x-build_default_build_args: &build_default_build_args
+  context: .
+  args:
+    - AQUA_MICROSCANNER_TOKEN
+    - ASSETS_RAILS_ENV=development
+  cache_from:
+    - ruby:2.3.7-alpine
+    - findingaids
+    - nyulibraries/findingaids:${BRANCH_NO_SLASH}
+    - nyulibraries/findingaids:latest
+
 x-build_default: &build_default
   image: findingaids
   build:
-    context: .
+    <<: *build_default_build_args
+
+x-build_staging: &build_staging
+  image: findingaids_staging
+  build:
+    <<: *build_default_build_args
     args:
       - AQUA_MICROSCANNER_TOKEN
-    cache_from:
-      - ruby:2.3.7-alpine
-      - findingaids
-      - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-      - nyulibraries/findingaids:latest
+      - ASSETS_RAILS_ENV=staging
+
+x-build_production: &build_production
+  image: findingaids_production
+  build:
+    <<: *build_default_build_args
+    args:
+      - AQUA_MICROSCANNER_TOKEN
+      - ASSETS_RAILS_ENV=production
 
 x-build_test: &build_test
   image: findingaids_test
@@ -32,6 +52,22 @@ services:
     env_file:
       - test.env
     command: ["./script/start.sh", "development"]
+
+  staging:
+    <<: *build_staging
+    ports:
+      - "9292:9292"
+    env_file:
+      - test.env
+    command: ["./script/start.sh", "staging"]
+
+  production:
+    <<: *build_production
+    ports:
+      - "9292:9292"
+    env_file:
+      - test.env
+    command: ["./script/start.sh", "production"]
 
   test:
     <<: *build_test

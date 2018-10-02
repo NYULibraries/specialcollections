@@ -22,10 +22,13 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && apk del $BUILD_PACKAGES \
   && chown -R docker:docker /usr/local/bundle
 
-# precompile assets
+# precompile assets; use temporary secret token to silence error, real token set at runtime
 USER docker
 COPY --chown=docker:docker . .
-RUN bundle exec rake assets:precompile
+ARG ASSETS_RAILS_ENV
+RUN RAILS_ENV=$ASSETS_RAILS_ENV \
+  SECRET_TOKEN=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
+  bundle exec rake assets:precompile
 
 # run microscanner
 USER root
