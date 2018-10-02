@@ -56,15 +56,17 @@ services:
   staging:
     <<: *build_staging
     ports:
-      - "9292:9292"
+      - "9293:9292"
     env_file:
       - test.env
+    environment:
+      RAILS_ENV: staging
     command: ["./script/start.sh", "staging"]
 
   production:
     <<: *build_production
     ports:
-      - "9292:9292"
+      - "9294:9292"
     env_file:
       - test.env
     command: ["./script/start.sh", "production"]
