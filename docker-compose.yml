@@ -11,8 +11,6 @@ x-build_default: &build_default
       - specialcollections
       - nyulibraries/specialcollections:${BRANCH_NO_SLASH}
       - nyulibraries/specialcollections:latest
-      - nyulibraries/findingaids:${BRANCH_NO_SLASH}
-      - nyulibraries/findingaids:latest
 
 x-build_test: &build_test
   image: specialcollections_test
@@ -24,8 +22,6 @@ x-build_test: &build_test
       - specialcollections_test
       - nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
       - nyulibraries/specialcollections_test:latest
-      - nyulibraries/findingaids_test:${BRANCH_NO_SLASH}
-      - nyulibraries/findingaids_test:latest
 
 services:
 
