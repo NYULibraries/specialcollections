@@ -31,3 +31,7 @@ module Findingaids
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
   end
 end
+
+Raven.configure do |config|
+  config.dsn = ENV['SENTRY_DSN']
+end
