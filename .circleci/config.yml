@@ -1,14 +1,7 @@
 docker-defaults: &docker-defaults
   docker:
-    - image: docker:18.03.0-ce-git
+    - image: nyulibraries/circleci_docker:18.06.1-ce-git
   working_directory: ~/app
-
-dc-setup: &dc-setup
-  run:
-    name: Setup docker-compose dependency
-    command: |
-      apk add --no-cache python3
-      pip3 install docker-compose==1.20.1
 
 test: &test
   run:
@@ -22,7 +15,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - <<: *test
       - run:
           name: Deploy into staging via Jenkins
@@ -34,12 +26,22 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
       - <<: *test
       - run:
           name: Deploy into production via Jenkins
           command: |
             docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
+
+  reindex_changed:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          no_output_timeout: 2h
+          name: Reindex EAD changed in the last commit
+          command: |
+            echo "Disabled for now"
 
 workflows:
   version: 2
@@ -48,7 +50,9 @@ workflows:
       - deploy-dev:
           filters:
             branches:
-              ignore: master
+              ignore:
+                - master
+                - feature/move_crons_to_circle
       - deploy-prod:
           filters:
             branches:

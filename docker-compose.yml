@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.2'
 services:
 
   dev:
@@ -6,23 +6,30 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      # - ./eads:/app/eads
-      # - ./vendor:/app/vendor
-      # - ./app:/app/app
       - bundle_cache:/bundle
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
     depends_on:
       - setup_dbs
+
+  reindex:
+    build:
+      context: .
+      args:
+        reindex_env: "true"
+    environment:
+      FINDINGAIDS_LOG: STDOUT
+      SOLR_URL:
+      SECRET_KEY_BASE:
+      RAILS_ENV:
+    command: "tail -f /dev/null"
 
   test:
     build:
       context: .
       dockerfile: Dockerfile.test
     volumes:
-      # - .:/app
       - bundle_cache:/bundle
     environment:
       RAILS_ENV: test
@@ -31,7 +38,6 @@ services:
       COVERALLS_REPO_TOKEN:
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake"]
     depends_on:
       - setup_test_dbs
