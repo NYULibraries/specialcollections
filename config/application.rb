@@ -2,9 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
-# Load the figs variables before the rest of the bundle
-# so we can use env vars in other gems
-unless Rails.env.test?
+unless Rails.env.test? || ENV['DOCKER']
   require 'figs'
   Figs.load(stage: Rails.env)
 end
@@ -29,6 +27,16 @@ module Findingaids
 
     # Autoload the lib path
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
+
+    # output rails logs to unicorn; thanks to https://gist.github.com/soultech67/67cf623b3fbc732291a2
+    if ENV['DOCKER'] && !Rails.env.test?
+      config.unicorn_logger = Logger.new(STDOUT)
+      config.unicorn_logger.formatter = Logger::Formatter.new
+      config.logger = ActiveSupport::TaggedLogging.new(config.unicorn_logger)
+
+      config.logger.level = Logger.const_get('INFO')
+      config.log_level = :info
+    end
   end
 end
 

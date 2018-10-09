@@ -25,7 +25,9 @@ gem 'font-awesome-rails', '~> 4.7.0'
 gem 'uglifier', '~> 3.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', '~> 0.12.0'
+group :no_docker do
+  gem 'therubyracer', '~> 0.12.0'
+end
 
 # Use the Compass CSS framework for sprites, etc.
 gem 'compass-rails', '~> 3.0.0'
@@ -39,14 +41,11 @@ gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
 
-# Deploy the application with Formaggio deploy recipes
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.7.2'
-
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.15.0'
 
 # Use the Blacklight Advanced Search
-gem 'blacklight_advanced_search', '~> 6.3.1'
+gem 'blacklight_advanced_search', '~> 6.4.0'
 
 # Use sorted for sorting columns
 gem 'sorted', '~> 2.0'
@@ -77,6 +76,10 @@ gem 'devise', '~> 4.3.0'
 gem 'faraday', '~> 0.9.0'
 
 gem "sentry-raven", '~> 2'
+
+gem 'unicorn', '~> 5.3.0'
+
+gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.8.0'
 
 group :development do
   gem 'better_errors', '~> 2.1.0'

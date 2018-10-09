@@ -50,13 +50,13 @@ end
 
 Then(/^I should see results from "(.*?)"$/) do |library|
   within("#documents") do
-    page.should have_selector(:link,"#{library}")
+    expect(page).to have_link library
   end
 end
 
 Then(/^I should not see results from "(.*?)"$/) do |library|
   within("#documents") do
-    page.should_not have_selector(:link,"#{library}")
+    expect(page).to have_no_link library
   end
 end
 

@@ -8,11 +8,7 @@ module FindingaidsFeatures
     def limit_by_facet(category, facet, facets_id = "facets")
       within(:css, "\##{facets_id}") do
         click_on(category) unless category == "Library"
-        sleep 2
-        # find("a", text: facet).hover
         click_on(facet)
-        # save_and_open_screenshot
-        sleep 5 # Uhhhh... hack
       end
     end
 

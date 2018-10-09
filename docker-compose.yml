@@ -1,47 +1,56 @@
 version: '3.6'
+
+x-build_default: &build_default
+  image: specialcollections
+  build:
+    context: .
+    args:
+      - AQUA_MICROSCANNER_TOKEN
+    cache_from:
+      - ruby:2.3.7-alpine
+      - specialcollections
+      - nyulibraries/specialcollections:${BRANCH_NO_SLASH}
+      - nyulibraries/specialcollections:latest
+
+x-build_test: &build_test
+  image: specialcollections_test
+  build:
+    context: .
+    dockerfile: Dockerfile.test
+    cache_from:
+      - nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
+      - specialcollections_test
+      - nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
+      - nyulibraries/specialcollections_test:latest
+
 services:
 
   dev:
-    build: .
+    <<: *build_default
     ports:
-      - "3000:3000"
-    volumes:
-      # - ./eads:/app/eads
-      # - ./vendor:/app/vendor
-      # - ./app:/app/app
-      - bundle_cache:/bundle
+      - "9292:9292"
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
+    command: ["./script/start.sh", "production"]
     depends_on:
       - setup_dbs
 
   test:
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    volumes:
-      # - .:/app
-      - bundle_cache:/bundle
+    <<: *build_test
     environment:
       RAILS_ENV: test
       CI:
       CODECLIMATE_REPO_TOKEN:
       COVERALLS_REPO_TOKEN:
+      SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
-    # command: "tail -f /dev/null"
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake"]
+    command: ["bundle", "exec", "rake"]
     depends_on:
       - setup_test_dbs
 
   setup_test_dbs:
-    build:
-      context: .
-      dockerfile: Dockerfile.test
-    volumes:
-      - bundle_cache:/bundle
+    <<: *build_test
     environment:
       RAILS_ENV: test
     env_file:
@@ -52,9 +61,7 @@ services:
       - solr
 
   setup_dbs:
-    build: .
-    volumes:
-      - bundle_cache:/bundle
+    <<: *build_test
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
@@ -64,15 +71,8 @@ services:
 
   db:
     image: library/mysql:5.6.22
-    expose:
-      - "3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   solr:
     image: nyulibraries/specialcollections-solr:test
-    expose:
-      - "8983"
-
-volumes:
-  bundle_cache:

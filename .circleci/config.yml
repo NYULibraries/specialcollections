@@ -1,19 +1,44 @@
 docker-defaults: &docker-defaults
   docker:
-    - image: docker:18.03.0-ce-git
+    - image: nyulibraries/circleci_docker:18.06.1-ce-git-compose-1.22.0
   working_directory: ~/app
 
-dc-setup: &dc-setup
+pull_docker: &pull_docker
   run:
-    name: Setup docker-compose dependency
+    name: Pull Docker
     command: |
-      apk add --no-cache python3
-      pip3 install docker-compose==1.20.1
+      docker pull nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_} || docker pull nyulibraries/specialcollections:latest
+      docker pull nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_} || docker pull nyulibraries/specialcollections_test:latest
+
+build_docker: &build_docker
+  run:
+    name: Build Docker
+    command: |
+      export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
+      docker-compose build
 
 test: &test
   run:
     name: Test
     command: docker-compose run test
+
+push_docker: &push_docker
+  run:
+    name: Push Docker
+    command: |
+      docker tag specialcollections nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}
+      docker tag specialcollections nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
+      docker tag specialcollections nyulibraries/specialcollections:latest
+      docker tag specialcollections_test nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}
+      docker tag specialcollections_test nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
+      docker tag specialcollections_test nyulibraries/specialcollections_test:latest
+      docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
+      docker push nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}
+      docker push nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
+      docker push nyulibraries/specialcollections:latest
+      docker push nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}
+      docker push nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
+      docker push nyulibraries/specialcollections_test:latest
 
 version: 2
 jobs:
@@ -22,8 +47,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
+      - <<: *pull_docker
+      - <<: *build_docker
       - <<: *test
+      - <<: *push_docker
       - run:
           name: Deploy into staging via Jenkins
           command: |
@@ -34,8 +61,10 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - <<: *dc-setup
+      - <<: *pull_docker
+      - <<: *build_docker
       - <<: *test
+      - <<: *push_docker
       - run:
           name: Deploy into production via Jenkins
           command: |

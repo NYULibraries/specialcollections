@@ -1,13 +1,47 @@
-data
-findingaids_eads
-jetty
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+/examples
+/jetty
+/wiki
 solr-*
-tmp
-log
-.git
-wiki
-*.sql
-coverage
-*.bak
+
+/coverage
+
 .DS_Store
+
+public/fa
+public/assets
+data/
+findingaids_eads/
+.pid
+
+# ignore jEnv files
+.java-version
+
+# ignore RVM gemset files
+.ruby-gemset
+
+app/assets/images/nyulibraries_stylesheets/icons-*.png
+
+vendor/nyulibraries_*
+
+
+.git
+*.sql
+*.bak
 .sekrets.key
+nginx
+
+script/rails
+script/cucumber
+script/push_docker.sh
+
+.circleci/
+Dockerfile*
+docker-compose.yml
+
+Figsfile
