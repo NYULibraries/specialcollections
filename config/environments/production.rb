@@ -21,9 +21,6 @@ Rails.application.configure do
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
   # config.action_dispatch.rack_cache = true
 
-  # Disable Rails's static asset server (Apache or nginx will already do this).
-  # config.serve_static_files = false
-
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
@@ -40,12 +37,27 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
-  # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  if ENV['DOCKER']
 
-  # Set to :debug to see everything in the log.
-  config.logger = Logger.new(STDOUT)
-  config.log_level = ENV.fetch("LOG_LEVEL", "ERROR")
+    config.logger = Logger.new(STDOUT)
+    config.log_level = ENV.fetch("LOG_LEVEL", "ERROR")
+
+    # Enable serving of images, stylesheets, and JavaScripts from an asset server.
+    config.action_controller.asset_host = ENV['ASSET_HOST']
+    config.assets.prefix = '/specialcollections/assets'
+
+  else
+
+    # Disable Rails's static asset server (Apache or nginx will already do this).
+    config.serve_static_files = false
+
+    # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
+    config.force_ssl = true
+
+    # Set to :debug to see everything in the log.
+    config.log_level = :info
+
+  end
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -56,10 +68,6 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   config.cache_store = :dalli_store
-
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = ENV['ASSET_HOST']
-  config.assets.prefix = '/specialcollections/assets'
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
