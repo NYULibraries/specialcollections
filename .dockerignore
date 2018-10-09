@@ -43,3 +43,5 @@ script/push_docker.sh
 .circleci/
 Dockerfile*
 docker-compose.yml
+
+Figsfile

@@ -1,5 +1,6 @@
 FROM ruby:2.3.7-alpine
 
+ENV DOCKER true
 ENV INSTALL_PATH /app
 
 RUN addgroup -g 1000 -S docker && \

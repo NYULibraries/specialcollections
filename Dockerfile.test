@@ -1,5 +1,6 @@
 FROM nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
 
+ENV DOCKER true
 ENV INSTALL_PATH /app
 
 RUN groupadd -g 2000 docker -r && \
