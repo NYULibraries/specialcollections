@@ -7,7 +7,7 @@ module LayoutsHelper
   def breadcrumbs
     breadcrumbs = super
     breadcrumbs << link_to_if(link_to_root?, application_title, {:controller =>'catalog', :repository => nil})
-    breadcrumbs << link_to_unless_current(controller.controller_name.humanize, current_route_including_engine) unless controller.controller_name == "catalog"
+    breadcrumbs << controller.controller_name.humanize unless controller.controller_name == "catalog"
     breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
     breadcrumbs << "Search" if searching?
     return breadcrumbs
@@ -72,9 +72,4 @@ module LayoutsHelper
   end
 
   private
-  def current_route_including_engine
-    url_for(params)
-  rescue ActionController::UrlGenerationError => e
-    blacklight.url_for(params)
-  end
 end

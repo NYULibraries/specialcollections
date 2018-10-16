@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.2.7.1'
+gem 'rails', '~> 5.0.0'
 gem 'mail', '2.6.6.rc1'
+gem 'rake'
 
 # Use MySQL for the database
 gem 'mysql2', '~> 0.4.5'
@@ -39,7 +40,7 @@ gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets',
 gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.2.3'
 gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
-gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.0.1'
+gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.15.0'
@@ -54,7 +55,7 @@ gem 'sorted', '~> 2.0'
 gem 'dalli', '~> 2.7.0'
 
 # Comma to download CSV
-gem 'comma', '~> 4.0.0'
+gem 'comma', '~> 4.2.0'
 
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.4'
@@ -102,6 +103,8 @@ group :test do
   gem 'rspec-rails', '~> 3'
   gem 'rspec-its', '~> 1.2.0'
   gem 'rspec-collection_matchers', '~> 1.1.2'
+  # controller testing for rails 5+
+  gem 'rails-controller-testing'
   # Phantomjs for headless browser testing
   gem 'poltergeist', '~> 1.14.0'
   gem 'phantomjs', '~> 2.1.1'
