@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.0.0'
-gem 'mail', '2.6.6.rc1'
+gem 'rails', '~> 5.1.0'
+gem 'mail', '~> 2.6.6.rc1'
 gem 'rake'
 
 # Use MySQL for the database
@@ -85,14 +85,11 @@ gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.8.0'
 group :development do
   gem 'better_errors', '~> 2.1.0'
   gem 'binding_of_caller', '~> 0.7.2'
-  gem 'guard', '~> 2.14.0'
-  gem 'guard-rspec', '~> 4.7'
-  gem 'guard-cucumber', '~> 2.1.2'
 end
 
 group :test do
   # Use Cucumber for integration testing
-  gem 'cucumber-rails', '~> 1.4.5', require: false
+  gem 'cucumber-rails', '~> 1.6.0', require: false
   # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 3.14'
   # Use DatabaseCleaner for clearing the test database
