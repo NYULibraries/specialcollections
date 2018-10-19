@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.0'
+gem 'rails', '~> 5.2.0'
 gem 'mail', '~> 2.6.6.rc1'
 gem 'rake'
 
@@ -70,7 +70,7 @@ gem 'iso-639', '~> 0.2.5'
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
-gem 'devise', '~> 4.3.0'
+gem 'devise', '~> 4.5.0'
 # /Transition gems
 
 # Faraday for http calls
@@ -93,7 +93,7 @@ group :test do
   # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 3.14'
   # Use DatabaseCleaner for clearing the test database
-  gem 'database_cleaner', '~> 1.5.3'
+  gem 'database_cleaner', '~> 1.7.0'
   # Use factory girl for creating models
   gem 'factory_bot_rails', '~> 4.8.0'
   # Rspec as the test framework
