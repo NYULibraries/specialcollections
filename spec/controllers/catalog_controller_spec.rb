@@ -15,7 +15,7 @@ describe CatalogController do
   end
 
   describe "GET /catalog" do
-    before { get :index, q: q, search_field: search_field, rows: rows }
+    before { get :index, params: { q: q, search_field: search_field, rows: rows } }
     subject { assigns(:document_list) }
 
     context 'when searching for a known indexed collection by keyword' do

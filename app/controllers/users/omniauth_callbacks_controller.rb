@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_filter :require_valid_omniauth, only: :nyulibraries
+  before_action :require_valid_omniauth, only: :nyulibraries
   def nyulibraries
     # Find existing or initialize new user,
     # and save new attributes each time
