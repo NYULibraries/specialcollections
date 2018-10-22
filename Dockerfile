@@ -41,4 +41,4 @@ RUN wget -O /microscanner https://get.aquasec.com/microscanner && \
 USER docker
 EXPOSE 9292
 
-CMD  ./scripts/start.sh development
+CMD ./scripts/start.sh development
