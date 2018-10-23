@@ -93,7 +93,7 @@ describe ResultsHelper do
   end
 
   describe "#reset_facet_params" do
-    subject { helper.reset_facet_params(local_params) }
+    subject { helper.reset_facet_params(local_params) } #.permit(:q, :leftover).to_h }
     let(:local_params) do
       source_params.merge({
         :leftover => "Yup",
@@ -102,10 +102,14 @@ describe ResultsHelper do
         :counter => 10,
         :q => "ephemera",
         :f => {:repository_sim => ["fales"]}
-      }).with_indifferent_access
+      })
     end
     before { allow(helper).to receive(:blacklight_config).and_return blacklight_config }
-    it { is_expected.to eql({"q" => "ephemera", "leftover"=>"Yup"}) }
+    its(:keys) { is_expected.to match_array %w[q leftover] }
+    it "should preserve values" do
+      expect(subject.permit(:q)[:q]).to eq "ephemera"
+      expect(subject.permit(:leftover)[:leftover]).to eq "Yup"
+    end
   end
 
   describe "#render_parent_facet_link" do

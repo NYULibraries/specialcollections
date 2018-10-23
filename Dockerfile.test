@@ -17,7 +17,7 @@ COPY --chown=docker:docker Gemfile Gemfile.lock ./
 ARG RUN_PACKAGES="nodejs ruby-mysql2 default-libmysqlclient-dev"
 ARG BUILD_PACKAGES="build-essential zlib1g-dev git"
 RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
-  && gem install bundler -v '1.16.5' \
+  && gem install bundler -v '1.16.6' \
   && bundle config --local github.https true \
   && bundle install --without no_docker --jobs 20 --retry 5 \
   && rm -rf /root/.bundle && rm -rf /root/.gem \
@@ -29,6 +29,6 @@ RUN apt-get update && apt-get -y --no-install-recommends install $BUILD_PACKAGES
 USER docker
 
 COPY --chown=docker:docker . .
-RUN bundle exec rake assets:precompile
+RUN bin/rails assets:precompile
 
 CMD bundle exec rake
