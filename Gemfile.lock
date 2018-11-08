@@ -74,6 +74,14 @@ GIT
     omniauth-nyulibraries (1.1.0)
       omniauth-oauth2 (~> 1.2.0)
 
+GIT
+  remote: https://github.com/ericgriffis/capybara-screenshot
+  revision: 34ffff60bb7f3116282fcfabf56ae3c8c94734ae
+  specs:
+    capybara-screenshot (1.0.14)
+      capybara (>= 1.0, < 3)
+      launchy
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -295,8 +303,10 @@ GEM
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
     kgio (2.11.2)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     libv8 (3.16.14.19)
-    loofah (2.2.2)
+    loofah (2.2.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
@@ -363,7 +373,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.3)
-    rack (2.0.5)
+    rack (2.0.6)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.1)
@@ -522,6 +532,7 @@ DEPENDENCIES
   binding_of_caller (~> 0.7.2)
   blacklight (~> 6.15.0)
   blacklight_advanced_search (~> 6.4.0)
+  capybara-screenshot!
   coffee-rails (~> 4.2.0)
   comma (~> 4.2.0)
   compass-rails (~> 3.0.0)
@@ -540,6 +551,7 @@ DEPENDENCIES
   jbuilder (~> 2.6.0)
   jquery-rails (~> 4.3.0)
   jquery-ui-rails (~> 6.0.1)
+  loofah (>= 2.2.3)
   mail (~> 2.6.6.rc1)
   mysql2 (~> 0.4.5)
   nyulibraries_errors!
@@ -551,6 +563,7 @@ DEPENDENCIES
   phantomjs (~> 2.1.1)
   poltergeist (~> 1.14.0)
   pry (~> 0)
+  rack (>= 2.0.6)
   rails (~> 5.2.1)
   rails-controller-testing
   rake

@@ -4,6 +4,9 @@ gem 'rails', '~> 5.2.1'
 gem 'mail', '~> 2.6.6.rc1'
 gem 'rake'
 
+gem "loofah", ">= 2.2.3"
+gem "rack", ">= 2.0.6"
+
 # Use MySQL for the database
 gem 'mysql2', '~> 0.4.5'
 
@@ -90,6 +93,7 @@ end
 group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', '~> 1.6.0', require: false
+  gem 'capybara-screenshot', git: "https://github.com/ericgriffis/capybara-screenshot"
   # Use Selenium as the web driver for Cucumber
   gem 'selenium-webdriver', '~> 3.14'
   # Use DatabaseCleaner for clearing the test database
