@@ -1,6 +1,6 @@
 # Finding Aids
 
-[![CircleCI](https://circleci.com/gh/NYULibraries/findingaids.svg?style=svg)](https://circleci.com/gh/NYULibraries/findingaids)
+[![CircleCI](https://circleci.com/gh/NYULibraries/specialcollections.svg?style=svg)](https://circleci.com/gh/NYULibraries/specialcollections)
 [![Code Climate](https://codeclimate.com/github/NYULibraries/findingaids.png)](https://codeclimate.com/github/NYULibraries/findingaids)
 [![Coverage Status](https://coveralls.io/repos/NYULibraries/findingaids/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/findingaids)
 
