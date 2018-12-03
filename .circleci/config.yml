@@ -42,6 +42,15 @@ push_docker: &push_docker
 
 version: 2
 jobs:
+  test-and-build-image:
+    <<: *docker-defaults
+    steps:
+      - checkout
+      - setup_remote_docker
+      - <<: *pull_docker
+      - <<: *build_docker
+      - <<: *test
+      - <<: *push_docker
 
   deploy-dev:
     docker:
@@ -69,11 +78,16 @@ workflows:
   version: 2
   build-test-and-deploy:
     jobs:
+      - test-and-build-image
       - deploy-dev:
+          requires:
+              - test-and-build-image
           filters:
             branches:
               ignore: master
       - deploy-prod:
+          requires:
+              - test-and-build-image
           filters:
             branches:
               only: master
