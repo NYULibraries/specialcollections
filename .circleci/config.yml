@@ -42,7 +42,7 @@ push_docker: &push_docker
 
 version: 2
 jobs:
-  deploy-dev:
+  test-and-build-image:
     <<: *docker-defaults
     steps:
       - checkout
@@ -51,34 +51,43 @@ jobs:
       - <<: *build_docker
       - <<: *test
       - <<: *push_docker
+
+  deploy-dev:
+    docker:
+      - image: appropriate/curl
+    steps:
       - run:
           name: Deploy into staging via Jenkins
           command: |
-            docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
+            curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
+            export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
+            curl -u $JENKINS_STAGE_USERNAME:$JENKINS_STAGE_API_KEY -X POST https://jenkinsapi-dev.library.nyu.edu/job/SpecialCollections%20Development%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
 
   deploy-prod:
-    <<: *docker-defaults
+    docker:
+      - image: appropriate/curl
     steps:
-      - checkout
-      - setup_remote_docker
-      - <<: *pull_docker
-      - <<: *build_docker
-      - <<: *test
-      - <<: *push_docker
       - run:
           name: Deploy into production via Jenkins
           command: |
-            docker run --rm appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
+            curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
+            export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
+            curl -u $JENKINS_PROD_USERNAME:$JENKINS_PROD_API_KEY -X POST https://jenkinsapi.library.nyu.edu/job/SpecialCollections%20Production%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
 
 workflows:
   version: 2
   build-test-and-deploy:
     jobs:
+      - test-and-build-image
       - deploy-dev:
+          requires:
+              - test-and-build-image
           filters:
             branches:
               ignore: master
       - deploy-prod:
+          requires:
+              - test-and-build-image
           filters:
             branches:
               only: master
