@@ -39,3 +39,4 @@ In WebSolr set up a new instance for EAD indexing with the Blacklight Demo schem
 See the [`solr/conf/solrconfig.xml`](solr/conf/solrconfig.xml) for solr config tweaks.
 
 See the [`solr/conf/schema.xml`](solr/conf/schema.xml) for schema tweaks.
+
