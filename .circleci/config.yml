@@ -26,19 +26,9 @@ push_docker: &push_docker
   run:
     name: Push Docker
     command: |
-      docker tag specialcollections nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}
-      docker tag specialcollections nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker tag specialcollections nyulibraries/specialcollections:latest
-      docker tag specialcollections_test nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}
-      docker tag specialcollections_test nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker tag specialcollections_test nyulibraries/specialcollections_test:latest
       docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
-      docker push nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}
-      docker push nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker push nyulibraries/specialcollections:latest
-      docker push nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}
-      docker push nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker push nyulibraries/specialcollections_test:latest
+      script/docker/push_dockerhub.sh
+      script/docker/push_quay.sh
 
 version: 2
 jobs:
