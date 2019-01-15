@@ -9,8 +9,8 @@ x-build_default: &build_default
     cache_from:
       - ruby:2.3.7-alpine
       - specialcollections
-      - nyulibraries/specialcollections:${BRANCH_NO_SLASH}
-      - nyulibraries/specialcollections:latest
+      - quay.io/nyulibraries/specialcollections:${BRANCH_NO_SLASH}
+      - quay.io/nyulibraries/specialcollections:latest
 
 x-build_test: &build_test
   image: specialcollections_test
@@ -20,8 +20,8 @@ x-build_test: &build_test
     cache_from:
       - nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
       - specialcollections_test
-      - nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
-      - nyulibraries/specialcollections_test:latest
+      - quay.io/nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
+      - quay.io/nyulibraries/specialcollections_test:latest
 
 services:
 
