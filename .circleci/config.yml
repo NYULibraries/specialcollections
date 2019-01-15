@@ -27,6 +27,7 @@ push_docker: &push_docker
     name: Push Docker
     command: |
       docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
+      docker login -u "$QUAY_USERNAME" --password "$QUAY_PASSWORD" quay.io
       script/docker/push_dockerhub.sh
       script/docker/push_quay.sh
 
