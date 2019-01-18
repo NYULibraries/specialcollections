@@ -61,7 +61,7 @@ jobs:
           command: |
             curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
             export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
-            #curl -u $JENKINS_PROD_USERNAME:$JENKINS_PROD_API_KEY -X POST https://jenkinsapi.library.nyu.edu/job/SpecialCollections%20Production%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
+            curl -u $JENKINS_PROD_USERNAME:$JENKINS_PROD_API_KEY -X POST https://jenkinsapi.library.nyu.edu/job/SpecialCollections%20Production%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
 
 workflows:
   version: 2
