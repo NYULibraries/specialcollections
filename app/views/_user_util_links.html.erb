@@ -9,8 +9,8 @@
   </li>
   <% end %>
   <% if current_user %>
-  <li><%= link_to t('blacklight.header_links.saved_searches'), blacklight.saved_searches_path %></li>
+  <li><%= link_to t('blacklight.header_links.saved_searches'), "#{ENV['RAILS_RELATIVE_URL_ROOT']}#{blacklight.saved_searches_path}" %></li>
   <% end %>
-  <li><%= link_to t('blacklight.header_links.search_history'), blacklight.search_history_path %></li>
+  <li><%= link_to t('blacklight.header_links.search_history'), "#{ENV['RAILS_RELATIVE_URL_ROOT']}#{blacklight.search_history_path}" %></li>
 </ul>
 <% end %>
