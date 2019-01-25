@@ -1,4 +1,5 @@
 # This file is used by Rack-based servers to start the application.
 
 require ::File.expand_path('../config/environment',  __FILE__)
-run Findingaids::Application
+#run Findingaids::Application
+map(ENV['RAILS_RELATIVE_URL_ROOT'] || "/") { run Findingaids::Application }
