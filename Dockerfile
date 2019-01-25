@@ -28,7 +28,7 @@ USER docker
 COPY --chown=docker:docker . .
 RUN SECRET_TOKEN=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
   && SECRET_KEY_BASE=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
-  RAILS_ENV=production bin/rails assets:precompile
+  RAILS_RELATIVE_URL_ROOT=/search RAILS_ENV=production bin/rails assets:precompile
 
 # run microscanner
 USER root
