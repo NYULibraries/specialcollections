@@ -37,8 +37,8 @@ Feature: Cite and Email Bookmarks
       1. Ben Alexrod, Oct 4, 1979; OH.002; Oral History of the American Left: Radical Histories; Cassette: 391; The Tamiment Library & Robert F. Wagner Labor Archives
       """
 
-  Scenario: Emailing a bookmark
-    Given I am on the bookmarks page
-    When I click on the "Email" button
-    And I submit the email form
-    Then I should receive an email containing a link to the "Ben Alexrod" record
+      #  Scenario: Emailing a bookmark
+      #    Given I am on the bookmarks page
+      #    When I click on the "Email" button
+      #    And I submit the email form
+      #    Then I should receive an email containing a link to the "Ben Alexrod" record
