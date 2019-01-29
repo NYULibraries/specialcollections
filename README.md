@@ -28,6 +28,16 @@ docker-compose up dev
 
 Then you should be able to go to `http://localhost:9292`.
 
+### Developing with test user
+
+Set `RAILS_ENV=development` in test.env to trigger `current_user_dev` method defined in `ApplicationController`. 
+
+### Developing against live data
+
+Set the following environment variables to their appropriate values: `SOLR_URL`, `FINDINGAIDS_DB_DATABASE`, `FINDINGAIDS_DB_HOST`, `FINDINGAIDS_DB_PASSWORD`, and `FINDINGAIDS_DB_USER`
+
+Also ensure that `SOLR_URL` and `DEV_SOLR_URL` are unset or commented out (they are set in test.env).
+
 ## See it in action!
 
 Development: https://specialcollections.library.nyu.edu/search
