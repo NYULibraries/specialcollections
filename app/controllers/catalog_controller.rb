@@ -207,5 +207,8 @@ class CatalogController < ApplicationController
     # Configuration for autocomplete suggestor
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
+
+    # disable emails
+    config.show.document_actions.delete(:email)
   end
 end
