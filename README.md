@@ -26,7 +26,7 @@ docker-compose run test
 docker-compose up dev
 ```
 
-Then you should be able to go to `http://localhost:3000`.
+Then you should be able to go to `http://localhost:9292`.
 
 ## See it in action!
 
