@@ -28,3 +28,5 @@ findingaids_eads/
 app/assets/images/nyulibraries_stylesheets/icons-*.png
 
 vendor/nyulibraries_*
+
+dev.env
