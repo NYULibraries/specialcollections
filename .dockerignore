@@ -46,3 +46,4 @@ docker-compose.yml
 
 Figsfile
 README.md
+*.env
