@@ -1,4 +1,4 @@
-FROM nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
+FROM quay.io/nyulibraries/selenium_chrome_headless_ruby:2.5.3-slim-chrome_71
 
 ENV DOCKER true
 ENV INSTALL_PATH /app

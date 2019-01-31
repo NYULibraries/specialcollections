@@ -104,7 +104,7 @@ end
 
 Given(/^I select "(.*?)" from the "(.*?)" attributes dropdown$/) do |value, dropdown|
   within("#advanced_search_facets") do
-    click_on(dropdown)
+    #click_on(dropdown)
     find('.facet-label', text: /\A#{value}\z/).click
   end
 end
