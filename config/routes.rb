@@ -46,4 +46,6 @@ Findingaids::Application.routes.draw do
     get 'logout', to: 'devise/sessions#destroy', as: :logout
     get 'login', to: redirect { |params, request| "#{Rails.application.config.relative_url_root}/users/auth/nyulibraries?#{request.query_string}" }, as: :login
   end
+
+  get 'healthcheck' => 'help#healthcheck'
 end
