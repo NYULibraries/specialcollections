@@ -40,7 +40,6 @@ Rails.application.configure do
   if ENV['DOCKER']
 
     config.logger = Logger.new(STDOUT)
-    config.log_level = ENV.fetch("LOG_LEVEL", "ERROR")
 
     # Enable serving of images, stylesheets, and JavaScripts from an asset server.
     config.action_controller.asset_host = ENV['ASSET_HOST']
@@ -54,10 +53,9 @@ Rails.application.configure do
     # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
     config.force_ssl = true
 
-    # Set to :debug to see everything in the log.
-    config.log_level = :info
-
   end
+
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
