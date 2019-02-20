@@ -38,6 +38,10 @@ Set the following environment variables to their appropriate values: `SOLR_URL`,
 
 Also ensure that `SOLR_URL` and `DEV_SOLR_URL` are unset or commented out (they are set in test.env).
 
+### Loggings
+
+Logging on Docker occurs to stdout for Kubernetes compatibility. Log level defaults to `:warn` but is configurable via `RAILS_LOG_LEVEL`.
+
 ## See it in action!
 
 Development: https://specialcollections.library.nyu.edu/search

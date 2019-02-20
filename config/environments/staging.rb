@@ -55,7 +55,7 @@ Rails.application.configure do
 
   end
 
-  config.log_level = :warn
+  config.log_level = ENV['RAILS_LOG_LEVEL']&.to_sym || :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
