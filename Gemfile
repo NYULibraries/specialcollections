@@ -121,3 +121,6 @@ group :development, :test do
   gem 'solr_wrapper', '~> 1'
   gem 'pry', '~> 0'
 end
+
+gem 'prometheus-client', '~> 0.9.0'
+
