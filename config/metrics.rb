@@ -23,7 +23,7 @@ module Prometheus::Middleware
   protected
 
     EXCLUDE = proc do |env|
-      (env['PATH_INFO'] == '/healthcheck') || (env['PATH_INFO'] == '/metrics')
+      (env['PATH_INFO'] == '/search/healthcheck') || (env['PATH_INFO'] == '/search/metrics')
     end
 
     SHARED_CUSTOM_LABEL_BUILDER = proc do |env, code|
