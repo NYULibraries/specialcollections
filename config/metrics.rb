@@ -31,8 +31,6 @@ module Prometheus::Middleware
         code:         code,
         method:       env['REQUEST_METHOD'].downcase,
         host:         env['HTTP_HOST'].to_s,
-        path:         aggregation.call(env['PATH_INFO']),
-        querystring:  aggregation.call(env['QUERY_STRING']),
         route:        env['sinatra.route'],
         app:          "specialcollections"
       }
