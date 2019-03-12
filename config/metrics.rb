@@ -23,7 +23,7 @@ module Prometheus::Middleware
   protected
 
     EXCLUDE = proc do |env|
-      (env['PATH_INFO'] =~ /^(\/search)?\/(healthcheck|metrics)/)
+      (!!env['PATH_INFO'].match(%r{^(/search)?/(metrics|healthcheck)}))
     end
 
     SHARED_CUSTOM_LABEL_BUILDER = proc do |env, code|
@@ -31,7 +31,7 @@ module Prometheus::Middleware
         code:         code,
         method:       env['REQUEST_METHOD'].downcase,
         host:         env['HTTP_HOST'].to_s,
-        path:         env,
+        path:         env['PATH_INFO'].to_s,
         app:          "specialcollections"
       }
     end
