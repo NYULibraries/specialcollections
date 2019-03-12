@@ -31,7 +31,7 @@ module Prometheus::Middleware
         code:         code,
         method:       env['REQUEST_METHOD'].downcase,
         host:         env['HTTP_HOST'].to_s,
-        route:        env['sinatra.route'],
+        path:         env['PATH_INFO'],
         app:          "specialcollections"
       }
     end
