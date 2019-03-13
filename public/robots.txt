@@ -1723,6 +1723,8 @@ User-agent: Matentzn at cs dot man dot ac dot uk
 Disallow:/
 User-agent: MauiBot
 Disallow:/
+User-agent: MauiBot (crawler.feedback+dc@gmail.com)
+Disallow:/
 User-agent: Maxamine.com
 Disallow:/
 User-agent: Maxomobot
