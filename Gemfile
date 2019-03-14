@@ -28,7 +28,9 @@ gem 'font-awesome-rails', '~> 4.7.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 3.1.0'
 
-gem "bootstrap-sass", ">= 3.4.1"
+group :docker do
+  gem "bootstrap-sass", ">= 3.4.1"
+end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 group :no_docker do
