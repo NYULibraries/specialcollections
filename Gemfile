@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.1.1'
+gem 'rails', '~> 5.2.2.1'
 gem 'mail', '~> 2.6.6.rc1'
-gem 'rake'
+gem 'rake', '~> 12.3'
 
 gem "loofah", ">= 2.2.3"
 gem "rack", ">= 2.0.6"
@@ -27,6 +27,8 @@ gem 'font-awesome-rails', '~> 4.7.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '~> 3.1.0'
+
+gem "bootstrap-sass", ">= 3.4.1"
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 group :no_docker do
