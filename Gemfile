@@ -45,6 +45,9 @@ gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
+# set bootstrap-sass to patched version
+gem "bootstrap-sass", ">= 3.4.1"
+
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.15.0'
 
@@ -73,7 +76,9 @@ gem 'iso-639', '~> 0.2.5'
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.6.0'
+# needed for csrf protection until fixed at omniauth level: https://github.com/omniauth/omniauth/pull/809
+gem "omniauth-rails_csrf_protection"
 # /Transition gems
 
 # Faraday for http calls
