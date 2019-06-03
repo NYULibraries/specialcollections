@@ -77,6 +77,8 @@ gem 'iso-639', '~> 0.2.5'
 gem 'exlibris-aleph', '~> 2.0.4'
 gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 4.6.0'
+# needed for csrf protection until fixed at omniauth level: https://github.com/omniauth/omniauth/pull/809
+gem "omniauth-rails_csrf_protection"
 # /Transition gems
 
 # Faraday for http calls
