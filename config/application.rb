@@ -37,6 +37,16 @@ module Findingaids
       config.logger.level = Logger.const_get('INFO')
       config.log_level = :info
     end
+
+    config.action_mailer.smtp_settings = {
+      address:              ENV['SMTP_HOSTNAME'],
+      port:                 ENV['SMTP_PORT'],
+      domain:               ENV['SMTP_DOMAIN'],
+      user_name:            ENV['SMTP_USERNAME'],
+      password:             ENV['SMTP_PASSWORD'],
+      authentication:       ENV['SMTP_AUTH_TYPE'],
+      enable_starttls_auto: true 
+    }
   end
 end
 
