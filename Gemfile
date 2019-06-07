@@ -45,9 +45,6 @@ gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions
 gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
 gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
-# set bootstrap-sass to patched version
-gem "bootstrap-sass", ">= 3.4.1"
-
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.15.0'
 
