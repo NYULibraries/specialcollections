@@ -1,4 +1,4 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.5.5-alpine
 
 ENV DOCKER true
 ENV INSTALL_PATH /app
@@ -26,8 +26,9 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
 # precompile assets; use temporary secret token to silence error, real token set at runtime
 USER docker
 COPY --chown=docker:docker . .
-RUN SECRET_TOKEN=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
-  && SECRET_KEY_BASE=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) \
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+RUN alias genrand="$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 32 | head -n 1)" \
+  && SECRET_TOKEN=genrand && SECRET_KEY_BASE=genrand \
   RAILS_RELATIVE_URL_ROOT=/search RAILS_ENV=production bin/rails assets:precompile
 
 # run microscanner
@@ -41,4 +42,4 @@ RUN wget -O /microscanner https://get.aquasec.com/microscanner && \
 USER docker
 EXPOSE 9292
 
-CMD ./scripts/start.sh development
+CMD [ "./scripts/start.sh", "development" ]
