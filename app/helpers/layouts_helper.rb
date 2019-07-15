@@ -13,6 +13,18 @@ module LayoutsHelper
     return breadcrumbs
   end
 
+  # Link to logout
+  def link_to_logout(params={})
+    return unless defined?(logout_url)
+    icon_tag(:logout) + link_to("Log-out #{username}".strip, logout_url(params), class: "logout", method: :post)
+  end
+
+  # Link to login
+  def link_to_login(params={})
+    return unless defined?(login_url)
+    icon_tag(:login) + link_to("Login", user_nyulibraries_omniauth_authorize_path(params), class: "login", method: :post)
+  end
+
   # Render footer partial
   def footer_html
     render :partial => 'shared/footer'
