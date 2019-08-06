@@ -7,7 +7,7 @@ x-build_default: &build_default
     args:
       - AQUA_MICROSCANNER_TOKEN
     cache_from:
-      - ruby:2.3.7-alpine
+      - ruby:2.5.5-alpine
       - specialcollections
       - quay.io/nyulibraries/specialcollections:${BRANCH_NO_SLASH}
       - quay.io/nyulibraries/specialcollections:latest
@@ -18,7 +18,7 @@ x-build_test: &build_test
     context: .
     dockerfile: Dockerfile.test
     cache_from:
-      - nyulibraries/selenium_chrome_headless_ruby:2.3.7-slim-chrome_69
+      - quay.io/nyulibraries/selenium_chrome_headless_ruby:2.5-slim-chrome_73
       - specialcollections_test
       - quay.io/nyulibraries/specialcollections_test:${BRANCH_NO_SLASH}
       - quay.io/nyulibraries/specialcollections_test:latest
