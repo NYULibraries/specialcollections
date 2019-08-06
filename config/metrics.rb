@@ -29,6 +29,7 @@ module Prometheus::Middleware
     SHARED_CUSTOM_LABEL_BUILDER = proc do |env, code|
       {
         code:         code,
+        is_error_code: code.match?(/^(4|5)..$/).to_s, 
         method:       env['REQUEST_METHOD'].downcase,
         host:         env['HTTP_HOST'].to_s,
         path:         env['PATH_INFO'].to_s,
