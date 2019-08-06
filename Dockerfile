@@ -31,14 +31,6 @@ RUN alias genrand="$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 32 | head -n 1)
   && SECRET_TOKEN=genrand && SECRET_KEY_BASE=genrand \
   RAILS_RELATIVE_URL_ROOT=/search RAILS_ENV=production bin/rails assets:precompile
 
-# run microscanner
-USER root
-ARG AQUA_MICROSCANNER_TOKEN
-RUN wget -O /microscanner https://get.aquasec.com/microscanner && \
-  chmod +x /microscanner && \
-  /microscanner ${AQUA_MICROSCANNER_TOKEN} && \
-  rm -rf /microscanner
-
 USER docker
 EXPOSE 9292
 
