@@ -26,8 +26,21 @@ push_docker: &push_docker
   run:
     name: Push Docker
     command: |
-      docker login -u "$QUAY_USERNAME" --password "$QUAY_PASSWORD" quay.io
       script/docker/push_quay.sh
+
+auth_quay: &auth_quay
+  run:
+    name: Authenticate Quay
+    command: |
+      docker login -u "$QUAY_USERNAME" -p "$QUAY_PASSWORD" quay.io
+
+hermes_deploy: &hermes_deploy
+  run:
+    name: Deploy via Hermes
+    command: |
+      export TAG=${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
+      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master setImage -deployment=specialcollections-unicorn -tag=$TAG
+      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master rolloutStatus -deployment=specialcollections-unicorn
 
 version: 2
 jobs:
@@ -39,29 +52,32 @@ jobs:
       - <<: *pull_docker
       - <<: *build_docker
       - <<: *test
+      - <<: *auth_quay
       - <<: *push_docker
 
   deploy-dev:
-    docker:
-      - image: appropriate/curl
+    <<: *docker-defaults
     steps:
+      - setup_remote_docker
+      - <<: *auth_quay
       - run:
-          name: Deploy into staging via Jenkins
+          name: Export Hermes Dev env vars
           command: |
-            #curl --fail --user $JENKINS_USERNAME:$JENKINS_API_KEY --request POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Development%20Deploy/build/api
-            export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
-            curl --fail --user $JENKINS_STAGE_USERNAME:$JENKINS_STAGE_API_KEY --request POST https://jenkinsapi-dev.library.nyu.edu/job/SpecialCollections%20Development%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
+            echo 'export HERMES_HOST=https://hermes-dev.library.nyu.edu' >> $BASH_ENV
+            echo 'export HERMES_SECRET=$HERMES_SECRET_DEV' >> $BASH_ENV
+      - <<: *hermes_deploy
 
   deploy-prod:
-    docker:
-      - image: appropriate/curl
+    <<: *docker-defaults
     steps:
+      - setup_remote_docker
+      - <<: *auth_quay
       - run:
-          name: Deploy into production via Jenkins
+          name: Export Hermes Prod env vars
           command: |
-            #curl --fail --user $JENKINS_USERNAME:$JENKINS_API_KEY --request POST http://jenkins.library.nyu.edu/view/Finding%20Aids/job/Finding%20Aids%20Production%20Deploy/build/api
-            export BRANCH_NO_SLASH=${CIRCLE_BRANCH//\//_}
-            curl --fail --user $JENKINS_PROD_USERNAME:$JENKINS_PROD_API_KEY --request POST https://jenkinsapi.library.nyu.edu/job/SpecialCollections%20Production%20Deploy/build/api --data-urlencode json="{\"parameter\": [{\"name\":\"TAG\", \"value\":\"${BRANCH_NO_SLASH}-${CIRCLE_SHA1}\"}]}"
+            echo 'export HERMES_HOST=https://hermes.library.nyu.edu' >> $BASH_ENV
+            echo 'export HERMES_SECRET=$HERMES_SECRET_PROD' >> $BASH_ENV
+      - <<: *hermes_deploy
 
 workflows:
   version: 2
