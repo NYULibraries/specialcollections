@@ -61,10 +61,6 @@ jobs:
       - setup_remote_docker
       - <<: *auth_quay
       - run:
-          name: Curl on-prem Jenkins
-          command: |
-            docker run appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Login/job/Login%20Development%20Deploy/build/api
-      - run:
           name: Export Hermes Dev env vars
           command: |
             echo 'export HERMES_HOST=https://hermes-dev.library.nyu.edu' >> $BASH_ENV
@@ -76,10 +72,6 @@ jobs:
     steps:
       - setup_remote_docker
       - <<: *auth_quay
-      - run:
-          name: Curl on-prem Jenkins
-          command: |
-            docker run appropriate/curl -u $JENKINS_USERNAME:$JENKINS_API_KEY -X POST http://jenkins.library.nyu.edu/view/Login/job/Login%20Production%20Deploy/build/api
       - run:
           name: Export Hermes Prod env vars
           command: |
