@@ -26,7 +26,7 @@ push_docker: &push_docker
   run:
     name: Push Docker
     command: |
-      docker login -u "$QUAY_USERNAME" --password "$QUAY_PASSWORD" quay.io
+      script/docker/push_quay.sh
 
 auth_quay: &auth_quay
   run:
@@ -39,8 +39,8 @@ hermes_deploy: &hermes_deploy
     name: Deploy via Hermes
     command: |
       export TAG=${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
-      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master setImage -deployment=salon-unicorn -tag=$TAG
-      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master rolloutStatus -deployment=salon-unicorn
+      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master setImage -deployment=specialcollections-unicorn -tag=$TAG
+      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master rolloutStatus -deployment=specialcollections-unicorn
 
 version: 2
 jobs:
