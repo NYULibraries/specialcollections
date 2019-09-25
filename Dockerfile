@@ -27,9 +27,10 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
 USER docker
 COPY --chown=docker:docker . .
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
-RUN alias genrand="$(tr -dc 'a-zA-Z0-9' < /dev/urandom | fold -w 32 | head -n 1)" \
-  && SECRET_TOKEN=genrand && SECRET_KEY_BASE=genrand \
-  RAILS_RELATIVE_URL_ROOT=/search RAILS_ENV=production bin/rails assets:precompile
+RUN alias genrand='LC_ALL=C tr -dc "[:alnum:]" < /dev/urandom | head -c40' \
+  && SECRET_TOKEN=genrand SECRET_KEY_BASE=genrand \
+  RAILS_RELATIVE_URL_ROOT=/search RAILS_ENV=production bin/rails assets:precompile \
+  && unalias genrand
 
 USER docker
 EXPOSE 9292
