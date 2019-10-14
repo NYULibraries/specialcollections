@@ -12,8 +12,8 @@ RUN chown docker:docker .
 # bundle install
 COPY --chown=docker:docker bin/ bin/
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
-ARG RUN_PACKAGES="ca-certificates fontconfig mariadb-dev nodejs tzdata"
-ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python git"
+ARG RUN_PACKAGES="ca-certificates fontconfig mariadb-dev nodejs tzdata git"
+ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && gem install bundler -v '1.16.6' \
   && bundle config --local github.https true \
