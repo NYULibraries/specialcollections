@@ -66,7 +66,7 @@ gem 'solr_ead', '~> 0.7.4'
 # Required update for vulnurability
 gem 'sanitize', '~> 4.6.3'
 # EAD indexing
-gem 'ead_indexer', github: 'NYULibraries/ead_indexer', branch: 'feature/ignore_non_xmls' # tag: 'v0.0.2'
+gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.0.0'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'

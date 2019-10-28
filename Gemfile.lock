@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/NYULibraries/ead_indexer.git
-  revision: 16ffbfe983838c8c838ae982b9482bbb26deba23
-  branch: feature/ignore_non_xmls
+  revision: 1ccf4c2ade5e3d446eddf73e891d22b81a6ca2fb
+  tag: v1.0.0
   specs:
     ead_indexer (0.0.2)
       iso-639 (>= 0.2.5)
