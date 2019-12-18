@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/NYULibraries/ead_indexer.git
+  remote: git://github.com/NYULibraries/ead_indexer.git
   revision: 1ccf4c2ade5e3d446eddf73e891d22b81a6ca2fb
   tag: v1.0.0
   specs:
@@ -10,7 +10,7 @@ GIT
       solr_ead (~> 0.7.5)
 
 GIT
-  remote: https://github.com/NYULibraries/formaggio.git
+  remote: git://github.com/NYULibraries/formaggio.git
   revision: 674e9ebc0f09800ce41e49802c30a386c2920839
   tag: v1.8.0
   specs:
@@ -26,7 +26,7 @@ GIT
       rvm-capistrano (~> 1.5)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_errors.git
+  remote: git://github.com/NYULibraries/nyulibraries_errors.git
   revision: 54d8def9c219b2829a1b5284970e698fd4725cb7
   tag: v1.1.1
   specs:
@@ -34,7 +34,7 @@ GIT
       rails (>= 4)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_institutions.git
+  remote: git://github.com/NYULibraries/nyulibraries_institutions.git
   revision: edae9f19758afe73686571d8e444e35dfe65cedf
   tag: v1.0.3
   specs:
@@ -43,14 +43,14 @@ GIT
       rails (>= 4)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_javascripts.git
+  remote: git://github.com/NYULibraries/nyulibraries_javascripts.git
   revision: f2637c4891f273a6227b4f0fed9245a88539f9b2
   tag: v1.0.0
   specs:
     nyulibraries_javascripts (1.0.0)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_stylesheets.git
+  remote: git://github.com/NYULibraries/nyulibraries_stylesheets.git
   revision: cdb3c1e15e6ef178dc244b9b82201736a3330285
   tag: v1.1.2
   specs:
@@ -59,7 +59,7 @@ GIT
       compass (>= 1.0.1)
 
 GIT
-  remote: https://github.com/NYULibraries/nyulibraries_templates.git
+  remote: git://github.com/NYULibraries/nyulibraries_templates.git
   revision: 5a43698fca7934afa01634bd3c29e2278a9d0764
   tag: v1.2.4
   specs:
@@ -67,7 +67,7 @@ GIT
       rails (>= 4)
 
 GIT
-  remote: https://github.com/NYULibraries/omniauth-nyulibraries.git
+  remote: git://github.com/NYULibraries/omniauth-nyulibraries.git
   revision: 352bd2c76350483667c603c1a7e63735e4a283b8
   tag: v2.0.0
   specs:
@@ -375,7 +375,7 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
     quantile (0.2.1)
-    rack (2.0.7)
+    rack (2.0.8)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.2.1)
