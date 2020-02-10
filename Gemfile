@@ -123,5 +123,5 @@ group :development, :test do
   gem 'pry', '~> 0'
 end
 
-gem 'prometheus-client', '~> 0.9.0'
+gem 'prometheus-client', '~> 2.0.0'
 

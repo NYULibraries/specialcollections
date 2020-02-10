@@ -1,8 +1,8 @@
 # Finding Aids
 
 [![CircleCI](https://circleci.com/gh/NYULibraries/specialcollections.svg?style=svg)](https://circleci.com/gh/NYULibraries/specialcollections)
-[![Code Climate](https://codeclimate.com/github/NYULibraries/findingaids.png)](https://codeclimate.com/github/NYULibraries/findingaids)
-[![Coverage Status](https://coveralls.io/repos/NYULibraries/findingaids/badge.png?branch=master)](https://coveralls.io/r/NYULibraries/findingaids)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6ee3a05c26825862c264/maintainability)](https://codeclimate.com/github/NYULibraries/findingaids/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/NYULibraries/findingaids/badge.svg?branch=master)](https://coveralls.io/github/NYULibraries/findingaids?branch=master)
 
 A search interface powered by [Blacklight](http://projectblacklight.org/) for special collections finding aids. Read [the wiki](https://github.com/NYULibraries/findingaids/wiki) for more information.
 
