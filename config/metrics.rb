@@ -5,8 +5,6 @@ module Prometheus::Middleware
   class CollectorWithExclusions < Collector
     def initialize(app, options = {})
       @exclude = EXCLUDE
-      options[:counter_label_builder] = SHARED_CUSTOM_LABEL_BUILDER
-      options[:duration_label_builder] = SHARED_CUSTOM_LABEL_BUILDER
       options[:metrics_prefix] = ENV['PROMETHEUS_METRICS_PREFIX']
 
       super(app, options)   
@@ -20,23 +18,22 @@ module Prometheus::Middleware
       end
     end
 
+    # Strip out hashes in the form:
+    #   /assets/icons-fe172n3-89uheh83hnuf9fh3fff.png, etc.
+    # Strip out searches that are made from the bookmarks search
+    # Strip out and merge paths with trailing slashes
+    def strip_ids_from_path(path)
+      super(path)
+        .gsub(/(.*assets.*\/)(.+?)-(.+?)\.(.{2,4})/, '\1\2-:asset_hash.\4')
+        .gsub(/(search\/bookmarks\/)(.+)/, '\1:bookmarks_search')
+        .gsub(/\/+$/,'')
+    end
+
   protected
 
     EXCLUDE = proc do |env|
       !(env['PATH_INFO'].match(%r{^(/search)?/(metrics|healthcheck)})).nil?
     end
 
-    SHARED_CUSTOM_LABEL_BUILDER = proc do |env, code|
-      {
-        code:         code,
-        is_error_code: code.match?(/^(4|5)..$/).to_s, 
-        method:       env['REQUEST_METHOD'].downcase,
-        host:         env['HTTP_HOST'].to_s,
-        # path:         env['PATH_INFO'].to_s,
-        app:          "specialcollections"
-      }
-    end
-
   end
 end
-
