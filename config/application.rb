@@ -35,7 +35,7 @@ module Findingaids
       config.logger = ActiveSupport::TaggedLogging.new(config.unicorn_logger)
 
       config.logger.level = Logger.const_get('INFO')
-      config.log_level = :info
+      config.log_level = ENV['UNICORN_LOG_LEVEL']&.to_sym || :info
     end
 
     config.action_mailer.smtp_settings = {
