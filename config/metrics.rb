@@ -26,7 +26,7 @@ module Prometheus::Middleware
       super(path)
         .gsub(/(.*assets.*\/)(.+?)-(.+?)\.(.{2,4})/, '\1\2-:asset_hash.\4')
         .gsub(/(search\/bookmarks\/)(.+)/, '\1:bookmarks_search')
-        .gsub(/\/+$/,'')
+        # .gsub(/\/+$/,'')
     end
 
   protected
