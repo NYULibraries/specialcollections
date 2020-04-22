@@ -23,5 +23,7 @@
 <% else %>
 <%= link_to t('search.simple.link_text').html_safe, search_catalog_path(sanitize_search_params(params)) %>
 <% end %>
-<script src="https://cdn-dev.library.nyu.edu/statuspage-embed/index.min.js"></script>
+<% unless Rails.env.test? %>
+  <script src="https://cdn-dev.library.nyu.edu/statuspage-embed/index.min.js"></script>
+<% end %>
 
