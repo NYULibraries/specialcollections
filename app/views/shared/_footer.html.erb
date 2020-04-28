@@ -10,5 +10,9 @@ ga('dltsTracker.send', 'pageview');
 
 </script>
 <% end %>
-<script src="https://kyyfz4489y7m.statuspage.io/embed/script.js"></script>
+
+<% unless Rails.env.test? %>
+  <script src="https://cdn<%= '-dev' unless Rails.env.production? %>.library.nyu.edu/statuspage-embed/index.min.js"></script>
+<% end %>
+
 <%= t('blacklight.footer') %> Powered by <%= link_to "Blacklight", "http://projectblacklight.org/", :target => :blank %>
