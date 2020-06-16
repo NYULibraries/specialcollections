@@ -64,7 +64,7 @@ gem 'comma', '~> 4.2.0'
 # SolrEad to index EAD into Solr
 gem 'solr_ead', '~> 0.7.4'
 # Required update for vulnurability
-gem 'sanitize', '~> 4.6.3'
+gem 'sanitize', '~> 5.2.1'
 # EAD indexing
 gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.0.0'
 
