@@ -40,7 +40,7 @@ hermes_deploy: &hermes_deploy
     command: |
       export TAG=${CIRCLE_BRANCH//\//_}-${CIRCLE_SHA1}
       docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master setImage -deployment=specialcollections-unicorn -tag=$TAG
-      docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master rolloutStatus -deployment=specialcollections-unicorn
+      timeout 1m sh -c 'until docker run -e HERMES_HOST -e HERMES_SECRET quay.io/nyulibraries/hermesclient:master rolloutStatus -deployment=specialcollections-unicorn -wait=false; do sleep 5; done'
 
 version: 2
 jobs:
