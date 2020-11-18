@@ -21,8 +21,8 @@ Catalog:
       url: "nyhistory"
       admin_code: "nyhs"
     brooklynhistory:
-      display: 'Brooklyn Historical Society'
-      url_safe_display: 'Brooklyn Historical Society'
+      display: 'Center for Brooklyn History'
+      url_safe_display: 'Center for Brooklyn History'
       url: "brooklynhistory"
       admin_code: "bhs"
     poly:

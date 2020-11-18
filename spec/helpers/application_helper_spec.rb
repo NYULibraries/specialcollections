@@ -87,7 +87,7 @@ describe ApplicationHelper do
 
     context "when repository is BHS" do
       subject(:repository) { repositories['brooklynhistory'] }
-      it { expect(repository['display']).to eql("Brooklyn Historical Society") }
+      it { expect(repository['display']).to eql("Center for Brooklyn History") }
       it { expect(repository['url']).to eql("brooklynhistory") }
       it { expect(repository['admin_code']).to eql("bhs") }
     end
