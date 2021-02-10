@@ -1,0 +1,46 @@
+FROM ruby:2.5.5-alpine
+
+ENV DOCKER true
+ENV INSTALL_PATH /app
+
+RUN addgroup -g 1000 -S docker && \
+  adduser -u 1000 -S -G docker docker
+
+WORKDIR $INSTALL_PATH
+RUN chown docker:docker .
+
+# bundle install
+COPY --chown=docker:docker Gemfile.cron ./Gemfile
+# ARG RUN_PACKAGES="ca-certificates fontconfig mariadb-dev nodejs tzdata git"
+ARG RUN_PACKAGES="git"
+# ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python"
+ARG BUILD_PACKAGES="build-base"
+RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
+  && gem install bundler -v '2.2.9' \
+  && bundle config --local github.https true \
+  && bundle install --jobs 20 --retry 5 \
+  && rm -rf /root/.bundle && rm -rf /root/.gem \
+  && rm -rf /usr/local/bundle/cache \
+  && apk del $BUILD_PACKAGES \
+  && chown -R docker:docker /usr/local/bundle
+
+# precompile assets; use temporary secret token to silence error, real token set at runtime
+USER docker
+COPY --chown=docker:docker lib ./lib
+COPY --chown=docker:docker app ./app
+COPY --chown=docker:docker config/environments/staging.rb ./config/environments/staging.rb
+COPY --chown=docker:docker config/application.rb ./config/application.rb
+COPY --chown=docker:docker config/boot.rb ./config/boot.rb
+COPY --chown=docker:docker config/solr.yml ./config/solr.yml
+COPY --chown=docker:docker config/repositories.yml ./config/repositories.yml
+COPY --chown=docker:docker Rakefile ./
+
+RUN mkdir -p app/assets/config && echo '{}' > app/assets/config/manifest.js
+
+CMD [ "bundle", "exec", "rake", "ead_indexer:reindex_changed" ]
+
+# docker-compose run -d cron sh
+# CONTAINER_ID=$(docker ps -aq --filter 'label=nyulibraries.app=specialcollections_cron')
+# git clone --depth 1 git@github.com:NYULibraries/findingaids_eads.git ./findingaids_eads
+# docker cp ./findingaids_eads $CONTAINER_ID:/app/findingaids_eads
+# docker exec $CONTAINER_ID bundle exec rake ead_indexer:reindex_changed

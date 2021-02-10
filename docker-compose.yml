@@ -73,6 +73,16 @@ services:
       - db
       - solr
 
+  cron:
+    image: specialcollections_cron
+    build:
+      context: .
+      dockerfile: Dockerfile.cron
+    environment:
+      RAILS_ENV: staging
+    labels:
+      - "nyulibraries.app=specialcollections_cron"
+
   db:
     image: library/mysql:5.6
     environment:
