@@ -80,6 +80,8 @@ services:
       dockerfile: Dockerfile.cron
     environment:
       RAILS_ENV: staging
+      FINDINGAIDS_LOG: STDOUT
+      SOLR_URL: http://solr:8983/solr/test-core
     labels:
       - "nyulibraries.app=specialcollections_cron"
 
