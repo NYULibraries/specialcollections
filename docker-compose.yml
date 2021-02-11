@@ -81,9 +81,7 @@ services:
     environment:
       RAILS_ENV: staging
       FINDINGAIDS_LOG: STDOUT
-      SOLR_URL: http://solr:8983/solr/test-core
-    labels:
-      - "nyulibraries.app=specialcollections_cron"
+      SOLR_URL: http://solr:8983/solr/development-core
 
   db:
     image: library/mysql:5.6
@@ -92,3 +90,5 @@ services:
 
   solr:
     image: nyulibraries/specialcollections-solr:test
+    ports:
+      - 8983:8983
