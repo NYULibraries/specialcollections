@@ -10,6 +10,16 @@ x-build_default: &build_default
       - quay.io/nyulibraries/specialcollections:${BRANCH_NO_SLASH}
       - quay.io/nyulibraries/specialcollections:latest
 
+x-build_cron: &build_cron
+  image: specialcollections_cron
+  build:
+    context: .
+    cache_from:
+      - ruby:2.5.5-alpine
+      - specialcollections_cron
+      - quay.io/nyulibraries/specialcollections_cron:${BRANCH_NO_SLASH}
+      - quay.io/nyulibraries/specialcollections_cron:latest
+
 x-build_test: &build_test
   image: specialcollections_test
   build:

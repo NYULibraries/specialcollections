@@ -9,6 +9,7 @@ pull_docker: &pull_docker
     command: |
       docker pull quay.io/nyulibraries/specialcollections:${CIRCLE_BRANCH//\//_} || docker pull quay.io/nyulibraries/specialcollections:latest
       docker pull quay.io/nyulibraries/specialcollections_test:${CIRCLE_BRANCH//\//_} || docker pull quay.io/nyulibraries/specialcollections_test:latest
+      docker pull quay.io/nyulibraries/specialcollections_cron:${CIRCLE_BRANCH//\//_} || docker pull quay.io/nyulibraries/specialcollections_cron:latest
 
 build_docker: &build_docker
   run:
