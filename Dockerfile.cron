@@ -23,7 +23,6 @@ RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && chown -R docker:docker /usr/local/bundle
 
 USER docker
-COPY --chown=docker:docker script/docker/docker-entrypoint.sh ./docker-entrypoint.sh
 COPY --chown=docker:docker config/environments ./config/environments/
 COPY --chown=docker:docker config/application.rb ./config/application.rb
 COPY --chown=docker:docker config/boot.rb ./config/boot.rb
@@ -32,7 +31,5 @@ COPY --chown=docker:docker config/repositories.yml ./config/repositories.yml
 COPY --chown=docker:docker Rakefile ./
 
 RUN mkdir -p app/assets/config && echo '{}' > app/assets/config/manifest.js
-
-ENTRYPOINT [ "./docker-entrypoint.sh" ]
 
 CMD [ "bundle", "exec", "rake", "ead_indexer:reindex_changed" ]
