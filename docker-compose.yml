@@ -89,13 +89,16 @@ services:
       context: .
       dockerfile: Dockerfile.cron
     environment:
-      RAILS_ENV: staging
       FINDINGAIDS_LOG: STDOUT
-      SOLR_URL: http://solr:8983/solr/development-core
+      SOLR_URL:
+      RAILS_ENV:
+      PROM_PUSHGATEWAY_URL:
+      # RAILS_ENV: staging
+      # SOLR_URL: http://solr:8983/solr/development-core
       # PROM_PUSHGATEWAY_URL: http://pushgateway:9091
-      PROM_PUSHGATEWAY_URL: http://pushgateway:80
-    volumes:
-      - ./findingaids_eads:/app/findingaids_eads
+      # PROM_PUSHGATEWAY_URL: http://pushgateway:80
+    # volumes:
+    #   - ./findingaids_eads:/app/findingaids_eads
 
   db:
     image: library/mysql:5.6
