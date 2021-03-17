@@ -44,6 +44,7 @@ services:
     command: ["./script/start.sh", "production"]
     depends_on:
       - setup_dbs
+      - pushgateway
     # volumes:
     #   - .:/app
 
