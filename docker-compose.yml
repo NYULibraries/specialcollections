@@ -10,6 +10,16 @@ x-build_default: &build_default
       - quay.io/nyulibraries/specialcollections:${BRANCH_NO_SLASH}
       - quay.io/nyulibraries/specialcollections:latest
 
+x-build_cron: &build_cron
+  image: specialcollections_cron
+  build:
+    context: .
+    cache_from:
+      - ruby:2.5.5-alpine
+      - specialcollections_cron
+      - quay.io/nyulibraries/specialcollections_cron:${BRANCH_NO_SLASH}
+      - quay.io/nyulibraries/specialcollections_cron:latest
+
 x-build_test: &build_test
   image: specialcollections_test
   build:
@@ -34,6 +44,7 @@ services:
     command: ["./script/start.sh", "production"]
     depends_on:
       - setup_dbs
+      - pushgateway
     # volumes:
     #   - .:/app
 
@@ -47,7 +58,7 @@ services:
       SOLR_URL: http://solr:8983/solr/test-core
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "bundle", "exec", "rake"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake"]
     #volumes:
     #  - ./tmp/capybara:/app/tmp/capybara
     depends_on:
@@ -59,7 +70,7 @@ services:
       RAILS_ENV: test
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake", "db:setup"]
     depends_on:
       - db
       - solr
@@ -73,6 +84,23 @@ services:
       - db
       - solr
 
+  cron:
+    image: specialcollections_cron
+    build:
+      context: .
+      dockerfile: Dockerfile.cron
+    environment:
+      FINDINGAIDS_LOG: STDOUT
+      SOLR_URL:
+      RAILS_ENV:
+      PROM_PUSHGATEWAY_URL:
+      # RAILS_ENV: staging
+      # SOLR_URL: http://solr:8983/solr/development-core
+      # PROM_PUSHGATEWAY_URL: http://pushgateway:9091
+      # PROM_PUSHGATEWAY_URL: http://pushgateway:80
+    # volumes:
+    #   - ./findingaids_eads:/app/findingaids_eads
+
   db:
     image: library/mysql:5.6
     environment:
@@ -80,3 +108,11 @@ services:
 
   solr:
     image: nyulibraries/specialcollections-solr:test
+    ports:
+      - 8983:8983
+
+  pushgateway:
+    # image: prom/pushgateway
+    image: weaveworks/prom-aggregation-gateway
+    ports:
+      - 80:80
