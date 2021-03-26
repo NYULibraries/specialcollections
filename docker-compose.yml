@@ -79,7 +79,7 @@ services:
     <<: *build_test
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "solr:8983", "--", "rake", "db:setup"]
+    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake", "db:setup"]
     depends_on:
       - db
       - solr
