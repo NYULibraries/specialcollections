@@ -116,10 +116,10 @@ group :test do
   gem 'poltergeist', '~> 1.14.0'
   gem 'phantomjs', '~> 2.1.1'
   # Use SimpleCov for generating local coverage reports
-  gem 'simplecov', '~> 0.14.1', require: false
+  gem 'simplecov', '~> 0.16.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
   # Use Coveralls to publish coverage on the open web
-  gem 'coveralls', '~> 0.8', require: false
+  gem 'coveralls', '~> 0.8.23', require: false
   gem 'term-ansicolor', '>= 1.3.2'
 end
 
