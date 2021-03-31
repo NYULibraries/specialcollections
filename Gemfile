@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2.4.3'
+gem 'rails', '~> 5.2.4.5'
 gem 'mail', '~> 2.6.6.rc1'
 gem 'rake', '~> 12.3.1'
 
