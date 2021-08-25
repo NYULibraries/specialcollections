@@ -1,15 +1,4 @@
 GIT
-  remote: https://github.com/NYULibraries/ead_indexer.git
-  revision: 1ccf4c2ade5e3d446eddf73e891d22b81a6ca2fb
-  tag: v1.0.0
-  specs:
-    ead_indexer (0.0.2)
-      iso-639 (>= 0.2.5)
-      rails (>= 4.2.7.1, < 6)
-      rsolr (~> 1.0)
-      solr_ead (~> 0.7.5)
-
-GIT
   remote: https://github.com/NYULibraries/formaggio.git
   revision: 674e9ebc0f09800ce41e49802c30a386c2920839
   tag: v1.8.0
@@ -546,7 +535,6 @@ DEPENDENCIES
   dalli (~> 2.7.0)
   database_cleaner (~> 1.7.0)
   devise (~> 4.6)
-  ead_indexer!
   exlibris-aleph (~> 2.0.4)
   factory_bot_rails (~> 4.8.0)
   faraday (~> 0.9.0)
