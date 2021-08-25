@@ -71,7 +71,7 @@ gem 'solr_ead', '~> 0.7.4'
 gem 'sanitize', '>= 5.2.1'
 
 # EAD indexing
-gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.1.0-rc' 
+gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.0.0'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
