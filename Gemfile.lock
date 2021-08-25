@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/NYULibraries/ead_indexer.git
-  revision: 1ccf4c2ade5e3d446eddf73e891d22b81a6ca2fb
-  tag: v1.0.0
+  revision: 64d4e0048bf687da15016654d371895ca1a77a1f
+  branch: feature/hourly_indexer
   specs:
     ead_indexer (0.0.2)
       iso-639 (>= 0.2.5)
