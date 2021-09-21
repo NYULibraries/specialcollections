@@ -70,8 +70,8 @@ gem 'solr_ead', '~> 0.7.4'
 # Required update for vulnerability
 gem 'sanitize', '>= 5.2.1'
 
-# EAD indexing
-gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.0.0'
+# EAD indexing: no longer used in main app, just tests; check Gemfile.cron from cron/rake usage
+gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.1.0'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
@@ -128,5 +128,5 @@ group :development, :test do
   gem 'pry', '~> 0'
 end
 
-gem 'prometheus-client', '~> 2.0.0'
+gem 'prometheus-client', '~> 2.0'
 
