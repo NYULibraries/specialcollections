@@ -31,4 +31,4 @@ USER docker
 COPY --chown=docker:docker . .
 RUN bin/rails assets:precompile
 
-CMD bundle exec rake
+CMD [ "bundle", "exec", "rake" ]

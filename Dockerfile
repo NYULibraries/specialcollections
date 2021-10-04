@@ -35,4 +35,4 @@ RUN alias genrand='LC_ALL=C tr -dc "[:alnum:]" < /dev/urandom | head -c40' \
 USER docker
 EXPOSE 9292
 
-CMD [ "./scripts/start.sh", "development" ]
+CMD [ "./script/start.sh", "development" ]
