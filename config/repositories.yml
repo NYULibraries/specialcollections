@@ -45,3 +45,8 @@ Catalog:
       url_safe_display: 'NYU Abu Dhabi Archives and Special Collections'
       url: "nyuad"
       admin_code: "nyuad"
+    vlp:
+      display: 'Villa La Pietra'
+      url_safe_display: 'Villa La Pietra'
+      url: "vlp"
+      admin_code: "vlp"
