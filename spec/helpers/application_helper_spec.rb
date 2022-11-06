@@ -106,6 +106,13 @@ describe ApplicationHelper do
       it { expect(repository['admin_code']).to eql("rism") }
     end
 
+    context "when repository is Akkasah" do
+      subject(:repository) { repositories['akkasah'] }
+      it { expect(repository['display']).to eql("Akkasah Center for Photography at NYU Abu Dhabi") }
+      it { expect(repository['url']).to eql("akkasah") }
+      it { expect(repository['admin_code']).to eql("akkasah") }
+    end
+
   end
 
 end
