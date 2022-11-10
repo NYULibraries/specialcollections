@@ -106,6 +106,20 @@ describe ApplicationHelper do
       it { expect(repository['admin_code']).to eql("rism") }
     end
 
+    context "when repository is NYUAD" do
+      subject(:repository) { repositories['nyuad'] }
+      it { expect(repository['display']).to eql("NYU Abu Dhabi Archives and Special Collections") }
+      it { expect(repository['url']).to eql("nyuad") }
+      it { expect(repository['admin_code']).to eql("nyuad") }
+    end
+
+    context "when repository is VLP" do
+      subject(:repository) { repositories['vlp'] }
+      it { expect(repository['display']).to eql("Villa La Pietra") }
+      it { expect(repository['url']).to eql("vlp") }
+      it { expect(repository['admin_code']).to eql("vlp") }
+    end
+
   end
 
 end

@@ -230,16 +230,16 @@ describe ResultsHelper do
     end
     context "when document is a real url" do
       context "and document is an collection level item" do
-        let(:solr_document) { create(:solr_document, format: ["Archival Collection"], id: "bytsura", ead: "bytsura") }
-        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/\">Guide to titling finding aids</a>") }
+        let(:solr_document) { create(:solr_document, format: ["Archival Collection"], id: "mss_313", ead: "mss_313") }
+        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/mss_313/\">Guide to titling finding aids</a>") }
       end
       context "and document is an series level item" do
-        let(:solr_document) { create(:solr_document, format: ["Archival Series"], id: "bytsura", ead: "bytsura", parent: nil, ref: "ref3") }
-        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dscref3.html\">Guide to titling finding aids</a>") }
+        let(:solr_document) { create(:solr_document, format: ["Archival Series"], id: "mss_313", ead: "mss_313", parent: nil, ref: "aspace_ref3") }
+        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/mss_313/dscaspace_ref3.html\">Guide to titling finding aids</a>") }
       end
       context "and document is an object level item" do
-        let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "bytsura", ead: "bytsura", parent: ["ref3"], ref: "ref309") }
-        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/bytsura/dscref3.html#ref309\">Guide to titling finding aids</a>") }
+        let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "mss_313", ead: "mss_313", parent: ["aspace_ref3"], ref: "aspace_ref309") }
+        it { is_expected.to eql("<a target=\"_blank\" href=\"http://dlib.nyu.edu/findingaids/html/fales/mss_313/dscaspace_ref3.html#aspace_ref309\">Guide to titling finding aids</a>") }
       end
     end
   end
