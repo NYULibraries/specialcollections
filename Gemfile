@@ -59,7 +59,7 @@ gem 'blacklight_advanced_search', '~> 6.4.0'
 gem 'sorted', '~> 2.0'
 
 # Use Dalli for memcached
-gem 'dalli', '~> 2.7.0'
+gem 'dalli', '~> 3.2.3'
 
 # Comma to download CSV
 gem 'comma', '~> 4.2.0'

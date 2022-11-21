@@ -232,7 +232,7 @@ GEM
     cucumber-tag_expressions (1.1.1)
     cucumber-wire (0.0.1)
     daemons (1.4.0)
-    dalli (2.7.10)
+    dalli (3.2.3)
     database_cleaner (1.7.0)
     debug_inspector (0.0.3)
     deprecation (1.0.0)
@@ -540,7 +540,7 @@ DEPENDENCIES
   compass-rails (~> 3.0.0)
   coveralls (~> 0.8)
   cucumber-rails (~> 1.6.0)
-  dalli (~> 2.7.0)
+  dalli (~> 3.2.3)
   database_cleaner (~> 1.7.0)
   devise (~> 4.6)
   ead_indexer!
