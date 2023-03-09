@@ -43,8 +43,15 @@ Findingaids::Application.routes.draw do
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
-    get 'logout', to: 'devise/sessions#destroy', as: :logout
-    get 'login', to: redirect { |params, request| "#{Rails.application.config.relative_url_root}/users/auth/nyulibraries?#{request.query_string}" }, as: :login
+    # See:
+    #   Remove Login from Special Collections dev only
+    #   https://nyu-lib.monday.com/boards/765008773/pulses/3641755097
+    #
+    # Removing `devise_for :users, ...` and this `devise_scope` entirely seem to
+    # break the application, so for now just commenting out these routes.
+    #
+    # get 'logout', to: 'devise/sessions#destroy', as: :logout
+    # get 'login', to: redirect { |params, request| "#{Rails.application.config.relative_url_root}/users/auth/nyulibraries?#{request.query_string}" }, as: :login
   end
 
   get 'healthcheck' => 'help#healthcheck'
