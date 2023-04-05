@@ -1,0 +1,11 @@
+<!--
+    Overrides https://github.com/NYULibraries/nyulibraries_templates/blob/97161f374723442bf8e5c58fa127b8f570f50199/app/templates/nyulibraries_templates/common/_breadcrumbs.html.erb
+    See:
+        "Remove Login from Special Collections dev only"
+        https://nyu-lib.monday.com/boards/765008773/pulses/3641755097
+-->
+<ol class="nyu-breadcrumbs">
+  <% breadcrumbs.each do |breadcrumb| %>
+    <li><%= breadcrumb %></li>
+  <% end %>
+</ol>
