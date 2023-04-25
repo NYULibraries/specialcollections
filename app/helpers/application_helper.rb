@@ -14,6 +14,7 @@ module ApplicationHelper
     # Get repository, component ref and EAD id
     repository, eadid = doc[:repository_ssi], doc[:ead_ssi]
     url = url_for_findingaid(repository, eadid, path, anchor)
+
     # If implied parent structure is correct, use it
     if url_exists?(url)
       return url
@@ -24,12 +25,11 @@ module ApplicationHelper
   end
 
   # Create url for finding aid
-  # def url_for_findingaid(repository, eadid, page = nil, anchor = nil)
-  #   ENV['FINDINGAIDS_2022_MIGRATION'] ? url_for_2022_findingaid(repository, eadid, page, anchor) : url_for_legacy_findingaid(repository, eadid, page, anchor)
-  # end
-
   def url_for_findingaid(repository, eadid, page = nil, anchor = nil)
-#  def url_for_legacy_findingaid(repository, eadid, page = nil, anchor = nil)
+    ENV['FINDINGAIDS_2022_MIGRATION'] ? url_for_2022_findingaid(repository, eadid, page, anchor) : url_for_legacy_findingaid(repository, eadid, page, anchor)
+  end
+
+  def url_for_legacy_findingaid(repository, eadid, page = nil, anchor = nil)
     page = [page, ENV['FINDINGAIDS_FULL_DEFAULT_EXTENSION']].join(".") unless page.nil?
     return "http://#{ENV['FINDINGAIDS_FULL_HOST']}#{[ENV['FINDINGAIDS_FULL_PATH'], repository, eadid, page].join("/")}#{"#" + anchor unless anchor.nil?}"
   end
@@ -43,6 +43,7 @@ module ApplicationHelper
   def url_exists?(url)
     Rails.cache.fetch "url_exists_#{url}", :expires_in => 1.month do
       begin
+        $stderr.puts "URL IS: #{url} STATUS IS: #{Faraday.head(url).status}"
         Faraday.head(url).status == 200
       rescue
         false
