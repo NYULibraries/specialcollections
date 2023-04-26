@@ -247,11 +247,24 @@ describe ResultsHelper do
     end
     context "when in the new FADESIGN configuration" do
       before {
-        ENV['FINDINGAIDS_2022_MIGRATION'] = "true"
+        ENV['FINDINGAIDS_2022_MIGRATION'] = "1"
       }
       after {
-        ENV['FINDINGAIDS_2022_MIGRATION'] = "nil"
+        ENV['FINDINGAIDS_2022_MIGRATION'] = nil
       }
+      context "when document is not a real url" do
+        context "and document is a collection level item" do
+          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/testead/all/#123\">Guide to titling finding aids</a>") }
+        end
+        context "and document is a series level item" do
+          let(:solr_document) { create(:solr_document, format: ["Archival Series"], parent: ["ref344"], ref: "ref350") }
+          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/testead/all/#ref350\">Guide to titling finding aids</a>") }
+        end
+        context "and document is an object level item" do
+          let(:solr_document) { create(:solr_document, format: ["Archival Object"], parent: ["ref3"], ref: "ref309") }
+          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/testead/all/#ref309\">Guide to titling finding aids</a>") }
+        end
+      end
       context "when document is a real url" do
         context "and document is an collection level item" do
           let(:solr_document) { create(:solr_document, format: ["Archival Collection"], id: "mss_313", ead: "mss_313") }
