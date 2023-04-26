@@ -340,5 +340,4 @@ describe ResultsHelper do
     end
   end
 
-
 end
