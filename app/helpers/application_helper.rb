@@ -41,7 +41,7 @@ module ApplicationHelper
 
     # If implied parent structure is correct, use it
     # If not, return custom default
-    url_exists?(url) ? url : url_for_2022_findingaid(repository, eadid, path, anchor)
+    url_exists?(url) ? url : default_url_for_2022_findingaid(repository, eadid, doc[:ref_ssi])
   end
 
 
@@ -59,14 +59,19 @@ module ApplicationHelper
     # https://findingaids.library.nyu.edu/fales/mss_208/
     # https://findingaids.library.nyu.edu/fales/mss_208/contents/aspace_ref121/
     # https://findingaids.library.nyu.edu/fales/mss_208/contents/aspace_ref121/#aspace_ref127
-    "https://#{ENV['FINDINGAIDS_2022_FULL_HOST']}/#{[repository, eadid].join("/")}/#{["contents", page].join("/") + "/" unless page.nil?}#{"#" + anchor unless anchor.nil?}"    
+    "https://#{ENV['FINDINGAIDS_2022_FULL_HOST']}/#{[repository, eadid].join("/")}/#{["contents", page].join("/") + "/" unless page.nil?}#{"#" + anchor unless anchor.nil?}"
+  end
+
+  def default_url_for_2022_findingaid(repository, eadid, anchor = nil)
+    # https://findingaids.library.nyu.edu/fales/mss_208/all/
+    # https://findingaids.library.nyu.edu/fales/mss_208/all/#aspace_ref127
+    "https://#{ENV['FINDINGAIDS_2022_FULL_HOST']}/#{[repository, eadid].join("/")}/#{"all" + "/"}#{"#" + anchor unless anchor.nil?}"
   end
 
   # Does the url actually return a valid page
   def url_exists?(url)
     Rails.cache.fetch "url_exists_#{url}", :expires_in => 1.month do
       begin
-        $stderr.puts "URL IS: #{url} STATUS IS: #{Faraday.head(url).status}"
         Faraday.head(url).status == 200
       rescue
         false
