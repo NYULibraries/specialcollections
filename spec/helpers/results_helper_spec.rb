@@ -266,6 +266,14 @@ describe ResultsHelper do
         end
       end
       context "when document is a real url" do
+        before {
+          # https://stackoverflow.com/a/66783988
+          allow_any_instance_of(Faraday::Connection).to receive(:head).and_return(double(Faraday::Response, status: 200))
+        }
+        after {
+          # https://makandracards.com/makandra/480226-how-to-reset-a-mock
+          RSpec::Mocks.space.proxy_for(Faraday::Connection).reset
+        }
         context "and document is an collection level item" do
           let(:solr_document) { create(:solr_document, format: ["Archival Collection"], id: "mss_313", ead: "mss_313") }
           it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/mss_313/\">Guide to titling finding aids</a>") }
