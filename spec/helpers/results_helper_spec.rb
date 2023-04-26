@@ -247,12 +247,9 @@ describe ResultsHelper do
     end
     context "when in the new FADESIGN configuration" do
       before {
-        @full_host_save = ENV['FINDINGAIDS_FULL_HOST']
-        ENV['FINDINGAIDS_FULL_HOST']      = "findingaids.library.nyu.edu"
         ENV['FINDINGAIDS_2022_MIGRATION'] = "true"
       }
       after {
-        ENV['FINDINGAIDS_FULL_HOST']      = @full_host_save
         ENV['FINDINGAIDS_2022_MIGRATION'] = "nil"
       }
       context "when document is a real url" do
@@ -262,11 +259,11 @@ describe ResultsHelper do
         end
         context "and document is an series level item" do
           let(:solr_document) { create(:solr_document, format: ["Archival Series"], id: "mss_313", ead: "mss_313", parent: nil, ref: "aspace_ref3") }
-          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/mss_313/aspace_ref3.html\">Guide to titling finding aids</a>") }
+          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/mss_313/contents/aspace_ref3/\">Guide to titling finding aids</a>") }
         end
         context "and document is an object level item" do
           let(:solr_document) { create(:solr_document, format: ["Archival Object"], id: "mss_313", ead: "mss_313", parent: ["aspace_ref3"], ref: "aspace_ref309") }
-          it { is_expected.to eql("<a target=\"_blank\" href=\"http://findingaids.library.nyu.edu/fales/mss_313/dscaspace_ref3.html#aspace_ref309\">Guide to titling finding aids</a>") }
+          it { is_expected.to eql("<a target=\"_blank\" href=\"https://findingaids.library.nyu.edu/fales/mss_313/contents/aspace_ref3/#aspace_ref309\">Guide to titling finding aids</a>") }
         end
       end
     end
