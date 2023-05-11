@@ -103,11 +103,13 @@ services:
 
   db:
     image: library/mysql:5.6
+    platform: linux/x86_64
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   solr:
     image: nyulibraries/specialcollections-solr:test
+      #platform: linux/x86_64
     ports:
       - 8983:8983
 
