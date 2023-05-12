@@ -56,6 +56,7 @@ services:
       CODECLIMATE_REPO_TOKEN:
       COVERALLS_REPO_TOKEN:
       SOLR_URL: http://solr:8983/solr/test-core
+      HUB_URL: http://chrome:4444/wd/hub
     env_file:
       - test.env
     command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake"]
@@ -63,6 +64,12 @@ services:
     #  - ./tmp/capybara:/app/tmp/capybara
     depends_on:
       - setup_test_dbs
+      - chrome
+
+  chrome:
+    image: selenium/standalone-chrome:113.0-chromedriver-113.0
+    volumes:
+      - /dev/shm:/dev/shm
 
   setup_test_dbs:
     <<: *build_test

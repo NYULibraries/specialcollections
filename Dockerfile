@@ -1,4 +1,4 @@
-FROM ruby:2.5.5-alpine
+FROM ruby:2.7.8-alpine
 
 ENV DOCKER true
 ENV INSTALL_PATH /app
@@ -13,7 +13,7 @@ RUN chown docker:docker .
 COPY --chown=docker:docker bin/ bin/
 COPY --chown=docker:docker Gemfile Gemfile.lock ./
 ARG RUN_PACKAGES="ca-certificates fontconfig mariadb-dev nodejs tzdata git"
-ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python shared-mime-info"
+ARG BUILD_PACKAGES="ruby-dev build-base linux-headers mysql-dev python3 shared-mime-info"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \
   && gem install bundler -v '1.16.6' \
   && bundle config --local github.https true \

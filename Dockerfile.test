@@ -1,11 +1,12 @@
-FROM quay.io/nyulibraries/selenium_chrome_headless_ruby:2.5.9-slim-chrome_106
+#FROM quay.io/nyulibraries/selenium_chrome_headless_ruby:2.5.9-slim-chrome_106
+FROM ruby:2.7.8
 
 ENV DOCKER true
 ENV INSTALL_PATH /app
 
-#RUN groupadd -g 2000 docker -r && \
-#  useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
-USER root
+RUN groupadd -g 2000 docker -r && \
+  useradd -u 1000 -r --no-log-init -m -d $INSTALL_PATH -g docker docker
+#USER root
 
 WORKDIR $INSTALL_PATH
 RUN chown docker:docker .

@@ -22,11 +22,30 @@ def configure_selenium
   Capybara.register_driver :selenium do |app|
     capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
       chromeOptions: {
-        args: %w[ no-sandbox headless disable-gpu window-size=1280,1024]
+        args: %w[ no-sandbox headless disable-gpu window-size=1280,1024 disable-dev-shm-usage ]
       }
     )
+    #chrome_capabilities = ::Selenium::WebDriver::Remote::Capabilities.chrome('goog:chromeOptions' => { 'args': %w[no-sandbox headless disable-gpu window-size=1400,1400] })
+    #options = Selenium::WebDriver::Remote::Options.new
 
-    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+    if ENV['HUB_URL']
+      puts "Configuring selenium remote: #{ENV['HUB_URL']}"
+      Capybara::Selenium::Driver.new(app, browser: :remote, url: ENV['HUB_URL'], desired_capabilities: capabilities)
+    else
+      puts "Configuring selenium locally"
+      Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+    end
+  end
+
+  RSpec.configure do |config|
+    config.before(:each, type: :system) do
+      driven_by :selenium
+  
+      puts "Configuring app host: http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
+      Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
+      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+      Capybara.server_port = 3000
+    end
   end
 end
 
@@ -46,8 +65,8 @@ when nil, "chrome"
   Capybara.current_driver = :selenium
 end
 
-Before do
-  if Capybara.default_driver == :selenium
-    Capybara.current_session.driver.browser.manage.window.resize_to(1280, 1024)
-  end
-end
+#Before do
+#  if Capybara.default_driver == :selenium
+#    Capybara.current_session.driver.browser.manage.window.resize_to(1280, 1024)
+#  end
+#end

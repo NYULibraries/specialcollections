@@ -99,9 +99,9 @@ end
 group :test do
   # Use Cucumber for integration testing
   gem 'cucumber-rails', '~> 1.6.0', require: false
-  gem 'capybara-screenshot', git: "https://github.com/ericgriffis/capybara-screenshot"
+  #gem 'capybara-screenshot', git: "https://github.com/ericgriffis/capybara-screenshot"
   # Use Selenium as the web driver for Cucumber
-  gem 'selenium-webdriver', '~> 3.14'
+  gem 'selenium-webdriver', '~> 3.9'
   # Use DatabaseCleaner for clearing the test database
   gem 'database_cleaner', '~> 1.7.0'
   # Use factory girl for creating models
@@ -113,8 +113,8 @@ group :test do
   # controller testing for rails 5+
   gem 'rails-controller-testing'
   # Phantomjs for headless browser testing
-  gem 'poltergeist', '~> 1.14.0'
-  gem 'phantomjs', '~> 2.1.1'
+  #gem 'poltergeist', '~> 1.14.0'
+  #gem 'phantomjs', '~> 2.1.1'
   # Use SimpleCov for generating local coverage reports
   gem 'simplecov', '~> 0.14.1', require: false
   gem 'simplecov-rcov', '~> 0.2.3', require: false
