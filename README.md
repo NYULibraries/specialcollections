@@ -20,6 +20,8 @@ RAILS_ENV=test bundle exec rake
 Or use docker:
 
 ```bash
+# Build
+docker-compose build
 # Run tests
 docker-compose run test
 # Run the dev server
