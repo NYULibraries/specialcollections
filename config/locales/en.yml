@@ -65,3 +65,6 @@ en:
   indexer:
     fields:
       dao: "Online Access"
+  ead_indexer:
+    fields:
+      dao: "Online Access"
