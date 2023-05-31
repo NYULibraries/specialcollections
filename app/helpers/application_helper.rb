@@ -6,12 +6,14 @@ module ApplicationHelper
     link_to (label || url), url, opts.merge({ :target => "_blank" })
   end
 
+
   # Abstract actually constructing the url to the finding aids document
   def get_url_for_findingaid_from_document(doc)
       ENV['FINDINGAIDS_2022_MIGRATION'] ? get_url_for_2022_findingaid_from_document(doc) : get_url_for_legacy_findingaid_from_document(doc)
   end
 
   # Abstract actually constructing the url to the finding aids document
+  # using the legacy URL structure
   def get_url_for_legacy_findingaid_from_document(doc)
     # Get pathname if series or component, leave nil if is top level collection
     path = (doc[:parent_ssm].blank?) ? (doc[:format_ssm].first == "Archival Collection") ? nil : "dsc#{doc[:ref_ssi]}" : "dsc#{doc[:parent_ssm].first}"
@@ -20,7 +22,7 @@ module ApplicationHelper
     repository, eadid = doc[:repository_ssi], doc[:ead_ssi]
 
     # construct URL
-    url = url_for_findingaid(repository, eadid, path, anchor)
+    url = url_for_legacy_findingaid(repository, eadid, path, anchor)
 
     # If implied parent structure is correct, use it
     # If not, return custom default
@@ -29,6 +31,7 @@ module ApplicationHelper
   end
 
   # Abstract actually constructing the url to the finding aids document
+  # using the 2022-migration URL structure
   def get_url_for_2022_findingaid_from_document(doc)
     # Get pathname if series or component, leave nil if is top level collection
     path = (doc[:parent_ssm].blank?) ? (doc[:format_ssm].first == "Archival Collection") ? nil : "#{doc[:ref_ssi]}" : "#{doc[:parent_ssm].first}"
@@ -37,24 +40,20 @@ module ApplicationHelper
     repository, eadid = doc[:repository_ssi], doc[:ead_ssi]
 
     # construct URL
-    url = url_for_findingaid(repository, eadid, path, anchor)
+    url = url_for_2022_findingaid(repository, eadid, path, anchor)
 
     # If implied parent structure is correct, use it
     # If not, return custom default
     url_exists?(url) ? url : default_url_for_2022_findingaid(repository, eadid, doc[:ref_ssi])
   end
 
-
-  # Create url for finding aid
-  def url_for_findingaid(repository, eadid, page = nil, anchor = nil)
-    ENV['FINDINGAIDS_2022_MIGRATION'] ? url_for_2022_findingaid(repository, eadid, page, anchor) : url_for_legacy_findingaid(repository, eadid, page, anchor)
-  end
-
+  # Create url for finding aid using the legacy URL structure
   def url_for_legacy_findingaid(repository, eadid, page = nil, anchor = nil)
     page = [page, ENV['FINDINGAIDS_FULL_DEFAULT_EXTENSION']].join(".") unless page.nil?
     "http://#{ENV['FINDINGAIDS_FULL_HOST']}#{[ENV['FINDINGAIDS_FULL_PATH'], repository, eadid, page].join("/")}#{"#" + anchor unless anchor.nil?}"
   end
 
+  # Create url for finding aid using the 2022-migration URL structure
   def url_for_2022_findingaid(repository, eadid, page = nil, anchor = nil)
     # https://findingaids.library.nyu.edu/fales/mss_208/
     # https://findingaids.library.nyu.edu/fales/mss_208/contents/aspace_ref121/
