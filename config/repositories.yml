@@ -50,3 +50,8 @@ Catalog:
       url_safe_display: 'Villa La Pietra'
       url: "vlp"
       admin_code: "vlp"
+CatalogOverrideV2:
+  repositories:
+    brooklynhistory:
+      admin_code: "cbh"
+  
