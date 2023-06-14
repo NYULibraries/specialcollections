@@ -156,6 +156,7 @@ describe ApplicationHelper do
       context "when repository is BHS, admin_code should have changed" do
         subject(:repository) { repositories['brooklynhistory'] }
         it { expect(repository['display']).to eql("Center for Brooklyn History") }
+        it { expect(repository['url_safe_display']).to eql("Center for Brooklyn History") }
         it { expect(repository['url']).to eql("brooklynhistory") }
         it { expect(repository['admin_code']).to eql("cbh") }
       end
