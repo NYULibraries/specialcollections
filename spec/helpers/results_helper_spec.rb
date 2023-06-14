@@ -245,7 +245,7 @@ describe ResultsHelper do
         end
       end
     end
-    context "when in the new FINDINGAIDS_2022_MIGRATION configuration" do
+    context "when in the FINDINGAIDS_2022_MIGRATION configuration" do
       before {
         ENV['FINDINGAIDS_2022_MIGRATION'] = "1"
       }
