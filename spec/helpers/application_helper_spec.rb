@@ -144,11 +144,19 @@ describe ApplicationHelper do
     describe "#repositories" do
       subject(:repositories) { Findingaids::Repositories.repositories }
 
-      context "when repository is BHS" do
+      context "when repository is BHS, admin_code should have changed" do
         subject(:repository) { repositories['brooklynhistory'] }
         it { expect(repository['display']).to eql("Center for Brooklyn History") }
         it { expect(repository['url']).to eql("brooklynhistory") }
         it { expect(repository['admin_code']).to eql("cbh") }
+      end
+
+      context "when repository is Tamiment, nothing should have changed" do
+        subject(:repository) { repositories['tamiment'] }
+        it { expect(repository['display']).to eql("Tamiment Library & Wagner Labor Archives") }
+        it { expect(repository['url']).to eql("tamiment") }
+        it { expect(repository["url_safe_display"]).to eql("Tamiment Library %26 Wagner Labor Archives")
+        it { expect(repository['admin_code']).to eql("tamwag") }
       end
     end
   end
