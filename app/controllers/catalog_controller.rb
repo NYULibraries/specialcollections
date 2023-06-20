@@ -208,4 +208,54 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
   end
+
+  # We need to override Blacklight's `index` in order to remediate the Solr response.
+  def index
+    (@response, @document_list) = search_results(params)
+
+    remediate_solr_response
+
+    respond_to do |format|
+      format.html { store_preferred_view }
+      format.rss  { render :layout => false }
+      format.atom { render :layout => false }
+      format.json do
+        @presenter = Blacklight::JsonPresenter.new(@response,
+                                                   @document_list,
+                                                   facets_from_request,
+                                                   blacklight_config)
+      end
+      additional_response_formats(format)
+      document_export_formats(format)
+    end
+  end
+
+  def remediate_solr_response()
+    # There should only ever be one facet value in the Digital Content facet:
+    # "Online Access":
+    #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/lib/ead_indexer/behaviors.rb#L117
+    #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/config/locales/en.yml#L5
+    #
+    # Due to a misconfiguration in this project's config/locales/en.yml file:
+    #     https://github.com/NYULibraries/specialcollections/blob/2d89e389c8eb97413e8758ac1f0b2d53621b79e7/config/locales/en.yml#L65
+    # ...the indexing jobs incorrectly set the `dao_sim` field to "translation missing: en.ead_indexer.fields.dao"
+    # for a great many Solr documents.
+    #
+    # To fix this, we assume that any Digital Content facet value other than
+    # "Online Access" is a mistake, and that "Online Access" should be the only
+    # facet value, with all counts included under it.
+    digital_content_facet_array = @response.facet_counts['facet_fields']['dao_sim']
+
+    if ! digital_content_facet_array.empty?
+      online_access_total = 0
+
+      (1...digital_content_facet_array.length).step(2).each do |index|
+        online_access_total += digital_content_facet_array[index]
+      end
+
+      @response.facet_counts['facet_fields']['dao_sim'] = ['Online Access', online_access_total]
+    end
+  end
 end
+
+
