@@ -230,22 +230,28 @@ class CatalogController < ApplicationController
     end
   end
 
+  # There should only ever be one facet value in the Digital Content facet:
+  # "Online Access":
+  #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/lib/ead_indexer/behaviors.rb#L117
+  #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/config/locales/en.yml#L5
+  #
+  # Due to a misconfiguration in this project's config/locales/en.yml file:
+  #     https://github.com/NYULibraries/specialcollections/blob/2d89e389c8eb97413e8758ac1f0b2d53621b79e7/config/locales/en.yml#L65
+  # ...the indexing jobs incorrectly set the `dao_sim` field to "translation missing: en.ead_indexer.fields.dao"
+  # for a great many Solr documents.
+  #
+  # To fix this, we assume that any Digital Content facet value other than
+  # "Online Access" is a mistake, and that "Online Access" should be the only
+  # facet value, with all counts included under it.
+  #
+  # We anticipate doing a full re-index in the near future for the new version
+  # of Finding Aids.  Responses from the new index will not require remediation.
+  # This is just a temporary fix to tide us over until we switch over.
   def remediate_solr_response()
-    # There should only ever be one facet value in the Digital Content facet:
-    # "Online Access":
-    #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/lib/ead_indexer/behaviors.rb#L117
-    #     - https://github.com/NYULibraries/ead_indexer/blob/a367ab8cc791376f0d8a287cbcd5b6ee43d5c04f/config/locales/en.yml#L5
-    #
-    # Due to a misconfiguration in this project's config/locales/en.yml file:
-    #     https://github.com/NYULibraries/specialcollections/blob/2d89e389c8eb97413e8758ac1f0b2d53621b79e7/config/locales/en.yml#L65
-    # ...the indexing jobs incorrectly set the `dao_sim` field to "translation missing: en.ead_indexer.fields.dao"
-    # for a great many Solr documents.
-    #
-    # To fix this, we assume that any Digital Content facet value other than
-    # "Online Access" is a mistake, and that "Online Access" should be the only
-    # facet value, with all counts included under it.
     digital_content_facet_array = @response.facet_counts['facet_fields']['dao_sim']
 
+    # Example `digital_content_facet_array` value:
+    #     ["translation missing: en.ead_indexer.fields.dao",32505,"Online Access",16960]
     if ! digital_content_facet_array.empty?
       online_access_total = 0
 
