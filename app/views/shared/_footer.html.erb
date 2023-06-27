@@ -1,4 +1,5 @@
 <% if Rails.env.production? %>
+<%# old Google Analytics snippet %>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -9,6 +10,19 @@ ga('create', 'UA-59394955-2', 'auto',{'name':'dltsTracker'});
 ga('dltsTracker.send', 'pageview');
 
 </script>
+
+
+<%# new Google Analytics 4 snippet for DLTS %>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y07VX8FX6C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y07VX8FX6C');
+</script> 
+
 <% end %>
 
 <% unless Rails.env.test? %>
