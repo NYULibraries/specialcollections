@@ -24,7 +24,7 @@ Catalog:
       display: 'Center for Brooklyn History'
       url_safe_display: 'Center for Brooklyn History'
       url: "brooklynhistory"
-      admin_code: "bhs"
+      admin_code: "cbh"
     poly:
       display: 'Poly Archives'
       url_safe_display: 'Poly Archives'
