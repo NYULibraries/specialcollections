@@ -3,23 +3,9 @@ module Findingaids
     include Enumerable
 
     def self.repositories
-      return @repositories if @repositories
+      repositories_yaml_file = ENV['FINDINGAIDS_2022_MIGRATION'] ? "repositories-findingaids_2022_migration.yml" : "repositories.yml"
 
-      # This code allows the values from the YAML file to be overridden based on
-      # whether or not the FINDINGAIDS_2022_MIGRATION environment variable is set
-
-      # load repositories.yml file
-      yaml_contents = YAML.load_file( File.join(Rails.root, "config", "repositories.yml") )
-
-      # extract legacy repositories
-      @repositories = yaml_contents["Catalog"]["repositories"]
-
-      # override repositories if needed
-      if ENV['FINDINGAIDS_2022_MIGRATION']
-        @repositories.merge!(yaml_contents["CatalogOverride"]["repositories"])
-      end
-
-      @repositories
+      @repositories ||= YAML.load_file( File.join(Rails.root, "config", repositories_yaml_file) )["Catalog"]["repositories"]
     end
 
     extend Forwardable
