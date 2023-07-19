@@ -48,6 +48,19 @@ services:
     # volumes:
     #   - .:/app
 
+  master:
+    image: quay.io/nyulibraries/specialcollections:master
+    tty: true
+    stdin_open: true
+    ports:
+      - "9292:9292"
+    env_file:
+      - test.env
+    command: ["./script/start.sh", "production"]
+    depends_on:
+      - setup_dbs
+      - pushgateway
+
   test:
     <<: *build_test
     environment:
