@@ -1,0 +1,52 @@
+Catalog:
+  repositories:
+    fales:
+      display: 'The Fales Library & Special Collections'
+      url_safe_display: 'The Fales Library %26 Special Collections'
+      url: "fales"
+      admin_code: fales
+    tamiment:
+      display: 'Tamiment Library & Wagner Labor Archives'
+      url_safe_display: 'Tamiment Library %26 Wagner Labor Archives'
+      url: "tamiment"
+      admin_code: "tamwag"
+    universityarchives:
+      display: 'New York University Archives'
+      url_safe_display: 'New York University Archives'
+      url: "universityarchives"
+      admin_code: "archives"
+    nyhistory:
+      display: 'New-York Historical Society'
+      url_safe_display: 'New-York Historical Society'
+      url: "nyhistory"
+      admin_code: "nyhs"
+    brooklynhistory:
+      display: 'Center for Brooklyn History'
+      url_safe_display: 'Center for Brooklyn History'
+      url: "brooklynhistory"
+      admin_code: "cbh"
+    poly:
+      display: 'Poly Archives'
+      url_safe_display: 'Poly Archives'
+      url: "poly"
+      admin_code: "poly"
+    rism:
+      display: 'Research Institute for the Study of Man'
+      url_safe_display: 'Research Institute for the Study of Man'
+      url: "rism"
+      admin_code: "rism"
+    akkasah:
+      display: 'Akkasah Center for Photography at NYU Abu Dhabi'
+      url_safe_display: 'Akkasah Center for Photography at NYU Abu Dhabi'
+      url: "akkasah"
+      admin_code: "akkasah"
+    nyuad:
+      display: 'NYU Abu Dhabi Archives and Special Collections'
+      url_safe_display: 'NYU Abu Dhabi Archives and Special Collections'
+      url: "nyuad"
+      admin_code: "nyuad"
+    vlp:
+      display: 'Villa La Pietra'
+      url_safe_display: 'Villa La Pietra'
+      url: "vlp"
+      admin_code: "vlp"

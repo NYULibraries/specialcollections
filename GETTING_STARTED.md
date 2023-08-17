@@ -67,3 +67,8 @@ The description of EAD in Solr proves to require more configuration so we use [a
   ```
 
 9. Visiting `http://localhost:3000` should present you with the development application.
+
+## Note
+You can use the `FINDINGAIDS_2022_MIGRATION` environment variable to control application behavior.  
+If `ENV['FINDINGAIDS_2022_MIGRATION']` is `nil`, then the application will operate in legacy mode.  
+If `ENV['FINDINGAIDS_2022_MIGRATION']` is not `nil`, then the application will operate in the `FINDINGAIDS_2022_MIGRATION` mode.   
