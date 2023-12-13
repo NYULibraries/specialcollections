@@ -11,6 +11,7 @@ RUN chown docker:docker .
 
 # bundle install
 COPY --chown=docker:docker Gemfile.cron ./Gemfile
+COPY --chown=docker:docker Gemfile.lock.cron ./Gemfile.lock
 ARG RUN_PACKAGES="ca-certificates git"
 ARG BUILD_PACKAGES="build-base shared-mime-info"
 RUN apk add --no-cache --update $RUN_PACKAGES $BUILD_PACKAGES \

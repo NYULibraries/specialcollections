@@ -9,3 +9,4 @@ gem 'solr_ead', '~> 0.7.4'
 # EAD indexing
 gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.1.0'
 
+gem 'prometheus-client', '~> 2.0'
