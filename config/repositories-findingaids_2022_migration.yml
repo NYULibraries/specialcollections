@@ -4,7 +4,7 @@ Catalog:
       display: 'The Fales Library & Special Collections'
       url_safe_display: 'The Fales Library %26 Special Collections'
       url: "fales"
-      admin_code: fales
+      admin_code: "fales"
     tamiment:
       display: 'Tamiment Library & Wagner Labor Archives'
       url_safe_display: 'Tamiment Library %26 Wagner Labor Archives'
@@ -50,3 +50,8 @@ Catalog:
       url_safe_display: 'Villa La Pietra'
       url: "vlp"
       admin_code: "vlp"
+    arabartarchive:
+      display: 'Arab Art Archive, al Mawrid, NYU Abu Dhabi'
+      url_safe_display: 'Arab Art Archive%2C al Mawrid%2C NYU Abu Dhabi'
+      url: "arabartarchive"
+      admin_code: "arabartarchive"
