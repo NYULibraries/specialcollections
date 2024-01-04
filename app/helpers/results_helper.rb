@@ -50,7 +50,15 @@ module ResultsHelper
   end
 
   def render_repository_facet_link(doc)
-    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
+    r = repositories.find{|key,hash| hash["admin_code"] == doc}
+
+    if r.nil?
+      "missing repository for: #{doc}"
+    else
+      repository_label r[1]["url"]
+    end
+
+#    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
   end
 
   # This is a bit of a hack to work around the fact that we don't want to change repo names
