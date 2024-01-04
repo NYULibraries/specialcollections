@@ -68,7 +68,15 @@ The description of EAD in Solr proves to require more configuration so we use [a
 
 9. Visiting `http://localhost:3000` should present you with the development application.
 
-## Note
-You can use the `FINDINGAIDS_2022_MIGRATION` environment variable to control application behavior.  
-If `ENV['FINDINGAIDS_2022_MIGRATION']` is `nil`, then the application will operate in legacy mode.  
-If `ENV['FINDINGAIDS_2022_MIGRATION']` is not `nil`, then the application will operate in the `FINDINGAIDS_2022_MIGRATION` mode.   
+
+## Developer Notes:
+1. Running the code in V1 (legacy) and V2 (FADESIGFINDINGAIDS_2022_MIGRATION) modes:
+  You can use the `FINDINGAIDS_2022_MIGRATION` environment variable to control application behavior.  
+  If `ENV['FINDINGAIDS_2022_MIGRATION']` is `nil`, then the application will operate in legacy mode.  
+  If `ENV['FINDINGAIDS_2022_MIGRATION']` is not `nil`, then the application will operate in the `FINDINGAIDS_2022_MIGRATION` mode.   
+
+2. Adding a new archival repository
+  To add a new archival repository, e.g., `arabartarchive`, you need to update the following files:
+  a.) the `config/repositories.yml` and `config/repositories-findingaids_2022_migration.yml` files
+  b.) the `config/locales/en.yml` file
+      * The only required key/value pair for the new repository is `url`
