@@ -80,3 +80,4 @@ The description of EAD in Solr proves to require more configuration so we use [a
   a.) the `config/repositories.yml` and `config/repositories-findingaids_2022_migration.yml` files
   b.) the `config/locales/en.yml` file
       * The only required key/value pair for the new repository is `url`
+
