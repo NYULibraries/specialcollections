@@ -50,7 +50,12 @@ module ResultsHelper
   end
 
   def render_repository_facet_link(doc)
-    repository_label repositories.find{|key,hash| hash["admin_code"] == doc}[1]["url"]
+    repository = repositories.find{|key,hash| hash["admin_code"] == doc}
+    if !repository
+      logger.warn "Could not identify repository for '#{doc}'"
+      return doc 
+    end
+    repository_label repository[1]["url"]
   end
 
   # This is a bit of a hack to work around the fact that we don't want to change repo names
@@ -59,10 +64,15 @@ module ResultsHelper
   def render_repository_link(doc)
     repos_id = Solrizer.solr_name("repository", :stored_sortable)
     if doc.is_a?(Hash) && doc[:document].to_h.present? && doc[:document][repos_id].present?
-      link_to_repository repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}[1]["url"]
+      repository = repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}
+      if !repository
+        logger.warn "Could not identify repository link for '#{doc}'"
+        return "/" 
+      end
+      link_to_repository repository[1]["url"]
     end
   end
-
+  
    ##
   # Render clean facet link to parent collection/series
   def render_parent_facet_link(doc)
@@ -185,3 +195,4 @@ module ResultsHelper
   end
 
 end
+
