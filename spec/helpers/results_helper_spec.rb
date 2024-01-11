@@ -200,14 +200,27 @@ describe ResultsHelper do
     subject { helper.render_repository_facet_link(document[:document][:repository_ssi]) }
     let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
     before { allow(helper).to receive(:repositories).and_return repositories }
-    it { is_expected.to eql "The Fales Library" }
+    describe "when the repository exists in repositories.yml" do
+      it { is_expected.to eql "The Fales Library" }
+    end
+    describe "when the repository doesn't exist in repositories.yml" do
+      subject { helper.render_repository_facet_link "something-not-found" }
+      it { is_expected.to eql "something-not-found" }
+    end
   end
 
   describe "#render_repository_link" do
     subject { helper.render_repository_link(document) }
     let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
     before { allow(helper).to receive(:repositories).and_return repositories }
-    it { is_expected.to eql "<a href=\"/fales\">The Fales Library</a>" }
+    describe "when the repository exists in repositories.yml" do
+      it { is_expected.to eql "<a href=\"/fales\">The Fales Library</a>" }
+    end
+    describe "when the repository doesn't exist in repositories.yml" do
+      let(:document) {{ document: {'some-garbage' => "lots-of-garbage"}, field: "garbage" }}
+      subject { helper.render_repository_link(document) }
+      it { is_expected.to eql "Unknown" }
+    end
     it { expect(sanitize_html(subject)).to eql("The Fales Library") }
   end
 

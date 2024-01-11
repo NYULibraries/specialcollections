@@ -67,9 +67,9 @@ module ResultsHelper
       repository = repositories.find{|key,hash| hash["admin_code"] == doc[:document][repos_id]}
       if !repository
         logger.warn "Could not identify repository link for '#{doc}'"
-        return "/" 
+        return "Unknown" 
       end
-      link_to_repository repository[1]["url"]
+      link_to_repository(repository[1]["url"]) || "More Unknown"
     end
   end
   
