@@ -50,3 +50,8 @@ Catalog:
       url_safe_display: 'Villa La Pietra'
       url: "vlp"
       admin_code: "vlp"
+    arabartarchive:
+      display: 'Arab Art Archive, al Mawrid, NYU Abu Dhabi'
+      url_safe_display: 'Arab Art Archive%2C al Mawrid%2C NYU Abu Dhabi'
+      url: "arabartarchive"
+      admin_code: "arabartarchive"
