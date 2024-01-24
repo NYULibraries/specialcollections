@@ -11,7 +11,7 @@ gem 'rack', '>= 2.2.3'
 
 
 # Use MySQL for the database
-gem 'mysql2', '~> 0.4.5'
+gem 'mysql2', '~> 0.5'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0'
