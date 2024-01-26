@@ -42,12 +42,12 @@ gem 'compass-rails', '~> 3.0.0'
 gem 'jbuilder', '~> 2.6.0'
 
 # Use the NYU Libraries assets gem for shared NYU Libraries assets
-gem 'nyulibraries_stylesheets', github: 'NYULibraries/nyulibraries_stylesheets', tag: 'v1.1.2'
+gem 'nyulibraries_stylesheets', git: 'https://github.com/NYULibraries/nyulibraries_stylesheets', tag: 'v1.1.2'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'nyulibraries_templates', github: 'NYULibraries/nyulibraries_templates', tag: 'v1.2.4'
-gem 'nyulibraries_institutions', github: 'NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
-gem 'nyulibraries_javascripts', github: 'NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
-gem 'nyulibraries_errors', github: 'NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
+gem 'nyulibraries_templates', git: 'https://github.com/NYULibraries/nyulibraries_templates', tag: 'v1.2.4'
+gem 'nyulibraries_institutions', git: 'https://github.com/NYULibraries/nyulibraries_institutions', tag: 'v1.0.3'
+gem 'nyulibraries_javascripts', git: 'https://github.com/NYULibraries/nyulibraries_javascripts', tag: 'v1.0.0'
+gem 'nyulibraries_errors', git: 'https://github.com/NYULibraries/nyulibraries_errors', tag: 'v1.1.1'
 
 # Use Blacklight for searching Solr
 gem 'blacklight', '~> 6.15.0'
@@ -71,14 +71,14 @@ gem 'solr_ead', '~> 0.7.4'
 gem 'sanitize', '>= 5.2.1'
 
 # EAD indexing: no longer used in main app, just tests; check Gemfile.cron from cron/rake usage
-gem 'ead_indexer', github: 'NYULibraries/ead_indexer', tag: 'v1.1.0'
+gem 'ead_indexer', git: 'https://github.com/NYULibraries/ead_indexer', tag: 'v1.1.0'
 
 # ISO 639 Language mapper
 gem 'iso-639', '~> 0.2.5'
 
 # Transition gems
 gem 'exlibris-aleph', '~> 2.0.4'
-gem 'omniauth-nyulibraries', github: 'NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
+gem 'omniauth-nyulibraries', git: 'https://github.com/NYULibraries/omniauth-nyulibraries',  tag: 'v2.0.0'
 gem 'devise', '~> 4.6'
 # /Transition gems
 
@@ -89,7 +89,7 @@ gem "sentry-raven", '~> 2'
 
 gem 'unicorn', '~> 5.3.0'
 
-gem 'formaggio', github: 'NYULibraries/formaggio', tag: 'v1.8.0'
+gem 'formaggio', git: 'https://github.com/NYULibraries/formaggio', tag: 'v1.8.0'
 
 group :development do
   gem 'better_errors', '~> 2.8'
@@ -106,6 +106,7 @@ group :test do
   gem 'database_cleaner', '~> 1.7.0'
   # Use factory girl for creating models
   gem 'factory_bot_rails', '~> 4.8.0'
+  gem "puma"
   # Rspec as the test framework
   gem 'rspec-rails', '~> 3'
   gem 'rspec-its', '~> 1.2.0'

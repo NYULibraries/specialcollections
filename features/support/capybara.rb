@@ -36,17 +36,6 @@ def configure_selenium
       Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
     end
   end
-
-  RSpec.configure do |config|
-    config.before(:each, type: :system) do
-      driven_by :selenium
-  
-      puts "Configuring app host: http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
-      Capybara.app_host = "http://#{IPSocket.getaddress(Socket.gethostname)}:3000"
-      Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-      Capybara.server_port = 3000
-    end
-  end
 end
 
 case ENV['DRIVER']
@@ -63,6 +52,15 @@ when nil, "chrome"
   Capybara.javascript_driver = :selenium
   Capybara.default_driver = :selenium
   Capybara.current_driver = :selenium
+
+  application_ip_address = IPSocket.getaddress(Socket.gethostname)
+  application_ip_port = 3000
+  application_url = "http://#{application_ip_address}:#{application_ip_port}"
+
+  puts "Configuring app host: #{application_url}"
+  Capybara.app_host = application_url
+  Capybara.server_host = application_ip_address
+  Capybara.server_port = application_ip_port
 end
 
 #Before do

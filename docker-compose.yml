@@ -59,7 +59,8 @@ services:
       HUB_URL: http://chrome:4444/wd/hub
     env_file:
       - test.env
-    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake"]
+    command: ["tail", "-f", "/dev/null"]
+#    command: ["/tmp/wait-for-it.sh", "db:3306", "--", "/tmp/wait-for-it.sh", "solr:8983", "--", "bundle", "exec", "rake"]
     #volumes:
     #  - ./tmp/capybara:/app/tmp/capybara
     depends_on:
@@ -67,7 +68,7 @@ services:
       - chrome
 
   chrome:
-    image: selenium/standalone-chrome:113.0-chromedriver-113.0
+    image: selenium/standalone-chrome:110.0-chromedriver-110.0-grid-4.8.0-20230210
     volumes:
       - /dev/shm:/dev/shm
 

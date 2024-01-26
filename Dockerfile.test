@@ -33,4 +33,6 @@ USER docker
 COPY --chown=docker:docker . .
 RUN bin/rails assets:precompile
 
+EXPOSE 3000/tcp
+
 CMD [ "bundle", "exec", "rake" ]

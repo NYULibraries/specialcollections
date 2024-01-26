@@ -56,44 +56,44 @@ jobs:
       - <<: *auth_quay
       - <<: *push_docker
 
-  deploy-dev:
-    <<: *docker-defaults
-    steps:
-      - setup_remote_docker
-      - <<: *auth_quay
-      - run:
-          name: Export Hermes Dev env vars
-          command: |
-            echo 'export HERMES_HOST=https://hermes-dev.library.nyu.edu' >> $BASH_ENV
-            echo 'export HERMES_SECRET=$HERMES_SECRET_DEV' >> $BASH_ENV
-      - <<: *hermes_deploy
-
-  deploy-prod:
-    <<: *docker-defaults
-    steps:
-      - setup_remote_docker
-      - <<: *auth_quay
-      - run:
-          name: Export Hermes Prod env vars
-          command: |
-            echo 'export HERMES_HOST=https://hermes.library.nyu.edu' >> $BASH_ENV
-            echo 'export HERMES_SECRET=$HERMES_SECRET_PROD' >> $BASH_ENV
-      - <<: *hermes_deploy
+#  deploy-dev:
+#    <<: *docker-defaults
+#    steps:
+#      - setup_remote_docker
+#      - <<: *auth_quay
+#      - run:
+#          name: Export Hermes Dev env vars
+#          command: |
+#            echo 'export HERMES_HOST=https://hermes-dev.library.nyu.edu' >> $BASH_ENV
+#            echo 'export HERMES_SECRET=$HERMES_SECRET_DEV' >> $BASH_ENV
+#      - <<: *hermes_deploy
+#
+#  deploy-prod:
+#    <<: *docker-defaults
+#    steps:
+#      - setup_remote_docker
+#      - <<: *auth_quay
+#      - run:
+#          name: Export Hermes Prod env vars
+#          command: |
+#            echo 'export HERMES_HOST=https://hermes.library.nyu.edu' >> $BASH_ENV
+#            echo 'export HERMES_SECRET=$HERMES_SECRET_PROD' >> $BASH_ENV
+#      - <<: *hermes_deploy
 
 workflows:
   version: 2
   build-test-and-deploy:
     jobs:
       - test-and-build-image
-      - deploy-dev:
-          requires:
-              - test-and-build-image
-          filters:
-            branches:
-              ignore: master
-      - deploy-prod:
-          requires:
-              - test-and-build-image
-          filters:
-            branches:
-              only: master
+#      - deploy-dev:
+#          requires:
+#              - test-and-build-image
+#          filters:
+#            branches:
+#              ignore: master
+#      - deploy-prod:
+#          requires:
+#              - test-and-build-image
+#          filters:
+#            branches:
+#              only: master
