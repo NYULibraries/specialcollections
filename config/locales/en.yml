@@ -21,6 +21,10 @@ en:
     brooklynhistory:
       home_text: The Center for Brooklyn History collects, preserves, and provides access to the most expansive collection of Brooklyn history and life in the world. The combined collections that comprise the new Center for Brooklyn History's holdings include over 250,000 photographs, 37,000 books, 1,800 archival collections, 2,500 maps and atlases, 5,700 artifacts, 300 paintings, 1,400 oral history interviews, and more. The collections foster new and cutting-edge scholarship, support public learning and research, and enrich CBH's exhibitions, educational activities, and public programming.
       url: http://www.brooklynhistory.org/library/search.html
+    arabartarchive:
+      home_text: The Arab Art Archive works with artists, their families, collections, galleries, arts organizations, and other institutions throughout the region and around the world to digitize a range of documentary material pertaining to the history of modern art in the Arab countries.
+      url: https://nyuad.nyu.edu/en/research/faculty-labs-and-projects/al-mawrid.html
+
   facets:
     help:
       repository: "View materials from one special collection (e.g. Fales Library or New-York Historical Society)."

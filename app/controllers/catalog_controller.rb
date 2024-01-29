@@ -213,7 +213,7 @@ class CatalogController < ApplicationController
   def index
     (@response, @document_list) = search_results(params)
 
-    remediate_solr_response
+    #remediate_solr_response
 
     respond_to do |format|
       format.html { store_preferred_view }
@@ -247,21 +247,21 @@ class CatalogController < ApplicationController
   # We anticipate doing a full re-index in the near future for the new version
   # of Finding Aids.  Responses from the new index will not require remediation.
   # This is just a temporary fix to tide us over until we switch over.
-  def remediate_solr_response()
-    digital_content_facet_array = @response.facet_counts['facet_fields']['dao_sim']
+  #def remediate_solr_response()
+  #  digital_content_facet_array = @response.facet_counts['facet_fields']['dao_sim']
 
-    # Example `digital_content_facet_array` value:
-    #     ["translation missing: en.ead_indexer.fields.dao",32505,"Online Access",16960]
-    if ! digital_content_facet_array.empty?
-      online_access_total = 0
+  #  # Example `digital_content_facet_array` value:
+  #  #     ["translation missing: en.ead_indexer.fields.dao",32505,"Online Access",16960]
+  #  if ! digital_content_facet_array.empty?
+  #    online_access_total = 0
 
-      (1...digital_content_facet_array.length).step(2).each do |index|
-        online_access_total += digital_content_facet_array[index]
-      end
+  #    (1...digital_content_facet_array.length).step(2).each do |index|
+  #      online_access_total += digital_content_facet_array[index]
+  #    end
 
-      @response.facet_counts['facet_fields']['dao_sim'] = ['Online Access', online_access_total]
-    end
-  end
+  #    @response.facet_counts['facet_fields']['dao_sim'] = ['Translation missing: en.ead_indexer.fields.dao', online_access_total]
+  #  end
+  #end
 end
 
 

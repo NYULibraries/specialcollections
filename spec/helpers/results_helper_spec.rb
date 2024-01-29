@@ -197,10 +197,18 @@ describe ResultsHelper do
   end
 
   describe "#render_repository_facet_link" do
-    subject { helper.render_repository_facet_link(document[:document][:repository_ssi]) }
-    let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
-    before { allow(helper).to receive(:repositories).and_return repositories }
-    it { is_expected.to eql "The Fales Library" }
+    context "when the repository is found" do
+      subject { helper.render_repository_facet_link(document[:document][:repository_ssi]) }
+      let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
+      before { allow(helper).to receive(:repositories).and_return repositories }
+      it { is_expected.to eql "The Fales Library" }
+    end
+    context "when the repository is not found" do
+      subject { helper.render_repository_facet_link("foobar") }
+      let(:repositories) {{"fales" => {"display" => "The Fales Library", "admin_code" => "fales", "url" => "fales"}}}
+      before { allow(helper).to receive(:repositories).and_return repositories }
+      it { is_expected.to eql "missing repository for: foobar" }
+    end
   end
 
   describe "#render_repository_link" do
