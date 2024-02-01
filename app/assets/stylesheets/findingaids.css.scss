@@ -231,3 +231,27 @@ dd.blacklight-collection_ssm{
     padding-left: 0;
   }
 }
+
+#facet-dao_sim .facet_select {
+  //visibility: hidden;
+  //position: absolute;
+  text-indent: -9999px;
+  line-height: 0;
+  display: block;
+}
+
+#facet-dao_sim .facet-label .selected {
+  text-indent: -9999px;
+  line-height: 0;
+  display: block;
+}
+
+#facet-dao_sim .facet_select:after, #facet-dao_sim .facet-label .selected:after {
+  content: "Online Access";
+  //visibility: visible;
+  text-indent: 0;
+  display: block;
+  line-height: initial;
+
+  //display: block;
+}
