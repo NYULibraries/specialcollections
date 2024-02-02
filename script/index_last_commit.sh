@@ -9,7 +9,8 @@ do
   ead_path="$EAD_DIR/$ead"
   if [ -f "$ead_path" ]; then
     echo "Fabifying EAD=$ead"
-    tmp_ead_path="$ead_path-tmp"
+    tmp_ead_path="/tmp/$ead"
+    mkdir -p "$(dirname $tmp_ead_path)"
     ./bin/nyudlts/dlts-finding-aids-fasb/fasb fabify ead $ead_path > $tmp_ead_path
     mv $tmp_ead_path $ead_path
   else
