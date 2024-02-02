@@ -31,6 +31,7 @@ COPY --chown=docker:docker config/solr.yml ./config/solr.yml
 COPY --chown=docker:docker config/repositories.yml ./config/repositories.yml
 COPY --chown=docker:docker Rakefile ./
 COPY --chown=docker:docker script ./script
+COPY --chown=docker:docker nyudlts ./nyudlts
 
 RUN mkdir -p app/assets/config && echo '{}' > app/assets/config/manifest.js
 

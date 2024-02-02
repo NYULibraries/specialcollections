@@ -11,7 +11,7 @@ do
     echo "Fabifying EAD=$ead"
     tmp_ead_path="/tmp/$ead"
     mkdir -p "$(dirname $tmp_ead_path)"
-    ./bin/nyudlts/dlts-finding-aids-fasb/fasb fabify ead $ead_path > $tmp_ead_path
+    ./nyudlts/dlts-finding-aids-fasb/fasb fabify ead $ead_path > $tmp_ead_path
     mv $tmp_ead_path $ead_path
   else
     echo "Skipping EAD $ead since it does not exist at $ead_path: deletion?"
