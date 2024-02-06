@@ -231,3 +231,30 @@ dd.blacklight-collection_ssm{
     padding-left: 0;
   }
 }
+
+// begin hack: overwrite buggy values from solr
+// thanks to https://stackoverflow.com/questions/7896402/how-can-i-replace-text-with-css
+// link element can't use font-size: 0 solution since it removes functionality; for non-interactive elements, this works best
+#facet-dao_sim .facet_select {
+  text-indent: -9999px;
+  line-height: 0;
+  display: block;
+}
+#facet-dao_sim .facet_select:after {
+  content: "Online Access";
+  text-indent: 0;
+  display: block;
+  line-height: initial;
+}
+#facet-dao_sim .facet-label .selected, .appliedFilter.filter-dao_sim .filterValue {
+  font-size: 0;
+}
+#facet-dao_sim .facet-label .selected:after {
+  content: "Online Access";
+  font-size: 14px;
+}
+.appliedFilter.filter-dao_sim .filterValue:after {
+  content: "Online Access";
+  font-size: 13px;
+}
+// end hack
