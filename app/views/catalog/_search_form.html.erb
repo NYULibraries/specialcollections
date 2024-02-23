@@ -1,4 +1,4 @@
-<%= form_tag search_action_url, :method => :get, :class => 'search-query-form form-inline clearfix' do %>
+<%= form_tag search_action_path, :method => :get, :class => 'search-query-form form-inline clearfix' do %>
 <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
 
 <div class="input-group search-input-group">
