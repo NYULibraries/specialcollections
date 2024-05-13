@@ -1,6 +1,6 @@
 docker-defaults: &docker-defaults
   docker:
-    - image: quay.io/nyulibraries/circleci_docker:18.06.1-dc-1.23.2-0
+    - image: quay.io/nyulibraries/circleci_docker:20.10.6-dc-1.29.1-0
   working_directory: ~/app
 
 pull_docker: &pull_docker
