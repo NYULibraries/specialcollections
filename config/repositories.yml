@@ -16,8 +16,8 @@ Catalog:
       url: "universityarchives"
       admin_code: "archives"
     nyhistory:
-      display: 'New-York Historical Society'
-      url_safe_display: 'New-York Historical Society'
+      display: 'The New York Historical'
+      url_safe_display: 'The New York Historical'
       url: "nyhistory"
       admin_code: "nyhs"
     brooklynhistory:
