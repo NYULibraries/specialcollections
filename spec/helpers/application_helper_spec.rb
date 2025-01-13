@@ -84,8 +84,8 @@ describe ApplicationHelper do
 
       context "when repository is NYHS" do
         subject(:repository) { repositories['nyhistory'] }
-        it { expect(repository['display']).to eql("New-York Historical Society") }
-        it { expect(repository['url_safe_display']).to eql("New-York Historical Society") }
+        it { expect(repository['display']).to eql("The New York Historical") }
+        it { expect(repository['url_safe_display']).to eql("The New York Historical") }
         it { expect(repository['url']).to eql("nyhistory") }
         it { expect(repository['admin_code']).to eql("nyhs") }
       end
@@ -194,8 +194,8 @@ describe ApplicationHelper do
 
       context "when repository is NYHS" do
         subject(:repository) { repositories['nyhistory'] }
-        it { expect(repository['display']).to eql("New-York Historical Society") }
-        it { expect(repository['url_safe_display']).to eql("New-York Historical Society") }
+        it { expect(repository['display']).to eql("The New York Historical") }
+        it { expect(repository['url_safe_display']).to eql("The New York Historical") }
         it { expect(repository['url']).to eql("nyhistory") }
         it { expect(repository['admin_code']).to eql("nyhs") }
       end
