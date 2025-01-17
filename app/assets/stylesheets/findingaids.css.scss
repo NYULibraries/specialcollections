@@ -21,7 +21,7 @@ $grid-float-breakpoint: 980px;
 
 h1.page_header {
   color: $nyu-purple;
-  font-size: 150%;
+  font-size: 24px;
   font-weight: normal;
   padding-bottom: 10px;
 }
@@ -36,10 +36,11 @@ h1.page_header {
   h3 {
     line-height: 1.5em;
     font-weight: bold;
+    font-size: 18px;
   }
   h2 {
     font-weight: bold;
-    font-size: 1em;
+    font-size: 21px;
     margin-top: 1.7em;
   }
   div {
