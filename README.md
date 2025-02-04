@@ -21,11 +21,11 @@ Or use docker:
 
 ```bash
 # Build
-docker-compose build
+docker compose build
 # Run tests
-docker-compose run test
+docker compose run test
 # Run the dev server
-docker-compose up dev
+docker compose up dev
 ```
 
 Then you should be able to go to `http://localhost:9292`.
