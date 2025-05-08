@@ -49,7 +49,8 @@ jobs:
     <<: *docker-defaults
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          version: v20
       - <<: *pull_docker
       - <<: *build_docker
       - <<: *test
