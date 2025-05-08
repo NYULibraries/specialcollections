@@ -50,7 +50,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-          version: v20
+          version: docker24
       - <<: *pull_docker
       - <<: *build_docker
       - <<: *test
