@@ -61,7 +61,11 @@ form.search-query-form {
     padding-left: 0;
   }
 }
-div.search { margin-bottom: 1em; }
+div.search {
+  margin-bottom: 1em;
+  background-color: #f3f3f3;
+}
+
 select#search_field {
   height: 2.5em !important;
   width: 30%;
@@ -264,6 +268,8 @@ dd.blacklight-collection_ssm{
 #main #sidebar a, footer a {
   text-decoration: none;
   border-bottom: 1px solid rgba(1, 112, 178, 0.3);
+  color: #0170B2;
+  transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 /* hover */
@@ -271,5 +277,7 @@ dd.blacklight-collection_ssm{
 #main #sidebar a:hover, footer a:hover {
   text-decoration: none;
   border-bottom: 1px solid rgba(1, 112, 178, 1);
+  color: #0170B2;
 }
+
 
