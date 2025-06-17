@@ -261,14 +261,14 @@ dd.blacklight-collection_ssm{
 
 // Add always visible underline for links in main content area
 #main .col-sm-7 a,
-#main #sidebar a {
+#main #sidebar a, footer a {
   text-decoration: none;
   border-bottom: 1px solid rgba(1, 112, 178, 0.3);
 }
 
 /* hover */
 #main .col-sm-7 a:hover,
-#main #sidebar a:hover {
+#main #sidebar a:hover, footer a:hover {
   text-decoration: none;
   border-bottom: 1px solid rgba(1, 112, 178, 1);
 }
