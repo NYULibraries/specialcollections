@@ -107,7 +107,9 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 
   solr:
-    image: nyulibraries/specialcollections-solr:test
+    #image: nyulibraries/specialcollections-solr:test
+    build:
+      context: solr/
     ports:
       - 8983:8983
 

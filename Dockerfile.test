@@ -1,4 +1,4 @@
-FROM quay.io/nyulibraries/selenium_chrome_headless_ruby:2.5-slim-chrome_73
+FROM quay.io/nyulibraries/selenium_chrome_headless_ruby:updated_in_circle_2.5-slim-chrome_73
 
 ENV DOCKER true
 ENV INSTALL_PATH /app
@@ -23,7 +23,7 @@ RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.
 RUN  sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list \
        && sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list.d/google-chrome.list \
        && sed -i 's/security.debian.org/archive.debian.org/g' /etc/apt/sources.list.d/google.list
-RUN apt-get  update && apt-get -y --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
+RUN apt-get  update && apt-get -y --allow-unauthenticated --no-install-recommends install $BUILD_PACKAGES $RUN_PACKAGES \
   && gem install bundler -v '1.16.6' \
   && bundle config --local github.https true \
   && bundle install --without no_docker --jobs 20 --retry 5 \
