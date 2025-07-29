@@ -18,3 +18,7 @@ Disallow:
 User-agent: *
 Disallow: /
 
+Disallow: /admin/
+Disallow: /api/
+Disallow: /search/
+Crawl-delay: 10
