@@ -1,16 +1,5 @@
 <%= sidebar_section("user_util_links", content_tag(:h2, "My Workspace")) do %>
 <ul>
-  <% if render_bookmarks_control? %>
-  <li>
-    <%= link_to bookmarks_path, id:'bookmarks_nav' do %>
-    <%= t('blacklight.header_links.bookmarks') %>
-    (<span data-role='bookmark-counter'><%= current_or_guest_user.bookmarks.count %></span>)
-    <% end %>
-  </li>
-  <% end %>
-  <% if current_user %>
-  <li><%= link_to t('blacklight.header_links.saved_searches'), "#{ENV['RAILS_RELATIVE_URL_ROOT']}#{blacklight.saved_searches_path}" %></li>
-  <% end %>
-  <li><%= link_to t('blacklight.header_links.search_history'), "#{ENV['RAILS_RELATIVE_URL_ROOT']}#{blacklight.search_history_path}" %></li>
+  <li><%= link_to "Provide Feedback", "https://nyu.qualtrics.com/jfe/form/SV_9TAwrel63ot1Xp4?#{ {SourceURL: request.original_url}.to_query }", target: "_blank" %></li>
 </ul>
 <% end %>
