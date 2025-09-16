@@ -5,7 +5,9 @@ module LayoutsHelper
 
   # Print breadcrumb navigation
   def breadcrumbs
-    breadcrumbs = super
+    breadcrumbs = []
+    breadcrumbs << link_to('NYU Libraries', "https://library.nyu.edu")
+    breadcrumbs << link_to('Library Catalog', "https://search.library.nyu.edu/discovery/search?vid=01NYU_INST:NYU&lang=en") 
     breadcrumbs << link_to_if(link_to_root?, application_title, {:controller =>'catalog', :repository => nil})
     breadcrumbs << controller.controller_name.humanize unless controller.controller_name == "catalog"
     breadcrumbs << link_to_if(searching?, params[:repository], request.path) if params[:repository].present?
