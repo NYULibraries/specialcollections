@@ -1,0 +1,8 @@
+require 'rails_helper'
+
+describe '_user_util_links.html.erb' do
+  it 'display feedback link with correct querystring' do
+    render
+    expect(rendered).to include 'https://nyu.qualtrics.com/jfe/form/SV_9TAwrel63ot1Xp4?source_url=http%3A%2F%2Ftest.host'
+  end
+end

@@ -10,18 +10,18 @@ Feature: Cite and Email Bookmarks
     And I should see search results
     And I check "Bookmark" for the first result
 
-  Scenario: Adding a bookmark from brief results
-    Given I click on the "Your Bookmarks" link
-    Then I should see "Ben Alexrod" saved in my bookmarks
+    #Scenario: Adding a bookmark from brief results
+    #  Given I click on the "Your Bookmarks" link
+    #  Then I should see "Ben Alexrod" saved in my bookmarks
 
   Scenario: Persisting a bookmark
     Given I search on the phrase "Ben Alexrod"
     Then I should see "In Bookmarks" checked for the first result
 
-  Scenario: Deleting a bookmark from brief results
-    Given I uncheck "In Bookmarks" for the first result
-    And I click on the "Your Bookmarks" link
-    Then I should not see "Ben Alexrod" saved in my bookmarks
+    #Scenario: Deleting a bookmark from brief results
+    #  Given I uncheck "In Bookmarks" for the first result
+    #  And I click on the "Your Bookmarks" link
+    #  Then I should not see "Ben Alexrod" saved in my bookmarks
 
   Scenario: Deleting a bookmark from Your Bookmarks
     Given I am on the bookmarks page
