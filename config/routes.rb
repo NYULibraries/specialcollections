@@ -1,6 +1,6 @@
 Findingaids::Application.routes.draw do
 
-  mount Blacklight::Engine => '/'
+  #mount Blacklight::Engine => '/'
   mount BlacklightAdvancedSearch::Engine => '/'
 
   root to: "catalog#index"
