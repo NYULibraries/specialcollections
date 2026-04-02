@@ -303,7 +303,8 @@ GEM
     multi_test (1.1.0)
     multi_xml (0.5.5)
     multipart-post (2.4.0)
-    mysql2 (0.5.6)
+    mysql2 (0.5.7)
+      bigdecimal
     nio4r (2.7.3)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
